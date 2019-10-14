@@ -2,7 +2,9 @@ import React from 'react';
 
 import './App.css';
 
-import withPrivateRoute from './components/utils/withPrivateRoute';
+import PrivateRoute from './components/utils/PrivateRoute';
+import Routes from './components/utils/Routes';
+
 // import { Provider } from 'react-redux';
 // import store from './store';
 
@@ -11,7 +13,8 @@ function App() {
     // <Provider store={store}>
     <div className='App'>
       <h1>hello</h1>
-      <withPrivateRoute />
+      <PrivateRoute />
+      <Routes />
     </div>
     // </Provider>
   );

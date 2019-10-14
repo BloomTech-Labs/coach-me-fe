@@ -1,11 +1,11 @@
 import React from 'react';
-import withPrivateRoute from './withPrivateRoute';
+import PrivateRoute from './PrivateRoute';
 import { Route, Redirect } from 'react-router-dom';
 
 const Routes = () => {
   return (
     <div>
-      <withPrivateRoute />
+      <PrivateRoute />
     </div>
   );
 };
