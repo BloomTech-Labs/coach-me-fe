@@ -9,13 +9,11 @@ import {
 	CLEAR_ERRORS
 } from '../actions/types';
 
-const intialState = {
-
-}
+const intialState = {};
 
 export default (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
+	switch (action.type) {
+		default:
+			return state;
+	}
+};
