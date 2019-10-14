@@ -1,12 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import LoginCoach from './LoginCoach';
 
 import '@testing-library/react/cleanup-after-each';
 import { render } from '@testing-library/react';
 
-describe('App', () => {
+describe('LoginClient component', () => {
     it('renders without crashing', () => {
-        render(<App />);
+        render(<LoginCoach />);
     });
 });
