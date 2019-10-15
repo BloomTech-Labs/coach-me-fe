@@ -1,7 +1,10 @@
 import React from 'react';
 
 import './App.css';
+//Components
 
+import LoginClient from './components/clients/loginClient/LoginClient'
+import PrivateRoute from './components/utils/PrivateRoute';
 import Routes from './components/utils/Routes';
 
 // import { Provider } from 'react-redux';
@@ -11,7 +14,8 @@ function App() {
   return (
     // <Provider store={store}>
     <div className='App'>
-      <Routes />
+      <LoginClient/>
+      {/* <Routes /> */}
     </div>
     // </Provider>
   );

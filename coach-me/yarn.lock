@@ -3671,6 +3671,11 @@ detect-port-alt@1.1.6:
     address "^1.0.1"
     debug "^2.6.0"
 
+dialog-polyfill@^0.4.7:
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/dialog-polyfill/-/dialog-polyfill-0.4.10.tgz#c4ea68a0deed4abb59a6a2a025c548b278cd532e"
+  integrity sha512-j5yGMkP8T00UFgyO+78OxiN5vC5dzRQF3BEio+LhNvDbyfxWBsi3sfPArDm54VloaJwy2hm3erEiDWqHRC8rzw==
+
 diff-sequences@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-24.9.0.tgz#5715d6244e2aa65f48bba0bc972db0b0b11e95b5"
@@ -4534,6 +4539,13 @@ firebase@^7.2.0:
     "@firebase/remote-config" "0.1.1"
     "@firebase/storage" "0.3.14"
     "@firebase/util" "0.2.29"
+
+firebaseui@^4.1.0, firebaseui@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/firebaseui/-/firebaseui-4.2.0.tgz#584c7210fe3536e5603f9e14ba122f541ae63fba"
+  integrity sha512-+n8GVms0TlxU+AIdmuWhgQthqKmUpkjhfZBbsZIdWU19Ddkr5cn7hrSlNwC9faKkpCwGEpai6Nv+hYNqNM5JkQ==
+  dependencies:
+    dialog-polyfill "^0.4.7"
 
 flat-cache@^2.0.1:
   version "2.0.1"
@@ -8866,6 +8878,13 @@ react-error-overlay@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.3.tgz#c378c4b0a21e88b2e159a3e62b2f531fd63bf60d"
   integrity sha512-bOUvMWFQVk5oz8Ded9Xb7WVdEi3QGLC8tH7HmYP0Fdp4Bn3qw0tRFmr5TW6mvahzvmrK4a6bqWGfCevBflP+Xw==
+
+react-firebaseui@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-firebaseui/-/react-firebaseui-4.0.0.tgz#6e1892831b2a0ee86d2dcae16c4b724cf299d566"
+  integrity sha512-sQjVIXjahJ6YcjBRKmjW0wQb8wApi8AcFBa14H+TSEZWkRxPgQ1C4370P3FJubGXGEmxkwZfddqDk4/p5xW1uA==
+  dependencies:
+    firebaseui "^4.1.0"
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.9.0:
   version "16.10.2"

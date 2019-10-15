@@ -7,7 +7,7 @@ import withScrollToTop from './components/utils/withScrollToTop';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
-  <Router>
+<Router>
     <withScrollToTop>
       <App />
     </withScrollToTop>
