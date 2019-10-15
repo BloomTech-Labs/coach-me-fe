@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import HealthMetricCards from './HealthMetricCards';
+
 import './healthMetrics.scss';
 
 const HealthMetric = props => {
@@ -34,11 +36,18 @@ const HealthMetric = props => {
                 });
         }
     }, [props.checkinList]);
+    console.log(clientData);
 
     return (
         <div>
             <h1>Metrics</h1>
-            {console.log(clientData)}
+            <div className='healthCards'>
+                {clientData.length === props.checkinList.length
+                    ? clientData.map(record => {
+                          return <HealthMetricCards record={record} />;
+                      })
+                    : null}
+            </div>
         </div>
     );
 };
