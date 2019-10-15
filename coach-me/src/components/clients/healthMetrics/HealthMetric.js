@@ -1,9 +1,12 @@
 import React from 'react';
-
-import './healthMetric.scss';
+import './healthMetrics.scss';
 
 const HealthMetric = () => {
-  return <div></div>;
+  return (
+    <div>
+      <h1>Metrics</h1>
+    </div>
+  );
 };
 
 export default HealthMetric;
