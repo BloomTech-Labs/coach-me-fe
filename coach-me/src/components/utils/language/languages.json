@@ -1,0 +1,10 @@
+{
+  "en": {
+    "hello": "Hello",
+    "welcome": "Start editing to see some magic happen"
+  },
+  "esp": {
+    "hello": "Hola",
+    "welcome": "Comienza a editar para ver algo de magia"
+  }
+}
