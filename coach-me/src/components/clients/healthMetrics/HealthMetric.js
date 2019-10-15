@@ -4,27 +4,30 @@ import axios from 'axios';
 import './healthMetrics.scss';
 
 const HealthMetric = props => {
-    const [clientData, setClientData] = useState();
-
-    console.log(props);
-
-    // console.log(props.userId);
-
-    // for (let i = 0; i < props.checkinList.length; i++) {
-    //     console.log(props.checkinList[i]);
-    // }
-
-    const array = [1, 3, 4, 5, 6];
+    const [clientData, setClientData] = useState([]);
 
     useEffect(() => {
         for (let i = 0; i < props.checkinList.length; i++) {
-            console.log(props.checkinList[i]);
+            // console.log(props.checkinList[i]);
             axios
                 .get(
-                    `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Check-ins/${props.checkinList[i]}?api_key=keyfahybUIpBkegFv`
+                    `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Check-ins/?filterByFormula=OR({Most recent blood pressure?}!='',{Most recent weight? (pounds)}!='',{Most recent blood glucose level?}!='')&api_key=keyfahybUIpBkegFv`
                 )
                 .then(results => {
-                    console.log(results.data);
+                    for (let j = 0; j < results.data.records.length; j++) {
+                        // console.log(results.records[j]);
+                        if (
+                            results.data.records[j].id === props.checkinList[i]
+                        ) {
+                            // console.log(
+                            //     'found some records',
+                            //     results.data.records[j]
+                            // );
+                            setClientData(previous => {
+                                return [...previous, results.data.records[j]];
+                            });
+                        }
+                    }
                 })
                 .catch(error => {
                     console.log(error);
@@ -35,6 +38,7 @@ const HealthMetric = props => {
     return (
         <div>
             <h1>Metrics</h1>
+            {console.log(clientData)}
         </div>
     );
 };

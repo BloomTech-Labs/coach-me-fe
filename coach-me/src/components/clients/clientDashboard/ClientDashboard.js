@@ -6,13 +6,14 @@ import HealthMetric from '../healthMetrics/HealthMetric';
 import './clientDashboard.scss';
 
 const ClientDashboard = () => {
-    const [userId, setUserId] = useState('recYrQGcD4LSJmPjk');
+    const [userId, setUserId] = useState('recZNs8pQo2rSsw0T');
     const [checkinList, setCheckinList] = useState([]);
 
     useEffect(() => {
         axios
             .get(
                 `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Master/${userId}?api_key=keyfahybUIpBkegFv`
+                // `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Master?api_key=keyfahybUIpBkegFv`
             )
             .then(results => {
                 console.log('from master table', results.data);
