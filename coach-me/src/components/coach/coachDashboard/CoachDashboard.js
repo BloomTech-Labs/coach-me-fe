@@ -21,6 +21,10 @@ const CoachDashboard = () => {
 
   console.log(users);
 
+  const handleChange = e => {
+    setNumber(e.target.value);
+  };
+
   return (
     <div className='dashboard'>
       <div className='side-one'>
@@ -34,8 +38,18 @@ const CoachDashboard = () => {
       <div className='side-two'>
         <h1>Phone Number</h1>
         <p>Enter a phone number below. We will send you a code to verify.</p>
-        <input type='text' placeholder='Mobile number' />
-        <div className='send-btn'>Send Code</div>
+        <input
+          type='text'
+          placeholder='Mobile number'
+          value={number}
+          onChange={handleChange}
+        />
+
+        {number ? (
+          <div className='send-btn'>Send Code</div>
+        ) : (
+          <div className='send-btn-disabled'>Send Code</div>
+        )}
       </div>
       {/* <h1>Clients</h1>
       {users && users.map(client => <ClientCard client={client} />)} */}
