@@ -9,14 +9,18 @@ import {
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE
 } from './types';
-
+import axios from 'axios';
+const headers = { 'Content-Type': 'application/json' };
 export const updateMetric = (id, metricUpdate) => dispatch => {
     // debugger;
+    console.log('hello',metricUpdate)
     dispatch({ type: UPDATE_METRIC_START });
     axios
-        .put(
-            `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Check-ins/${match.params.clientid}?api_key=keyfahybUIpBkegFv`,
-            metricUpdate
+
+        .patch(
+            `https://api.airtable.com/v0/appgqiRyvVDHlPI0u/Check-ins?api_key=keyfahybUIpBkegFv`,
+            metricUpdate,
+            { headers: headers }
         )
         .then(res => {
             console.log('UPDATED METRIC', res);
