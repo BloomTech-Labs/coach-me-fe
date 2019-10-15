@@ -95,3 +95,52 @@
     }
   }
 }
+
+.welcome {
+  display: flex;
+  height: 100vh;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  background: #f0f0f0;
+  align-items: center;
+
+  p {
+    text-align: left;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .side-one {
+    width: 40%;
+
+    img {
+      width: 60%;
+      height: auto;
+      border-radius: 50%;
+    }
+  }
+  .side-two {
+    width: 60%;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .continue-btn {
+      width: 30%;
+      padding: 0.85rem 0.5rem;
+      color: white;
+      background: #292929;
+      border-radius: 20px;
+      margin-top: 2.5rem;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-size: 2.7rem;
+      margin-bottom: 1.7rem;
+    }
+  }
+}
