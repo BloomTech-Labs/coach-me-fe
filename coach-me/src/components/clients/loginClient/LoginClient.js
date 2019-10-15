@@ -25,7 +25,7 @@ const uiconfig = {
       const token = auth().currentUser.getIdToken()
     
      token.then( (res) =>{
-       console.log(res)
+      localStorage.setItem('token', res)
      })
     }
    }
