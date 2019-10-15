@@ -14,7 +14,6 @@ function App() {
   return (
     // <Provider store={store}>
     <div className='App'>
-      <h1>hello</h1>
       <LoginClient/>
       {/* <Routes /> */}
     </div>

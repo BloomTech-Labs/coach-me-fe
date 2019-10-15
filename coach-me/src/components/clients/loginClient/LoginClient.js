@@ -1,13 +1,14 @@
 import React from 'react'
 import {auth} from '../../../firebase'
 import * as firebaseui from 'firebaseui'
-
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import './loginClient.scss'
 auth().useDeviceLanguage();
 auth().settings.appVerificationDisabledForTesting = true
 
 
 const uiconfig = { 
-
+    signInFlow:'popup',
     signInSuccessUrl: 'http://localhost:3000/',
     signInOptions: [
       {
@@ -18,6 +19,7 @@ const uiconfig = {
         }
       
       },
+      
   ],
 
   callbacks:{
@@ -35,13 +37,16 @@ const uiconfig = {
 }
 
 const LoginClient = () =>{
-const ui = new firebaseui.auth.AuthUI(auth())
-ui.start('#firebaseui-auth-container', uiconfig)
+
+
 
 
     return (
-
-        <div id='firebaseui-auth-container'></div>
+      <div className ='auth-container'>
+        <h1>Coach Me</h1>
+    <StyledFirebaseAuth uiConfig={uiconfig} firebaseAuth={auth()}/>
+    </div>
+        
 
     )
 
