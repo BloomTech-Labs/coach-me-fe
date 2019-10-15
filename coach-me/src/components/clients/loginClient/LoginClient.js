@@ -1,7 +1,7 @@
 import React from 'react'
-import {auth} from '../firebase'
+import {auth} from '../../../firebase'
 import * as firebaseui from 'firebaseui'
-import '../App.css'
+
 auth().useDeviceLanguage();
 auth().settings.appVerificationDisabledForTesting = true
 
@@ -25,7 +25,7 @@ const uiconfig = {
       const token = auth().currentUser.getIdToken()
     
      token.then( (res) =>{
-      localStorage.setItem('token', res)
+      localStorage.setItem('token', JSON.stringify(res))
      })
     }
    }

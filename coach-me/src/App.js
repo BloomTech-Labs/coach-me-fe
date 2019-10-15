@@ -2,8 +2,11 @@ import React from 'react';
 
 import './App.css';
 //Components
-import withPrivateRoute from './components/utils/withPrivateRoute';
-import LoginClient from './components/LoginClient'
+
+import LoginClient from './components/clients/loginClient/LoginClient'
+import PrivateRoute from './components/utils/PrivateRoute';
+import Routes from './components/utils/Routes';
+
 // import { Provider } from 'react-redux';
 // import store from './store';
 
@@ -13,7 +16,7 @@ function App() {
     <div className='App'>
       <h1>hello</h1>
       <LoginClient/>
-      <withPrivateRoute />
+      {/* <Routes /> */}
     </div>
     // </Provider>
   );
