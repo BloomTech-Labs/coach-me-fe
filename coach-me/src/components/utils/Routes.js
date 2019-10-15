@@ -3,7 +3,7 @@ import withPrivateRoute from './withPrivateRoute';
 import { Route, Redirect } from 'react-router-dom';
 import HealthMetric from '../clients/healthMetrics/HealthMetric';
 import CoachDashboard from '../coach/coachDashboard/CoachDashboard';
-import ClientInfo from '../coach/ClientInfo';
+import ClientInfo from '../coach/coachDashboard/clientsList/ClientInfo';
 
 const Routes = () => {
   return (

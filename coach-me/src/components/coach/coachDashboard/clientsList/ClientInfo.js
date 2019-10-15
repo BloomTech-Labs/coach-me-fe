@@ -15,6 +15,7 @@ const ClientInfo = ({ match }) => {
       .then(res => setClientInfo(res.data))
       .catch(err => console.log(err));
   }, []);
+
   console.log(clientInfo);
 
   return (

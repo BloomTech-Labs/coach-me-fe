@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import './coachDashboard.scss';
-import ClientInfo from '../ClientInfo';
-import ClientCard from '../ClientCard';
+import ClientInfo from './clientsList/ClientInfo';
+import ClientCard from './clientsList/ClientCard';
 
 const CoachDashboard = () => {
   const [users, setUsers] = useState();
