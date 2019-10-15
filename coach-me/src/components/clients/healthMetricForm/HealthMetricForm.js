@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 class HealthMetricForm extends Component {
     constructor(props) {
@@ -12,12 +12,6 @@ class HealthMetricForm extends Component {
         };
     }
 
-    handleInputChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    };
-
     submitNewMetric = e => {
         e.preventDefault();
         this.props.addMetric(this.state);
@@ -26,7 +20,6 @@ class HealthMetricForm extends Component {
             blood_glucose: '',
             blood_pressure: ''
         });
-        this.props.history.push(`/protected/${this.props.match.params.id}`);
     };
 
     render() {
