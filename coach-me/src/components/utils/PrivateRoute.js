@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router';
 
-const withPrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -15,4 +15,4 @@ const withPrivateRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-export default withPrivateRoute;
+export default PrivateRoute;
