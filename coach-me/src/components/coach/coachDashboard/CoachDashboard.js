@@ -5,7 +5,7 @@ import './coachDashboard.scss';
 import ClientInfo from './clientsList/ClientInfo';
 import ClientCard from './clientsList/ClientCard';
 
-const CoachDashboard = () => {
+const CoachDashboard = ({ history }) => {
   const [users, setUsers] = useState();
   const [number, setNumber] = useState();
   const [verifyNumber, setVerifyNumber] = useState('');
@@ -40,6 +40,10 @@ const CoachDashboard = () => {
     setCheckTwo(true);
   };
 
+  const handleCheckThree = () => {
+    history.push('/clients');
+  };
+
   return (
     <>
       {checkTwo ? (
@@ -53,7 +57,7 @@ const CoachDashboard = () => {
               Efficiently facilitate cutting-edge e-tailers without just in time
               value.
             </p>
-            <div className='continue-btn' onClick={handleCheckTwo}>
+            <div className='continue-btn' onClick={handleCheckThree}>
               Continue
             </div>
           </div>
@@ -114,8 +118,6 @@ const CoachDashboard = () => {
               )}
             </div>
           )}
-          {/* <h1>Clients</h1>
-      {users && users.map(client => <ClientCard client={client} />)} */}
         </div>
       )}
     </>

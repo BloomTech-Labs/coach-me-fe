@@ -20,7 +20,8 @@ const ClientInfo = ({ match }) => {
 
   return (
     <div>
-      <h1>Client</h1>
+      <h1>{clientInfo && clientInfo.fields.Name}</h1>
+      <p>Last Check In: {clientInfo && clientInfo.fields['Last check-in']}</p>
     </div>
   );
 };
