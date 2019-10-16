@@ -99,3 +99,25 @@
         margin-left: 3rem;
     }
 }
+
+.metric-container {
+    .back-btn-container {
+        padding-top: 2rem;
+        display: flex;
+        flex-direction: flex-start;
+
+        .back-button {
+            width: 15%;
+            font-size: 1rem;
+            font-weight: bolder;
+            background: none;
+
+            display: flex;
+            justify-content: space-around;
+
+            svg {
+                margin-top: 5px;
+            }
+        }
+    }
+}
