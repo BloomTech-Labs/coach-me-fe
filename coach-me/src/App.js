@@ -14,7 +14,8 @@ import store from './store';
 function App() {
     return (
         <div className='App'>
-            <LoginClient />
+            {/* <LoginClient /> */}
+            <Routes />
             <HealthMetricForm />
         </div>
     );
