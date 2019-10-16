@@ -9,6 +9,12 @@ export const LOGOUT = 'LOGOUT';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 // Clients
+export const GET_CLIENTS_START = 'GET_CLIENTS_START';
+export const GET_CLIENTS_SUCCESS = 'GET_CLIENTS_SUCCESS';
+export const GET_CLIENTS_FAILURE = 'GET_CLIENTS_FAILURE';
+export const ADD_CLIENT = 'ADD_CLIENT';
+export const DELETE_CLIENT = 'DELETE_CLIENT';
+export const CLIENTS_ERROR = 'CLIENTS_ERROR';
 export const GET_CLIENTS = 'GET_CLIENTS';
 export const ADD_CLIENT = 'ADD_CLIENT';
 export const DELETE_CLIENT = 'DELETE_CLIENT';

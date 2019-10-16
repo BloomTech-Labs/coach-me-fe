@@ -8,8 +8,8 @@ import HealthMetricForm from './components/clients/healthMetricForm/HealthMetric
 import PrivateRoute from './components/utils/PrivateRoute';
 import Routes from './components/utils/Routes';
 
-// import { Provider } from 'react-redux';
-// import store from './store';
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
     return (

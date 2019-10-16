@@ -1,0 +1,10 @@
+{
+  "English": {
+    "hello": "Hello",
+    "welcome": "Start editing to see some magic happen"
+  },
+  "Spanish": {
+    "hello": "Hola",
+    "welcome": "Comienza a editar para ver algo de magia"
+  }
+}

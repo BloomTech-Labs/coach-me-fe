@@ -5,6 +5,8 @@ import HealthMetric from '../clients/healthMetrics/HealthMetric';
 import CoachDashboard from '../coach/coachDashboard/CoachDashboard';
 import ClientInfo from '../coach/coachDashboard/clientsList/ClientInfo';
 import ClientsList from '../coach/coachDashboard/clientsList/ClientsList';
+import ChooseLanguage from '../clients/chooseLanguage/ChooseLanguage';
+import TestTranslator from '../clients/chooseLanguage/TestTranslator';
 
 const Routes = () => {
   return (
@@ -13,6 +15,8 @@ const Routes = () => {
       <Route path='/dashboard' component={CoachDashboard} />
       <Route path='/client/:clientid' component={ClientInfo} />
       <Route path='/clients' component={ClientsList} />
+      <Route path='/language/:clientid' component={ChooseLanguage} />
+      <Route path='/translator' component={TestTranslator} />
     </div>
   );
 };
