@@ -44,6 +44,7 @@ const HealthMetric = props => {
             <div className='metric-header'>
                 <h3>Hello</h3>
                 <h2>Name</h2>
+                {console.log(clientData)}
             </div>
             <div className='metric-values'>
                 <div className='health-value'>
@@ -84,7 +85,7 @@ const HealthMetric = props => {
                             <h3>N/A</h3>
                         )}
                     </div>
-                    <button className='metric-button'>See History</button>
+                    <button className='metric-button'>See history</button>
                 </div>
                 <div className='health-value'>
                     <div className='metric'>
@@ -124,7 +125,7 @@ const HealthMetric = props => {
                             <h3>N/A</h3>
                         )}
                     </div>
-                    <button className='metric-button'>See History</button>
+                    <button className='metric-button'>See history</button>
                 </div>
                 <div className='health-value'>
                     <div className='metric'>
@@ -164,7 +165,7 @@ const HealthMetric = props => {
                             <h3>N/A</h3>
                         )}
                     </div>
-                    <button className='metric-button'>See History</button>
+                    <button className='metric-button'>See history</button>
                 </div>
             </div>
             {/* <div className='healthCards'>

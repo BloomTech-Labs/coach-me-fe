@@ -6,13 +6,14 @@ function MetricDisplay(props) {
     return (
         <>
             {props.metricData.fields[props.filter] ? (
-                <div>
+                <div className='current-metric'>
                     <h2>{props.metricData.fields[props.filter]}</h2>
                     <p>{props.metricScale}</p>
                 </div>
             ) : (
-                <div>
+                <div className='current-metric'>
                     <h2>N/A</h2>
+                    <p>N/A</p>
                 </div>
             )}
         </>
