@@ -68,7 +68,7 @@ export const updateMetric = (id, metricUpdate) => dispatch => {
         });
 };
 
-export const getClientRecords = clientId => {
+export const getClientRecords = clientId => dispatch => {
     console.log('hello from getClientRecord reducer');
     dispatch({ type: GET_RECORDS_START });
     axios

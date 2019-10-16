@@ -5,13 +5,17 @@ import {
     CLIENTS_ERROR,
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
-    UPDATE_METRIC_FAILURE
+    UPDATE_METRIC_FAILURE,
+    GET_RECORDS_START,
+    GET_RECORDS_SUCCESS,
+    GET_RECORDS_FAILURE
 } from '../actions/types';
 
 const initialState = {
     records: null,
     isfetching: false,
-    error: ''
+    error: '',
+    clientRecords: null
 };
 
 export default (state = initialState, action) => {
@@ -35,6 +39,25 @@ export default (state = initialState, action) => {
                 ...state,
                 isfetching: false,
                 err: action.payload
+            };
+        case GET_RECORDS_START:
+            return {
+                ...state,
+                isFetching: true,
+                error: ''
+            };
+        case GET_RECORDS_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                clientRecords: [...action.payload],
+                error: ''
+            };
+        case GET_RECORDS_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
             };
         default:
             return state;
