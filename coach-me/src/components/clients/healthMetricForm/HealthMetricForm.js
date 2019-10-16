@@ -1,70 +1,68 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import {  useDispatch, useSelector } from 'react-redux';
 import { updateMetric } from '../../../actions/clientActions';
 
-class HealthMetricForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            Metrics: {
-                'fields': {
-                    'Client Name': ['recbU0FKszWVvuo1S'],
-                    'Most recent weight?': 0,
-                    'Most recent blood glucose level? ': 0,
-                    'Most recent blood pressure?': ''
-                }
-            }
-        };
-        console.log(props);
-    }
-    handleInputChange = e => {
-        this.setState({
-            updatedMetric: {
-                ...this.state.Metrics.fields,
-                [e.target.name]: e.target.value
-            }
-        });
-    };
+function HealthMetricForm(props) {
+// Implements Redux
+const state = useSelector(state => state);
+const dispatch = useDispatch();
+const [metrics, setMetrics] = useState({records: 
+  {
+    id: "reck71PQQtBHkbNIF",
+    fields: {}
+  },
+})   
 
-    submitNewMetric = e => {
+const handleInputChange = e => {
+  e.preventDefault()
+        setMetrics({...metrics, [e.target.name]: e.target.value});
+};
+
+  const submitNewMetric = e => {
         e.preventDefault();
-        console.log('HEY LOOK AT ME!', this.state);
-        this.props.updateMetric(this.state.Metrics);
-        this.setState({
-            'Most recent weight?': 0,
-            'Most recent blood glucose level? ': 0,
-            'Most recent blood pressure?': ''
+        console.log('whats being submitted', metrics)
+        dispatch(updateMetric(metrics));
+        setMetrics({records: 
+          {
+            id: "reck71PQQtBHkbNIF",
+            fields: {}
+          },
         });
     };
-
-    render() {
-        console.log('lookit here', this.state);
         return (
             <div className='metric-form-wrapper'>
-                <form onSubmit={this.submitNewMetric}>
+                <form onSubmit={submitNewMetric}>
                     <input
                         className='metric-input'
-                        onChange={this.handleInputChange}
+                        onChange={handleInputChange}
                         placeholder='weight/pesos'
                         type='integer'
-                        value={this.state.weight}
+                        value={metrics.records.fields.Weight}
                         name='weight/pesos'
                     />
                     <input
                         className='metric-input'
-                        onChange={this.handleInputChange}
+                        onChange={handleInputChange}
                         placeholder='Blood Glucose Level'
                         type='integer'
-                        value={this.state.blood_glucose}
+                        value={metrics.records.fields.Blood_sugar}
                         name='Blood Glucose level'
                     />
                     <input
                         className='metric-input'
-                        onChange={this.handleInputChange}
-                        placeholder='Blood Pressure'
-                        type='text'
-                        value={this.state.blood_pressure}
-                        name='Blood Pressure'
+                        onChange={handleInputChange}
+                        placeholder='Blood Pressure Over'
+                        type='integer'
+                        value={metrics.records.fields.Blood_pressure_over}
+                        name='Blood Pressure Over'
+                    />
+                    <input
+                        className='metric-input'
+                        onChange={handleInputChange}
+                        placeholder='Blood Pressure under'
+                        type='integer'
+                        value={metrics.records.fields.Blood_pressure_under}
+                        name='Blood Pressure under'
                     />
 
                     <button>Submit</button>
@@ -72,9 +70,8 @@ class HealthMetricForm extends Component {
             </div>
         );
     }
-}
 
-export default connect(
-    null,
-    { updateMetric }
-)(HealthMetricForm);
+
+
+export default HealthMetricForm;
+
