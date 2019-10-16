@@ -1,26 +1,23 @@
-import React from 'react'
-import {auth} from '../../../firebase'
-import axios from 'axios'
-import * as firebaseui from 'firebaseui'
+import React from 'react';
+import { auth } from '../../../firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import './loginClient.scss'
-
+import './loginClient.scss';
+import axios from 'axios'
 auth().useDeviceLanguage();
-auth().settings.appVerificationDisabledForTesting = true
+auth().settings.appVerificationDisabledForTesting = true;
 
-
-const uiconfig = { 
-    signInFlow:'popup',
+const uiconfig = {
+    signInFlow: 'popup',
     signInSuccessUrl: 'http://localhost:3000/',
     signInOptions: [
-      {
-        provider:  auth.PhoneAuthProvider.PROVIDER_ID,
-        recaptchaParameters: {
-          type: 'image',
-          size: 'invisible',
+        {
+            provider: auth.PhoneAuthProvider.PROVIDER_ID,
+            recaptchaParameters: {
+                size: 'invisible'
+            }
         }
       
-      },
+      
       
   ],
 
@@ -47,31 +44,22 @@ const uiconfig = {
      
     },
     
-    // getuserdata: function (){
-      
-    // }
+    
    }
   
  
   
 }
 
-const LoginClient = () =>{
-
-  
 
 
+const LoginClient = () => {
     return (
-      <div className ='auth-container'>
-        <h1>Coach Me</h1>
-    <StyledFirebaseAuth uiConfig={uiconfig} firebaseAuth={auth()}/>
-    </div>
-        
+        <div className='auth-container'>
+            <h1>Coach Me</h1>
+            <StyledFirebaseAuth uiConfig={uiconfig} firebaseAuth={auth()} />
+        </div>
+    );
+};
 
-    )
-
-}
-
-
-
-export default LoginClient
+export default LoginClient;
