@@ -52,8 +52,6 @@ const HealthMetric = props => {
     if (toggleHistory) {
         return (
             <>
-                <h2>Hello There!</h2>
-                {console.log(historyLabel, historyScale, toggleHistory)}
                 <HealthMetricCards
                     historyLabel={historyLabel}
                     historyScale={historyScale}
@@ -69,7 +67,6 @@ const HealthMetric = props => {
                 <div className='metric-header'>
                     <h3>Hello</h3>
                     <h2>Name</h2>
-                    {console.log(clientData)}
                 </div>
                 <div className='metric-values'>
                     <div className='health-value'>
