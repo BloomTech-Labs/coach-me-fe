@@ -15,6 +15,7 @@ const HealthMetric = props => {
     // used to convert the labels and heading of the HealthMetricCard component into either one of the three metrics.
     const [historyLabel, setHistoryLabel] = useState('');
     const [historyScale, setHistoryScale] = useState('');
+    const [historyFilter, setHistoryFilter] = useState('');
 
     useEffect(() => {
         for (let i = 0; i < props.checkinList.length; i++) {
@@ -25,14 +26,9 @@ const HealthMetric = props => {
                 )
                 .then(results => {
                     for (let j = 0; j < results.data.records.length; j++) {
-                        // console.log(results.records[j]);
                         if (
                             results.data.records[j].id === props.checkinList[i]
                         ) {
-                            // console.log(
-                            //     'found some records',
-                            //     results.data.records[j]
-                            // );
                             setClientData(previous => {
                                 return [...previous, results.data.records[j]];
                             });
@@ -46,10 +42,11 @@ const HealthMetric = props => {
         }
     }, [props.checkinList]);
 
-    const handleClick = (label, heading) => {
+    const handleClick = (heading, label, filter) => {
         setToggleHistory(true);
         setHistoryLabel(heading);
         setHistoryScale(label);
+        setHistoryFilter(filter);
     };
 
     if (toggleHistory) {
@@ -60,6 +57,7 @@ const HealthMetric = props => {
                 <HealthMetricCards
                     historyLabel={historyLabel}
                     historyScale={historyScale}
+                    historyFilter={historyFilter}
                     setToggleHistory={setToggleHistory}
                     clientData={clientData}
                 />
@@ -115,7 +113,11 @@ const HealthMetric = props => {
                         <button
                             className='metric-button'
                             onClick={() =>
-                                handleClick('Blood Glucose Level', 'mg/dl')
+                                handleClick(
+                                    'Blood Glucose',
+                                    'mg/dl',
+                                    'Most recent blood glucose level?'
+                                )
                             }
                         >
                             See history
@@ -159,7 +161,18 @@ const HealthMetric = props => {
                                 <h3>N/A</h3>
                             )}
                         </div>
-                        <button className='metric-button'>See history</button>
+                        <button
+                            className='metric-button'
+                            onClick={() =>
+                                handleClick(
+                                    'Weight',
+                                    'Ibs',
+                                    'Most recent weight? (pounds)'
+                                )
+                            }
+                        >
+                            See history
+                        </button>
                     </div>
                     <div className='health-value'>
                         <div className='metric'>
@@ -199,7 +212,18 @@ const HealthMetric = props => {
                                 <h3>N/A</h3>
                             )}
                         </div>
-                        <button className='metric-button'>See history</button>
+                        <button
+                            className='metric-button'
+                            onClick={() =>
+                                handleClick(
+                                    'Blood Pressure',
+                                    'mmHg',
+                                    'Most recent blood pressure?'
+                                )
+                            }
+                        >
+                            See history
+                        </button>
                     </div>
                 </div>
             </div>
