@@ -1,9 +1,9 @@
 {
-  "en": {
+  "English": {
     "hello": "Hello",
     "welcome": "Start editing to see some magic happen"
   },
-  "esp": {
+  "Spanish": {
     "hello": "Hola",
     "welcome": "Comienza a editar para ver algo de magia"
   }
