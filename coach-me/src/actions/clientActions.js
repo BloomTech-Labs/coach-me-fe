@@ -18,17 +18,20 @@ const headers = { 'Content-Type': 'application/json' };
 
 //`https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Check-ins/${match.params.clientid}?api_key=keyfahybUIpBkegFv`
 
-export const getClientInfo = props => dispatch => {
+export const getClientInfo = num => dispatch => {
   dispatch({ type: GET_CLIENTS_START });
   axios
     .get(
-      `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Check-ins/${props.match.params.clientid}?api_key=keyfahybUIpBkegFv`
+      `https://api.airtable.com/v0/appcGDj4SuiTu3Nte/Intake?api_key=keytu1to8j0ODW8sD&maxRecords=1&view=Grid%20view&phone=${num}`
     )
     .then(res => {
-      console.log('actions', res.data);
+      console.log('actions', res.data.records[0].id);
       dispatch({
         type: GET_CLIENTS_SUCCESS,
-        payload: res.data
+        payload: {
+          info: res.data.records[0].fields,
+          id: res.data.records[0].id
+        }
       });
     })
     .catch(err => {
