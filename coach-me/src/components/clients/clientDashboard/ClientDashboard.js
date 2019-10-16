@@ -25,8 +25,8 @@ const ClientDashboard = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Welcome to client dashboard</h2>
+        <div className='client-dashboard'>
+            {/* <h2>Welcome to client dashboard</h2> */}
             <HealthMetric checkinList={checkinList} userId={userId} />
         </div>
     );
