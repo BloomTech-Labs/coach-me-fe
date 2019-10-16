@@ -151,6 +151,39 @@
             border-radius: 15px;
 
             display: flex;
+
+            .health-label {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                h3 {
+                    font-size: 1.2rem;
+                    font-weight: bolder;
+                }
+
+                h4 {
+                    font-size: 1.2rem;
+                    color: rgba(0, 0, 0, 0.3);
+                }
+            }
+
+            .health-metric-value {
+                margin-left: 4rem;
+                width: 20%;
+
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                .health-value {
+                    font-size: 1.4rem;
+                    margin-right: 0.4rem;
+                }
+                .health-scale {
+                    font-size: 0.8rem;
+                }
+            }
         }
     }
 }

@@ -49,7 +49,9 @@ function HealthMetricCards(props) {
                                           record.fields[props.historyFilter[1]]
                                         : 'N/A'}
                                 </h4>
-                                <h4>{props.historyScale}</h4>
+                                <h4 className='health-scale'>
+                                    {props.historyScale}
+                                </h4>
                             </div>
                         </div>
                     ))}
