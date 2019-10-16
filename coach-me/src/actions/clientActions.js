@@ -11,7 +11,10 @@ import {
     CLIENTS_ERROR,
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
-    UPDATE_METRIC_FAILURE
+    UPDATE_METRIC_FAILURE,
+    GET_RECORDS_START,
+    GET_RECORDS_SUCCESS,
+    GET_RECORDS_FAILURE
 } from './types';
 
 const headers = { 'Content-Type': 'application/json' };
@@ -60,6 +63,37 @@ export const updateMetric = (id, metricUpdate) => dispatch => {
         .catch(err => {
             dispatch({
                 type: UPDATE_METRIC_FAILURE,
+                payload: err.message
+            });
+        });
+};
+
+export const getClientRecords = clientId => {
+    console.log('hello from getClientRecord reducer');
+    dispatch({ type: GET_RECORDS_START });
+    axios
+        .get(
+            `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Outcomes/?filterByFormula=OR({Blood_sugar}!='',{Weight}!='',{Blood_pressure_over}!='')&api_key=keyk1YJknNeEUJ4Pf`
+        )
+        .then(results => {
+            const clientRecords = [];
+            for (let j = 0; j < results.data.records.length; j++) {
+                if (
+                    results.data.records[j].fields.Client_Name[0] === clientId
+                ) {
+                    clientRecords.push(results.data.records[j]);
+                }
+            }
+            console.log(clientRecords);
+
+            dispatch({
+                type: GET_RECORDS_SUCCESS,
+                payload: clientRecords
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_RECORDS_FAILURE,
                 payload: err.message
             });
         });
