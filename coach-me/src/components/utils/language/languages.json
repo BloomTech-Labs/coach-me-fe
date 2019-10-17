@@ -1,7 +1,21 @@
 {
   "English": {
     "hello": "Hello",
-    "welcome": "Start editing to see some magic happen"
+    "welcome": "Start editing to see some magic happen",
+    "HMFtitle": "Today's Numbers",
+    "fastingGlucose": "Fasting Blood Glucose",
+    "bloodGlucose": "Blood Glucose",
+    "mg/dl": "mg/dl",
+    "weight": "Weight",
+    "lbs": "lbs",
+    "bp": "Blood Pressure",
+    "mmHg": "mmHg",
+    "submitBtn": "Submit",
+    "formValidation": "You must input at least one field.",
+    "continueBtn": "Continue",
+    "seeHistory": "See history",
+    "back": "Back",
+    "glucoseHistoryDesc": "All previous fasting blood glucose numbers."
   },
   "Spanish": {
     "hello": "Hola",
