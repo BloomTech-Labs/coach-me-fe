@@ -1,7 +1,9 @@
 {
   "English": {
     "hello": "Hello",
-    "welcome": "Start editing to see some magic happen",
+    "welcome": "Welcome to",
+    "coachIntro": "Your Health coach",
+    "welcomeMessage": "is here to support you in your health goals. Expect a text message from your coach soon!",
     "HMFtitle": "Today's Numbers",
     "fastingGlucose": "Fasting Blood Glucose",
     "bloodGlucose": "Blood Glucose",
@@ -15,10 +17,30 @@
     "continueBtn": "Continue",
     "seeHistory": "See history",
     "back": "Back",
-    "glucoseHistoryDesc": "All previous fasting blood glucose numbers."
+    "glucoseHistoryDesc": "All previous fasting blood glucose numbers.",
+    "weightHistoryDesc": "All previous weight numbers.",
+    "bpHistoryDesc": "All previous blood pressure numbers."
   },
   "Spanish": {
     "hello": "Hola",
-    "welcome": "Comienza a editar para ver algo de magia"
+    "welcome": "Welcome to ---------------translation needed",
+    "coachIntro": "Your Health coach ---------------translation needed",
+    "welcomeMessage": "is here to support you in your health goals. Expect a text message from your coach soon! ---------------translation needed",
+    "HMFtitle": "---------------translation needed",
+    "fastingGlucose": "Fasting Blood Glucose ---------------translation needed",
+    "bloodGlucose": "Blood Glucose ---------------translation needed",
+    "mg/dl": "mg/dl ---------------translation needed",
+    "weight": "Weight ---------------translation needed",
+    "lbs": "lbs ---------------translation needed",
+    "bp": "Blood Pressure ---------------translation needed",
+    "mmHg": "mmHg ---------------translation needed",
+    "submitBtn": "Submit ---------------translation needed",
+    "formValidation": "You must input at least one field. ---------------translation needed",
+    "continueBtn": "Continue ---------------translation needed",
+    "seeHistory": "See history ---------------translation needed",
+    "back": "Back ---------------translation needed",
+    "glucoseHistoryDesc": "All previous fasting blood glucose numbers. ---------------translation needed",
+    "weightHistoryDesc": "All previous weight numbers.  ---------------translation needed",
+    "bpHistoryDesc": "All previous blood pressure numbers.  ---------------translation needed"
   }
 }
