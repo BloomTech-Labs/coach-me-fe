@@ -9,7 +9,12 @@ const dispatch = useDispatch();
 const [metrics, setMetrics] = useState({records: 
   {
     id: "reck71PQQtBHkbNIF",
-    fields: {}
+    fields: {
+      "Client_Name": [
+        "rec43ppgrbQld6xPJ"
+      ]
+      
+    }
   },
 })   
 
@@ -25,7 +30,13 @@ const handleInputChange = e => {
         setMetrics({records: 
           {
             id: "reck71PQQtBHkbNIF",
-            fields: {}
+            fields: {"Client_Name": [
+              "rec43ppgrbQld6xPJ"
+            ],
+            "Date_time": null,
+            
+            
+            }
           },
         });
     };
@@ -38,7 +49,7 @@ const handleInputChange = e => {
                         placeholder='weight/pesos'
                         type='integer'
                         value={metrics.records.fields.Weight}
-                        name='weight/pesos'
+                        name='Weight'
                     />
                     <input
                         className='metric-input'
@@ -46,7 +57,7 @@ const handleInputChange = e => {
                         placeholder='Blood Glucose Level'
                         type='integer'
                         value={metrics.records.fields.Blood_sugar}
-                        name='Blood Glucose level'
+                        name='Blood_sugar'
                     />
                     <input
                         className='metric-input'
@@ -54,7 +65,7 @@ const handleInputChange = e => {
                         placeholder='Blood Pressure Over'
                         type='integer'
                         value={metrics.records.fields.Blood_pressure_over}
-                        name='Blood Pressure Over'
+                        name='Blood_pressure_over'
                     />
                     <input
                         className='metric-input'
@@ -62,7 +73,7 @@ const handleInputChange = e => {
                         placeholder='Blood Pressure under'
                         type='integer'
                         value={metrics.records.fields.Blood_pressure_under}
-                        name='Blood Pressure under'
+                        name='Blood_pressure_under'
                     />
 
                     <button>Submit</button>

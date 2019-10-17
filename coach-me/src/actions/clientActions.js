@@ -41,14 +41,14 @@ export const getClientInfo = props => dispatch => {
 
 export const updateMetric = (id, metricUpdate) => dispatch => {
     // debugger;
-    console.log('hello', metricUpdate);
+    
     dispatch({ type: UPDATE_METRIC_START });
     axios
 
     
 
         .patch(
-            `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Outcomes?api_key=keyHl8AuDrb2mt77E`,
+            `https://api.airtable.com/v0/appcN0W3AgVhxnhNI/Outcomes?api_key=keyHl8AuDrb2mt77E`,
             metricUpdate,
             { headers: headers }
         )
