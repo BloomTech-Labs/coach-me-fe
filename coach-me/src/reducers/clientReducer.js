@@ -20,11 +20,11 @@ const initialState = {
     name: ''
   },
   records: null,
-  Blood_sugar:0,
-  Weight:0,
-  Blood_pressure_over:0,
-  Blood_pressure_under:0,
-  Date_time:null,
+  Blood_sugar: 0,
+  Weight: 0,
+  Blood_pressure_over: 0,
+  Blood_pressure_under: 0,
+  Date_time: null,
   isfetching: false,
   error: ''
 };

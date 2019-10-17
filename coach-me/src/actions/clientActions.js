@@ -42,27 +42,27 @@ export const getClientInfo = num => dispatch => {
     });
 };
 
-export const updateMetric = (id, metricUpdate) => dispatch => {
-    // debugger;
-    
-    dispatch({ type: UPDATE_METRIC_START });
-    axios
-        .patch(
-            `https://api.airtable.com/v0/appcN0W3AgVhxnhNI/Outcomes?api_key=keyHl8AuDrb2mt77E`,
-            metricUpdate,
-            { headers: headers }
-        )
-        .then(res => {
-            console.log('UPDATED METRIC', res);
-            dispatch({
-                type: UPDATE_METRIC_SUCCESS,
-                payload: res.data
-            });
-        })
-        .catch(err => {
-            dispatch({
-                type: UPDATE_METRIC_FAILURE,
-                payload: err.message
-            });
-        });
+export const updateMetric = metricUpdate => dispatch => {
+  // debugger;
+
+  dispatch({ type: UPDATE_METRIC_START });
+  axios
+    .patch(
+      `https://api.airtable.com/v0/appcN0W3AgVhxnhNI/Outcomes?api_key=keyHl8AuDrb2mt77E`,
+      metricUpdate,
+      { headers: headers }
+    )
+    .then(res => {
+      console.log('UPDATED METRIC', res);
+      dispatch({
+        type: UPDATE_METRIC_SUCCESS,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: UPDATE_METRIC_FAILURE,
+        payload: err.message
+      });
+    });
 };
