@@ -42,14 +42,13 @@ export const getClientInfo = num => dispatch => {
     });
 };
 
-export const updateMetric = (id, metricUpdate) => dispatch => {
+export const updateMetric = metricUpdate => dispatch => {
   // debugger;
-  console.log('hello', metricUpdate);
+
   dispatch({ type: UPDATE_METRIC_START });
   axios
-
     .patch(
-      `https://api.airtable.com/v0/appgqiRyvVDHlPI0u/Check-ins?api_key=keyfahybUIpBkegFv`,
+      `https://api.airtable.com/v0/appcN0W3AgVhxnhNI/Outcomes?api_key=keyHl8AuDrb2mt77E`,
       metricUpdate,
       { headers: headers }
     )

@@ -20,14 +20,19 @@ const initialState = {
     name: ''
   },
   records: null,
+  Blood_sugar: 0,
+  Weight: 0,
+  Blood_pressure_over: 0,
+  Blood_pressure_under: 0,
+  Date_time: null,
   isfetching: false,
   error: ''
 };
 
 export default (state = initialState, action) => {
-  console.log('These are teh actions', action.payload);
   switch (action.type) {
     case UPDATE_METRIC_START:
+      console.log('Fired Actions', action.payload);
       return {
         ...state,
         isfetching: true,
