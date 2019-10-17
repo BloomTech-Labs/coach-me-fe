@@ -1,7 +1,9 @@
 {
   "English": {
     "hello": "Hello",
-    "welcome": "Start editing to see some magic happen",
+    "welcome": "Welcome to",
+    "coachIntro": "Your Health coach",
+    "welcomeMessage": "is here to support you in your health goals. Expect a text message from your coach soon!",
     "HMFtitle": "Today's Numbers",
     "fastingGlucose": "Fasting Blood Glucose",
     "bloodGlucose": "Blood Glucose",
@@ -15,10 +17,30 @@
     "continueBtn": "Continue",
     "seeHistory": "See history",
     "back": "Back",
-    "glucoseHistoryDesc": "All previous fasting blood glucose numbers."
+    "glucoseHistoryDesc": "All previous fasting blood glucose numbers.",
+    "weightHistoryDesc": "All previous weight numbers.",
+    "bpHistoryDesc": "All previous blood pressure numbers."
   },
   "Spanish": {
     "hello": "Hola",
-    "welcome": "Comienza a editar para ver algo de magia"
+    "welcome": "Bienvenido a",
+    "coachIntro": "Su entrenadora de salud",
+    "welcomeMessage": "está aquí para apoyarlo en sus objetivos de salud. ¡Espere un mensaje de texto de su entrenadora pronto!",
+    "HMFtitle": "Números de Hoy",
+    "fastingGlucose": "Glucosa en Sangre en Ayunas",
+    "bloodGlucose": "Glucosa en Sangre",
+    "mg/dl": "mg/dl",
+    "weight": "Peso",
+    "lbs": "lbs",
+    "bp": "Presión Sanguínea",
+    "mmHg": "mmHg",
+    "submitBtn": "Enviar",
+    "formValidation": "Debe ingresar al menos un campo.",
+    "continueBtn": "Continuar",
+    "seeHistory": "Ver historia",
+    "back": "Atrás",
+    "glucoseHistoryDesc": "Todos los números anteriores de glucosa en sangre en ayunas.",
+    "weightHistoryDesc": "Todos los números de peso anteriores.",
+    "bpHistoryDesc": "Todos los números anteriores de presión arterial."
   }
 }
