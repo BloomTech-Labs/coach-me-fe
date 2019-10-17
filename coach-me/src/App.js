@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 //Components
 
-import LoginClient from './components/clients/loginClient/LoginClient'
+import ClientLogin from './components/clients/loginClient/ClientLogin'
 // import RegisterClient from './components/clients/registerClient/RegisterClient'
 import PrivateRoute from './components/utils/PrivateRoute';
 import HealthMetricForm from './components/clients/healthMetricForm/HealthMetricForm';
@@ -15,8 +15,10 @@ import store from './store';
 function App() {
   return (
     <div className='App'>
-      <LoginClient/>
-      <HealthMetricForm />
+    <ClientLogin />
+      <Routes/>
+      
+      {/* <HealthMetricForm /> */}
     </div>
 
   );

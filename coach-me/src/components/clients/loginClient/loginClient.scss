@@ -1,12 +1,109 @@
-.auth-container {
-    border: 1px solid lightgray;
+
+
+//Variables
+$input-background:#F0F0F0;
+
+
+
+.phonenumber-container{
     display: flex;
     flex-direction: column;
-    width:500px;
-    height: 500px;
-    margin:10px;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    font-size: 1.6rem;
+    border: solid 1px red;
+    height:812px;
+
+    .img-container{
+        background-image: url("https://imgur.com/dBJrfRr.png");
+        background-repeat: no-repeat;
+        width:266px;
+        height:191px;
+        margin: 70px 55px 145px 54px;
+       
+    }
+
+    input{
+        width: 60px;
+        height: 40px;
+        background-color: $input-background;
+        border-radius: 10px;
+        outline:none;
+        box-shadow: none;
+        border-style:none;
+        font-size: 24px;
+        margin:8px;
+        text-align: center
+       
+    }
+    
+    #txt3{
+        width: 80px; 
+    }
+
+    span{
+        font-size:24px;
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 36px;
+
+    }
+    .header{
+        margin-left:40px;
+        margin-right:48px;
+        
+        p{
+            display:flex;
+            flex-wrap: wrap;
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            width:286px;
+            text-align: left;
+            height: 56px;
+            line-height: 141.8%;
+        }
+    }
+
+    .subtext{
+        
+        font-family: Poppins;
+        font-style: normal;
+        color: rgba(0, 0, 0, 0.7);
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        width: 235px;
+        height: 24px;
+        margin-left:40px;
+        margin-right:100px;
+        margin-bottom:35px;
+        margin-top:12px;
+    }
+    
+    
+    .form-container{
+        
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+    .trigger{
+        align-self: flex-end;
+        background: #292929;
+        border-radius: 20px;
+        width: 69px;
+        height: 52px;
+        color:  #FFFFFF;
+        font-size: 24px;
+        position: relative;
+        margin-right:53px;
+        margin-top: 30px;
+        
+    }
+
+
+    }
+
 }

@@ -17,22 +17,14 @@ const LoginClient = (props) => {
 
 
     const uiconfig = {
-        signInFlow: 'popup',
-        signInSuccessUrl: 'http://localhost:3000/',
-        signInOptions: [
-            {
-                provider: auth.PhoneAuthProvider.PROVIDER_ID,
-                recaptchaParameters: {
-                    size: 'invisible'
-                }
-            }
-          
-          
-          
-      ],
-    
+        
+       
+      
       callbacks:{
-        signInSuccessWithAuthResult: function (){
+        
+        signInSuccessWithAuthResult: function (authResult, redirectUrl){
+         const check =authResult.additionalUserInfo.isNewUser
+        
           const token = auth().currentUser.getIdToken()
           const phone = auth().currentUser.phoneNumber.toString().slice(2,)
           
@@ -48,10 +40,31 @@ const LoginClient = (props) => {
           
          })
          
+         if (check === false){
+            props.history.push('/metrics')
+         }
+         if (check=== true){
+             process.history.push('/welcome')
+         }
+         
         },
         
         
-       }
+       },
+      
+      
+      signInOptions: [
+          {
+              provider: auth.PhoneAuthProvider.PROVIDER_ID,
+              recaptchaParameters: {
+                  size: 'invisible'
+              }
+          }
+        
+        
+        
+    ],
+
       
      
       
