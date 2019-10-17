@@ -6,16 +6,37 @@ function HealthMetricForm(props) {
 // Implements Redux
 const state = useSelector(state => state);
 const dispatch = useDispatch();
-const [metrics, setMetrics] = useState({records: 
+// {
+//   "records": [
+//     {
+//              "id": "reck71PQQtBHkbNIF",
+//       "fields": {
+//         "Client_Name": [
+//           "rec43ppgrbQld6xPJ"
+//         ],
+//         "Date_time": null,
+//                 "Blood_sugar":123435643561234,
+//                 "Blood_pressure_over":1421341223,
+//                     "Blood_pressure_under":12321342134555,
+//                 "Weight":1234
+//       }
+//     }
+//   ]
+//     }
+const [metrics, setMetrics] = useState({records: [
   {
     id: "reck71PQQtBHkbNIF",
-    fields: {
-      "Client_Name": [
+    fields: { 
+      Client_Name: [
         "rec43ppgrbQld6xPJ"
-      ]
-      
+      ],
+      Date_time: null,
+      Blood_pressure_over: null,
+      Blood_pressure_under: null,
+      Blood_sugar: null,
+      Weight: null
     }
-  },
+  },]
 })   
 
 const handleInputChange = e => {
@@ -27,54 +48,72 @@ const handleInputChange = e => {
         e.preventDefault();
         console.log('whats being submitted', metrics)
         dispatch(updateMetric(metrics));
-        setMetrics({records: 
-          {
-            id: "reck71PQQtBHkbNIF",
-            fields: {"Client_Name": [
-              "rec43ppgrbQld6xPJ"
-            ],
-            "Date_time": null,
-            
-            
-            }
-          },
-        });
+        // setMetrics({records: [
+        //   {
+        //     id: "reck71PQQtBHkbNIF",
+        //     fields: {
+        //       "Client_Name": [
+        //         "rec43ppgrbQld6xPJ"
+        //       ]
+              
+        //     }
+        //   },]
+        // });
     };
         return (
             <div className='metric-form-wrapper'>
+              <h1>Today's Numbers</h1>
                 <form onSubmit={submitNewMetric}>
+                 <div classname = "input-label">
+                 <img></img>
+                  <h3>Fasting Blood Glucose</h3>
+                 </div>
+                 
+                  
+                  <input
+                      className='metric-input'
+                      onChange={handleInputChange}
+                      type='integer'
+                      value={metrics.records[0].fields.Blood_sugar}
+                      name='Blood_sugar'
+                  />
+                  <p>mg/dL</p>
+                   <div classname = "input-label">
+                 <img></img>
+                  <h3>Weight</h3>
+                 </div>
                     <input
                         className='metric-input'
                         onChange={handleInputChange}
-                        placeholder='weight/pesos'
                         type='integer'
-                        value={metrics.records.fields.Weight}
+                        value={metrics.records[0].fields.Weight}
                         name='Weight'
                     />
-                    <input
+                    <p>lbs</p>
+                     <div classname = "input-label">
+                 <img></img>
+                  <h3>Blood Pressure</h3>
+                 </div>
+                 <div className = "blood-pressure-container">
+                 <input
                         className='metric-input'
                         onChange={handleInputChange}
-                        placeholder='Blood Glucose Level'
                         type='integer'
-                        value={metrics.records.fields.Blood_sugar}
-                        name='Blood_sugar'
-                    />
-                    <input
-                        className='metric-input'
-                        onChange={handleInputChange}
-                        placeholder='Blood Pressure Over'
-                        type='integer'
-                        value={metrics.records.fields.Blood_pressure_over}
+                        value={metrics.records[0].fields.Blood_pressure_over}
                         name='Blood_pressure_over'
                     />
+                    <p>/</p>
                     <input
                         className='metric-input'
                         onChange={handleInputChange}
-                        placeholder='Blood Pressure under'
                         type='integer'
-                        value={metrics.records.fields.Blood_pressure_under}
+                        value={metrics.records[0].fields.Blood_pressure_under}
                         name='Blood_pressure_under'
                     />
+                    <p>mmHg</p>
+
+                 </div>
+                 
 
                     <button>Submit</button>
                 </form>
