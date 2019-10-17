@@ -13,7 +13,7 @@ function App() {
     return (
         <div className='App'>
             <LoginClient />
-            {/* <HealthMetricForm /> */}
+            <HealthMetricForm />
         </div>
     );
 }

@@ -15,7 +15,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    console.log('These areactions firing', action.payload);
+    console.log('These are actions firing', action.payload);
     switch (action.type) {
         case UPDATE_METRIC_START:
             return {
