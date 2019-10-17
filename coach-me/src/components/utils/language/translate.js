@@ -2,22 +2,23 @@ import language from './languages.json';
 
 import store from '../../../store';
 
-// const langPref = language.esp; //GET client's preferered language from firebase
-
 export const translate = words => {
   const state = store.getState();
   //   console.log('store', store);
+
   let langPref = 'English';
-  if (state.client.clientInfo.fields) {
-    langPref = state.client.clientInfo.fields.Language;
+
+  if (state.client.clientinfo.language) {
+    langPref = state.client.clientinfo.language;
     console.log('langPref', langPref);
+
     return language[langPref][words];
   }
-  //   const langPref = state.client.clientInfo.fields.Language
-  //     ? state.client.clientInfo.fields.Language
-  //     : 'en';
-  console.log('langPref', langPref);
+  //   const langPref = state.client.clientinfo.language
+  //     ? state.client.clientinfo.language
+  //     : 'English';
 
+  console.log('DEFAULT langPref', langPref);
   return language[langPref][words];
 };
 

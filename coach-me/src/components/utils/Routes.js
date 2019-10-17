@@ -8,6 +8,7 @@ import ClientInfo from '../coach/coachDashboard/clientsList/ClientInfo';
 import ClientsList from '../coach/coachDashboard/clientsList/ClientsList';
 import ChooseLanguage from '../clients/chooseLanguage/ChooseLanguage';
 import TestTranslator from '../clients/chooseLanguage/TestTranslator';
+import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
 
 const Routes = () => {
     return (
@@ -19,6 +20,7 @@ const Routes = () => {
             <Route path='/clients' component={ClientsList} />
             <Route path='/language/:clientid' component={ChooseLanguage} />
             <Route path='/translator' component={TestTranslator} />
+            <Route path='/metric-form' component={HealthMetricForm} />
         </div>
     );
 };
