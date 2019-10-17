@@ -84,7 +84,7 @@ export const getClientRecords = clientId => dispatch => {
                     clientRecords.push(results.data.records[j]);
                 }
             }
-            console.log(clientRecords);
+            console.log('before dispatch', clientRecords);
 
             dispatch({
                 type: GET_RECORDS_SUCCESS,

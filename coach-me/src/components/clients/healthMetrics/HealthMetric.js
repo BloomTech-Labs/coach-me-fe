@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 import HealthMetricCards from './HealthMetricCards';
 import MetricDisplay from './MetricDisplay';
 
+import { getClientRecords } from '../../../actions/clientActions';
+
 import './healthMetrics.scss';
 
 const HealthMetric = props => {
-    const [clientData, setClientData] = useState([]);
+    const { clientData } = props;
 
     // Following state controls the history toggle functionality:
     const [toggleHistory, setToggleHistory] = useState(false);
@@ -18,28 +21,10 @@ const HealthMetric = props => {
     const [historyFilter, setHistoryFilter] = useState('');
 
     useEffect(() => {
-        axios
-            .get(
-                `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Outcomes/?filterByFormula=OR({Blood_sugar}!='',{Weight}!='',{Blood_pressure_over}!='')&api_key=keyk1YJknNeEUJ4Pf`
-                // `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Outcomes/${props.checkinList[i]}?api_key=keyk1YJknNeEUJ4Pf`
-            )
-            .then(results => {
-                for (let j = 0; j < results.data.records.length; j++) {
-                    if (
-                        results.data.records[j].fields.Client_Name[0] ===
-                        props.userId
-                    ) {
-                        setClientData(previous => {
-                            return [...previous, results.data.records[j]];
-                        });
-                    }
-                }
-            })
+        props.getClientRecords('recZNs8pQo2rSsw0T');
+    }, []);
 
-            .catch(error => {
-                console.log(error);
-            });
-    }, [props.checkinList]);
+    console.log('before useEffect', props);
 
     const handleClick = (heading, label, filter, filter2) => {
         setHistoryFilter('');
@@ -94,8 +79,7 @@ const HealthMetric = props => {
                             <h4>Blood Glucose</h4>
                         </div>
                         <div className='health-statistic'>
-                            {clientData &&
-                            clientData[props.checkinList.length - 1] ? (
+                            {clientData && clientData[clientData.length - 1] ? (
                                 <h3>
                                     {
                                         <MetricDisplay
@@ -145,8 +129,7 @@ const HealthMetric = props => {
                             <h4>Weight</h4>
                         </div>
                         <div className='health-statistic'>
-                            {clientData &&
-                            clientData[props.checkinList.length - 1] ? (
+                            {clientData && clientData[clientData.length - 1] ? (
                                 <h3>
                                     {
                                         <MetricDisplay
@@ -192,8 +175,7 @@ const HealthMetric = props => {
                             <h4>Blood Pressure</h4>
                         </div>
                         <div className='health-statistic'>
-                            {clientData &&
-                            clientData[props.checkinList.length - 1] ? (
+                            {clientData && clientData[clientData.length - 1] ? (
                                 <h3>
                                     {
                                         <MetricDisplay
@@ -232,4 +214,11 @@ const HealthMetric = props => {
     }
 };
 
-export default HealthMetric;
+const mapStateToProps = state => ({
+    clientData: state.clientRecords
+});
+
+export default connect(
+    mapStateToProps,
+    { getClientRecords }
+)(HealthMetric);

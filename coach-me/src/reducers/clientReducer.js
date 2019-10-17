@@ -15,7 +15,7 @@ const initialState = {
     records: null,
     isfetching: false,
     error: '',
-    clientRecords: null
+    clientRecords: []
 };
 
 export default (state = initialState, action) => {
@@ -43,20 +43,21 @@ export default (state = initialState, action) => {
         case GET_RECORDS_START:
             return {
                 ...state,
-                isFetching: true,
+                isfetching: true,
                 error: ''
             };
         case GET_RECORDS_SUCCESS:
+            console.log('in reducer', action.payload);
             return {
                 ...state,
-                isFetching: false,
+                isfetching: false,
                 clientRecords: [...action.payload],
                 error: ''
             };
         case GET_RECORDS_FAILURE:
             return {
                 ...state,
-                isFetching: false,
+                isfetching: false,
                 error: action.payload
             };
         default:
