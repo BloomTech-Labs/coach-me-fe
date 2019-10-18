@@ -105,7 +105,7 @@ function HealthMetricForm(props) {
           />
           <p>mmHg</p>
         </div>
-        <button>Submit</button>
+        <button>{translate("submitBtn")}</button>
       </form>
     </div>
   ); 

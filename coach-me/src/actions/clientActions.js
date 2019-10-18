@@ -17,7 +17,8 @@ import {
     GET_RECORDS_FAILURE
 } from './types';
 
-const headers = { 'Content-Type': 'application/json' };
+const headers = { 'Content-Type': 'application/json',
+Authorization: localStorage.getItem('token') };
 
 
 
@@ -51,7 +52,7 @@ export const addMetric = metricUpdate => dispatch => {
   dispatch({ type: UPDATE_METRIC_START });
   axios
     .post(
-      `https://api.airtable.com/v0/appcN0W3AgVhxnhNI/Outcomes  ?api_key=keyHl8AuDrb2mt77E`,
+      `https://coach-me-backend.herokuapp.com/clientRoute/logMetrics `,
       metricUpdate,
       { headers: headers }
     )
