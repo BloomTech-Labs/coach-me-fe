@@ -60,8 +60,10 @@ function HealthMetricForm(props) {
         <div className='metric-form-wrapper'>
             <h1>Today's Numbers</h1>
             <form onSubmit={submitNewMetric}>
-                <div classname='input-label'>
-                    <img class='icon' src={iconfastingBloodGlucose}></img>
+                <div className='input-label'>
+                    <div className='img-wrapper'>
+                        <img class='icon' src={iconfastingBloodGlucose}></img>
+                    </div>
                     <h3>Fasting Blood Glucose</h3>
                 </div>
 
@@ -73,8 +75,10 @@ function HealthMetricForm(props) {
                     name='Blood_sugar'
                 />
                 <p>mg/dL</p>
-                <div classname='input-label'>
-                    <img class='icon' src={iconweight}></img>
+                <div className='input-label'>
+                    <div className='img-wrapper'>
+                        <img class='icon' src={iconweight}></img>
+                    </div>
                     <h3>Weight</h3>
                 </div>
                 <input
@@ -85,8 +89,10 @@ function HealthMetricForm(props) {
                     name='Weight'
                 />
                 <p>lbs</p>
-                <div classname='input-label'>
-                    <img class='icon' src={iconbloodPressure}></img>
+                <div className='input-label'>
+                    <div className='img-wrapper'>
+                        <img class='icon' src={iconbloodPressure}></img>
+                    </div>
                     <h3>Blood Pressure</h3>
                 </div>
                 <div className='blood-pressure-container'>

@@ -1,3 +1,5 @@
+// @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
 h1 {
     height: 45px;
     margin-left: 43px;
@@ -6,7 +8,7 @@ h1 {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 32px;
+    font-size: 1.8rem;
     line-height: 20px;
 }
 
@@ -18,8 +20,25 @@ h3 {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 1.8rem;
     line-height: 20px;
+    color: red;
+}
+
+.metric-form-wrapper {
+    margin: 0 auto;
+    max-width: 500px;
+    border: 1px solid red;
+}
+
+.img-wrapper {
+    border: 1px solid blue;
+}
+
+.input-label {
+    display: flex;
+    // height:
+    border: 1px solid red;
 }
 
 .metric-input {
@@ -33,17 +52,13 @@ h3 {
 }
 
 p {
-    display: flex;
-    flex-wrap: wrap;
-    height: 38px;
     margin-left: 271px;
-    margin-top: 15px;
 
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 141.8%;
+    font-size: 1rem;
+    line-height: 23px;
 }
 
 button {
@@ -59,5 +74,5 @@ button {
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 2rem;
 }
