@@ -115,7 +115,7 @@ function HealthMetricForm(props) {
 const mapStatetoProps = state => {
     console.log('metric', state)
     return {
-        language: state.client.clientinfo.language
+        language: state.clientinfo.language
     }
 }
 

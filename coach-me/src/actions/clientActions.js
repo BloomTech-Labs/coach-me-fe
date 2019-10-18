@@ -30,6 +30,7 @@ export const getClientInfo = num => dispatch => {
     )
     .then(res => {
       console.log('actions', res);
+      localStorage.setItem('token',res.data.token)
       dispatch({
         type: GET_CLIENTS_SUCCESS,
         payload:res.data.clientObject.fields,
