@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateMetric } from '../../../actions/clientActions';
+import { connect } from 'react-redux';
+import {translate} from '../../utils/language/translate'
 
 function HealthMetricForm(props) {
+  console.log(props)
   // Implements Redux
   const state = useSelector(state => state);
   const dispatch = useDispatch();
@@ -58,7 +61,7 @@ function HealthMetricForm(props) {
       <form onSubmit={submitNewMetric}>
         <div classname='input-label'>
           <img></img>
-          <h3>Fasting Blood Glucose</h3>
+          <h3> {translate("fastingGlucose")}</h3>
         </div>
 
         <input
@@ -109,5 +112,14 @@ function HealthMetricForm(props) {
     </div>
   );
 }
+const mapStatetoProps = state => {
+    console.log('metric', state)
+    return {
+        language: state.clientinfo.language
+    }
+}
 
-export default HealthMetricForm;
+export default connect(
+  mapStatetoProps,
+  { updateMetric }
+)(HealthMetricForm);
