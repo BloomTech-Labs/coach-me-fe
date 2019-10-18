@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addMetric } from '../../../actions/clientActions';
 import { connect } from 'react-redux';
-import {translate} from '../../utils/language/translate'
+import { translate } from '../../utils/language/translate';
 
 function HealthMetricForm(props) {
-  console.log(props)
-  // Implements Redux
-  const state = useSelector(state => state);
-  const dispatch = useDispatch();
-  const [bpOver, setBpOver] = useState();
-  const [bpUnder, setBpUnder] = useState();
-  const [bS, setBS] = useState();
-  const [weight, setWeight] = useState();
-  const [metrics, setMetrics] = useState();
+    console.log(props);
+    // Implements Redux
+    const state = useSelector(state => state);
+    const dispatch = useDispatch();
+    const [bpOver, setBpOver] = useState();
+    const [bpUnder, setBpUnder] = useState();
+    const [bS, setBS] = useState();
+    const [weight, setWeight] = useState();
+    const [metrics, setMetrics] = useState();
 
     const handleInputChange = e => {
         e.preventDefault();
