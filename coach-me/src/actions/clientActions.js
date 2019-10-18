@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 //clientActions
 
@@ -19,30 +19,30 @@ import {
 
 const headers = { 'Content-Type': 'application/json' };
 
-
-
 export const getClientInfo = num => dispatch => {
-  const clientnum = {clientPhone:num}
-  console.log(clientnum)
-  dispatch({ type: GET_CLIENTS_START });
-  axios.post(
-      ` https://coach-me-backend.herokuapp.com/clientRoute/login`,clientnum
-    )
-    .then(res => {
-      console.log('actions', res);
-      localStorage.setItem('token',res.data.token)
-      dispatch({
-        type: GET_CLIENTS_SUCCESS,
-        payload:res.data.clientObject.fields,
-      });
-    })
-    .catch(err => {
-      console.log(err)
-      dispatch({
-        type: GET_CLIENTS_FAILURE,
-        payload: err
-      });
-    });
+    const clientnum = { clientPhone: num };
+    console.log(clientnum);
+    dispatch({ type: GET_CLIENTS_START });
+    axios
+        .post(
+            ` https://coach-me-backend.herokuapp.com/clientRoute/login`,
+            clientnum
+        )
+        .then(res => {
+            console.log('actions', res);
+            localStorage.setItem('token', res.data.token);
+            dispatch({
+                type: GET_CLIENTS_SUCCESS,
+                payload: res.data.clientObject.fields
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({
+                type: GET_CLIENTS_FAILURE,
+                payload: err
+            });
+        });
 };
 
 export const updateMetric = metricUpdate => dispatch => {
@@ -74,19 +74,14 @@ export const getClientRecords = clientId => dispatch => {
     console.log('hello from getClientRecord reducer');
     dispatch({ type: GET_RECORDS_START });
     axios
-        .get(
-            `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Outcomes/?filterByFormula=OR({Blood_sugar}!='',{Weight}!='',{Blood_pressure_over}!='')&api_key=keyk1YJknNeEUJ4Pf`
-        )
-        .then(results => {
-            const clientRecords = [];
-            for (let j = 0; j < results.data.records.length; j++) {
-                if (
-                    results.data.records[j].fields.Client_Name[0] === clientId
-                ) {
-                    clientRecords.push(results.data.records[j]);
-                }
+        .get(`https://coach-me-backend.herokuapp.com/clientRoute/getMetrics`, {
+            headers: {
+                Authorization: localStorage.getItem('token')
             }
-            console.log('before dispatch', clientRecords);
+        })
+        .then(results => {
+            console.log('before dispatch', results.data.clientRecords);
+            const clientRecords = [...results.data.clientRecords];
 
             dispatch({
                 type: GET_RECORDS_SUCCESS,
