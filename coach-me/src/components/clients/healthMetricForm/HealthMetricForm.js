@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { updateMetric } from '../../../actions/clientActions';
+import { addMetric } from '../../../actions/clientActions';
+import './healthMetricForm.scss'
 
 function HealthMetricForm(props) {
   // Implements Redux
@@ -34,7 +34,7 @@ function HealthMetricForm(props) {
     setMetrics({
       records: [
         {
-          id: 'reck71PQQtBHkbNIF',
+          
           fields: {
             Client_Name: ['rec43ppgrbQld6xPJ'],
             Date_time: null,
@@ -51,7 +51,7 @@ function HealthMetricForm(props) {
 
   const submitNewMetric = e => {
     e.preventDefault();
-    dispatch(updateMetric(metrics));
+    dispatch(addMetric(metrics));
   };
   return (
     <div className='metric-form-wrapper'>
@@ -106,6 +106,7 @@ function HealthMetricForm(props) {
         <button>Submit</button>
       </form>
     </div>
-  );
+  ); 
 }
+
 export default HealthMetricForm;

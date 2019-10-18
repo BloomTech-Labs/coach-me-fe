@@ -1,12 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import HeathMetricForm from './HeathMetricForm';
 
 import '@testing-library/react/cleanup-after-each';
 import { render } from '@testing-library/react';
 
-describe('App', () => {
+describe('HealthMetricForm component', () => {
     it('renders without crashing', () => {
-        render(<App />);
+        render(<HealthMetricForm />);
     });
 });
