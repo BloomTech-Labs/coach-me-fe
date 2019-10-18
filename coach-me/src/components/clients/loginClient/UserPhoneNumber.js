@@ -5,8 +5,8 @@ import { ReactComponent as Logo } from './assets/logo.svg'
 import './loginClient.scss'
 
 const UserPhoneNumber = (props) => {
-    const { config, setconfig} = props
-    console.log(config)
+    const { getinfo} = props
+
     const [input, setinput]=useState({areacode:'', dig1:'', dig2:''})
 
     const handleChange = e =>{
@@ -16,13 +16,21 @@ const UserPhoneNumber = (props) => {
     const handleSubmit = (e) =>{
         e.preventDefault()
         
-         const number = input.areacode + input.dig1 + input.dig2
+         const number =  input.areacode  + input.dig1 +input.dig2
          
          
-         setconfig({...config, phonenumber:number})
-         console.log('hi')
+         getinfo(number)
+         
+         
          
      }
+    //  useEffect( () =>{
+    //      if(config){
+    //         getClientInfo(config)
+    //      }
+         
+
+    //  },[config])
      
     const moveOver = (e, item1, item2) =>{
       
