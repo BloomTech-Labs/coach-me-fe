@@ -9,10 +9,13 @@ import ClientsList from '../coach/coachDashboard/clientsList/ClientsList';
 import ChooseLanguage from '../clients/chooseLanguage/ChooseLanguage';
 import TestTranslator from '../clients/chooseLanguage/TestTranslator';
 import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
+import LoginClient from '../clients/loginClient/LoginClient'
 
-const Routes = () => {
+const Routes = (props) => {
+    console.log(props)
     return (
         <div>
+            <Route path="/login" render={(props) => <LoginClient {...props} />} />
             <Route path='/metrics' component={HealthMetric} />
             <Route path='/dashboard' component={CoachDashboard} />
             <Route path='/dashboard-client' component={ClientDashboard} />
@@ -24,5 +27,12 @@ const Routes = () => {
         </div>
     );
 };
+
+// const mapStatetoProps = state => {
+//     console.log('App.js', state)
+//     return {
+//         clientinfo : state.clientinfio
+//     }
+// }
 
 export default Routes;
