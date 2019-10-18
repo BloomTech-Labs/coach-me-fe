@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 import HealthMetricCards from './HealthMetricCards';
 import MetricDisplay from './MetricDisplay';
 
+import { getClientRecords } from '../../../actions/clientActions';
+
 import './healthMetrics.scss';
 
 const HealthMetric = props => {
-    const [clientData, setClientData] = useState([]);
+    const { clientData } = props;
 
     // Following state controls the history toggle functionality:
     const [toggleHistory, setToggleHistory] = useState(false);
@@ -18,35 +21,22 @@ const HealthMetric = props => {
     const [historyFilter, setHistoryFilter] = useState('');
 
     useEffect(() => {
-        for (let i = 0; i < props.checkinList.length; i++) {
-            // console.log(props.checkinList[i]);
-            axios
-                .get(
-                    `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Check-ins/?filterByFormula=OR({Most recent blood pressure?}!='',{Most recent weight? (pounds)}!='',{Most recent blood glucose level?}!='')&api_key=keyfahybUIpBkegFv`
-                )
-                .then(results => {
-                    for (let j = 0; j < results.data.records.length; j++) {
-                        if (
-                            results.data.records[j].id === props.checkinList[i]
-                        ) {
-                            setClientData(previous => {
-                                return [...previous, results.data.records[j]];
-                            });
-                        }
-                    }
-                })
+        props.getClientRecords('recZNs8pQo2rSsw0T');
+    }, []);
 
-                .catch(error => {
-                    console.log(error);
-                });
-        }
-    }, [props.checkinList]);
+    console.log('before useEffect', props);
 
-    const handleClick = (heading, label, filter) => {
+    const handleClick = (heading, label, filter, filter2) => {
+        setHistoryFilter('');
         setToggleHistory(true);
         setHistoryLabel(heading);
         setHistoryScale(label);
-        setHistoryFilter(filter);
+
+        if (filter2) {
+            setHistoryFilter([filter, filter2]);
+        } else {
+            setHistoryFilter(filter);
+        }
     };
 
     if (toggleHistory) {
@@ -64,6 +54,7 @@ const HealthMetric = props => {
     } else {
         return (
             <div className='metric-container'>
+                {console.log('clientData in app', clientData)}
                 <div className='metric-header'>
                     <h3>Hello</h3>
                     <h2>Name</h2>
@@ -88,18 +79,17 @@ const HealthMetric = props => {
                             <h4>Blood Glucose</h4>
                         </div>
                         <div className='health-statistic'>
-                            {clientData &&
-                            clientData[props.checkinList.length - 1] ? (
+                            {clientData && clientData[clientData.length - 1] ? (
                                 <h3>
                                     {
                                         <MetricDisplay
                                             metricData={
                                                 clientData[
-                                                    props.checkinList.length - 1
+                                                    clientData.length - 1
                                                 ]
                                             }
                                             metricScale='mg/dl'
-                                            filter='Most recent blood glucose level?'
+                                            filter='Blood_sugar'
                                         />
                                     }
                                 </h3>
@@ -113,7 +103,7 @@ const HealthMetric = props => {
                                 handleClick(
                                     'Blood Glucose',
                                     'mg/dl',
-                                    'Most recent blood glucose level?'
+                                    'Blood_sugar'
                                 )
                             }
                         >
@@ -139,18 +129,17 @@ const HealthMetric = props => {
                             <h4>Weight</h4>
                         </div>
                         <div className='health-statistic'>
-                            {clientData &&
-                            clientData[props.checkinList.length - 1] ? (
+                            {clientData && clientData[clientData.length - 1] ? (
                                 <h3>
                                     {
                                         <MetricDisplay
                                             metricData={
                                                 clientData[
-                                                    props.checkinList.length - 1
+                                                    clientData.length - 1
                                                 ]
                                             }
                                             metricScale='Ibs'
-                                            filter='Most recent weight? (pounds)'
+                                            filter='Weight'
                                         />
                                     }
                                 </h3>
@@ -161,11 +150,7 @@ const HealthMetric = props => {
                         <button
                             className='metric-button'
                             onClick={() =>
-                                handleClick(
-                                    'Weight',
-                                    'Ibs',
-                                    'Most recent weight? (pounds)'
-                                )
+                                handleClick('Weight', 'Ibs', 'Weight')
                             }
                         >
                             See history
@@ -190,18 +175,18 @@ const HealthMetric = props => {
                             <h4>Blood Pressure</h4>
                         </div>
                         <div className='health-statistic'>
-                            {clientData &&
-                            clientData[props.checkinList.length - 1] ? (
+                            {clientData && clientData[clientData.length - 1] ? (
                                 <h3>
                                     {
                                         <MetricDisplay
                                             metricData={
                                                 clientData[
-                                                    props.checkinList.length - 1
+                                                    clientData.length - 1
                                                 ]
                                             }
                                             metricScale='mmHg'
-                                            filter='Most recent blood pressure?'
+                                            filter='Blood_pressure_under'
+                                            filter2='Blood_pressure_over'
                                         />
                                     }
                                 </h3>
@@ -215,7 +200,8 @@ const HealthMetric = props => {
                                 handleClick(
                                     'Blood Pressure',
                                     'mmHg',
-                                    'Most recent blood pressure?'
+                                    'Blood_pressure_under',
+                                    'Blood_pressure_over'
                                 )
                             }
                         >
@@ -228,4 +214,11 @@ const HealthMetric = props => {
     }
 };
 
-export default HealthMetric;
+const mapStateToProps = state => ({
+    clientData: state.clientRecords
+});
+
+export default connect(
+    mapStateToProps,
+    { getClientRecords }
+)(HealthMetric);

@@ -12,7 +12,7 @@ const ClientDashboard = () => {
     useEffect(() => {
         axios
             .get(
-                `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Master/${userId}?api_key=keyfahybUIpBkegFv`
+                `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Master/${userId}?api_key=keyk1YJknNeEUJ4Pf`
                 // `https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Master?api_key=keyfahybUIpBkegFv`
             )
             .then(results => {
@@ -26,7 +26,6 @@ const ClientDashboard = () => {
 
     return (
         <div className='client-dashboard'>
-            {/* <h2>Welcome to client dashboard</h2> */}
             <HealthMetric checkinList={checkinList} userId={userId} />
         </div>
     );
