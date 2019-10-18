@@ -1,40 +1,43 @@
-import axios from 'axios';
+import axios from 'axios'
 
 //clientActions
 
 import {
-  GET_CLIENTS_START,
-  GET_CLIENTS_SUCCESS,
-  GET_CLIENTS_FAILURE,
-  ADD_CLIENT,
-  DELETE_CLIENT,
-  CLIENTS_ERROR,
-  UPDATE_METRIC_START,
-  UPDATE_METRIC_SUCCESS,
-  UPDATE_METRIC_FAILURE
+    GET_CLIENTS_START,
+    GET_CLIENTS_SUCCESS,
+    GET_CLIENTS_FAILURE,
+    ADD_CLIENT,
+    DELETE_CLIENT,
+    CLIENTS_ERROR,
+    UPDATE_METRIC_START,
+    UPDATE_METRIC_SUCCESS,
+    UPDATE_METRIC_FAILURE,
+    GET_RECORDS_START,
+    GET_RECORDS_SUCCESS,
+    GET_RECORDS_FAILURE
 } from './types';
 
 const headers = { 'Content-Type': 'application/json' };
 
-//`https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Check-ins/${match.params.clientid}?api_key=keyfahybUIpBkegFv`
+
 
 export const getClientInfo = num => dispatch => {
+  const clientnum = {clientPhone:num}
+  console.log(clientnum)
   dispatch({ type: GET_CLIENTS_START });
-  axios
-    .get(
-      `https://api.airtable.com/v0/appcGDj4SuiTu3Nte/Intake?api_key=keytu1to8j0ODW8sD&maxRecords=1&view=Grid%20view&phone=${num}`
+  axios.post(
+      ` https://coach-me-backend.herokuapp.com/clientRoute/login`,clientnum
     )
     .then(res => {
-      console.log('actions', res.data.records[0].id);
+      console.log('actions', res);
+      localStorage.setItem('token',res.data.token)
       dispatch({
         type: GET_CLIENTS_SUCCESS,
-        payload: {
-          info: res.data.records[0].fields,
-          id: res.data.records[0].id
-        }
+        payload:res.data.clientObject.fields,
       });
     })
     .catch(err => {
+      console.log(err)
       dispatch({
         type: GET_CLIENTS_FAILURE,
         payload: err
