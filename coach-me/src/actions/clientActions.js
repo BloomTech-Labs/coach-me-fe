@@ -51,7 +51,7 @@ export const addMetric = metricUpdate => dispatch => {
   dispatch({ type: UPDATE_METRIC_START });
   axios
     .post(
-      `https://api.airtable.com/v0/appcN0W3AgVhxnhNI/Outcomes  ?api_key=keyHl8AuDrb2mt77E`,
+      `https://api.airtable.com/v0/appcN0W3AgVhxnhNI/Outcomes?api_key=keyHl8AuDrb2mt77E`,
       metricUpdate,
       { headers: headers }
     )
