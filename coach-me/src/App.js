@@ -14,7 +14,7 @@ import HealthMetricForm from './components/clients/healthMetricForm/HealthMetric
 function App() {
     return (
         <div className='App'>
-            <LoginClient />
+            {/* <LoginClient /> */}
             <Routes />
             <HealthMetricForm />
         </div>
