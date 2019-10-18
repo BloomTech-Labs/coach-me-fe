@@ -38,7 +38,7 @@ function HealthMetricForm(props) {
         {
           
           fields: {
-            Client_Name: ['rec43ppgrbQld6xPJ'],
+            Client_Name: props.id,
             Date_time: null,
             Blood_pressure_over: parseInt(bpOver),
             Blood_pressure_under: parseInt(bpUnder),
@@ -57,7 +57,7 @@ function HealthMetricForm(props) {
   };
   return (
     <div className='metric-form-wrapper'>
-      <h1>Today's Numbers</h1>
+      <h1>{translate("HMFtitle")}</h1>
       <form onSubmit={submitNewMetric}>
         <div classname='input-label'>
           <img></img>
@@ -73,7 +73,7 @@ function HealthMetricForm(props) {
         <p>mg/dL</p>
         <div classname='input-label'>
           <img></img>
-          <h3>Weight</h3>
+          <h3>{translate("weight")}</h3>
         </div>
         <input
           className='metric-input'
@@ -85,7 +85,7 @@ function HealthMetricForm(props) {
         <p>lbs</p>
         <div classname='input-label'>
           <img></img>
-          <h3>Blood Pressure</h3>
+          <h3>{translate("bp")}</h3>
         </div>
         <div className='blood-pressure-container'>
           <input
@@ -112,12 +112,15 @@ function HealthMetricForm(props) {
 }
 const mapStatetoProps = state => {
     console.log('metric', state)
+    console.log(state.clientinfo.id)
     return {
-        language: state.clientinfo.language
+        language: state.clientinfo.language,
+        Client_Name:state.clientinfo.id
+        
     }
 }
 
 export default connect(
   mapStatetoProps,
-  { updateMetric }
+  { addMetric }
 )(HealthMetricForm);

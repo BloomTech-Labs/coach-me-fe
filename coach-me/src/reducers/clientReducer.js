@@ -68,11 +68,11 @@ export default (state = initialState, action) => {
         isfetching: false,
         clientinfo: {
           ...state.clientinfo,
-          id: action.payload['Coach master table'],
+          id: action.payload['Coaching master table'],
           phonenumber: action.payload.Phone,
           coach: action.payload.Coach,
           language: action.payload.Language,
-          name: action.payload['Client Name']
+          name: action.payload['Client_Name']
         },
         error: ''
       };
