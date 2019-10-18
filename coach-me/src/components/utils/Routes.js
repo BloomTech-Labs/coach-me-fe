@@ -9,23 +9,25 @@ import ClientsList from '../coach/coachDashboard/clientsList/ClientsList';
 import ChooseLanguage from '../clients/chooseLanguage/ChooseLanguage';
 import TestTranslator from '../clients/chooseLanguage/TestTranslator';
 import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
-import LoginClient from '../clients/loginClient/LoginClient'
+import LoginClient from '../clients/loginClient/LoginClient';
+import WelcomeScreen from '../clients/welcomeScreen/WelcomeScreen';
 
-const Routes = (props) => {
-    console.log(props)
-    return (
-        <div>
-            <Route path="/login" render={(props) => <LoginClient {...props} />} />
-            <Route path='/metrics' component={HealthMetric} />
-            <Route path='/dashboard' component={CoachDashboard} />
-            <Route path='/dashboard-client' component={ClientDashboard} />
-            <Route path='/client/:clientid' component={ClientInfo} />
-            <Route path='/clients' component={ClientsList} />
-            <Route path='/language/:clientid' component={ChooseLanguage} />
-            <Route path='/translator' component={TestTranslator} />
-            <Route path='/metric-form' component={HealthMetricForm} />
-        </div>
-    );
+const Routes = props => {
+  console.log(props);
+  return (
+    <div>
+      <Route path='/login' render={props => <LoginClient {...props} />} />
+      <Route path='/metrics' component={HealthMetric} />
+      <Route path='/dashboard' component={CoachDashboard} />
+      <Route path='/dashboard-client' component={ClientDashboard} />
+      <Route path='/client/:clientid' component={ClientInfo} />
+      <Route path='/clients' component={ClientsList} />
+      <Route path='/language/:clientid' component={ChooseLanguage} />
+      <Route path='/translator' component={TestTranslator} />
+      <Route path='/metric-form' component={HealthMetricForm} />
+      <Route path='/welcome' component={WelcomeScreen} />
+    </div>
+  );
 };
 
 // const mapStatetoProps = state => {
