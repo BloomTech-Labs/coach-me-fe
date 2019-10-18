@@ -15,22 +15,22 @@ function HealthMetricForm(props) {
   const [weight, setWeight] = useState();
   const [metrics, setMetrics] = useState();
 
-  const handleInputChange = e => {
-    e.preventDefault();
-    setBS(e.target.value);
-  };
-  const handleInputChange2 = e => {
-    e.preventDefault();
-    setBpOver(e.target.value);
-  };
-  const handleInputChange3 = e => {
-    e.preventDefault();
-    setBpUnder(e.target.value);
-  };
-  const handleInputChange4 = e => {
-    e.preventDefault();
-    setWeight(e.target.value);
-  };
+    const handleInputChange = e => {
+        e.preventDefault();
+        setBS(e.target.value);
+    };
+    const handleInputChange2 = e => {
+        e.preventDefault();
+        setBpOver(e.target.value);
+    };
+    const handleInputChange3 = e => {
+        e.preventDefault();
+        setBpUnder(e.target.value);
+    };
+    const handleInputChange4 = e => {
+        e.preventDefault();
+        setWeight(e.target.value);
+    };
 
   useEffect(() => {
     setMetrics({
