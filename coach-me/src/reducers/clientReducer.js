@@ -34,74 +34,82 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    switch (action.type) {
-        case UPDATE_METRIC_START:
-            console.log('Fired Actions', action.payload);
-            return {
-                ...state,
-                isfetching: true,
-                error: ''
-            };
-        case UPDATE_METRIC_SUCCESS:
-            return {
-                ...state,
-                isfetching: false,
-                records: { ...action.payload },
-                error: ''
-            };
-        case UPDATE_METRIC_FAILURE:
-            return {
-                ...state,
-                isfetching: false,
-                err: action.payload
-            };
-        case GET_CLIENTS_START:
-            return {
-                ...state,
-                isfetching: true,
-                error: ''
-            };
-        case GET_CLIENTS_SUCCESS:
-            return {
-                ...state,
-                isfetching: false,
-                clientinfo: {
-                    ...state.clientinfo,
-                    id: action.payload.id,
-                    phonenumber: action.payload.info.Phone,
-                    coach: action.payload.info.Coach,
-                    language: action.payload.info.Language,
-                    name: action.payload.info['Client Name']
-                },
-                error: ''
-            };
-        case GET_CLIENTS_FAILURE:
-            return {
-                ...state,
-                isfetching: false,
-                err: action.payload
-            };
-        case GET_RECORDS_START:
-            return {
-                ...state,
-                isfetching: true,
-                error: ''
-            };
-        case GET_RECORDS_SUCCESS:
-            console.log('in reducer', action.payload);
-            return {
-                ...state,
-                isfetching: false,
-                clientRecords: [...action.payload],
-                error: ''
-            };
-        case GET_RECORDS_FAILURE:
-            return {
-                ...state,
-                isfetching: false,
-                error: action.payload
-            };
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case UPDATE_METRIC_START:
+      console.log('Fired Actions', action.payload);
+      return {
+        ...state,
+        isfetching: true,
+        error: ''
+      };
+    case UPDATE_METRIC_SUCCESS:
+      return {
+        ...state,
+        isfetching: false,
+        records: { ...action.payload },
+        error: ''
+      };
+    case UPDATE_METRIC_FAILURE:
+      return {
+        ...state,
+        isfetching: false,
+        err: action.payload
+      };
+    case GET_CLIENTS_START:
+      return {
+        ...state,
+        isfetching: true,
+        error: ''
+      };
+    case GET_CLIENTS_SUCCESS:
+    console.log('action payload login', action.payload)
+      return {
+        ...state,
+        isfetching: false,
+        clientinfo: {
+          ...state.clientinfo,
+          id: action.payload['Coaching master table'],
+          phonenumber: action.payload.Phone,
+          coach: action.payload.Coach,
+          language: action.payload.Language,
+          name: action.payload['Client_Name']
+        },
+        error: ''
+      };
+    case GET_CLIENTS_FAILURE:
+      return {
+        ...state,
+        isfetching: false,
+        err: action.payload
+      };
+      case GET_CLIENTS_FAILURE:
+      return {
+          ...state,
+          isfetching: false,
+          err: action.payload
+      };
+  case GET_RECORDS_START:
+      return {
+          ...state,
+          isfetching: true,
+          error: ''
+      };
+  case GET_RECORDS_SUCCESS:
+      console.log('in reducer', action.payload);
+      return {
+          ...state,
+          isfetching: false,
+          clientRecords: [...action.payload],
+          error: ''
+      };
+  case GET_RECORDS_FAILURE:
+      return {
+          ...state,
+          isfetching: false,
+          error: action.payload
+      };
+    default:
+      return state;
+  }
+    
 };

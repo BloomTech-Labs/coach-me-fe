@@ -10,8 +10,8 @@ export const translate = words => {
   let langPref = 'English';
 
   // Check to see if Language Preference has been set to state from airtable and return.
-  if (state.client.clientinfo.language) {
-    langPref = state.client.clientinfo.language;
+  if (state.clientinfo.language) {
+    langPref = state.clientinfo.language;
 
     return language[langPref][words];
   }
