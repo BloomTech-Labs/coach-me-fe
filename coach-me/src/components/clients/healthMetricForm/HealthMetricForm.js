@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateMetric } from '../../../actions/clientActions';
 import './healthMetricForm.scss';
-import iconfastingBloodGlucose from './icon-fastingBloodGlucose.png';
-import iconbloodPressure from './icon-fastingBloodGlucose.png';
-import iconweight from './icon-weight.png';
+import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
+import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
+import iconweight from '../../utils/assets/weight.svg';
 
 function HealthMetricForm(props) {
     // Implements Redux
@@ -66,29 +66,34 @@ function HealthMetricForm(props) {
                     </div>
                     <h3>Fasting Blood Glucose</h3>
                 </div>
+                <div className='input-wrapper'>
+                    <input
+                        className='metric-input'
+                        onChange={handleInputChange}
+                        type='integer'
+                        value={bS}
+                        name='Blood_sugar'
+                    />
+                    <p>mg/dL</p>
+                </div>
 
-                <input
-                    className='metric-input'
-                    onChange={handleInputChange}
-                    type='integer'
-                    value={bS}
-                    name='Blood_sugar'
-                />
-                <p>mg/dL</p>
                 <div className='input-label'>
                     <div className='img-wrapper'>
                         <img class='icon' src={iconweight}></img>
                     </div>
                     <h3>Weight</h3>
                 </div>
-                <input
-                    className='metric-input'
-                    onChange={handleInputChange4}
-                    type='integer'
-                    value={weight}
-                    name='Weight'
-                />
-                <p>lbs</p>
+                <div className='input-wrapper'>
+                    <input
+                        className='metric-input'
+                        onChange={handleInputChange4}
+                        type='integer'
+                        value={weight}
+                        name='Weight'
+                    />
+                    <p>lbs</p>
+                </div>
+
                 <div className='input-label'>
                     <div className='img-wrapper'>
                         <img class='icon' src={iconbloodPressure}></img>
@@ -96,22 +101,24 @@ function HealthMetricForm(props) {
                     <h3>Blood Pressure</h3>
                 </div>
                 <div className='blood-pressure-container'>
-                    <input
-                        className='metric-input'
-                        onChange={handleInputChange2}
-                        type='integer'
-                        value={bpOver}
-                        name='Blood_pressure_over'
-                    />
-                    <p>/</p>
-                    <input
-                        className='metric-input'
-                        onChange={handleInputChange3}
-                        type='integer'
-                        value={bpUnder}
-                        name='Blood_pressure_under'
-                    />
-                    <p>mmHg</p>
+                    <div className='input-wrapper'>
+                        <input
+                            className='metric-input-pb'
+                            onChange={handleInputChange2}
+                            type='integer'
+                            value={bpOver}
+                            name='Blood_pressure_over'
+                        />
+                        <span>/</span>
+                        <input
+                            className='metric-input-pb'
+                            onChange={handleInputChange3}
+                            type='integer'
+                            value={bpUnder}
+                            name='Blood_pressure_under'
+                        />
+                        <p>mmHg</p>
+                    </div>
                 </div>
 
                 <button>Submit</button>
