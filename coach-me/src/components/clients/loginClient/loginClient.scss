@@ -10,7 +10,8 @@ $input-background:#F0F0F0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:812px;
+    height:150vh;
+    
 
     .img-container{
         background-image: url("https://imgur.com/dBJrfRr.png");
@@ -29,7 +30,7 @@ $input-background:#F0F0F0;
         outline:none;
         box-shadow: none;
         border-style:none;
-        font-size: 24px;
+        font-size: 1.8rem;
         margin:8px;
         text-align: center
        
@@ -40,11 +41,11 @@ $input-background:#F0F0F0;
     }
 
     span{
-        font-size:24px;
+        
         font-family: 'Poppins', sans-serif;
         font-style: normal;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 1.8rem;
         line-height: 36px;
 
     }
@@ -58,7 +59,7 @@ $input-background:#F0F0F0;
             font-family: 'Poppins', sans-serif;
             font-style: normal;
             font-weight: 600;
-            font-size: 20px;
+            font-size: 1.4rem;
             width:286px;
             text-align: left;
             height: 56px;
@@ -99,6 +100,7 @@ $input-background:#F0F0F0;
         position: relative;
         margin-right:53px;
         margin-top: 30px;
+        border: none;
         
     }
 

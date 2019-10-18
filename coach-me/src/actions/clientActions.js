@@ -17,7 +17,10 @@ import {
     GET_RECORDS_FAILURE
 } from './types';
 
-const headers = { 'Content-Type': 'application/json' };
+const headers = {
+    'Content-Type': 'application/json',
+    Authorization: localStorage.getItem('token')
+};
 
 export const getClientInfo = num => dispatch => {
     const clientnum = { clientPhone: num };
@@ -45,13 +48,13 @@ export const getClientInfo = num => dispatch => {
         });
 };
 
-export const updateMetric = metricUpdate => dispatch => {
+export const addMetric = metricUpdate => dispatch => {
     // debugger;
 
     dispatch({ type: UPDATE_METRIC_START });
     axios
-        .patch(
-            `https://api.airtable.com/v0/appcN0W3AgVhxnhNI/Outcomes?api_key=keyHl8AuDrb2mt77E`,
+        .post(
+            `https://coach-me-backend.herokuapp.com/clientRoute/logMetrics `,
             metricUpdate,
             { headers: headers }
         )
