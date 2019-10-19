@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import ClientCard from './ClientCard';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import ClientCard from "./ClientCard";
 
 const ClientsList = () => {
   const [users, setUsers] = useState();
@@ -9,7 +9,7 @@ const ClientsList = () => {
     // Get request to airtable endpoint with api key appended to the end of url
     axios
       .get(
-        'https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Master?api_key=keyfahybUIpBkegFv'
+        "https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Master?api_key=keyfahybUIpBkegFv"
       )
       .then(res => setUsers(res.data.records))
       .catch(err => console.log(err));

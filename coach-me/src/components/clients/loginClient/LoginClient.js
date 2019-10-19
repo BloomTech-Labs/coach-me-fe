@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import UserPhoneNumber from './UserPhoneNumber';
-import { connect } from 'react-redux';
-import { getClientInfo } from '../../../actions/clientActions';
-import './loginClient.scss';
+import React, { useState } from "react";
+import UserPhoneNumber from "./UserPhoneNumber";
+import { connect } from "react-redux";
+import { getClientInfo } from "../../../actions/clientActions";
+import "./loginClient.scss";
 
 //925-639-1639
 
 const LoginClient = props => {
-  console.log(props.clientinfo);
-  const [config, setconfig] = useState({ phonenumber: '' });
+  // console.log(props.clientinfo);
+  const [config, setconfig] = useState({ phonenumber: "" });
 
   const handleChange = e => {
     setconfig({ ...config, [e.target.name]: e.target.value });
@@ -17,7 +17,7 @@ const LoginClient = props => {
     setconfig({ ...config, phonenumber: info });
 
     props.getClientInfo(info);
-    props.history.push('/metric-form');
+    props.history.push("/metric-form");
   };
 
   return (
@@ -33,7 +33,7 @@ const LoginClient = props => {
 };
 
 const mapStatetoProps = state => {
-  console.log('App.js', state);
+  // console.log("App.js", state);
   return {
     clientinfo: state.clientinfo
   };
