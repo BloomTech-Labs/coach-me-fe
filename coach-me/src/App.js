@@ -1,11 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+//Components
+// Routes Hold All Components
+import Routes from './components/utils/Routes';
+
+
 
 function App() {
   return (
-    <div className="App">
-      
+    <div className='App'>
+      <Routes/>
+   
     </div>
   );
 }
