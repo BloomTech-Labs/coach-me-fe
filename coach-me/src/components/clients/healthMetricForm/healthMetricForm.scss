@@ -1,88 +1,88 @@
 // @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 h1 {
-    height: 45px;
-    margin-left: 43px;
-    margin-top: 69px;
+  height: 45px;
+  margin-left: 43px;
+  margin-top: 69px;
 
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 2.4rem;
-    line-height: 20px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 20px;
 }
 
 h3 {
-    height: 20px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 20px;
-    // border: 1px solid green;
+  height: 20px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 20px;
+  // border: 1px solid green;
 }
 
 .metric-form-wrapper {
-    margin: 0 auto;
-    max-width: 375px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    // border: 1px solid red;
+  margin: 0 auto;
+  max-width: 375px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  // border: 1px solid red;
 }
 
 .img-wrapper {
-    margin: 0px 13px 0 61px;
-    display: flex;
-    align-items: flex-end;
-    height: 25px;
-    width: 25px;
-    // border: 1px solid blue;
+  margin: 0px 13px 0 61px;
+  display: flex;
+  align-items: flex-end;
+  height: 25px;
+  width: 25px;
+  // border: 1px solid blue;
 }
 
 .input-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 20%;
-    // border: 5px solid forestgreen;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20%;
+  // border: 5px solid forestgreen;
 }
 
 .input-label {
-    margin-top: 35px;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    // border: 1px solid red;
+  margin-top: 35px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  // border: 1px solid red;
 }
 
 .metric-input {
-    height: 53px;
-    width: 60%;
-    // margin-left: 92px;
-    // margin-top: 15px;
-    background: #f0f0f0;
-    border: 2.5px solid #f0f0f0;
-    box-sizing: border-box;
-    border-radius: 10px;
+  height: 53px;
+  width: 60%;
+  // margin-left: 92px;
+  // margin-top: 15px;
+  background: #f0f0f0;
+  border: 2.5px solid #f0f0f0;
+  box-sizing: border-box;
+  border-radius: 10px;
 
-    // &:last-child {
-    //     margin-left: 10px;
-    //     background: red;
-    // }
+  // &:last-child {
+  //     margin-left: 10px;
+  //     background: red;
+  // }
 }
 
 .metric-input-pb {
-    height: 53px;
-    width: 27%;
-    // margin-left: 92px;
-    margin-right: 1px;
-    // margin-top: 15px;
-    background: #f0f0f0;
-    border: 2.5px solid #f0f0f0;
-    box-sizing: border-box;
-    border-radius: 10px;
+  height: 53px;
+  width: 27%;
+  // margin-left: 92px;
+  margin-right: 1px;
+  // margin-top: 15px;
+  background: #f0f0f0;
+  border: 2.5px solid #f0f0f0;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
 
 // .metric-input-pb {
@@ -97,36 +97,36 @@ h3 {
 // }
 
 p {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.6rem;
-    line-height: 23px;
-    margin-left: 27px;
-    // border: 1px solid yellow;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 23px;
+  margin-left: 27px;
+  // border: 1px solid yellow;
 }
 
 span {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.6rem;
-    line-height: 23px;
-    margin: 5px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 23px;
+  margin: 5px;
 }
 
 button {
-    width: 85%;
-    height: 80px;
-    margin-left: 39px;
-    margin-top: 30px;
-    color: white;
+  width: 85%;
+  height: 80px;
+  margin-left: 39px;
+  margin-top: 30px;
+  color: white;
+  border: none;
+  background-color: #292929;
+  border-radius: 15px;
 
-    background-color: #292929;
-    border-radius: 15px;
-
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.8rem;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.8rem;
 }
