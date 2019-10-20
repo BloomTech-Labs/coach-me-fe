@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addMetric } from '../../../actions/clientActions';
+import { connect } from 'react-redux';
+import { translate } from '../../utils/language/translate';
+
+function HealthMetricForm(props) {
+  console.log(props);
+=======
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateMetric } from "../../../actions/clientActions";
@@ -11,6 +21,7 @@ import { translate } from "../../utils/language/translate";
 
 function HealthMetricForm(props) {
   // console.log(props);
+>>>>>>> 7dbad760aed5ce2cac04cedb6d100f17d7f8797e
   // Implements Redux
   const state = useSelector(state => state);
   const dispatch = useDispatch();
@@ -62,6 +73,38 @@ function HealthMetricForm(props) {
   };
 
   return (
+<<<<<<< HEAD
+    <div className='metric-form-wrapper'>
+      <h1>{translate('HMFtitle')}</h1>
+      <form onSubmit={submitNewMetric}>
+        <div classname='input-label'>
+          <img></img>
+          <h3> {translate('fastingGlucose')}</h3>
+        </div>
+        <input
+          className='metric-input'
+          onChange={handleInputChange}
+          type='integer'
+          value={bS}
+          name='Blood_sugar'
+        />
+        <p>mg/dL</p>
+        <div classname='input-label'>
+          <img></img>
+          <h3>{translate('weight')}</h3>
+        </div>
+        <input
+          className='metric-input'
+          onChange={handleInputChange4}
+          type='integer'
+          value={weight}
+          name='Weight'
+        />
+        <p>lbs</p>
+        <div classname='input-label'>
+          <img></img>
+          <h3>{translate('bp')}</h3>
+=======
     <div className="metric-form-wrapper">
       <h1>{translate("HMFtitle")}</h1>
       <form onSubmit={submitNewMetric}>
@@ -70,6 +113,7 @@ function HealthMetricForm(props) {
             <img class="icon" src={iconfastingBloodGlucose}></img>
           </div>
           <h3>{translate("fastingGlucose")}</h3>
+>>>>>>> 7dbad760aed5ce2cac04cedb6d100f17d7f8797e
         </div>
         <div className="input-wrapper">
           <input
@@ -132,8 +176,13 @@ function HealthMetricForm(props) {
   );
 }
 const mapStatetoProps = state => {
+<<<<<<< HEAD
+  console.log('metric', state);
+  console.log(state.clientinfo.id);
+=======
   // console.log('metric', state);
   // console.log(state.clientinfo.id);
+>>>>>>> 7dbad760aed5ce2cac04cedb6d100f17d7f8797e
   return {
     language: state.clientinfo.language,
     Client_Name: state.clientinfo.id
