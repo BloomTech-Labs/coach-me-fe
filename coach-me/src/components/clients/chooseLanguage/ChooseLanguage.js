@@ -3,19 +3,12 @@ import { Route, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { translate } from '../../utils/language/translate';
 import { connect } from 'react-redux';
-
-
 import './chooseLanguage.scss';
 import TestTranslator from './TestTranslator';
 
 const ChooseLanguage = props => {
   const [langPref, setLangPref] = useState('esp');
-
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getClientInfo(props));
-  // }, []);
 
   return (
     <div className='container'>
@@ -31,10 +24,6 @@ const ChooseLanguage = props => {
         <Link className='next-btn' to='/translator'>
           Next
         </Link>
-        {/* <Route
-          path='/translator'
-          render={props => <TestTranslator {...props} language={langPref} />}
-        /> */}
       </div>
     </div>
   );

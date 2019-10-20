@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './clientLists.scss';
 
 const ClientLists = () => {

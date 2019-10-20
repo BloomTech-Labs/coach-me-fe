@@ -12,15 +12,15 @@ import {
   GET_RECORDS_START,
   GET_RECORDS_SUCCESS,
   GET_RECORDS_FAILURE
-} from "../actions/types";
+} from '../actions/types';
 
 const initialState = {
   clientinfo: {
-    id: "",
-    phonenumber: "",
-    coach: "",
-    language: "",
-    name: ""
+    id: '',
+    phonenumber: '',
+    coach: '',
+    language: '',
+    name: ''
   },
   records: null,
   Blood_sugar: 0,
@@ -29,25 +29,24 @@ const initialState = {
   Blood_pressure_under: 0,
   Date_time: null,
   isfetching: false,
-  error: "",
+  error: '',
   clientRecords: []
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_METRIC_START:
-      // console.log('Fired Actions', action.payload);
       return {
         ...state,
         isfetching: true,
-        error: ""
+        error: ''
       };
     case UPDATE_METRIC_SUCCESS:
       return {
         ...state,
         isfetching: false,
         records: { ...action.payload },
-        error: ""
+        error: ''
       };
     case UPDATE_METRIC_FAILURE:
       return {
@@ -59,28 +58,21 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isfetching: true,
-        error: ""
+        error: ''
       };
     case GET_CLIENTS_SUCCESS:
-      // console.log('action payload login', action.payload)
       return {
         ...state,
         isfetching: false,
         clientinfo: {
           ...state.clientinfo,
-          id: action.payload["Coaching master table"],
+          id: action.payload['Coaching master table'],
           phonenumber: action.payload.Phone,
           coach: action.payload.Coach,
           language: action.payload.Language,
-          name: action.payload["Client_Name"]
+          name: action.payload['Client_Name']
         },
-        error: ""
-      };
-    case GET_CLIENTS_FAILURE:
-      return {
-        ...state,
-        isfetching: false,
-        err: action.payload
+        error: ''
       };
     case GET_CLIENTS_FAILURE:
       return {
@@ -92,15 +84,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isfetching: true,
-        error: ""
+        error: ''
       };
     case GET_RECORDS_SUCCESS:
-      // console.log('in reducer', action.payload);
       return {
         ...state,
         isfetching: false,
         clientRecords: [...action.payload],
-        error: ""
+        error: ''
       };
     case GET_RECORDS_FAILURE:
       return {

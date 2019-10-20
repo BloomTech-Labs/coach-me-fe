@@ -17,8 +17,6 @@ const WelcomeScreen = () => {
       .catch(err => console.log(err.message));
   }, []);
 
-  console.log('state data', state);
-  console.log('coach data', coach);
   return (
     <div className='welcomeScreen'>
       <h1>Welcome to CoachMe, {coach}!</h1>

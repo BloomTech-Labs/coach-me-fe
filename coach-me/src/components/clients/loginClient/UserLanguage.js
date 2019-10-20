@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const UserLanguage = props => {
   const { config, handleChange, setconfig } = props;
-  // console.log(config)
   const nextstep = e => {
     e.preventDefault();
     props.next();
@@ -14,24 +13,22 @@ const UserLanguage = props => {
       <form>
         <label>English</label>
         <input
-          type="checkbox"
-          name="language"
+          type='checkbox'
+          name='language'
           onChange={handleChange}
-          value="English"
+          value='English'
         />
-
         <label>Español</label>
         <input
-          type="checkbox"
-          name="language"
+          type='checkbox'
+          name='language'
           onChange={handleChange}
-          value="Spanish"
+          value='Spanish'
         />
-        <button type="submit"> add</button>
+        <button type='submit'> add</button>
       </form>
-      <button onClick={nextstep} type="button">
-        {" "}
-        Next{" "}
+      <button onClick={nextstep} type='button'>
+        Next
       </button>
     </div>
   );

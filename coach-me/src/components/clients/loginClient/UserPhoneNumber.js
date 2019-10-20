@@ -15,22 +15,14 @@ const UserPhoneNumber = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
     const number = input.areacode + input.dig1 + input.dig2;
-
     getinfo(number);
   };
-  //  useEffect( () =>{
-  //      if(config){
-  //         getClientInfo(config)
-  //      }
-
-  //  },[config])
 
   const moveOver = (e, item1, item2) => {
     const length = e.target.value.length;
     const maxLength = document.getElementById(item1).getAttribute('maxLength');
-    if (length == maxLength) {
+    if (length === maxLength) {
       document.getElementById(item2).focus();
     }
   };
@@ -40,7 +32,6 @@ const UserPhoneNumber = props => {
       <div className='img-container'>
         <Logo />
       </div>
-
       <div>
         <div className='header'>
           <p>Enter your phone number to get started.</p>
@@ -69,7 +60,6 @@ const UserPhoneNumber = props => {
                 }}
               />
               <span>)</span>
-
               <input
                 type='text'
                 id='txt2'
@@ -89,7 +79,6 @@ const UserPhoneNumber = props => {
                 name='dig2'
                 onChange={handleChange}
                 value={input.dig2}
-                //    onKeyUp={ (e)=> {moveOver(e,'txt2', 'txt3')}
               />
             </div>
             <button className='trigger' type='submit'>
@@ -99,8 +88,6 @@ const UserPhoneNumber = props => {
           </div>
         </form>
       </div>
-
-      <div></div>
     </div>
   );
 };

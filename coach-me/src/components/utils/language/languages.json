@@ -20,7 +20,7 @@
     "glucoseHistoryDesc": "All previous fasting blood glucose numbers.",
     "weightHistoryDesc": "All previous weight numbers.",
     "bpHistoryDesc": "All previous blood pressure numbers.",
-    "formHeader":"Today's Numbers"
+    "formHeader": "Today's Numbers"
   },
   "Spanish": {
     "hello": "Hola",
@@ -43,6 +43,6 @@
     "glucoseHistoryDesc": "Todos los números anteriores de glucosa en sangre en ayunas.",
     "weightHistoryDesc": "Todos los números de peso anteriores.",
     "bpHistoryDesc": "Todos los números anteriores de presión arterial.",
-    "formHeader":"Numero de Hoy"
+    "formHeader": "Numero de Hoy"
   }
 }

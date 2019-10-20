@@ -1,10 +1,8 @@
-// @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 h1 {
   height: 45px;
-  //   margin-left: 43px;
   margin-top: 45px;
-
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
@@ -19,7 +17,6 @@ h3 {
   font-weight: 600;
   font-size: 1.4rem;
   line-height: 20px;
-  // border: 1px solid green;
 }
 
 .metric-form-wrapper {
@@ -30,17 +27,14 @@ h3 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  //   border: 1px solid red;
 }
 
 .img-wrapper {
-  //   margin: 0px 13px 0 61px;
   margin-right: 13px;
   display: flex;
   align-items: flex-end;
   height: 25px;
   width: 25px;
-  //   border: 1px solid blue;
 }
 
 .input-wrapper {
@@ -48,7 +42,6 @@ h3 {
   align-items: center;
   justify-content: flex-start;
   padding-left: 20%;
-  // border: 5px solid forestgreen;
 }
 
 .input-label {
@@ -58,47 +51,26 @@ h3 {
   align-items: center;
   justify-content: flex-start;
   padding-left: 8%;
-  //   border: 1px solid red;
 }
 
 .metric-input {
   height: 53px;
   width: 60%;
-  // margin-left: 92px;
-  // margin-top: 15px;
   background: #f0f0f0;
   border: 2.5px solid #f0f0f0;
   box-sizing: border-box;
   border-radius: 10px;
-
-  // &:last-child {
-  //     margin-left: 10px;
-  //     background: red;
-  // }
 }
 
 .metric-input-pb {
   height: 53px;
   width: 27%;
-  // margin-left: 92px;
   margin-right: 1px;
-  // margin-top: 15px;
   background: #f0f0f0;
   border: 2.5px solid #f0f0f0;
   box-sizing: border-box;
   border-radius: 10px;
 }
-
-// .metric-input-pb {
-//     height: 38px;
-//     width: 20%;
-//     margin-left: 13px;
-//     margin-top: 15px;
-//     background: #f0f0f0;
-//     border: 2.5px solid #f0f0f0;
-//     box-sizing: border-box;
-//     border-radius: 10px;
-// }
 
 p {
   font-family: Poppins;
@@ -107,7 +79,6 @@ p {
   font-size: 1.4rem;
   line-height: 23px;
   margin-left: 15px;
-  // border: 1px solid yellow;
 }
 
 span {
@@ -122,7 +93,6 @@ span {
 button {
   width: 85%;
   height: 80px;
-  //   margin-left: 39px;
   margin-top: 30px;
   color: white;
   border: none;

@@ -1,9 +1,7 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 const ClientCard = ({ client, history }) => {
-  // console.log('The client', client);
-
   const handleClick = () => {
     history.push(`/client/${client.id}`);
   };
