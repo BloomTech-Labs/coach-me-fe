@@ -10,14 +10,14 @@ import moment from 'moment'
 const LoginClient = props => {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    const [config, setconfig] = useState({ phonenumber: '' });
+    const [config, setConfig] = useState({ phonenumber: '' });
     const handleChange = e => {
-        setconfig({ ...config, [e.target.name]: e.target.value });
+        setConfig({ ...config, [e.target.name]: e.target.value });
     };
+
     const getinfo = info => {
-        setconfig({ ...config, phonenumber: info });
+        setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-        props.history.push('/metric-form');
     };
 
     return (
@@ -25,7 +25,7 @@ const LoginClient = props => {
             <UserPhoneNumber
                 handleChange={handleChange}
                 config={config}
-                setconfig={setconfig}
+                setconfig={setConfig}
                 getinfo={getinfo}
             />
         </div>
