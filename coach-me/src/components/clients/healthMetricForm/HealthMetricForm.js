@@ -6,6 +6,8 @@ import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
 import iconweight from '../../utils/assets/weight.svg';
 import { translate } from '../../utils/language/translate';
 import './healthMetricForm.scss';
+import SubmitModal from './submitModal'
+import moment from 'moment'
 
 function HealthMetricForm(props) {
     const state = useSelector(state => state);
@@ -15,6 +17,7 @@ function HealthMetricForm(props) {
     const [bS, setBS] = useState();
     const [weight, setWeight] = useState();
     const [metrics, setMetrics] = useState();
+    const [show, setshow] = useState(false)
 
     const handleInputChange = e => {
         e.preventDefault();
@@ -38,8 +41,8 @@ function HealthMetricForm(props) {
             records: [
                 {
                     fields: {
-                        Client_Name: props.id,
-                        Date_time: null,
+                        Client_Name: state.clientinfo.id,
+                        Date_time: moment().format(),
                         Blood_pressure_over: parseInt(bpOver),
                         Blood_pressure_under: parseInt(bpUnder),
                         Blood_sugar: parseInt(bS),
@@ -51,14 +54,33 @@ function HealthMetricForm(props) {
     }, [bpOver, bpUnder, bS, weight]);
 
     const submitNewMetric = e => {
+      
         e.preventDefault();
         dispatch(addMetric(metrics));
-        props.history.push('/dashboard-client');
+        setshow(!show)
     };
+    const submitMetric = e => {
+     
+      props.history.push('/dashboard-client');
+      
+  };
+  const failMetric = e => {
+     setshow(!show)
+    
+    
+};
+
 
     return (
         <div className='metric-form-wrapper'>
+        
+        <SubmitModal show={show} onSubmit={submitMetric}
+        bpOver={bpOver} bpUnder={bpUnder} bS={bS} weight={weight}
+        failMetric={failMetric}
+        />
+       
             <h1>{translate('HMFtitle')}</h1>
+            
             <form onSubmit={submitNewMetric}>
                 <div className='input-label'>
                     <div className='img-wrapper'>
