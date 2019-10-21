@@ -16,7 +16,7 @@ const LoginClient = props => {
     const getinfo = info => {
         setconfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-        props.history.push('/welcome');
+        props.history.push('/metric-form');
     };
 
     return (
