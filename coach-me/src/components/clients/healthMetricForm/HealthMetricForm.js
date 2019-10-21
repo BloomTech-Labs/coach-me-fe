@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateMetric } from '../../../actions/clientActions';
 import { addMetric } from '../../../actions/clientActions';
 import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
 import iconbloodPressure from '../../utils/assets/bloodPressure.svg';

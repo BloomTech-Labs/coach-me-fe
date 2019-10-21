@@ -24,7 +24,7 @@ const UserPhoneNumber = props => {
         const maxLength = document
             .getElementById(item1)
             .getAttribute('maxLength');
-        if (length === maxLength) {
+        if (length == maxLength) {
             document.getElementById(item2).focus();
         }
     };
