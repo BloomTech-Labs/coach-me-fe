@@ -7,28 +7,28 @@ import './loginClient.scss';
 //925-639-1639
 
 const LoginClient = props => {
-  const state = useSelector(state => state);
-  const dispatch = useDispatch();
-  const [config, setconfig] = useState({ phonenumber: '' });
-  const handleChange = e => {
-    setconfig({ ...config, [e.target.name]: e.target.value });
-  };
-  const getinfo = info => {
-    setconfig({ ...config, phonenumber: info });
-    dispatch(getClientInfo(info));
-    props.history.push('/welcome');
-  };
+    const state = useSelector(state => state);
+    const dispatch = useDispatch();
+    const [config, setconfig] = useState({ phonenumber: '' });
+    const handleChange = e => {
+        setconfig({ ...config, [e.target.name]: e.target.value });
+    };
+    const getinfo = info => {
+        setconfig({ ...config, phonenumber: info });
+        dispatch(getClientInfo(info));
+        props.history.push('/welcome');
+    };
 
-  return (
-    <div>
-      <UserPhoneNumber
-        handleChange={handleChange}
-        config={config}
-        setconfig={setconfig}
-        getinfo={getinfo}
-      />
-    </div>
-  );
+    return (
+        <div>
+            <UserPhoneNumber
+                handleChange={handleChange}
+                config={config}
+                setconfig={setconfig}
+                getinfo={getinfo}
+            />
+        </div>
+    );
 };
 
 export default LoginClient;
