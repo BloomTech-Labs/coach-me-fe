@@ -19,8 +19,8 @@ const headers = {
     Authorization: localStorage.getItem('token')
 };
 
-export const getClientInfo = num => dispatch => {
-    const clientnum = { clientPhone: num };
+export const getClientInfo = props => dispatch => {
+    const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
     axios
         .post(
@@ -33,6 +33,7 @@ export const getClientInfo = num => dispatch => {
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject.fields
             });
+            props.history.push('/metric-form');
         })
         .catch(err => {
             dispatch({

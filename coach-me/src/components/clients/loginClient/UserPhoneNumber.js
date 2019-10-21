@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as Logo } from './assets/logo.svg';
+import { withRouter } from 'react-router-dom';
 import './loginClient.scss';
 
 const UserPhoneNumber = props => {
     const { getinfo } = props;
-
     const [input, setinput] = useState({ areacode: '', dig1: '', dig2: '' });
 
     const handleChange = e => {
@@ -16,7 +16,7 @@ const UserPhoneNumber = props => {
     const handleSubmit = e => {
         e.preventDefault();
         const number = input.areacode + input.dig1 + input.dig2;
-        getinfo(number);
+        getinfo({ num: number, history: props.history });
     };
 
     const moveOver = (e, item1, item2) => {
@@ -24,7 +24,7 @@ const UserPhoneNumber = props => {
         const maxLength = document
             .getElementById(item1)
             .getAttribute('maxLength');
-        if (length == maxLength) {
+        if (length === maxLength) {
             document.getElementById(item2).focus();
         }
     };
@@ -84,7 +84,6 @@ const UserPhoneNumber = props => {
                             />
                         </div>
                         <button className='trigger' type='submit'>
-                            {' '}
                             <FontAwesomeIcon icon={faArrowRight} />
                         </button>
                     </div>
@@ -94,4 +93,4 @@ const UserPhoneNumber = props => {
     );
 };
 
-export default UserPhoneNumber;
+export default withRouter(UserPhoneNumber);
