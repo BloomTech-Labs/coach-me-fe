@@ -13,20 +13,30 @@ import LoginClient from '../clients/loginClient/LoginClient';
 import Welcome from '../clients/welcomeScreen/WelcomeScreen';
 
 const Routes = props => {
-  return (
-    <div>
-      <Route exact path='/' render={props => <LoginClient {...props} />} />
-      <PrivateRoute path='/metrics' component={HealthMetric} />
-      <PrivateRoute path='/dashboard' component={CoachDashboard} />
-      <PrivateRoute path='/dashboard-client' component={ClientDashboard} />
-      <PrivateRoute path='/client/:clientid' component={ClientInfo} />
-      <PrivateRoute path='/clients' component={ClientsList} />
-      <PrivateRoute path='/language/:clientid' component={ChooseLanguage} />
-      <PrivateRoute path='/translator' component={TestTranslator} />
-      <PrivateRoute path='/metric-form' component={HealthMetricForm} />
-      <PrivateRoute path='/welcome' component={Welcome} />
-    </div>
-  );
+    return (
+        <div>
+            <Route
+                exact
+                path='/'
+                render={props => <LoginClient {...props} />}
+            />
+            <PrivateRoute path='/metrics' component={HealthMetric} />
+            <PrivateRoute path='/dashboard' component={CoachDashboard} />
+            <PrivateRoute
+                path='/dashboard-client'
+                component={ClientDashboard}
+            />
+            <PrivateRoute path='/client/:clientid' component={ClientInfo} />
+            <PrivateRoute path='/clients' component={ClientsList} />
+            <PrivateRoute
+                path='/language/:clientid'
+                component={ChooseLanguage}
+            />
+            <PrivateRoute path='/translator' component={TestTranslator} />
+            <PrivateRoute path='/metric-form' component={HealthMetricForm} />
+            <PrivateRoute path='/welcome' component={Welcome} />
+        </div>
+    );
 };
 
 // const mapStatetoProps = state => {
