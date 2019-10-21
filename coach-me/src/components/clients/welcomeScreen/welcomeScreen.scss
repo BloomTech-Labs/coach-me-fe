@@ -4,15 +4,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 6rem 1rem;
+    text-align: center;
 
     h1 {
         font-weight: 600;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-family: Poppins;
+        line-height: 1.5rem;
     }
 
     .header2 {
+        text-align: center;
         font-weight: 600;
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -22,6 +26,7 @@
     }
 
     .footerText {
+        margin: 0 auto;
         text-align: left;
     }
 }
