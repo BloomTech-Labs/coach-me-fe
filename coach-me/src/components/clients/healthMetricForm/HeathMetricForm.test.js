@@ -1,6 +1,5 @@
 import React from 'react';
-import HeathMetricForm from './HeathMetricForm';
-
+import HealthMetricForm from './HeathMetricForm';
 import '@testing-library/react/cleanup-after-each';
 import { render } from '@testing-library/react';
 
