@@ -99,6 +99,7 @@ function HealthMetricForm(props) {
                         type='integer'
                         value={bS}
                         name='Blood_sugar'
+                        minLength ='2'
                     />
                     <p>mg/dL</p>
                 </div>
@@ -120,6 +121,7 @@ function HealthMetricForm(props) {
                         type='integer'
                         value={weight}
                         name='Weight'
+                        minLength ='2'
                     />
                     <p>lbs</p>
                 </div>
@@ -142,6 +144,7 @@ function HealthMetricForm(props) {
                             type='integer'
                             value={bpOver}
                             name='Blood_pressure_over'
+                            minLength ='2'
                         />
                         <span>/</span>
                         <input
@@ -150,6 +153,7 @@ function HealthMetricForm(props) {
                             type='integer'
                             value={bpUnder}
                             name='Blood_pressure_under'
+                            minLength ='2'
                         />
                         <p>mmHg</p>
                     </div>
