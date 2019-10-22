@@ -1,7 +1,15 @@
 import React from 'react';
 import moment from 'moment';
 
+import { translate } from '../../utils/language/translate';
+
 import LineGraph from './LineGraph';
+
+import './healthMetrics.scss';
+import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
+import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
+import iconweight from '../../utils/assets/weight.svg';
+import iconback from '../../utils/assets/back.svg';
 
 function HealthMetricCards(props) {
     // console.log('from healthmetriccards', props);
@@ -12,9 +20,8 @@ function HealthMetricCards(props) {
     };
 
     //Data reshaped for chartjs used in <LineGraph />
-
     const datesArray = props.clientData.map(date => {
-        return moment(date.createdTime).format('MMM Do');
+        return moment(date.fields.Date_time).format('MMM Do');
     });
     const bloodSugarArray = props.clientData.map(value => {
         return value.fields.Blood_sugar;
@@ -29,30 +36,25 @@ function HealthMetricCards(props) {
         return value.fields.Blood_pressure_under;
     });
 
+    //-----------------Blood Pressure (over/under)
     if (typeof props.historyFilter === 'object') {
-        //if Blood Pressure
         return (
             <div className='metric-container'>
                 <div className='back-btn-container'>
                     <div className='back-button' onClick={() => handleClick()}>
-                        <svg
-                            width='15'
-                            height='15'
-                            viewBox='0 0 15 15'
-                            fill='none'
-                            xmlns='http://www.w3.org/2000/svg'
-                        >
-                            <path
-                                d='M8.62236 13.6408L7.87914 14.384C7.56445 14.6987 7.05557 14.6987 6.74423 14.384L0.236023 7.87914C-0.0786742 7.56445 -0.0786742 7.05558 0.236023 6.74423L6.74423 0.236023C7.05892 -0.0786742 7.56779 -0.0786742 7.87914 0.236023L8.62236 0.979244C8.94041 1.29729 8.93371 1.8162 8.60897 2.12755L4.57482 5.97088H14.1965C14.6418 5.97088 15 6.32909 15 6.77436V7.84567C15 8.29093 14.6418 8.64915 14.1965 8.64915H4.57482L8.60897 12.4925C8.93706 12.8038 8.94376 13.3227 8.62236 13.6408Z'
-                                fill='black'
-                            />
-                        </svg>
-                        <p>Back</p>
+                        <div className='icon-back'>
+                            <img
+                                className='icon'
+                                alt='Back Arrow'
+                                src={iconback}
+                            ></img>
+                        </div>
+                        <p>{translate('back')}</p>
                     </div>
                 </div>
                 <div className='history-header'>
-                    <h2>{props.historyLabel}</h2>
-                    <h4>All previous fasting {props.historyLabel} metrics.</h4>
+                    <h2>{translate('bp')}</h2>
+                    <h4>{translate('bpHistoryDesc')}</h4>
                 </div>
                 <LineGraph
                     bpOverArray={bpOverArray}
@@ -62,9 +64,22 @@ function HealthMetricCards(props) {
                 <div className='health-cards-container'>
                     {props.clientData.map((record, index) => (
                         <div className='health-card'>
+                            <div className='metric-icon'>
+                                <img
+                                    className='icon'
+                                    alt='Blood Pressure Icon'
+                                    src={iconbloodPressure}
+                                ></img>
+                            </div>
                             <div className='health-label'>
-                                <h3>{props.historyLabel}</h3>
-                                <h4>{record.fields['Date_time']}</h4>
+                                <div className='label-container'>
+                                    <h3>{translate('bp')}</h3>
+                                </div>
+                                <h4>
+                                    {moment(record.fields.Date_time).format(
+                                        'MMM Do YYYY'
+                                    )}
+                                </h4>
                             </div>
                             <div className='health-metric-value'>
                                 <h4 className='health-value'>
@@ -85,45 +100,50 @@ function HealthMetricCards(props) {
                 </div>
             </div>
         );
-    } else {
-        // else not Blood Pressure (Blood Sugar or Weight)
+    }
+
+    //-----------------Fasting Blood Glucose (Blood Sugar)
+    if (props.historyFilter === 'Blood_sugar') {
         return (
             <div className='metric-container'>
                 <div className='back-btn-container'>
                     <div className='back-button' onClick={() => handleClick()}>
-                        <svg
-                            width='15'
-                            height='15'
-                            viewBox='0 0 15 15'
-                            fill='none'
-                            xmlns='http://www.w3.org/2000/svg'
-                        >
-                            <path
-                                d='M8.62236 13.6408L7.87914 14.384C7.56445 14.6987 7.05557 14.6987 6.74423 14.384L0.236023 7.87914C-0.0786742 7.56445 -0.0786742 7.05558 0.236023 6.74423L6.74423 0.236023C7.05892 -0.0786742 7.56779 -0.0786742 7.87914 0.236023L8.62236 0.979244C8.94041 1.29729 8.93371 1.8162 8.60897 2.12755L4.57482 5.97088H14.1965C14.6418 5.97088 15 6.32909 15 6.77436V7.84567C15 8.29093 14.6418 8.64915 14.1965 8.64915H4.57482L8.60897 12.4925C8.93706 12.8038 8.94376 13.3227 8.62236 13.6408Z'
-                                fill='black'
-                            />
-                        </svg>
-                        <p>Back</p>
+                        <div className='icon-back'>
+                            <img
+                                className='icon'
+                                alt='Back Arrow'
+                                src={iconback}
+                            ></img>
+                        </div>
+                        <p>{translate('back')}</p>
                     </div>
                 </div>
                 <div className='history-header'>
-                    <h2>{props.historyLabel}</h2>
-                    <h4>All previous fasting {props.historyLabel} metrics.</h4>
+                    <h2>{translate('bloodGlucose')}</h2>
+                    <h4>{translate('glucoseHistoryDesc')}</h4>
                 </div>
-                {props.historyLabel === 'Weight' ? (
-                    <LineGraph values={weightArray} datesArray={datesArray} />
-                ) : (
-                    <LineGraph
-                        values={bloodSugarArray}
-                        datesArray={datesArray}
-                    />
-                )}
+
+                <LineGraph values={bloodSugarArray} datesArray={datesArray} />
+
                 <div className='health-cards-container'>
                     {props.clientData.map((record, index) => (
                         <div className='health-card'>
+                            <div className='metric-icon'>
+                                <img
+                                    className='icon'
+                                    alt='Blood Gluscose Icon'
+                                    src={iconfastingBloodGlucose}
+                                ></img>
+                            </div>
                             <div className='health-label'>
-                                <h3>{props.historyLabel}</h3>
-                                <h4>{record.fields['Date_time']}</h4>
+                                <div className='label-container'>
+                                    <h3>{translate('bloodGlucose')}</h3>
+                                </div>
+                                <h4>
+                                    {moment(record.fields.Date_time).format(
+                                        'MMM Do YYYY'
+                                    )}
+                                </h4>
                             </div>
                             <div className='health-metric-value'>
                                 <h4 className='health-value'>
@@ -131,7 +151,69 @@ function HealthMetricCards(props) {
                                         ? record.fields[props.historyFilter]
                                         : 'N/A'}
                                 </h4>
-                                <h4>{props.historyScale}</h4>
+                                <h4 className='health-scale'>
+                                    {props.historyScale}
+                                </h4>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    }
+
+    //-----------------Weight
+    if (props.historyFilter === 'Weight') {
+        return (
+            <div className='metric-container'>
+                <div className='back-btn-container'>
+                    <div className='back-button' onClick={() => handleClick()}>
+                        <div className='icon-back'>
+                            <img
+                                className='icon'
+                                alt='Back Arrow'
+                                src={iconback}
+                            ></img>
+                        </div>
+                        <p>{translate('back')}</p>
+                    </div>
+                </div>
+                <div className='history-header'>
+                    <h2>{translate('weight')}</h2>
+                    <h4>{translate('weightHistoryDesc')}</h4>
+                </div>
+
+                <LineGraph values={weightArray} datesArray={datesArray} />
+
+                <div className='health-cards-container'>
+                    {props.clientData.map((record, index) => (
+                        <div className='health-card'>
+                            <div className='metric-icon'>
+                                <img
+                                    className='icon'
+                                    alt='Weight Icon'
+                                    src={iconweight}
+                                ></img>
+                            </div>
+                            <div className='health-label'>
+                                <div className='label-container'>
+                                    <h3>{translate('weight')}</h3>
+                                </div>
+                                <h4>
+                                    {moment(record.fields.Date_time).format(
+                                        'MMM Do YYYY'
+                                    )}
+                                </h4>
+                            </div>
+                            <div className='health-metric-value'>
+                                <h4 className='health-value'>
+                                    {record.fields[props.historyFilter]
+                                        ? record.fields[props.historyFilter]
+                                        : 'N/A'}
+                                </h4>
+                                <h4 className='health-scale'>
+                                    {props.historyScale}
+                                </h4>
                             </div>
                         </div>
                     ))}

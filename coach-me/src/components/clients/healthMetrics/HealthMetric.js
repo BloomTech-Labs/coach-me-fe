@@ -17,10 +17,10 @@ import iconweight from '../../utils/assets/weight.svg';
 const HealthMetric = props => {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    const clientData = state.clientRecords;
+    const clientData = [...state.clientRecords];
 
     clientData.sort((a, b) => {
-        return Date.parse(a.createdTime) - Date.parse(b.createdTime);
+        return Date.parse(a.fields.Date_time) - Date.parse(b.fields.Date_time);
     });
 
     console.log('clientData***', clientData);
@@ -53,7 +53,7 @@ const HealthMetric = props => {
     //Data reshaped for chartjs used in <LineGraph />
 
     const datesArray = clientData.map(date => {
-        return moment(date.createdTime).format('MMM Do');
+        return moment(date.fields.Date_time).format('MMM Do');
     });
     const bloodSugarArray = clientData.map(value => {
         return value.fields.Blood_sugar;
