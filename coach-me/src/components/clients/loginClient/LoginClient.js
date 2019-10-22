@@ -3,10 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import UserPhoneNumber from './UserPhoneNumber';
 import { getClientInfo } from '../../../actions/clientActions';
 import './loginClient.scss';
-import moment from 'moment'
+
 
 //925-639-1639
-
 const LoginClient = props => {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
@@ -17,7 +16,16 @@ const LoginClient = props => {
     const getinfo = info => {
         setconfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-        props.history.push('/metric-form');
+     const loginAttempts =   localStorage.getItem('loginAttempts')
+        console.log('Look at all this info!',loginAttempts)
+        if(loginAttempts == 1){
+          props.history.push('/welcome');
+        }
+        else{
+          props.history.push('/metric-form');
+        }
+
+        
     };
 
     return (

@@ -28,7 +28,9 @@ export const getClientInfo = num => dispatch => {
             clientnum
         )
         .then(res => {
+            console.log('res.data',res.data.loginAttempts)
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('loginAttempts', res.data.loginAttempts);
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject.fields

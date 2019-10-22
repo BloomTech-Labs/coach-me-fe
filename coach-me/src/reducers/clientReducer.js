@@ -15,6 +15,8 @@ import {
 } from '../actions/types';
 
 const initialState = {
+    message:'',
+    LoginAttempts:0,
     clientinfo: {
         id: '',
         phonenumber: '',
