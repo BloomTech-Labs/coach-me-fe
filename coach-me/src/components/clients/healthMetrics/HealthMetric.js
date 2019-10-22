@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import moment from 'moment';
-
 import HealthMetricCards from './HealthMetricCards';
 import MetricDisplay from './MetricDisplay';
-
-//----------------------added
+import { getClientRecords } from '../../../actions/clientActions';
+import './healthMetrics.scss';
+import moment from 'moment';
 import LineGraph from './LineGraph';
 
-import { getClientRecords } from '../../../actions/clientActions';
-
-import './healthMetrics.scss';
-
 const HealthMetric = props => {
-    const { clientData } = props;
+    const state = useSelector(state => state);
+    const dispatch = useDispatch();
+    const clientData = state.clientRecords;
 
     // Following state controls the history toggle functionality:
     const [toggleHistory, setToggleHistory] = useState(false);
@@ -25,17 +23,14 @@ const HealthMetric = props => {
     const [historyFilter, setHistoryFilter] = useState('');
 
     useEffect(() => {
-        props.getClientRecords('recZNs8pQo2rSsw0T');
+        dispatch(getClientRecords('recZNs8pQo2rSsw0T'));
     }, []);
-
-    // console.log('before useEffect', props);
 
     const handleClick = (heading, label, filter, filter2) => {
         setHistoryFilter('');
         setToggleHistory(true);
         setHistoryLabel(heading);
         setHistoryScale(label);
-
         if (filter2) {
             setHistoryFilter([filter, filter2]);
         } else {
@@ -250,11 +245,4 @@ const HealthMetric = props => {
     }
 };
 
-const mapStateToProps = state => ({
-    clientData: state.clientRecords
-});
-
-export default connect(
-    mapStateToProps,
-    { getClientRecords }
-)(HealthMetric);
+export default HealthMetric;
