@@ -6,11 +6,7 @@ import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
 import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
 import iconweight from '../../utils/assets/weight.svg';
 import { addMetric } from '../../../actions/clientActions';
-import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
-import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
-import iconweight from '../../utils/assets/weight.svg';
 import { translate } from '../../utils/language/translate';
-import './healthMetricForm.scss';
 import SubmitModal from './submitModal';
 import moment from 'moment';
 
