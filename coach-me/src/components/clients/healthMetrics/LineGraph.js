@@ -8,12 +8,6 @@ const LineGraph = props => {
     const datesArray = props.datesArray ? props.datesArray.slice(-4) : [];
     console.log('datesArray-4', datesArray);
 
-    // const metricValuesArray = props.clientData.clientData.map(value => {
-    //     // console.log('value', value.fields.Blood_sugar);
-    //     return value.fields.Blood_sugar;
-    // });
-    // console.log('metricValuesArray', metricValuesArray);
-
     const metricValuesArray = props.values ? props.values.slice(-4) : [];
     console.log('values', metricValuesArray);
 
@@ -100,7 +94,7 @@ const LineGraph = props => {
           };
 
     return (
-        <div>
+        <div className='line-graph'>
             <Line data={data} legend={{ display: false }} />
         </div>
     );
