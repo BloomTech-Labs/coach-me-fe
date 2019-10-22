@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMetric } from '../../../actions/clientActions';
+import { updateMetric } from '../../../actions/clientActions';
+import './healthMetricForm.scss';
 import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
 import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
 import iconweight from '../../utils/assets/weight.svg';
+import { addMetric } from '../../../actions/clientActions';
 import { translate } from '../../utils/language/translate';
-import './healthMetricForm.scss';
-import SubmitModal from './submitModal'
-import moment from 'moment'
+import SubmitModal from './submitModal';
+import moment from 'moment';
 
 function HealthMetricForm(props) {
     const state = useSelector(state => state);
@@ -17,7 +18,7 @@ function HealthMetricForm(props) {
     const [bS, setBS] = useState();
     const [weight, setWeight] = useState();
     const [metrics, setMetrics] = useState();
-    const [show, setshow] = useState(false)
+    const [show, setshow] = useState(false);
 
     const handleInputChange = e => {
         e.preventDefault();
@@ -54,33 +55,31 @@ function HealthMetricForm(props) {
     }, [bpOver, bpUnder, bS, weight]);
 
     const submitNewMetric = e => {
-      
         e.preventDefault();
         dispatch(addMetric(metrics));
-        setshow(!show)
+        setshow(!show);
     };
     const submitMetric = e => {
-     
-      props.history.push('/dashboard-client');
-      
-  };
-  const failMetric = e => {
-     setshow(!show)
-    
-    
-};
-
+        props.history.push('/dashboard-client');
+    };
+    const failMetric = e => {
+        setshow(!show);
+    };
 
     return (
         <div className='metric-form-wrapper'>
-        
-        <SubmitModal show={show} onSubmit={submitMetric}
-        bpOver={bpOver} bpUnder={bpUnder} bS={bS} weight={weight}
-        failMetric={failMetric}
-        />
-       
+            <SubmitModal
+                show={show}
+                onSubmit={submitMetric}
+                bpOver={bpOver}
+                bpUnder={bpUnder}
+                bS={bS}
+                weight={weight}
+                failMetric={failMetric}
+            />
+
             <h1>{translate('HMFtitle')}</h1>
-            
+
             <form onSubmit={submitNewMetric}>
                 <div className='input-label'>
                     <div className='img-wrapper'>
@@ -99,7 +98,7 @@ function HealthMetricForm(props) {
                         type='integer'
                         value={bS}
                         name='Blood_sugar'
-                        minLength ='2'
+                        minLength='2'
                     />
                     <p>mg/dL</p>
                 </div>
@@ -121,7 +120,7 @@ function HealthMetricForm(props) {
                         type='integer'
                         value={weight}
                         name='Weight'
-                        minLength ='2'
+                        minLength='2'
                     />
                     <p>lbs</p>
                 </div>
@@ -144,7 +143,7 @@ function HealthMetricForm(props) {
                             type='integer'
                             value={bpOver}
                             name='Blood_pressure_over'
-                            minLength ='2'
+                            minLength='2'
                         />
                         <span>/</span>
                         <input
@@ -153,7 +152,7 @@ function HealthMetricForm(props) {
                             type='integer'
                             value={bpUnder}
                             name='Blood_pressure_under'
-                            minLength ='2'
+                            minLength='2'
                         />
                         <p>mmHg</p>
                     </div>
