@@ -1,4 +1,7 @@
 import React from 'react';
+import moment from 'moment';
+
+import LineGraph from './LineGraph';
 
 function HealthMetricCards(props) {
     // console.log('from healthmetriccards', props);
@@ -8,7 +11,26 @@ function HealthMetricCards(props) {
         props.setToggleHistory(false);
     };
 
+    //Data reshaped for chartjs used in <LineGraph />
+
+    const datesArray = props.clientData.map(date => {
+        return moment(date.createdTime).format('MMM Do');
+    });
+    const bloodSugarArray = props.clientData.map(value => {
+        return value.fields.Blood_sugar;
+    });
+    const weightArray = props.clientData.map(value => {
+        return value.fields.Weight;
+    });
+    const bpOverArray = props.clientData.map(value => {
+        return value.fields.Blood_pressure_over;
+    });
+    const bpUnderArray = props.clientData.map(value => {
+        return value.fields.Blood_pressure_under;
+    });
+
     if (typeof props.historyFilter === 'object') {
+        //if Blood Pressure
         return (
             <div className='metric-container'>
                 <div className='back-btn-container'>
@@ -32,6 +54,11 @@ function HealthMetricCards(props) {
                     <h2>{props.historyLabel}</h2>
                     <h4>All previous fasting {props.historyLabel} metrics.</h4>
                 </div>
+                <LineGraph
+                    bpOverArray={bpOverArray}
+                    bpUnderArray={bpUnderArray}
+                    datesArray={datesArray}
+                />
                 <div className='health-cards-container'>
                     {props.clientData.map((record, index) => (
                         <div className='health-card'>
@@ -59,6 +86,7 @@ function HealthMetricCards(props) {
             </div>
         );
     } else {
+        // else not Blood Pressure (Blood Sugar or Weight)
         return (
             <div className='metric-container'>
                 <div className='back-btn-container'>
@@ -82,6 +110,14 @@ function HealthMetricCards(props) {
                     <h2>{props.historyLabel}</h2>
                     <h4>All previous fasting {props.historyLabel} metrics.</h4>
                 </div>
+                {props.historyLabel === 'Weight' ? (
+                    <LineGraph values={weightArray} datesArray={datesArray} />
+                ) : (
+                    <LineGraph
+                        values={bloodSugarArray}
+                        datesArray={datesArray}
+                    />
+                )}
                 <div className='health-cards-container'>
                     {props.clientData.map((record, index) => (
                         <div className='health-card'>

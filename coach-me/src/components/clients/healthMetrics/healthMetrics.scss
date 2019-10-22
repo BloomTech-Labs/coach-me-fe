@@ -1,15 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     max-width: 360px;
+//     // display: flex;
+//     // justify-content: center;
+// }
 
 .metric-container {
     width: 100%;
     padding: 1rem;
     font-family: 'Poppins', sans-serif;
+    max-width: 360px;
+    // border: 1px solid red;
+    margin: 0 auto;
 
     .metric-header {
         // width: 50%;
