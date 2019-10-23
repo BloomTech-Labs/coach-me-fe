@@ -1,5 +1,10 @@
-.auth-container {
+/* .auth-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    
+} */
+.App{
+    min-height: 812px;
 }
+

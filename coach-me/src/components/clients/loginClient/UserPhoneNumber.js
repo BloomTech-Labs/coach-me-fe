@@ -36,20 +36,21 @@ const UserPhoneNumber = props => {
             <div className='img-container'>
                 <Logo />
             </div>
-            <div>
+            
                 <div className='header'>
                     <p>Enter your phone number to get started.</p>
                 </div>
                 <div className='subtext'>
                     <p>Ingrese su número telefónico</p>
                 </div>
-
-                <form
+            
+               
+                    <div className='form-container'>
+                    <form
                     onSubmit={e => {
                         handleSubmit(e);
                     }}
                 >
-                    <div className='form-container'>
                         <div>
                             <span>(</span>
                             <input
@@ -95,9 +96,10 @@ const UserPhoneNumber = props => {
                         <button className='trigger' type='submit'>
                             <FontAwesomeIcon icon={faArrowRight} />
                         </button>
+                        </form>
                     </div>
-                </form>
-            </div>
+               
+            
         </div>
     );
 };

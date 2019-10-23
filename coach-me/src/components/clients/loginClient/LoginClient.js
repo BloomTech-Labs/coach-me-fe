@@ -30,14 +30,14 @@ const LoginClient = props => {
     };
 
     return (
-        <div>
+        
             <UserPhoneNumber
                 handleChange={handleChange}
                 config={config}
                 setconfig={setConfig}
                 getinfo={getinfo}
             />
-        </div>
+        
     );
 };
 
