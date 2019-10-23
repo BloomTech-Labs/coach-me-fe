@@ -3,10 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import UserPhoneNumber from './UserPhoneNumber';
 import { getClientInfo } from '../../../actions/clientActions';
 import './loginClient.scss';
-<<<<<<< HEAD
-=======
-import moment from 'moment';
->>>>>>> 95bbdc12eb93b22d6cd4016ef05fd2cf52f75a68
 
 
 //925-639-1639
@@ -21,7 +17,6 @@ const LoginClient = props => {
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-<<<<<<< HEAD
      const loginAttempts =   localStorage.getItem('loginAttempts')
         console.log('Look at all this info!',loginAttempts)
         if(loginAttempts == 1){
@@ -32,8 +27,6 @@ const LoginClient = props => {
         }
 
         
-=======
->>>>>>> 95bbdc12eb93b22d6cd4016ef05fd2cf52f75a68
     };
 
     return (
