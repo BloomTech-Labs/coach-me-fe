@@ -24,7 +24,8 @@ const UserPhoneNumber = props => {
         const maxLength = document
             .getElementById(item1)
             .getAttribute('maxLength');
-        if (length === maxLength) {
+            //if statement uses '==' for type coercion, please leave it 
+        if (length == maxLength) {
             document.getElementById(item2).focus();
         }
     };
