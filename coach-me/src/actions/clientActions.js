@@ -35,7 +35,7 @@ export const getClientInfo = props => dispatch => {
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject.fields
             });
-            props.history.push('/metric-form');
+           
         })
         .catch(err => {
             dispatch({
