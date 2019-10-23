@@ -22,7 +22,7 @@ const LoginClient = props => {
         if(loginAttempts == 1){
           props.history.push('/welcome');
         }
-        else{
+        else if (loginAttempts != 1){
           props.history.push('/metric-form');
         }
 
