@@ -28,12 +28,14 @@ export const getClientInfo = props => dispatch => {
             clientnum
         )
         .then(res => {
+            console.log('res.data',res.data.loginAttempts)
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('loginAttempts', res.data.loginAttempts);
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject.fields
             });
-            props.history.push('/metric-form');
+           
         })
         .catch(err => {
             dispatch({
