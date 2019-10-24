@@ -50,11 +50,6 @@ const Routes = props => {
     );
 };
 
-// const mapStatetoProps = state => {
-//     // console.log('App.js', state)
-//     return {
-//         clientinfo : state.clientinfio
-//     }
-// }
+
 
 export default Routes;
