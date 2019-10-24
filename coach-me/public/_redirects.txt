@@ -3,4 +3,4 @@
 /metrics      /metrics
 /dashboard    /dashboard
 /metric-form   /metric-form
-/               https://app.coachmehealth.org/
+/*             /index.hmtl
