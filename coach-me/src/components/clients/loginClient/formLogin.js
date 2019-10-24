@@ -6,7 +6,7 @@ import './loginClient.scss';
 
 
 //925-639-1639
-const LoginClient = props => {
+const FormLogin = props => {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
     const [config, setConfig] = useState({ phonenumber: '' });
@@ -17,14 +17,8 @@ const LoginClient = props => {
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-     const loginAttempts =   localStorage.getItem('loginAttempts')
-        console.log('Look at all this info!',loginAttempts)
-        if(loginAttempts == 1){
-          props.history.push('/welcome');
-        }
-        else {
-          props.history.push('/metrics');
-        }
+          props.history.push('/metric-form');
+        
 
         
     };
@@ -41,4 +35,4 @@ const LoginClient = props => {
     );
 };
 
-export default LoginClient;
+export default FormLogin;

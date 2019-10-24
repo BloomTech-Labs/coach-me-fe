@@ -72,7 +72,7 @@ export default (state = initialState, action) => {
                     phonenumber: action.payload.Phone,
                     coach: action.payload.Coach,
                     language: action.payload.Language,
-                    name: action.payload['Client_Name']
+                    name: action.payload['Client Name']
                 },
                 error: ''
             };

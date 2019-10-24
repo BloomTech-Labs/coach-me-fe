@@ -61,6 +61,7 @@ function HealthMetricForm(props) {
         setshow(!show);
     };
     const submitMetric = e => {
+      
         props.history.push('/dashboard-client');
     };
     const failMetric = e => {
@@ -171,7 +172,7 @@ function HealthMetricForm(props) {
                     </div>
                 </div>
 
-                <button>{translate('submitBtn')}</button>
+                <button type= "submit">{translate('submitBtn')}</button>
             </form>
         </div>
     );

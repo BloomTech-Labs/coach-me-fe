@@ -1,10 +1,10 @@
 //Variables
-$input-background: #f0f0f0;
+$input-background:#FFFFFF;
 
 .phonenumber-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
     background: #274160;
     color: white;
@@ -21,9 +21,8 @@ $input-background: #f0f0f0;
         height: 40px;
         background-color: $input-background;
         border-radius: 10px;
-        outline: none;
+        border: 1.5px solid #274160;
         box-shadow: none;
-        border-style: none;
         font-size: 1.8rem;
         margin: 8px;
         text-align: center;
@@ -39,35 +38,56 @@ $input-background: #f0f0f0;
         font-weight: bold;
         font-size: 1.8rem;
         line-height: 36px;
+        color: #FFFFFF;
     }
-    .header {
-        p {
-            display: flex;
-            flex-wrap: wrap;
-            font-family: 'Poppins', sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 1.4rem;
-            width: 286px;
-            text-align: left;
-            height: 56px;
-            line-height: 141.8%;
-        }
-    }
+    
 
-    .subtext {
-        display: flex;
-        justify-content: center;
-        font-family: Poppins;
-        font-style: normal;
-        color: rgba(0, 0, 0, 0.7);
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-        width: 235px;
-        height: 24px;
-        margin-bottom: 35px;
-        margin-top: 12px;
+        .header {
+            
+            display: flex;
+            justify-content: center;
+            p {
+                display: flex;
+                flex-wrap: wrap;
+                font-family: 'Poppins', sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 1.4rem;
+                width: 286px;
+                text-align: left;
+                height: 56px;
+                line-height: 141.8%;
+                color: #FFFFFF;
+                margin-top:auto;
+                margin-bottom: 5px;
+            }
+        }
+
+        .subtext {
+            
+            display: flex;
+            justify-content: center;
+            font-family: Poppins;
+            font-style: normal;
+            color: #FFFFFF;
+            font-weight: 500;
+            line-height: 24px;
+           
+            height: 24px;
+            margin-bottom: 35px;
+            margin-top:auto;
+            
+    
+            p {
+                font-size: 1.0rem;
+                margin-top:auto;
+                line-height: 24px;
+                margin-left: -51px;
+            }
+        }
+
+    
+    
 
         p {
             font-size: 12px;
@@ -91,5 +111,6 @@ $input-background: #f0f0f0;
             margin-top: 30px;
             border: none;
         }
+        
     }
-}
+
