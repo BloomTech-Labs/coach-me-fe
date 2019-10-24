@@ -78,9 +78,10 @@ function HealthMetricForm(props) {
                 weight={weight}
                 failMetric={failMetric}
             />
-
+            <div>
             <h1>{translate('HMFtitle')}</h1>
-
+            <p className ="header-text">{translate('NeedMetric')}</p>
+            </div>
             <form onSubmit={submitNewMetric}>
                 <div className='input-label'>
                     <div className='img-wrapper'>

@@ -83,7 +83,6 @@ export const getClientRecords = clientId => dispatch => {
         )
         .then(results => {
             const clientRecords = [...results.data.clientRecords];
-            console.log('client records', clientRecords);
             dispatch({
                 type: GET_RECORDS_SUCCESS,
                 payload: clientRecords

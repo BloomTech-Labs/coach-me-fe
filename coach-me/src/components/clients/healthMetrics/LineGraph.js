@@ -66,13 +66,11 @@ const LineGraph = props => {
                       pointRadius: 5,
                       pointHitRadius: 10,
                       data: bpOverArray
-                      //   data: [1, 2, 3, 8, 7, 0]
                   },
                   {
                       label: 'Under',
                       fill: true,
                       lineTension: 0.3,
-                      //   backgroundColor: 'pink',
                       borderColor: 'red',
                       borderCapStyle: 'butt',
                       borderDash: [],
