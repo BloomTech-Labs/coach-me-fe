@@ -22,7 +22,6 @@ const CoachDashboard = ({ history }) => {
             .catch(err => console.log(err));
     }, []);
 
-    // console.log(users);
 
     const handleInput = e => {
         setNumber(e.target.value);

@@ -12,9 +12,6 @@ import iconweight from '../../utils/assets/weight.svg';
 import iconback from '../../utils/assets/back.svg';
 
 function HealthMetricCards(props) {
-    // console.log('from healthmetriccards', props);
-    // console.log('type of filter', typeof props.historyFilter);
-
     const handleClick = () => {
         props.setToggleHistory(false);
     };

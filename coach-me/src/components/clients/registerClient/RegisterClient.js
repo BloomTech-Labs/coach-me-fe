@@ -11,7 +11,6 @@ const RegisterClient = ({ values, errors, touched, status }) => {
     useEffect(() => {
         if (status) {
             setCreds([...creds, status]);
-            // console.log(user);
         }
     }, [status]);
     return (
@@ -77,7 +76,6 @@ const RegisterFormik = withFormik({
         language: Yup.string().required('please choose a language')
     }),
     handleSubmit(values, { setStatus, resetForm, props }) {
-        // console.log(values);
 
         const data = {
             fields: {
@@ -99,10 +97,8 @@ const RegisterFormik = withFormik({
                 { headers: headers }
             )
             .then(res => {
-                // console.log(res);
             })
             .catch(err => {
-                // console.log(err);
             });
     }
 

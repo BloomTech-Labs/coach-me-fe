@@ -3,19 +3,14 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 const LineGraph = props => {
-    console.log('clientData', props);
 
     const datesArray = props.datesArray ? props.datesArray.slice(-4) : [];
-    console.log('datesArray-4', datesArray);
 
     const metricValuesArray = props.values ? props.values.slice(-4) : [];
-    console.log('values', metricValuesArray);
 
     const bpOverArray = props.bpOverArray ? props.bpOverArray.slice(-4) : [];
-    console.log('bpOverArray', bpOverArray);
 
     const bpUnderArray = props.bpUnderArray ? props.bpUnderArray.slice(-4) : [];
-    console.log('bpUnderArray', bpUnderArray);
 
     const data = !props.bpOverArray
         ? {
@@ -66,13 +61,11 @@ const LineGraph = props => {
                       pointRadius: 5,
                       pointHitRadius: 10,
                       data: bpOverArray
-                      //   data: [1, 2, 3, 8, 7, 0]
                   },
                   {
                       label: 'Under',
                       fill: true,
                       lineTension: 0.3,
-                      //   backgroundColor: 'pink',
                       borderColor: 'red',
                       borderCapStyle: 'butt',
                       borderDash: [],
