@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import withScrollToTop from './components/utils/withScrollToTop';
+import ScrollToTop from './components/utils/withScrollToTop';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -11,9 +11,9 @@ import store from './store';
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <withScrollToTop>
+            <ScrollToTop>
                 <App />
-            </withScrollToTop>
+            </ScrollToTop>
         </Router>
     </Provider>,
     document.getElementById('root')

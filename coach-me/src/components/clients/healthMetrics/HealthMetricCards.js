@@ -32,6 +32,8 @@ function HealthMetricCards(props) {
     const bpUnderArray = props.clientData.map(value => {
         return value.fields.Blood_pressure_under;
     });
+    const reverseClientData = [...props.clientData];
+    reverseClientData.reverse();
 
     //-----------------Blood Pressure (over/under)
     if (typeof props.historyFilter === 'object') {
@@ -59,7 +61,7 @@ function HealthMetricCards(props) {
                     datesArray={datesArray}
                 />
                 <div className='health-cards-container'>
-                    {props.clientData.map((record, index) => (
+                    {reverseClientData.map((record, index) => (
                         <div className='health-card'>
                             <div className='metric-icon'>
                                 <img
@@ -123,7 +125,7 @@ function HealthMetricCards(props) {
                 <LineGraph values={bloodSugarArray} datesArray={datesArray} />
 
                 <div className='health-cards-container'>
-                    {props.clientData.map((record, index) => (
+                    {reverseClientData.map((record, index) => (
                         <div className='health-card'>
                             <div className='metric-icon'>
                                 <img
@@ -183,7 +185,7 @@ function HealthMetricCards(props) {
                 <LineGraph values={weightArray} datesArray={datesArray} />
 
                 <div className='health-cards-container'>
-                    {props.clientData.map((record, index) => (
+                    {reverseClientData.map((record, index) => (
                         <div className='health-card'>
                             <div className='metric-icon'>
                                 <img

@@ -3,6 +3,7 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 const LineGraph = props => {
+<<<<<<< HEAD
 
     const datesArray = props.datesArray ? props.datesArray.slice(-4) : [];
 
@@ -11,6 +12,21 @@ const LineGraph = props => {
     const bpOverArray = props.bpOverArray ? props.bpOverArray.slice(-4) : [];
 
     const bpUnderArray = props.bpUnderArray ? props.bpUnderArray.slice(-4) : [];
+=======
+    // console.log('clientData', props);
+
+    const datesArray = props.datesArray ? props.datesArray.slice(-4) : [];
+    // console.log('datesArray-4', datesArray);
+
+    const metricValuesArray = props.values ? props.values.slice(-4) : [];
+    // console.log('values', metricValuesArray);
+
+    const bpOverArray = props.bpOverArray ? props.bpOverArray.slice(-4) : [];
+    // console.log('bpOverArray', bpOverArray);
+
+    const bpUnderArray = props.bpUnderArray ? props.bpUnderArray.slice(-4) : [];
+    // console.log('bpUnderArray', bpUnderArray);
+>>>>>>> 1ba3fac7850c406a2d1f3a2a6928eabd740b192b
 
     const data = !props.bpOverArray
         ? {

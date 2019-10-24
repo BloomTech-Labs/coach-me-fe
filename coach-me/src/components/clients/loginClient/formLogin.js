@@ -18,9 +18,6 @@ const FormLogin = props => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
           props.history.push('/metric-form');
-        
-
-        
     };
 
     return (
