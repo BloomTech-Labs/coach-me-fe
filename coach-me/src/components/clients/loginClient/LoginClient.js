@@ -5,7 +5,6 @@ import { getClientInfo } from '../../../actions/clientActions';
 import ErrorModal from './ErrorModal'
 
 
-
 //925-639-1639
 const LoginClient = props => {
     const dispatch = useDispatch();
@@ -23,7 +22,8 @@ const LoginClient = props => {
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-     const loginAttempts =   localStorage.getItem('loginAttempts')
+
+     const loginAttempts = localStorage.getItem('loginAttempts')
         console.log('Look at all this info!',loginAttempts)
         if(loginAttempts == 1){
           props.history.push('/welcome');
@@ -33,6 +33,7 @@ const LoginClient = props => {
         }
 
         
+
     };
 
 
@@ -41,6 +42,7 @@ const LoginClient = props => {
   };
 
     return (
+
         <div>
           <ErrorModal check={check} handleRedirect={handleRedirect}/>
             <UserPhoneNumber
@@ -51,6 +53,7 @@ const LoginClient = props => {
             />
             </div>
       
+
     );
 };
 
