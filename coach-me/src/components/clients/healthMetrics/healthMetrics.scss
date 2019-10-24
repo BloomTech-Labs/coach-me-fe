@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-
-// * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-//     max-width: 360px;
-//     // display: flex;
-//     // justify-content: center;
-// }
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
 
 .metric-container {
     width: 100%;
@@ -16,6 +8,7 @@
     max-width: 360px;
     // border: 1px solid red;
     margin: 0 auto;
+    background: #fafafa;
 
     .metric-header {
         // width: 50%;
@@ -28,11 +21,18 @@
 
         h3 {
             font-size: 2rem;
-            font-weight: lighter;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            color: #274160;
         }
 
         h2 {
             font-size: 2.4rem;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            color: #274160;
         }
     }
 
@@ -46,9 +46,9 @@
             padding-right: 20px;
 
             .metric-button {
-                width: 30%;
+                width: 40%;
                 height: 30px;
-                background: #e5e5e5;
+                background: #c4cfdd;
                 border-radius: 30px;
                 // margin-left: 6rem;
                 font-size: 0.8rem;
@@ -93,6 +93,11 @@
 
                 h4 {
                     padding-left: 0.7rem;
+                    font-size: 18px;
+                    font-family: DM Sans;
+                    font-style: normal;
+                    font-weight: bold;
+                    color: #274160;
                 }
             }
 
@@ -135,6 +140,10 @@
                 // border: 1px solid red;
             }
 
+            p {
+                color: #274160;
+            }
+
             // svg {
             //     margin-top: 5px;
             // }
@@ -151,16 +160,20 @@
         align-items: flex-start;
 
         h2 {
-            font-family: Poppins;
+            font-family: Montserrat;
             font-style: normal;
-            font-weight: 600;
+            font-weight: bold;
             font-size: 28px;
             line-height: 42px;
+            color: #274160;
         }
 
         h4 {
-            font-size: 0.8rem;
-            font-weight: lighter;
+            font-size: 1.2rem;
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: normal;
+            color: #274160;
         }
     }
 
@@ -177,8 +190,9 @@
             margin-bottom: 1rem;
             padding: 2rem;
 
-            background: #f5f5f5;
+            background: #ffffff;
             border-radius: 15px;
+            border: 1.5px solid #c4cfdd;
 
             display: flex;
             flex-wrap: wrap;
@@ -190,9 +204,10 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
+                background: #ffffff;
 
-                font-family: Poppins;
-                font-style: normal;
+                // font-family: DM Sans;
+                // font-style: normal;
                 // border: 1px solid red;
                 width: 60%;
 
@@ -200,6 +215,8 @@
                     display: flex;
                     flex-direction: center;
                     align-items: flex-start;
+                    background: #ffffff;
+
                     // height: 50px;
                     // border: 1px solid red;
 
@@ -207,26 +224,36 @@
                         // width: 20%;
                         // height: 27px;
                         // border: 1px solid red;
+                        // background: #ffffff;
 
                         .icon {
                             width: 30px;
+                            // background: #ffffff;
                         }
                     }
                 }
 
                 h3 {
+                    font-family: DM Sans;
+                    font-style: normal;
                     font-weight: 500;
                     font-size: 14px;
                     line-height: 21px;
+                    color: #274160;
+                    background: #ffffff;
+
                     // border: 1px solid red;
                 }
 
                 h4 {
+                    font-family: DM Sans;
+                    font-style: normal;
                     font-weight: normal;
                     font-size: 12px;
                     line-height: 8px;
+                    background: #ffffff;
 
-                    color: rgba(0, 0, 0, 0.3);
+                    color: #274160;
                     // border: 1px solid red;
                 }
             }
@@ -238,6 +265,7 @@
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
+                background: #ffffff;
 
                 .health-value {
                     font-family: Poppins;
@@ -245,6 +273,7 @@
                     font-weight: 600;
                     font-size: 20px;
                     line-height: 30px;
+                    background: #ffffff;
                 }
                 .health-scale {
                     font-family: Poppins;
@@ -253,6 +282,7 @@
                     font-size: 12px;
                     line-height: 18px;
                     margin-left: 4px;
+                    background: #ffffff;
                 }
             }
         }

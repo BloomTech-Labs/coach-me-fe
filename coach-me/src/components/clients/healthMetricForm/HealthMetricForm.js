@@ -147,7 +147,7 @@ function HealthMetricForm(props) {
                         />
                         <span>/</span>
                         <input
-                            className='metric-input-pb'
+                            className='metric-input-pb2'
                             onChange={handleInputChange3}
                             type='integer'
                             value={bpUnder}
@@ -158,7 +158,7 @@ function HealthMetricForm(props) {
                     </div>
                 </div>
 
-                <button>{translate('submitBtn')}</button>
+                <div className='btn'>{translate('submitBtn')}</div>
             </form>
         </div>
     );
