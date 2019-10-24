@@ -38,6 +38,7 @@ const HealthMetric = props => {
     }, []);
 
     const handleClick = (heading, label, filter, filter2) => {
+        window.scrollTo(0, 0);
         setHistoryFilter('');
         setToggleHistory(true);
         setHistoryLabel(heading);
@@ -47,7 +48,7 @@ const HealthMetric = props => {
         } else {
             setHistoryFilter(filter);
         }
-        console.log('***Typeof', typeof historyFilter);
+        // console.log('***Typeof', typeof historyFilter);
     };
 
     //Data reshaped for chartjs used in <LineGraph />
