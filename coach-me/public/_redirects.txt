@@ -1,6 +1,0 @@
-/formLogin    /formLogin
-/register     /register
-/metrics      /metrics
-/dashboard    /dashboard
-/metric-form   /metric-form
-/*             /index.hmtl
