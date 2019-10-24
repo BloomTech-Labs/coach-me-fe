@@ -52,10 +52,7 @@ function HealthMetricForm(props) {
                 }
             ]
         });
-<<<<<<< HEAD
-=======
         console.log('state', state.clientinfo);
->>>>>>> 6ebdc6db32c262438b26814b003839f3508a320b
     }, [bpOver, bpUnder, bS, weight]);
 
     const submitNewMetric = e => {
