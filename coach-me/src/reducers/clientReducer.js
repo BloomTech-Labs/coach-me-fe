@@ -77,10 +77,11 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_CLIENTS_FAILURE:
+        console.log(action.payload)
             return {
                 ...state,
                 isfetching: false,
-                err: action.payload
+                error: action.payload
             };
         case GET_RECORDS_START:
             return {

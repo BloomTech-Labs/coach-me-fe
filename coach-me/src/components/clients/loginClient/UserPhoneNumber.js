@@ -18,13 +18,14 @@ const UserPhoneNumber = props => {
         const number = input.areacode + input.dig1 + input.dig2;
         getinfo({ num: number, history: props.history });
     };
+    
 
     const moveOver = (e, item1, item2) => {
         const length = e.target.value.length;
         const maxLength = document
             .getElementById(item1)
             .getAttribute('maxLength');
-        //if statement uses '==' for type coercion, please leave it
+            //if statement uses '==' for type coercion, please leave it 
         if (length == maxLength) {
             document.getElementById(item2).focus();
         }
@@ -35,24 +36,26 @@ const UserPhoneNumber = props => {
             <div className='img-container'>
                 <Logo />
             </div>
-            
+            <div className = 'text-content'>
                 <div className='header'>
                     <p>Enter your phone number to get started.</p>
                 </div>
                 <div className='subtext'>
-                    <p>Ingrese su número telefónico</p>
+                    <p>Ingrese su número teléfono</p>
                 </div>
-            
-               
+                </div>
+
+             
                     <div className='form-container'>
                     <form
                     onSubmit={e => {
                         handleSubmit(e);
                     }}
                 >
-                        <div>
+                <div className = "num-inputs">
                             <span>(</span>
                             <input
+                            
                                 type='number'
                                 id='txt1'
                                 maxLength='3'
@@ -66,6 +69,7 @@ const UserPhoneNumber = props => {
                                     moveOver(e, 'txt1', 'txt2');
                                 }}
                             />
+                            
                             <span>)</span>
                             <input
                                 type='number'
@@ -97,9 +101,10 @@ const UserPhoneNumber = props => {
                         <button className='trigger' type='submit'>
                             <FontAwesomeIcon icon={faArrowRight} />
                         </button>
+                        
                         </form>
                     </div>
-               
+              
             
         </div>
     );
