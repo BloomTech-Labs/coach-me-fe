@@ -41,7 +41,7 @@ const UserPhoneNumber = props => {
                     <p>Enter your phone number to get started.</p>
                 </div>
                 <div className='subtext'>
-                    <p>Ingrese su número telefónico</p>
+                    <p>Ingrese su número teléfono</p>
                 </div>
                 </div>
 
@@ -53,7 +53,6 @@ const UserPhoneNumber = props => {
                     }}
                 >
                 <div className = "num-inputs">
-                
                             <span>(</span>
                             <input
                             
