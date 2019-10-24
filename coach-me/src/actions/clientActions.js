@@ -20,6 +20,7 @@ const headers = {
 };
 
 export const getClientInfo = props => dispatch => {
+    console.log(props);
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
     axios
@@ -34,7 +35,6 @@ export const getClientInfo = props => dispatch => {
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject.fields
             });
-           
         })
         .catch(err => {
             dispatch({
