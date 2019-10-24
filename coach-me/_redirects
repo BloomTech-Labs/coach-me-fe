@@ -1,6 +1,6 @@
-/formLogin    /formLogin
+/loginForm    /loginForm
 /register     /register
 /metrics      /metrics
 /dashboard    /dashboard
 /metric-form   /metric-form
-/               https://app.coachmehealth.org/
+/                https://app.coachmehealth.org/
