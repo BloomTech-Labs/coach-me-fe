@@ -52,6 +52,7 @@ function HealthMetricForm(props) {
                 }
             ]
         });
+        console.log('state', state.clientinfo);
     }, [bpOver, bpUnder, bS, weight]);
 
     const submitNewMetric = e => {
@@ -84,7 +85,7 @@ function HealthMetricForm(props) {
                 <div className='input-label'>
                     <div className='img-wrapper'>
                         <img
-                            class='icon'
+                            className='icon'
                             alt='Blood Gluscose Icon'
                             src={iconfastingBloodGlucose}
                         ></img>
@@ -95,10 +96,13 @@ function HealthMetricForm(props) {
                     <input
                         className='metric-input'
                         onChange={handleInputChange}
-                        type='integer'
+                        type='number'
                         value={bS}
                         name='Blood_sugar'
                         minLength='2'
+                        pattern='[0-9]*'
+                        ng-model='vm.onlyNumbers'
+                        min='0'
                     />
                     <p>mg/dL</p>
                 </div>
@@ -106,7 +110,7 @@ function HealthMetricForm(props) {
                 <div className='input-label'>
                     <div className='img-wrapper'>
                         <img
-                            class='icon'
+                            className='icon'
                             alt='Weight Icon'
                             src={iconweight}
                         ></img>
@@ -117,10 +121,13 @@ function HealthMetricForm(props) {
                     <input
                         className='metric-input'
                         onChange={handleInputChange4}
-                        type='integer'
+                        type='number'
                         value={weight}
                         name='Weight'
                         minLength='2'
+                        pattern='[0-9]*'
+                        ng-model='vm.onlyNumbers'
+                        min='0'
                     />
                     <p>lbs</p>
                 </div>
@@ -128,7 +135,7 @@ function HealthMetricForm(props) {
                 <div className='input-label'>
                     <div className='img-wrapper'>
                         <img
-                            class='icon'
+                            className='icon'
                             alt='Blood Pressure Icon'
                             src={iconbloodPressure}
                         ></img>
@@ -140,19 +147,25 @@ function HealthMetricForm(props) {
                         <input
                             className='metric-input-pb'
                             onChange={handleInputChange2}
-                            type='integer'
+                            type='number'
                             value={bpOver}
                             name='Blood_pressure_over'
                             minLength='2'
+                            pattern='[0-9]*'
+                            ng-model='vm.onlyNumbers'
+                            min='0'
                         />
                         <span>/</span>
                         <input
                             className='metric-input-pb2'
                             onChange={handleInputChange3}
-                            type='integer'
+                            type='number'
                             value={bpUnder}
                             name='Blood_pressure_under'
                             minLength='2'
+                            pattern='[0-9]*'
+                            ng-model='vm.onlyNumbers'
+                            min='0'
                         />
                         <p>mmHg</p>
                     </div>

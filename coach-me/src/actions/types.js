@@ -1,4 +1,5 @@
 // Auth for Login and Registration
+export const REGISTER_START = 'REGISTER_SUCCESS';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const CLIENT_LOADED = 'CLIENT_LOADED';

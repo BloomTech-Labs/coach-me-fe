@@ -4,8 +4,9 @@ import UserPhoneNumber from './UserPhoneNumber';
 import { getClientInfo } from '../../../actions/clientActions';
 import './loginClient.scss';
 
+
 //925-639-1639
-const LoginClient = props => {
+const FormLogin = props => {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
     const [config, setConfig] = useState({ phonenumber: '' });
@@ -16,23 +17,22 @@ const LoginClient = props => {
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-        const loginAttempts = sessionStorage.getItem('loginAttempts');
-        //Needs typer coerscion
-        if (loginAttempts == 1) {
-            props.history.push('/welcome');
-        } else {
-            props.history.push('/metrics');
-        }
+          props.history.push('/metric-form');
+        
+
+        
     };
 
     return (
-        <UserPhoneNumber
-            handleChange={handleChange}
-            config={config}
-            setconfig={setConfig}
-            getinfo={getinfo}
-        />
+        
+            <UserPhoneNumber
+                handleChange={handleChange}
+                config={config}
+                setconfig={setConfig}
+                getinfo={getinfo}
+            />
+        
     );
 };
 
-export default LoginClient;
+export default FormLogin;

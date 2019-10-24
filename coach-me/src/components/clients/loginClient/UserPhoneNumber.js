@@ -24,7 +24,8 @@ const UserPhoneNumber = props => {
         const maxLength = document
             .getElementById(item1)
             .getAttribute('maxLength');
-        if (length === maxLength) {
+        //if statement uses '==' for type coercion, please leave it
+        if (length == maxLength) {
             document.getElementById(item2).focus();
         }
     };
@@ -34,61 +35,72 @@ const UserPhoneNumber = props => {
             <div className='img-container'>
                 <Logo />
             </div>
-            <div>
+            
                 <div className='header'>
                     <p>Enter your phone number to get started.</p>
                 </div>
                 <div className='subtext'>
                     <p>Ingrese su número telefónico</p>
                 </div>
-
-                <form
+            
+               
+                    <div className='form-container'>
+                    <form
                     onSubmit={e => {
                         handleSubmit(e);
                     }}
                 >
-                    <div className='form-container'>
                         <div>
                             <span>(</span>
                             <input
-                                type='text'
+                                type='number'
                                 id='txt1'
                                 maxLength='3'
                                 name='areacode'
                                 onChange={handleChange}
                                 value={input.areacode}
+                                pattern='[0-9]*'
+                                ng-model='vm.onlyNumbers'
+                                min='0'
                                 onInput={e => {
                                     moveOver(e, 'txt1', 'txt2');
                                 }}
                             />
                             <span>)</span>
                             <input
-                                type='text'
+                                type='number'
                                 id='txt2'
                                 maxLength='3'
                                 name='dig1'
                                 onChange={handleChange}
                                 value={input.dig1}
+                                pattern='[0-9]*'
+                                ng-model='vm.onlyNumbers'
+                                min='0'
                                 onInput={e => {
                                     moveOver(e, 'txt2', 'txt3');
                                 }}
                             />
                             <span>-</span>
                             <input
-                                type='text'
+                                type='number'
                                 id='txt3'
-                                maxLength='4'
+                                max='9999'
                                 name='dig2'
                                 onChange={handleChange}
                                 value={input.dig2}
+                                pattern='[0-9]*'
+                                ng-model='vm.onlyNumbers'
+                                min='0'
                             />
                         </div>
                         <button className='trigger' type='submit'>
                             <FontAwesomeIcon icon={faArrowRight} />
                         </button>
+                        </form>
                     </div>
-                </form>
-            </div>
+               
+            
         </div>
     );
 };
