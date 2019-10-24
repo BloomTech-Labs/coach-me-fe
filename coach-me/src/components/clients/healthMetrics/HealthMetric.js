@@ -23,11 +23,8 @@ const HealthMetric = props => {
         return Date.parse(a.fields.Date_time) - Date.parse(b.fields.Date_time);
     });
 
-<<<<<<< HEAD
-=======
     // console.log('clientData***', clientData);
     // console.log('****STATE', state.clientinfo);
->>>>>>> 1ba3fac7850c406a2d1f3a2a6928eabd740b192b
     // Following state controls the history toggle functionality:
     const [toggleHistory, setToggleHistory] = useState(false);
 
@@ -51,10 +48,7 @@ const HealthMetric = props => {
         } else {
             setHistoryFilter(filter);
         }
-<<<<<<< HEAD
-=======
         // console.log('***Typeof', typeof historyFilter);
->>>>>>> 1ba3fac7850c406a2d1f3a2a6928eabd740b192b
     };
 
     //Data reshaped for chartjs used in <LineGraph />
