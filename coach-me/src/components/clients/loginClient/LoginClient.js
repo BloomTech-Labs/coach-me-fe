@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import UserPhoneNumber from './UserPhoneNumber';
 import { getClientInfo } from '../../../actions/clientActions';
-import './loginClient.scss';
+import ErrorModal from './ErrorModal';
 
 //925-639-1639
 const LoginClient = props => {
-    const state = useSelector(state => state);
     const dispatch = useDispatch();
+
     const [config, setConfig] = useState({ phonenumber: '' });
+
+    const [check, setCheck] = useState(false);
+
     const handleChange = e => {
         setConfig({ ...config, [e.target.name]: e.target.value });
     };
@@ -25,13 +28,20 @@ const LoginClient = props => {
         }
     };
 
+    const handleRedirect = e => {
+        setCheck(!check);
+    };
+
     return (
-        <UserPhoneNumber
-            handleChange={handleChange}
-            config={config}
-            setconfig={setConfig}
-            getinfo={getinfo}
-        />
+        <div>
+            <ErrorModal check={check} handleRedirect={handleRedirect} />
+            <UserPhoneNumber
+                handleChange={handleChange}
+                config={config}
+                setconfig={setConfig}
+                getinfo={getinfo}
+            />
+        </div>
     );
 };
 
