@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
-* {
-    background: #fafafa;
-}
+
 .metric-form-wrapper {
     margin: 0 auto;
     padding: 1.4rem 0.7rem;
@@ -10,6 +8,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    background: #fafafa;
 
     h1 {
         margin-top: 6.9rem;
