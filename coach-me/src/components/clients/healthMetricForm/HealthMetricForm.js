@@ -19,7 +19,7 @@ function HealthMetricForm(props) {
     const [weight, setWeight] = useState();
     const [metrics, setMetrics] = useState();
     const [show, setshow] = useState(false);
-    
+
     const handleInputChange = e => {
         e.preventDefault();
         setBS(e.target.value);
@@ -52,6 +52,10 @@ function HealthMetricForm(props) {
                 }
             ]
         });
+<<<<<<< HEAD
+=======
+        console.log('state', state.clientinfo);
+>>>>>>> 6ebdc6db32c262438b26814b003839f3508a320b
     }, [bpOver, bpUnder, bS, weight]);
 
     const submitNewMetric = e => {
@@ -60,7 +64,6 @@ function HealthMetricForm(props) {
         setshow(!show);
     };
     const submitMetric = e => {
-      
         props.history.push('/dashboard-client');
     };
     const failMetric = e => {
@@ -101,9 +104,9 @@ function HealthMetricForm(props) {
                         value={bS}
                         name='Blood_sugar'
                         minLength='2'
-                        pattern="[0-9]*" 
-                        ng-model="vm.onlyNumbers"
-                        min="0"
+                        pattern='[0-9]*'
+                        ng-model='vm.onlyNumbers'
+                        min='0'
                     />
                     <p>mg/dL</p>
                 </div>
@@ -126,9 +129,9 @@ function HealthMetricForm(props) {
                         value={weight}
                         name='Weight'
                         minLength='2'
-                        pattern="[0-9]*" 
-                        ng-model="vm.onlyNumbers"
-                        min="0"
+                        pattern='[0-9]*'
+                        ng-model='vm.onlyNumbers'
+                        min='0'
                     />
                     <p>lbs</p>
                 </div>
@@ -152,27 +155,27 @@ function HealthMetricForm(props) {
                             value={bpOver}
                             name='Blood_pressure_over'
                             minLength='2'
-                            pattern="[0-9]*" 
-                            ng-model="vm.onlyNumbers"
-                            min="0"
+                            pattern='[0-9]*'
+                            ng-model='vm.onlyNumbers'
+                            min='0'
                         />
                         <span>/</span>
                         <input
-                            className='metric-input-pb'
+                            className='metric-input-pb2'
                             onChange={handleInputChange3}
                             type='number'
                             value={bpUnder}
                             name='Blood_pressure_under'
                             minLength='2'
-                            pattern="[0-9]*" 
-                            ng-model="vm.onlyNumbers"
-                            min="0"
+                            pattern='[0-9]*'
+                            ng-model='vm.onlyNumbers'
+                            min='0'
                         />
                         <p>mmHg</p>
                     </div>
                 </div>
 
-                <button type= "submit">{translate('submitBtn')}</button>
+                <div className='btn'>{translate('submitBtn')}</div>
             </form>
         </div>
     );

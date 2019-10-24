@@ -1,23 +1,21 @@
-//Variables
 $input-background:#FFFFFF;
+
 
 .phonenumber-container {
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    background: #274160;
-    color: white;
-
-    .img-container {
-        width: 266px;
-        height: 191px;
-        margin: 70px 0 145px 0;
-        fill: white;
+    width: 100%;
+    background-color:  #274160;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    .img-container{
+        margin: 0 auto;
     }
 
     input {
-        width: 60px;
+        width: 20%;
         height: 40px;
         background-color: $input-background;
         border-radius: 10px;
@@ -28,12 +26,9 @@ $input-background:#FFFFFF;
         text-align: center;
     }
 
-    #txt3 {
-        width: 80px;
-    }
 
     span {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'DM Sans', sans-serif;
         font-style: normal;
         font-weight: bold;
         font-size: 1.8rem;
@@ -41,76 +36,99 @@ $input-background:#FFFFFF;
         color: #FFFFFF;
     }
     
+.text-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-        .header {
-            
-            display: flex;
-            justify-content: center;
-            p {
-                display: flex;
-                flex-wrap: wrap;
-                font-family: 'Poppins', sans-serif;
-                font-style: normal;
-                font-weight: 600;
-                font-size: 1.4rem;
-                width: 286px;
-                text-align: left;
-                height: 56px;
-                line-height: 141.8%;
-                color: #FFFFFF;
-                margin-top:auto;
-                margin-bottom: 5px;
-            }
-        }
-
-        .subtext {
-            
-            display: flex;
-            justify-content: center;
-            font-family: Poppins;
-            font-style: normal;
-            color: #FFFFFF;
-            font-weight: 500;
-            line-height: 24px;
-           
-            height: 24px;
-            margin-bottom: 35px;
-            margin-top:auto;
-            
+    .header {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        width: 70%;
     
-            p {
-                font-size: 1.0rem;
-                margin-top:auto;
-                line-height: 24px;
-                margin-left: -51px;
-            }
-        }
-
-    
-    
-
         p {
-            font-size: 12px;
-            margin-left: 1px;
-            color: white;
+            display: flex;
+            font-family: 'DM Sans', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #FFFFFF;
+            flex-wrap: wrap;
+        
+        
+        
         }
-    }
 
-    .form-container {
+   
+
+
+}
+       
+.subtext {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    color: #FFFFFF;
+    font-weight: 500;
+    line-height: 24px;
+    width: 100%;
+    height: 24px;
+  
+    
+
+    p {
+        font-size: 1.0rem;
+        width: 70%;
+    }
+}
+    
+
+    
+
+
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    form{
+        
         display: flex;
         flex-direction: column;
-        height: 200px;
-        .trigger {
+        margin: 0 auto;
+
+    .num-inputs{
+        display: flex;
+       justify-content: center;
+       align-items: center;
+      
+    }
+     .trigger {
             align-self: flex-end;
-            background: #f6f6f6;
+            background: #FFFFFF;
             border-radius: 20px;
             width: 69px;
             height: 52px;
             color: #274160;
-            font-size: 24px;
-            margin-top: 30px;
-            border: none;
+            font-size: 1.3rem;
+            border:1.5px solid #274160;
+            margin-right: 10%;
+            margin-top: 5%
         }
-        
-    }
 
+    }
+    
+}
+
+
+
+}
