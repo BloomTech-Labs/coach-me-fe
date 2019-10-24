@@ -1,21 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     max-width: 360px;
+//     // display: flex;
+//     // justify-content: center;
+// }
 
 .metric-container {
     width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
     font-family: 'Poppins', sans-serif;
+    max-width: 360px;
+    // border: 1px solid red;
+    margin: 0 auto;
 
     .metric-header {
-        width: 50%;
-        height: 10%;
-        padding-top: 5rem;
+        // width: 50%;
+        // height: 10%;
+        padding: 2rem 0 2rem 0;
 
         display: flex;
         flex-direction: column;
@@ -35,15 +40,22 @@
         display: flex;
         flex-direction: column;
 
-        .metric-button {
-            width: 30%;
-            height: 30px;
-            background: #e5e5e5;
-            border-radius: 30px;
-            margin-left: 6rem;
-            font-size: 0.8rem;
-            color: black;
-            font-weight: bold;
+        .btn-container {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 20px;
+
+            .metric-button {
+                width: 30%;
+                height: 30px;
+                background: #e5e5e5;
+                border-radius: 30px;
+                // margin-left: 6rem;
+                font-size: 0.8rem;
+                color: black;
+                font-weight: bold;
+                border: none;
+            }
         }
 
         .border {
@@ -53,12 +65,13 @@
         }
 
         .health-value {
-            margin-top: 2rem;
-            width: 100%;
-            height: 10rem;
+            // margin-top: 2rem;
+            // width: 100%;
+            // height: 10rem;
+            margin: 10px 0 25px 0;
 
             .metric {
-                width: 50%;
+                // width: 50%;
                 height: 30%;
 
                 display: flex;
@@ -67,20 +80,25 @@
 
                 padding-left: 1rem;
 
-                .metric-icon {
-                    background: #f0f0f0;
-                    border-radius: 50%;
-                    width: 30px;
-                    height: 30px;
-                }
+                // .metric-icon {
+                //     background: #f0f0f0;
+                //     border-radius: 50%;
+                //     width: 30px;
+                //     height: 30px;
+                // }
 
-                svg {
-                    margin-top: 8px;
-                }
+                // svg {
+                //     margin-top: 8px;
+                // }
 
                 h4 {
                     padding-left: 0.7rem;
                 }
+            }
+
+            .line-graph {
+                margin: 20px 0 20px 0;
+                height: 100%;
             }
         }
     }
@@ -111,23 +129,33 @@
             display: flex;
             justify-content: space-around;
 
-            svg {
-                margin-top: 5px;
+            .icon {
+                width: 15px;
+                margin-right: 10px;
+                // border: 1px solid red;
             }
+
+            // svg {
+            //     margin-top: 5px;
+            // }
         }
     }
 
     .history-header {
         width: 100%;
         margin-top: 2rem;
+        margin-bottom: 48px;
 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
 
         h2 {
-            font-size: 1.8rem;
-            font-weight: bolder;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 42px;
         }
 
         h4 {
@@ -142,6 +170,8 @@
 
         .health-card {
             width: 100%;
+            height: 50%;
+            display: flex;
 
             margin-top: 1rem;
             margin-bottom: 1rem;
@@ -151,25 +181,58 @@
             border-radius: 15px;
 
             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            // border: 1px solid red;
 
             .health-label {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
 
+                font-family: Poppins;
+                font-style: normal;
+                // border: 1px solid red;
+                width: 60%;
+
+                .label-container {
+                    display: flex;
+                    flex-direction: center;
+                    align-items: flex-start;
+                    // height: 50px;
+                    // border: 1px solid red;
+
+                    .metric-icon {
+                        // width: 20%;
+                        // height: 27px;
+                        // border: 1px solid red;
+
+                        .icon {
+                            width: 30px;
+                        }
+                    }
+                }
+
                 h3 {
-                    font-size: 1.2rem;
-                    font-weight: bolder;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 21px;
+                    // border: 1px solid red;
                 }
 
                 h4 {
-                    font-size: 1.2rem;
+                    font-weight: normal;
+                    font-size: 12px;
+                    line-height: 8px;
+
                     color: rgba(0, 0, 0, 0.3);
+                    // border: 1px solid red;
                 }
             }
 
             .health-metric-value {
-                margin-left: 4rem;
+                // margin-left: 4rem;
                 width: 20%;
 
                 display: flex;
@@ -177,11 +240,19 @@
                 align-items: center;
 
                 .health-value {
-                    font-size: 1.4rem;
-                    margin-right: 0.4rem;
+                    font-family: Poppins;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 30px;
                 }
                 .health-scale {
-                    font-size: 0.8rem;
+                    font-family: Poppins;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 18px;
+                    margin-left: 4px;
                 }
             }
         }
