@@ -1,7 +1,4 @@
 import axios from 'axios';
-
-//clientActions
-
 import {
     GET_CLIENTS_START,
     GET_CLIENTS_SUCCESS,
@@ -22,9 +19,8 @@ const headers = {
     Authorization: localStorage.getItem('token')
 };
 
-export const getClientInfo = num => dispatch => {
-    const clientnum = { clientPhone: num };
-    console.log(clientnum);
+export const getClientInfo = props => dispatch => {
+    const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
     axios
         .post(
@@ -32,15 +28,16 @@ export const getClientInfo = num => dispatch => {
             clientnum
         )
         .then(res => {
-            console.log('actions', res);
+            console.log('res.data',res.data.loginAttempts)
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('loginAttempts', res.data.loginAttempts);
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject.fields
             });
+           
         })
         .catch(err => {
-            console.log(err);
             dispatch({
                 type: GET_CLIENTS_FAILURE,
                 payload: err
@@ -49,8 +46,6 @@ export const getClientInfo = num => dispatch => {
 };
 
 export const addMetric = metricUpdate => dispatch => {
-    // debugger;
-
     dispatch({ type: UPDATE_METRIC_START });
     axios
         .post(
@@ -59,7 +54,6 @@ export const addMetric = metricUpdate => dispatch => {
             { headers: headers }
         )
         .then(res => {
-            console.log('UPDATED METRIC', res);
             dispatch({
                 type: UPDATE_METRIC_SUCCESS,
                 payload: res.data
@@ -74,7 +68,6 @@ export const addMetric = metricUpdate => dispatch => {
 };
 
 export const getClientRecords = clientId => dispatch => {
-    console.log('hello from getClientRecord reducer');
     dispatch({ type: GET_RECORDS_START });
     axios
         .get(`https://coach-me-backend.herokuapp.com/clientRoute/getMetrics`, {
@@ -83,9 +76,7 @@ export const getClientRecords = clientId => dispatch => {
             }
         })
         .then(results => {
-            console.log('before dispatch', results.data.clientRecords);
             const clientRecords = [...results.data.clientRecords];
-
             dispatch({
                 type: GET_RECORDS_SUCCESS,
                 payload: clientRecords
