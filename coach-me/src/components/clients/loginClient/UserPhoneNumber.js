@@ -53,17 +53,19 @@ const UserPhoneNumber = props => {
                     }}
                 >
                 <div className = "num-inputs">
+                
                             <span>(</span>
                             <input
                             
-                                type='tel'
+                                type='number'
                                 id='txt1'
                                 maxLength='3'
                                 name='areacode'
                                 onChange={handleChange}
                                 value={input.areacode}
-                                pattern="[0-9]*" ng-model="vm.onlyNumbers"
-                                min="0"
+                                pattern='[0-9]*'
+                                ng-model='vm.onlyNumbers'
+                                min='0'
                                 onInput={e => {
                                     moveOver(e, 'txt1', 'txt2');
                                 }}
@@ -71,30 +73,31 @@ const UserPhoneNumber = props => {
                             
                             <span>)</span>
                             <input
-                                type='tel'
+                                type='number'
                                 id='txt2'
                                 maxLength='3'
                                 name='dig1'
                                 onChange={handleChange}
                                 value={input.dig1}
-                                pattern="[0-9]*" ng-model="vm.onlyNumbers"
-                                min="0"
+                                pattern='[0-9]*'
+                                ng-model='vm.onlyNumbers'
+                                min='0'
                                 onInput={e => {
                                     moveOver(e, 'txt2', 'txt3');
                                 }}
                             />
                             <span>-</span>
                             <input
-                                type='tel'
+                                type='number'
                                 id='txt3'
-                                maxLength='4'
+                                max='9999'
                                 name='dig2'
                                 onChange={handleChange}
                                 value={input.dig2}
-                                pattern="[0-9]*" ng-model="vm.onlyNumbers"
-                                min="0"
+                                pattern='[0-9]*'
+                                ng-model='vm.onlyNumbers'
+                                min='0'
                             />
-                        
                         </div>
                         <button className='trigger' type='submit'>
                             <FontAwesomeIcon icon={faArrowRight} />

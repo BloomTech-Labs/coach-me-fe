@@ -9,7 +9,6 @@ $input-background:#FFFFFF;
     width: 100%;
     background-color:  #274160;
     justify-content: space-evenly;
-
     min-height: 100vh;
     .img-container{
         margin: 0 auto;
@@ -61,74 +60,75 @@ $input-background:#FFFFFF;
         
         
         }
-    }
 
-    .subtext {
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        font-family: 'DM Sans', sans-serif;
-        font-style: normal;
-        color: #FFFFFF;
-        font-weight: 500;
-        line-height: 24px;
-        width: 100%;
-        height: 24px;
-      
-        
-
-        p {
-            font-size: 1.0rem;
-            width: 70%;
-        }
-    }
+   
 
 
 }
        
+.subtext {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    color: #FFFFFF;
+    font-weight: 500;
+    line-height: 24px;
+    width: 100%;
+    height: 24px;
+  
     
+
+    p {
+        font-size: 1.0rem;
+        width: 70%;
+    }
+}
     
 
     
 
-    .form-container {
+
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    form{
+        
         display: flex;
         flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
         margin: 0 auto;
-        form{
-            
-            display: flex;
-            flex-direction: column;
-            margin: 0 auto;
 
-        .num-inputs{
-            display: flex;
-           justify-content: center;
-           align-items: center;
-        }
-            .trigger {
-                align-self: flex-end;
-                background: #FFFFFF;
-                border-radius: 20px;
-                width: 69px;
-                height: 52px;
-                color: #274160;
-                font-size: 24px;
-                border:1.5px solid #274160;
-                margin-right: 10%;
-                margin-top: 5%
-            }
-
-        }
-        
+    .num-inputs{
+        display: flex;
+       justify-content: center;
+       align-items: center;
+      
     }
+     .trigger {
+            align-self: flex-end;
+            background: #FFFFFF;
+            border-radius: 20px;
+            width: 69px;
+            height: 52px;
+            color: #274160;
+            font-size: 1.3rem;
+            border:1.5px solid #274160;
+            margin-right: 10%;
+            margin-top: 5%
+        }
+
+    }
+    
 }
 
 
 
-
-
-
+}
