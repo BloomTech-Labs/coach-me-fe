@@ -18,14 +18,13 @@ const UserPhoneNumber = props => {
         const number = input.areacode + input.dig1 + input.dig2;
         getinfo({ num: number, history: props.history });
     };
-    
 
     const moveOver = (e, item1, item2) => {
         const length = e.target.value.length;
         const maxLength = document
             .getElementById(item1)
             .getAttribute('maxLength');
-            //if statement uses '==' for type coercion, please leave it 
+        //if statement uses '==' for type coercion, please leave it
         if (length == maxLength) {
             document.getElementById(item2).focus();
         }
@@ -54,15 +53,15 @@ const UserPhoneNumber = props => {
                         <div>
                             <span>(</span>
                             <input
-                            
                                 type='number'
                                 id='txt1'
                                 maxLength='3'
                                 name='areacode'
                                 onChange={handleChange}
                                 value={input.areacode}
-                                pattern="[0-9]*" ng-model="vm.onlyNumbers"
-                                min="0"
+                                pattern='[0-9]*'
+                                ng-model='vm.onlyNumbers'
+                                min='0'
                                 onInput={e => {
                                     moveOver(e, 'txt1', 'txt2');
                                 }}
@@ -75,8 +74,9 @@ const UserPhoneNumber = props => {
                                 name='dig1'
                                 onChange={handleChange}
                                 value={input.dig1}
-                                pattern="[0-9]*" ng-model="vm.onlyNumbers"
-                                min="0"
+                                pattern='[0-9]*'
+                                ng-model='vm.onlyNumbers'
+                                min='0'
                                 onInput={e => {
                                     moveOver(e, 'txt2', 'txt3');
                                 }}
@@ -89,8 +89,9 @@ const UserPhoneNumber = props => {
                                 name='dig2'
                                 onChange={handleChange}
                                 value={input.dig2}
-                                pattern="[0-9]*" ng-model="vm.onlyNumbers"
-                                min="0"
+                                pattern='[0-9]*'
+                                ng-model='vm.onlyNumbers'
+                                min='0'
                             />
                         </div>
                         <button className='trigger' type='submit'>
