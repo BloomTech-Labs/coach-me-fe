@@ -23,8 +23,8 @@ const HealthMetric = props => {
         return Date.parse(a.fields.Date_time) - Date.parse(b.fields.Date_time);
     });
 
-    console.log('clientData***', clientData);
-    console.log('****STATE', state.clientinfo);
+    // console.log('clientData***', clientData);
+    // console.log('****STATE', state.clientinfo);
     // Following state controls the history toggle functionality:
     const [toggleHistory, setToggleHistory] = useState(false);
 

@@ -25,6 +25,13 @@ const LoginClient = props => {
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
+        const loginAttempts = sessionStorage.getItem('loginAttempts');
+        //Needs typer coerscion
+        if (loginAttempts == 1) {
+            props.history.push('/welcome');
+        } else {
+            props.history.push('/metrics');
+        }
     };
 
 
