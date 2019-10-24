@@ -7,8 +7,11 @@ import ErrorModal from './ErrorModal'
 
 //925-639-1639
 const LoginClient = props => {
+
     const dispatch = useDispatch();
+
     const [config, setConfig] = useState({ phonenumber: '' });
+    
     const [check, setCheck] = useState(false);
     
 
