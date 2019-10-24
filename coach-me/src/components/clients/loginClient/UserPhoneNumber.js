@@ -85,7 +85,7 @@ const UserPhoneNumber = props => {
                             <input
                                 type='number'
                                 id='txt3'
-                                maxLength='4'
+                                max='9999'
                                 name='dig2'
                                 onChange={handleChange}
                                 value={input.dig2}

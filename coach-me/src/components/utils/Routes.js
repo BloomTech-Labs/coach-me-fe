@@ -12,6 +12,7 @@ import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
 import LoginClient from '../clients/loginClient/LoginClient';
 import Welcome from '../clients/welcomeScreen/WelcomeScreen';
 import CoachRegistration from '../coach/coachRegistration/coachRegistration'
+import FormLogin from '../clients/loginClient//formLogin'
 import '../../App.css'
 const Routes = props => {
     return (
@@ -19,8 +20,12 @@ const Routes = props => {
             <Route
                 exact
                 path='/'
-                render={props => <LoginClient {...props} />}
-            />
+                render={props => <LoginClient {...props} />}/>
+                 <Route
+                exact
+                path='/formLogin'
+                render={props => <FormLogin {...props} />}/>
+               
             <Route
                 exact
                 path='/register'
