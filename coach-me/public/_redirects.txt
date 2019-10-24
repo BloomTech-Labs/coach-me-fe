@@ -1,6 +1,6 @@
-/loginForm
-/register
-/metrics
-/dashboard
-/metric-form
-https://app.coachmehealth.org/
+/formLogin    /formLogin
+/register     /register
+/metrics      /metrics
+/dashboard    /dashboard
+/metric-form   /metric-form
+/*             /index.hmtl
