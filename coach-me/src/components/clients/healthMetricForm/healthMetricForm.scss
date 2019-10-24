@@ -19,11 +19,13 @@
         color: #274160;
     }
     .header-text{
+        color: #717d8b;
         font-style: normal;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 1.4rem;
         line-height: 141.8%;
-        margin-top:1.5rem;
+        margin-top: 1.5rem;
+        font-family: DM sans;
     }
 
     form {
@@ -99,23 +101,22 @@
             }
 
             .metric-input-pb {
-                width: 27%;
+               min-width: 50%;
                 background: #ffffff;
                 border: 1.5px solid #c4cfdd;
                 border-radius: 10px;
-                margin-left: 8.3rem;
                 font-size: 16px;
                 font-family: DM Sans;
                 font-weight: 500;
                 outline: none;
                 color: #274160;
-                padding: 0.8rem 2.7rem;
+                padding: 0.8rem 0;
                 &:focus {
                     border: 1.5px solid #274160;
                 }
             }
             .metric-input-pb2 {
-                width: 27%;
+               min-width: 50%;
                 background: #ffffff;
                 border: 1.5px solid #c4cfdd;
                 border-radius: 10px;
@@ -124,7 +125,7 @@
                 font-weight: 500;
                 outline: none;
                 color: #274160;
-                padding: 0.8rem 2.7rem;
+                padding: 0.8rem 0;
                 &:focus {
                     border: 1.5px solid #274160;
                 }

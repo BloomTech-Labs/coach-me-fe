@@ -143,10 +143,10 @@ function HealthMetricForm(props) {
                     </div>
                     <h3>{translate('bp')}</h3>
                 </div>
-                <div className='blood-pressure-container'>
+                <div className='input-wrapper'>
                     <div className='input-wrapper'>
                         <input
-                            className='metric-input-pb'
+                            className='metric-input metric-input-pb'
                             onChange={handleInputChange2}
                             type='number'
                             value={bpOver}
@@ -172,7 +172,7 @@ function HealthMetricForm(props) {
                     </div>
                 </div>
 
-                <div className='btn'>{translate('submitBtn')}</div>
+                <button className='btn'>{translate('submitBtn')}</button>
             </form>
         </div>
     );
