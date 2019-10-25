@@ -25,10 +25,10 @@ const initialState = {
         name: ''
     },
     records: null,
-    Blood_sugar: 0,
-    Weight: 0,
-    Blood_pressure_over: 0,
-    Blood_pressure_under: 0,
+    // Blood_sugar: 0,
+    // Weight: 0,
+    // Blood_pressure_over: 0,
+    // Blood_pressure_under: 0,
     Date_time: null,
     isfetching: false,
     error: '',
@@ -44,6 +44,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case UPDATE_METRIC_SUCCESS:
+            console.log(state,action.payload)
             return {
                 ...state,
                 isfetching: false,
