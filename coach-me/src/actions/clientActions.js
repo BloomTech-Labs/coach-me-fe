@@ -16,7 +16,7 @@ import {
 
 const headers = {
     'Content-Type': 'application/json',
-    Authorization: sessionStorage.getItem('token')
+    Authorization: localStorage.getItem('token')
 };
 
 export const getClientInfo = props => dispatch => {
@@ -30,7 +30,7 @@ export const getClientInfo = props => dispatch => {
         )
         .then(res => {
             // console.log('res.data', res.data.loginAttempts);
-            sessionStorage.setItem('token', res.data.token);
+            localStorage.setItem('token', res.data.token);
             localStorage.setItem('loginAttempts', res.data.loginAttempts);
             const loginAttempts = localStorage.getItem('loginAttempts');
             // console.log('Look at all this info!', loginAttempts);
@@ -63,8 +63,8 @@ export const getClientInfoLogin = props => dispatch => {
         )
         .then(res => {
             // console.log('res.data', res.data.loginAttempts);
-            sessionStorage.setItem('token', res.data.token);
-            localStorage.setItem('loginAttempts', res.data.loginAttempts);
+            localStorage.setItem('token', res.data.token);
+            // localStorage.setItem('loginAttempts', res.data.loginAttempts);
             const loginAttempts = localStorage.getItem('loginAttempts');
             // console.log('Look at all this info!', loginAttempts);
 
@@ -89,7 +89,12 @@ export const addMetric = metricUpdate => dispatch => {
         .post(
             `https://coach-me-backend.herokuapp.com/clientRoute/logMetrics `,
             metricUpdate,
-            { headers: headers }
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: localStorage.getItem('token')
+                }
+            }
         )
         .then(res => {
             dispatch({
@@ -112,7 +117,7 @@ export const getClientRecords = clientId => dispatch => {
             `https://coach-me-backend.herokuapp.com/clientRoute/paginationGetMetrics`,
             {
                 headers: {
-                    Authorization: sessionStorage.getItem('token')
+                    Authorization: localStorage.getItem('token')
                 }
             }
         )

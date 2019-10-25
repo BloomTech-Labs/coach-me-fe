@@ -15,7 +15,7 @@ const WelcomeScreen = props => {
                 `https://coach-me-backend.herokuapp.com/clientRoute/getCoachInfo`,
                 {
                     headers: {
-                        Authorization: sessionStorage.getItem('token')
+                        Authorization: localStorage.getItem('token')
                     }
                 }
             )
