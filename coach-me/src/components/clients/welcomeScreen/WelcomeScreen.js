@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import './welcomeScreen.scss';
 
-const WelcomeScreen = () => {
+import { translate } from '../../utils/language/translate';
+
+const WelcomeScreen = props => {
     const [coach, setCoach] = useState('Karin');
     const state = useSelector(state => state);
     const dispatch = useDispatch();
@@ -19,7 +21,9 @@ const WelcomeScreen = () => {
 
     return (
         <div className='welcomeScreen'>
-            <h1>Welcome to CoachMe, {coach}!</h1>
+            <h1>
+                {translate('welcome')} <br /> CoachMe, {coach}!
+            </h1>
             <img
                 src='https://dl.airtable.com/.attachments/2964a7624923f374610c1b583a7edc24/3b8b5096/Karin_bitmoji.jpeg'
                 alt='Current Coach'
@@ -27,13 +31,21 @@ const WelcomeScreen = () => {
 
             <div className='header2'>
                 <h1>{coach}</h1>
-                <p>Your Health Coach</p>
+                <p>{translate('coachIntro')}</p>
             </div>
 
             <p className='footerText'>
-                {coach} is here to support you in your health goals. Expect a
-                text message from your coach soon!
+                {coach} {translate('welcomeMessage')}
             </p>
+
+            <button
+                className='nextBtn'
+                onClick={() => {
+                    props.history.push('/metrics');
+                }}
+            >
+                {translate('continueBtn')}
+            </button>
         </div>
     );
 };
