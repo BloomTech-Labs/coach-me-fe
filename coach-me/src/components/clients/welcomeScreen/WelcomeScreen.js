@@ -28,7 +28,7 @@ const WelcomeScreen = props => {
     return (
         <div className='welcomeScreen'>
             <h1>
-                {translate('welcome')} CoachMe, {state.clientinfo.name}!
+                {translate('welcome')} <br /> CoachMe, {state.clientinfo.name}!
             </h1>
             <img
                 src={coach && coach.coachObject.coachUrl}
