@@ -2,22 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import UserPhoneNumber from './UserPhoneNumber';
 import { getClientInfo } from '../../../actions/clientActions';
-import ErrorModal from './ErrorModal'
-
+import './loginClient.scss';
 
 //925-639-1639
 const LoginClient = props => {
-
+    const state = useSelector(state => state);
     const dispatch = useDispatch();
-
     const [config, setConfig] = useState({ phonenumber: '' });
-    
-    const [check, setCheck] = useState(false);
-    
-
-
-
-
     const handleChange = e => {
         setConfig({ ...config, [e.target.name]: e.target.value });
     };
@@ -26,30 +17,15 @@ const LoginClient = props => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
         const loginAttempts = sessionStorage.getItem('loginAttempts');
-        //Needs typer coerscion
-        if (loginAttempts == 1) {
-            props.history.push('/welcome');
-        } else {
-            props.history.push('/metrics');
-        }
     };
 
-
-    const handleRedirect = e => {
-     setCheck(!check)
-  };
-
     return (
-        <div>
-          <ErrorModal check={check} handleRedirect={handleRedirect}/>
-            <UserPhoneNumber
-                handleChange={handleChange}
-                config={config}
-                setconfig={setConfig}
-                getinfo={getinfo}
-            />
-            </div>
-      
+        <UserPhoneNumber
+            handleChange={handleChange}
+            config={config}
+            setconfig={setConfig}
+            getinfo={getinfo}
+        />
     );
 };
 
