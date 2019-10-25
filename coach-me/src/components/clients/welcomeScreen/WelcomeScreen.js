@@ -22,7 +22,7 @@ const WelcomeScreen = props => {
     return (
         <div className='welcomeScreen'>
             <h1>
-                {translate('welcome')} CoachMe, {coach}!
+                {translate('welcome')} <br /> CoachMe, {coach}!
             </h1>
             <img
                 src='https://dl.airtable.com/.attachments/2964a7624923f374610c1b583a7edc24/3b8b5096/Karin_bitmoji.jpeg'
