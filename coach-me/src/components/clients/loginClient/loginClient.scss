@@ -49,18 +49,20 @@ $input-background:#FFFFFF;
         width: 70%;
     
         p {
-            display: flex;
-            font-family: 'DM Sans', sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #FFFFFF;
-            flex-wrap: wrap;
-        
-        
-        
+            
+                display: flex;
+                font-family: 'DM Sans', sans-serif;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 2.2rem;
+                color: #FFFFFF;
+                flex-wrap: wrap;
+               
         }
-
+        
+        p.spanish{
+            font-size: 2rem;
+        }
    
 
 
@@ -81,10 +83,12 @@ $input-background:#FFFFFF;
     
 
     p {
-        font-size: 1.0rem;
+        font-size: 2rem;
         width: 70%;
+     margin-top:13px;
     }
 }
+
     
 
     

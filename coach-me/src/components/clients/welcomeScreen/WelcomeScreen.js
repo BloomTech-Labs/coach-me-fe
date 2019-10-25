@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import './welcomeScreen.scss';
+import { translate } from '../../utils/language/translate';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = props => {
     const [coach, setCoach] = useState();
     const state = useSelector(state => state);
     const dispatch = useDispatch();
@@ -26,7 +27,9 @@ const WelcomeScreen = () => {
     console.log('state info', state);
     return (
         <div className='welcomeScreen'>
-            <h1>Welcome to CoachMe, {state.clientinfo.name}!</h1>
+            <h1>
+                {translate('welcome')} CoachMe, {state.clientinfo.name}!
+            </h1>
             <img
                 src={coach && coach.coachObject.coachUrl}
                 alt='Current Coach'
@@ -34,13 +37,22 @@ const WelcomeScreen = () => {
 
             <div className='header2'>
                 <h1>{coach && coach.coachObject.coachName}</h1>
-                <p>Your Health Coach</p>
+                <p>{translate('coachIntro')}</p>
             </div>
 
             <p className='footerText'>
-                is here to support you in your health goals. Expect a text
-                message from your coach soon!
+                {coach.coachObject.coachName}
+                {translate('welcomeMessage')}
             </p>
+
+            <button
+                className='nextBtn'
+                onClick={() => {
+                    props.history.push('/metrics');
+                }}
+            >
+                {translate('continueBtn')}
+            </button>
         </div>
     );
 };
