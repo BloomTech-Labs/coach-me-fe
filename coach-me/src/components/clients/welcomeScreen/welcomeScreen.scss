@@ -29,4 +29,17 @@
         margin: 0 auto;
         text-align: left;
     }
+
+    .nextBtn {
+        margin: 30px;
+        font-family: 'DM Sans', sans-serif;
+        font-style: normal;
+        border: 1px solid #274160;
+        background: #274160;
+        font-size: 2rem;
+        width: 200px;
+        height: 50px;
+        border-radius: 20px;
+        color: white;
+    }
 }
