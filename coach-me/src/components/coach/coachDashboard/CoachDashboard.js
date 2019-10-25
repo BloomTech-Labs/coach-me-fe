@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { ReactComponent as Logo } from './assets/logo.svg';
 import './coachDashboard.scss';
 import ClientInfo from './clientsList/ClientInfo';
 import ClientCard from './clientsList/ClientCard';
@@ -21,7 +21,6 @@ const CoachDashboard = ({ history }) => {
             .then(res => setUsers(res.data.records))
             .catch(err => console.log(err));
     }, []);
-
 
     const handleInput = e => {
         setNumber(e.target.value);
@@ -47,6 +46,7 @@ const CoachDashboard = ({ history }) => {
         <>
             {checkTwo ? (
                 <div className='welcome'>
+                    <Logo />
                     <div className='side-one'>
                         <img
                             src='https://i.imgur.com/7YHZ8gM.jpg'
