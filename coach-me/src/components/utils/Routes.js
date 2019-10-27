@@ -12,8 +12,9 @@ import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
 import LoginClient from '../clients/loginClient/LoginClient';
 import Welcome from '../clients/welcomeScreen/WelcomeScreen';
 import CoachRegistration from '../coach/coachRegistration/CoachRegistration';
-import FormLogin from '../clients/loginClient//formLogin';
+import FormLogin from '../clients/loginClient/formLogin';
 import '../../App.css';
+import LoginCoach from '../coach/loginCoach/LoginCoach';
 const Routes = props => {
     return (
         <>
@@ -23,16 +24,12 @@ const Routes = props => {
                 render={props => <LoginClient {...props} />}
             />
             <Route
-                exact
                 path='/formLogin'
                 render={props => <FormLogin {...props} />}
             />
 
-            <Route
-                exact
-                path='/register'
-                render={props => <CoachRegistration />}
-            />
+            <Route path='/register' render={props => <CoachRegistration />} />
+            <Route path='/login' component={LoginCoach} />
             <PrivateRoute path='/metrics' component={HealthMetric} />
             <PrivateRoute path='/dashboard' component={CoachDashboard} />
             <PrivateRoute
