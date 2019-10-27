@@ -11,21 +11,23 @@ import TestTranslator from '../clients/chooseLanguage/TestTranslator';
 import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
 import LoginClient from '../clients/loginClient/LoginClient';
 import Welcome from '../clients/welcomeScreen/WelcomeScreen';
-import CoachRegistration from '../coach/coachRegistration/coachRegistration'
-import FormLogin from '../clients/loginClient//formLogin'
-import '../../App.css'
+import CoachRegistration from '../coach/coachRegistration/CoachRegistration';
+import FormLogin from '../clients/loginClient//formLogin';
+import '../../App.css';
 const Routes = props => {
     return (
         <>
             <Route
                 exact
                 path='/'
-                render={props => <LoginClient {...props} />}/>
-                 <Route
+                render={props => <LoginClient {...props} />}
+            />
+            <Route
                 exact
                 path='/formLogin'
-                render={props => <FormLogin {...props} />}/>
-               
+                render={props => <FormLogin {...props} />}
+            />
+
             <Route
                 exact
                 path='/register'
@@ -49,7 +51,5 @@ const Routes = props => {
         </>
     );
 };
-
-
 
 export default Routes;
