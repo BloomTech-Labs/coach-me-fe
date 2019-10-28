@@ -1,6 +1,0 @@
-/loginForm
-/register
-/metrics
-/dashboard
-/metric-form
-https://app.coachmehealth.org/

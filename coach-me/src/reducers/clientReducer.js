@@ -44,6 +44,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case UPDATE_METRIC_SUCCESS:
+            console.log(state,action.payload)
             return {
                 ...state,
                 isfetching: false,

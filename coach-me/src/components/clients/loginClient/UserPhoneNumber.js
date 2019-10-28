@@ -37,10 +37,10 @@ const UserPhoneNumber = props => {
             </div>
             <div className='text-content'>
                 <div className='header'>
-                    <p>Enter your phone number to get started.</p>
+                    <p className="english">Enter your phone number to get started.</p>
                 </div>
                 <div className='subtext'>
-                    <p>Ingrese su número teléfono</p>
+                    <p className="spanish">Ingrese su número teléfono</p>
                 </div>
             </div>
 

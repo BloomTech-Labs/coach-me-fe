@@ -59,6 +59,7 @@ function HealthMetricCards(props) {
                     bpOverArray={bpOverArray}
                     bpUnderArray={bpUnderArray}
                     datesArray={datesArray}
+                    metricType={'bloodPressure'}
                 />
                 <div className='health-cards-container'>
                     {reverseClientData.map((record, index) => (
@@ -122,7 +123,11 @@ function HealthMetricCards(props) {
                     <h4>{translate('glucoseHistoryDesc')}</h4>
                 </div>
 
-                <LineGraph values={bloodSugarArray} datesArray={datesArray} />
+                <LineGraph
+                    values={bloodSugarArray}
+                    datesArray={datesArray}
+                    metricType={'bloodGlucose'}
+                />
 
                 <div className='health-cards-container'>
                     {reverseClientData.map((record, index) => (
@@ -182,7 +187,11 @@ function HealthMetricCards(props) {
                     <h4>{translate('weightHistoryDesc')}</h4>
                 </div>
 
-                <LineGraph values={weightArray} datesArray={datesArray} />
+                <LineGraph
+                    values={weightArray}
+                    datesArray={datesArray}
+                    metricType={'weight'}
+                />
 
                 <div className='health-cards-container'>
                     {reverseClientData.map((record, index) => (

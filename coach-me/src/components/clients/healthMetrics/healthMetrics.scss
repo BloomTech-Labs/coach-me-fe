@@ -51,10 +51,13 @@
                 background: #c4cfdd;
                 border-radius: 30px;
                 // margin-left: 6rem;
-                font-size: 0.8rem;
-                color: black;
+                font-size: 1.4rem;
+                color: #274160;
                 font-weight: bold;
                 border: none;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
             }
         }
 
@@ -103,7 +106,7 @@
 
             .line-graph {
                 margin: 20px 0 20px 0;
-                height: 100%;
+                // height: 100%;
             }
         }
     }
@@ -127,7 +130,7 @@
 
         .back-button {
             width: 15%;
-            font-size: 1rem;
+            font-size: 1.4rem;
             font-weight: bolder;
             background: none;
 
