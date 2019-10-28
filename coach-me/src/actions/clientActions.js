@@ -16,7 +16,7 @@ import {
 
 const headers = {
     'Content-Type': 'application/json',
-    Authorization: sessionStorage.getItem('token')
+    Authorization: localStorage.getItem('token')
 };
 
 export const getClientInfo = props => dispatch => {
@@ -30,10 +30,45 @@ export const getClientInfo = props => dispatch => {
         )
         .then(res => {
             // console.log('res.data', res.data.loginAttempts);
-            sessionStorage.setItem('token', res.data.token);
+            localStorage.setItem('token', res.data.token);
             localStorage.setItem('loginAttempts', res.data.loginAttempts);
             const loginAttempts = localStorage.getItem('loginAttempts');
             // console.log('Look at all this info!', loginAttempts);
+            if (loginAttempts == 1) {
+                props.history.push('/welcome');
+            } else {
+                props.history.push('/metrics');
+            }
+
+            dispatch({
+                type: GET_CLIENTS_SUCCESS,
+                payload: res.data.clientObject.fields
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_CLIENTS_FAILURE,
+                payload: err
+            });
+        });
+};
+export const getClientInfoLogin = props => dispatch => {
+    console.log(props);
+    const clientnum = { clientPhone: props.num };
+    dispatch({ type: GET_CLIENTS_START });
+    axios
+        .post(
+            ` https://coach-me-backend.herokuapp.com/clientRoute/login`,
+            clientnum
+        )
+        .then(res => {
+            // console.log('res.data', res.data.loginAttempts);
+            localStorage.setItem('token', res.data.token);
+            // localStorage.setItem('loginAttempts', res.data.loginAttempts);
+            const loginAttempts = localStorage.getItem('loginAttempts');
+            // console.log('Look at all this info!', loginAttempts);
+
+            props.history.push('metric-form');
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
@@ -54,7 +89,12 @@ export const addMetric = metricUpdate => dispatch => {
         .post(
             `https://coach-me-backend.herokuapp.com/clientRoute/logMetrics `,
             metricUpdate,
-            { headers: headers }
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: localStorage.getItem('token')
+                }
+            }
         )
         .then(res => {
             dispatch({
@@ -77,13 +117,12 @@ export const getClientRecords = clientId => dispatch => {
             `https://coach-me-backend.herokuapp.com/clientRoute/paginationGetMetrics`,
             {
                 headers: {
-                    Authorization: sessionStorage.getItem('token')
+                    Authorization: localStorage.getItem('token')
                 }
             }
         )
         .then(results => {
             const clientRecords = [...results.data.clientRecords];
-            console.log('client records', clientRecords);
             dispatch({
                 type: GET_RECORDS_SUCCESS,
                 payload: clientRecords

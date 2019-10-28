@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import UserPhoneNumber from './UserPhoneNumber';
-import { getClientInfo } from '../../../actions/clientActions';
+import { getClientInfoLogin } from '../../../actions/clientActions';
 import './loginClient.scss';
 
 
@@ -16,11 +16,8 @@ const FormLogin = props => {
 
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
-        dispatch(getClientInfo(info));
-          props.history.push('/metric-form');
-        
-
-        
+        dispatch(getClientInfoLogin(info));
+          
     };
 
     return (
