@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../../actions/authActions';
 import './coachRegistration.scss';
 
-function CoachRegistration(props) {
+function coachRegistration(props) {
     // const state = useSelector(state => state);
     // const dispatch = useDispatch();
     // // const [fullName, setFullName] = useState();
@@ -102,4 +102,4 @@ function CoachRegistration(props) {
     );
 }
 
-export default CoachRegistration;
+export default coachRegistration;

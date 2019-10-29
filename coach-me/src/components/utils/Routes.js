@@ -11,7 +11,7 @@ import TestTranslator from '../clients/chooseLanguage/TestTranslator';
 import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
 import LoginClient from '../clients/loginClient/LoginClient';
 import Welcome from '../clients/welcomeScreen/WelcomeScreen';
-import CoachRegistration from '../coach/coachRegistration/CoachRegistration';
+import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import FormLogin from '../clients/loginClient/formLogin';
 import '../../App.css';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
