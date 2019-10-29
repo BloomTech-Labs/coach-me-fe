@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateMetric } from '../../../actions/clientActions';
 import './healthMetricForm.scss';
 import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
 import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
@@ -13,11 +12,11 @@ import moment from 'moment';
 function HealthMetricForm(props) {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    const [bpOver, setBpOver] = useState();
-    const [bpUnder, setBpUnder] = useState();
-    const [bS, setBS] = useState();
-    const [weight, setWeight] = useState();
-    const [metrics, setMetrics] = useState();
+    const [bpOver, setBpOver] = useState(0);
+    const [bpUnder, setBpUnder] = useState(0);
+    const [bS, setBS] = useState(0);
+    const [weight, setWeight] = useState(0);
+    const [metrics, setMetrics] = useState(0);
     const [show, setshow] = useState(false);
 
     const handleInputChange = e => {
@@ -52,9 +51,10 @@ function HealthMetricForm(props) {
                 }
             ]
         });
-        console.log('state', state.clientinfo);
+       
     }, [bpOver, bpUnder, bS, weight]);
-
+    console.log('state', state);
+    
     const submitNewMetric = e => {
         e.preventDefault();
         dispatch(addMetric(metrics));

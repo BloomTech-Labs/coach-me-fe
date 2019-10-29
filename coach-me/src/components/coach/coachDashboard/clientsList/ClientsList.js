@@ -1,24 +1,31 @@
 import React, { useState, useEffect } from 'react';
+
 import axios from 'axios';
 import ClientCard from './ClientCard';
+import SearchForm from '../SearchForm'
 
-const ClientsList = () => {
-    const [users, setUsers] = useState();
+const ClientsList = (props) => {
+    
+   
+    
+    
+   ;
+//    useEffect( () =>{
+//        setclientList(state.clientRecords)
+//    },[state.clientRecords])
+//  console.log(clientList)
 
-    useEffect(() => {
-        axios
-            .get(
-                'https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Master?api_key=keyfahybUIpBkegFv'
-            )
-            .then(res => setUsers(res.data.records))
-            .catch(err => console.log(err));
-    }, []);
-    return (
+
+
+        
+    return(
         <div>
-            <h1>Clients</h1>
-            {users && users.map(client => <ClientCard client={client} />)}
-        </div>
-    );
+                <SearchForm setClient ={props.setClient}/>
+                
+            </div>
+            )
+
+    
 };
 
 export default ClientsList;

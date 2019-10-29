@@ -2,25 +2,34 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ReactComponent as Logo } from './assets/logo.svg';
 import './coachDashboard.scss';
-import ClientInfo from './clientsList/ClientInfo';
+import { useDispatch, useSelector } from 'react-redux';
+import { getClients} from '../../../actions/authActions';
+import CoachHeader from './CoachHeader'
+import ClientInfo from './clientsList/ClientInfo/ClientInfo';
 import ClientCard from './clientsList/ClientCard';
+import ClientList from './clientsList/ClientsList'
+import SearchForm from './SearchForm'
+
 
 const CoachDashboard = ({ history }) => {
     const [users, setUsers] = useState();
+
     const [number, setNumber] = useState();
     const [verifyNumber, setVerifyNumber] = useState('');
     const [checkOne, setCheckOne] = useState(false);
     const [checkTwo, setCheckTwo] = useState(false);
-
+    const [clientprofile, setclientprofile] =useState()
+    const state = useSelector(state => state)
+    const dispatch = useDispatch()
+    const token = localStorage.getItem('token')
     useEffect(() => {
-        // Get request to airtable endpoint with api key appended to the end of url
-        axios
-            .get(
-                'https://api.airtable.com/v0/app3X8S0GqsEzH9iW/Master?api_key=keyfahybUIpBkegFv'
-            )
-            .then(res => setUsers(res.data.records))
-            .catch(err => console.log(err));
-    }, []);
+        // Gt request to airtable endpoint with api key appended to the end of url
+      
+      if(token){
+          dispatch(getClients(token))
+      }
+      
+    },[token]);
 
     const handleInput = e => {
         setNumber(e.target.value);
@@ -41,10 +50,33 @@ const CoachDashboard = ({ history }) => {
     const handleCheckThree = () => {
         history.push('/clients');
     };
+    const setClient = (clientID) => {
+        console.log(clientID)
+        state.clientRecords.filter( client => {
+            
+            if(clientID === client.clientId){
+              setclientprofile(client)
+            }
+
+        })
+
+    }
 
     return (
+        
         <>
-            {checkTwo ? (
+        <CoachHeader/>
+        <div className ='coachdashboard-container'>
+        
+        <div className= 'clientlist-container'>
+        <SearchForm setClient={setClient}/>
+        </div>
+        <div className = 'clientinfo-container'>
+        <ClientInfo clientprofile={clientprofile}/>
+        </div>
+        </div>
+
+            {/* {checkTwo ? (
                 <div className='welcome'>
                     <Logo />
                     <div className='side-one'>
@@ -138,7 +170,7 @@ const CoachDashboard = ({ history }) => {
                         </div>
                     )}
                 </div>
-            )}
+            )} */}
         </>
     );
 };

@@ -44,6 +44,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case UPDATE_METRIC_SUCCESS:
+            console.log(state,action.payload)
             return {
                 ...state,
                 isfetching: false,
@@ -77,7 +78,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_CLIENTS_FAILURE:
-        console.log(action.payload)
+        
             return {
                 ...state,
                 isfetching: false,
@@ -90,6 +91,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_RECORDS_SUCCESS:
+        console.log(action.payload)
             return {
                 ...state,
                 isfetching: false,
