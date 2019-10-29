@@ -1,14 +1,19 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
+;import './clientCard.scss';
 
-const ClientCard = ({ client, history }) => {
+const ClientCard = (props) => {
+    const {setClient} = props
+
+    
+
     const handleClick = () => {
-        history.push(`/client/${client.id}`);
+        props.history.push(`/client/${props.client.clientId}`);
     };
 
     return (
-        <div onClick={() => handleClick()}>
-            <p>{client.fields.Name}</p>
+        <div className= 'client-card' onClick ={ () =>{setClient(props.client.clientId)}}>
+            <h1>{props.client.clientName}</h1>
         </div>
     );
 };
