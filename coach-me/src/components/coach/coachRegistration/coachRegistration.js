@@ -1,54 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '../../../actions/authActions';
+import { registerCoach } from '../../../actions/authActions';
 import './coachRegistration.scss';
 
-function coachRegistration(props) {
-    // const state = useSelector(state => state);
-    // const dispatch = useDispatch();
-    // // const [fullName, setFullName] = useState();
-    // // const [email, setemail] = useState();
-    // // const [password, setpassword] = useState();
-    // // const [confirmPassword, setconfirmPassword] = useState();
-    // // const [register, setregister] = useState();
+function CoachRegistration(props) {
+    const state = useSelector(state => state);
+    const dispatch = useDispatch();
+    const [fullName, setFullName] = useState();
+    const [email, setemail] = useState();
+    const [password, setpassword] = useState();
+    const [confirmPassword, setconfirmPassword] = useState();
+    const [register, setregister] = useState();
 
-    // const handleChange = e => {
-    //     e.preventDefault();
-    //     setFullName(e.target.value);
-    // };
-    // const handleChange2 = e => {
-    //     e.preventDefault();
-    //     setemail(e.target.value);
-    // };
-    // const handleChange3 = e => {
-    //     e.preventDefault();
-    //     setpassword(e.target.value);
-    // };
-    // const handleChange4 = e => {
-    //     e.preventDefault();
-    //     setconfirmPassword(e.target.value);
-    // };
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     dispatch(registerUser(register));
-    //     setshow(!show);
-    // };
-    // // useEffect(() => {
-    //     setregister({
-    //         records: [
-    //             {
-    //                 fields: {
-    //                     FullName: fullName,
-    //                     Email: email,
-    //                     Password: password,
-    //                     ConfirmPassword: confirmPassword,
+    const handleChange = e => {
+        e.preventDefault();
+      
+        setFullName(e.target.value);
+    };
+    const handleChange2 = e => {
+        e.preventDefault();
+        setemail(e.target.value);
+    };
+    const handleChange3 = e => {
+        e.preventDefault();
+        
+        setpassword(e.target.value);
+    };
+    const handleChange4 = e => {
+        e.preventDefault();
+        console.log(e.target.value)
+        setconfirmPassword(e.target.value);
+    };
+ 
+    useEffect(() => {
+        setregister({
+            records: [
+                {
+                    fields: {
+                        name: fullName,
+                        email: email,
+                        password: password,
+                        
 
-    //                 }
-    //             }
-    //         ]
-    //     });
-    // }, [fullname, email, password, confirmPassword]);
+                    }
+                }
+            ]
+        });
+    }, [fullName, email, password]);
+
+    const handleSubmit = e => {
+        console.log(register)
+        e.preventDefault();
+        dispatch(registerCoach(register));
+      
+    };
     return (
         <div className='Register-Wrapper'>
             <div className='side-one'>
@@ -57,40 +63,48 @@ function coachRegistration(props) {
             <div className='side-two'>
                 <h1>Sign Up</h1>
                 <p>Welcome to CoachMe! Please create a new coach account.</p>
-                <form className='Register-Form-Wrapper' action=''>
+                <form  onSubmit={ (e) => {
+                    handleSubmit(e)
+                } }
+                
+                className='Register-Form-Wrapper' 
+               
+            
+                >
                     <div className='input-Wrapper'>
                         <input
                             type='text'
                             placeholder='Full Name'
-                            name='full_name'
-                            // onChange={handleChange}
-                            // value={state.registerCred.full_name}
+                            name='name'
+                            onChange={handleChange}
+                            value={fullName}
                         />
 
                         <input
                             type='text'
                             placeholder='Email'
-                            name='E-Mail'
-                            // onChange={handleChange2}
-                            // value={state.registerCred.email}
+                            name='email'
+                            onChange={handleChange2}
+                            value={email}
                         />
                         <input
                             type='password'
                             placeholder='Password'
                             name='password'
-                            // onChange={handleChange3}
-                            // value={state.registerCred.password}
+                            onChange={handleChange3}
+                            value={password}
                         />
-                        <input
+                        {/* <input
                             type='password'
                             placeholder='Confirm Password'
                             name='password'
-                            // onChange={handleChange4}
-                            // value={state.registerCred.password}
-                        />
+                            onChange={handleChange4}
+                            value={confirmPassword}
+                        /> */}
                     </div>
+                    <button className='signup-btn' type="submit">Sign-up</button>
                 </form>
-                <div className='signup-btn'>Sign-up</div>
+                
                 <div className='login-container'>
                     Already have an account?{' '}
                     <Link className='login' to='/login'>
@@ -102,4 +116,4 @@ function coachRegistration(props) {
     );
 }
 
-export default coachRegistration;
+export default CoachRegistration;

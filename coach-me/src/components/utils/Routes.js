@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import HealthMetric from '../clients/healthMetrics/HealthMetric';
 import CoachDashboard from '../coach/coachDashboard/CoachDashboard';
 import ClientDashboard from '../clients/clientDashboard/ClientDashboard';
-import ClientInfo from '../coach/coachDashboard/clientsList/ClientInfo';
+import ClientInfo from '../coach/coachDashboard/clientsList/ClientInfo/ClientInfo';
 import ClientsList from '../coach/coachDashboard/clientsList/ClientsList';
 import ChooseLanguage from '../clients/chooseLanguage/ChooseLanguage';
 import TestTranslator from '../clients/chooseLanguage/TestTranslator';
@@ -28,7 +28,7 @@ const Routes = props => {
                 render={props => <FormLogin {...props} />}
             />
 
-            <Route path='/register' render={props => <CoachRegistration />} />
+            <Route path='/register' render={props => <CoachRegistration {...props}/>} />
             <Route path='/login' component={LoginCoach} />
             <PrivateRoute path='/metrics' component={HealthMetric} />
             <PrivateRoute path='/dashboard' component={CoachDashboard} />
@@ -36,7 +36,7 @@ const Routes = props => {
                 path='/dashboard-client'
                 component={ClientDashboard}
             />
-            <PrivateRoute path='/client/:clientid' component={ClientInfo} />
+            <PrivateRoute path='/client/:clientId' component={ClientInfo} />
             <PrivateRoute path='/clients' component={ClientsList} />
             <PrivateRoute
                 path='/language/:clientid'
