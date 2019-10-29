@@ -3,12 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginCoach } from '../../../actions/authActions';
 import { Link } from 'react-router-dom';
 import './loginCoach.scss';
+import Modal from './Modal';
 
 const LoginCoach = (props) => {
     const [email, setemail] = useState();
     const [password, setpassword] = useState();
     const dispatch = useDispatch();
     const [creds, setCreds] = useState();
+
+    const [modal, setModal] = useState(false);
+
+    const triggerModal = () => {
+        setModal(true);
+    };
 
 
     const handleChange2 = e => {
@@ -40,6 +47,8 @@ const LoginCoach = (props) => {
       
     };
     return (
+        <>
+        {modal ? <Modal setModal={setModal} /> : null}
         <div className='Login-Wrapper'>
             <div className='side-one'>
                 <img src='https://i.imgur.com/eZTEnXz.png' alt='Placeholder' />
@@ -66,12 +75,11 @@ const LoginCoach = (props) => {
                             value={password}
                         />
                     </div>
-                    <button type='submit'> Login</button>
-                    <Link className='forgot' to='/forgot'>
-                        Forgot password?
-                    </Link>
+                    <button type='submit' className= 'signup-btn'> Login</button>
+                    <div className='forgot' onClick={() => triggerModal()}>
+                            Forgot password?
+                     </div>
                 </form>
-                <div className='signup-btn'>Login</div>
                 <div className='register-container'>
                     Don't have an account?{' '}
                     <Link className='register' to='/register'>
@@ -80,7 +88,61 @@ const LoginCoach = (props) => {
                 </div>
             </div>
         </div>
-    );
-};
+        </>
+// const LoginCoach = () => {
+//     const [modal, setModal] = useState(false);
+
+//     const triggerModal = () => {
+//         setModal(true);
+//     };
+//     return (
+//         <>
+//             {modal ? <Modal setModal={setModal} /> : null}
+//             <div className='Login-Wrapper'>
+//                 <div className='side-one'>
+//                     <img
+//                         src='https://i.imgur.com/eZTEnXz.png'
+//                         alt='Placeholder'
+//                     />
+//                 </div>
+//                 <div className='side-two'>
+//                     <h1>Login</h1>
+//                     <p>Welcome back! Please login to your coach account.</p>
+//                     <form className='Login-Form-Wrapper' action=''>
+//                         <div className='input-Wrapper'>
+//                             <input
+//                                 type='text'
+//                                 placeholder='Email'
+//                                 name='E-Mail'
+//                                 className='email'
+//                                 // onChange={handleChange2}
+//                                 // value={state.registerCred.email}
+//                             />
+//                             <input
+//                                 type='password'
+//                                 placeholder='Password'
+//                                 name='password'
+//                                 className='password'
+//                                 // onChange={handleChange3}
+//                                 // value={state.registerCred.password}
+//                             />
+//                         </div>
+//                         <div className='forgot' onClick={() => triggerModal()}>
+//                             Forgot password?
+//                         </div>
+//                     </form>
+//                     <div className='signup-btn'>Login</div>
+//                     <div className='register-container'>
+//                         Don't have an account?{' '}
+//                         <Link className='register' to='/register'>
+//                             Sign up
+//                         </Link>
+//                     </div>
+//                 </div>
+//             </div>
+//         </>
+//     );
+// };
+    )}
 
 export default LoginCoach;

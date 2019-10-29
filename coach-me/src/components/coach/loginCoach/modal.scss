@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    font-family: Poppins;
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+        background-color: #fefefe;
+        margin: 8% auto; /* 15% from the top and centered */
+        padding: 5rem;
+        // padding: 12rem 5rem;
+        border: 1px solid #888;
+        border-radius: 20px;
+        width: 50%; /* Could be more or less, depending on screen size */
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+        }
+
+        input {
+            width: 60%;
+            align-self: center;
+            padding: 1rem;
+            background: #f6f6f6;
+            border: 1.5px solid #c4cfdd;
+            box-sizing: border-box;
+            border-radius: 15px;
+            margin-bottom: 5rem;
+        }
+
+        .continue {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            .cancel {
+                color: black;
+                margin-right: 5%;
+                font-size: 1.3rem;
+                line-height: 1.3rem;
+                font-weight: 600;
+                cursor: pointer;
+            }
+            .send-btn {
+                width: 30%;
+                padding: 1.3rem 0rem;
+                font-size: 1.5rem;
+                text-align: center;
+                color: white;
+                background: #292929;
+                border-radius: 12px;
+                cursor: pointer;
+            }
+        }
+    }
+}
