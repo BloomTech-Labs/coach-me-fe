@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {registerUser} from '../../../actions/authActions';
+import { registerUser } from '../../../actions/authActions';
+import './coachRegistration.scss';
 
-
-function coachRegistration (props)  {
+function coachRegistration(props) {
     // const state = useSelector(state => state);
     // const dispatch = useDispatch();
     // // const [fullName, setFullName] = useState();
@@ -42,7 +43,7 @@ function coachRegistration (props)  {
     //                     Email: email,
     //                     Password: password,
     //                     ConfirmPassword: confirmPassword,
-                        
+
     //                 }
     //             }
     //         ]
@@ -50,43 +51,55 @@ function coachRegistration (props)  {
     // }, [fullname, email, password, confirmPassword]);
     return (
         <div className='Register-Wrapper'>
-				
-                <form  className="Register-Form-Wrapper" action="" 
-                >
-				<h1 className='Register-Title'>Register</h1>
-					<input
-						type="text"
-						placeholder="Full Name"
-						name="full_name"
-						// onChange={handleChange}
-						// value={state.registerCred.full_name}
-					/>
-				
-					<input
-						type="text"
-						placeholder="E-mail"
-						name="E-Mail"
-						// onChange={handleChange2}
-						// value={state.registerCred.email}
-					/>
-					<input
-						type="password"
-						placeholder="password"
-						name="password"
-						// onChange={handleChange3}
-						// value={state.registerCred.password}
-					/>
-                    <input
-						type="password"
-						placeholder="Confirm password"
-						name="password"
-						// onChange={handleChange4}
-						// value={state.registerCred.password}
-					/>
-					<button>Register</button>
-				</form>
-			</div>
-    )
+            <div className='side-one'>
+                <img src='https://i.imgur.com/eZTEnXz.png' alt='Placeholder' />
+            </div>
+            <div className='side-two'>
+                <h1>Sign Up</h1>
+                <p>Welcome to CoachMe! Please create a new coach account.</p>
+                <form className='Register-Form-Wrapper' action=''>
+                    <div className='input-Wrapper'>
+                        <input
+                            type='text'
+                            placeholder='Full Name'
+                            name='full_name'
+                            // onChange={handleChange}
+                            // value={state.registerCred.full_name}
+                        />
+
+                        <input
+                            type='text'
+                            placeholder='Email'
+                            name='E-Mail'
+                            // onChange={handleChange2}
+                            // value={state.registerCred.email}
+                        />
+                        <input
+                            type='password'
+                            placeholder='Password'
+                            name='password'
+                            // onChange={handleChange3}
+                            // value={state.registerCred.password}
+                        />
+                        <input
+                            type='password'
+                            placeholder='Confirm Password'
+                            name='password'
+                            // onChange={handleChange4}
+                            // value={state.registerCred.password}
+                        />
+                    </div>
+                </form>
+                <div className='signup-btn'>Sign-up</div>
+                <div className='login-container'>
+                    Already have an account?{' '}
+                    <Link className='login' to='/login'>
+                        Login
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
 }
 
-export default coachRegistration
+export default coachRegistration;
