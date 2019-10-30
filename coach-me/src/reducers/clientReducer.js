@@ -44,6 +44,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case UPDATE_METRIC_SUCCESS:
+            console.log(state,action.payload)
             return {
                 ...state,
                 isfetching: false,
@@ -72,15 +73,16 @@ export default (state = initialState, action) => {
                     phonenumber: action.payload.Phone,
                     coach: action.payload.Coach,
                     language: action.payload.Language,
-                    name: action.payload['Client_Name']
+                    name: action.payload['Client Name']
                 },
                 error: ''
             };
         case GET_CLIENTS_FAILURE:
+        
             return {
                 ...state,
                 isfetching: false,
-                err: action.payload
+                error: action.payload
             };
         case GET_RECORDS_START:
             return {
@@ -89,6 +91,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_RECORDS_SUCCESS:
+        console.log(action.payload)
             return {
                 ...state,
                 isfetching: false,

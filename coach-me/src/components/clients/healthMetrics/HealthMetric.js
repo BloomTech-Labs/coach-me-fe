@@ -13,6 +13,7 @@ import './healthMetrics.scss';
 import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
 import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
 import iconweight from '../../utils/assets/weight.svg';
+import iconSeeHistory from '../../utils/assets/seeHistory.svg';
 
 const HealthMetric = props => {
     const state = useSelector(state => state);
@@ -23,8 +24,8 @@ const HealthMetric = props => {
         return Date.parse(a.fields.Date_time) - Date.parse(b.fields.Date_time);
     });
 
-    console.log('clientData***', clientData);
-    console.log('****STATE', state.clientinfo);
+    // console.log('clientData***', clientData);
+    // console.log('****STATE', state.clientinfo);
     // Following state controls the history toggle functionality:
     const [toggleHistory, setToggleHistory] = useState(false);
 
@@ -38,6 +39,7 @@ const HealthMetric = props => {
     }, []);
 
     const handleClick = (heading, label, filter, filter2) => {
+        window.scrollTo(0, 0);
         setHistoryFilter('');
         setToggleHistory(true);
         setHistoryLabel(heading);
@@ -47,7 +49,7 @@ const HealthMetric = props => {
         } else {
             setHistoryFilter(filter);
         }
-        console.log('***Typeof', typeof historyFilter);
+        // console.log('***Typeof', typeof historyFilter);
     };
 
     //Data reshaped for chartjs used in <LineGraph />
@@ -92,7 +94,7 @@ const HealthMetric = props => {
                         <div className='metric'>
                             <div className='metric-icon'>
                                 <img
-                                    class='icon'
+                                    className='icon'
                                     alt='Blood Gluscose Icon'
                                     src={iconfastingBloodGlucose}
                                 ></img>
@@ -117,6 +119,7 @@ const HealthMetric = props => {
                         <LineGraph
                             values={bloodSugarArray}
                             datesArray={datesArray}
+                            metricType={'bloodGlucose'}
                         />
                         <div className='btn-container'>
                             <button
@@ -129,7 +132,12 @@ const HealthMetric = props => {
                                     )
                                 }
                             >
-                                {translate('seeHistory')} >
+                                {translate('seeHistory')}{' '}
+                                <img
+                                    className='icon'
+                                    alt='Arrow pointing right'
+                                    src={iconSeeHistory}
+                                ></img>
                             </button>
                         </div>
                     </div>
@@ -138,7 +146,7 @@ const HealthMetric = props => {
                         <div className='metric'>
                             <div className='metric-icon'>
                                 <img
-                                    class='icon'
+                                    className='icon'
                                     alt='Weight Icon'
                                     src={iconweight}
                                 ></img>
@@ -163,6 +171,7 @@ const HealthMetric = props => {
                         <LineGraph
                             values={weightArray}
                             datesArray={datesArray}
+                            metricType={'weight'}
                         />
                         <div className='btn-container'>
                             <button
@@ -171,7 +180,12 @@ const HealthMetric = props => {
                                     handleClick('Weight', 'Ibs', 'Weight')
                                 }
                             >
-                                {translate('seeHistory')} >
+                                {translate('seeHistory')}{' '}
+                                <img
+                                    className='icon'
+                                    alt='Arrow pointing right'
+                                    src={iconSeeHistory}
+                                ></img>
                             </button>
                         </div>
                     </div>
@@ -179,7 +193,7 @@ const HealthMetric = props => {
                         <div className='metric'>
                             <div className='metric-icon'>
                                 <img
-                                    class='icon'
+                                    className='icon'
                                     alt='Blood Pressure Icon'
                                     src={iconbloodPressure}
                                 ></img>
@@ -210,6 +224,7 @@ const HealthMetric = props => {
                             bpOverArray={bpOverArray}
                             bpUnderArray={bpUnderArray}
                             datesArray={datesArray}
+                            metricType={'bloodPressure'}
                         />
                         <div className='btn-container'>
                             <button
@@ -223,7 +238,12 @@ const HealthMetric = props => {
                                     )
                                 }
                             >
-                                {translate('seeHistory')} >
+                                {translate('seeHistory')}{' '}
+                                <img
+                                    className='icon'
+                                    alt='Arrow pointing right'
+                                    src={iconSeeHistory}
+                                ></img>
                             </button>
                         </div>
                     </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 function MetricDisplay(props) {
-    // console.log(props);
 
     if (props.filter2) {
         return (

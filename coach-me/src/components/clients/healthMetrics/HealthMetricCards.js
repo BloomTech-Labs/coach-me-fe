@@ -12,9 +12,6 @@ import iconweight from '../../utils/assets/weight.svg';
 import iconback from '../../utils/assets/back.svg';
 
 function HealthMetricCards(props) {
-    // console.log('from healthmetriccards', props);
-    // console.log('type of filter', typeof props.historyFilter);
-
     const handleClick = () => {
         props.setToggleHistory(false);
     };
@@ -35,6 +32,8 @@ function HealthMetricCards(props) {
     const bpUnderArray = props.clientData.map(value => {
         return value.fields.Blood_pressure_under;
     });
+    const reverseClientData = [...props.clientData];
+    reverseClientData.reverse();
 
     //-----------------Blood Pressure (over/under)
     if (typeof props.historyFilter === 'object') {
@@ -60,9 +59,10 @@ function HealthMetricCards(props) {
                     bpOverArray={bpOverArray}
                     bpUnderArray={bpUnderArray}
                     datesArray={datesArray}
+                    metricType={'bloodPressure'}
                 />
                 <div className='health-cards-container'>
-                    {props.clientData.map((record, index) => (
+                    {reverseClientData.map((record, index) => (
                         <div className='health-card'>
                             <div className='metric-icon'>
                                 <img
@@ -123,10 +123,14 @@ function HealthMetricCards(props) {
                     <h4>{translate('glucoseHistoryDesc')}</h4>
                 </div>
 
-                <LineGraph values={bloodSugarArray} datesArray={datesArray} />
+                <LineGraph
+                    values={bloodSugarArray}
+                    datesArray={datesArray}
+                    metricType={'bloodGlucose'}
+                />
 
                 <div className='health-cards-container'>
-                    {props.clientData.map((record, index) => (
+                    {reverseClientData.map((record, index) => (
                         <div className='health-card'>
                             <div className='metric-icon'>
                                 <img
@@ -183,10 +187,14 @@ function HealthMetricCards(props) {
                     <h4>{translate('weightHistoryDesc')}</h4>
                 </div>
 
-                <LineGraph values={weightArray} datesArray={datesArray} />
+                <LineGraph
+                    values={weightArray}
+                    datesArray={datesArray}
+                    metricType={'weight'}
+                />
 
                 <div className='health-cards-container'>
-                    {props.clientData.map((record, index) => (
+                    {reverseClientData.map((record, index) => (
                         <div className='health-card'>
                             <div className='metric-icon'>
                                 <img
