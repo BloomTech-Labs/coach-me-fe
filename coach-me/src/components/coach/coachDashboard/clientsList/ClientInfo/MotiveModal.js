@@ -17,20 +17,11 @@ const MotiveModal = (props) => {
                 <label>Motivations</label>
                 </div>
                   <p>{motivation}</p>
-                  {/* <h1>{translate('Form-Failure')}</h1> */}
-                   
              <button onClick={ () => toggleModal(show)} > close</button>
-             
-               
                 </div>
-    
                 </div>
     )
-
-   
-    
 }
 return null
 }
-
 export default MotiveModal

@@ -1,0 +1,32 @@
+.message-header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    height:4%;
+    width:100%;
+   .live-message{
+       width: 50%;
+       display:flex;
+       align-items: center;
+       justify-content: center;
+       height:100%;
+      
+   }
+   .scheduled-message{
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    
+   }
+}
+.active{
+    background-color:rgb(255, 255, 255);
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+}

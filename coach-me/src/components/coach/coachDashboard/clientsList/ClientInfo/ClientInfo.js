@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import MotiveModal from './MotiveModal'
 import './clientInfo.scss';
 
