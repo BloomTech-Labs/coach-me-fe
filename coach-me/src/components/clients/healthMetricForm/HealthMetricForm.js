@@ -12,11 +12,11 @@ import moment from 'moment';
 function HealthMetricForm(props) {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    const [bpOver, setBpOver] = useState(0);
-    const [bpUnder, setBpUnder] = useState(0);
-    const [bS, setBS] = useState(0);
-    const [weight, setWeight] = useState(0);
-    const [metrics, setMetrics] = useState(0);
+    const [bpOver, setBpOver] = useState();
+    const [bpUnder, setBpUnder] = useState();
+    const [bS, setBS] = useState();
+    const [weight, setWeight] = useState();
+    const [metrics, setMetrics] = useState();
     const [show, setshow] = useState(false);
 
     const handleInputChange = e => {
@@ -36,30 +36,42 @@ function HealthMetricForm(props) {
         setWeight(e.target.value);
     };
 
+    const bpUnderRequired = bpOver ? true : false;
+    const bpOverRequired = bpUnder ? true : false;
+
+    let allMetricsObj = {
+        Client_Name: state.clientinfo.id,
+        Date_time: moment().format(),
+        Blood_pressure_over: parseInt(bpOver),
+        Blood_pressure_under: parseInt(bpUnder),
+        Blood_sugar: parseInt(bS),
+        Weight: parseInt(weight)
+    };
+
+    Object.keys(allMetricsObj).map(key => {
+        if (
+            isNaN(allMetricsObj[key]) &&
+            typeof allMetricsObj[key] !== 'string'
+        ) {
+            delete allMetricsObj[key];
+        }
+    });
+
     useEffect(() => {
-        setMetrics({
-            records: [
-                {
-                    fields: {
-                        Client_Name: state.clientinfo.id,
-                        Date_time: moment().format(),
-                        Blood_pressure_over: parseInt(bpOver),
-                        Blood_pressure_under: parseInt(bpUnder),
-                        Blood_sugar: parseInt(bS),
-                        Weight: parseInt(weight)
-                    }
-                }
-            ]
-        });
+        setMetrics({ records: [{ fields: allMetricsObj }] });
     }, [bpOver, bpUnder, bS, weight]);
-    console.log('state', state);
+    // console.log('state', state);
 
     const submitNewMetric = e => {
         e.preventDefault();
-        dispatch(addMetric(metrics));
+        if ((bpOver || bpUnder || bS || weight) !== undefined) {
+            console.log('submitted');
+            dispatch(addMetric(metrics));
+        }
         setshow(!show);
     };
     const submitMetric = e => {
+        // dispatch(addMetric(metrics));
         props.history.push('/dashboard-client');
     };
     const failMetric = e => {
@@ -154,6 +166,7 @@ function HealthMetricForm(props) {
                             pattern='[0-9]*'
                             ng-model='vm.onlyNumbers'
                             min='0'
+                            required={bpOverRequired}
                         />
                         <span>/</span>
                         <input
@@ -166,6 +179,7 @@ function HealthMetricForm(props) {
                             pattern='[0-9]*'
                             ng-model='vm.onlyNumbers'
                             min='0'
+                            required={bpUnderRequired}
                         />
                         <p>mmHg</p>
                     </div>
