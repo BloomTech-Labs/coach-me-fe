@@ -19,12 +19,14 @@ const headers = {
     Authorization: localStorage.getItem('token')
 };
 
+const devPath = `https://coach-me-production.herokuapp.com`;
+
 export const getClientInfo = props => dispatch => {
     console.log(props);
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
     axios
-        .post(`${process.env.BACK_END_URL}/clientRoute/login`, clientnum)
+        .post(`${devPath}/clientRoute/login`, clientnum)
         .then(res => {
             // console.log('res.data', res.data.loginAttempts);
             localStorage.setItem('token', res.data.token);
@@ -54,7 +56,7 @@ export const getClientInfoLogin = props => dispatch => {
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
     axios
-        .post(`${process.env.BACK_END_URL}/clientRoute/login`, clientnum)
+        .post(`${devPath}/clientRoute/login`, clientnum)
         .then(res => {
             // console.log('res.data', res.data.loginAttempts);
             localStorage.setItem('token', res.data.token);
@@ -80,16 +82,12 @@ export const getClientInfoLogin = props => dispatch => {
 export const addMetric = metricUpdate => dispatch => {
     dispatch({ type: UPDATE_METRIC_START });
     axios
-        .post(
-            `${process.env.BACK_END_URL}/clientRoute/logMetrics `,
-            metricUpdate,
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: localStorage.getItem('token')
-                }
+        .post(`${devPath}/clientRoute/logMetrics `, metricUpdate, {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: localStorage.getItem('token')
             }
-        )
+        })
         .then(res => {
             dispatch({
                 type: UPDATE_METRIC_SUCCESS,
@@ -107,7 +105,7 @@ export const addMetric = metricUpdate => dispatch => {
 export const getClientRecords = clientId => dispatch => {
     dispatch({ type: GET_RECORDS_START });
     axios
-        .get(`${process.env.BACK_END_URL}/clientRoute/paginationGetMetrics`, {
+        .get(`${devPath}/clientRoute/paginationGetMetrics`, {
             headers: {
                 Authorization: localStorage.getItem('token')
             }
