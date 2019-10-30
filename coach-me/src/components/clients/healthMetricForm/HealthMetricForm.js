@@ -53,13 +53,9 @@ function HealthMetricForm(props) {
             isNaN(allMetricsObj[key]) &&
             typeof allMetricsObj[key] !== 'string'
         ) {
-            console.log('if statement', allMetricsObj[key]);
             delete allMetricsObj[key];
-        } else {
-            console.log('else', allMetricsObj[key]);
         }
     });
-    console.log('changedMetricObject', allMetricsObj);
 
     useEffect(() => {
         setMetrics({ records: [{ fields: allMetricsObj }] });
