@@ -24,7 +24,10 @@ export const getClientInfo = props => dispatch => {
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
     axios
-        .post(`${process.env.BACK_END_URL}/clientRoute/login`, clientnum)
+        .post(
+            ` https://coach-me-backend.herokuapp.com/clientRoute/login`,
+            clientnum
+        )
         .then(res => {
             // console.log('res.data', res.data.loginAttempts);
             localStorage.setItem('token', res.data.token);
@@ -54,7 +57,10 @@ export const getClientInfoLogin = props => dispatch => {
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
     axios
-        .post(`${process.env.BACK_END_URL}/clientRoute/login`, clientnum)
+        .post(
+            ` https://coach-me-backend.herokuapp.com/clientRoute/login`,
+            clientnum
+        )
         .then(res => {
             // console.log('res.data', res.data.loginAttempts);
             localStorage.setItem('token', res.data.token);
@@ -81,7 +87,7 @@ export const addMetric = metricUpdate => dispatch => {
     dispatch({ type: UPDATE_METRIC_START });
     axios
         .post(
-            `${process.env.BACK_END_URL}/clientRoute/logMetrics `,
+            `https://coach-me-backend.herokuapp.com/clientRoute/logMetrics `,
             metricUpdate,
             {
                 headers: {
@@ -107,11 +113,14 @@ export const addMetric = metricUpdate => dispatch => {
 export const getClientRecords = clientId => dispatch => {
     dispatch({ type: GET_RECORDS_START });
     axios
-        .get(`${process.env.BACK_END_URL}/clientRoute/paginationGetMetrics`, {
-            headers: {
-                Authorization: localStorage.getItem('token')
+        .get(
+            `https://coach-me-backend.herokuapp.com/clientRoute/paginationGetMetrics`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
             }
-        })
+        )
         .then(results => {
             const clientRecords = [...results.data.clientRecords];
             dispatch({
