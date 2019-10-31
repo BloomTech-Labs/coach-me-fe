@@ -11,19 +11,24 @@ function LiveMessages(props) {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
     const [message, setMessage] = useState();
-    const [messageHistory, setMessageHistory] = useState();
+    const [messageHistory, setMessageHistory] = useState([]);
 
     useEffect(() => {
-        postMessage(message);
         getMessageHistory();
     }, [messageHistory]); // maybe??
 
+    useEffect(() => {
+        postMessage(message);
+    }, []);
+
     const getMessageHistory = () => {
         axios
-            .get(`http://localhost:4000/twilioRoute/messagehistory`)
+            .get(
+                `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/messagehistory/(806)518-8727`
+            )
             .then(res => {
+                console.log('getMessageHistory', res.data);
                 setMessageHistory(res.data);
-                console.log(res);
             })
             .catch(err => console.log('getMessageHistory ERR', err));
     };
@@ -56,7 +61,7 @@ function LiveMessages(props) {
                 <p className='client-test'>hello</p>
                 <p className='coach-test'>hello</p>
             </div>
-            {messageHistory && messageHistory.map(m => <p>{m.body}</p>)}
+            { messageHistory.toMessages && messageHistory.toMessages.map(m => <p>{m.body}</p>)}
             <form onSubmit={submitNewMessage}>
                 <textarea
                     rows='4'
