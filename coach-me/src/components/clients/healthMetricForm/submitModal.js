@@ -12,10 +12,12 @@ const SubmitModal = props => {
                 <div className='modal-container'>
                     <div className='modal-box'>
                         <Success />
-                        <p>{translate('Form-Success')}</p>
+                        <p>{translate('Form-Success')}!</p>
                         {/* <h1>{translate('Form-Failure')}</h1> */}
 
-                        <button onClick={() => onSubmit()}> continue</button>
+                        <button onClick={() => onSubmit()}>
+                            {translate('continueBtn')}
+                        </button>
                     </div>
                 </div>
             );
@@ -29,7 +31,7 @@ const SubmitModal = props => {
                         <p>{translate('Form-Failure')}</p>
                         {/* <h1>{translate('Form-Failure')}</h1> */}
 
-                        <button onClick={() => failMetric()}> continue </button>
+                        <button onClick={() => failMetric()}>OK</button>
                     </div>
                 </div>
             );

@@ -1,7 +1,7 @@
 @mixin layout {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -23,22 +23,30 @@
 .modal-box {
     @include layout();
     //  background-color: #ffffff;
-    font-family: Poppins;
+    font-family: DM Sans;
     font-style: normal;
     background-color: #ffffff;
-    height: 30%;
-    width: 90%;
+    height: 33%;
+    width: 80%;
+    max-width: 400px;
     border-radius: 20px;
-    font-size: 24px;
+    font-size: 1.8rem;
+
+    p {
+        color: #274160;
+        opacity: 0.8;
+        width: 80%;
+        line-height: 141.8%;
+    }
 
     button {
         border: none;
-        background: #292929;
-        font-size: 24px;
-        width: 60%;
-        height: 30%;
+        background: #274160;
+        font-size: 1.8rem;
+        width: 70%;
+        height: 20%;
         border-radius: 20px;
-        color: white;
+        color: #ffffff;
         margin-top: 10px;
     }
 }
