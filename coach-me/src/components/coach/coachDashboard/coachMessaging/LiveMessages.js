@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getMessageHistory,
@@ -16,72 +16,45 @@ function LiveMessages(props) {
     const dispatch = useDispatch();
     console.log('LiveMessages State', state);
 
-    const [message, setMessage] = useState();
-    const [phone, setPhone] = useState();
-    const [creds, setCreds] = useState();
-    const [messageHistory, setMessageHistory] = useState([]);
-
-    // data snap shot
-    // {
-    //     "message":"derps",
-    //     "Phone":"(806)518-8727"
-    // }
-
-    let messageCreds = {
-        message: message,
-        Phone: phone
-    };
-
     useEffect(() => {
         dispatch(getMessageHistory());
-    }, [messageHistory]); // maybe??
-
-    // useEffect(() => {
-    //     dispatch(postMessage());
-    // }, [message]); // maybe??
-
-    useEffect(() => {
-        setCreds({ messageCreds });
-    }, [message, phone]);
+    }, []);
 
     const handleInputChange = e => {
-        e.preventDefault();
-        setMessage(e.target.value);
-    };
-    const handleInputChange2 = e => {
-        e.preventDefault();
-        setPhone(e.target.value);
+        // e.preventDefault()
+        // [e.target.name]: e.target.value
     };
 
     const submitNewMessage = e => {
         e.preventDefault();
-        if ((message && phone) !== undefined) {
-            dispatch(postMessage(creds));
+        if ((state.coach.message && state.phone) !== undefined) {
+            dispatch(postMessage(state.coach.creds));
         }
     };
-    //submit needs to hook up with twilio
 
     return (
         <>
             {/* contains get request twilio data */}
 
-            <div>
-                {/* <MessageCanvas/> */}
-                <p className='client-test'>hello</p>
-                <p className='coach-test'>hello</p>
+            <div className='message-container'>
+                {state.coach.messages &&
+                    state.coach.messages.map(m => (
+                        <div
+                            className={`messages ${
+                                m.direction === 'inBound' ? 'left' : 'right'
+                            }`}
+                        >
+                            <p>{m.body}</p>
+                            <p>{m.dateSent}</p>
+                        </div>
+                    ))}
             </div>
-            {messageHistory.messages &&
-                messageHistory.messages.map(m => (
-                    <div className='messages'>
-                        <p>{m.body}</p>
-                    </div>
-                ))}
             <form onSubmit={submitNewMessage}>
                 <textarea
                     rows='4'
                     cols='50'
                     onChange={handleInputChange}
-                    value={message}
+                    value={state.coach.creds.message}
                     type='text'
                     placeholder='Type your message here'
                 ></textarea>

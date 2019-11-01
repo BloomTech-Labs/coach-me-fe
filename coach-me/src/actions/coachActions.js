@@ -19,7 +19,7 @@ export const getMessageHistory = liveNumber => dispatch => {
     dispatch({ type: GET_TEXT_START });
     axios
         .get(
-            `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/messagehistory/(806)518-8727`
+            `https://coach-me-backend.herokuapp.com/twilioRoute/messagehistory/(806)518-8727`
         )
         .then(res => {
             console.log('getMessageHistory', res.data);
