@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginCoach } from '../../../actions/authActions';
+import { loginCoach } from '../../../actions/coachActions';
 import { Link } from 'react-router-dom';
 import './loginCoach.scss';
 import Modal from './Modal';
@@ -37,8 +37,9 @@ const LoginCoach = props => {
     const handleSubmit = e => {
         console.log(creds);
         e.preventDefault();
-        dispatch(loginCoach(creds));
-        props.history.push('/dashboard');
+        dispatch(loginCoach(creds)).then(() => {
+            props.history.push('/dashboard');
+        });
     };
     return (
         <>

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './coachDashboard.scss';
 import { useDispatch, useSelector } from 'react-redux';
+<<<<<<< HEAD
 import { getClients } from '../../../actions/authActions';
+=======
+import { getClients } from '../../../actions/coachActions';
+>>>>>>> 047c969c9ad24d50d5800411d8aa81e059dceb71
 import CoachHeader from './CoachHeader';
 import ClientInfo from './clientsList/ClientInfo/ClientInfo';
 import SearchForm from './SearchForm';
