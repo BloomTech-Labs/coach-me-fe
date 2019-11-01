@@ -1,31 +1,30 @@
-import axios from 'axios'
+import axios from 'axios';
 import {
     REGISTER_START,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
-    CLIENT_LOADED,
-    AUTH_ERROR,
+    // CLIENT_LOADED,
+    // AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGIN_START,
-    LOGOUT,
-    CLEAR_ERRORS,
-    GET_RECORDS_START ,
- GET_RECORDS_SUCCESS,
- GET_RECORDS_FAILURE
+    // LOGOUT,
+    // CLEAR_ERRORS,
+    GET_RECORDS_START,
+    GET_RECORDS_SUCCESS,
+    GET_RECORDS_FAILURE
 } from './types';
 
-
 export const registerCoach = register => dispatch => {
-    const creds = register.records[0].fields
+    const creds = register.records[0].fields;
     dispatch({ type: REGISTER_START });
     axios
         .post(
-            `https://coach-me-backend.herokuapp.com/coachRoute/register `,creds
-           
+            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/newRegister `,
+            creds
         )
         .then(res => {
-            console.log(res)
+            console.log(res);
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data
@@ -39,21 +38,15 @@ export const registerCoach = register => dispatch => {
         });
 };
 
-
 export const loginCoach = creds => dispatch => {
     dispatch({ type: LOGIN_START });
-    axios
-        .post(
-            `https://coach-me-backend.herokuapp.com/coachRoute/login`,
-            creds,
-           
-        )
+    return axios
+        .post(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/login`, creds)
         .then(res => {
-            console.log(res)
-            localStorage.setItem('token',res.data.token)
+            console.log(res);
+            localStorage.setItem('token', res.data.token);
             dispatch({
-                type: LOGIN_SUCCESS,
-               
+                type: LOGIN_SUCCESS
             });
         })
         .catch(err => {
@@ -64,28 +57,25 @@ export const loginCoach = creds => dispatch => {
         });
 };
 
-export const getClients= (token) => dispatch => {
-    const headers = {Authorization:token}
+export const getClients = token => dispatch => {
+    const headers = { Authorization: token };
     dispatch({ type: GET_RECORDS_START });
     axios
-        .get(
-            `https://coach-me-backend.herokuapp.com/coachRoute/getPatients`,{headers:headers}
-        
-           
-        )
+        .get(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getPatients`, {
+            headers: headers
+        })
         .then(res => {
-            console.log(res.data.patientList)
-            
+            console.log(res.data.patientList);
+
             dispatch({
                 type: GET_RECORDS_SUCCESS,
-               payload: res.data.patientList
+                payload: res.data.patientList
             });
         })
         .catch(err => {
             dispatch({
-                type: GET_RECORDS_SUCCESS,
+                type: GET_RECORDS_FAILURE,
                 payload: err.message
             });
         });
 };
-
