@@ -24,7 +24,7 @@ export const getMessageHistory = () => dispatch => {
       .catch(err => console.log('getMessageHistory ERR', err));
 };
 
-export const postMessage = post => {
+export const postMessage = post => dispatch => {
   dispatch({type: ADD_TEXT_START })
   axios
       .post(`${process.env.REACT_APP_BACK_END_URL}/twilioRoute/twilio`, post)
@@ -35,7 +35,7 @@ export const postMessage = post => {
       })
       .catch(err => {
         dispatch({
-            type: ADD_TEXT_FAILURE,
+            type: COACH_ERROR,
             payload: err.message
         });
     });
