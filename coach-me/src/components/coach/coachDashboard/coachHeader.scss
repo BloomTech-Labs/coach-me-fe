@@ -1,22 +1,21 @@
-.coach-header{
+.coach-header {
     border: 1px solid red;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-between;
 
-    .small-profile{
-        display:flex;
+    .small-profile {
+        display: flex;
         justify-content: center;
         align-items: center;
         padding: 10px;
-        .profile-img{
+        .profile-img {
             border: 1px solid red;
             border-radius: 30px;
             background-color: grey;
-            width :50px;
+            width: 50px;
             height: 50px;
-            
         }
     }
 }
