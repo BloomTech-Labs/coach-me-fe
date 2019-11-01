@@ -3,7 +3,10 @@ import {
   GET_TEXT_SUCCESS,
   ADD_TEXT_START,
   ADD_TEXT_SUCCESS,
-  COACH_ERROR
+  COACH_ERROR,
+  GET_RECORDS_START,
+  GET_RECORDS_SUCCESS,
+  GET_RECORDS_FAILURE
 } from '../actions/types';
 
 const initialState = {

@@ -9,9 +9,6 @@ import {
     LOGIN_START
     // LOGOUT,
     // CLEAR_ERRORS,
-    // GET_RECORDS_START,
-    // GET_RECORDS_SUCCESS,
-    // GET_RECORDS_FAILURE
 } from '../actions/types';
 
 const initialState = {

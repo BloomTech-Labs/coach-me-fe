@@ -4,7 +4,10 @@ import {
   GET_TEXT_SUCCESS,
   ADD_TEXT_START,
   ADD_TEXT_SUCCESS,
-  COACH_ERROR
+  COACH_ERROR,
+  GET_RECORDS_START,
+ GET_RECORDS_SUCCESS,
+ GET_RECORDS_FAILURE
 } from './types';
 
 export const getMessageHistory = () => dispatch => {
@@ -39,4 +42,27 @@ export const postMessage = post => dispatch => {
             payload: err.message
         });
     });
+};
+
+export const getClients = token => dispatch => {
+    const headers = { Authorization: token };
+    dispatch({ type: GET_RECORDS_START });
+    axios
+        .get(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getPatients`, {
+            headers: headers
+        })
+        .then(res => {
+            console.log(res.data.patientList);
+
+            dispatch({
+                type: GET_RECORDS_SUCCESS,
+                payload: res.data.patientList
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_RECORDS_FAILURE,
+                payload: err.message
+            });
+        });
 };
