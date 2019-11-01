@@ -15,7 +15,7 @@ const CoachDashboard = ({ history }) => {
     const [checkOne, setCheckOne] = useState(false);
     const [checkTwo, setCheckTwo] = useState(false);
     const [clientprofile, setclientprofile] = useState();
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.coach.clientRecords);
     const dispatch = useDispatch();
     const token = localStorage.getItem('token');
     useEffect(() => {

@@ -6,7 +6,7 @@ import '../coachDashboard/clientsList/ClientInfo/clientInfo.scss'
 const SearchForm = (props)  => {
     const state = useSelector(state => state.coach)
     console.log(state)
-    const clientList = state.coach.clientRecords
+    const clientList = state.clientRecords
     const [ClientList, setClientList] =useState()
     const [query, setquery] = useState()
 
@@ -51,7 +51,7 @@ const SearchForm = (props)  => {
          </form>
 
          <div>
-         {ClientList && ClientList.map(client => <ClientCard client={client} setClient={props.setClient} />)}
+         {ClientList && ClientList.map((client, i )=> <ClientCard client={client} setClient={props.setClient} key={i} />)}
          </div>
         </>
 

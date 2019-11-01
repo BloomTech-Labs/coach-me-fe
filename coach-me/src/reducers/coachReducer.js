@@ -10,7 +10,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  messages:'',
+  messages:[],
   creds: {
     message: '',
     Phone: ''
@@ -21,6 +21,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+    console.log("coachReducer", state)
   switch (action.type) {
       case GET_TEXT_START:
           return {
@@ -38,7 +39,7 @@ export default (state = initialState, action) => {
       case  ADD_TEXT_START:
           return {
               ...state,
-              messages: [...state.messages, action.payload],
+              messages: action.payload,
               loading: true,
           };
       case  ADD_TEXT_SUCCESS:
@@ -65,18 +66,13 @@ export default (state = initialState, action) => {
                   clientRecords: [...action.payload],
                   error: ''
               };
-          case GET_RECORDS_FAILURE:
-              return {
-                  ...state,
-                  loading: false,
-                  error: action.payload
-              };
-      case COACH_ERROR:
-          return {
-            ...state,
-            loading: false,
-            error: action.payload
-          };
+        case GET_RECORDS_FAILURE:
+        case COACH_ERROR:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            };
       default:
           return state;
   }
