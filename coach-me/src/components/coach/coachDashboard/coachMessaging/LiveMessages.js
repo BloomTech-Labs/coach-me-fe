@@ -14,7 +14,7 @@ import './coachMessaging.scss';
 function LiveMessages(props) {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    console.log('LiveMessages State', state);
+    console.log('LiveMessages State', state); 
 
     useEffect(() => {
         dispatch(getMessageHistory());
@@ -37,15 +37,14 @@ function LiveMessages(props) {
             {/* contains get request twilio data */}
 
             <div className='message-container'>
-                {state.coach.messages &&
-                    state.coach.messages.map(m => (
+                {state.coach.messageHistory && state.coach.messageHistory.map(m => (
                         <div
-                            className={`messages ${
-                                m.direction === 'inBound' ? 'left' : 'right'
-                            }`}
+                            // className={`messages ${
+                            //     m.direction === 'inBound' ? 'left' : 'right'
+                            // }`}
                         >
                             <p>{m.body}</p>
-                            <p>{m.dateSent}</p>
+                            {/* <p>{m.dateSent}</p> */}
                         </div>
                     ))}
             </div>

@@ -10,7 +10,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  messages:[],
+  messageHistory:[],
   creds: {
     message: '',
     Phone: ''
@@ -26,7 +26,6 @@ export default (state = initialState, action) => {
       case GET_TEXT_START:
           return {
               ...state,
-              messages: action.payload,
               loading: true,
               
           };
@@ -34,7 +33,7 @@ export default (state = initialState, action) => {
           return {
               ...state,
               loading: false,
-              messages: { ...action.payload },
+              messageHistory: action.payload.messages,
           };
       case  ADD_TEXT_START:
           return {
