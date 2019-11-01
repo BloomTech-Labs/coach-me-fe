@@ -3,9 +3,6 @@ import {
     GET_CLIENTS_START,
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
-    ADD_CLIENT,
-    DELETE_CLIENT,
-    CLIENTS_ERROR,
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
@@ -91,10 +88,7 @@ export const addMetric = metricUpdate => dispatch => {
             `${process.env.REACT_APP_BACK_END_URL}/clientRoute/logMetrics `,
             metricUpdate,
             {
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: localStorage.getItem('token')
-                }
+                headers: headers
             }
         )
         .then(res => {
@@ -117,9 +111,7 @@ export const getClientRecords = clientId => dispatch => {
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/clientRoute/paginationGetMetrics`,
             {
-                headers: {
-                    Authorization: localStorage.getItem('token')
-                }
+                headers: headers
             }
         )
         .then(results => {

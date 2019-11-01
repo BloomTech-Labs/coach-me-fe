@@ -1,8 +1,4 @@
 import {
-    GET_CLIENTS,
-    ADD_CLIENT,
-    DELETE_CLIENT,
-    CLIENTS_ERROR,
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
@@ -32,7 +28,7 @@ const initialState = {
     Date_time: null,
     isfetching: false,
     error: '',
-    clientRecords: []
+    
 };
 
 export default (state = initialState, action) => {
@@ -84,26 +80,8 @@ export default (state = initialState, action) => {
                 isfetching: false,
                 error: action.payload
             };
-        case GET_RECORDS_START:
-            return {
-                ...state,
-                isfetching: true,
-                error: ''
-            };
-        case GET_RECORDS_SUCCESS:
-        console.log(action.payload)
-            return {
-                ...state,
-                isfetching: false,
-                clientRecords: [...action.payload],
-                error: ''
-            };
-        case GET_RECORDS_FAILURE:
-            return {
-                ...state,
-                isfetching: false,
-                error: action.payload
-            };
+        
+       
         default:
             return state;
     }

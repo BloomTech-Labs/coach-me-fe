@@ -1,61 +1,64 @@
 import axios from 'axios';
 import {
-    GET_TEXT_START,
-    GET_TEXT_SUCCESS,
-    ADD_TEXT_START,
-    ADD_TEXT_SUCCESS,
-    COACH_ERROR,
+    REGISTER_START,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
+    // CLIENT_LOADED,
+    // AUTH_ERROR,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGIN_START,
+    // LOGOUT,
+    // CLEAR_ERRORS,
     GET_RECORDS_START,
     GET_RECORDS_SUCCESS,
     GET_RECORDS_FAILURE
 } from './types';
 
-const headers = {
-    Authorization: localStorage.getItem('token')
-};
-
-
-export const getMessageHistory = liveNumber => dispatch => {
-    dispatch({ type: GET_TEXT_START });
+export const registerCoach = register => dispatch => {
+    const creds = register.records[0].fields;
+    dispatch({ type: REGISTER_START });
     axios
-        .get(
-            `https://coach-me-backend.herokuapp.com/twilioRoute/messagehistory/(806)518-8727`
+        .post(
+            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/newRegister `,
+            creds
         )
         .then(res => {
-            console.log('getMessageHistory', res.data);
+            console.log(res);
             dispatch({
-                type: GET_TEXT_SUCCESS,
+                type: REGISTER_SUCCESS,
                 payload: res.data
             });
         })
         .catch(err => {
-            console.log('getMessageHistory ERR', err);
             dispatch({
-                type: COACH_ERROR,
+                type: REGISTER_FAIL,
                 payload: err.message
             });
         });
 };
 
-export const postMessage = post => dispatch => {
-    dispatch({ type: ADD_TEXT_START });
-    axios
-        .post(`https://coach-me-backend.herokuapp.com/twilioRoute/twilio`, post)
+export const loginCoach = creds => dispatch => {
+    dispatch({ type: LOGIN_START });
+    return axios
+        .post(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/login`, creds)
         .then(res => {
+            console.log(res);
+            localStorage.setItem('token', res.data.token);
             dispatch({
-                type: ADD_TEXT_SUCCESS
+                type: LOGIN_SUCCESS
             });
         })
         .catch(err => {
             dispatch({
-                type: COACH_ERROR,
+                type: LOGIN_FAIL,
                 payload: err.message
             });
         });
 };
 
 export const getClients = token => dispatch => {
-    
+    const headers = { Authorization: token };
     dispatch({ type: GET_RECORDS_START });
     axios
         .get(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getPatients`, {
