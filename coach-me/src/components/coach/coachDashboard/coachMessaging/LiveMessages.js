@@ -48,7 +48,7 @@ function LiveMessages(props) {
                 `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/messagehistory/(806)518-8727`
             )
             .then(res => {
-                console.log('getMessageHistory', res.data);
+                // console.log('getMessageHistory', res.data);
                 setMessageHistory(res.data);
             })
             .catch(err => console.log('getMessageHistory ERR', err));

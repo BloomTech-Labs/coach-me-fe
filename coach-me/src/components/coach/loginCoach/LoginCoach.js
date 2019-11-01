@@ -40,7 +40,7 @@ const LoginCoach = (props) => {
     const handleSubmit = e => {
         console.log(creds)
         e.preventDefault();
-        dispatch(loginCoach(creds));
+        dispatch(loginCoach(creds))
         props.history.push('/dashboard')
         
         

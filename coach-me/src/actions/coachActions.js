@@ -7,14 +7,19 @@ import {
   COACH_ERROR
 } from './types';
 
-export const getMessageHistory = () => {
+export const getMessageHistory = () => dispatch => {
+  dispatch({type: GET_TEXT_START})
   axios
       .get(
           `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/messagehistory/(806)518-8727`
       )
       .then(res => {
           console.log('getMessageHistory', res.data);
-          setMessageHistory(res.data);
+          dispatch({
+            type: GET_TEXT_SUCCESS,
+            payload: res.data
+          })
+           
       })
       .catch(err => console.log('getMessageHistory ERR', err));
 };
