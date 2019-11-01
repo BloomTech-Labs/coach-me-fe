@@ -69,7 +69,7 @@ export const getClientInfoLogin = props => dispatch => {
             const loginAttempts = localStorage.getItem('loginAttempts');
             // console.log('Look at all this info!', loginAttempts);
 
-            props.history.push('metric-form');
+            props.history.push('/metric-form');
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,

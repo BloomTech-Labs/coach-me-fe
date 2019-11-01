@@ -72,7 +72,7 @@ function HealthMetricForm(props) {
         setshow(!show);
     };
     const submitMetric = e => {
-        props.history.push('/dashboard-client');
+        props.history.push('/metrics');
     };
     const failMetric = e => {
         setshow(!show);

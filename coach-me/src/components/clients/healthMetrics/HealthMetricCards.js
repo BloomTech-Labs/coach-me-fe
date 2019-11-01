@@ -13,7 +13,8 @@ import iconback from '../../utils/assets/back.svg';
 
 function HealthMetricCards(props) {
     const handleClick = () => {
-        props.setToggleHistory(false);
+        // props.setToggleHistory(false);
+        props.history.push('/metrics');
     };
 
     //Data reshaped for chartjs used in <LineGraph />
