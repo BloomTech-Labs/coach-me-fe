@@ -12,7 +12,7 @@ function ScheduledMessages(props) {
         dom: '',
         month: '',
         weekday: '',
-        year: '',
+        sec: '',
         numbers: ''
     });
 
@@ -28,6 +28,7 @@ function ScheduledMessages(props) {
             .post('http://localhost:4000/twilioRoute/schedule', schedule)
             .then(res => {
                 console.log(schedule);
+                console.log(res, 'res');
             })
             .catch(err => console.log(err));
     };
@@ -47,6 +48,14 @@ function ScheduledMessages(props) {
                     placeholder='Type your message here'
                     required
                 ></textarea>
+
+                <input
+                    type='number'
+                    onChange={handleInputChange}
+                    name='sec'
+                    value={schedule.sec}
+                    placeholder='Enter Seconds'
+                />
 
                 <input
                     type='number'
@@ -80,13 +89,6 @@ function ScheduledMessages(props) {
                     name='weekday'
                     value={schedule.weekday}
                     placeholder='Enter Weekday'
-                />
-                <input
-                    type='number'
-                    onChange={handleInputChange}
-                    name='year'
-                    value={schedule.year}
-                    placeholder='Enter Year'
                 />
                 <input
                     onChange={handleInputChange}
