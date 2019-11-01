@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerCoach } from '../../../actions/authActions';
+import { registerCoach } from '../../../actions/coachActions';
 import './coachRegistration.scss';
 
 function CoachRegistration(props) {
@@ -15,7 +15,7 @@ function CoachRegistration(props) {
 
     const handleChange = e => {
         e.preventDefault();
-      
+
         setFullName(e.target.value);
     };
     const handleChange2 = e => {
@@ -24,15 +24,15 @@ function CoachRegistration(props) {
     };
     const handleChange3 = e => {
         e.preventDefault();
-        
+
         setpassword(e.target.value);
     };
     const handleChange4 = e => {
         e.preventDefault();
-        console.log(e.target.value)
+        console.log(e.target.value);
         setconfirmPassword(e.target.value);
     };
- 
+
     useEffect(() => {
         setregister({
             records: [
@@ -40,9 +40,7 @@ function CoachRegistration(props) {
                     fields: {
                         name: fullName,
                         email: email,
-                        password: password,
-                        
-
+                        password: password
                     }
                 }
             ]
@@ -50,10 +48,9 @@ function CoachRegistration(props) {
     }, [fullName, email, password]);
 
     const handleSubmit = e => {
-        console.log(register)
+        console.log(register);
         e.preventDefault();
         dispatch(registerCoach(register));
-      
     };
     return (
         <div className='Register-Wrapper'>
@@ -63,13 +60,11 @@ function CoachRegistration(props) {
             <div className='side-two'>
                 <h1>Sign Up</h1>
                 <p>Welcome to CoachMe! Please create a new coach account.</p>
-                <form  onSubmit={ (e) => {
-                    handleSubmit(e)
-                } }
-                
-                className='Register-Form-Wrapper' 
-               
-            
+                <form
+                    onSubmit={e => {
+                        handleSubmit(e);
+                    }}
+                    className='Register-Form-Wrapper'
                 >
                     <div className='input-Wrapper'>
                         <input
@@ -102,9 +97,11 @@ function CoachRegistration(props) {
                             value={confirmPassword}
                         /> */}
                     </div>
-                    <button className='signup-btn' type="submit">Sign-up</button>
+                    <button className='signup-btn' type='submit'>
+                        Sign-up
+                    </button>
                 </form>
-                
+
                 <div className='login-container'>
                     Already have an account?{' '}
                     <Link className='login' to='/login'>
