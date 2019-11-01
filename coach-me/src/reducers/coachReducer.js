@@ -1,85 +1,57 @@
 import {
   GET_TEXT_START,
   GET_TEXT_SUCCESS,
-  GET_TEXT_FAILURE,
   ADD_TEXT_START,
   ADD_TEXT_SUCCESS,
-  ADD_TEXT_FAILURE
+  COACH_ERROR
 } from '../actions/types';
 
 const initialState = {
-  message:'',
-  Phone: ''
+  messages:'',
+  creds: {
+    message: '',
+    Phone: ''
+  },
+  loading: false,
+  error: null
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-      case UPDATE_METRIC_START:
+      case GET_TEXT_START:
           return {
               ...state,
-              isfetching: true,
-              error: ''
+              messages: action.payload,
+              loading: true,
+              
           };
-      case UPDATE_METRIC_SUCCESS:
-          console.log(state,action.payload)
+      case GET_TEXT_SUCCESS:
           return {
               ...state,
-              isfetching: false,
-              records: { ...action.payload },
-              error: ''
+              loading: false,
+              messages: { ...action.payload },
           };
-      case UPDATE_METRIC_FAILURE:
+      case  ADD_TEXT_START:
           return {
               ...state,
-              isfetching: false,
-              err: action.payload
+              messages: [...state.messages, action.payload],
+              loading: true,
           };
-      case GET_CLIENTS_START:
+      case  ADD_TEXT_SUCCESS:
           return {
               ...state,
-              isfetching: true,
-              error: ''
+              loading: false,
+              creds: {
+                  ...state.creds,
+                  message: action.payload.message,
+                  Phone: action.payload.Phone,
+              }
           };
-      case GET_CLIENTS_SUCCESS:
+      case COACH_ERROR:
           return {
-              ...state,
-              isfetching: false,
-              clientinfo: {
-                  ...state.clientinfo,
-                  id: action.payload['Coaching master table'],
-                  phonenumber: action.payload.Phone,
-                  coach: action.payload.Coach,
-                  language: action.payload.Language,
-                  name: action.payload['Client Name']
-              },
-              error: ''
-          };
-      case GET_CLIENTS_FAILURE:
-      
-          return {
-              ...state,
-              isfetching: false,
-              error: action.payload
-          };
-      case GET_RECORDS_START:
-          return {
-              ...state,
-              isfetching: true,
-              error: ''
-          };
-      case GET_RECORDS_SUCCESS:
-      console.log(action.payload)
-          return {
-              ...state,
-              isfetching: false,
-              clientRecords: [...action.payload],
-              error: ''
-          };
-      case GET_RECORDS_FAILURE:
-          return {
-              ...state,
-              isfetching: false,
-              error: action.payload
+            ...state,
+            loading: false,
+            error: action.payload
           };
       default:
           return state;
