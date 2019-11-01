@@ -24,7 +24,14 @@ export const getMessageHistory = () => dispatch => {
           })
            
       })
-      .catch(err => console.log('getMessageHistory ERR', err));
+      .catch(err => {
+        console.log('getMessageHistory ERR', err)
+        dispatch({
+            type: COACH_ERROR,
+            payload: err.message
+
+        })
+      });
 };
 
 export const postMessage = post => dispatch => {

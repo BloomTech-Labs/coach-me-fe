@@ -16,7 +16,8 @@ const initialState = {
     Phone: ''
   },
   loading: false,
-  error: null
+  error: null,
+  clientRecords: []
 };
 
 export default (state = initialState, action) => {
@@ -50,6 +51,26 @@ export default (state = initialState, action) => {
                   Phone: action.payload.Phone,
               }
           };
+          case GET_RECORDS_START:
+            return {
+                ...state,
+                loading: true,
+                error: ''
+            };
+          case GET_RECORDS_SUCCESS:
+          console.log(action.payload)
+              return {
+                  ...state,
+                  loading: false,
+                  clientRecords: [...action.payload],
+                  error: ''
+              };
+          case GET_RECORDS_FAILURE:
+              return {
+                  ...state,
+                  loading: false,
+                  error: action.payload
+              };
       case COACH_ERROR:
           return {
             ...state,

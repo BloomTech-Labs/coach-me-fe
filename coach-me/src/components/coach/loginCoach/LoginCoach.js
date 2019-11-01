@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginCoach } from '../../../actions/authActions';
 import { Link } from 'react-router-dom';
 import './loginCoach.scss';

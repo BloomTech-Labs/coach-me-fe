@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import '../coachDashboard/clientsList/ClientInfo/clientInfo.scss'
 
 const SearchForm = (props)  => {
-    const state = useSelector(state => state)
-    const clientList = state.clientRecords
+    const state = useSelector(state => state.coach)
+    console.log(state)
+    const clientList = state.coach.clientRecords
     const [ClientList, setClientList] =useState()
     const [query, setquery] = useState()
 
