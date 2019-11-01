@@ -2,10 +2,9 @@ import axios from 'axios'
 import {
   GET_TEXT_START,
   GET_TEXT_SUCCESS,
-  GET_TEXT_FAILURE,
   ADD_TEXT_START,
   ADD_TEXT_SUCCESS,
-  ADD_TEXT_FAILURE
+  COACH_ERROR
 } from './types';
 
 export const getMessageHistory = () => {
