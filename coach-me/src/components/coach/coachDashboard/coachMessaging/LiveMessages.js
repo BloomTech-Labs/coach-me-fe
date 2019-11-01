@@ -4,13 +4,8 @@ import axios from 'axios';
 // import MessageCanvas from './MessageCanvas'
 // import '@progress/kendo-theme-material/dist/all.css';
 
-<<<<<<< HEAD
-//Needs get request for messages
-//Needs Post request to twilio
-=======
 //Needs get request for messages  http://localhost:4000/twilioRoute/messagehistory
 //Needs Post request to twilio  http://localhost:4000/twilioRoute/twilio
->>>>>>> 047c969c9ad24d50d5800411d8aa81e059dceb71
 
 function LiveMessages(props) {
     const state = useSelector(state => state);
@@ -61,10 +56,7 @@ function LiveMessages(props) {
                 <p className='client-test'>hello</p>
                 <p className='coach-test'>hello</p>
             </div>
-<<<<<<< HEAD
-=======
             {messageHistory && messageHistory.map(m => <p>{m.body}</p>)}
->>>>>>> 047c969c9ad24d50d5800411d8aa81e059dceb71
             <form onSubmit={submitNewMessage}>
                 <textarea
                     rows='4'
