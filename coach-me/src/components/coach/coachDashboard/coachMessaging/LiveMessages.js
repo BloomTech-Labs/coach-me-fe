@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getMessageHistory,
@@ -14,37 +14,46 @@ import './coachMessaging.scss';
 function LiveMessages(props) {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    console.log('LiveMessages State', state); 
+
+    const [message, setMessage] = useState({message:'', Phone:'(806) 518-8727'})
+    
+    console.log('LiveMessages State', state);
+    console.log('state.coach',state.coach)
 
     useEffect(() => {
-        dispatch(getMessageHistory());
-    }, []);
+      if(state.coach.messageHistory.length ===state.coach.messageHistory.length+1) {
+       dispatch(getMessageHistory());
+    } else if(state.coach.messageHistory.length === 0){
+        dispatch(getMessageHistory())
+    }
+}, [state.coach.messageHistory]);
 
     const handleInputChange = e => {
-        // e.preventDefault()
-        // [e.target.name]: e.target.value
+      setMessage({...message, message:e.target.value})
+       
     };
 
     const submitNewMessage = e => {
         e.preventDefault();
-        if ((state.coach.message && state.phone) !== undefined) {
-            dispatch(postMessage(state.coach.creds));
+        {
+            dispatch(postMessage(message));
+           
         }
     };
-
     return (
         <>
             {/* contains get request twilio data */}
 
             <div className='message-container'>
-                {state.coach.messageHistory && state.coach.messageHistory.map(m => (
-                        <div
+                {state.coach.messageHistory &&
+                    state.coach.messageHistory.map((m, i) => (
+                        <div key={i}
                             // className={`messages ${
                             //     m.direction === 'inBound' ? 'left' : 'right'
                             // }`}
                         >
                             <p>{m.body}</p>
-                            {/* <p>{m.dateSent}</p> */}
+                            <p>{m.dateSent}</p>
                         </div>
                     ))}
             </div>
@@ -53,7 +62,7 @@ function LiveMessages(props) {
                     rows='4'
                     cols='50'
                     onChange={handleInputChange}
-                    value={state.coach.creds.message}
+                    value={message.message}
                     type='text'
                     placeholder='Type your message here'
                 ></textarea>

@@ -40,7 +40,7 @@ export const getMessageHistory = liveNumber => dispatch => {
 export const postMessage = post => dispatch => {
     dispatch({ type: ADD_TEXT_START });
     axios
-        .post(`${process.env.REACT_APP_BACK_END_URL}/twilioRoute/twilio`, post)
+        .post(`https://coach-me-backend.herokuapp.com/twilioRoute/twilio`, post)
         .then(res => {
             dispatch({
                 type: ADD_TEXT_SUCCESS
