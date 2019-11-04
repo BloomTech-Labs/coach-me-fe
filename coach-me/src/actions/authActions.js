@@ -16,12 +16,13 @@ import {
 } from './types';
 
 
+
 export const registerCoach = register => dispatch => {
     const creds = register.records[0].fields
     dispatch({ type: REGISTER_START });
     axios
         .post(
-            `https://coach-me-backend.herokuapp.com/coachRoute/register `,creds
+            `https://coach-me-backend.herokuapp.com/coachRoute/newRegister `,creds
            
         )
         .then(res => {
@@ -40,16 +41,15 @@ export const registerCoach = register => dispatch => {
 };
 
 
-export const loginCoach = creds => dispatch => {
+export const loginCoach = creds =>  dispatch => {
+ 
     dispatch({ type: LOGIN_START });
     axios
         .post(
-            `https://coach-me-backend.herokuapp.com/coachRoute/login`,
-            creds,
-           
+            `https://coach-me-backend.herokuapp.com/coachRoute/login`,creds
         )
         .then(res => {
-            console.log(res)
+        console.log(res)
             localStorage.setItem('token',res.data.token)
             dispatch({
                 type: LOGIN_SUCCESS,
@@ -83,9 +83,36 @@ export const getClients= (token) => dispatch => {
         })
         .catch(err => {
             dispatch({
-                type: GET_RECORDS_SUCCESS,
+                type: GET_RECORDS_FAILURE,
                 payload: err.message
             });
+        });
+};
+
+export const getLastCheckin= (id) => dispatch => {
+    const token = localStorage.getItem('token')
+    const headers = {Authorization:token}
+    dispatch({ type: GET_RECORDS_START });
+    axios
+        .get(
+            `https://coach-me-backend.herokuapp.com/coachRoute/getLastCheckinTime/${id}`,{headers:headers}
+        
+           
+        )
+        .then(res => {
+            console.log(res)
+            
+            // dispatch({
+            //     type: GET_RECORDS_SUCCESS,
+            //    payload: res.data.patientList
+            // });
+        })
+        .catch(err => {
+            console.log(err)
+        //     dispatch({
+        //         type: GET_RECORDS_FAILURE,
+        //         payload: err.message
+        //     });
         });
 };
 

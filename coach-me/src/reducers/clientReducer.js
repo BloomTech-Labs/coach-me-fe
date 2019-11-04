@@ -3,6 +3,9 @@ import {
     ADD_CLIENT,
     DELETE_CLIENT,
     CLIENTS_ERROR,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGIN_START,
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
@@ -57,6 +60,7 @@ export default (state = initialState, action) => {
                 isfetching: false,
                 err: action.payload
             };
+
         case GET_CLIENTS_START:
             return {
                 ...state,
@@ -78,12 +82,12 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_CLIENTS_FAILURE:
-        
             return {
                 ...state,
                 isfetching: false,
                 error: action.payload
             };
+            
         case GET_RECORDS_START:
             return {
                 ...state,
@@ -99,6 +103,27 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_RECORDS_FAILURE:
+            return {
+                ...state,
+                isfetching: false,
+                error: action.payload
+            };
+
+
+            case LOGIN_START:
+            return {
+                ...state,
+                isfetching: true,
+                error: ''
+            };
+        case LOGIN_SUCCESS:
+        console.log(action.payload)
+            return {
+                ...state,
+                isfetching: false,
+                error: ''
+            };
+        case LOGIN_FAIL:
             return {
                 ...state,
                 isfetching: false,

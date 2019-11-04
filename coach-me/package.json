@@ -6,6 +6,11 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.25",
         "@fortawesome/free-solid-svg-icons": "^5.11.2",
         "@fortawesome/react-fontawesome": "^0.1.6",
+        "@progress/kendo-react-buttons": "^3.6.0",
+        "@progress/kendo-react-conversational-ui": "^3.6.0",
+        "@progress/kendo-react-inputs": "^3.6.0",
+        "@progress/kendo-react-intl": "^3.6.0",
+        "@progress/kendo-theme-material": "^3.4.0",
         "axios": "^0.19.0",
         "chart.js": "^2.8.0",
         "firebase": "^7.2.0",
@@ -24,6 +29,7 @@
         "redux-devtools-extension": "^2.13.8",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
+        "twilio-chat": "^3.3.2",
         "yup": "^0.27.0"
     },
     "scripts": {

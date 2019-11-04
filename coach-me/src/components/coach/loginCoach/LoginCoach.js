@@ -1,45 +1,30 @@
-import React, {useEffect,useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useState} from 'react';
+import { useDispatch } from 'react-redux';
 import { loginCoach } from '../../../actions/authActions';
 import { Link } from 'react-router-dom';
 import './loginCoach.scss';
 import Modal from './Modal';
 
 const LoginCoach = (props) => {
-    const [email, setemail] = useState();
-    const [password, setpassword] = useState();
     const dispatch = useDispatch();
-    const [creds, setCreds] = useState();
-
+    const [creds, setCreds] = useState({email:'', password:''});
     const [modal, setModal] = useState(false);
 
     const triggerModal = () => {
         setModal(true);
     };
 
+    const handleChange =(e) =>{
+        setCreds({...creds, [e.target.name]: e.target.value })
+    
 
-    const handleChange2 = e => {
-        e.preventDefault();
-        setemail(e.target.value);
-    };
-    const handleChange3 = e => {
-        e.preventDefault();
+    } 
+  
+   
+
+
+    const handleSubmit = () => {
         
-        setpassword(e.target.value);
-    };
-
-
-    useEffect(() => {
-        setCreds({
-            email: email,
-            password: password
-        });
-    }, [email, password]);
-
-
-    const handleSubmit = e => {
-        console.log(creds)
-        e.preventDefault();
         dispatch(loginCoach(creds));
         props.history.push('/dashboard')
         
@@ -56,23 +41,25 @@ const LoginCoach = (props) => {
             <div className='side-two'>
                 <h1>Login</h1>
                 <p>Welcome back! Please login to your coach account.</p>
-                <form className='Login-Form-Wrapper' onSubmit={(e)=>{handleSubmit(e)}}>
+                <form className='Login-Form-Wrapper' onSubmit={(e)=>{
+                    e.preventDefault();
+                    handleSubmit()}}>
                     <div className='input-Wrapper'>
                         <input
                             type='text'
                             placeholder='Email'
-                            name='E-Mail'
+                            name='email'
                             className='email'
-                            onChange={handleChange2}
-                            value={email}
+                            onChange={handleChange}
+                            value={creds.email}
                         />
                         <input
                             type='password'
                             placeholder='Password'
                             name='password'
                             className='password'
-                            onChange={handleChange3}
-                            value={password}
+                            onChange={handleChange}
+                            value={creds.password}
                         />
                     </div>
                     <button type='submit' className= 'signup-btn'> Login</button>
@@ -89,7 +76,6 @@ const LoginCoach = (props) => {
             </div>
         </div>
         </>
-
     )}
 
 export default LoginCoach;

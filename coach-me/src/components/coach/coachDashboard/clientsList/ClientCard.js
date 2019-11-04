@@ -7,9 +7,7 @@ const ClientCard = (props) => {
 
     
 
-    const handleClick = () => {
-        props.history.push(`/client/${props.client.clientId}`);
-    };
+   
 
     return (
         <div className= 'client-card' onClick ={ () =>{setClient(props.client.clientId)}}>

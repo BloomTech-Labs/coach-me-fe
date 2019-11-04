@@ -11,7 +11,8 @@ import {
     UPDATE_METRIC_FAILURE,
     GET_RECORDS_START,
     GET_RECORDS_SUCCESS,
-    GET_RECORDS_FAILURE
+    GET_RECORDS_FAILURE,
+
 } from './types';
 
 const headers = {
