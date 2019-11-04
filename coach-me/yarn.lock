@@ -1339,6 +1339,76 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
+"@progress/kendo-popup-common@^1.2.2":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-popup-common/-/kendo-popup-common-1.7.0.tgz#d0d29dbc5eacdaba8803aa3d0f69f8a8ad05dbff"
+  integrity sha512-KxPIXDkirDpJaF/UWFKbe8QpbO5CwdQH/HyNT5Fj1qZb25YaO68VZCisls2qkcEVPHBlXesDcN3QJlt4vJ6tJw==
+
+"@progress/kendo-react-animation@3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-animation/-/kendo-react-animation-3.6.0.tgz#1f5bc6893f771af92ead342a14cec4b66b8d6c26"
+  integrity sha512-P+F5/LceqQT/nH8au+J6xGO+4qnjVkrI725VJL58U+1KlhdN+UQQcDU3pKMEm8q0Ltk/0CTT1LQv7G+1XO8D6Q==
+  dependencies:
+    "@progress/kendo-react-common" "3.6.0"
+    prop-types "^15.6.0"
+    react-transition-group "^2.2.0"
+
+"@progress/kendo-react-buttons@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-buttons/-/kendo-react-buttons-3.6.0.tgz#64f492d51ad539c021f77bb1f824bb870817581a"
+  integrity sha512-DjMvyXb6dT6PFLd95XkuFA+newEtvmsA8nJBRdyNv8hgPjUTmE8tb5/1xfxOJ2PUMCoD4SVcUgNfmw3NeEMGqA==
+  dependencies:
+    "@progress/kendo-react-common" "3.6.0"
+    "@progress/kendo-react-popup" "3.6.0"
+    prop-types "^15.6.0"
+
+"@progress/kendo-react-common@3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-common/-/kendo-react-common-3.6.0.tgz#2a067ec3fe1a60a79d09602802ff723b9c1cdebd"
+  integrity sha512-PfJesHYr7f7hCAwCP8iUQc06EWri03KQtjrEKjO91Oueo/t0syztTBFIkVE+B+AemtocoHnsv8QlPIZBu/OeKw==
+  dependencies:
+    "@telerik/kendo-draggable" "1.9.2"
+    prop-types "^15.6.0"
+
+"@progress/kendo-react-conversational-ui@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-conversational-ui/-/kendo-react-conversational-ui-3.6.0.tgz#6611b59964ecfeec98773ee5d7c4c79a2fd411ea"
+  integrity sha512-qswn2bTt/tjCZT/kYqIaVrdgf/4eP5z1s3xdY8k2MUwNqvxmNE7wdmmIztBpV1JrpNGEk2j7X/jg3qUBu90Gow==
+  dependencies:
+    "@progress/kendo-react-common" "3.6.0"
+
+"@progress/kendo-react-inputs@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-inputs/-/kendo-react-inputs-3.6.0.tgz#f73645cd053a39fe883406aea9724436d2d2838b"
+  integrity sha512-bJGpl46t2t2yW9mgOzH2zextDTsAP5F9lQ9ZPW+PU6xsjvQFabWrU5mGlbng6DbKq9htpGXi4k67ERgLlIhA4g==
+  dependencies:
+    "@progress/kendo-react-common" "3.6.0"
+    "@progress/kendo-react-popup" "3.6.0"
+    prop-types "^15.6.0"
+
+"@progress/kendo-react-intl@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-intl/-/kendo-react-intl-3.6.0.tgz#248f410342b4f0de1dc13f611fec3bcf6c873d0a"
+  integrity sha512-xTz79do4fw/dcFTdKQOSeClUSLhs/uGui14hZbfXxf6N2DXL08ZaCUxFP5678ioZ997Rn8kZM1YDQl1NOv8YQQ==
+  dependencies:
+    "@telerik/kendo-intl" "^1.4.4"
+    prop-types "^15.6.0"
+
+"@progress/kendo-react-popup@3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-popup/-/kendo-react-popup-3.6.0.tgz#6d9683df679bc42a5c495d52e8d819c3fad41082"
+  integrity sha512-DMKmZ4cGW7Xv2rI/xKvaRl/Y2jQ/q9hdGeI4w7F5GiVVpIPpx7InMYOXMkfzx0XZp5WMnZDA+lCvsS7Ub4thuA==
+  dependencies:
+    "@progress/kendo-popup-common" "^1.2.2"
+    "@progress/kendo-react-animation" "3.6.0"
+    "@progress/kendo-react-common" "3.6.0"
+    prop-types "^15.6.0"
+
+"@progress/kendo-theme-material@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-theme-material/-/kendo-theme-material-3.4.0.tgz#83ab96c225de923a8c29c55959ce2381fd9d72cd"
+  integrity sha512-x6KcJ0d8fjbUq1nf61UE2UXrhxcSM+XQsRwrp5JGukGdzgDEh4OOXl5jAXIqF8598K3kJmCjbep6E6mR4ylXBw==
+
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz#9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf"
@@ -1499,6 +1569,16 @@
     "@svgr/plugin-jsx" "^4.3.2"
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
+
+"@telerik/kendo-draggable@1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@telerik/kendo-draggable/-/kendo-draggable-1.9.2.tgz#191cb2fa1051d1c727d570d24e732872d64541ae"
+  integrity sha512-6TqfyPMFibX2kAcLyXYcsZAFmJFRxpQtizoL6YZNdFb4/YRkgijbwXsVJs7nMecTzrmroc0fieixt2XdJXgicA==
+
+"@telerik/kendo-intl@^1.4.4":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@telerik/kendo-intl/-/kendo-intl-1.5.2.tgz#2f2540b0c243c08d95895a8fc925315449f198fc"
+  integrity sha512-T5Ie2QYtbBCYS88hI3ulKhXykH0ds1FWbgaITt6dn9pmjyEbkF66a8iCbtBhI9pAwH0GLqfOoYXRcbBEUth0Sg==
 
 "@testing-library/dom@^6.3.0":
   version "6.8.1"
@@ -3885,6 +3965,13 @@ dom-converter@^0.2:
   dependencies:
     utila "~0.4"
 
+dom-helpers@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.4.0.tgz#e9b369700f959f62ecde5a6babde4bccd9169af8"
+  integrity sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+
 dom-serializer@0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.2.1.tgz#13650c850daffea35d8b626a4cfc4d3a17643fdb"
@@ -5957,6 +6044,11 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
+iso8601-duration@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/iso8601-duration/-/iso8601-duration-1.2.0.tgz#5fa6fc180a8fe95ad6a6721c9bdd9069cb59e80e"
+  integrity sha512-ErTBd++b17E8nmWII1K1uZtBgD1E8RjyvwmxlCjPHNqHMD7gmcMHOw0E8Ro/6+QT4PhHRSnnMo7bxa1vFPkwhg==
+
 isobject@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
@@ -6026,6 +6118,11 @@ istanbul-reports@^2.2.6:
   integrity sha512-SKi4rnMyLBKe0Jy2uUdx28h8oG7ph2PPuQPvIAh31d+Ci+lSiEu4C+h3oBPuJ9+mPKhOyW0M8gY4U5NM1WLeXA==
   dependencies:
     handlebars "^4.1.2"
+
+javascript-state-machine@^3.0.1:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/javascript-state-machine/-/javascript-state-machine-3.1.0.tgz#06eeb2136a6a19ae1b56105c25caec283dd5cd14"
+  integrity sha512-BwhYxQ1OPenBPXC735RgfB+ZUG8H3kjsx8hrYTgWnoy6TPipEy4fiicyhT2lxRKAXq9pG7CfFT8a2HLr6Hmwxg==
 
 jest-changed-files@^24.9.0:
   version "24.9.0"
@@ -6810,7 +6907,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
-loglevel@^1.4.1:
+loglevel@^1.4.1, loglevel@^1.6.3, loglevel@^1.6.4:
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.6.4.tgz#f408f4f006db8354d0577dcf6d33485b3cb90d56"
   integrity sha512-p0b6mOGKcGa+7nnmKbpzR6qloPbrgLcnio++E+14Vo/XffOGwZtRpUhr8dTH/x2oCMmEoIU0Zwm3ZauhvYD17g==
@@ -7686,6 +7783,11 @@ open@^6.3.0:
   dependencies:
     is-wsl "^1.1.0"
 
+operation-retrier@^3.0.0, operation-retrier@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/operation-retrier/-/operation-retrier-3.0.1.tgz#c671902af3e40015005863e912226fd485ed749a"
+  integrity sha512-lmrISisi5nbu0WNXBCMagrdJFwLUYFnaas87PgOMM3aNi+Z2YFvyC5K7/cAJuNUtpljztwJPzvp8bho02sAMAg==
+
 opn@^5.1.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/opn/-/opn-5.5.0.tgz#fc7164fab56d235904c51c3b27da6758ca3b9bfc"
@@ -8076,6 +8178,11 @@ pkg-up@2.0.0:
   integrity sha1-yBmscoBZpGHKscOImivjxJoATX8=
   dependencies:
     find-up "^2.1.0"
+
+platform@^1.3.5:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/platform/-/platform-1.3.5.tgz#fb6958c696e07e2918d2eeda0f0bc9448d733444"
+  integrity sha512-TuvHS8AOIZNAlE77WUDiR4rySV/VMptyMfcfeoMgs4P8apaZM3JrnbzBiixKUv+XR6i+BXrQh8WAnjaSPFO65Q==
 
 pn@^1.1.0:
   version "1.1.0"
@@ -8848,7 +8955,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9134,6 +9241,11 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.10.2.tgz#984120fd4d16800e9a738208ab1fba422d23b5ab"
   integrity sha512-INBT1QEgtcCCgvccr5/86CfD71fw9EPmDxgiJX4I2Ddr6ZsV6iFXsuby+qWJPtmNuMY0zByTsG4468P7nHuNWA==
 
+react-lifecycles-compat@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
+  integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
 react-redux@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.1.tgz#ce6eee1b734a7a76e0788b3309bf78ff6b34fa0a"
@@ -9235,6 +9347,16 @@ react-scripts@3.2.0:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.0.7"
+
+react-transition-group@^2.2.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.9.0.tgz#df9cdb025796211151a436c69a8f3b97b5b07c8d"
+  integrity sha512-+HzNTCHpeQyl4MJ/bdE0u6XRMe9+XG/+aL4mCxVN4DnPBQ0/5bfHWPDuOZUzYdMj94daZaZdCCc1Dzt9R/xSSg==
+  dependencies:
+    dom-helpers "^3.4.0"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
+    react-lifecycles-compat "^3.0.4"
 
 react@^16.10.2:
   version "16.10.2"
@@ -9647,6 +9769,11 @@ rework@1.0.1:
   dependencies:
     convert-source-map "^0.3.3"
     css "^2.0.0"
+
+rfc6902@^3.0.2:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/rfc6902/-/rfc6902-3.0.4.tgz#82965f13536fd20cb7799ce0376e9ce7cd3ebfe6"
+  integrity sha512-OnzreaZXrwT5w2ikKXWr5QcuI7NZpL+J3hIkAwozjOnKVUL7fPsB8Vcmu8YBiiou1/r3V0Jc0T1uQDyfAPvLzA==
 
 rgb-regex@^1.0.1:
   version "1.0.1"
@@ -10751,6 +10878,65 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
+twilio-chat@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/twilio-chat/-/twilio-chat-3.3.2.tgz#15c627fc0cbcb8e6de223404bf309fdd89542814"
+  integrity sha512-yUXO/nRXDk9MH0gds8JwxQqI85BLAIYZ+qRyFP124u8jSBqZkskXvZ7Sh2HRsy6ppHN34q2CbDvJE90Fc1dUow==
+  dependencies:
+    iso8601-duration "^1.2.0"
+    loglevel "^1.6.3"
+    operation-retrier "^3.0.0"
+    platform "^1.3.5"
+    rfc6902 "^3.0.2"
+    twilio-mcs-client "^0.3.1"
+    twilio-notifications "^0.5.8"
+    twilio-sync "^0.11.4"
+    twilsock "^0.5.11"
+    uuid "^3.3.2"
+
+twilio-mcs-client@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/twilio-mcs-client/-/twilio-mcs-client-0.3.1.tgz#09c58631cd9f5f85d133fa60c6f66dce2833644e"
+  integrity sha512-lNt9a5Uucqno+Xhacw3d9G2/i/n3F9wLhqQvYybyZ0e0O0nmDJaTVNHi5tyJURTcPTUNu/XyNJvWRK8BXuplnw==
+  dependencies:
+    loglevel "^1.6.4"
+    operation-retrier "^3.0.1"
+    xmlhttprequest "^1.8.0"
+
+twilio-notifications@^0.5.8:
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/twilio-notifications/-/twilio-notifications-0.5.8.tgz#7fae3e7922f418545178f70cc4e1f6321e0ceed7"
+  integrity sha512-iUpEoRKhO6VDtyTuR3N1Nc9tzqaJnWoq99/FDcRwTOSlFNrzcDR/wb6eC36JgsnHGUAlwvjM9rmy0EcfdvtPzA==
+  dependencies:
+    loglevel "^1.6.3"
+    operation-retrier "^3.0.0"
+    twilsock "^0.5.11"
+    uuid "^3.2.1"
+
+twilio-sync@^0.11.4:
+  version "0.11.4"
+  resolved "https://registry.yarnpkg.com/twilio-sync/-/twilio-sync-0.11.4.tgz#8fb59d0cf94a91f7be19686877b01693d708c963"
+  integrity sha512-1Vyvrs5YsSQT+1vrqRWFIenVSCj3p7JwfeGqW60V04eFgrQPrs7huBKPGCZE1RkZ8P2PKOIiYBGnuLa+o81E7Q==
+  dependencies:
+    loglevel "^1.6.3"
+    operation-retrier "^3.0.0"
+    platform "^1.3.5"
+    twilio-notifications "^0.5.8"
+    twilsock "^0.5.11"
+    uuid "^3.3.2"
+
+twilsock@^0.5.11:
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/twilsock/-/twilsock-0.5.11.tgz#bb52f70c8086c00980e0ec4302b7007393bdb28d"
+  integrity sha512-SjhNPRAcCQBxpRlKKIoL4k+kxXxoPTIJsGDch5oo8Way3WTr8NRXEbTdK8IgB8nFEs8PGZnCk0mrzCTu0KfO0g==
+  dependencies:
+    javascript-state-machine "^3.0.1"
+    loglevel "^1.6.3"
+    operation-retrier "^3.0.0"
+    platform "^1.3.5"
+    uuid "^3.2.1"
+    ws "^5.1.0"
+
 type-check@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"
@@ -10971,7 +11157,7 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-uuid@^3.0.1, uuid@^3.3.2:
+uuid@^3.0.1, uuid@^3.2.1, uuid@^3.3.2:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
@@ -11449,7 +11635,7 @@ write@1.0.3:
   dependencies:
     mkdirp "^0.5.1"
 
-ws@^5.2.0:
+ws@^5.1.0, ws@^5.2.0:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/ws/-/ws-5.2.2.tgz#dffef14866b8e8dc9133582514d1befaf96e980f"
   integrity sha512-jaHFD6PFv6UgoIVda6qZllptQsMlDEJkTQcybzzXDYM1XO9Y8em691FGMPmM46WGyLU4z9KMgQN+qrux/nhlHA==
@@ -11473,7 +11659,7 @@ xmlchars@^2.1.1:
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
 
-xmlhttprequest@1.8.0:
+xmlhttprequest@1.8.0, xmlhttprequest@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/xmlhttprequest/-/xmlhttprequest-1.8.0.tgz#67fe075c5c24fef39f9d65f5f7b7fe75171968fc"
   integrity sha1-Z/4HXFwk/vOfnWX197f+dRcZaPw=

@@ -16,7 +16,7 @@ import {
 
 const headers = {
     'Content-Type': 'application/json',
-    Authorization: sessionStorage.getItem('token')
+    Authorization: localStorage.getItem('token')
 };
 
 export const getClientInfo = props => dispatch => {
@@ -25,12 +25,12 @@ export const getClientInfo = props => dispatch => {
     dispatch({ type: GET_CLIENTS_START });
     axios
         .post(
-            ` https://coach-me-backend.herokuapp.com/clientRoute/login`,
+            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
             clientnum
         )
         .then(res => {
             // console.log('res.data', res.data.loginAttempts);
-            sessionStorage.setItem('token', res.data.token);
+            localStorage.setItem('token', res.data.token);
             localStorage.setItem('loginAttempts', res.data.loginAttempts);
             const loginAttempts = localStorage.getItem('loginAttempts');
             // console.log('Look at all this info!', loginAttempts);
@@ -56,22 +56,20 @@ export const getClientInfoLogin = props => dispatch => {
     console.log(props);
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
+    //`https://coach-me-backend.herokuapp.com/clientRoute/login`
     axios
         .post(
-            ` https://coach-me-backend.herokuapp.com/clientRoute/login`,
+            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
             clientnum
         )
         .then(res => {
             // console.log('res.data', res.data.loginAttempts);
-            sessionStorage.setItem('token', res.data.token);
-            localStorage.setItem('loginAttempts', res.data.loginAttempts);
+            localStorage.setItem('token', res.data.token);
+            // localStorage.setItem('loginAttempts', res.data.loginAttempts);
             const loginAttempts = localStorage.getItem('loginAttempts');
             // console.log('Look at all this info!', loginAttempts);
-            
-                props.history.push('metric-form');
-           
-               
-        
+
+            props.history.push('/metric-form');
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
@@ -90,9 +88,14 @@ export const addMetric = metricUpdate => dispatch => {
     dispatch({ type: UPDATE_METRIC_START });
     axios
         .post(
-            `https://coach-me-backend.herokuapp.com/clientRoute/logMetrics `,
+            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/logMetrics `,
             metricUpdate,
-            { headers: headers }
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: localStorage.getItem('token')
+                }
+            }
         )
         .then(res => {
             dispatch({
@@ -112,10 +115,10 @@ export const getClientRecords = clientId => dispatch => {
     dispatch({ type: GET_RECORDS_START });
     axios
         .get(
-            `https://coach-me-backend.herokuapp.com/clientRoute/paginationGetMetrics`,
+            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/paginationGetMetrics`,
             {
                 headers: {
-                    Authorization: sessionStorage.getItem('token')
+                    Authorization: localStorage.getItem('token')
                 }
             }
         )
