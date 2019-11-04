@@ -26,7 +26,7 @@ const CoachMessaging = () => {
                  
                 }>
             <h1>
-                Messages
+                LiveMessages
             </h1>
 
         </div>

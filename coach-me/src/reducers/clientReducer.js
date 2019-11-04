@@ -1,4 +1,8 @@
 import {
+    GET_CLIENTS,
+    ADD_CLIENT,
+    DELETE_CLIENT,
+    CLIENTS_ERROR,
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
@@ -98,7 +102,6 @@ export default (state = initialState, action) => {
                 isfetching: false,
                 error: action.payload
             };
-
         default:
             return state;
     }
