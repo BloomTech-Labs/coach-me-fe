@@ -9,9 +9,9 @@ import {
     GET_CLIENTS_START,
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
-    GET_RECORDS_START,
-    GET_RECORDS_SUCCESS,
-    GET_RECORDS_FAILURE
+    GET_METRICS_START,
+    GET_METRICS_SUCCESS,
+    GET_METRICS_FAILURE
 } from '../actions/types';
 
 const initialState = {
@@ -32,7 +32,8 @@ const initialState = {
     Date_time: null,
     isfetching: false,
     error: '',
-    clientRecords: []
+
+    clientMetrics: []
 };
 
 export default (state = initialState, action) => {
@@ -83,21 +84,20 @@ export default (state = initialState, action) => {
                 isfetching: false,
                 error: action.payload
             };
-        case GET_RECORDS_START:
+        case GET_METRICS_START:
             return {
                 ...state,
                 isfetching: true,
                 error: ''
             };
-        case GET_RECORDS_SUCCESS:
-            console.log(action.payload);
+        case GET_METRICS_SUCCESS:
             return {
                 ...state,
                 isfetching: false,
-                clientRecords: [...action.payload],
+                clientMetrics: [...action.payload],
                 error: ''
             };
-        case GET_RECORDS_FAILURE:
+        case GET_METRICS_FAILURE:
             return {
                 ...state,
                 isfetching: false,
