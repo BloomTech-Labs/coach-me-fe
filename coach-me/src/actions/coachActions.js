@@ -15,16 +15,17 @@ const headers = {
 };
 
 export const getMessageHistory = liveNumber => dispatch => {
+    console.log('liiiive number', liveNumber)
     dispatch({ type: GET_TEXT_START });
     axios
         .get(
-            `https://coach-me-backend.herokuapp.com/twilioRoute/messagehistory/(806)518-8727`
+            `https://coach-me-backend.herokuapp.com/twilioRoute/messagehistory/${liveNumber}`
         )
         .then(res => {
-            console.log('getMessageHistory', res.data);
+            console.log('getMessageHistory', res.data.message);
             dispatch({
                 type: GET_TEXT_SUCCESS,
-                payload: res.data
+                payload: res.data.message
             });
         })
         .catch(err => {
@@ -37,6 +38,7 @@ export const getMessageHistory = liveNumber => dispatch => {
 };
 
 export const postMessage = post => dispatch => {
+    console.log(post)
     dispatch({ type: ADD_TEXT_START });
     axios
         .post(`https://coach-me-backend.herokuapp.com/twilioRoute/twilio`, post)

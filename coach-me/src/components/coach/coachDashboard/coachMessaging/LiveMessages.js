@@ -12,30 +12,50 @@ import './coachMessaging.scss';
 //Needs Post request to twilio  http://localhost:4000/twilioRoute/twilio
 
 function LiveMessages(props) {
+    console.log(props)
+    const {clientprofile} = props
     const state = useSelector(state => state);
     const dispatch = useDispatch();
 
+    
+
     const [message, setMessage] = useState({
         message: '',
-        Phone: '(806) 518-8727'
+        Phone: ''
+
     });
 
     console.log('LiveMessages State', state);
     console.log('state.coach', state.coach);
 
+    
+
     useEffect(() => {
-        if (
-            state.coach.messageHistory.length ===
-            state.coach.messageHistory.length + 1
-        ) {
-            dispatch(getMessageHistory());
-        } else if (state.coach.messageHistory.length === 0) {
-            dispatch(getMessageHistory());
+
+        if(clientprofile&&clientprofile.clientPhone){
+            (dispatch(getMessageHistory(clientprofile.clientPhone)))
+            setMessage({...message, Phone:clientprofile.clientPhone})
         }
-    }, [state.coach.messageHistory]);
+        
+
+      
+
+       
+       
+    }, [clientprofile]);
+
+    useEffect( ()=>{
+        const interval = setInterval(() => {
+            dispatch(getMessageHistory(clientprofile&&clientprofile.clientPhone))
+            
+        }, 7000)
+        return () => clearInterval(interval)
+
+    }, [clientprofile])
 
     const handleInputChange = e => {
-        setMessage({ ...message, message: e.target.value });
+        setMessage({ ...message, message: e.target.value});
+
     };
 
     const submitNewMessage = e => {
@@ -53,9 +73,11 @@ function LiveMessages(props) {
                     state.coach.messageHistory.map((m, i) => (
                         <div
                             key={i}
-                            // className={`messages ${
-                            //     m.direction === 'inBound' ? 'left' : 'right'
-                            // }`}
+
+                            className={`messages ${
+                                m.direction === 'inbound' ? 'left' : 'right'
+                            }`}
+
                         >
                             <p>{m.body}</p>
                             <p>{m.dateSent}</p>
