@@ -47,7 +47,7 @@ const CoachDashboard = ({ history }) => {
     // };
     const setClient = clientID => {
         console.log(clientID);
-        state.clientRecords.filter(client => {
+        state.filter(client => {
             if (clientID === client.clientId) {
                 setclientprofile(client);
             }
