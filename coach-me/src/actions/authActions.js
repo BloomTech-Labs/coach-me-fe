@@ -65,7 +65,7 @@ export const getClients = token => dispatch => {
             headers: headers
         })
         .then(res => {
-            console.log(res.data.patientList);
+            // console.log(res.data.patientList);
 
             dispatch({
                 type: GET_RECORDS_SUCCESS,
