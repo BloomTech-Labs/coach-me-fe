@@ -16,15 +16,18 @@ function LiveMessages(props) {
     const {clientprofile} = props
     const state = useSelector(state => state);
     const dispatch = useDispatch();
+
     
 
     const [message, setMessage] = useState({
         message: '',
         Phone: ''
+
     });
 
     console.log('LiveMessages State', state);
     console.log('state.coach', state.coach);
+
     
 
     useEffect(() => {
@@ -52,6 +55,7 @@ function LiveMessages(props) {
 
     const handleInputChange = e => {
         setMessage({ ...message, message: e.target.value});
+
     };
 
     const submitNewMessage = e => {
@@ -69,9 +73,11 @@ function LiveMessages(props) {
                     state.coach.messageHistory.map((m, i) => (
                         <div
                             key={i}
+
                             className={`messages ${
                                 m.direction === 'inbound' ? 'left' : 'right'
                             }`}
+
                         >
                             <p>{m.body}</p>
                             <p>{m.dateSent}</p>

@@ -46,7 +46,7 @@ const CoachDashboard = ({ history }) => {
         console.log(clientID);
         state.clientRecords.filter(client => {
             if (clientID === client.clientId) {
-                console.log(client)
+
                 setclientprofile(client);
             }
         });
@@ -63,7 +63,9 @@ const CoachDashboard = ({ history }) => {
                     <ClientInfo clientprofile={clientprofile} />
                 </div>
                 <div className='coach-messaging'>
+
                     <CoachMessaging clientprofile={clientprofile} />
+
                 </div>
             </div>
         </>
