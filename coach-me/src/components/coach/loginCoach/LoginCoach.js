@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { loginCoach } from '../../../actions/authActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginCoach } from '../../../actions/coachActions';
 import { Link } from 'react-router-dom';
 import './loginCoach.scss';
 import Modal from './Modal';
