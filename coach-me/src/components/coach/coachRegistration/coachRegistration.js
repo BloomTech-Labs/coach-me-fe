@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerCoach } from '../../../actions/authActions';
+import { registerCoach } from '../../../actions/coachActions';
 import './coachRegistration.scss';
 
 function CoachRegistration(props) {
