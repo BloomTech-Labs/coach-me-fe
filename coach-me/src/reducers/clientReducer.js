@@ -32,6 +32,7 @@ const initialState = {
     Date_time: null,
     isfetching: false,
     error: '',
+
     clientMetrics: []
 };
 
