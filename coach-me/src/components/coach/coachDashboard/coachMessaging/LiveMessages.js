@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
+import {
+    getMessageHistory,
+    postMessage
+} from '../../../../actions/coachActions';
+import './coachMessaging.scss';
 // import MessageCanvas from './MessageCanvas'
 // import '@progress/kendo-theme-material/dist/all.css';
 
@@ -10,59 +14,60 @@ import axios from 'axios';
 function LiveMessages(props) {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    const [message, setMessage] = useState();
-    const [messageHistory, setMessageHistory] = useState();
+
+    const [message, setMessage] = useState({
+        message: '',
+        Phone: '(806) 518-8727'
+    });
+
+    console.log('LiveMessages State', state);
+    console.log('state.coach', state.coach);
 
     useEffect(() => {
-        postMessage(message);
-        getMessageHistory();
-    }, [messageHistory]); // maybe??
-
-    const getMessageHistory = () => {
-        axios
-            .get(`http://localhost:4000/twilioRoute/messagehistory`)
-            .then(res => {
-                setMessageHistory(res.data);
-                console.log(res);
-            })
-            .catch(err => console.log('getMessageHistory ERR', err));
-    };
-
-    const postMessage = post => {
-        axios
-            .post(`http://localhost:4000/twilioRoute/twilio`, post)
-            .then(res => console('postTwilio', res))
-            .catch(err => console.log('postTwilio ERR', err));
-    };
+        if (
+            state.coach.messageHistory.length ===
+            state.coach.messageHistory.length + 1
+        ) {
+            dispatch(getMessageHistory());
+        } else if (state.coach.messageHistory.length === 0) {
+            dispatch(getMessageHistory());
+        }
+    }, [state.coach.messageHistory]);
 
     const handleInputChange = e => {
-        e.preventDefault();
-        setMessage(e.target.value);
+        setMessage({ ...message, message: e.target.value });
     };
 
     const submitNewMessage = e => {
         e.preventDefault();
-        setMessage(e.target.value);
-        // dispatch(addMessage(message));
+        {
+            dispatch(postMessage(message));
+        }
     };
-    //submit needs to hook up with twilio
-
     return (
         <>
             {/* contains get request twilio data */}
 
-            <div>
-                {/* <MessageCanvas/> */}
-                <p className='client-test'>hello</p>
-                <p className='coach-test'>hello</p>
+            <div className='message-container'>
+                {state.coach.messageHistory &&
+                    state.coach.messageHistory.map((m, i) => (
+                        <div
+                            key={i}
+                            // className={`messages ${
+                            //     m.direction === 'inBound' ? 'left' : 'right'
+                            // }`}
+                        >
+                            <p>{m.body}</p>
+                            <p>{m.dateSent}</p>
+                        </div>
+                    ))}
             </div>
-            {messageHistory && messageHistory.map(m => <p>{m.body}</p>)}
             <form onSubmit={submitNewMessage}>
                 <textarea
                     rows='4'
                     cols='50'
                     onChange={handleInputChange}
-                    value={message}
+                    value={message.message}
                     type='text'
                     placeholder='Type your message here'
                 ></textarea>

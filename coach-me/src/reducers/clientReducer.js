@@ -34,7 +34,6 @@ const initialState = {
     error: '',
 
     clientMetrics: []
-
 };
 
 export default (state = initialState, action) => {

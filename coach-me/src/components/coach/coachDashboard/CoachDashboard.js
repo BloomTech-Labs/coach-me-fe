@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './coachDashboard.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { getClients } from '../../../actions/coachActions';
+import { getClients } from '../../../actions/authActions';
 import CoachHeader from './CoachHeader';
 import ClientInfo from './clientsList/ClientInfo/ClientInfo';
 import SearchForm from './SearchForm';
@@ -15,7 +15,7 @@ const CoachDashboard = ({ history }) => {
     const [checkOne, setCheckOne] = useState(false);
     const [checkTwo, setCheckTwo] = useState(false);
     const [clientprofile, setclientprofile] = useState();
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
     const token = localStorage.getItem('token');
     useEffect(() => {
@@ -47,7 +47,7 @@ const CoachDashboard = ({ history }) => {
     // };
     const setClient = clientID => {
         console.log(clientID);
-        state.filter(client => {
+        state.clientRecords.filter(client => {
             if (clientID === client.clientId) {
                 setclientprofile(client);
             }
