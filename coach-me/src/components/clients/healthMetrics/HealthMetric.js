@@ -17,9 +17,9 @@ import iconweight from '../../utils/assets/weight.svg';
 import iconSeeHistory from '../../utils/assets/seeHistory.svg';
 
 const HealthMetric = props => {
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.client);
     const dispatch = useDispatch();
-    const clientData = [...state.clientRecords];
+    const clientData = [...state.clientMetrics];
 
     clientData.sort((a, b) => {
         return Date.parse(a.fields.Date_time) - Date.parse(b.fields.Date_time);
@@ -35,8 +35,9 @@ const HealthMetric = props => {
     const [historyScale, setHistoryScale] = useState('');
     const [historyFilter, setHistoryFilter] = useState('');
 
+    //'recZNs8pQo2rSsw0T'
     useEffect(() => {
-        dispatch(getClientRecords('recZNs8pQo2rSsw0T'));
+        dispatch(getClientRecords());
     }, []);
 
     const handleClick = (heading, label, filter, filter2) => {

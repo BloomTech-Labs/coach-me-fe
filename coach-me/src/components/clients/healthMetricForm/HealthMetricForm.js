@@ -10,7 +10,7 @@ import SubmitModal from './submitModal';
 import moment from 'moment';
 
 function HealthMetricForm(props) {
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.client);
     const dispatch = useDispatch();
     const [bpOver, setBpOver] = useState();
     const [bpUnder, setBpUnder] = useState();
