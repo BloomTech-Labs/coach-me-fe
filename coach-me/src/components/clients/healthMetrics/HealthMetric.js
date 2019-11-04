@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { translate } from '../../utils/language/translate';
@@ -49,6 +50,7 @@ const HealthMetric = props => {
         } else {
             setHistoryFilter(filter);
         }
+        props.history.push('/metrics/history');
         // console.log('***Typeof', typeof historyFilter);
     };
 
@@ -70,20 +72,22 @@ const HealthMetric = props => {
         return value.fields.Blood_pressure_under;
     });
 
-    if (toggleHistory) {
-        return (
-            <>
-                <HealthMetricCards
-                    historyLabel={historyLabel}
-                    historyScale={historyScale}
-                    historyFilter={historyFilter}
-                    setToggleHistory={setToggleHistory}
-                    clientData={clientData}
-                />
-            </>
-        );
-    } else {
-        return (
+    return (
+        <>
+            <Route
+                path='/metrics/history'
+                render={props => (
+                    <HealthMetricCards
+                        {...props}
+                        historyLabel={historyLabel}
+                        historyScale={historyScale}
+                        historyFilter={historyFilter}
+                        setToggleHistory={setToggleHistory}
+                        clientData={clientData}
+                    />
+                )}
+            />
+
             <div className='metric-container'>
                 <div className='metric-header'>
                     <h3>{translate('hello')}</h3>
@@ -249,8 +253,8 @@ const HealthMetric = props => {
                     </div>
                 </div>
             </div>
-        );
-    }
+        </>
+    );
 };
 
 export default HealthMetric;
