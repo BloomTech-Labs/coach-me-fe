@@ -10,7 +10,7 @@ import SubmitModal from './submitModal';
 import moment from 'moment';
 
 function HealthMetricForm(props) {
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.client);
     const dispatch = useDispatch();
     const [bpOver, setBpOver] = useState();
     const [bpUnder, setBpUnder] = useState();
@@ -50,29 +50,29 @@ function HealthMetricForm(props) {
 
     Object.keys(allMetricsObj).map(key => {
         if (
-            isNaN(allMetricsObj[key]) &&
-            typeof allMetricsObj[key] !== 'string'
+            isNaN(allMetricsObj[key]) && //checks for missing metric values
+            typeof allMetricsObj[key] !== 'string' && //allows Date_time to pass
+            typeof allMetricsObj[key] !== 'object' //allows Client_Name to pass
         ) {
             delete allMetricsObj[key];
         }
     });
 
     useEffect(() => {
-        setMetrics({ records: [{ fields: allMetricsObj }] });
+        setMetrics({
+            records: [{ fields: allMetricsObj }]
+        });
     }, [bpOver, bpUnder, bS, weight]);
-    // console.log('state', state);
 
     const submitNewMetric = e => {
         e.preventDefault();
         if ((bpOver || bpUnder || bS || weight) !== undefined) {
-            console.log('submitted');
             dispatch(addMetric(metrics));
         }
         setshow(!show);
     };
     const submitMetric = e => {
-        // dispatch(addMetric(metrics));
-        props.history.push('/dashboard-client');
+        props.history.push('/metrics');
     };
     const failMetric = e => {
         setshow(!show);

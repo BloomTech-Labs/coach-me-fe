@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { translate } from '../../utils/language/translate';
@@ -16,9 +17,9 @@ import iconweight from '../../utils/assets/weight.svg';
 import iconSeeHistory from '../../utils/assets/seeHistory.svg';
 
 const HealthMetric = props => {
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.client);
     const dispatch = useDispatch();
-    const clientData = [...state.clientRecords];
+    const clientData = [...state.clientMetrics];
 
     clientData.sort((a, b) => {
         return Date.parse(a.fields.Date_time) - Date.parse(b.fields.Date_time);
@@ -34,8 +35,9 @@ const HealthMetric = props => {
     const [historyScale, setHistoryScale] = useState('');
     const [historyFilter, setHistoryFilter] = useState('');
 
+    //'recZNs8pQo2rSsw0T'
     useEffect(() => {
-        dispatch(getClientRecords('recZNs8pQo2rSsw0T'));
+        dispatch(getClientRecords());
     }, []);
 
     const handleClick = (heading, label, filter, filter2) => {
@@ -49,6 +51,7 @@ const HealthMetric = props => {
         } else {
             setHistoryFilter(filter);
         }
+        props.history.push('/metrics/history');
         // console.log('***Typeof', typeof historyFilter);
     };
 
@@ -70,20 +73,22 @@ const HealthMetric = props => {
         return value.fields.Blood_pressure_under;
     });
 
-    if (toggleHistory) {
-        return (
-            <>
-                <HealthMetricCards
-                    historyLabel={historyLabel}
-                    historyScale={historyScale}
-                    historyFilter={historyFilter}
-                    setToggleHistory={setToggleHistory}
-                    clientData={clientData}
-                />
-            </>
-        );
-    } else {
-        return (
+    return (
+        <>
+            <Route
+                path='/metrics/history'
+                render={props => (
+                    <HealthMetricCards
+                        {...props}
+                        historyLabel={historyLabel}
+                        historyScale={historyScale}
+                        historyFilter={historyFilter}
+                        setToggleHistory={setToggleHistory}
+                        clientData={clientData}
+                    />
+                )}
+            />
+
             <div className='metric-container'>
                 <div className='metric-header'>
                     <h3>{translate('hello')}</h3>
@@ -249,8 +254,8 @@ const HealthMetric = props => {
                     </div>
                 </div>
             </div>
-        );
-    }
+        </>
+    );
 };
 
 export default HealthMetric;
