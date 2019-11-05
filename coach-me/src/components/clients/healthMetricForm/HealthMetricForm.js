@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './healthMetricForm.scss';
+import moment from 'moment';
+
+//Redux Actions
+import { addMetric } from '../../../actions/clientActions';
+import { translate } from '../../utils/language/translate';
+
+//Component Imports
+import SubmitModal from './submitModal';
+
+//Icon Imports
 import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
 import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
 import iconweight from '../../utils/assets/weight.svg';
-import { addMetric } from '../../../actions/clientActions';
-import { translate } from '../../utils/language/translate';
-import SubmitModal from './submitModal';
-import moment from 'moment';
+
+//Styling
+import './healthMetricForm.scss';
 
 function HealthMetricForm(props) {
     const state = useSelector(state => state.client);

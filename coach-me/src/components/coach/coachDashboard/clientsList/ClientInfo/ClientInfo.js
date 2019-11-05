@@ -1,5 +1,7 @@
 import React, { useState} from 'react';
+//Component Imports
 import MotiveModal from './MotiveModal'
+//Styling
 import './clientInfo.scss';
 
 const ClientInfo = (props) => {

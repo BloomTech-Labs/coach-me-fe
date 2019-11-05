@@ -11,8 +11,6 @@ import moment from 'moment'
 // import MessageCanvas from './MessageCanvas'
 // import '@progress/kendo-theme-material/dist/all.css';
 
-//Needs get request for messages  http://localhost:4000/twilioRoute/messagehistory
-//Needs Post request to twilio  http://localhost:4000/twilioRoute/twilio
 
 function LiveMessages(props) {
     console.log(props);

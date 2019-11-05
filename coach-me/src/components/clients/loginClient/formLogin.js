@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import UserPhoneNumber from './UserPhoneNumber';
+import { useDispatch } from 'react-redux';
+//Redux Action
 import { getClientInfoLogin } from '../../../actions/clientActions';
+//Component Import
+import UserPhoneNumber from './UserPhoneNumber';
+//Styling
 import './loginClient.scss';
 
 
-//925-639-1639
 const FormLogin = props => {
-    const state = useSelector(state => state);
+
     const dispatch = useDispatch();
     const [config, setConfig] = useState({ phonenumber: '' });
     const handleChange = e => {

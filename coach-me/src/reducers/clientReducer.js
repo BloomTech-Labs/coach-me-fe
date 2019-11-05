@@ -1,8 +1,4 @@
 import {
-    GET_CLIENTS,
-    ADD_CLIENT,
-    DELETE_CLIENT,
-    CLIENTS_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGIN_START,
@@ -48,7 +44,6 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case UPDATE_METRIC_SUCCESS:
-            console.log(state, action.payload);
             return {
                 ...state,
                 isfetching: false,
@@ -116,7 +111,6 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case LOGIN_SUCCESS:
-        console.log(action.payload)
             return {
                 ...state,
                 isfetching: false,

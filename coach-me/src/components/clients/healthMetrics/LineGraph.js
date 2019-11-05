@@ -3,25 +3,21 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 const LineGraph = props => {
-    // console.log('clientData', props);
 
-    let period = props.period ? props.period : -20;
 
-    const datesArray = props.datesArray ? props.datesArray.slice(period) : [];
-    // console.log('datesArray-4', datesArray);
 
-    const metricValuesArray = props.values ? props.values.slice(period) : [];
-    // console.log('values', metricValuesArray);
+    const datesArray = props.datesArray ? props.datesArray.slice(-4) : [];
 
-    const bpOverArray = props.bpOverArray
-        ? props.bpOverArray.slice(period)
-        : [];
-    // console.log('bpOverArray', bpOverArray);
 
-    const bpUnderArray = props.bpUnderArray
-        ? props.bpUnderArray.slice(period)
-        : [];
-    // console.log('bpUnderArray', bpUnderArray);
+    const metricValuesArray = props.values ? props.values.slice(-4) : [];
+
+
+    const bpOverArray = props.bpOverArray ? props.bpOverArray.slice(-4) : [];
+   
+
+    const bpUnderArray = props.bpUnderArray ? props.bpUnderArray.slice(-4) : [];
+
+
 
     const bloodGlucoseData = {
         labels: datesArray,
@@ -101,7 +97,7 @@ const LineGraph = props => {
                 pointHitRadius: 10,
                 spanGaps: true,
                 data: bpOverArray
-                //   data: [1, 2, 3, 8, 7, 0]
+
             },
             {
                 label: 'Diastolic',
@@ -124,12 +120,12 @@ const LineGraph = props => {
                 pointHitRadius: 10,
                 spanGaps: true,
                 data: bpUnderArray
-                //   data: [1, 2, 3, 4, 5, 6, 7]
+
             }
         ]
     };
 
-    console.log('**********props', props.metricType);
+
 
     if (props.metricType === 'bloodGlucose') {
         return (

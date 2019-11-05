@@ -1,21 +1,21 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+
+// Component Imports
 import PrivateRoute from './PrivateRoute';
-import { Route, } from 'react-router-dom';
 import HealthMetric from '../clients/healthMetrics/HealthMetric';
 import CoachDashboard from '../coach/coachDashboard/CoachDashboard';
 import ClientDashboard from '../clients/clientDashboard/ClientDashboard';
-import ClientInfo from '../coach/coachDashboard/clientsList/ClientInfo/ClientInfo';
-import ClientsList from '../coach/coachDashboard/clientsList/ClientsList';
-import ChooseLanguage from '../clients/chooseLanguage/ChooseLanguage';
-import TestTranslator from '../clients/chooseLanguage/TestTranslator';
 import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
 import LoginClient from '../clients/loginClient/LoginClient';
 import Welcome from '../clients/welcomeScreen/WelcomeScreen';
 import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import FormLogin from '../clients/loginClient/formLogin';
-
-import '../../App.css';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
+
+//Styling
+import '../../App.css';
+
 const Routes = props => {
     return (
         <>
@@ -38,13 +38,7 @@ const Routes = props => {
                 path='/dashboard-client'
                 component={ClientDashboard}
             />
-            <PrivateRoute path='/client/:clientId' component={ClientInfo} />
-            <PrivateRoute path='/clients' component={ClientsList} />
-            <PrivateRoute
-                path='/language/:clientid'
-                component={ChooseLanguage}
-            />
-            <PrivateRoute path='/translator' component={TestTranslator} />
+           
             <PrivateRoute path='/metric-form' component={HealthMetricForm} />
             <PrivateRoute path='/welcome' component={Welcome} />
         </>

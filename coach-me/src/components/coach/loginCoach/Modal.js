@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import './modal.scss';
+
 import axios from 'axios';
+
+//Styling 
+import './modal.scss';
 
 const Modal = ({ setModal }) => {
     const [email, setEmail] = useState('');

@@ -1,11 +1,14 @@
 import React from 'react';
 import moment from 'moment';
-
 import { translate } from '../../utils/language/translate';
 
+//Component Imports
 import LineGraph from './LineGraph';
 
+//Styling
 import './healthMetrics.scss';
+
+//Icon Imports
 import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
 import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
 import iconweight from '../../utils/assets/weight.svg';
@@ -13,7 +16,7 @@ import iconback from '../../utils/assets/back.svg';
 
 function HealthMetricCards(props) {
     const handleClick = () => {
-        // props.setToggleHistory(false);
+     
         props.history.push('/metrics');
     };
 
