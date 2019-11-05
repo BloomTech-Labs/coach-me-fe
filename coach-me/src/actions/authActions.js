@@ -3,13 +3,9 @@ import {
     REGISTER_START,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
-    // CLIENT_LOADED,
-    // AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGIN_START,
-    // LOGOUT,
-    // CLEAR_ERRORS,
     GET_RECORDS_START,
     GET_RECORDS_SUCCESS,
     GET_RECORDS_FAILURE
@@ -24,7 +20,7 @@ export const registerCoach = register => dispatch => {
             creds
         )
         .then(res => {
-            console.log(res);
+           
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data
@@ -43,7 +39,7 @@ export const loginCoach = creds => dispatch => {
     return axios
         .post(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/login`, creds)
         .then(res => {
-            console.log(res);
+          
             localStorage.setItem('token', res.data.token);
             dispatch({
                 type: LOGIN_SUCCESS
@@ -65,7 +61,7 @@ export const getClients = token => dispatch => {
             headers: headers
         })
         .then(res => {
-            // console.log(res.data.patientList);
+    
 
             dispatch({
                 type: GET_RECORDS_SUCCESS,
