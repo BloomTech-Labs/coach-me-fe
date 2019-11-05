@@ -11,6 +11,7 @@
         align-items: center;
         justify-content: center;
         height: 100%;
+       
     }
     .scheduled-message {
         width: 50%;
@@ -88,20 +89,27 @@
 }
 textarea{
     
-    max-width:32rem;
+    max-width:41.7rem;
     resize: none;
+    border-radius:15px;
+    outline:none;
+    padding:45px;
+    margin-top:2rem;
   
-   
+  
     
 
+}
+.message-wrapper{
+    border: 2px solid rgba(0, 0, 0, 0.05);
 }
 .text-input{
     display:flex;
     justify-content:space-around;
     button{
        position:absolute;
-       right:10rem;
-       top:73.5rem;
+       right:5rem;
+       top:64.9rem;
        background:none;
        border:none;
       
@@ -110,6 +118,13 @@ textarea{
            width:100%;
        }
     }
+}
+.message-selector{
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
 }
 
 // .text-input {

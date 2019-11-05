@@ -87,7 +87,7 @@ function LiveMessages(props) {
             </PerfectScrollbar>
             <form className='text-input' onSubmit={submitNewMessage}>
                 <textarea
-                    rows='4'
+                    rows='1'
                     cols='48'
                     onChange={handleInputChange}
                     value={message.message}
