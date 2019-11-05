@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ClientCard from './clientsList/ClientCard';
 import { useDispatch, useSelector } from 'react-redux';
 import '../coachDashboard/clientsList/ClientInfo/clientInfo.scss';
+// import magnifying from '../../utils/assets/magnifying-glass icon.svg';
 
 const SearchForm = props => {
     const state = useSelector(state => state.coach);
@@ -35,6 +36,14 @@ const SearchForm = props => {
     return (
         <>
             <form>
+                {/* <div className='input-icon'>
+                    <img
+                        className='magnifying-glass icon'
+                        alt='magnifying-glass'
+                        src='{magnifying}'
+                    ></img>
+                </div>  */}
+
                 <input
                     className='search-input'
                     onChange={handleChange}
@@ -48,6 +57,7 @@ const SearchForm = props => {
                 {ClientList &&
                     ClientList.map(client => (
                         <ClientCard
+                            key={client.clientId}
                             client={client}
                             setClient={props.setClient}
                         />

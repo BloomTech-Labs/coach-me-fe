@@ -26,7 +26,6 @@ const CoachDashboard = ({ history }) => {
         }
     }, [token]);
 
-
     // const handleInputTwo = e => {
     //     setVerifyNumber(e.target.value);
     // };
@@ -46,7 +45,6 @@ const CoachDashboard = ({ history }) => {
         console.log(clientID);
         state.clientRecords.filter(client => {
             if (clientID === client.clientId) {
-
                 setclientprofile(client);
             }
         });
@@ -57,15 +55,16 @@ const CoachDashboard = ({ history }) => {
             <CoachHeader />
             <div className='coachdashboard-container'>
                 <div className='clientlist-container'>
-                    <SearchForm setClient={setClient} />
+                    <SearchForm
+                        // TODO: remove setClient, but passing active clientId from URL so that the client can compare what's the active client
+                        setClient={setClient}
+                    />
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
                 </div>
                 <div className='coach-messaging'>
-
                     <CoachMessaging clientprofile={clientprofile} />
-
                 </div>
             </div>
         </>

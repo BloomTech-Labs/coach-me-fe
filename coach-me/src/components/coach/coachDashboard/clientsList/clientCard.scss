@@ -8,9 +8,9 @@
     width: 100%;
     padding: 10%;
 
-    &:active {
-        border: 5px solid #274160;
-        color: red;
+    .active {
+        border: 1.5px solid red;
+        background-color: red;
     }
 
     h1 {
