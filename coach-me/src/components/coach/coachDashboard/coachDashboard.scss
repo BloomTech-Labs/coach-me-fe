@@ -5,7 +5,7 @@
     
     
     .clientlist-container{
-        
+    
         width:15%;
     }
     .clientinfo-container{
@@ -16,10 +16,20 @@
         flex-direction: column;
     }
     .coach-messaging{
-        width: 33%
+        width: 33%;
+        height:90vh;
+        // position:absolute;
+        // right:0;
+       
     }
 }
-
+.message-container{
+    max-height:70vh;
+}
+.text-input{
+   
+    
+}
 
 // * {
 //     margin: 0;

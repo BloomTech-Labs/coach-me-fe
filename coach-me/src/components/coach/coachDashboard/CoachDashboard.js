@@ -7,6 +7,8 @@ import ClientInfo from './clientsList/ClientInfo/ClientInfo';
 import SearchForm from './SearchForm';
 import CoachMessaging from './coachMessaging/CoachMessaging';
 import Metrics from './coachMetricView/Metrics';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 const CoachDashboard = ({ history }) => {
    
@@ -36,14 +38,20 @@ const CoachDashboard = ({ history }) => {
             <CoachHeader />
             <div className='coachdashboard-container'>
                 <div className='clientlist-container'>
+                    <PerfectScrollbar>
                     <SearchForm setClient={setClient} />
+                    </PerfectScrollbar>
+                   
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
                     <Metrics clientprofile={clientprofile} />
                 </div>
                 <div className='coach-messaging'>
+                  
                     <CoachMessaging clientprofile={clientprofile} />
+                    
+                   
                 </div>
             </div>
         </>
