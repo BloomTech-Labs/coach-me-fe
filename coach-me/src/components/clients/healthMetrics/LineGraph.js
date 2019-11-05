@@ -5,6 +5,7 @@ import { Line } from 'react-chartjs-2';
 const LineGraph = props => {
 
 
+
     const datesArray = props.datesArray ? props.datesArray.slice(-4) : [];
 
 
@@ -15,6 +16,7 @@ const LineGraph = props => {
    
 
     const bpUnderArray = props.bpUnderArray ? props.bpUnderArray.slice(-4) : [];
+
 
 
     const bloodGlucoseData = {
