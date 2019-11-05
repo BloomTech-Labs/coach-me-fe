@@ -5,6 +5,9 @@ import {
     postMessage
 } from '../../../../actions/coachActions';
 import './coachMessaging.scss';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import moment from 'moment'
 // import MessageCanvas from './MessageCanvas'
 // import '@progress/kendo-theme-material/dist/all.css';
 
@@ -22,23 +25,31 @@ function LiveMessages(props) {
         Phone: ''
     });
 
-    console.log('LiveMessages State', state);
-    console.log('state.coach', state.coach);
+
+  
 
     useEffect(() => {
-        if (clientprofile && clientprofile.clientPhone) {
+        if (clientprofile) {
             dispatch(getMessageHistory(clientprofile.clientPhone));
             setMessage({ ...message, Phone: clientprofile.clientPhone });
         }
     }, [clientprofile]);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            dispatch(
-                getMessageHistory(clientprofile && clientprofile.clientPhone)
-            );
-        }, 1000);
+        if(clientprofile){
+            const interval = setInterval(() => {
+            
+                dispatch(
+                    getMessageHistory(clientprofile && clientprofile.clientPhone)
+                );
+
+            
+           
+        }, 5000);
         return () => clearInterval(interval);
+
+        }
+        
     }, [clientprofile]);
 
     const handleInputChange = e => {
@@ -55,29 +66,35 @@ function LiveMessages(props) {
     return (
         <>
             {/* contains get request twilio data */}
+            
+
+            <PerfectScrollbar>
 
             <div className='message-container'>
                 {state.coach.messageHistory &&
                     state.coach.messageHistory.map((m, i) => (
+                        
                         <div
                             key={i}
                             className={`messages ${
                                 m.direction === 'inbound' ? 'left' : 'right'
                             }`}
                         >
+                           
                             <p className='text'>{m.body}</p>
-                            <p className='time'>{m.dateSent}</p>
+                            <p className='time'>{moment(m.dateSent).format('MMMM Do YYYY, h:mm:ss a')}</p>
                         </div>
                     ))}
             </div>
+            </PerfectScrollbar>
             <form className='text-input' onSubmit={submitNewMessage}>
                 <textarea
-                    rows='4'
+                    rows='2'
                     cols='50'
                     onChange={handleInputChange}
                     value={message.message}
                     type='text'
-                    placeholder='Type your message here'
+                    placeholder='Write messages'
                 ></textarea>
                 <button>Send</button>
             </form>

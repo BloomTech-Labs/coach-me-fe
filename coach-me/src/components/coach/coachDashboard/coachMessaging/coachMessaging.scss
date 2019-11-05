@@ -58,14 +58,30 @@
         align-self: flex-start;
         // color: red;
         .text {
-            background-color: green;
+            background-color:#6D8EB4;
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
+
+           
+
+
+
+/* White */
+
+color: #F6F6F6;
         }
     }
     .right {
         align-self: flex-end;
         // color: red;
         .text {
-            background-color: blueviolet;
+            background-color: white;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+           
         }
     }
 }
