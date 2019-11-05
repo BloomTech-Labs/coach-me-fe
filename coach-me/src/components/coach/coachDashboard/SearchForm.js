@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 //Component Imports
 import ClientCard from './clientsList/ClientCard';
-// Styling 
+// Styling
 import '../coachDashboard/clientsList/ClientInfo/clientInfo.scss';
 
 const SearchForm = props => {
@@ -13,7 +13,6 @@ const SearchForm = props => {
     const [query, setquery] = useState();
 
     const handleChange = e => {
-       
         e.preventDefault();
         setquery(e.target.value);
     };
