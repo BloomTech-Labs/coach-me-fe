@@ -26,9 +26,6 @@ const CoachDashboard = ({ history }) => {
         }
     }, [token]);
 
-    // const handleInput = e => {
-    //     setNumber(e.target.value);
-    // };
 
     // const handleInputTwo = e => {
     //     setVerifyNumber(e.target.value);
@@ -49,6 +46,7 @@ const CoachDashboard = ({ history }) => {
         console.log(clientID);
         state.clientRecords.filter(client => {
             if (clientID === client.clientId) {
+
                 setclientprofile(client);
             }
         });
@@ -65,7 +63,9 @@ const CoachDashboard = ({ history }) => {
                     <ClientInfo clientprofile={clientprofile} />
                 </div>
                 <div className='coach-messaging'>
-                    <CoachMessaging />
+
+                    <CoachMessaging clientprofile={clientprofile} />
+
                 </div>
             </div>
         </>

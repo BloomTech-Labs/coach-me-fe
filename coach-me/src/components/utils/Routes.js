@@ -1,6 +1,6 @@
 import React from 'react';
 import PrivateRoute from './PrivateRoute';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, } from 'react-router-dom';
 import HealthMetric from '../clients/healthMetrics/HealthMetric';
 import CoachDashboard from '../coach/coachDashboard/CoachDashboard';
 import ClientDashboard from '../clients/clientDashboard/ClientDashboard';
@@ -13,6 +13,7 @@ import LoginClient from '../clients/loginClient/LoginClient';
 import Welcome from '../clients/welcomeScreen/WelcomeScreen';
 import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import FormLogin from '../clients/loginClient/formLogin';
+
 import '../../App.css';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
 const Routes = props => {
@@ -30,6 +31,7 @@ const Routes = props => {
 
             <Route path='/register' render={props => <CoachRegistration {...props}/>} />
             <Route path='/login' component={LoginCoach} />
+           
             <PrivateRoute path='/metrics' component={HealthMetric} />
             <PrivateRoute path='/dashboard' component={CoachDashboard} />
             <PrivateRoute

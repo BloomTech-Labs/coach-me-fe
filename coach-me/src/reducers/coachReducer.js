@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                messageHistory: action.payload.messages
+                messageHistory: action.payload
             };
         case ADD_TEXT_START:
             return {
@@ -46,7 +46,7 @@ export default (state = initialState, action) => {
                 loading: false,
                 creds: {
                     ...state.creds,
-                    message: action.payload.message,
+                    message: action.payload,
                     Phone: action.payload.Phone
                 }
             };
