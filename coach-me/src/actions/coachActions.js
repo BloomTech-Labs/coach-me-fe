@@ -1,71 +1,71 @@
 import axios from 'axios';
 import {
-    REGISTER_START,
-    REGISTER_SUCCESS,
-    REGISTER_FAIL,
-    CLIENT_LOADED,
-    AUTH_ERROR,
-    LOGIN_SUCCESS,
-    LOGIN_FAIL,
-    LOGIN_START,
-    LOGOUT,
-    CLEAR_ERRORS,
+    GET_TEXT_START,
+    GET_TEXT_SUCCESS,
+    ADD_TEXT_START,
+    ADD_TEXT_SUCCESS,
+    COACH_ERROR,
     GET_RECORDS_START,
     GET_RECORDS_SUCCESS,
-    GET_RECORDS_FAILURE
+    GET_RECORDS_FAILURE,
+    GET_METRICS_START,
+    GET_METRICS_SUCCESS,
+    GET_METRICS_FAILURE
 } from './types';
 
-export const registerCoach = register => dispatch => {
-    const creds = register.records[0].fields;
-    dispatch({ type: REGISTER_START });
+const headers = {
+    Authorization: localStorage.getItem('token')
+};
+
+export const getMessageHistory = liveNumber => dispatch => {
+    console.log('liiiive number', liveNumber);
+    dispatch({ type: GET_TEXT_START });
     axios
-        .post(
-            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/register `,
-            creds
+        .get(
+            `https://coach-me-backend.herokuapp.com/twilioRoute/messagehistory/${liveNumber}`
         )
         .then(res => {
-            console.log(res);
+            console.log('getMessageHistory', res.data.message);
             dispatch({
-                type: REGISTER_SUCCESS,
-                payload: res.data
+                type: GET_TEXT_SUCCESS,
+                payload: res.data.message
             });
         })
         .catch(err => {
+            console.log('getMessageHistory ERR', err);
             dispatch({
-                type: REGISTER_FAIL,
+                type: COACH_ERROR,
                 payload: err.message
             });
         });
 };
 
-export const loginCoach = creds => dispatch => {
-    dispatch({ type: LOGIN_START });
-    return axios
-        .post(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/login`, creds)
+export const postMessage = post => dispatch => {
+    console.log(post);
+    dispatch({ type: ADD_TEXT_START });
+    axios
+        .post(`https://coach-me-backend.herokuapp.com/twilioRoute/twilio`, post)
         .then(res => {
-            console.log(res);
-            localStorage.setItem('token', res.data.token);
             dispatch({
-                type: LOGIN_SUCCESS
+                type: ADD_TEXT_SUCCESS
             });
         })
         .catch(err => {
             dispatch({
-                type: LOGIN_FAIL,
+                type: COACH_ERROR,
                 payload: err.message
             });
         });
 };
 
 export const getClients = token => dispatch => {
-    const headers = { Authorization: token };
     dispatch({ type: GET_RECORDS_START });
     axios
         .get(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getPatients`, {
             headers: headers
         })
         .then(res => {
-            console.log(res.data.patientList);
+            console.log('coach actions', res.data);
 
             dispatch({
                 type: GET_RECORDS_SUCCESS,
@@ -74,7 +74,33 @@ export const getClients = token => dispatch => {
         })
         .catch(err => {
             dispatch({
-                type: GET_RECORDS_SUCCESS,
+                type: GET_RECORDS_FAILURE,
+                payload: err.message
+            });
+        });
+};
+
+export const getClientMetrics = id => dispatch => {
+    dispatch({ type: GET_METRICS_START });
+    axios
+        .get(
+            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientMetrics/${id}`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            const clientRecords = [...results.data.patientMetrics];
+            dispatch({
+                type: GET_METRICS_SUCCESS,
+                payload: clientRecords
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_METRICS_FAILURE,
                 payload: err.message
             });
         });

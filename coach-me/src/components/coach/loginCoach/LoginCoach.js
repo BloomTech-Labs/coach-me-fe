@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginCoach } from '../../../actions/coachActions';
+import { loginCoach } from '../../../actions/authActions';
 import { Link } from 'react-router-dom';
 import './loginCoach.scss';
 import Modal from './Modal';
@@ -9,8 +9,7 @@ const LoginCoach = props => {
     const [email, setemail] = useState();
     const [password, setpassword] = useState();
     const dispatch = useDispatch();
-    const [creds, setCreds] = useState();
-
+    const [creds, setCreds] = useState({email:'', password:''});
     const [modal, setModal] = useState(false);
 
     const triggerModal = () => {

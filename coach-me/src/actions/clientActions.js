@@ -9,9 +9,9 @@ import {
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
-    GET_RECORDS_START,
-    GET_RECORDS_SUCCESS,
-    GET_RECORDS_FAILURE
+    GET_METRICS_START,
+    GET_METRICS_SUCCESS,
+    GET_METRICS_FAILURE
 } from './types';
 
 const headers = {
@@ -111,8 +111,8 @@ export const addMetric = metricUpdate => dispatch => {
         });
 };
 
-export const getClientRecords = clientId => dispatch => {
-    dispatch({ type: GET_RECORDS_START });
+export const getClientRecords = () => dispatch => {
+    dispatch({ type: GET_METRICS_START });
     axios
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/clientRoute/paginationGetMetrics`,
@@ -125,13 +125,13 @@ export const getClientRecords = clientId => dispatch => {
         .then(results => {
             const clientRecords = [...results.data.clientRecords];
             dispatch({
-                type: GET_RECORDS_SUCCESS,
+                type: GET_METRICS_SUCCESS,
                 payload: clientRecords
             });
         })
         .catch(err => {
             dispatch({
-                type: GET_RECORDS_FAILURE,
+                type: GET_METRICS_FAILURE,
                 payload: err.message
             });
         });

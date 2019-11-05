@@ -3,7 +3,8 @@ import LiveMessages from './LiveMessages.js'
 import ScheduledMessages from './ScheduledMessages'
 import './coachMessaging.scss'
 
-const CoachMessaging = () => {
+const CoachMessaging = (props) => {
+    const {clientprofile} = props
     const [show, setShow] = useState(false)
     const [type, setType] = useState(1)
     const [change, setchange] = useState(false)
@@ -48,7 +49,7 @@ const CoachMessaging = () => {
 
                 switch (type) {
                     case 1:
-                        return <LiveMessages/>
+                        return <LiveMessages clientprofile={clientprofile}/>
                     case 2:
                         return <ScheduledMessages/>
                     default:

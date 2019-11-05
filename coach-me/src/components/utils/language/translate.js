@@ -5,13 +5,14 @@ import store from '../../../store';
 
 export const translate = words => {
     const state = store.getState();
+    console.log('************STORRE', state);
 
     // DEFAULT Language Preference is set to English
     let langPref = 'English';
 
     // Check to see if Language Preference has been set to state from airtable and return.
-    if (state.clientinfo.language) {
-        langPref = state.clientinfo.language;
+    if (state.client.clientinfo.language) {
+        langPref = state.client.clientinfo.language;
 
         return language[langPref][words];
     }
