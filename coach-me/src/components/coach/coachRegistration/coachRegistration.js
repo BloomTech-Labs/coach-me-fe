@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+// Redux Action
 import { registerCoach } from '../../../actions/authActions';
+
+//Styling
 import './coachRegistration.scss';
 
 function CoachRegistration(props) {
@@ -10,7 +14,6 @@ function CoachRegistration(props) {
     const [fullName, setFullName] = useState();
     const [email, setemail] = useState();
     const [password, setpassword] = useState();
-    const [confirmPassword, setconfirmPassword] = useState();
     const [register, setregister] = useState();
 
     const handleChange = e => {

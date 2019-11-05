@@ -38,6 +38,7 @@ const LineGraph = props => {
                 pointHoverBorderWidth: 2,
                 pointRadius: 5,
                 pointHitRadius: 10,
+                spanGaps: true,
                 data: metricValuesArray
             }
         ]
@@ -64,6 +65,7 @@ const LineGraph = props => {
                 pointHoverBorderWidth: 2,
                 pointRadius: 5,
                 pointHitRadius: 10,
+                spanGaps: true,
                 data: metricValuesArray
             }
         ]
@@ -91,6 +93,7 @@ const LineGraph = props => {
                 pointHoverBorderWidth: 2,
                 pointRadius: 5,
                 pointHitRadius: 10,
+                spanGaps: true,
                 data: bpOverArray
 
             },
@@ -113,6 +116,7 @@ const LineGraph = props => {
                 pointHoverBorderWidth: 2,
                 pointRadius: 5,
                 pointHitRadius: 10,
+                spanGaps: true,
                 data: bpUnderArray
 
             }

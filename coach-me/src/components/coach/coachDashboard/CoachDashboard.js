@@ -6,6 +6,7 @@ import CoachHeader from './CoachHeader';
 import ClientInfo from './clientsList/ClientInfo/ClientInfo';
 import SearchForm from './SearchForm';
 import CoachMessaging from './coachMessaging/CoachMessaging';
+import Metrics from './coachMetricView/Metrics';
 
 const CoachDashboard = ({ history }) => {
    
@@ -22,10 +23,9 @@ const CoachDashboard = ({ history }) => {
     }, [token]);
 
     const setClient = clientID => {
-        console.log(clientID);
+
         state.clientRecords.filter(client => {
             if (clientID === client.clientId) {
-                console.log(client)
                 setclientprofile(client);
             }
         });
@@ -40,6 +40,7 @@ const CoachDashboard = ({ history }) => {
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
+                    <Metrics clientprofile={clientprofile} />
                 </div>
                 <div className='coach-messaging'>
                     <CoachMessaging clientprofile={clientprofile} />

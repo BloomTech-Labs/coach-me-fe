@@ -11,7 +11,6 @@ import './loginClient.scss';
 
 
 const LoginClient = props => {
-    const state = useSelector(state => state);
     const dispatch = useDispatch();
     const [config, setConfig] = useState({ phonenumber: '' });
     const handleChange = e => {
@@ -21,7 +20,7 @@ const LoginClient = props => {
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-        const loginAttempts = localStorage.getItem('loginAttempts');
+        
     };
 
     return (

@@ -11,10 +11,7 @@ import {
     GET_METRICS_FAILURE
 } from './types';
 
-const headers = {
-    'Content-Type': 'application/json',
-    Authorization: localStorage.getItem('token')
-};
+
 
 export const getClientInfo = props => dispatch => {
     console.log(props);

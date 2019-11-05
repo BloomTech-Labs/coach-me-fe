@@ -8,11 +8,10 @@ import './coachMessaging.scss';
 
 
 function LiveMessages(props) {
-    console.log(props)
-    const {clientprofile} = props
+    console.log(props);
+    const { clientprofile } = props;
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    
 
     const [message, setMessage] = useState({
         message: '',
@@ -21,33 +20,25 @@ function LiveMessages(props) {
 
     console.log('LiveMessages State', state);
     console.log('state.coach', state.coach);
-    
 
     useEffect(() => {
-
-        if(clientprofile&&clientprofile.clientPhone){
-            (dispatch(getMessageHistory(clientprofile.clientPhone)))
-            setMessage({...message, Phone:clientprofile.clientPhone})
+        if (clientprofile && clientprofile.clientPhone) {
+            dispatch(getMessageHistory(clientprofile.clientPhone));
+            setMessage({ ...message, Phone: clientprofile.clientPhone });
         }
-        
-
-      
-
-       
-       
     }, [clientprofile]);
 
-    useEffect( ()=>{
+    useEffect(() => {
         const interval = setInterval(() => {
-            dispatch(getMessageHistory(clientprofile&&clientprofile.clientPhone))
-            
-        }, 7000)
-        return () => clearInterval(interval)
-
-    }, [clientprofile])
+            dispatch(
+                getMessageHistory(clientprofile && clientprofile.clientPhone)
+            );
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [clientprofile]);
 
     const handleInputChange = e => {
-        setMessage({ ...message, message: e.target.value});
+        setMessage({ ...message, message: e.target.value });
     };
 
     const submitNewMessage = e => {
@@ -55,6 +46,7 @@ function LiveMessages(props) {
         {
             dispatch(postMessage(message));
         }
+        setMessage({ ...message, message: '' });
     };
     return (
         <>
@@ -69,12 +61,12 @@ function LiveMessages(props) {
                                 m.direction === 'inbound' ? 'left' : 'right'
                             }`}
                         >
-                            <p>{m.body}</p>
-                            <p>{m.dateSent}</p>
+                            <p className='text'>{m.body}</p>
+                            <p className='time'>{m.dateSent}</p>
                         </div>
                     ))}
             </div>
-            <form onSubmit={submitNewMessage}>
+            <form className='text-input' onSubmit={submitNewMessage}>
                 <textarea
                     rows='4'
                     cols='50'

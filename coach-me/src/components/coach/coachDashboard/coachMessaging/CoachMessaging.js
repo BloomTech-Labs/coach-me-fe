@@ -6,13 +6,9 @@ import './coachMessaging.scss'
 const CoachMessaging = (props) => {
     const {clientprofile} = props
     const [type, setType] = useState(1)
-    const [change, setchange] = useState(false)
+    
 
-    const toggleactive = () =>{
-     setchange(change)
-      
-        
-    }
+
 
     return (
         <>

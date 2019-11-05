@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ClientCard from './clientsList/ClientCard';
+
 import { useSelector } from 'react-redux';
+//Component Imports
+import ClientCard from './clientsList/ClientCard';
+// Styling 
 import '../coachDashboard/clientsList/ClientInfo/clientInfo.scss';
 
 const SearchForm = props => {
