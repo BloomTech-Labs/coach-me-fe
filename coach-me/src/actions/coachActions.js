@@ -7,7 +7,10 @@ import {
     COACH_ERROR,
     GET_RECORDS_START,
     GET_RECORDS_SUCCESS,
-    GET_RECORDS_FAILURE
+    GET_RECORDS_FAILURE,
+    GET_METRICS_START,
+    GET_METRICS_SUCCESS,
+    GET_METRICS_FAILURE
 } from './types';
 
 const headers = {
@@ -15,7 +18,7 @@ const headers = {
 };
 
 export const getMessageHistory = liveNumber => dispatch => {
-    console.log('liiiive number', liveNumber)
+    console.log('liiiive number', liveNumber);
     dispatch({ type: GET_TEXT_START });
     axios
         .get(
@@ -38,7 +41,7 @@ export const getMessageHistory = liveNumber => dispatch => {
 };
 
 export const postMessage = post => dispatch => {
-    console.log(post)
+    console.log(post);
     dispatch({ type: ADD_TEXT_START });
     axios
         .post(`https://coach-me-backend.herokuapp.com/twilioRoute/twilio`, post)
@@ -62,7 +65,7 @@ export const getClients = token => dispatch => {
             headers: headers
         })
         .then(res => {
-            console.log(res.data.patientList);
+            console.log('coach actions', res.data);
 
             dispatch({
                 type: GET_RECORDS_SUCCESS,
@@ -72,6 +75,32 @@ export const getClients = token => dispatch => {
         .catch(err => {
             dispatch({
                 type: GET_RECORDS_FAILURE,
+                payload: err.message
+            });
+        });
+};
+
+export const getClientMetrics = id => dispatch => {
+    dispatch({ type: GET_METRICS_START });
+    axios
+        .get(
+            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientMetrics/${id}`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            const clientRecords = [...results.data.patientMetrics];
+            dispatch({
+                type: GET_METRICS_SUCCESS,
+                payload: clientRecords
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_METRICS_FAILURE,
                 payload: err.message
             });
         });
