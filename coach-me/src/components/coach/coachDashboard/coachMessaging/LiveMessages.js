@@ -43,7 +43,7 @@ function LiveMessages(props) {
 
             
            
-        }, 5000);
+        }, 5000000);
         return () => clearInterval(interval);
 
         }
