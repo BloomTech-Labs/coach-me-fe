@@ -43,7 +43,7 @@ function LiveMessages(props) {
 
             
            
-        }, 5000);
+        }, 5000000);
         return () => clearInterval(interval);
 
         }
@@ -80,21 +80,24 @@ function LiveMessages(props) {
                         >
                            
                             <p className='text'>{m.body}</p>
-                            <p className='time'>{moment(m.dateSent).format('MMMM Do YYYY, h:mm:ss a')}</p>
+                            <p className='time'>{moment(m.dateSent).format("MMM Do")}</p>
                         </div>
                     ))}
             </div>
             </PerfectScrollbar>
             <form className='text-input' onSubmit={submitNewMessage}>
                 <textarea
-                    rows='2'
-                    cols='50'
+                    rows='4'
+                    cols='48'
                     onChange={handleInputChange}
                     value={message.message}
                     type='text'
                     placeholder='Write messages'
                 ></textarea>
-                <button>Send</button>
+                <button>
+                <img src="https://i.imgur.com/jT0eF6E.png" alt="lil arrow"></img>
+                </button>
+               
             </form>
         </>
     );
