@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ClientCard from './clientsList/ClientCard';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import '../coachDashboard/clientsList/ClientInfo/clientInfo.scss';
 
 const SearchForm = props => {
@@ -10,7 +10,7 @@ const SearchForm = props => {
     const [query, setquery] = useState();
 
     const handleChange = e => {
-        console.log(e.target.value);
+       
         e.preventDefault();
         setquery(e.target.value);
     };

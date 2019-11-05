@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
-import './welcomeScreen.scss';
 import { translate } from '../../utils/language/translate';
+
+// Styling
+import './welcomeScreen.scss';
 
 const WelcomeScreen = props => {
     const [coach, setCoach] = useState();
     const state = useSelector(state => state);
-    const dispatch = useDispatch();
+   
 
     useEffect(() => {
         axios
@@ -23,8 +25,7 @@ const WelcomeScreen = props => {
             .catch(err => console.log(err.message));
     }, []);
 
-    console.log(coach);
-    console.log('state info', state);
+
     return (
         <div className='welcomeScreen'>
             <h1>

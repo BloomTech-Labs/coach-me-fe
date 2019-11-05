@@ -5,7 +5,7 @@ import { registerCoach } from '../../../actions/authActions';
 import './coachRegistration.scss';
 
 function CoachRegistration(props) {
-    const state = useSelector(state => state);
+    
     const dispatch = useDispatch();
     const [fullName, setFullName] = useState();
     const [email, setemail] = useState();
@@ -27,11 +27,6 @@ function CoachRegistration(props) {
 
         setpassword(e.target.value);
     };
-    const handleChange4 = e => {
-        e.preventDefault();
-        console.log(e.target.value);
-        setconfirmPassword(e.target.value);
-    };
 
     useEffect(() => {
         setregister({
@@ -48,7 +43,6 @@ function CoachRegistration(props) {
     }, [fullName, email, password]);
 
     const handleSubmit = e => {
-        console.log(register);
         e.preventDefault();
         dispatch(registerCoach(register));
     };
@@ -89,13 +83,6 @@ function CoachRegistration(props) {
                             onChange={handleChange3}
                             value={password}
                         />
-                        {/* <input
-                            type='password'
-                            placeholder='Confirm Password'
-                            name='password'
-                            onChange={handleChange4}
-                            value={confirmPassword}
-                        /> */}
                     </div>
                     <button className='signup-btn' type='submit'>
                         Sign-up

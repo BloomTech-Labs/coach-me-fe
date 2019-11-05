@@ -1,15 +1,11 @@
 //authReducer
 import {
-    // REGISTER_START,
-    // REGISTER_SUCCESS,
-    // REGISTER_FAIL,
-    // CLIENT_LOADED,
-    // AUTH_ERROR,
+
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGIN_START
     // LOGOUT,
-    // CLEAR_ERRORS,
+
 } from '../actions/types';
 
 const initialState = {

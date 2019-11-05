@@ -57,7 +57,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_RECORDS_SUCCESS:
-            //   console.log(action.payload)
+         
             return {
                 ...state,
                 loading: false,
