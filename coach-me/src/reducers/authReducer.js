@@ -1,11 +1,9 @@
 //authReducer
 import {
-
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGIN_START
     // LOGOUT,
-
 } from '../actions/types';
 
 const initialState = {
