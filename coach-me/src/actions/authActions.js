@@ -20,7 +20,6 @@ export const registerCoach = register => dispatch => {
             creds
         )
         .then(res => {
-           
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data
@@ -39,7 +38,6 @@ export const loginCoach = creds => dispatch => {
     return axios
         .post(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/login`, creds)
         .then(res => {
-          
             localStorage.setItem('token', res.data.token);
             dispatch({
                 type: LOGIN_SUCCESS
@@ -61,8 +59,6 @@ export const getClients = token => dispatch => {
             headers: headers
         })
         .then(res => {
-    
-
             dispatch({
                 type: GET_RECORDS_SUCCESS,
                 payload: res.data.patientList

@@ -16,7 +16,6 @@ import iconback from '../../utils/assets/back.svg';
 
 function HealthMetricCards(props) {
     const handleClick = () => {
-     
         props.history.push('/metrics');
     };
 

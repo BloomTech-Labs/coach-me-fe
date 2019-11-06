@@ -3,19 +3,13 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 const LineGraph = props => {
-
-
     const datesArray = props.datesArray ? props.datesArray.slice(-4) : [];
-
 
     const metricValuesArray = props.values ? props.values.slice(-4) : [];
 
-
     const bpOverArray = props.bpOverArray ? props.bpOverArray.slice(-4) : [];
-   
 
     const bpUnderArray = props.bpUnderArray ? props.bpUnderArray.slice(-4) : [];
-
 
     const bloodGlucoseData = {
         labels: datesArray,
@@ -95,7 +89,6 @@ const LineGraph = props => {
                 pointHitRadius: 10,
                 spanGaps: true,
                 data: bpOverArray
-
             },
             {
                 label: 'Diastolic',
@@ -118,12 +111,9 @@ const LineGraph = props => {
                 pointHitRadius: 10,
                 spanGaps: true,
                 data: bpUnderArray
-
             }
         ]
     };
-
-
 
     if (props.metricType === 'bloodGlucose') {
         return (

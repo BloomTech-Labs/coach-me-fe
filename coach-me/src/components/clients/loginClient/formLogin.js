@@ -7,9 +7,7 @@ import UserPhoneNumber from './UserPhoneNumber';
 //Styling
 import './loginClient.scss';
 
-
 const FormLogin = props => {
-
     const dispatch = useDispatch();
     const [config, setConfig] = useState({ phonenumber: '' });
     const handleChange = e => {
@@ -19,18 +17,15 @@ const FormLogin = props => {
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfoLogin(info));
-          
     };
 
     return (
-        
-            <UserPhoneNumber
-                handleChange={handleChange}
-                config={config}
-                setconfig={setConfig}
-                getinfo={getinfo}
-            />
-        
+        <UserPhoneNumber
+            handleChange={handleChange}
+            config={config}
+            setconfig={setConfig}
+            getinfo={getinfo}
+        />
     );
 };
 

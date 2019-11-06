@@ -1,73 +1,75 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getLastCheckInTime } from '../../../../../actions/coachActions';
+
 //Component Imports
-import MotiveModal from './MotiveModal'
+import MotiveModal from './MotiveModal';
 //Styling
 import './clientInfo.scss';
 
-const ClientInfo = (props) => {
-    const [show, setshow ] = useState(false);
-    const {clientprofile} = props
-    const [checkin, setCheckin] =useState({value:''})
-   
+const ClientInfo = props => {
+    console.log('ClientInfo Component', props);
 
-    const toggleModal = (e)=> {
-      setshow(!show)
+    const state = useSelector(state => state.coach);
+    const dispatch = useDispatch();
 
-    
+    const [show, setshow] = useState(false);
+    const { clientprofile } = props;
 
+    useEffect(() => {
+        if (clientprofile && clientprofile.clientId) {
+            dispatch(getLastCheckInTime(clientprofile.clientId));
+        }
+    }, [clientprofile]);
+
+    const toggleModal = e => {
+        setshow(!show);
+    };
+
+    let checkIn;
+    if (isNaN(state.clientCheckIn)) {
+        checkIn = '0';
+    } else {
+        checkIn = state.clientCheckIn;
     }
-  if(clientprofile){
-    clientprofile.lastCheckin.then( res => {  
-      if(res === {...res}){
-        setCheckin({...checkin, value:res.specialValue})
-      }
-      if(res){
-        setCheckin({...checkin, value:res})
-      }
-      })
-    
-      
-    return (
-      
-        <div className = 'clientprofile'>
-        <h6>  LAST CHECK-IN:{checkin.value} </h6>
-        <MotiveModal toggleModal={toggleModal} motivation={clientprofile.motivations} show={show}/>
-            <div className = 'key-details'>
-            <h1>
-                
-             {clientprofile.clientName}
-            </h1>
-            <div className = 'details'>
-            <div className ="condition-container">
-            {clientprofile.conditions.map( conditions =>
-                <p>{conditions}</p>
-            
 
-            )}
-            </div>
-            
-            <p>{clientprofile.language}</p>
-            </div>
-            </div>
-            <div className={`${clientprofile.motivations ?'motivations' : 'ghost' } ` } >
-             <label>
-                Motivation:
-            </label>
-            <div className="text-container">
-            
-            <p> {clientprofile.motivations}</p>
-            </div>
+    if (clientprofile) {
+        return (
+            <div className='clientprofile'>
+                <h6>{checkIn}</h6>
+                <MotiveModal
+                    toggleModal={toggleModal}
+                    motivation={clientprofile.motivations}
+                    show={show}
+                />
+                <div className='key-details'>
+                    <h1>{clientprofile.clientName}</h1>
+                    <div className='details'>
+                        <div className='condition-container'>
+                            {clientprofile.conditions.map(conditions => (
+                                <p>{conditions}</p>
+                            ))}
+                        </div>
 
-            <button onClick={ () => toggleModal ()}> ...See More</button>
-            
-            
-            </div>
-        </div>
-    );
-  }
-  return null
+                        <p>{clientprofile.language}</p>
+                    </div>
+                </div>
+                <div
+                    className={`${
+                        clientprofile.motivations ? 'motivations' : 'ghost'
+                    } `}
+                >
+                    <label>Motivation:</label>
+                    <div className='text-container'>
+                        <p> {clientprofile.motivations}</p>
+                    </div>
 
-    
+                    <button onClick={() => toggleModal()}> ...See More</button>
+                </div>
+            </div>
+        );
+    }
+    return null;
 };
 
 export default ClientInfo;
