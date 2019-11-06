@@ -25,27 +25,27 @@ const WelcomeScreen = props => {
     }, []);
 
     return (
-        <div className="welcomeScreen">
+        <div className='welcomeScreen'>
             <h1>
                 {translate('welcome')} <br /> CoachMe, {state.clientinfo.name}!
             </h1>
             <img
                 src={coach && coach.coachObject.coachUrl}
-                alt="Current Coach"
+                alt='Current Coach'
             />
 
-            <div className="header2">
+            <div className='header2'>
                 <h1>{coach && coach.coachObject.coachName}</h1>
                 <p>{translate('coachIntro')}</p>
             </div>
 
-            <p className="footerText">
+            <p className='footerText'>
                 {coach && coach.coachObject.coachName}
                 {translate('welcomeMessage')}
             </p>
 
             <button
-                className="nextBtn"
+                className='nextBtn'
                 onClick={() => {
                     props.history.push('/metrics');
                 }}

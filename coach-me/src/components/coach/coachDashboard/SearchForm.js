@@ -38,11 +38,11 @@ const SearchForm = props => {
         <>
             <form>
                 <input
-                    className="search-input"
+                    className='search-input'
                     onChange={handleChange}
-                    placeholder="Search Client"
+                    placeholder='Search Client'
                     value={query}
-                    name="name"
+                    name='name'
                 />
             </form>
 

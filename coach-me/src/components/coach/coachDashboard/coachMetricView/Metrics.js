@@ -53,8 +53,8 @@ function Metrics(props) {
 
     return (
         <>
-            <div className="metric-container">
-                <div className="graph-container">
+            <div className='metric-container'>
+                <div className='graph-container'>
                     <h2>Blood Glucose</h2>
                     {bloodSugarArray.length !== 0 ? (
                         <LineGraph
@@ -67,20 +67,20 @@ function Metrics(props) {
                     )}
                 </div>
 
-                <div className="health-cards-container">
+                <div className='health-cards-container'>
                     <h3>Blood Glucose History</h3>
                     {reverseClientData.map((record, index) =>
                         record['Blood_sugar'] ? (
-                            <div className="health-card">
-                                <div className="metric-icon">
+                            <div className='health-card'>
+                                <div className='metric-icon'>
                                     <img
-                                        className="icon"
-                                        alt="Blood Gluscose Icon"
+                                        className='icon'
+                                        alt='Blood Gluscose Icon'
                                         src={iconfastingBloodGlucose}
                                     ></img>
                                 </div>
-                                <div className="health-label">
-                                    <div className="label-container">
+                                <div className='health-label'>
+                                    <div className='label-container'>
                                         <h3>Blood Glucose</h3>
                                     </div>
                                     <h4>
@@ -89,13 +89,13 @@ function Metrics(props) {
                                         )}
                                     </h4>
                                 </div>
-                                <div className="health-metric-value">
-                                    <h4 className="health-value">
+                                <div className='health-metric-value'>
+                                    <h4 className='health-value'>
                                         {record['Blood_sugar']
                                             ? record['Blood_sugar']
                                             : 'Not Recorded'}
                                     </h4>
-                                    <h4 className="health-scale">mg/dl</h4>
+                                    <h4 className='health-scale'>mg/dl</h4>
                                 </div>
                             </div>
                         ) : null
@@ -103,8 +103,8 @@ function Metrics(props) {
                 </div>
             </div>
 
-            <div className="metric-container">
-                <div className="graph-container">
+            <div className='metric-container'>
+                <div className='graph-container'>
                     <h2>Weight</h2>
 
                     <LineGraph
@@ -114,40 +114,40 @@ function Metrics(props) {
                     />
                 </div>
 
-                <div className="health-cards-container">
+                <div className='health-cards-container'>
                     <h3>Weight History</h3>
                     {reverseClientData.map((record, index) => (
-                        <div className="health-card">
-                            <div className="metric-icon">
+                        <div className='health-card'>
+                            <div className='metric-icon'>
                                 <img
-                                    className="icon"
-                                    alt="Weight Icon"
+                                    className='icon'
+                                    alt='Weight Icon'
                                     src={iconweight}
                                 ></img>
                             </div>
-                            <div className="health-label">
-                                <div className="label-container">
+                            <div className='health-label'>
+                                <div className='label-container'>
                                     <h3>Weight</h3>
                                 </div>
                                 <h4>
                                     {moment(record.date).format('MMM Do YYYY')}
                                 </h4>
                             </div>
-                            <div className="health-metric-value">
-                                <h4 className="health-value">
+                            <div className='health-metric-value'>
+                                <h4 className='health-value'>
                                     {record['Weight']
                                         ? record['Weight']
                                         : 'N/A'}
                                 </h4>
-                                <h4 className="health-scale">lbs</h4>
+                                <h4 className='health-scale'>lbs</h4>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
 
-            <div className="metric-container">
-                <div className="graph-container">
+            <div className='metric-container'>
+                <div className='graph-container'>
                     <h2>Blood Pressure</h2>
                     <LineGraph
                         bpOverArray={bpOverArray}
@@ -156,34 +156,34 @@ function Metrics(props) {
                         metricType={'bloodPressure'}
                     />
                 </div>
-                <div className="health-cards-container">
+                <div className='health-cards-container'>
                     <h3>Blood Pressure History</h3>
                     {reverseClientData.map((record, index) => (
-                        <div className="health-card">
-                            <div className="metric-icon">
+                        <div className='health-card'>
+                            <div className='metric-icon'>
                                 <img
-                                    className="icon"
-                                    alt="Blood Pressure Icon"
+                                    className='icon'
+                                    alt='Blood Pressure Icon'
                                     src={iconbloodPressure}
                                 ></img>
                             </div>
-                            <div className="health-label">
-                                <div className="label-container">
+                            <div className='health-label'>
+                                <div className='label-container'>
                                     <h3>Blood Pressure</h3>
                                 </div>
                                 <h4>
                                     {moment(record.date).format('MMM Do YYYY')}
                                 </h4>
                             </div>
-                            <div className="health-metric-value">
-                                <h4 className="health-value">
+                            <div className='health-metric-value'>
+                                <h4 className='health-value'>
                                     {record['Blood_pressure_over']
                                         ? record['Blood_pressure_over'] +
                                           '/' +
                                           record['Blood_pressure_under']
                                         : 'N/A'}
                                 </h4>
-                                <h4 className="health-scale">mg/dl</h4>
+                                <h4 className='health-scale'>mg/dl</h4>
                             </div>
                         </div>
                     ))}

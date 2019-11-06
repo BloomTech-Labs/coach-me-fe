@@ -35,39 +35,39 @@ const UserPhoneNumber = props => {
     };
 
     return (
-        <div className="phonenumber-container">
-            <div className="img-container">
+        <div className='phonenumber-container'>
+            <div className='img-container'>
                 <Logo />
             </div>
-            <div className="text-content">
-                <div className="header">
-                    <p className="english">
+            <div className='text-content'>
+                <div className='header'>
+                    <p className='english'>
                         Enter your phone number to get started.
                     </p>
                 </div>
-                <div className="subtext">
-                    <p className="spanish">Ingrese su número teléfono</p>
+                <div className='subtext'>
+                    <p className='spanish'>Ingrese su número teléfono</p>
                 </div>
             </div>
 
-            <div className="form-container">
+            <div className='form-container'>
                 <form
                     onSubmit={e => {
                         handleSubmit(e);
                     }}
                 >
-                    <div className="num-inputs">
+                    <div className='num-inputs'>
                         <span>(</span>
                         <input
-                            type="number"
-                            id="txt1"
-                            maxLength="3"
-                            name="areacode"
+                            type='number'
+                            id='txt1'
+                            maxLength='3'
+                            name='areacode'
                             onChange={handleChange}
                             value={input.areacode}
-                            pattern="[0-9]*"
-                            ng-model="vm.onlyNumbers"
-                            min="0"
+                            pattern='[0-9]*'
+                            ng-model='vm.onlyNumbers'
+                            min='0'
                             onInput={e => {
                                 moveOver(e, 'txt1', 'txt2');
                             }}
@@ -75,33 +75,33 @@ const UserPhoneNumber = props => {
 
                         <span>)</span>
                         <input
-                            type="number"
-                            id="txt2"
-                            maxLength="3"
-                            name="dig1"
+                            type='number'
+                            id='txt2'
+                            maxLength='3'
+                            name='dig1'
                             onChange={handleChange}
                             value={input.dig1}
-                            pattern="[0-9]*"
-                            ng-model="vm.onlyNumbers"
-                            min="0"
+                            pattern='[0-9]*'
+                            ng-model='vm.onlyNumbers'
+                            min='0'
                             onInput={e => {
                                 moveOver(e, 'txt2', 'txt3');
                             }}
                         />
                         <span>-</span>
                         <input
-                            type="number"
-                            id="txt3"
-                            max="9999"
-                            name="dig2"
+                            type='number'
+                            id='txt3'
+                            max='9999'
+                            name='dig2'
                             onChange={handleChange}
                             value={input.dig2}
-                            pattern="[0-9]*"
-                            ng-model="vm.onlyNumbers"
-                            min="0"
+                            pattern='[0-9]*'
+                            ng-model='vm.onlyNumbers'
+                            min='0'
                         />
                     </div>
-                    <button className="trigger" type="submit">
+                    <button className='trigger' type='submit'>
                         <FontAwesomeIcon icon={faArrowRight} />
                     </button>
                 </form>

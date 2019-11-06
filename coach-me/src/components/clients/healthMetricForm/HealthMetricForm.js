@@ -87,7 +87,7 @@ function HealthMetricForm(props) {
     };
 
     return (
-        <div className="metric-form-wrapper">
+        <div className='metric-form-wrapper'>
             <SubmitModal
                 show={show}
                 onSubmit={submitMetric}
@@ -99,101 +99,101 @@ function HealthMetricForm(props) {
             />
             <header>
                 <h1>{translate('HMFtitle')}</h1>
-                <p className="header-text">{translate('NeedMetric')}</p>
+                <p className='header-text'>{translate('NeedMetric')}</p>
             </header>
             <form onSubmit={submitNewMetric}>
-                <div className="input-label">
-                    <div className="img-wrapper">
+                <div className='input-label'>
+                    <div className='img-wrapper'>
                         <img
-                            className="icon"
-                            alt="Blood Gluscose Icon"
+                            className='icon'
+                            alt='Blood Gluscose Icon'
                             src={iconfastingBloodGlucose}
                         ></img>
                     </div>
                     <h3>{translate('fastingGlucose')}</h3>
                 </div>
-                <div className="input-wrapper">
+                <div className='input-wrapper'>
                     <input
-                        className="metric-input"
+                        className='metric-input'
                         onChange={handleInputChange}
-                        type="number"
+                        type='number'
                         value={bS}
-                        name="Blood_sugar"
-                        minLength="2"
-                        pattern="[0-9]*"
-                        ng-model="vm.onlyNumbers"
-                        min="0"
+                        name='Blood_sugar'
+                        minLength='2'
+                        pattern='[0-9]*'
+                        ng-model='vm.onlyNumbers'
+                        min='0'
                     />
                     <p>mg/dL</p>
                 </div>
 
-                <div className="input-label">
-                    <div className="img-wrapper">
+                <div className='input-label'>
+                    <div className='img-wrapper'>
                         <img
-                            className="icon"
-                            alt="Weight Icon"
+                            className='icon'
+                            alt='Weight Icon'
                             src={iconweight}
                         ></img>
                     </div>
                     <h3>{translate('weight')}</h3>
                 </div>
-                <div className="input-wrapper">
+                <div className='input-wrapper'>
                     <input
-                        className="metric-input"
+                        className='metric-input'
                         onChange={handleInputChange4}
-                        type="number"
+                        type='number'
                         value={weight}
-                        name="Weight"
-                        minLength="2"
-                        pattern="[0-9]*"
-                        ng-model="vm.onlyNumbers"
-                        min="0"
+                        name='Weight'
+                        minLength='2'
+                        pattern='[0-9]*'
+                        ng-model='vm.onlyNumbers'
+                        min='0'
                     />
                     <p>lbs</p>
                 </div>
 
-                <div className="input-label">
-                    <div className="img-wrapper">
+                <div className='input-label'>
+                    <div className='img-wrapper'>
                         <img
-                            className="icon"
-                            alt="Blood Pressure Icon"
+                            className='icon'
+                            alt='Blood Pressure Icon'
                             src={iconbloodPressure}
                         ></img>
                     </div>
                     <h3>{translate('bp')}</h3>
                 </div>
-                <div className="input-wrapper">
-                    <div className="input-wrapper">
+                <div className='input-wrapper'>
+                    <div className='input-wrapper'>
                         <input
-                            className="metric-input metric-input-pb"
+                            className='metric-input metric-input-pb'
                             onChange={handleInputChange2}
-                            type="number"
+                            type='number'
                             value={bpOver}
-                            name="Blood_pressure_over"
-                            minLength="2"
-                            pattern="[0-9]*"
-                            ng-model="vm.onlyNumbers"
-                            min="0"
+                            name='Blood_pressure_over'
+                            minLength='2'
+                            pattern='[0-9]*'
+                            ng-model='vm.onlyNumbers'
+                            min='0'
                             required={bpOverRequired}
                         />
                         <span>/</span>
                         <input
-                            className="metric-input-pb2"
+                            className='metric-input-pb2'
                             onChange={handleInputChange3}
-                            type="number"
+                            type='number'
                             value={bpUnder}
-                            name="Blood_pressure_under"
-                            minLength="2"
-                            pattern="[0-9]*"
-                            ng-model="vm.onlyNumbers"
-                            min="0"
+                            name='Blood_pressure_under'
+                            minLength='2'
+                            pattern='[0-9]*'
+                            ng-model='vm.onlyNumbers'
+                            min='0'
                             required={bpUnderRequired}
                         />
                         <p>mmHg</p>
                     </div>
                 </div>
 
-                <button className="btn">{translate('submitBtn')}</button>
+                <button className='btn'>{translate('submitBtn')}</button>
             </form>
         </div>
     );

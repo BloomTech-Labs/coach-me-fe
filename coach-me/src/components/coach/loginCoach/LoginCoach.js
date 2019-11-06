@@ -47,51 +47,51 @@ const LoginCoach = props => {
     return (
         <>
             {modal ? <Modal setModal={setModal} /> : null}
-            <div className="Login-Wrapper">
-                <div className="side-one">
+            <div className='Login-Wrapper'>
+                <div className='side-one'>
                     <img
-                        src="https://i.imgur.com/eZTEnXz.png"
-                        alt="Placeholder"
+                        src='https://i.imgur.com/eZTEnXz.png'
+                        alt='Placeholder'
                     />
                 </div>
-                <div className="side-two">
+                <div className='side-two'>
                     <h1>Login</h1>
                     <p>Welcome back! Please login to your coach account.</p>
                     <form
-                        className="Login-Form-Wrapper"
+                        className='Login-Form-Wrapper'
                         onSubmit={e => {
                             handleSubmit(e);
                         }}
                     >
-                        <div className="input-Wrapper">
+                        <div className='input-Wrapper'>
                             <input
-                                type="text"
-                                placeholder="Email"
-                                name="E-Mail"
-                                className="email"
+                                type='text'
+                                placeholder='Email'
+                                name='E-Mail'
+                                className='email'
                                 onChange={handleChange2}
                                 value={email}
                             />
                             <input
-                                type="password"
-                                placeholder="Password"
-                                name="password"
-                                className="password"
+                                type='password'
+                                placeholder='Password'
+                                name='password'
+                                className='password'
                                 onChange={handleChange3}
                                 value={password}
                             />
                         </div>
-                        <button type="submit" className="signup-btn">
+                        <button type='submit' className='signup-btn'>
                             {' '}
                             Login
                         </button>
-                        <div className="forgot" onClick={() => triggerModal()}>
+                        <div className='forgot' onClick={() => triggerModal()}>
                             Forgot password?
                         </div>
                     </form>
-                    <div className="register-container">
+                    <div className='register-container'>
                         Don't have an account?{' '}
-                        <Link className="register" to="/register">
+                        <Link className='register' to='/register'>
                             Sign up
                         </Link>
                     </div>

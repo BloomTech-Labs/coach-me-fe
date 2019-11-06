@@ -6,9 +6,9 @@ const MotiveModal = props => {
 
     if (show) {
         return (
-            <div className="motive-container">
-                <div className="motive-box">
-                    <div className="label">
+            <div className='motive-container'>
+                <div className='motive-box'>
+                    <div className='label'>
                         <label>Motivations</label>
                     </div>
                     <p>{motivation}</p>

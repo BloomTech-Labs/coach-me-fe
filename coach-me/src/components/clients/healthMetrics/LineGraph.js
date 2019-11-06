@@ -117,21 +117,21 @@ const LineGraph = props => {
 
     if (props.metricType === 'bloodGlucose') {
         return (
-            <div className="line-graph">
+            <div className='line-graph'>
                 <Line data={bloodGlucoseData} legend={{ display: false }} />
             </div>
         );
     }
     if (props.metricType === 'weight') {
         return (
-            <div className="line-graph">
+            <div className='line-graph'>
                 <Line data={weightData} legend={{ display: false }} />
             </div>
         );
     }
     if (props.metricType === 'bloodPressure') {
         return (
-            <div className="line-graph">
+            <div className='line-graph'>
                 <Line data={bloodPressureData} legend={{ display: false }} />
             </div>
         );

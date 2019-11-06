@@ -45,34 +45,34 @@ const Modal = ({ setModal }) => {
     };
     console.log(email);
     return (
-        <div className="modal">
-            <div className="modal-content">
+        <div className='modal'>
+            <div className='modal-content'>
                 <h1>Forgot your password?</h1>
                 <p>
                     Enter the email you used to sign up and we’ll send you an
                     email with instructions to reset your password.
                 </p>
                 <input
-                    placeholder="Email"
-                    name="email"
+                    placeholder='Email'
+                    name='email'
                     onChange={handleChange}
                 ></input>
                 {showError && (
-                    <p className="error">
+                    <p className='error'>
                         That email address isn't recognized. Please try again or
                         register for a new account.
                     </p>
                 )}
                 {messageFromServer === 'recovery email sent' && (
-                    <h3 className="success">
+                    <h3 className='success'>
                         Password Reset Email Successfully Sent!
                     </h3>
                 )}
-                <div className="continue">
-                    <p className="cancel" onClick={cancel}>
+                <div className='continue'>
+                    <p className='cancel' onClick={cancel}>
                         Cancel
                     </p>
-                    <div className="send-btn" onClick={sendEmail}>
+                    <div className='send-btn' onClick={sendEmail}>
                         Send
                     </div>
                 </div>

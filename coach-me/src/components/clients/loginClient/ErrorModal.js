@@ -13,8 +13,8 @@ const ErrorModal = props => {
 
     if (state.error && check === false) {
         return (
-            <div className="modal-container">
-                <div className="modal-box">
+            <div className='modal-container'>
+                <div className='modal-box'>
                     <Warning />
                     <p>Phone number is invalid</p>
 

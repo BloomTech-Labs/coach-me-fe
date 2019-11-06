@@ -41,20 +41,20 @@ function HealthMetricCards(props) {
     //-----------------Blood Pressure (over/under)
     if (typeof props.historyFilter === 'object') {
         return (
-            <div className="metric-container">
-                <div className="back-btn-container">
-                    <div className="back-button" onClick={() => handleClick()}>
-                        <div className="icon-back">
+            <div className='metric-container'>
+                <div className='back-btn-container'>
+                    <div className='back-button' onClick={() => handleClick()}>
+                        <div className='icon-back'>
                             <img
-                                className="icon"
-                                alt="Back Arrow"
+                                className='icon'
+                                alt='Back Arrow'
                                 src={iconback}
                             ></img>
                         </div>
                         <p>{translate('back')}</p>
                     </div>
                 </div>
-                <div className="history-header">
+                <div className='history-header'>
                     <h2>{translate('bp')}</h2>
                     <h4>{translate('bpHistoryDesc')}</h4>
                 </div>
@@ -64,18 +64,18 @@ function HealthMetricCards(props) {
                     datesArray={datesArray}
                     metricType={'bloodPressure'}
                 />
-                <div className="health-cards-container">
+                <div className='health-cards-container'>
                     {reverseClientData.map((record, index) => (
-                        <div className="health-card">
-                            <div className="metric-icon">
+                        <div className='health-card'>
+                            <div className='metric-icon'>
                                 <img
-                                    className="icon"
-                                    alt="Blood Pressure Icon"
+                                    className='icon'
+                                    alt='Blood Pressure Icon'
                                     src={iconbloodPressure}
                                 ></img>
                             </div>
-                            <div className="health-label">
-                                <div className="label-container">
+                            <div className='health-label'>
+                                <div className='label-container'>
                                     <h3>{translate('bp')}</h3>
                                 </div>
                                 <h4>
@@ -84,8 +84,8 @@ function HealthMetricCards(props) {
                                     )}
                                 </h4>
                             </div>
-                            <div className="health-metric-value">
-                                <h4 className="health-value">
+                            <div className='health-metric-value'>
+                                <h4 className='health-value'>
                                     {record.fields[props.historyFilter[0]]
                                         ? record.fields[
                                               props.historyFilter[0]
@@ -94,7 +94,7 @@ function HealthMetricCards(props) {
                                           record.fields[props.historyFilter[1]]
                                         : 'N/A'}
                                 </h4>
-                                <h4 className="health-scale">
+                                <h4 className='health-scale'>
                                     {props.historyScale}
                                 </h4>
                             </div>
@@ -108,20 +108,20 @@ function HealthMetricCards(props) {
     //-----------------Fasting Blood Glucose (Blood Sugar)
     if (props.historyFilter === 'Blood_sugar') {
         return (
-            <div className="metric-container">
-                <div className="back-btn-container">
-                    <div className="back-button" onClick={() => handleClick()}>
-                        <div className="icon-back">
+            <div className='metric-container'>
+                <div className='back-btn-container'>
+                    <div className='back-button' onClick={() => handleClick()}>
+                        <div className='icon-back'>
                             <img
-                                className="icon"
-                                alt="Back Arrow"
+                                className='icon'
+                                alt='Back Arrow'
                                 src={iconback}
                             ></img>
                         </div>
                         <p>{translate('back')}</p>
                     </div>
                 </div>
-                <div className="history-header">
+                <div className='history-header'>
                     <h2>{translate('bloodGlucose')}</h2>
                     <h4>{translate('glucoseHistoryDesc')}</h4>
                 </div>
@@ -132,18 +132,18 @@ function HealthMetricCards(props) {
                     metricType={'bloodGlucose'}
                 />
 
-                <div className="health-cards-container">
+                <div className='health-cards-container'>
                     {reverseClientData.map((record, index) => (
-                        <div className="health-card">
-                            <div className="metric-icon">
+                        <div className='health-card'>
+                            <div className='metric-icon'>
                                 <img
-                                    className="icon"
-                                    alt="Blood Gluscose Icon"
+                                    className='icon'
+                                    alt='Blood Gluscose Icon'
                                     src={iconfastingBloodGlucose}
                                 ></img>
                             </div>
-                            <div className="health-label">
-                                <div className="label-container">
+                            <div className='health-label'>
+                                <div className='label-container'>
                                     <h3>{translate('bloodGlucose')}</h3>
                                 </div>
                                 <h4>
@@ -152,13 +152,13 @@ function HealthMetricCards(props) {
                                     )}
                                 </h4>
                             </div>
-                            <div className="health-metric-value">
-                                <h4 className="health-value">
+                            <div className='health-metric-value'>
+                                <h4 className='health-value'>
                                     {record.fields[props.historyFilter]
                                         ? record.fields[props.historyFilter]
                                         : 'N/A'}
                                 </h4>
-                                <h4 className="health-scale">
+                                <h4 className='health-scale'>
                                     {props.historyScale}
                                 </h4>
                             </div>
@@ -172,20 +172,20 @@ function HealthMetricCards(props) {
     //-----------------Weight
     if (props.historyFilter === 'Weight') {
         return (
-            <div className="metric-container">
-                <div className="back-btn-container">
-                    <div className="back-button" onClick={() => handleClick()}>
-                        <div className="icon-back">
+            <div className='metric-container'>
+                <div className='back-btn-container'>
+                    <div className='back-button' onClick={() => handleClick()}>
+                        <div className='icon-back'>
                             <img
-                                className="icon"
-                                alt="Back Arrow"
+                                className='icon'
+                                alt='Back Arrow'
                                 src={iconback}
                             ></img>
                         </div>
                         <p>{translate('back')}</p>
                     </div>
                 </div>
-                <div className="history-header">
+                <div className='history-header'>
                     <h2>{translate('weight')}</h2>
                     <h4>{translate('weightHistoryDesc')}</h4>
                 </div>
@@ -196,18 +196,18 @@ function HealthMetricCards(props) {
                     metricType={'weight'}
                 />
 
-                <div className="health-cards-container">
+                <div className='health-cards-container'>
                     {reverseClientData.map((record, index) => (
-                        <div className="health-card">
-                            <div className="metric-icon">
+                        <div className='health-card'>
+                            <div className='metric-icon'>
                                 <img
-                                    className="icon"
-                                    alt="Weight Icon"
+                                    className='icon'
+                                    alt='Weight Icon'
                                     src={iconweight}
                                 ></img>
                             </div>
-                            <div className="health-label">
-                                <div className="label-container">
+                            <div className='health-label'>
+                                <div className='label-container'>
                                     <h3>{translate('weight')}</h3>
                                 </div>
                                 <h4>
@@ -216,13 +216,13 @@ function HealthMetricCards(props) {
                                     )}
                                 </h4>
                             </div>
-                            <div className="health-metric-value">
-                                <h4 className="health-value">
+                            <div className='health-metric-value'>
+                                <h4 className='health-value'>
                                     {record.fields[props.historyFilter]
                                         ? record.fields[props.historyFilter]
                                         : 'N/A'}
                                 </h4>
-                                <h4 className="health-scale">
+                                <h4 className='health-scale'>
                                     {props.historyScale}
                                 </h4>
                             </div>

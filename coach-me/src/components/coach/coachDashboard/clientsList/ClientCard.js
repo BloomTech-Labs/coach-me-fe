@@ -7,7 +7,7 @@ const ClientCard = props => {
 
     return (
         <div
-            className="client-card"
+            className='client-card'
             onClick={() => {
                 setClient(props.client.clientId);
             }}

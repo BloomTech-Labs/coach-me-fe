@@ -36,17 +36,17 @@ const ClientInfo = props => {
 
     if (clientprofile) {
         return (
-            <div className="clientprofile">
+            <div className='clientprofile'>
                 <h6>{checkIn}</h6>
                 <MotiveModal
                     toggleModal={toggleModal}
                     motivation={clientprofile.motivations}
                     show={show}
                 />
-                <div className="key-details">
+                <div className='key-details'>
                     <h1>{clientprofile.clientName}</h1>
-                    <div className="details">
-                        <div className="condition-container">
+                    <div className='details'>
+                        <div className='condition-container'>
                             {clientprofile.conditions.map(conditions => (
                                 <p>{conditions}</p>
                             ))}
@@ -61,7 +61,7 @@ const ClientInfo = props => {
                     } `}
                 >
                     <label>Motivation:</label>
-                    <div className="text-container">
+                    <div className='text-container'>
                         <p> {clientprofile.motivations}</p>
                     </div>
 

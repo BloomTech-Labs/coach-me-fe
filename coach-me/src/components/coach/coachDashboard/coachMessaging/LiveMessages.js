@@ -58,7 +58,7 @@ function LiveMessages(props) {
             {/* contains get request twilio data */}
 
             <PerfectScrollbar>
-                <div className="message-container">
+                <div className='message-container'>
                     {state.coach.messageHistory &&
                         state.coach.messageHistory.map((m, i) => (
                             <div
@@ -67,27 +67,27 @@ function LiveMessages(props) {
                                     m.direction === 'inbound' ? 'left' : 'right'
                                 }`}
                             >
-                                <p className="text">{m.body}</p>
-                                <p className="time">
+                                <p className='text'>{m.body}</p>
+                                <p className='time'>
                                     {moment(m.dateSent).format('MMM Do')}
                                 </p>
                             </div>
                         ))}
                 </div>
             </PerfectScrollbar>
-            <form className="text-input" onSubmit={submitNewMessage}>
+            <form className='text-input' onSubmit={submitNewMessage}>
                 <textarea
-                    rows="1"
-                    cols="48"
+                    rows='1'
+                    cols='48'
                     onChange={handleInputChange}
                     value={message.message}
-                    type="text"
-                    placeholder="Write messages"
+                    type='text'
+                    placeholder='Write messages'
                 ></textarea>
                 <button>
                     <img
-                        src="https://i.imgur.com/jT0eF6E.png"
-                        alt="lil arrow"
+                        src='https://i.imgur.com/jT0eF6E.png'
+                        alt='lil arrow'
                     ></img>
                 </button>
             </form>

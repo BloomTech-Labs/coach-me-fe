@@ -8,7 +8,7 @@ import './clientDashboard.scss';
 
 const ClientDashboard = () => {
     return (
-        <div className="client-dashboard">
+        <div className='client-dashboard'>
             <HealthMetric />
         </div>
     );

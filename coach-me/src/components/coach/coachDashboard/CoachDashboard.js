@@ -34,17 +34,17 @@ const CoachDashboard = ({ history }) => {
     return (
         <>
             <CoachHeader />
-            <div className="coachdashboard-container">
-                <div className="clientlist-container">
+            <div className='coachdashboard-container'>
+                <div className='clientlist-container'>
                     <PerfectScrollbar>
                         <SearchForm setClient={setClient} />
                     </PerfectScrollbar>
                 </div>
-                <div className="clientinfo-container">
+                <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
                     <Metrics clientprofile={clientprofile} />
                 </div>
-                <div className="coach-messaging">
+                <div className='coach-messaging'>
                     <CoachMessaging clientprofile={clientprofile} />
                 </div>
             </div>

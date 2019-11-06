@@ -74,7 +74,7 @@ const HealthMetric = props => {
     return (
         <>
             <Route
-                path="/metrics/history"
+                path='/metrics/history'
                 render={props => (
                     <HealthMetricCards
                         {...props}
@@ -87,18 +87,18 @@ const HealthMetric = props => {
                 )}
             />
 
-            <div className="metric-container">
-                <div className="metric-header">
+            <div className='metric-container'>
+                <div className='metric-header'>
                     <h3>{translate('hello')}</h3>
                     <h2>{state.clientinfo.name}!</h2>
                 </div>
-                <div className="metric-values">
-                    <div className="health-value">
-                        <div className="metric">
-                            <div className="metric-icon">
+                <div className='metric-values'>
+                    <div className='health-value'>
+                        <div className='metric'>
+                            <div className='metric-icon'>
                                 <img
-                                    className="icon"
-                                    alt="Blood Gluscose Icon"
+                                    className='icon'
+                                    alt='Blood Gluscose Icon'
                                     src={iconfastingBloodGlucose}
                                 ></img>
                             </div>
@@ -109,9 +109,9 @@ const HealthMetric = props => {
                             datesArray={datesArray}
                             metricType={'bloodGlucose'}
                         />
-                        <div className="btn-container">
+                        <div className='btn-container'>
                             <button
-                                className="metric-button"
+                                className='metric-button'
                                 onClick={() =>
                                     handleClick(
                                         'Blood Glucose',
@@ -122,20 +122,20 @@ const HealthMetric = props => {
                             >
                                 {translate('seeHistory')}{' '}
                                 <img
-                                    className="icon"
-                                    alt="Arrow pointing right"
+                                    className='icon'
+                                    alt='Arrow pointing right'
                                     src={iconSeeHistory}
                                 ></img>
                             </button>
                         </div>
                     </div>
 
-                    <div className="health-value">
-                        <div className="metric">
-                            <div className="metric-icon">
+                    <div className='health-value'>
+                        <div className='metric'>
+                            <div className='metric-icon'>
                                 <img
-                                    className="icon"
-                                    alt="Weight Icon"
+                                    className='icon'
+                                    alt='Weight Icon'
                                     src={iconweight}
                                 ></img>
                             </div>
@@ -146,28 +146,28 @@ const HealthMetric = props => {
                             datesArray={datesArray}
                             metricType={'weight'}
                         />
-                        <div className="btn-container">
+                        <div className='btn-container'>
                             <button
-                                className="metric-button"
+                                className='metric-button'
                                 onClick={() =>
                                     handleClick('Weight', 'Ibs', 'Weight')
                                 }
                             >
                                 {translate('seeHistory')}{' '}
                                 <img
-                                    className="icon"
-                                    alt="Arrow pointing right"
+                                    className='icon'
+                                    alt='Arrow pointing right'
                                     src={iconSeeHistory}
                                 ></img>
                             </button>
                         </div>
                     </div>
-                    <div className="health-value">
-                        <div className="metric">
-                            <div className="metric-icon">
+                    <div className='health-value'>
+                        <div className='metric'>
+                            <div className='metric-icon'>
                                 <img
-                                    className="icon"
-                                    alt="Blood Pressure Icon"
+                                    className='icon'
+                                    alt='Blood Pressure Icon'
                                     src={iconbloodPressure}
                                 ></img>
                             </div>
@@ -179,9 +179,9 @@ const HealthMetric = props => {
                             datesArray={datesArray}
                             metricType={'bloodPressure'}
                         />
-                        <div className="btn-container">
+                        <div className='btn-container'>
                             <button
-                                className="metric-button"
+                                className='metric-button'
                                 onClick={() =>
                                     handleClick(
                                         'Blood Pressure',
@@ -193,8 +193,8 @@ const HealthMetric = props => {
                             >
                                 {translate('seeHistory')}{' '}
                                 <img
-                                    className="icon"
-                                    alt="Arrow pointing right"
+                                    className='icon'
+                                    alt='Arrow pointing right'
                                     src={iconSeeHistory}
                                 ></img>
                             </button>

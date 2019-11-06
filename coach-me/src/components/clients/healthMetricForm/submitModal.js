@@ -9,8 +9,8 @@ const SubmitModal = props => {
     if (show) {
         if ((bpOver || bpUnder || bS || weight) !== undefined) {
             return (
-                <div className="modal-container">
-                    <div className="modal-box">
+                <div className='modal-container'>
+                    <div className='modal-box'>
                         <Success />
                         <p>{translate('Form-Success')}!</p>
 
@@ -24,8 +24,8 @@ const SubmitModal = props => {
 
         if ((bpOver || bpUnder || bS || weight) === undefined) {
             return (
-                <div className="modal-container">
-                    <div className="modal-box">
+                <div className='modal-container'>
+                    <div className='modal-box'>
                         <Warning />
                         <p>{translate('Form-Failure')}</p>
 

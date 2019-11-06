@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "prettier": "prettier --single-quote --tab-width 4 --write"
+        "prettier": "prettier --single-quote --jsx-single-quote --tab-width 4 --write"
     },
     "devDependencies": {
         "husky": "^3.0.9",

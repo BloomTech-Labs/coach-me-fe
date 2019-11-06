@@ -5,8 +5,8 @@ const LoginModal = () => {
     if (show) {
         if (poop == '') {
             return (
-                <div className="modal-container">
-                    <div className="modal-box">
+                <div className='modal-container'>
+                    <div className='modal-box'>
                         <p>{translate('Form-Success')}</p>
                         {/* <h1>{translate('Form-Failure')}</h1> */}
 
@@ -18,8 +18,8 @@ const LoginModal = () => {
 
         if ((bpOver || bpUnder || bS || weight) === undefined) {
             return (
-                <div className="modal-container">
-                    <div className="modal-box">
+                <div className='modal-container'>
+                    <div className='modal-box'>
                         <p>{translate('Form-Failure')}</p>
                         {/* <h1>{translate('Form-Failure')}</h1> */}
 
