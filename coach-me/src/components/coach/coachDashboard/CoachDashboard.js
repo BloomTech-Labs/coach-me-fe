@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './coachDashboard.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getClients } from '../../../actions/authActions';
+import { getlastCheckin} from '../../../actions/coachActions';
 import CoachHeader from './CoachHeader';
 import ClientInfo from './clientsList/ClientInfo/ClientInfo';
 import SearchForm from './SearchForm';
@@ -26,7 +27,9 @@ const CoachDashboard = ({ history }) => {
 
         state.clientRecords.filter(client => {
             if (clientID === client.clientId) {
-                setclientprofile(client);
+                const date = getlastCheckin(client.clientId)
+                setclientprofile({...client, lastCheckin: date});
+                
             }
         });
     };

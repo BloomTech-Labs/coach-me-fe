@@ -7,6 +7,8 @@ import './clientInfo.scss';
 const ClientInfo = (props) => {
     const [show, setshow ] = useState(false);
     const {clientprofile} = props
+    const [checkin, setCheckin] =useState({value:''})
+   
 
     const toggleModal = (e)=> {
       setshow(!show)
@@ -15,10 +17,20 @@ const ClientInfo = (props) => {
 
     }
   if(clientprofile){
+    clientprofile.lastCheckin.then( res => {  
+      if(res === {...res}){
+        setCheckin({...checkin, value:res.specialValue})
+      }
+      if(res){
+        setCheckin({...checkin, value:res})
+      }
+      })
+    
+      
     return (
       
         <div className = 'clientprofile'>
-        <h6>LAST CHECK-IN</h6>
+        <h6>  LAST CHECK-IN:{checkin.value} </h6>
         <MotiveModal toggleModal={toggleModal} motivation={clientprofile.motivations} show={show}/>
             <div className = 'key-details'>
             <h1>

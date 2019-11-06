@@ -49,8 +49,9 @@ const SearchForm = props => {
 
             <div>
                 {ClientList &&
-                    ClientList.map(client => (
+                    ClientList.map((client, index) => (
                         <ClientCard
+                            key={index}
                             client={client}
                             setClient={props.setClient}
                         />

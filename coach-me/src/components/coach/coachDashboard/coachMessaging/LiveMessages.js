@@ -22,19 +22,27 @@ function LiveMessages(props) {
     console.log('state.coach', state.coach);
 
     useEffect(() => {
-        if (clientprofile && clientprofile.clientPhone) {
+        if (clientprofile) {
             dispatch(getMessageHistory(clientprofile.clientPhone));
             setMessage({ ...message, Phone: clientprofile.clientPhone });
         }
     }, [clientprofile]);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            dispatch(
-                getMessageHistory(clientprofile && clientprofile.clientPhone)
-            );
-        }, 1000);
+        if(clientprofile){
+            const interval = setInterval(() => {
+            
+                dispatch(
+                    getMessageHistory(clientprofile && clientprofile.clientPhone)
+                );
+
+            
+           
+        }, 5000);
         return () => clearInterval(interval);
+
+        }
+        
     }, [clientprofile]);
 
     const handleInputChange = e => {
@@ -43,9 +51,9 @@ function LiveMessages(props) {
 
     const submitNewMessage = e => {
         e.preventDefault();
-        {
+        
             dispatch(postMessage(message));
-        }
+        
         setMessage({ ...message, message: '' });
     };
     return (

@@ -105,3 +105,27 @@ export const getClientMetrics = id => dispatch => {
             });
         });
 };
+
+
+
+export const getlastCheckin = id => {
+   console.log(id)
+    return axios
+        .get(
+            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getLastCheckinTime/${id}`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            return results.data.lastCheckin
+        //    return (lastCheckin)
+        })
+        .catch(err => {
+        
+           return err.message
+          
+        });
+};
