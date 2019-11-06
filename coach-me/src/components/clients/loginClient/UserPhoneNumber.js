@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as Logo } from './assets/logo.svg';
 
-//Styling 
+//Styling
 import './loginClient.scss';
 
 const UserPhoneNumber = props => {
@@ -41,10 +41,12 @@ const UserPhoneNumber = props => {
             </div>
             <div className='text-content'>
                 <div className='header'>
-                    <p className="english">Enter your phone number to get started.</p>
+                    <p className='english'>
+                        Enter your phone number to get started.
+                    </p>
                 </div>
                 <div className='subtext'>
-                    <p className="spanish">Ingrese su número teléfono</p>
+                    <p className='spanish'>Ingrese su número teléfono</p>
                 </div>
             </div>
 

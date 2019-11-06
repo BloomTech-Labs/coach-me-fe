@@ -12,7 +12,7 @@ import LineGraph from './LineGraph';
 //Styling
 import './healthMetrics.scss';
 
-// Icon Imports 
+// Icon Imports
 import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
 import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
 import iconweight from '../../utils/assets/weight.svg';
@@ -35,7 +35,6 @@ const HealthMetric = props => {
     const [historyScale, setHistoryScale] = useState('');
     const [historyFilter, setHistoryFilter] = useState('');
 
-
     useEffect(() => {
         dispatch(getClientRecords());
     }, []);
@@ -52,7 +51,6 @@ const HealthMetric = props => {
             setHistoryFilter(filter);
         }
         props.history.push('/metrics/history');
-      
     };
 
     //Data reshaped for chartjs used in <LineGraph />

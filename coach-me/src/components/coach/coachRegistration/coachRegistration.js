@@ -9,7 +9,6 @@ import { registerCoach } from '../../../actions/authActions';
 import './coachRegistration.scss';
 
 function CoachRegistration(props) {
-    
     const dispatch = useDispatch();
     const [fullName, setFullName] = useState();
     const [email, setemail] = useState();
