@@ -27,10 +27,17 @@ const ClientInfo = props => {
         setshow(!show);
     };
 
+    let checkIn;
+    if (isNaN(state.clientCheckIn)) {
+        checkIn = '0';
+    } else {
+        checkIn = state.clientCheckIn;
+    }
+
     if (clientprofile) {
         return (
             <div className='clientprofile'>
-                <h6>{state.clientCheckIn}</h6>
+                <h6>{checkIn}</h6>
                 <MotiveModal
                     toggleModal={toggleModal}
                     motivation={clientprofile.motivations}
