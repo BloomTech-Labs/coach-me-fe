@@ -8,8 +8,7 @@ import './welcomeScreen.scss';
 
 const WelcomeScreen = props => {
     const [coach, setCoach] = useState();
-    const state = useSelector(state => state);
-   
+    const state = useSelector(state => state.client);
 
     useEffect(() => {
         axios
@@ -24,7 +23,6 @@ const WelcomeScreen = props => {
             .then(res => setCoach(res.data))
             .catch(err => console.log(err.message));
     }, []);
-
 
     return (
         <div className='welcomeScreen'>
