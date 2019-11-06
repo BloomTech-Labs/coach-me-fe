@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGoals } from '../../../../actions/coachActions';
 import GoalsDisplayModal from './GoalDisplayModal';
-import GoalCard from './GoalCard';
+// import GoalCard from './GoalCard';
 
 const GoalsDisplay = props => {
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
 
+    const [show, setShow] = useState(false);
     const { clientprofile } = props;
 
     useEffect(() => {
@@ -16,8 +17,12 @@ const GoalsDisplay = props => {
         }
     }, [clientprofile]);
 
-    console.log('GoalsDisplay Component State', state);
-    console.log('GoalsDisplay Component props', props);
+    const toggleModal = e => {
+        setShow(!show);
+    };
+
+    // console.log('GoalsDisplay Component State', state);
+    // console.log('GoalsDisplay Component props', props);
 
     let goalKeys;
     if (Object.keys(state.clientGoals)) {
@@ -28,14 +33,8 @@ const GoalsDisplay = props => {
 
     return (
         <div className='goal-wrapper'>
-            <h1>I am the GoalsDisplay Component</h1>
-            <div className='goal-card'>
-                {goalKeys.map((goal, i) => (
-                    <GoalCard key={i} goal={goal.goal} />
-                ))}
-            </div>
-
-            <GoalsDisplayModal />
+            <GoalsDisplayModal toggleModal={toggleModal} goals={goalKeys} />
+            <button onClick={() => toggleModal()}>...all Goals</button>
         </div>
     );
 };
