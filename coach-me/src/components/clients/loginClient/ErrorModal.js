@@ -17,7 +17,10 @@ const ErrorModal = props => {
                 <div className='modal-box'>
                     <Warning />
                     <p>Phone number is invalid</p>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4a616ee18d699d0e8a7431c4936db5aa15c1c831
                     <button onClick={() => handleClick()}>OK</button>
                 </div>
             </div>
