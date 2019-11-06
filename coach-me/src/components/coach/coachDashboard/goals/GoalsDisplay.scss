@@ -1,3 +1,10 @@
+@mixin layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .goals-wrapper {
     display: flex;
     flex-direction: column;
@@ -7,4 +14,16 @@
     width: 100%;
     min-height: 14%;
     background: #ffffff;
+}
+
+.goal-box {
+    @include layout();
+    justify-content: space-around;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    border-radius: 20px;
+    background: #ffecee;
+    width: 50%;
+    padding: 10px;
+    margin: 3px;
 }

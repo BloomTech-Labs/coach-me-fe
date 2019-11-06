@@ -17,8 +17,8 @@ const GoalDisplayModal = props => {
                             <GoalCard key={i} goal={goal.goal} />
                         </div>
                     ))}
+                    <button onClick={() => toggleModal(show)}>close</button>
                 </div>
-                <button onClick={() => toggleModal(show)}>close</button>
             </div>
         );
     }

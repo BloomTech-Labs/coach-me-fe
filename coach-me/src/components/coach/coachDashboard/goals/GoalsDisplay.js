@@ -34,9 +34,14 @@ const GoalsDisplay = props => {
 
     return (
         <div onClick={() => toggleModal()} className='goals-wrapper'>
+            <button onClick={() => toggleModal()}>view all</button>
             {goalKeys.map((goal, i) => (
-                <div>
-                    <GoalCard key={i} goal={goal.goal} />
+                <div className='goal-box'>
+                    <GoalCard
+                        key={i}
+                        goal={goal.goal}
+                        startDate={goal.startDate}
+                    />
                 </div>
             ))}
             <GoalDisplayModal
@@ -44,7 +49,6 @@ const GoalsDisplay = props => {
                 goals={goalKeys}
                 show={show}
             />
-            <button onClick={() => toggleModal()}>view all</button>
         </div>
     );
 };
