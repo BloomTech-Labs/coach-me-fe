@@ -23,6 +23,11 @@ const CoachDashboard = ({ history }) => {
         }
     }, [token]);
 
+    //This sets the default patient as the first in the list for the initial load.
+    useEffect(() => {
+        setclientprofile(state.clientRecords[0]);
+    }, [state.clientRecords]);
+
     const setClient = clientID => {
         state.clientRecords.filter(client => {
             if (clientID === client.clientId) {
