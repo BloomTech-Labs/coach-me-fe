@@ -5,12 +5,29 @@ import { useSelector } from 'react-redux';
 import ClientCard from './clientsList/ClientCard';
 // Styling
 import '../coachDashboard/clientsList/ClientInfo/clientInfo.scss';
+// import magnifying from '../../utils/assets/magnifying-glass icon.svg';
 
 const SearchForm = props => {
     const state = useSelector(state => state.coach);
     const clientList = state.clientRecords;
     const [ClientList, setClientList] = useState();
     const [query, setquery] = useState();
+
+    const check = goods => {
+        Array.from(cardlist).filter(item => {
+            const name = item.firstElementChild.textContent;
+            if (goods === name) {
+                console.log(item);
+                item.classList.add('active1');
+            }
+            if (goods !== name && item.classList.length === 2) {
+                item.classList.remove('active1');
+            }
+        });
+    };
+
+    const cardlist = document.getElementsByClassName(`client-card`);
+    console.log(cardlist);
 
     const handleChange = e => {
         e.preventDefault();
@@ -37,6 +54,14 @@ const SearchForm = props => {
     return (
         <>
             <form>
+                {/* <div className='input-icon'>
+                    <img
+                        className='magnifying-glass icon'
+                        alt='magnifying-glass'
+                        src='{magnifying}'
+                    ></img>
+                </div>  */}
+
                 <input
                     className='search-input'
                     onChange={handleChange}
@@ -49,10 +74,14 @@ const SearchForm = props => {
             <div>
                 {ClientList &&
                     ClientList.map(client => (
-                        <ClientCard
-                            client={client}
-                            setClient={props.setClient}
-                        />
+                        <div className='client-card'>
+                            <ClientCard
+                                key={client.clientId}
+                                client={client}
+                                setClient={props.setClient}
+                                check={check}
+                            />
+                        </div>
                     ))}
             </div>
         </>

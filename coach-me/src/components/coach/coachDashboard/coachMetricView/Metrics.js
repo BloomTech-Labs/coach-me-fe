@@ -53,7 +53,7 @@ function Metrics(props) {
 
     return (
         <>
-            <div className='metric-container'>
+            <div className='dash-metric-container'>
                 <div className='graph-container'>
                     <h2>Blood Glucose</h2>
                     {bloodSugarArray.length !== 0 ? (
@@ -103,7 +103,7 @@ function Metrics(props) {
                 </div>
             </div>
 
-            <div className='metric-container'>
+            <div className='dash-metric-container'>
                 <div className='graph-container'>
                     <h2>Weight</h2>
 
@@ -146,7 +146,7 @@ function Metrics(props) {
                 </div>
             </div>
 
-            <div className='metric-container'>
+            <div className='dash-metric-container'>
                 <div className='graph-container'>
                     <h2>Blood Pressure</h2>
                     <LineGraph
