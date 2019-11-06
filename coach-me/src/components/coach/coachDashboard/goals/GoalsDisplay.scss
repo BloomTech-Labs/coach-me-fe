@@ -6,14 +6,17 @@
 }
 
 .goals-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    justify-content: space-evenly;
-    width: 100%;
-    min-height: 14%;
+    @include layout();
     background: #ffffff;
+    height: 80%;
+    margin: 3px;
+
+    button {
+        align-self: flex-end;
+        border: none;
+        background: none;
+        outline: none;
+    }
 }
 
 .goal-box {
@@ -23,7 +26,7 @@
     font-style: normal;
     border-radius: 20px;
     background: #ffecee;
-    width: 50%;
+    width: 100%;
     padding: 10px;
     margin: 3px;
 }
