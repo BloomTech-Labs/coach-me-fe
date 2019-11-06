@@ -70,10 +70,10 @@ function Metrics(props) {
 
                 <div className='health-cards-container'>
                     <h3>Blood Glucose History</h3>
-                    {reverseClientData.map((record, index) =>
+                    {reverseClientData.map((record, i) =>
                         record['Blood_sugar'] ? (
                             <div className='health-card'>
-                                <div className='metric-icon'>
+                                <div className='metric-icon' key={i}>
                                     <img
                                         className='icon'
                                         alt='Blood Gluscose Icon'
@@ -117,9 +117,9 @@ function Metrics(props) {
 
                 <div className='health-cards-container'>
                     <h3>Weight History</h3>
-                    {reverseClientData.map((record, index) => (
+                    {reverseClientData.map((record, i) => (
                         <div className='health-card'>
-                            <div className='metric-icon'>
+                            <div className='metric-icon' key={i}>
                                 <img
                                     className='icon'
                                     alt='Weight Icon'
@@ -159,9 +159,9 @@ function Metrics(props) {
                 </div>
                 <div className='health-cards-container'>
                     <h3>Blood Pressure History</h3>
-                    {reverseClientData.map((record, index) => (
+                    {reverseClientData.map((record, i) => (
                         <div className='health-card'>
-                            <div className='metric-icon'>
+                            <div className='metric-icon' key={i}>
                                 <img
                                     className='icon'
                                     alt='Blood Pressure Icon'

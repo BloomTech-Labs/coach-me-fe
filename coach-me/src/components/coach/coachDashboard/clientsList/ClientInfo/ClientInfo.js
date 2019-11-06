@@ -48,8 +48,8 @@ const ClientInfo = props => {
                     <h1>{clientprofile.clientName}</h1>
                     <div className='details'>
                         <div className='condition-container'>
-                            {clientprofile.conditions.map(conditions => (
-                                <p>{conditions}</p>
+                            {clientprofile.conditions.map((conditions, i) => (
+                                <p key={i}>{conditions}</p>
                             ))}
                         </div>
 
