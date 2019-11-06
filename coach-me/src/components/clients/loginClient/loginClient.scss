@@ -1,102 +1,87 @@
-$input-background:#FFFFFF;
-
+$input-background: #ffffff;
 
 .phonenumber-container {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    width: 100%;
-    background-color:  #274160;
-    justify-content: space-evenly;
-    min-height: 100vh;
-    .img-container{
-        margin: 0 auto;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #274160;
+  justify-content: space-evenly;
+  min-height: 100vh;
+  .img-container {
+    margin: 0 auto;
+  }
 
-    input {
-        width: 20%;
-        height: 40px;
-        background-color: $input-background;
-        border-radius: 10px;
-        border: 1.5px solid #274160;
-        box-shadow: none;
-        font-size: 1.8rem;
-        margin: 8px;
-        text-align: center;
-    }
+  input {
+    width: 20%;
+    height: 40px;
+    background-color: $input-background;
+    border-radius: 10px;
+    border: 1.5px solid #274160;
+    box-shadow: none;
+    font-size: 1.8rem;
+    margin: 8px;
+    text-align: center;
+  }
 
+  span {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 36px;
+    color: #ffffff;
+  }
 
-    span {
-        font-family: 'DM Sans', sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 1.8rem;
-        line-height: 36px;
-        color: #FFFFFF;
-    }
-    
-.text-content{
+  .text-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     .header {
-        margin: 0 auto;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      width: 70%;
+
+      p {
         display: flex;
-        justify-content: center;
-        width: 70%;
-    
-        p {
-            
-                display: flex;
-                font-family: 'DM Sans', sans-serif;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 2.2rem;
-                color: #FFFFFF;
-                flex-wrap: wrap;
-               
-        }
-        
-        p.spanish{
-            font-size: 2rem;
-        }
-   
+        font-family: 'DM Sans', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2.2rem;
+        color: #ffffff;
+        flex-wrap: wrap;
+      }
 
+      p.spanish {
+        font-size: 2rem;
+      }
+    }
 
-}
-       
-.subtext {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    font-family: 'DM Sans', sans-serif;
-    font-style: normal;
-    color: #FFFFFF;
-    font-weight: 500;
-    line-height: 24px;
-    width: 100%;
-    height: 24px;
-  
-    
+    .subtext {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-style: normal;
+      color: #ffffff;
+      font-weight: 500;
+      line-height: 24px;
+      width: 100%;
+      height: 24px;
 
-    p {
+      p {
         font-size: 2rem;
         width: 70%;
-     margin-top:13px;
+        margin-top: 13px;
+      }
     }
-}
+  }
 
-    
-
-    
-
-
-}
-
-.form-container {
+  .form-container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -104,35 +89,28 @@ $input-background:#FFFFFF;
     align-items: center;
     margin: 0 auto;
 
-    form{
-        
+    form {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+
+      .num-inputs {
         display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-
-    .num-inputs{
-        display: flex;
-       justify-content: center;
-       align-items: center;
-      
+        justify-content: center;
+        align-items: center;
+      }
+      .trigger {
+        align-self: flex-end;
+        background: #ffffff;
+        border-radius: 20px;
+        width: 69px;
+        height: 52px;
+        color: #274160;
+        font-size: 1.3rem;
+        border: 1.5px solid #274160;
+        margin-right: 10%;
+        margin-top: 5%;
+      }
     }
-     .trigger {
-            align-self: flex-end;
-            background: #FFFFFF;
-            border-radius: 20px;
-            width: 69px;
-            height: 52px;
-            color: #274160;
-            font-size: 1.3rem;
-            border:1.5px solid #274160;
-            margin-right: 10%;
-            margin-top: 5%
-        }
-
-    }
-    
-}
-
-
-
+  }
 }

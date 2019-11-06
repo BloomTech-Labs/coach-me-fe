@@ -17,32 +17,25 @@ import LoginCoach from '../coach/loginCoach/LoginCoach';
 import '../../App.css';
 
 const Routes = props => {
-    return (
-        <>
-            <Route
-                exact
-                path='/'
-                render={props => <LoginClient {...props} />}
-            />
-            <Route
-                path='/formLogin'
-                render={props => <FormLogin {...props} />}
-            />
+  return (
+    <>
+      <Route exact path="/" render={props => <LoginClient {...props} />} />
+      <Route path="/formLogin" render={props => <FormLogin {...props} />} />
 
-            <Route path='/register' render={props => <CoachRegistration {...props}/>} />
-            <Route path='/login' component={LoginCoach} />
-           
-            <PrivateRoute path='/metrics' component={HealthMetric} />
-            <PrivateRoute path='/dashboard' component={CoachDashboard} />
-            <PrivateRoute
-                path='/dashboard-client'
-                component={ClientDashboard}
-            />
-           
-            <PrivateRoute path='/metric-form' component={HealthMetricForm} />
-            <PrivateRoute path='/welcome' component={Welcome} />
-        </>
-    );
+      <Route
+        path="/register"
+        render={props => <CoachRegistration {...props} />}
+      />
+      <Route path="/login" component={LoginCoach} />
+
+      <PrivateRoute path="/metrics" component={HealthMetric} />
+      <PrivateRoute path="/dashboard" component={CoachDashboard} />
+      <PrivateRoute path="/dashboard-client" component={ClientDashboard} />
+
+      <PrivateRoute path="/metric-form" component={HealthMetricForm} />
+      <PrivateRoute path="/welcome" component={Welcome} />
+    </>
+  );
 };
 
 export default Routes;

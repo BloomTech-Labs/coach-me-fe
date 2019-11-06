@@ -7,12 +7,11 @@ import HealthMetric from '../healthMetrics/HealthMetric';
 import './clientDashboard.scss';
 
 const ClientDashboard = () => {
-    
-    return (
-        <div className='client-dashboard'>
-            <HealthMetric />
-        </div>
-    );
+  return (
+    <div className="client-dashboard">
+      <HealthMetric />
+    </div>
+  );
 };
 
 export default ClientDashboard;
