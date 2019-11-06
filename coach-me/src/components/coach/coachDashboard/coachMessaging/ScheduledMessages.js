@@ -34,7 +34,7 @@ function ScheduledMessages(props) {
             })
             .catch(err => console.log(err));
     };
-    console.log(schedule.sec, 'seconds');
+    console.log(schedule.sec, 'secondss');
     return (
         <>
             {/* <div>

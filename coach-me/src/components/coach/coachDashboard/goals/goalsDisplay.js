@@ -30,8 +30,8 @@ const GoalsDisplay = props => {
         <div className='goal-wrapper'>
             <h1>I am the GoalsDisplay Component</h1>
             <div className='goal-card'>
-                {goalKeys.map(goal => (
-                    <GoalCard goal={goal.goal} />
+                {goalKeys.map((goal, i) => (
+                    <GoalCard key={i} goal={goal.goal} />
                 ))}
             </div>
 
