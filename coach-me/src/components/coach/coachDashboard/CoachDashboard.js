@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import './coachDashboard.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { getClients } from '../../../actions/coachActions';
+import { getClients } from '../../../actions/authActions';
 import CoachHeader from './CoachHeader';
 import ClientInfo from './clientsList/ClientInfo/ClientInfo';
 import SearchForm from './SearchForm';
 import CoachMessaging from './coachMessaging/CoachMessaging';
+import Metrics from './coachMetricView/Metrics';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const CoachDashboard = ({ history }) => {
-    const [users, setUsers] = useState();
-
-    const [number, setNumber] = useState();
-    const [verifyNumber, setVerifyNumber] = useState('');
-    const [checkOne, setCheckOne] = useState(false);
-    const [checkTwo, setCheckTwo] = useState(false);
     const [clientprofile, setclientprofile] = useState();
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
     const token = localStorage.getItem('token');
     useEffect(() => {
@@ -26,27 +23,7 @@ const CoachDashboard = ({ history }) => {
         }
     }, [token]);
 
-    // const handleInput = e => {
-    //     setNumber(e.target.value);
-    // };
-
-    // const handleInputTwo = e => {
-    //     setVerifyNumber(e.target.value);
-    // };
-
-    // const handleCheckOne = () => {
-    //     setCheckOne(true);
-    // };
-
-    // const handleCheckTwo = () => {
-    //     setCheckTwo(true);
-    // };
-
-    // const handleCheckThree = () => {
-    //     history.push('/clients');
-    // };
     const setClient = clientID => {
-        console.log(clientID);
         state.clientRecords.filter(client => {
             if (clientID === client.clientId) {
                 setclientprofile(client);
@@ -59,13 +36,16 @@ const CoachDashboard = ({ history }) => {
             <CoachHeader />
             <div className='coachdashboard-container'>
                 <div className='clientlist-container'>
-                    <SearchForm setClient={setClient} />
+                    <PerfectScrollbar>
+                        <SearchForm setClient={setClient} />
+                    </PerfectScrollbar>
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
+                    <Metrics clientprofile={clientprofile} />
                 </div>
                 <div className='coach-messaging'>
-                    <CoachMessaging />
+                    <CoachMessaging clientprofile={clientprofile} />
                 </div>
             </div>
         </>

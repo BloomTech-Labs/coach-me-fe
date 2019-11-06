@@ -1,72 +1,103 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
+import {
+    getMessageHistory,
+    postMessage
+} from '../../../../actions/coachActions';
+import './coachMessaging.scss';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import moment from 'moment'
 // import MessageCanvas from './MessageCanvas'
 // import '@progress/kendo-theme-material/dist/all.css';
 
-//Needs get request for messages  http://localhost:4000/twilioRoute/messagehistory
-//Needs Post request to twilio  http://localhost:4000/twilioRoute/twilio
 
 function LiveMessages(props) {
+    console.log(props);
+    const { clientprofile } = props;
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    const [message, setMessage] = useState();
-    const [messageHistory, setMessageHistory] = useState();
+
+    const [message, setMessage] = useState({
+        message: '',
+        Phone: ''
+    });
+
+
+  
 
     useEffect(() => {
-        postMessage(message);
-        getMessageHistory();
-    }, [messageHistory]); // maybe??
+        if (clientprofile) {
+            dispatch(getMessageHistory(clientprofile.clientPhone));
+            setMessage({ ...message, Phone: clientprofile.clientPhone });
+        }
+    }, [clientprofile]);
 
-    const getMessageHistory = () => {
-        axios
-            .get(`http://localhost:4000/twilioRoute/messagehistory`)
-            .then(res => {
-                setMessageHistory(res.data);
-                console.log(res);
-            })
-            .catch(err => console.log('getMessageHistory ERR', err));
-    };
+    useEffect(() => {
+        if(clientprofile){
+            const interval = setInterval(() => {
+            
+                dispatch(
+                    getMessageHistory(clientprofile && clientprofile.clientPhone)
+                );
 
-    const postMessage = post => {
-        axios
-            .post(`http://localhost:4000/twilioRoute/twilio`, post)
-            .then(res => console('postTwilio', res))
-            .catch(err => console.log('postTwilio ERR', err));
-    };
+            
+           
+        }, 5000000);
+        return () => clearInterval(interval);
+
+        }
+        
+    }, [clientprofile]);
 
     const handleInputChange = e => {
-        e.preventDefault();
-        setMessage(e.target.value);
+        setMessage({ ...message, message: e.target.value });
     };
 
     const submitNewMessage = e => {
         e.preventDefault();
-        setMessage(e.target.value);
-        // dispatch(addMessage(message));
+        {
+            dispatch(postMessage(message));
+        }
+        setMessage({ ...message, message: '' });
     };
-    //submit needs to hook up with twilio
-
     return (
         <>
             {/* contains get request twilio data */}
+            
 
-            <div>
-                {/* <MessageCanvas/> */}
-                <p className='client-test'>hello</p>
-                <p className='coach-test'>hello</p>
+            <PerfectScrollbar>
+
+            <div className='message-container'>
+                {state.coach.messageHistory &&
+                    state.coach.messageHistory.map((m, i) => (
+                        
+                        <div
+                            key={i}
+                            className={`messages ${
+                                m.direction === 'inbound' ? 'left' : 'right'
+                            }`}
+                        >
+                           
+                            <p className='text'>{m.body}</p>
+                            <p className='time'>{moment(m.dateSent).format("MMM Do")}</p>
+                        </div>
+                    ))}
             </div>
-            {messageHistory && messageHistory.map(m => <p>{m.body}</p>)}
-            <form onSubmit={submitNewMessage}>
+            </PerfectScrollbar>
+            <form className='text-input' onSubmit={submitNewMessage}>
                 <textarea
-                    rows='4'
-                    cols='50'
+                    rows='1'
+                    cols='48'
                     onChange={handleInputChange}
-                    value={message}
+                    value={message.message}
                     type='text'
-                    placeholder='Type your message here'
+                    placeholder='Write messages'
                 ></textarea>
-                <button>Send</button>
+                <button>
+                <img src="https://i.imgur.com/jT0eF6E.png" alt="lil arrow"></img>
+                </button>
+               
             </form>
         </>
     );

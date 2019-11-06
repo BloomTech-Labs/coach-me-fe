@@ -3,17 +3,12 @@ import LiveMessages from './LiveMessages.js';
 import ScheduledMessages from './ScheduledMessages';
 import './coachMessaging.scss';
 
-const CoachMessaging = () => {
-    const [show, setShow] = useState(false);
+const CoachMessaging = props => {
+    const { clientprofile } = props;
     const [type, setType] = useState(1);
-    const [change, setchange] = useState(false);
-
-    const toggleactive = () => {
-        setchange(change);
-    };
 
     return (
-        <>
+        <div className='message-wrapper'>
             <div className='message-header'>
                 <div
                     className={`${type === 2 ? 'live-message' : 'active'} `}
@@ -23,7 +18,7 @@ const CoachMessaging = () => {
                         setType(1);
                     }}
                 >
-                    <h1>LiveMessages</h1>
+                    <h1 className='message-selector'>Messages</h1>
                 </div>
 
                 <div
@@ -37,20 +32,20 @@ const CoachMessaging = () => {
                     }}
                     active={type === 2}
                 >
-                    <h1>Scheduled a Message</h1>
+                    <h1 className='message-selector'>Scheduled a Message</h1>
                 </div>
             </div>
             {(() => {
                 switch (type) {
                     case 1:
-                        return <LiveMessages />;
+                        return <LiveMessages clientprofile={clientprofile} />;
                     case 2:
                         return <ScheduledMessages />;
                     default:
                         return <LiveMessages />;
                 }
             })()}
-        </>
+        </div>
     );
 };
 

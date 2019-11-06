@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+
+import { useSelector } from 'react-redux';
+//Component Imports
 import ClientCard from './clientsList/ClientCard';
-import { useDispatch, useSelector } from 'react-redux';
+// Styling
 import '../coachDashboard/clientsList/ClientInfo/clientInfo.scss';
 
 const SearchForm = props => {
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.coach);
     const clientList = state.clientRecords;
     const [ClientList, setClientList] = useState();
     const [query, setquery] = useState();
 
     const handleChange = e => {
-        console.log(e.target.value);
         e.preventDefault();
         setquery(e.target.value);
     };

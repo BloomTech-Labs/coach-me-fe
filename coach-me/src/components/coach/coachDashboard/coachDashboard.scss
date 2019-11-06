@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 .coachdashboard-container {
-    border: 1px solid red;
     display: flex;
 
     .clientlist-container {
@@ -8,14 +7,24 @@
     }
     .clientinfo-container {
         width: 60%;
-        border: 1px solid green;
+
         background-color: #f6f6f6;
         display: flex;
         flex-direction: column;
     }
     .coach-messaging {
         width: 33%;
+        height: 90vh;
+        // position:absolute;
+        // right:0;
     }
+}
+.message-container {
+    max-height: 70vh;
+    height: 70vh;
+}
+CoachMessaging {
+    border: 2px solid rgba(0, 0, 0, 0.05);
 }
 
 // * {

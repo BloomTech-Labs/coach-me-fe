@@ -3,21 +3,15 @@ import {
     GET_CLIENTS_START,
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
-    ADD_CLIENT,
-    DELETE_CLIENT,
-    CLIENTS_ERROR,
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
-    GET_RECORDS_START,
-    GET_RECORDS_SUCCESS,
-    GET_RECORDS_FAILURE
+    GET_METRICS_START,
+    GET_METRICS_SUCCESS,
+    GET_METRICS_FAILURE
 } from './types';
 
-const headers = {
-    'Content-Type': 'application/json',
-    Authorization: localStorage.getItem('token')
-};
+
 
 export const getClientInfo = props => dispatch => {
     console.log(props);
@@ -29,11 +23,9 @@ export const getClientInfo = props => dispatch => {
             clientnum
         )
         .then(res => {
-            // console.log('res.data', res.data.loginAttempts);
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('loginAttempts', res.data.loginAttempts);
             const loginAttempts = localStorage.getItem('loginAttempts');
-            // console.log('Look at all this info!', loginAttempts);
             if (loginAttempts == 1) {
                 props.history.push('/welcome');
             } else {
@@ -53,23 +45,23 @@ export const getClientInfo = props => dispatch => {
         });
 };
 export const getClientInfoLogin = props => dispatch => {
-    console.log(props);
+   
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
-    //`https://coach-me-backend.herokuapp.com/clientRoute/login`
+  
     axios
         .post(
             `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
             clientnum
         )
         .then(res => {
-            // console.log('res.data', res.data.loginAttempts);
+            
             localStorage.setItem('token', res.data.token);
-            // localStorage.setItem('loginAttempts', res.data.loginAttempts);
+           
             const loginAttempts = localStorage.getItem('loginAttempts');
-            // console.log('Look at all this info!', loginAttempts);
+     
 
-            props.history.push('metric-form');
+            props.history.push('/metric-form');
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
@@ -111,8 +103,8 @@ export const addMetric = metricUpdate => dispatch => {
         });
 };
 
-export const getClientRecords = clientId => dispatch => {
-    dispatch({ type: GET_RECORDS_START });
+export const getClientRecords = () => dispatch => {
+    dispatch({ type: GET_METRICS_START });
     axios
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/clientRoute/paginationGetMetrics`,
@@ -125,13 +117,13 @@ export const getClientRecords = clientId => dispatch => {
         .then(results => {
             const clientRecords = [...results.data.clientRecords];
             dispatch({
-                type: GET_RECORDS_SUCCESS,
+                type: GET_METRICS_SUCCESS,
                 payload: clientRecords
             });
         })
         .catch(err => {
             dispatch({
-                type: GET_RECORDS_FAILURE,
+                type: GET_METRICS_FAILURE,
                 payload: err.message
             });
         });

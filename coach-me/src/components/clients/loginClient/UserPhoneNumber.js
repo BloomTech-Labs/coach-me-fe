@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+
+//Icon Imports
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as Logo } from './assets/logo.svg';
-import { withRouter } from 'react-router-dom';
+
+//Styling 
 import './loginClient.scss';
 
 const UserPhoneNumber = props => {

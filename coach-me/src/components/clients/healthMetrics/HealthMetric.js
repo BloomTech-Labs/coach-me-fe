@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { translate } from '../../utils/language/translate';
-
 import { getClientRecords } from '../../../actions/clientActions';
 
-import MetricDisplay from './MetricDisplay';
+//Component Imports
 import HealthMetricCards from './HealthMetricCards';
 import LineGraph from './LineGraph';
 
+//Styling
 import './healthMetrics.scss';
+
+// Icon Imports 
 import iconfastingBloodGlucose from '../../utils/assets/Blood.svg';
 import iconbloodPressure from '../../utils/assets/bloodPressure.svg';
 import iconweight from '../../utils/assets/weight.svg';
 import iconSeeHistory from '../../utils/assets/seeHistory.svg';
 
 const HealthMetric = props => {
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.client);
     const dispatch = useDispatch();
-    const clientData = [...state.clientRecords];
+    const clientData = [...state.clientMetrics];
 
     clientData.sort((a, b) => {
         return Date.parse(a.fields.Date_time) - Date.parse(b.fields.Date_time);
     });
 
-    // console.log('clientData***', clientData);
-    // console.log('****STATE', state.clientinfo);
     // Following state controls the history toggle functionality:
     const [toggleHistory, setToggleHistory] = useState(false);
 
@@ -34,8 +35,9 @@ const HealthMetric = props => {
     const [historyScale, setHistoryScale] = useState('');
     const [historyFilter, setHistoryFilter] = useState('');
 
+
     useEffect(() => {
-        dispatch(getClientRecords('recZNs8pQo2rSsw0T'));
+        dispatch(getClientRecords());
     }, []);
 
     const handleClick = (heading, label, filter, filter2) => {
@@ -49,7 +51,8 @@ const HealthMetric = props => {
         } else {
             setHistoryFilter(filter);
         }
-        // console.log('***Typeof', typeof historyFilter);
+        props.history.push('/metrics/history');
+      
     };
 
     //Data reshaped for chartjs used in <LineGraph />
@@ -70,20 +73,22 @@ const HealthMetric = props => {
         return value.fields.Blood_pressure_under;
     });
 
-    if (toggleHistory) {
-        return (
-            <>
-                <HealthMetricCards
-                    historyLabel={historyLabel}
-                    historyScale={historyScale}
-                    historyFilter={historyFilter}
-                    setToggleHistory={setToggleHistory}
-                    clientData={clientData}
-                />
-            </>
-        );
-    } else {
-        return (
+    return (
+        <>
+            <Route
+                path='/metrics/history'
+                render={props => (
+                    <HealthMetricCards
+                        {...props}
+                        historyLabel={historyLabel}
+                        historyScale={historyScale}
+                        historyFilter={historyFilter}
+                        setToggleHistory={setToggleHistory}
+                        clientData={clientData}
+                    />
+                )}
+            />
+
             <div className='metric-container'>
                 <div className='metric-header'>
                     <h3>{translate('hello')}</h3>
@@ -101,21 +106,6 @@ const HealthMetric = props => {
                             </div>
                             <h4>{translate('bloodGlucose')}</h4>
                         </div>
-                        {/* <div className="health-statistic">
-              {clientData && clientData[clientData.length - 1] ? (
-                <h3>
-                  {
-                    <MetricDisplay
-                      metricData={clientData[clientData.length - 1]}
-                      metricScale="mg/dl"
-                      filter="Blood_sugar"
-                    />
-                  }
-                </h3>
-              ) : (
-                <h3>N/A</h3>
-              )}
-            </div> */}
                         <LineGraph
                             values={bloodSugarArray}
                             datesArray={datesArray}
@@ -153,21 +143,6 @@ const HealthMetric = props => {
                             </div>
                             <h4>{translate('weight')}</h4>
                         </div>
-                        {/* <div className="health-statistic">
-              {clientData && clientData[clientData.length - 1] ? (
-                <h3>
-                  {
-                    <MetricDisplay
-                      metricData={clientData[clientData.length - 1]}
-                      metricScale="Ibs"
-                      filter="Weight"
-                    />
-                  }
-                </h3>
-              ) : (
-                <h3>N/A</h3>
-              )}
-            </div> */}
                         <LineGraph
                             values={weightArray}
                             datesArray={datesArray}
@@ -200,26 +175,6 @@ const HealthMetric = props => {
                             </div>
                             <h4>{translate('bp')}</h4>
                         </div>
-                        {/* <div className='health-statistic'>
-                            {clientData && clientData[clientData.length - 1] ? (
-                                <h3>
-                                    {
-                                        <MetricDisplay
-                                            metricData={
-                                                clientData[
-                                                    clientData.length - 1
-                                                ]
-                                            }
-                                            metricScale='mmHg'
-                                            filter='Blood_pressure_under'
-                                            filter2='Blood_pressure_over'
-                                        />
-                                    }
-                                </h3>
-                            ) : (
-                                <h3>N/A</h3>
-                            )}
-                        </div> */}
                         <LineGraph
                             bpOverArray={bpOverArray}
                             bpUnderArray={bpUnderArray}
@@ -249,8 +204,8 @@ const HealthMetric = props => {
                     </div>
                 </div>
             </div>
-        );
-    }
+        </>
+    );
 };
 
 export default HealthMetric;

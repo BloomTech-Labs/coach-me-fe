@@ -57,6 +57,9 @@ function ScheduledMessages(props) {
                         value={schedule.sec}
                         onChange={handleInputChange}
                     >
+                        <option value='' disabled selected>
+                            Seconds
+                        </option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
@@ -118,7 +121,6 @@ function ScheduledMessages(props) {
                         <option value={59}>59</option>
                         <option value={60}>60</option>
                     </select>
-                    <h1>Select Seconds</h1>
                 </div>
                 <div className='selectheader'>
                     <select
@@ -126,6 +128,9 @@ function ScheduledMessages(props) {
                         value={schedule.min}
                         onChange={handleInputChange}
                     >
+                        <option value='' disabled selected>
+                            Minutes
+                        </option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
@@ -187,7 +192,6 @@ function ScheduledMessages(props) {
                         <option value={59}>59</option>
                         <option value={60}>60</option>
                     </select>
-                    <h1>Select Minutes</h1>
                 </div>
                 <div className='selectheader'>
                     <select
@@ -195,6 +199,9 @@ function ScheduledMessages(props) {
                         value={schedule.hour}
                         onChange={handleInputChange}
                     >
+                        <option value='' disabled selected>
+                            Military Hour
+                        </option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
@@ -220,7 +227,6 @@ function ScheduledMessages(props) {
                         <option value={23}>23</option>
                         <option value={24}>24</option>
                     </select>
-                    <h1>Select Hour in Military Time</h1>
                 </div>
                 <div className='selectheader'>
                     <select
@@ -228,6 +234,9 @@ function ScheduledMessages(props) {
                         value={schedule.dom}
                         onChange={handleInputChange}
                     >
+                        <option value='' disabled selected>
+                            Day of Month
+                        </option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
@@ -260,7 +269,6 @@ function ScheduledMessages(props) {
                         <option value={30}>30</option>
                         <option value={31}>31</option>
                     </select>
-                    <h1>Select Day of Month</h1>
                 </div>
                 <div className='selectheader'>
                     <select
@@ -268,6 +276,9 @@ function ScheduledMessages(props) {
                         value={schedule.month}
                         onChange={handleInputChange}
                     >
+                        <option value='' disabled selected>
+                            Month
+                        </option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
@@ -281,7 +292,6 @@ function ScheduledMessages(props) {
                         <option value={11}>11</option>
                         <option value={12}>12</option>
                     </select>
-                    <h1>Select Month</h1>
                 </div>
                 <div className='selectheader'>
                     <select
@@ -289,6 +299,9 @@ function ScheduledMessages(props) {
                         value={schedule.weekday}
                         onChange={handleInputChange}
                     >
+                        <option value='' disabled selected>
+                            Weekday
+                        </option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
@@ -297,7 +310,6 @@ function ScheduledMessages(props) {
                         <option value={6}>6</option>
                         <option value={7}>7</option>
                     </select>
-                    <h1>Select Weekday</h1>
                 </div>
                 <input
                     onChange={handleInputChange}
