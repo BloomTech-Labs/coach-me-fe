@@ -13,20 +13,22 @@
     position: relative;
     font-family: 'Poppins', sans-serif;
     .side-one {
-        width: 50%;
+        width: 55%;
         background: #274160;
         padding: 2%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         justify-content: space-between;
+
         .circle {
             background: #c4c4c4;
-
+            margin-bottom: 40px;
             width: 80%;
             height: 75%;
             border-radius: 50%;
             align-self: center;
+            justify-self: center;
         }
     }
     .side-two {
