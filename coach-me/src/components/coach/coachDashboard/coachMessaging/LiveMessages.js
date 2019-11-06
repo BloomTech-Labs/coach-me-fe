@@ -43,7 +43,7 @@ function LiveMessages(props) {
 
             
            
-        }, 5000000);
+        }, `{process.env.REACT_APP_SET_INTERVAL }`);
         return () => clearInterval(interval);
 
         }
