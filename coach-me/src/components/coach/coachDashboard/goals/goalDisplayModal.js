@@ -1,7 +1,7 @@
 import React from 'react';
 
-const goalDisplayModal = () => {
+const GoalDisplayModal = () => {
     return <div>GoalDisplayModal</div>;
 };
 
-export default goalDisplayModal;
+export default GoalDisplayModal;
