@@ -1,92 +1,79 @@
-.clientprofile{
-    display:flex;
+.clientprofile {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     justify-content: space-evenly;
     width: 100%;
     min-height: 14%;
-    background:#FFFFFF;
-    h1{
+    background: #ffffff;
+    h1 {
         font-size: 2rem;
         font-family: 'Poppins', sans-serif;
-        width:33%;
+        width: 33%;
     }
-    h6{ 
-    text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.5);
-    align-self: flex-end;
-
-
+    h6 {
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0.5);
+        align-self: flex-end;
     }
-    .key-details{
+    .key-details {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        margin:0 auto;
+        margin: 0 auto;
         width: 80%;
 
-        p{
-        background-color: #F0F0F0;
-        border:1px solid #F0F0F0;
-        border-radius: 20px;
-        font-size: 1.2rem;
-        font-family: 'Poppins', sans-serif;
-        padding:.5rem;
-        text-align: center;
-        margin-left: 10px;
-        
+        p {
+            background-color: #f0f0f0;
+            border: 1px solid #f0f0f0;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            padding: 0.5rem;
+            text-align: center;
+            margin-left: 10px;
         }
-        .details{
-            display:flex;
-           
-            .condition-container{
-                display:flex;
+        .details {
+            display: flex;
+
+            .condition-container {
+                display: flex;
                 justify-content: space-between;
             }
-
         }
-        
     }
-    .motivations{
-       
+    .motivations {
         font-family: 'Poppins', sans-serif;
         justify-content: space-evenly;
-        display:flex;
-        margin:0 auto;
+        display: flex;
+        margin: 0 auto;
         align-items: center;
-        label{
-            font-size: 1.4rem
-        }
-        .text-container{
-            width:33%;
-            height: 1.4rem;
-            overflow: hidden;
-    
-            p{
-                font-size: 1.4rem;
-               
-                
-            }
-
-        }
-        button{
-            
-            border:none;
-            background-color:none;
-            flex-wrap: nowrap;
-            color:grey;
+        label {
             font-size: 1.4rem;
         }
-       
-        
+        .text-container {
+            width: 33%;
+            height: 1.4rem;
+            overflow: hidden;
+
+            p {
+                font-size: 1.4rem;
+            }
+        }
+        button {
+            border: none;
+            background-color: none;
+            flex-wrap: nowrap;
+            color: grey;
+            font-size: 1.4rem;
+        }
     }
 }
 // styling for client search input in SearchForm.js
-.search-input{
-    width:100%
+.search-input {
+    width: 100%;
 }
-.ghost{
+.ghost {
     display: none;
-    border:1px solid red;
 }

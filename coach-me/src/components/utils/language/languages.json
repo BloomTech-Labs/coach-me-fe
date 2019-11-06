@@ -21,9 +21,9 @@
         "weightHistoryDesc": "All previous weight numbers.",
         "bpHistoryDesc": "All previous blood pressure numbers.",
         "formHeader": "Today's Numbers",
-        "Form-Success":"Your numbers have been received",
-        "Form-Failure":"You must input at least one field.",
-        "NeedMetric":"Enter at least one of your latest numbers in the field below."
+        "Form-Success": "Your numbers have been received",
+        "Form-Failure": "You must input at least one field.",
+        "NeedMetric": "Enter at least one of your latest numbers in the field below."
     },
     "Spanish": {
         "hello": "Hola",
@@ -47,8 +47,8 @@
         "weightHistoryDesc": "Todos los números de peso anteriores.",
         "bpHistoryDesc": "Todos los números anteriores de presión arterial.",
         "formHeader": "Numero de Hoy",
-        "Form-Success":"Sus números han sido recibidos",
-        "Form-Failure":"Debe ingresar al menos un campo.",
-        "NeedMetric":" Ingrese al menos uno de sus últimos números en el campo a continuación."
+        "Form-Success": "Sus números han sido recibidos",
+        "Form-Failure": "Debe ingresar al menos un campo.",
+        "NeedMetric": " Ingrese al menos uno de sus últimos números en el campo a continuación."
     }
 }

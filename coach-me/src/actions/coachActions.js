@@ -10,7 +10,8 @@ import {
     GET_RECORDS_FAILURE,
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
-    GET_METRICS_FAILURE
+    GET_METRICS_FAILURE,
+    GET_CHECKIN
 } from './types';
 
 const headers = {
@@ -22,7 +23,7 @@ export const getMessageHistory = liveNumber => dispatch => {
     dispatch({ type: GET_TEXT_START });
     axios
         .get(
-            `https://coach-me-backend.herokuapp.com/twilioRoute/messagehistory/${liveNumber}`
+            `https://coach-me-development.herokuapp.com/twilioRoute/messagehistory/${liveNumber}`
         )
         .then(res => {
             console.log('getMessageHistory', res.data.message);
@@ -44,7 +45,12 @@ export const postMessage = post => dispatch => {
     console.log(post);
     dispatch({ type: ADD_TEXT_START });
     axios
-        .post(`https://coach-me-backend.herokuapp.com/twilioRoute/twilio`, post)
+
+        .post(
+            `https://coach-me-development.herokuapp.com/twilioRoute/twilio`,
+            post
+        )
+
         .then(res => {
             dispatch({
                 type: ADD_TEXT_SUCCESS
@@ -101,6 +107,32 @@ export const getClientMetrics = id => dispatch => {
         .catch(err => {
             dispatch({
                 type: GET_METRICS_FAILURE,
+                payload: err.message
+            });
+        });
+};
+
+export const getLastCheckInTime = id => dispatch => {
+    axios
+        .get(
+            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getLastCheckinTime/${id}`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            console.log('getLastCheckInTime', results);
+
+            dispatch({
+                type: GET_CHECKIN,
+                payload: results.data.lastCheckin
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: COACH_ERROR,
                 payload: err.message
             });
         });

@@ -1,34 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-.coachdashboard-container{
-    border: 1px solid red;
+.coachdashboard-container {
     display: flex;
-    
-    
-    .clientlist-container{
-    
-        width:15%;
+
+    .clientlist-container {
+        width: 15%;
     }
-    .clientinfo-container{
-        width:60%;
-        border:1px solid green;
-        background-color:#F6F6F6;
-        display:flex;
+    .clientinfo-container {
+        width: 60%;
+
+        background-color: #f6f6f6;
+        display: flex;
         flex-direction: column;
     }
-    .coach-messaging{
+    .coach-messaging {
         width: 33%;
-        height:90vh;
+        height: 90vh;
         // position:absolute;
         // right:0;
-       
     }
 }
-.message-container{
-    max-height:70vh;
+.message-container {
+    max-height: 70vh;
+    height: 70vh;
 }
-.text-input{
-   
-    
+CoachMessaging {
+    border: 2px solid rgba(0, 0, 0, 0.05);
 }
 
 // * {
