@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGoals } from '../../../../actions/coachActions';
 import GoalsDisplayModal from './GoalDisplayModal';
-// import GoalCard from './GoalCard';
+import './goalsDisplay.scss';
 
 const GoalsDisplay = props => {
     const state = useSelector(state => state.coach);
@@ -32,7 +32,7 @@ const GoalsDisplay = props => {
     console.log('goalKeys', goalKeys);
 
     return (
-        <div className='goal-wrapper'>
+        <div className='goals-wrapper'>
             <GoalsDisplayModal
                 toggleModal={toggleModal}
                 goals={goalKeys}
