@@ -18,10 +18,19 @@ const GoalsDisplay = props => {
 
     console.log('GoalsDisplay Component State', state);
     console.log('GoalsDisplay Component props', props);
+
+    let goalKeys;
+    if (Object.keys(state.clientGoals)) {
+        goalKeys = [...state.clientGoals];
+    }
+    // goalKeys = goalKeys.find(e => e.goal);
+    console.log('goalKeys', goalKeys);
+
     return (
-        <div>
+        <div className='goal-wrapper'>
             <h1>I am the GoalsDisplay Component</h1>
-            <GoalCard />
+            <div className='goal-card'>{goalKeys.map(goal => goal.goal)}</div>
+
             <GoalsDisplayModal />
         </div>
     );
