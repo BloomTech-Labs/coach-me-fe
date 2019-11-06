@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGoals } from '../../../../actions/coachActions';
-import GoalsDisplayModal from './GoalDisplayModal';
+import GoalDisplayModal from './GoalDisplayModal';
+import GoalCard from './GoalCard';
 import './goalsDisplay.scss';
 
 const GoalsDisplay = props => {
@@ -32,13 +33,18 @@ const GoalsDisplay = props => {
     console.log('goalKeys', goalKeys);
 
     return (
-        <div className='goals-wrapper'>
-            <GoalsDisplayModal
+        <div onClick={() => toggleModal()} className='goals-wrapper'>
+            {goalKeys.map((goal, i) => (
+                <div>
+                    <GoalCard key={i} goal={goal.goal} />
+                </div>
+            ))}
+            <GoalDisplayModal
                 toggleModal={toggleModal}
                 goals={goalKeys}
                 show={show}
             />
-            <button onClick={() => toggleModal()}>...all Goals</button>
+            <button onClick={() => toggleModal()}>view all</button>
         </div>
     );
 };
