@@ -139,7 +139,7 @@ export const getLastCheckInTime = id => dispatch => {
         });
 };
 
-export const getgoals = id => dispatch => {
+export const getGoals = id => dispatch => {
     axios
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientGoals/${id}`,
@@ -150,10 +150,10 @@ export const getgoals = id => dispatch => {
             }
         )
         .then(results => {
-            console.log('getGoals', results);
-            const clientGoals = [...results.data]
+            console.log('getGoals actions', results);
+            const clientGoals = [...results.data.patientGoals];
             dispatch({
-                type: GET_CHECKIN,
+                type: GET_GOALS,
                 payload: clientGoals
             });
         })
