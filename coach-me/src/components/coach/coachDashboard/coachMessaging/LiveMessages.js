@@ -5,57 +5,53 @@ import {
     postMessage
 } from '../../../../actions/coachActions';
 import './coachMessaging.scss';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import moment from 'moment'
 // import MessageCanvas from './MessageCanvas'
 // import '@progress/kendo-theme-material/dist/all.css';
 
-//Needs get request for messages  http://localhost:4000/twilioRoute/messagehistory
-//Needs Post request to twilio  http://localhost:4000/twilioRoute/twilio
 
 function LiveMessages(props) {
-    console.log(props)
-    const {clientprofile} = props
+    console.log(props);
+    const { clientprofile } = props;
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-
-    
 
     const [message, setMessage] = useState({
         message: '',
         Phone: ''
-
     });
 
-    console.log('LiveMessages State', state);
-    console.log('state.coach', state.coach);
 
-    
+  
 
     useEffect(() => {
-
-        if(clientprofile&&clientprofile.clientPhone){
-            (dispatch(getMessageHistory(clientprofile.clientPhone)))
-            setMessage({...message, Phone:clientprofile.clientPhone})
+        if (clientprofile) {
+            dispatch(getMessageHistory(clientprofile.clientPhone));
+            setMessage({ ...message, Phone: clientprofile.clientPhone });
         }
-        
-
-      
-
-       
-       
     }, [clientprofile]);
 
-    useEffect( ()=>{
-        const interval = setInterval(() => {
-            dispatch(getMessageHistory(clientprofile&&clientprofile.clientPhone))
+    useEffect(() => {
+        if(clientprofile){
+            const interval = setInterval(() => {
             
-        }, 7000)
-        return () => clearInterval(interval)
+                dispatch(
+                    getMessageHistory(clientprofile && clientprofile.clientPhone)
+                );
 
-    }, [clientprofile])
+            
+           
+        }, 5000000);
+        return () => clearInterval(interval);
+
+        }
+        
+    }, [clientprofile]);
 
     const handleInputChange = e => {
-        setMessage({ ...message, message: e.target.value});
-
+        setMessage({ ...message, message: e.target.value });
     };
 
     const submitNewMessage = e => {
@@ -63,37 +59,45 @@ function LiveMessages(props) {
         {
             dispatch(postMessage(message));
         }
+        setMessage({ ...message, message: '' });
     };
     return (
         <>
             {/* contains get request twilio data */}
+            
+
+            <PerfectScrollbar>
 
             <div className='message-container'>
                 {state.coach.messageHistory &&
                     state.coach.messageHistory.map((m, i) => (
+                        
                         <div
                             key={i}
-
                             className={`messages ${
                                 m.direction === 'inbound' ? 'left' : 'right'
                             }`}
-
                         >
-                            <p>{m.body}</p>
-                            <p>{m.dateSent}</p>
+                           
+                            <p className='text'>{m.body}</p>
+                            <p className='time'>{moment(m.dateSent).format("MMM Do")}</p>
                         </div>
                     ))}
             </div>
-            <form onSubmit={submitNewMessage}>
+            </PerfectScrollbar>
+            <form className='text-input' onSubmit={submitNewMessage}>
                 <textarea
-                    rows='4'
-                    cols='50'
+                    rows='1'
+                    cols='48'
                     onChange={handleInputChange}
                     value={message.message}
                     type='text'
-                    placeholder='Type your message here'
+                    placeholder='Write messages'
                 ></textarea>
-                <button>Send</button>
+                <button>
+                <img src="https://i.imgur.com/jT0eF6E.png" alt="lil arrow"></img>
+                </button>
+               
             </form>
         </>
     );

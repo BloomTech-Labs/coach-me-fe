@@ -6,7 +6,11 @@ import {
     COACH_ERROR,
     GET_RECORDS_START,
     GET_RECORDS_SUCCESS,
-    GET_RECORDS_FAILURE
+    GET_RECORDS_FAILURE,
+    GET_METRICS_START,
+    GET_METRICS_SUCCESS,
+    GET_METRICS_FAILURE,
+    GET_CHECKIN
 } from '../actions/types';
 
 const initialState = {
@@ -17,11 +21,13 @@ const initialState = {
     },
     loading: false,
     error: null,
-    clientRecords: []
+    clientRecords: [],
+    clientMetrics: [],
+    clientCheckIn: ''
 };
 
 export default (state = initialState, action) => {
-    console.log('coachReducer', state);
+
     switch (action.type) {
         case GET_TEXT_START:
             return {
@@ -57,18 +63,44 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_RECORDS_SUCCESS:
-            //   console.log(action.payload)
+         
             return {
                 ...state,
                 loading: false,
                 clientRecords: [...action.payload],
                 error: ''
             };
+        case GET_CHECKIN:
+            return {
+                ...state, 
+                loading: false,
+                clientCheckIn: action.payload,
+                error:''
+            }
         case GET_RECORDS_FAILURE:
         case COACH_ERROR:
             return {
                 ...state,
                 loading: false,
+                error: action.payload
+            };
+        case GET_METRICS_START:
+            return {
+                ...state,
+                isfetching: true,
+                error: ''
+            };
+        case GET_METRICS_SUCCESS:
+            return {
+                ...state,
+                isfetching: false,
+                clientMetrics: [...action.payload],
+                error: ''
+            };
+        case GET_METRICS_FAILURE:
+            return {
+                ...state,
+                isfetching: false,
                 error: action.payload
             };
         default:

@@ -3,19 +3,21 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 const LineGraph = props => {
-    // console.log('clientData', props);
+
+
 
     const datesArray = props.datesArray ? props.datesArray.slice(-4) : [];
-    // console.log('datesArray-4', datesArray);
+
 
     const metricValuesArray = props.values ? props.values.slice(-4) : [];
-    // console.log('values', metricValuesArray);
+
 
     const bpOverArray = props.bpOverArray ? props.bpOverArray.slice(-4) : [];
-    // console.log('bpOverArray', bpOverArray);
+   
 
     const bpUnderArray = props.bpUnderArray ? props.bpUnderArray.slice(-4) : [];
-    // console.log('bpUnderArray', bpUnderArray);
+
+
 
     const bloodGlucoseData = {
         labels: datesArray,
@@ -38,6 +40,7 @@ const LineGraph = props => {
                 pointHoverBorderWidth: 2,
                 pointRadius: 5,
                 pointHitRadius: 10,
+                spanGaps: true,
                 data: metricValuesArray
             }
         ]
@@ -64,6 +67,7 @@ const LineGraph = props => {
                 pointHoverBorderWidth: 2,
                 pointRadius: 5,
                 pointHitRadius: 10,
+                spanGaps: true,
                 data: metricValuesArray
             }
         ]
@@ -91,8 +95,9 @@ const LineGraph = props => {
                 pointHoverBorderWidth: 2,
                 pointRadius: 5,
                 pointHitRadius: 10,
+                spanGaps: true,
                 data: bpOverArray
-                //   data: [1, 2, 3, 8, 7, 0]
+
             },
             {
                 label: 'Diastolic',
@@ -113,13 +118,14 @@ const LineGraph = props => {
                 pointHoverBorderWidth: 2,
                 pointRadius: 5,
                 pointHitRadius: 10,
+                spanGaps: true,
                 data: bpUnderArray
-                //   data: [1, 2, 3, 4, 5, 6, 7]
+
             }
         ]
     };
 
-    console.log('**********props', props.metricType);
+
 
     if (props.metricType === 'bloodGlucose') {
         return (

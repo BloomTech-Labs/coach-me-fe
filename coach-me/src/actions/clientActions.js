@@ -3,9 +3,6 @@ import {
     GET_CLIENTS_START,
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
-    ADD_CLIENT,
-    DELETE_CLIENT,
-    CLIENTS_ERROR,
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
@@ -14,10 +11,7 @@ import {
     GET_METRICS_FAILURE
 } from './types';
 
-const headers = {
-    'Content-Type': 'application/json',
-    Authorization: localStorage.getItem('token')
-};
+
 
 export const getClientInfo = props => dispatch => {
     console.log(props);
@@ -29,11 +23,9 @@ export const getClientInfo = props => dispatch => {
             clientnum
         )
         .then(res => {
-            // console.log('res.data', res.data.loginAttempts);
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('loginAttempts', res.data.loginAttempts);
             const loginAttempts = localStorage.getItem('loginAttempts');
-            // console.log('Look at all this info!', loginAttempts);
             if (loginAttempts == 1) {
                 props.history.push('/welcome');
             } else {
@@ -53,21 +45,21 @@ export const getClientInfo = props => dispatch => {
         });
 };
 export const getClientInfoLogin = props => dispatch => {
-    console.log(props);
+   
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
-    //`https://coach-me-backend.herokuapp.com/clientRoute/login`
+  
     axios
         .post(
             `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
             clientnum
         )
         .then(res => {
-            // console.log('res.data', res.data.loginAttempts);
+            
             localStorage.setItem('token', res.data.token);
-            // localStorage.setItem('loginAttempts', res.data.loginAttempts);
+           
             const loginAttempts = localStorage.getItem('loginAttempts');
-            // console.log('Look at all this info!', loginAttempts);
+     
 
             props.history.push('/metric-form');
 

@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import UserPhoneNumber from './UserPhoneNumber';
+// Redux Action Import
 import { getClientInfo } from '../../../actions/clientActions';
+
+// Component Import
+import UserPhoneNumber from './UserPhoneNumber';
+
+// Styling 
 import './loginClient.scss';
 
-//925-639-1639
+
 const LoginClient = props => {
-    const state = useSelector(state => state);
     const dispatch = useDispatch();
     const [config, setConfig] = useState({ phonenumber: '' });
     const handleChange = e => {
@@ -16,7 +20,7 @@ const LoginClient = props => {
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-        const loginAttempts = sessionStorage.getItem('loginAttempts');
+        
     };
 
     return (

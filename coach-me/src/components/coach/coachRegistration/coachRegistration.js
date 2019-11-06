@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+// Redux Action
 import { registerCoach } from '../../../actions/authActions';
+
+//Styling
 import './coachRegistration.scss';
 
 function CoachRegistration(props) {
-    const state = useSelector(state => state);
+    
     const dispatch = useDispatch();
     const [fullName, setFullName] = useState();
     const [email, setemail] = useState();
     const [password, setpassword] = useState();
-    const [confirmPassword, setconfirmPassword] = useState();
     const [register, setregister] = useState();
 
     const handleChange = e => {
@@ -26,11 +29,6 @@ function CoachRegistration(props) {
         e.preventDefault();
 
         setpassword(e.target.value);
-    };
-    const handleChange4 = e => {
-        e.preventDefault();
-        console.log(e.target.value);
-        setconfirmPassword(e.target.value);
     };
 
     useEffect(() => {
@@ -48,7 +46,6 @@ function CoachRegistration(props) {
     }, [fullName, email, password]);
 
     const handleSubmit = e => {
-        console.log(register);
         e.preventDefault();
         dispatch(registerCoach(register));
     };
@@ -89,13 +86,6 @@ function CoachRegistration(props) {
                             onChange={handleChange3}
                             value={password}
                         />
-                        {/* <input
-                            type='password'
-                            placeholder='Confirm Password'
-                            name='password'
-                            onChange={handleChange4}
-                            value={confirmPassword}
-                        /> */}
                     </div>
                     <button className='signup-btn' type='submit'>
                         Sign-up

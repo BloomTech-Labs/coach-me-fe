@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import ScrollToTop from './components/utils/withScrollToTop';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+
+
+//Component Imports
+import ScrollToTop from './components/utils/withScrollToTop';
+import App from './App';
 import store from './store';
+
+
+import * as serviceWorker from './serviceWorker';
+
+//Styling
+import './index.css';
 
 ReactDOM.render(
     <Provider store={store}>
