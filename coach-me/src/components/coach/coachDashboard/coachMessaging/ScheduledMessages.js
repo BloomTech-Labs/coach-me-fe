@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState} from 'react'
+// import { useDispatch, useSelector } from 'react-redux';
 
 function ScheduledMessages (props) {
-    const state = useSelector(state => state);
-    const dispatch = useDispatch();
+    // const state = useSelector(state => state);
+    // const dispatch = useDispatch();
     const [message, setMessage] = useState();
     const handleInputChange = e => {
         e.preventDefault();
@@ -17,7 +17,7 @@ function ScheduledMessages (props) {
     return (
         <>
         <div>
-        <img></img>
+        <img alt='#'></img>
         <h3>Back</h3>
         </div>
         <form onSubmit={submitNewMessage}>
@@ -35,7 +35,7 @@ function ScheduledMessages (props) {
             <div className='scheduler-wrapper'>
                 <div className='scheduler'>
                     <div className='date-time'>
-                    <img></img>
+                    <img alt='#'></img>
                     <h4>Date</h4>
                     </div>
                     <span>
@@ -108,7 +108,7 @@ function ScheduledMessages (props) {
                 </div>
                 <div className='scheduler'>
                 <div className='date-time'>
-                    <img></img>
+                    <img alt='#'></img>
                     <h4>Time</h4>
                     </div>
                     <span>

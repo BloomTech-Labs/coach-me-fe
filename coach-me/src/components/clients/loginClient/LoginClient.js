@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // Redux Action Import
 import { getClientInfo } from '../../../actions/clientActions';
 
 // Component Import
 import UserPhoneNumber from './UserPhoneNumber';
 
-// Styling 
+// Styling
 import './loginClient.scss';
-
 
 const LoginClient = props => {
     const dispatch = useDispatch();
@@ -20,7 +19,6 @@ const LoginClient = props => {
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-        
     };
 
     return (

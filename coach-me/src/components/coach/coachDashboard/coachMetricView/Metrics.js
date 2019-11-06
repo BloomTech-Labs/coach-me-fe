@@ -25,12 +25,13 @@ function Metrics(props) {
         if (clientprofile && clientprofile.clientId) {
             dispatch(getClientMetrics(clientprofile.clientId));
         }
+        // eslint-disable-next-line
     }, [clientprofile]);
 
-    const handleClick = () => {
-        // props.setToggleHistory(false);
-        // props.history.push('/metrics');
-    };
+    // const handleClick = () => {
+    //     // props.setToggleHistory(false);
+    //     // props.history.push('/metrics');
+    // };
 
     //Data reshaped for chartjs used in <LineGraph />
     const datesArray = clientData.map(date => {

@@ -8,10 +8,9 @@ import SearchForm from './SearchForm';
 import CoachMessaging from './coachMessaging/CoachMessaging';
 import Metrics from './coachMetricView/Metrics';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import PerfectScrollbar from 'react-perfect-scrollbar'
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const CoachDashboard = ({ history }) => {
-   
     const [clientprofile, setclientprofile] = useState();
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
@@ -22,10 +21,10 @@ const CoachDashboard = ({ history }) => {
         if (token) {
             dispatch(getClients(token));
         }
+        // eslint-disable-next-line
     }, [token]);
 
     const setClient = clientID => {
-
         state.clientRecords.filter(client => {
             if (clientID === client.clientId) {
                 setclientprofile(client);
@@ -39,19 +38,15 @@ const CoachDashboard = ({ history }) => {
             <div className='coachdashboard-container'>
                 <div className='clientlist-container'>
                     <PerfectScrollbar>
-                    <SearchForm setClient={setClient} />
+                        <SearchForm setClient={setClient} />
                     </PerfectScrollbar>
-                   
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
                     <Metrics clientprofile={clientprofile} />
                 </div>
                 <div className='coach-messaging'>
-                  
                     <CoachMessaging clientprofile={clientprofile} />
-                    
-                   
                 </div>
             </div>
         </>
