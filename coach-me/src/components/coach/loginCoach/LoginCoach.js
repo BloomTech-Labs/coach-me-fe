@@ -13,7 +13,7 @@ const LoginCoach = props => {
     const [email, setemail] = useState();
     const [password, setpassword] = useState();
     const dispatch = useDispatch();
-    const [creds, setCreds] = useState({email:'', password:''});
+    const [creds, setCreds] = useState({ email: '', password: '' });
     const [modal, setModal] = useState(false);
 
     const triggerModal = () => {

@@ -1,22 +1,19 @@
-.coach-header{
-   
-    display:flex;
+.coach-header {
+    display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-between;
 
-    .small-profile{
-        display:flex;
+    .small-profile {
+        display: flex;
         justify-content: center;
         align-items: center;
         padding: 10px;
-        .profile-img{
-           
+        .profile-img {
             border-radius: 30px;
             background-color: grey;
-            width :50px;
+            width: 50px;
             height: 50px;
-            
         }
     }
 }

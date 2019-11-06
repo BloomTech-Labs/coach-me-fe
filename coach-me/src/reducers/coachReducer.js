@@ -29,7 +29,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    console.log('CoachReducer State', state);
     switch (action.type) {
         case GET_TEXT_START:
             return {
