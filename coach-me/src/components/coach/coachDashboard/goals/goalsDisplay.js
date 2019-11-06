@@ -29,7 +29,11 @@ const GoalsDisplay = props => {
     return (
         <div className='goal-wrapper'>
             <h1>I am the GoalsDisplay Component</h1>
-            <div className='goal-card'>{goalKeys.map(goal => goal.goal)}</div>
+            <div className='goal-card'>
+                {goalKeys.map(goal => (
+                    <GoalCard goal={goal.goal} />
+                ))}
+            </div>
 
             <GoalsDisplayModal />
         </div>
