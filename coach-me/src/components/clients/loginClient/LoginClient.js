@@ -6,9 +6,8 @@ import { getClientInfo } from '../../../actions/clientActions';
 // Component Import
 import UserPhoneNumber from './UserPhoneNumber';
 
-// Styling 
+// Styling
 import './loginClient.scss';
-
 
 const LoginClient = props => {
     const dispatch = useDispatch();
@@ -20,7 +19,6 @@ const LoginClient = props => {
     const getinfo = info => {
         setConfig({ ...config, phonenumber: info });
         dispatch(getClientInfo(info));
-        
     };
 
     return (

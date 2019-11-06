@@ -34,14 +34,14 @@ const Routes = props => {
                 render={props => <CoachRegistration {...props} />}
             />
             <Route path='/login' component={LoginCoach} />
-           
+
             <PrivateRoute path='/metrics' component={HealthMetric} />
             <PrivateRoute path='/dashboard' component={CoachDashboard} />
             <PrivateRoute
                 path='/dashboard-client'
                 component={ClientDashboard}
             />
-           
+
             <PrivateRoute path='/metric-form' component={HealthMetricForm} />
             <PrivateRoute path='/welcome' component={Welcome} />
         </>

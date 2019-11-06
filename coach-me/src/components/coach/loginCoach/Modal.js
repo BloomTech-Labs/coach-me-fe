@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import axios from 'axios';
 
-//Styling 
+//Styling
 import './modal.scss';
 
 const Modal = ({ setModal }) => {
