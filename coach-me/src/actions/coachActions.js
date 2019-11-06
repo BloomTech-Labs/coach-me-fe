@@ -45,10 +45,12 @@ export const postMessage = post => dispatch => {
     console.log(post);
     dispatch({ type: ADD_TEXT_START });
     axios
+
         .post(
             `https://coach-me-development.herokuapp.com/twilioRoute/twilio`,
             post
         )
+
         .then(res => {
             dispatch({
                 type: ADD_TEXT_SUCCESS

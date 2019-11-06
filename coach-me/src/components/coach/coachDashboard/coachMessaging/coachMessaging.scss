@@ -11,6 +11,7 @@
         align-items: center;
         justify-content: center;
         height: 100%;
+       
     }
     .scheduled-message {
         width: 50%;
@@ -56,6 +57,7 @@
     }
     .left {
         align-self: flex-start;
+        margin-left:.6rem;
         // color: red;
         .text {
             background-color:#6D8EB4;
@@ -64,26 +66,65 @@
             font-weight: bold;
             font-size: 14px;
             line-height: 18px;
-
-           
-
-
-
-/* White */
-
-color: #F6F6F6;
+            color: #F6F6F6;
         }
     }
     .right {
         align-self: flex-end;
         // color: red;
+        margin-right:.6rem;
         .text {
             background-color: white;
             border: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 10px;
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
+            color: #355478;
            
         }
     }
+}
+textarea{
+    
+    max-width:41.7rem;
+    resize: none;
+    border-radius:15px;
+    outline:none;
+    padding:45px;
+    margin-top:2rem;
+  
+  
+    
+
+}
+.message-wrapper{
+    border: 2px solid rgba(0, 0, 0, 0.05);
+}
+.text-input{
+    display:flex;
+    justify-content:space-around;
+    button{
+       position:absolute;
+       right:5rem;
+       top:64.9rem;
+       background:none;
+       border:none;
+      
+       width:2rem;
+       img{
+           width:100%;
+       }
+    }
+}
+.message-selector{
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
 }
 
 // .text-input {

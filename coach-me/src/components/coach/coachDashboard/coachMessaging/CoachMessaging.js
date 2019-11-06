@@ -11,7 +11,7 @@ const CoachMessaging = (props) => {
 
 
     return (
-        <>
+        <div className = 'message-wrapper'>
         <div className= 'message-header'>
         <div className ={`${type=== 2 ?'live-message' : 'active' } ` } active={type === 1} left
                 onClick={() => {setType(1)
@@ -21,8 +21,8 @@ const CoachMessaging = (props) => {
                 }
                  
                 }>
-            <h1>
-                LiveMessages
+            <h1 className="message-selector">
+                Messages
             </h1>
 
         </div>
@@ -35,7 +35,7 @@ const CoachMessaging = (props) => {
         }}
         active={type === 2}
         >
-        <h1>
+        <h1 className = 'message-selector'>
                 Scheduled a Message
         </h1>
         </div>
@@ -51,7 +51,7 @@ const CoachMessaging = (props) => {
                         return <LiveMessages />
                 }
             })()} 
-        </>
+        </div>
     )
 }
 
