@@ -29,6 +29,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+    console.log('CoachReducer State', state);
     switch (action.type) {
         case GET_TEXT_START:
             return {
@@ -95,8 +96,9 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                clientGoals: [...action.payload]
-            }
+                clientGoals: [...action.payload],
+                error: ''
+            };
         case GET_METRICS_FAILURE:
         case GET_RECORDS_FAILURE:
         case COACH_ERROR:
