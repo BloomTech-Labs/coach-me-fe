@@ -8,10 +8,11 @@ import MotiveModal from './MotiveModal';
 import './clientInfo.scss';
 
 const ClientInfo = props => {
-    console.log('ClientInfo Component', props);
+    // console.log('ClientInfo Component', props);
 
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
+    // console.log('Client INFO STATE', state);
 
     const [show, setshow] = useState(false);
     const { clientprofile } = props;
@@ -20,6 +21,7 @@ const ClientInfo = props => {
         if (clientprofile && clientprofile.clientId) {
             dispatch(getLastCheckInTime(clientprofile.clientId));
         }
+        // eslint-disable-next-line
     }, [clientprofile]);
 
     const toggleModal = e => {

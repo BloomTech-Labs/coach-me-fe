@@ -36,5 +36,6 @@ export const GET_TEXT_SUCCESS = 'GET_TEXTS_SUCCESS';
 export const ADD_TEXT_START = 'ADD_TEXTS_START';
 export const ADD_TEXT_SUCCESS = 'ADD_TEXTS_SUCCESS';
 export const GET_CHECKIN = 'GET_CHECKIN';
+export const GET_GOALS = 'GET_GOALS';
 
 export const COACH_ERROR = 'COACH_ERROR';
