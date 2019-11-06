@@ -27,7 +27,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-
     switch (action.type) {
         case GET_TEXT_START:
             return {
@@ -63,7 +62,6 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_RECORDS_SUCCESS:
-         
             return {
                 ...state,
                 loading: false,
@@ -72,11 +70,11 @@ export default (state = initialState, action) => {
             };
         case GET_CHECKIN:
             return {
-                ...state, 
+                ...state,
                 loading: false,
                 clientCheckIn: action.payload,
-                error:''
-            }
+                error: ''
+            };
         case GET_RECORDS_FAILURE:
         case COACH_ERROR:
             return {

@@ -11,8 +11,6 @@ import {
     GET_METRICS_FAILURE
 } from './types';
 
-
-
 export const getClientInfo = props => dispatch => {
     console.log(props);
     const clientnum = { clientPhone: props.num };
@@ -45,21 +43,18 @@ export const getClientInfo = props => dispatch => {
         });
 };
 export const getClientInfoLogin = props => dispatch => {
-   
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
-  
+
     axios
         .post(
             `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
             clientnum
         )
         .then(res => {
-            
             localStorage.setItem('token', res.data.token);
-           
+
             const loginAttempts = localStorage.getItem('loginAttempts');
-     
 
             props.history.push('/metric-form');
 

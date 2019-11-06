@@ -103,8 +103,7 @@ export default (state = initialState, action) => {
                 error: action.payload
             };
 
-
-            case LOGIN_START:
+        case LOGIN_START:
             return {
                 ...state,
                 isfetching: true,
@@ -126,4 +125,3 @@ export default (state = initialState, action) => {
             return state;
     }
 };
-
