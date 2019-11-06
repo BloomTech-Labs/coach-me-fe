@@ -12,7 +12,7 @@ import moment from 'moment';
 // import '@progress/kendo-theme-material/dist/all.css';
 
 function LiveMessages(props) {
-    console.log(props);
+    // console.log(props);
     const { clientprofile } = props;
     const state = useSelector(state => state);
     const dispatch = useDispatch();
@@ -27,6 +27,7 @@ function LiveMessages(props) {
             dispatch(getMessageHistory(clientprofile.clientPhone));
             setMessage({ ...message, Phone: clientprofile.clientPhone });
         }
+        // eslint-disable-next-line
     }, [clientprofile]);
 
     useEffect(() => {

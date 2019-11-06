@@ -10,7 +10,8 @@ import {
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
     GET_METRICS_FAILURE,
-    GET_CHECKIN
+    GET_CHECKIN,
+    GET_GOALS
 } from '../actions/types';
 
 const initialState = {
@@ -23,7 +24,8 @@ const initialState = {
     error: null,
     clientRecords: [],
     clientMetrics: [],
-    clientCheckIn: ''
+    clientCheckIn: '',
+    clientGoals: []
 };
 
 export default (state = initialState, action) => {
@@ -75,30 +77,33 @@ export default (state = initialState, action) => {
                 clientCheckIn: action.payload,
                 error: ''
             };
-        case GET_RECORDS_FAILURE:
-        case COACH_ERROR:
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            };
+
         case GET_METRICS_START:
             return {
                 ...state,
-                isfetching: true,
+                loading: true,
                 error: ''
             };
         case GET_METRICS_SUCCESS:
             return {
                 ...state,
-                isfetching: false,
+                loading: false,
                 clientMetrics: [...action.payload],
                 error: ''
             };
-        case GET_METRICS_FAILURE:
+        case GET_GOALS:
             return {
                 ...state,
-                isfetching: false,
+                loading: false,
+                clientGoals: [...action.payload],
+                error: ''
+            };
+        case GET_METRICS_FAILURE:
+        case GET_RECORDS_FAILURE:
+        case COACH_ERROR:
+            return {
+                ...state,
+                loading: false,
                 error: action.payload
             };
         default:
