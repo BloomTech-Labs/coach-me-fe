@@ -3,14 +3,16 @@ import { withRouter } from 'react-router-dom';
 import './clientCard.scss';
 
 const ClientCard = props => {
-    const { setClient } = props;
+    const { setClient, check } = props;
 
     return (
         <div
-            className='client-card'
+            className='name-container'
             onClick={() => {
-                // <div className ={`${type=== 2 ?'live-message' : 'active' } ` } active={type === 1} left
-                //onClick={() => {setType(1)
+                console.log(props.client.clientName);
+                if (props.client.clientName) {
+                    check(props.client.clientName);
+                }
 
                 setClient(props.client.clientId);
             }}

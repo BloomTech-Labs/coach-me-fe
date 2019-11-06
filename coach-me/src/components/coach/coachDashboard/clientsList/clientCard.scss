@@ -8,14 +8,17 @@
     width: 100%;
     padding: 10%;
 
-    .active {
-        border: 1.5px solid red;
-        background-color: red;
-    }
-
     h1 {
         font-family: 'DM Sans';
         font-size: 1.3rem;
         color: #274160;
+    }
+}
+
+.active1 {
+    background-color: #9ab2ce;
+
+    h1 {
+        color: #ffffff;
     }
 }

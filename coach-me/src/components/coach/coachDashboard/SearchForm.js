@@ -10,6 +10,22 @@ const SearchForm = props => {
     const [ClientList, setClientList] = useState();
     const [query, setquery] = useState();
 
+    const check = goods => {
+        Array.from(cardlist).filter(item => {
+            const name = item.firstElementChild.textContent;
+            if (goods === name) {
+                console.log(item);
+                item.classList.add('active1');
+            }
+            if (goods !== name && item.classList.length === 2) {
+                item.classList.remove('active1');
+            }
+        });
+    };
+
+    const cardlist = document.getElementsByClassName(`client-card`);
+    console.log(cardlist);
+
     const handleChange = e => {
         console.log(e.target.value);
         e.preventDefault();
@@ -56,11 +72,14 @@ const SearchForm = props => {
             <div>
                 {ClientList &&
                     ClientList.map(client => (
-                        <ClientCard
-                            key={client.clientId}
-                            client={client}
-                            setClient={props.setClient}
-                        />
+                        <div className='client-card'>
+                            <ClientCard
+                                key={client.clientId}
+                                client={client}
+                                setClient={props.setClient}
+                                check={check}
+                            />
+                        </div>
                     ))}
             </div>
         </>
