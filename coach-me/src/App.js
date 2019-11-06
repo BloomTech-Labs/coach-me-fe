@@ -5,6 +5,7 @@ import Routes from './components/utils/Routes';
 import './App.css';
 
 function App() {
+  console.log('123');
   return (
     <div className="App">
       <Routes />
