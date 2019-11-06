@@ -33,7 +33,11 @@ const GoalsDisplay = props => {
 
     return (
         <div className='goal-wrapper'>
-            <GoalsDisplayModal toggleModal={toggleModal} goals={goalKeys} />
+            <GoalsDisplayModal
+                toggleModal={toggleModal}
+                goals={goalKeys}
+                show={show}
+            />
             <button onClick={() => toggleModal()}>...all Goals</button>
         </div>
     );
