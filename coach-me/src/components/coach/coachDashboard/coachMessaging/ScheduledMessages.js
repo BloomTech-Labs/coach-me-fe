@@ -34,12 +34,12 @@ function ScheduledMessages(props) {
             })
             .catch(err => console.log(err));
     };
-    console.log(schedule.sec, 'seconds');
+    console.log(schedule.sec, 'secondss');
     return (
         <>
-            <div>
-                <img></img>
-            </div>
+            {/* <div>
+                <img alt='#'></img>
+            </div> */}
             <form onSubmit={submitNewMessage}>
                 <textarea
                     rows='4'
