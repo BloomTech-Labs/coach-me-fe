@@ -1,14 +1,29 @@
 import React from 'react';
 import './coachHeader.scss';
-import { ReactComponent as Logo } from './assets/logo.svg';
+import coachMeIcon from '../../utils/assets/1coachHeader.svg';
+import Coach from '../../utils/assets/2coachHeader.svg';
+import Me from '../../utils/assets/3coachHeader.svg';
+import downArrow from '../../utils/assets/downArrow.svg';
 
 const CoachHeader = () => {
     return (
         <div className='coach-header'>
-            <Logo />
+            <div className='header-icon'>
+                <img
+                    className='coachMeIcon'
+                    alt='coachMeIcon'
+                    src={coachMeIcon}
+                ></img>
+                <img className='Coach' alt='Coach' src={Coach}></img>
+                <img className='Me' alt='Me' src={Me}></img>
+            </div>
             <div className='small-profile'>
-                <div className='profile-img'></div>
                 <h3> Karin Underwood</h3>
+                <img
+                    className='downArrow'
+                    alt='downArrow'
+                    src={downArrow}
+                ></img>
             </div>
         </div>
     );
