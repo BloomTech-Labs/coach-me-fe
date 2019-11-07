@@ -73,7 +73,17 @@
 // styling for client search input in SearchForm.js
 .search-input {
     width: 100%;
+    background-color: #e9eef6;
+    height: 5.5rem;
+    text-indent: 30px;
 }
+
+.magnifying-glass {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
 .ghost {
     display: none;
 }

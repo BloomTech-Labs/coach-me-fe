@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import ClientCard from './clientsList/ClientCard';
 // Styling
 import '../coachDashboard/clientsList/ClientInfo/clientInfo.scss';
-// import magnifying from '../../utils/assets/magnifying-glass icon.svg';
+import magnifying from '../../utils/assets/magnifying_glass.svg';
 
 const SearchForm = props => {
     const state = useSelector(state => state.coach);
@@ -54,21 +54,20 @@ const SearchForm = props => {
     return (
         <>
             <form>
-                {/* <div className='input-icon'>
+                <div className='input-icon'>
                     <img
                         className='magnifying-glass icon'
                         alt='magnifying-glass'
-                        src='{magnifying}'
+                        src={magnifying}
                     ></img>
-                </div>  */}
-
-                <input
-                    className='search-input'
-                    onChange={handleChange}
-                    placeholder='Search Client'
-                    value={query}
-                    name='name'
-                />
+                    <input
+                        className='search-input'
+                        onChange={handleChange}
+                        placeholder='Search Client'
+                        value={query}
+                        name='name'
+                    />
+                </div>
             </form>
 
             <div>
