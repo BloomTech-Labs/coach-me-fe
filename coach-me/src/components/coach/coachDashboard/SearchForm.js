@@ -77,6 +77,7 @@ const SearchForm = props => {
                         <ClientCard
                             key={i}
                             client={client}
+                            check={check}
                             setClient={props.setClient}
                         />
                     ))}
