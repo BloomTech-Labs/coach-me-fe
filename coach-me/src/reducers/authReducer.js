@@ -7,6 +7,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
+    coachName: '',
     loggingIn: false,
     isfetching: false,
     error: null
@@ -22,7 +23,8 @@ export default (state = initialState, action) => {
         case LOGIN_SUCCESS:
             return {
                 ...state,
-                loggingIn: false
+                loggingIn: false,
+                coachName: action.payload
             };
         case LOGIN_FAIL:
             return {

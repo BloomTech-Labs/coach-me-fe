@@ -40,13 +40,14 @@ export const loginCoach = creds => dispatch => {
         .then(res => {
             localStorage.setItem('token', res.data.token);
             dispatch({
-                type: LOGIN_SUCCESS
+                type: LOGIN_SUCCESS,
+                payload: res.data.coachName
             });
         })
         .catch(err => {
             dispatch({
                 type: LOGIN_FAIL,
-                payload: err.message
+                payload: err
             });
         });
 };

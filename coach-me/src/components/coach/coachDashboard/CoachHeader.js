@@ -4,10 +4,10 @@ import coachMeIcon from '../../utils/assets/1coachHeader.svg';
 import Coach from '../../utils/assets/2coachHeader.svg';
 import Me from '../../utils/assets/3coachHeader.svg';
 import downArrow from '../../utils/assets/downArrow.svg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const CoachHeader = () => {
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.auth);
     console.log('state', state);
     return (
         <div className='coach-header'>
@@ -21,7 +21,7 @@ const CoachHeader = () => {
                 <img className='Me' alt='Me' src={Me}></img>
             </div>
             <div className='small-profile'>
-                <h3> Karin Underwood</h3>
+                <h3>{state.coachName}</h3>
                 <img
                     className='downArrow'
                     alt='downArrow'
