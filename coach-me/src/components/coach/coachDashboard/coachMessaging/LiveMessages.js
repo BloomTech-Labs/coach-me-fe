@@ -66,7 +66,7 @@ function LiveMessages(props) {
     };
 
     return (
-        <>
+        <div>
             {/* contains get request twilio data */}
 
             <PerfectScrollbar>
@@ -93,7 +93,7 @@ function LiveMessages(props) {
             </PerfectScrollbar>
 
             <form className='text-input' onSubmit={submitNewMessage}>
-                <div>
+                <div className='submit'>
                     <textarea
                         onsubmit={submitNewMessage}
                         onKeyDown={onEnterPress}
@@ -113,7 +113,7 @@ function LiveMessages(props) {
                     </button>
                 </div>
             </form>
-        </>
+        </div>
     );
 }
 
