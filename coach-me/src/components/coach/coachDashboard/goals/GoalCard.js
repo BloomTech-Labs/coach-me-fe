@@ -1,6 +1,11 @@
 import React from 'react';
 import './goalCard.scss';
 import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faCheveronUp,
+    faCheveronDown
+} from '@fortawesome/free-solid-svg-icons';
 
 const GoalCard = props => {
     // console.log('GoalCards', props.goal);
@@ -11,8 +16,8 @@ const GoalCard = props => {
                 Met Goal? <input type='checkbox' checked='checked'></input>
             </>
             <div className='arrow collapsed'>
-                <i className='fa fa-fw fa-chevron-down'></i>
-                <i className='fa fa-fw fa-chevron-up'></i>
+                {/* <FontAwesomeIcon icon={faCheveronUp} />
+                <FontAwesomeIcon icon={faCheveronDown} /> */}
             </div>
             <p>{props.goal}</p>
         </div>
