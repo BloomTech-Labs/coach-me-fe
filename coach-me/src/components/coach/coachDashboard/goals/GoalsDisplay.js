@@ -22,15 +22,15 @@ const GoalsDisplay = props => {
         setShow(!show);
     };
 
-    // console.log('GoalsDisplay Component State', state);
+    console.log('GoalsDisplay Component State', state);
     // console.log('GoalsDisplay Component props', props);
 
-    let goalKeys;
-    if (Object.keys(state.clientGoals)) {
-        goalKeys = [...state.clientGoals];
-    }
+    // let goalKeys;
+    // if (Object.keys(state.clientGoals === 'goal')) {
+    //     goalKeys = [...state.clientGoals];
+    // }
     // goalKeys = goalKeys.find(e => e.goal);
-    console.log('goalKeys', goalKeys);
+    // console.log('goalKeys', goalKeys);
 
     return (
         <div onClick={() => toggleModal()} className='goals-wrapper'>
@@ -40,18 +40,22 @@ const GoalsDisplay = props => {
             >
                 view all
             </button>
-            {goalKeys.map((goal, i) => (
-                <div className='goal-wrapper-box'>
-                    <GoalCard
-                        key={i}
-                        goal={goal.goal}
-                        startDate={goal.startDate}
-                    />
-                </div>
-            ))}
+            {state.clientGoals
+                .filter(x => x.goal !== undefined)
+                .map((goal, i) => (
+                    <div className='goal-wrapper-box'>
+                        <GoalCard
+                            key={i}
+                            goal={goal.goal}
+                            startDate={goal.startDate}
+                            goalDetails={goal.goalDetails}
+                            metGoal={goal.metGoal}
+                        />
+                    </div>
+                ))}
             <GoalDisplayModal
                 toggleModal={toggleModal}
-                goals={goalKeys}
+                goals={state.clientGoals}
                 show={show}
             />
         </div>
