@@ -8,7 +8,10 @@ const ClientCard = props => {
     return (
         <div
             onClick={() => {
-                check(props.client.clientName);
+                console.log(props.client.clientName);
+                if (props.client.clientName) {
+                    check(props.client.clientName);
+                }
                 setClient(props.client.clientId);
             }}
         >
