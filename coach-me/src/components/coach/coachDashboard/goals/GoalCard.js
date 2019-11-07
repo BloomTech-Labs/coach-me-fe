@@ -1,11 +1,6 @@
 import React from 'react';
 import './goalCard.scss';
 import moment from 'moment';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faCheveronUp,
-    faCheveronDown
-} from '@fortawesome/free-solid-svg-icons';
 
 const GoalCard = props => {
     // console.log('GoalCards', props.goal);
