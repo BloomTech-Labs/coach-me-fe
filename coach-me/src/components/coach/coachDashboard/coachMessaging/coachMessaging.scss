@@ -100,15 +100,18 @@ textarea {
     display: flex;
     justify-content: space-around;
     button {
-        position: absolute;
-        right: 5rem;
-        top: 64.9rem;
+        position: relative;
+        float: right;
+
         background: none;
         border: none;
 
         width: 2rem;
         img {
             width: 100%;
+            float: right;
+            margin-right: 5rem;
+            margin-top: 9vh;
         }
     }
 }
