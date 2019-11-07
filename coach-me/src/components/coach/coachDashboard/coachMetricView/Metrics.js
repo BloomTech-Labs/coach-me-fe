@@ -1,36 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import { getClientMetrics } from '../../../../actions/coachActions';
 import LineGraph from '../../../clients/healthMetrics/LineGraph';
-
 import './metrics.scss';
-import iconfastingBloodGlucose from '../../../utils/assets/Blood.svg';
-import iconbloodPressure from '../../../utils/assets/bloodPressure.svg';
-import iconweight from '../../../utils/assets/weight.svg';
+import BloodGlucoseHistoryModal from './bloodGlucoseHistory/BloodGlucoseHistoryModal';
+import BloodGlucoseHistory from './bloodGlucoseHistory/BloodGlucoseHistory';
+import WeightHistory from './weightHistory/WeightHistory';
+import WeightHistoryModal from './weightHistory/WeightHistoryModal';
+import BPhistory from './BPhistory/BPhistory';
+import BPhistoryModal from './BPhistory/BPhistoryModal';
 
 function Metrics(props) {
     const { clientprofile } = props;
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
     const clientData = [...state.clientMetrics];
+    const [showGlucoseHistory, setShowGlucoseHistory] = useState(false);
+    const [showWeightHistory, setShowWeightHistory] = useState(false);
+    const [showBPhistory, setShowBPhistory] = useState(false);
 
     clientData.sort((a, b) => {
         return Date.parse(a.date) - Date.parse(b.date);
     });
-
-    console.log('FROM METRICS', clientprofile);
 
     useEffect(() => {
         if (clientprofile && clientprofile.clientId) {
             dispatch(getClientMetrics(clientprofile.clientId));
         }
     }, [clientprofile]);
-
-    const handleClick = () => {
-        // props.setToggleHistory(false);
-        // props.history.push('/metrics');
-    };
 
     //Data reshaped for chartjs used in <LineGraph />
     const datesArray = clientData.map(date => {
@@ -55,139 +53,89 @@ function Metrics(props) {
         <>
             <div className='dash-metric-container'>
                 <div className='graph-container'>
-                    <h2>Blood Glucose</h2>
-                    {bloodSugarArray.length !== 0 ? (
-                        <LineGraph
-                            values={bloodSugarArray}
-                            datesArray={datesArray}
-                            metricType={'bloodGlucose'}
-                        />
+                    <h2 className='metric-title'>Blood Glucose</h2>
+                    {!bloodSugarArray.every(value => value === undefined) ? (
+                        <div className='graph-size'>
+                            <LineGraph
+                                values={bloodSugarArray}
+                                datesArray={datesArray}
+                                metricType={'bloodGlucose'}
+                            />
+                        </div>
+                    ) : (
+                        <p>No available data for this metric.</p>
+                    )}
+                </div>
+                {!bloodSugarArray.every(value => value === undefined) ? (
+                    <BloodGlucoseHistory
+                        setShowGlucoseHistory={setShowGlucoseHistory}
+                        reverseClientData={reverseClientData}
+                    />
+                ) : null}
+                <BloodGlucoseHistoryModal
+                    setShowGlucoseHistory={setShowGlucoseHistory}
+                    showGlucoseHistory={showGlucoseHistory}
+                    reverseClientData={reverseClientData}
+                />
+            </div>
+
+            <div className='dash-metric-container'>
+                <div className='graph-container'>
+                    <h2 className='metric-title'>Weight</h2>
+                    {!weightArray.every(value => value === undefined) ? (
+                        <div className='graph-size'>
+                            <LineGraph
+                                values={weightArray}
+                                datesArray={datesArray}
+                                metricType={'weight'}
+                            />
+                        </div>
                     ) : (
                         <p>No available data for this metric.</p>
                     )}
                 </div>
 
-                <div className='health-cards-container'>
-                    <h3>Blood Glucose History</h3>
-                    {reverseClientData.map((record, index) =>
-                        record['Blood_sugar'] ? (
-                            <div className='health-card'>
-                                <div className='metric-icon'>
-                                    <img
-                                        className='icon'
-                                        alt='Blood Gluscose Icon'
-                                        src={iconfastingBloodGlucose}
-                                    ></img>
-                                </div>
-                                <div className='health-label'>
-                                    <div className='label-container'>
-                                        <h3>Blood Glucose</h3>
-                                    </div>
-                                    <h4>
-                                        {moment(record.date).format(
-                                            'MMM Do YYYY'
-                                        )}
-                                    </h4>
-                                </div>
-                                <div className='health-metric-value'>
-                                    <h4 className='health-value'>
-                                        {record['Blood_sugar']
-                                            ? record['Blood_sugar']
-                                            : 'Not Recorded'}
-                                    </h4>
-                                    <h4 className='health-scale'>mg/dl</h4>
-                                </div>
-                            </div>
-                        ) : null
+                {!weightArray.every(value => value === undefined) ? (
+                    <WeightHistory
+                        setShowWeightHistory={setShowWeightHistory}
+                        reverseClientData={reverseClientData}
+                    />
+                ) : null}
+                <WeightHistoryModal
+                    setShowWeightHistory={setShowWeightHistory}
+                    showWeightHistory={showWeightHistory}
+                    reverseClientData={reverseClientData}
+                />
+            </div>
+
+            <div className='dash-metric-container'>
+                <div className='graph-container'>
+                    <h2 className='metric-title'>Blood Pressure</h2>
+                    {!bpOverArray.every(value => value === undefined) ? (
+                        <div className='graph-size'>
+                            <LineGraph
+                                bpOverArray={bpOverArray}
+                                bpUnderArray={bpUnderArray}
+                                datesArray={datesArray}
+                                metricType={'bloodPressure'}
+                            />
+                        </div>
+                    ) : (
+                        <p>No available data for this metric.</p>
                     )}
                 </div>
-            </div>
 
-            <div className='dash-metric-container'>
-                <div className='graph-container'>
-                    <h2>Weight</h2>
-
-                    <LineGraph
-                        values={weightArray}
-                        datesArray={datesArray}
-                        metricType={'weight'}
+                {!bpOverArray.every(value => value === undefined) ? (
+                    <BPhistory
+                        setShowBPhistory={setShowBPhistory}
+                        reverseClientData={reverseClientData}
                     />
-                </div>
-
-                <div className='health-cards-container'>
-                    <h3>Weight History</h3>
-                    {reverseClientData.map((record, index) => (
-                        <div className='health-card'>
-                            <div className='metric-icon'>
-                                <img
-                                    className='icon'
-                                    alt='Weight Icon'
-                                    src={iconweight}
-                                ></img>
-                            </div>
-                            <div className='health-label'>
-                                <div className='label-container'>
-                                    <h3>Weight</h3>
-                                </div>
-                                <h4>
-                                    {moment(record.date).format('MMM Do YYYY')}
-                                </h4>
-                            </div>
-                            <div className='health-metric-value'>
-                                <h4 className='health-value'>
-                                    {record['Weight']
-                                        ? record['Weight']
-                                        : 'N/A'}
-                                </h4>
-                                <h4 className='health-scale'>lbs</h4>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className='dash-metric-container'>
-                <div className='graph-container'>
-                    <h2>Blood Pressure</h2>
-                    <LineGraph
-                        bpOverArray={bpOverArray}
-                        bpUnderArray={bpUnderArray}
-                        datesArray={datesArray}
-                        metricType={'bloodPressure'}
-                    />
-                </div>
-                <div className='health-cards-container'>
-                    <h3>Blood Pressure History</h3>
-                    {reverseClientData.map((record, index) => (
-                        <div className='health-card'>
-                            <div className='metric-icon'>
-                                <img
-                                    className='icon'
-                                    alt='Blood Pressure Icon'
-                                    src={iconbloodPressure}
-                                ></img>
-                            </div>
-                            <div className='health-label'>
-                                <div className='label-container'>
-                                    <h3>Blood Pressure</h3>
-                                </div>
-                                <h4>
-                                    {moment(record.date).format('MMM Do YYYY')}
-                                </h4>
-                            </div>
-                            <div className='health-metric-value'>
-                                <h4 className='health-value'>
-                                    {record['Blood_pressure_over']
-                                        ? record['Blood_pressure_over'] +
-                                          '/' +
-                                          record['Blood_pressure_under']
-                                        : 'N/A'}
-                                </h4>
-                                <h4 className='health-scale'>mg/dl</h4>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                ) : null}
+                <BPhistoryModal
+                    setShowBPhistory={setShowBPhistory}
+                    showBPhistory={showBPhistory}
+                    reverseClientData={reverseClientData}
+                />
             </div>
         </>
     );
