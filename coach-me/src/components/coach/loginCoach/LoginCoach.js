@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginCoach } from '../../../actions/authActions';
 import { Link } from 'react-router-dom';
+import { ReactComponent as Logo } from '../../utils/assets/coachmelogo-white.svg';
 
 //Component Imports
 import Modal from './Modal';
@@ -49,10 +50,11 @@ const LoginCoach = props => {
             {modal ? <Modal setModal={setModal} /> : null}
             <div className='Login-Wrapper'>
                 <div className='side-one'>
-                    <img
-                        src='https://i.imgur.com/eZTEnXz.png'
-                        alt='Placeholder'
-                    />
+                    <div className='logo-wrapper'>
+                        <Logo />
+                    </div>
+
+                    <div className='circle'></div>
                 </div>
                 <div className='side-two'>
                     <h1>Login</h1>
@@ -64,37 +66,48 @@ const LoginCoach = props => {
                         }}
                     >
                         <div className='input-Wrapper'>
-                            <input
-                                type='text'
-                                placeholder='Email'
-                                name='E-Mail'
-                                className='email'
-                                onChange={handleChange2}
-                                value={email}
-                            />
-                            <input
-                                type='password'
-                                placeholder='Password'
-                                name='password'
-                                className='password'
-                                onChange={handleChange3}
-                                value={password}
-                            />
+                            <div className='input-layout'>
+                                <label>Email</label>
+                                <input
+                                    type='text'
+                                    placeholder='Email'
+                                    name='E-Mail'
+                                    className='email'
+                                    onChange={handleChange2}
+                                    value={email}
+                                />
+                            </div>
+                            <div className='input-layout'>
+                                <label>Password</label>
+                                <input
+                                    type='password'
+                                    placeholder='Password'
+                                    name='password'
+                                    className='password'
+                                    onChange={handleChange3}
+                                    value={password}
+                                />
+                                <div
+                                    className='forgot'
+                                    onClick={() => triggerModal()}
+                                >
+                                    Forgot password?
+                                </div>
+                            </div>
                         </div>
-                        <button type='submit' className='signup-btn'>
-                            {' '}
-                            Login
-                        </button>
-                        <div className='forgot' onClick={() => triggerModal()}>
-                            Forgot password?
+                        <div className='layout-wrapper'>
+                            <button type='submit' className='signup-btn'>
+                                {' '}
+                                Login
+                            </button>
+                            <div className='register-container'>
+                                Don't have an account?{' '}
+                                <Link className='register' to='/register'>
+                                    Sign up
+                                </Link>
+                            </div>
                         </div>
                     </form>
-                    <div className='register-container'>
-                        Don't have an account?{' '}
-                        <Link className='register' to='/register'>
-                            Sign up
-                        </Link>
-                    </div>
                 </div>
             </div>
         </>
