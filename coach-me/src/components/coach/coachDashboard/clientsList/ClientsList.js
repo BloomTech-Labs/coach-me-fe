@@ -10,8 +10,11 @@ const ClientsList = props => {
     //    },[state.clientRecords])
     //  console.log(clientList)
 
-    console.log('props:', props);
-    return <div>{/* <SearchForm setClient={props.setClient} /> */}</div>;
+    return (
+        <div>
+            <SearchForm setClient={props.setClient} />
+        </div>
+    );
 };
 
 export default ClientsList;

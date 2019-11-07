@@ -7,7 +7,6 @@ const ClientCard = props => {
 
     return (
         <div
-            className='client-card'
             onClick={() => {
                 console.log(props.client.clientName);
                 if (props.client.clientName) {

@@ -49,9 +49,9 @@ function LiveMessages(props) {
 
     const submitNewMessage = e => {
         e.preventDefault();
-        {
-            dispatch(postMessage(message));
-        }
+
+        dispatch(postMessage(message));
+
         setMessage({ ...message, message: '' });
     };
 
