@@ -14,11 +14,19 @@ const GoalDisplayModal = props => {
                 </div>
                 <div className='goal-container'>
                     <PerfectScrollbar>
-                        {goals.map((goal, i) => (
-                            <div className='goal-box'>
-                                <GoalCard key={i} goal={goal.goal} />
-                            </div>
-                        ))}
+                        {goals
+                            .filter(x => x.goal !== undefined)
+                            .map((goal, i) => (
+                                <div className='goal-box'>
+                                    <GoalCard
+                                        key={i}
+                                        goal={goal.goal}
+                                        startDate={goal.startDate}
+                                        goalDetails={goal.goalDetails}
+                                        metGoal={goal.metGoal}
+                                    />
+                                </div>
+                            ))}
                     </PerfectScrollbar>
                     <button
                         className='modal-button'
