@@ -1,5 +1,6 @@
 import React from 'react';
 import GoalCard from './GoalCard';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import './goalDisplayModal.scss';
 
 const GoalDisplayModal = props => {
@@ -12,11 +13,13 @@ const GoalDisplayModal = props => {
                     <label>Goals</label>
                 </div>
                 <div className='goal-container'>
-                    {goals.map((goal, i) => (
-                        <div className='goal-box'>
-                            <GoalCard key={i} goal={goal.goal} />
-                        </div>
-                    ))}
+                    <PerfectScrollbar>
+                        {goals.map((goal, i) => (
+                            <div className='goal-box'>
+                                <GoalCard key={i} goal={goal.goal} />
+                            </div>
+                        ))}
+                    </PerfectScrollbar>
                     <button
                         className='modal-button'
                         onClick={() => toggleModal(show)}

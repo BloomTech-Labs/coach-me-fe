@@ -23,9 +23,19 @@
 
 .goal-container {
     @include layout();
+    // background: #ffffff;
+    // height: 80%;
+    // padding: 10%;
+    // border-radius: 20px;
+    position: absolute;
+    left: 16%;
+    bottom: 10%;
     background: #ffffff;
-    height: 80%;
-    padding: 10%;
+    border-radius: 20px;
+    width: 50%;
+    max-height: 50vh;
+    // overflow-y: scroll;
+    padding: 30px 20px;
     .modal-button {
         align-self: center;
         border: none;
@@ -45,10 +55,11 @@
     font-family: 'DM Sans', sans-serif;
     font-style: normal;
     border-radius: 20px;
-    background: #ffecee;
-    width: 50%;
+    background: #f6f6f6;
+    width: 90%;
     padding: 10px;
     margin: 3px;
+    margin-left: 2.2rems;
 
     .label {
         width: 74%;
