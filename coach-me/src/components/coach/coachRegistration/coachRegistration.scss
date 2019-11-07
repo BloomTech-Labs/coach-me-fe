@@ -81,6 +81,7 @@
                 margin-bottom: 6rem;
                 font-size: 1.5rem;
                 padding: 3%;
+                outline: none;
             }
             .password {
                 background: #f6f6f6;
@@ -88,6 +89,7 @@
                 border-radius: 15px;
                 font-size: 1.5rem;
                 padding: 3%;
+                outline: none;
             }
 
             .fullname {
@@ -96,6 +98,7 @@
                 border-radius: 15px;
                 font-size: 1.5rem;
                 padding: 3%;
+                outline: none;
             }
 
             input::placeholder {
@@ -113,6 +116,7 @@
             border-radius: 12px;
             cursor: pointer;
             align-self: center;
+            outline: none;
         }
         .login-container {
             font-size: 1.2rem;
