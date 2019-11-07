@@ -10,22 +10,30 @@
     background: #ffffff;
     height: 80%;
     margin: 3px;
+    padding: 3%;
 
-    button {
+    .goals-wrapper-button {
         align-self: flex-end;
         border: none;
         background: none;
         outline: none;
+        color: #6d8eb4;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
     }
 }
 
-.goal-box {
+.goal-wrapper-box {
     @include layout();
     justify-content: space-around;
     font-family: 'DM Sans', sans-serif;
     font-style: normal;
     border-radius: 20px;
     background: #ffecee;
+    border: 1px solid #c4cfdd;
     width: 100%;
     padding: 10px;
     margin: 3px;

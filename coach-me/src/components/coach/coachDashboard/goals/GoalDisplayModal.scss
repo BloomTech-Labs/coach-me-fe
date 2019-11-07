@@ -19,14 +19,6 @@
     background-color: rgba(7, 17, 28, 0.5);
     left: 0px;
     bottom: 0px;
-    button {
-        border: none;
-        background-color: none;
-        flex-wrap: nowrap;
-        color: grey;
-        font-size: 1.4rem;
-        margin-top: 1px;
-    }
 }
 
 .goal-container {
@@ -34,6 +26,18 @@
     background: #ffffff;
     height: 80%;
     padding: 10%;
+    .modal-button {
+        align-self: center;
+        border: none;
+        background: none;
+        outline: none;
+        color: #6d8eb4;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+    }
 }
 .goal-box {
     @include layout();
