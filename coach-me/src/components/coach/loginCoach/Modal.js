@@ -47,16 +47,20 @@ const Modal = ({ setModal }) => {
     return (
         <div className='modal'>
             <div className='modal-content'>
-                <h1>Forgot your password?</h1>
-                <p>
-                    Enter the email you used to sign up and we’ll send you an
-                    email with instructions to reset your password.
-                </p>
-                <input
-                    placeholder='Email'
-                    name='email'
-                    onChange={handleChange}
-                ></input>
+                <div className='top-content'>
+                    <h1>Forgot your password?</h1>
+                    <p className='direction'>
+                        Enter the email you used to sign up and we’ll send you
+                        an email with instructions to reset your password.
+                    </p>
+                </div>
+                <div className='input-container'>
+                    <input
+                        placeholder='Email'
+                        name='email'
+                        onChange={handleChange}
+                    ></input>
+                </div>
                 {showError && (
                     <p className='error'>
                         That email address isn't recognized. Please try again or
