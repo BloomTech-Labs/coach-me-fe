@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
 
 * {
     margin: 0;
@@ -12,9 +13,23 @@
     position: relative;
     font-family: 'Poppins', sans-serif;
     .side-one {
-        width: 50%;
-        background: #f0f0f0;
+        width: 55%;
+        background: #274160;
         padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-content: space-between;
+
+        .circle {
+            background: #c4c4c4;
+            margin-bottom: 40px;
+            width: 80%;
+            height: 75%;
+            border-radius: 50%;
+            align-self: center;
+            justify-self: center;
+        }
     }
     .side-two {
         width: 50%;
@@ -22,6 +37,7 @@
         align-self: center;
         display: flex;
         flex-direction: column;
+        color: #274160;
 
         h1 {
             font-size: 2.5rem;
@@ -30,26 +46,46 @@
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.8rem;
             margin-bottom: 5rem;
+            color: rgba(113, 125, 139, 0.8);
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 29px;
         }
 
         .input-Wrapper {
             display: flex;
             flex-direction: column;
 
+            .input-layout {
+                display: flex;
+                flex-direction: column;
+                color: #6c6c6c;
+                label {
+                    font-family: DM Sans;
+                    font-style: normal;
+                    margin-bottom: 3px;
+                    margin-left: 5px;
+                    font-size: 1.4rem;
+                }
+            }
             .email {
-                border: none;
-                border-bottom: 1px solid #0000003a;
+                background: #f6f6f6;
+                border: 1.5px solid #c4cfdd;
+                border-radius: 15px;
                 margin-bottom: 6rem;
                 font-size: 1.5rem;
+                padding: 3%;
             }
 
             .password {
-                border: none;
-                border-bottom: 1px solid #0000003a;
+                background: #f6f6f6;
+                border: 1.5px solid #c4cfdd;
+                border-radius: 15px;
                 font-size: 1.5rem;
-                margin-bottom: 2.5rem;
+                padding: 3%;
             }
 
             input::placeholder {
@@ -58,12 +94,12 @@
             }
         }
         .signup-btn {
-            width: 30%;
+            width: 40%;
             padding: 1.3rem 2rem;
             font-size: 1.5rem;
             text-align: center;
             color: white;
-            background: #292929;
+            background: #274160;
             border-radius: 12px;
             cursor: pointer;
             align-self: center;
@@ -73,17 +109,22 @@
             margin-top: 2rem;
             align-self: center;
             .register {
-                color: black;
-                text-decoration: none;
-                font-weight: 600;
+                font-weight: 500;
+                color: #353535;
             }
         }
         .forgot {
-            text-decoration: none;
-            color: black;
-            font-weight: 600;
-            float: right;
+            text-decoration: underline;
+            font-weight: 500;
             margin-bottom: 5rem;
+            color: #274160;
+            align-self: flex-end;
+            line-height: 29px;
+            font-weight: bold;
+        }
+        .layout-wrapper {
+            display: flex;
+            flex-direction: column;
         }
     }
 }

@@ -3,12 +3,15 @@ import { withRouter } from 'react-router-dom';
 import './clientCard.scss';
 
 const ClientCard = props => {
-    const { setClient } = props;
+    const { setClient, check } = props;
 
     return (
         <div
-            className='client-card'
             onClick={() => {
+                console.log(props.client.clientName);
+                if (props.client.clientName) {
+                    check(props.client.clientName);
+                }
                 setClient(props.client.clientId);
             }}
         >

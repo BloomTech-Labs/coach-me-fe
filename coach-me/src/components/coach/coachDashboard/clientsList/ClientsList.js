@@ -10,16 +10,11 @@ const ClientsList = props => {
     //    },[state.clientRecords])
     //  console.log(clientList)
 
-<<<<<<< HEAD
-    console.log('props:', props);
-    return <div>{/* <SearchForm setClient={props.setClient} /> */}</div>;
-=======
     return (
         <div>
             <SearchForm setClient={props.setClient} />
         </div>
     );
->>>>>>> 4a616ee18d699d0e8a7431c4936db5aa15c1c831
 };
 
 export default ClientsList;
