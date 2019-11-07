@@ -76,11 +76,20 @@
 .search-input {
     text-align: center;
     width: 100%;
+    text-indent: 3rem;
     height: 5.5rem;
     background-color: #edf2f8;
     padding: 10%;
     border: none;
+
 }
+
+.magnifying-glass {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
 .ghost {
     display: none;
 }
