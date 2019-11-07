@@ -8,16 +8,46 @@
     justify-content: space-evenly;
     width: 100%;
     min-height: 14%;
-    background: #ffffff;
+    background: #fdfdfd;
+
+    .checkin {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 0.5rem;
+    }
     h1 {
         font-size: 2rem;
         font-family: 'Poppins', sans-serif;
         width: 33%;
     }
+    p {
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 13px;
+        color: #b1b1b1;
+
+        letter-spacing: -0.02em;
+
+        color: rgba(0, 0, 0, 0.5);
+        align-self: flex-end;
+    }
     h6 {
         text-transform: uppercase;
         color: rgba(0, 0, 0, 0.5);
         align-self: flex-end;
+        margin-left: 0.5rem;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 10px;
+        line-height: 13px;
+        /* identical to box height */
+
+        /* Primary - 7 */
+
+        color: #1c3048;
     }
     .key-details {
         display: flex;
@@ -81,7 +111,6 @@
     background-color: #edf2f8;
     padding: 10%;
     border: none;
-
 }
 
 .magnifying-glass {
