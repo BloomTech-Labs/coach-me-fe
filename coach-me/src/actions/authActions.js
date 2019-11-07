@@ -14,12 +14,13 @@ import {
 export const registerCoach = register => dispatch => {
     const creds = register.records[0].fields;
     dispatch({ type: REGISTER_START });
-    axios
+    return axios
         .post(
             `${process.env.REACT_APP_BACK_END_URL}/coachRoute/newRegister `,
             creds
         )
         .then(res => {
+            localStorage.setItem('token', res.data.token);
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data
