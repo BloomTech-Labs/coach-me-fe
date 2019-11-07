@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { ReactComponent as Logo } from '../../utils/assets/coachmelogo-white.svg';
 
 // Redux Action
 import { registerCoach } from '../../../actions/authActions';
@@ -51,8 +52,12 @@ function CoachRegistration(props) {
     return (
         <div className='Register-Wrapper'>
             <div className='side-one'>
-                <img src='https://i.imgur.com/eZTEnXz.png' alt='Placeholder' />
+                <div className='logo-wrapper'>
+                    <Logo />
+                </div>
+                <div className='circle'></div>
             </div>
+
             <div className='side-two'>
                 <h1>Sign Up</h1>
                 <p>Welcome to CoachMe! Please create a new coach account.</p>
@@ -63,40 +68,53 @@ function CoachRegistration(props) {
                     className='Register-Form-Wrapper'
                 >
                     <div className='input-Wrapper'>
-                        <input
-                            type='text'
-                            placeholder='Full Name'
-                            name='name'
-                            onChange={handleChange}
-                            value={fullName}
-                        />
-
-                        <input
-                            type='text'
-                            placeholder='Email'
-                            name='email'
-                            onChange={handleChange2}
-                            value={email}
-                        />
-                        <input
-                            type='password'
-                            placeholder='Password'
-                            name='password'
-                            onChange={handleChange3}
-                            value={password}
-                        />
+                        <div className='input-layout'>
+                            <label>FullName</label>
+                            <input
+                                type='text'
+                                placeholder='Full Name'
+                                name='name'
+                                onChange={handleChange}
+                                value={fullName}
+                                className='fullname'
+                            />
+                        </div>
+                        <div className='input-layout'>
+                            <label>Email</label>
+                            <input
+                                type='text'
+                                placeholder='Email'
+                                name='email'
+                                onChange={handleChange2}
+                                value={email}
+                                className='email'
+                            />
+                        </div>
+                        <div className='input-layout'>
+                            <label>Password</label>
+                            <input
+                                type='password'
+                                placeholder='Password'
+                                name='password'
+                                onChange={handleChange3}
+                                value={password}
+                                className='password'
+                            />
+                        </div>
                     </div>
-                    <button className='signup-btn' type='submit'>
-                        Sign-up
-                    </button>
-                </form>
+                    <div className='layout-wrapper'>
+                        <button className='signup-btn' type='submit'>
+                            Sign-up
+                        </button>
 
-                <div className='login-container'>
-                    Already have an account?{' '}
-                    <Link className='login' to='/login'>
-                        Login
-                    </Link>
-                </div>
+                        <div className='login-container'>
+                            Already have an account?{' '}
+                            <Link className='login' to='/login'>
+                                Login
+                            </Link>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     );
