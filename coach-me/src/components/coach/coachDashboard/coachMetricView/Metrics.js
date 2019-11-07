@@ -28,6 +28,7 @@ function Metrics(props) {
         if (clientprofile && clientprofile.clientId) {
             dispatch(getClientMetrics(clientprofile.clientId));
         }
+        // eslint-disable-next-line
     }, [clientprofile]);
 
     //Data reshaped for chartjs used in <LineGraph />

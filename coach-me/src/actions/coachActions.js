@@ -11,7 +11,8 @@ import {
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
     GET_METRICS_FAILURE,
-    GET_CHECKIN
+    GET_CHECKIN,
+    GET_GOALS
 } from './types';
 
 const headers = {
@@ -128,6 +129,32 @@ export const getLastCheckInTime = id => dispatch => {
             dispatch({
                 type: GET_CHECKIN,
                 payload: results.data.lastCheckin
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+};
+
+export const getGoals = id => dispatch => {
+    axios
+        .get(
+            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientGoals/${id}`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            console.log('getGoals actions', results);
+            const clientGoals = [...results.data.patientGoals];
+            dispatch({
+                type: GET_GOALS,
+                payload: clientGoals
             });
         })
         .catch(err => {
