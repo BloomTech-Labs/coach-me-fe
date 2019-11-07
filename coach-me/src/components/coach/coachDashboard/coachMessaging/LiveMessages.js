@@ -8,8 +8,8 @@ import './coachMessaging.scss';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import moment from 'moment';
-import ScrollToBottom from 'react-scroll-to-bottom';
-import { of } from 'rxjs';
+// import MessageCanvas from './MessageCanvas'
+// import '@progress/kendo-theme-material/dist/all.css';
 
 function LiveMessages(props) {
     // console.log(props);
@@ -38,7 +38,7 @@ function LiveMessages(props) {
                         clientprofile && clientprofile.clientPhone
                     )
                 );
-            }, `${process.env.REACT_APP_SET_INTERVAL}`);
+            }, 5000000);
             return () => clearInterval(interval);
         }
     }, [clientprofile]);
@@ -54,55 +54,36 @@ function LiveMessages(props) {
         }
         setMessage({ ...message, message: '' });
     };
-
-    const onEnterPress = e => {
-        if (e.keyCode == 13 && e.shiftKey == false) {
-            {
-                dispatch(postMessage(message));
-            }
-            setMessage({ ...message, message: '' });
-            // e.preventDefault();
-        }
-    };
-
     return (
         <>
             {/* contains get request twilio data */}
 
             <PerfectScrollbar>
-                <ScrollToBottom>
-                    <div className='message-container'>
-                        {state.coach.messageHistory &&
-                            state.coach.messageHistory.map((m, i) => (
-                                <div
-                                    key={i}
-                                    className={`messages ${
-                                        m.direction === 'inbound'
-                                            ? 'left'
-                                            : 'right'
-                                    }`}
-                                >
-                                    <p className='text'>{m.body}</p>
-                                    <p className='time'>
-                                        {moment(m.dateSent).format('MMM Do')}
-                                    </p>
-                                </div>
-                            ))}
-                    </div>
-                </ScrollToBottom>
+                <div className='message-container'>
+                    {state.coach.messageHistory &&
+                        state.coach.messageHistory.map((m, i) => (
+                            <div
+                                key={i}
+                                className={`messages ${
+                                    m.direction === 'inbound' ? 'left' : 'right'
+                                }`}
+                            >
+                                <p className='text'>{m.body}</p>
+                                <p className='time'>
+                                    {moment(m.dateSent).format('MMM Do')}
+                                </p>
+                            </div>
+                        ))}
+                </div>
             </PerfectScrollbar>
-
             <form className='text-input' onSubmit={submitNewMessage}>
                 <textarea
-                    onsubmit={submitNewMessage}
-                    onKeyDown={onEnterPress}
                     rows='1'
                     cols='48'
                     onChange={handleInputChange}
                     value={message.message}
                     type='text'
                     placeholder='Write messages'
-                    id='messageForm'
                 ></textarea>
                 <button>
                     <img

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+
 .clientprofile {
     display: flex;
     flex-direction: column;
@@ -73,6 +75,8 @@
 // styling for client search input in SearchForm.js
 .search-input {
     width: 100%;
+    background-color: #e9eef6;
+    height: 5.5rem;
 }
 .ghost {
     display: none;
