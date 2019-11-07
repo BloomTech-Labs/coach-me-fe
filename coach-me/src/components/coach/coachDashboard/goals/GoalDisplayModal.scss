@@ -23,10 +23,6 @@
 
 .goal-container {
     @include layout();
-    // background: #ffffff;
-    // height: 80%;
-    // padding: 10%;
-    // border-radius: 20px;
     position: absolute;
     left: 16%;
     bottom: 10%;
@@ -58,7 +54,7 @@
     background: #f6f6f6;
     width: 90%;
     padding: 10px;
-    margin: 3px;
+    margin: 0.7rem;
     margin-left: 2.2rems;
 
     .label {
