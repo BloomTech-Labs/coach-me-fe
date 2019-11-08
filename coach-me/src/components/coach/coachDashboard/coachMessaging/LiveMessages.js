@@ -66,7 +66,7 @@ function LiveMessages(props) {
     };
 
     return (
-        <>
+        <div>
             {/* contains get request twilio data */}
 
             <PerfectScrollbar>
@@ -93,25 +93,27 @@ function LiveMessages(props) {
             </PerfectScrollbar>
 
             <form className='text-input' onSubmit={submitNewMessage}>
-                <textarea
-                    onsubmit={submitNewMessage}
-                    onKeyDown={onEnterPress}
-                    rows='1'
-                    cols='48'
-                    onChange={handleInputChange}
-                    value={message.message}
-                    type='text'
-                    placeholder='Write messages'
-                    id='messageForm'
-                ></textarea>
-                <button>
-                    <img
-                        src='https://i.imgur.com/jT0eF6E.png'
-                        alt='lil arrow'
-                    ></img>
-                </button>
+                <div className='submit'>
+                    <textarea
+                        onsubmit={submitNewMessage}
+                        onKeyDown={onEnterPress}
+                        rows='1'
+                        cols='48'
+                        onChange={handleInputChange}
+                        value={message.message}
+                        type='text'
+                        placeholder='Write messages'
+                        id='messageForm'
+                    ></textarea>
+                    <button>
+                        <img
+                            src='https://i.imgur.com/jT0eF6E.png'
+                            alt='lil arrow'
+                        ></img>
+                    </button>
+                </div>
             </form>
-        </>
+        </div>
     );
 }
 
