@@ -37,7 +37,7 @@ const CoachMessaging = props => {
                     active={type === 2}
                 >
                     <ScheduleBubble />
-                    <h1 className='message-selector'>Scheduled a Message</h1>
+                    <h1 className='message-selector'>Schedule a Message</h1>
                 </div>
             </div>
             {(() => {

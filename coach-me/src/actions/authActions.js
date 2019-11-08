@@ -21,6 +21,7 @@ export const registerCoach = register => dispatch => {
         )
         .then(res => {
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('coachName', res.data.coachName);
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data.coachName
@@ -40,6 +41,8 @@ export const loginCoach = creds => dispatch => {
         .post(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/login`, creds)
         .then(res => {
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('coachName', res.data.coachName);
+
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data.coachName
