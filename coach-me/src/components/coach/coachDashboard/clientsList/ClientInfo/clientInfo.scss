@@ -150,9 +150,9 @@
 }
 
 .magnifying-glass {
-    position: absolute;
-    top: 20px;
-    left: 15%;
+    position: relative;
+    top: 38px;
+    left: 22px;
 }
 
 .ghost {
@@ -180,4 +180,8 @@
     h1 {
         color: #ffffff;
     }
+}
+
+.scrollbar-container {
+    width: 100%;
 }

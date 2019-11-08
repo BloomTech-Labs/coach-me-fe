@@ -69,7 +69,7 @@ function LiveMessages(props) {
         <div>
             {/* contains get request twilio data */}
 
-            <PerfectScrollbar>
+            <PerfectScrollbar className='scrollbar-container'>
                 <ScrollToBottom>
                     <div className='message-container'>
                         {state.coach.messageHistory &&
