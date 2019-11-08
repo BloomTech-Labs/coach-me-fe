@@ -10,7 +10,6 @@ import CoachMessaging from './coachMessaging/CoachMessaging';
 import Metrics from './coachMetricView/Metrics';
 import GoalsDisplay from './goals/GoalsDisplay';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const CoachDashboard = props => {
     const [clientprofile, setclientprofile] = useState();
@@ -44,9 +43,7 @@ const CoachDashboard = props => {
             <CoachHeader {...props} />
             <div className='coachdashboard-container'>
                 <div className='clientlist-container'>
-                    <PerfectScrollbar>
-                        <SearchForm setClient={setClient} />
-                    </PerfectScrollbar>
+                    <SearchForm setClient={setClient} />
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />

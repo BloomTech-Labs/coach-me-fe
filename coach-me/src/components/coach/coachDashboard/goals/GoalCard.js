@@ -13,7 +13,13 @@ const GoalCard = props => {
 
     const toggleGoal = e => {
         setShow(!show);
+        // if (props.showAll) {
+        //     setShow(props.showAll);
+        // }
     };
+    // const toggleAllGoals = e => {
+    //     setShow(props.showAll);
+    // };
 
     let goalMet;
     let goalResponse;

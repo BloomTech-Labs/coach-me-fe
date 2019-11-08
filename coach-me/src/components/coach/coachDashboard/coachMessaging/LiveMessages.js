@@ -84,7 +84,9 @@ function LiveMessages(props) {
                                 >
                                     <p className='text'>{m.body}</p>
                                     <p className='time'>
-                                        {moment(m.dateSent).format('MMM Do')}
+                                        {moment(m.dateSent).format(
+                                            'MMMM Do YYYY, h:mm a'
+                                        )}
                                     </p>
                                 </div>
                             ))}
