@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGoals } from '../../../../actions/coachActions';
-import GoalsDisplayModal from './GoalDisplayModal';
+import GoalDisplayModal from './GoalDisplayModal';
 import GoalCard from './GoalCard';
+import './goalsDisplay.scss';
 
 const GoalsDisplay = props => {
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
 
+    const [show, setShow] = useState(false);
     const { clientprofile } = props;
 
     useEffect(() => {
@@ -16,26 +18,46 @@ const GoalsDisplay = props => {
         }
     }, [clientprofile]);
 
-    console.log('GoalsDisplay Component State', state);
-    console.log('GoalsDisplay Component props', props);
+    const toggleModal = e => {
+        setShow(!show);
+    };
 
-    let goalKeys;
-    if (Object.keys(state.clientGoals)) {
-        goalKeys = [...state.clientGoals];
-    }
+    console.log('GoalsDisplay Component State', state);
+    // console.log('GoalsDisplay Component props', props);
+
+    // let goalKeys;
+    // if (Object.keys(state.clientGoals === 'goal')) {
+    //     goalKeys = [...state.clientGoals];
+    // }
     // goalKeys = goalKeys.find(e => e.goal);
-    console.log('goalKeys', goalKeys);
+    // console.log('goalKeys', goalKeys);
 
     return (
-        <div className='goal-wrapper'>
-            <h1>I am the GoalsDisplay Component</h1>
-            <div className='goal-card'>
-                {goalKeys.map((goal, i) => (
-                    <GoalCard key={i} goal={goal.goal} />
+        <div onClick={() => toggleModal()} className='goals-wrapper'>
+            <button
+                className='goals-wrapper-button'
+                onClick={() => toggleModal()}
+            >
+                view all
+            </button>
+            {state.clientGoals
+                .filter(x => x.goal !== undefined)
+                .map((goal, i) => (
+                    <div className='goal-wrapper-box'>
+                        <GoalCard
+                            key={i}
+                            goal={goal.goal}
+                            startDate={goal.startDate}
+                            goalDetails={goal.goalDetails}
+                            metGoal={goal.metGoal}
+                        />
+                    </div>
                 ))}
-            </div>
-
-            <GoalsDisplayModal />
+            <GoalDisplayModal
+                toggleModal={toggleModal}
+                goals={state.clientGoals}
+                show={show}
+            />
         </div>
     );
 };

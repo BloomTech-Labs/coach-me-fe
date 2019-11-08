@@ -1,0 +1,66 @@
+@mixin layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.goal-modal-container {
+    background-color: black;
+    width: 100%;
+    min-height: 100vh;
+
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    background-color: rgba(7, 17, 28, 0.5);
+    left: 0px;
+    bottom: 0px;
+}
+
+.goal-container {
+    @include layout();
+    position: absolute;
+    left: 16%;
+    bottom: 10%;
+    background: #ffffff;
+    border-radius: 20px;
+    width: 50%;
+    max-height: 50vh;
+    // overflow-y: scroll;
+    padding: 30px 20px;
+    .modal-button {
+        align-self: center;
+        border: none;
+        background: none;
+        outline: none;
+        color: #6d8eb4;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+.goal-box {
+    @include layout();
+    justify-content: space-around;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    border-radius: 20px;
+    background: #f6f6f6;
+    width: 90%;
+    padding: 10px;
+    margin: 0.7rem;
+    margin-left: 2.2rems;
+
+    .label {
+        width: 74%;
+        margin: 0 auto;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}

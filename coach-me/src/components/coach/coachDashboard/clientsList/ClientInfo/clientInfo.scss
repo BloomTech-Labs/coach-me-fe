@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 .clientprofile {
+    border: 1px solid red;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-content: center;
+    align-content: flex-start;
     justify-content: space-evenly;
     width: 100%;
-    min-height: 14%;
+    // min-height: 14%;
+    // height: 35rem;
     background: #fdfdfd;
+    padding: 2rem 0rem;
 
     .checkin {
         display: flex;
@@ -16,16 +21,18 @@
         margin-right: 0.5rem;
     }
     h1 {
-        font-size: 2rem;
-        font-family: 'Poppins', sans-serif;
+        font-size: 2.8rem;
+        font-family: Montserrat;
         width: 33%;
+        color: #1c3048;
+        font-weight: bold;
     }
     p {
         font-family: DM Sans;
         font-style: normal;
         font-weight: 500;
-        font-size: 10px;
-        line-height: 13px;
+        font-size: 1rem;
+        line-height: 1.3rem;
         color: #b1b1b1;
 
         letter-spacing: -0.02em;
@@ -41,8 +48,8 @@
         font-family: DM Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 10px;
-        line-height: 13px;
+        font-size: 1rem;
+        line-height: 1.3rem;
         /* identical to box height */
 
         /* Primary - 7 */
@@ -53,25 +60,67 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        margin: 0 auto;
+        // margin: 0 auto;
         width: 80%;
 
         p {
             background-color: #f0f0f0;
             border: 1px solid #f0f0f0;
-            border-radius: 20px;
+            border-radius: 2rem;
             font-size: 1.2rem;
             font-family: 'Poppins', sans-serif;
             padding: 0.5rem;
             text-align: center;
-            margin-left: 10px;
+            margin-left: 1rem;
         }
         .details {
             display: flex;
 
+            .spanish {
+                color: #ff9a3d;
+                background: #f9f0de;
+                padding: 0.9rem;
+            }
+            .english {
+                color: #765dbd;
+                background: #eae3fc;
+                padding: 0.9rem;
+            }
+
             .condition-container {
                 display: flex;
                 justify-content: space-between;
+
+                .bloodPressure {
+                    color: #26a9bb;
+                    background: #d7efec;
+                    padding: 0.9rem;
+                }
+                .pre-diabetes {
+                    color: #ff5060;
+                    background: #fed6d6;
+                    padding: 0.9rem;
+                }
+                .diabetes {
+                    color: #47b881;
+                    background: #d6f3dc;
+                    padding: 0.9rem;
+                }
+                .hypothyroid {
+                    color: #ffc512;
+                    background: #fff3c9;
+                    padding: 0.9rem;
+                }
+                .other {
+                    color: #ff5060;
+                    background: #fed6d6;
+                    padding: 0.9rem;
+                }
+                .unknown {
+                    color: #47b881;
+                    background: #d6f3dc;
+                    padding: 0.9rem;
+                }
             }
         }
     }
@@ -79,10 +128,15 @@
         font-family: 'Poppins', sans-serif;
         justify-content: space-evenly;
         display: flex;
-        margin: 0 auto;
+        padding: 3rem;
         align-items: center;
+        justify-content: flex-start;
         label {
             font-size: 1.4rem;
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            color: #1c3048;
         }
         .text-container {
             width: 33%;
@@ -91,6 +145,11 @@
 
             p {
                 font-size: 1.4rem;
+                font-family: DM Sans;
+                font-style: normal;
+                font-weight: 500;
+                color: #1c3048;
+                padding-left: 1rem;
             }
         }
         button {
