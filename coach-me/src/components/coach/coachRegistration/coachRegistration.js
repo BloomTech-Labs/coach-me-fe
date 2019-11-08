@@ -47,7 +47,9 @@ function CoachRegistration(props) {
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(registerCoach(register));
+        dispatch(registerCoach(register)).then(() => {
+            props.history.push('/dashboard');
+        });
     };
     return (
         <div className='Register-Wrapper'>
