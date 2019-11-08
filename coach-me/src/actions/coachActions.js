@@ -10,7 +10,9 @@ import {
     GET_RECORDS_FAILURE,
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
-    GET_METRICS_FAILURE
+    GET_METRICS_FAILURE,
+    GET_CHECKIN,
+    GET_GOALS
 } from './types';
 
 const headers = {
@@ -22,7 +24,7 @@ export const getMessageHistory = liveNumber => dispatch => {
     dispatch({ type: GET_TEXT_START });
     axios
         .get(
-            `https://coach-me-backend.herokuapp.com/twilioRoute/messagehistory/${liveNumber}`
+            `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/messagehistory/${liveNumber}`
         )
         .then(res => {
             console.log('getMessageHistory', res.data.message);
@@ -44,7 +46,9 @@ export const postMessage = post => dispatch => {
     console.log(post);
     dispatch({ type: ADD_TEXT_START });
     axios
-        .post(`https://coach-me-backend.herokuapp.com/twilioRoute/twilio`, post)
+
+        .post(`${process.env.REACT_APP_BACK_END_URL}/twilioRoute/twilio`, post)
+
         .then(res => {
             dispatch({
                 type: ADD_TEXT_SUCCESS
@@ -101,6 +105,58 @@ export const getClientMetrics = id => dispatch => {
         .catch(err => {
             dispatch({
                 type: GET_METRICS_FAILURE,
+                payload: err.message
+            });
+        });
+};
+
+export const getLastCheckInTime = id => dispatch => {
+    axios
+        .get(
+            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getLastCheckinTime/${id}`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            console.log('getLastCheckInTime', results);
+
+            dispatch({
+                type: GET_CHECKIN,
+                payload: results.data.lastCheckin
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+};
+
+export const getGoals = id => dispatch => {
+    axios
+        .get(
+            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientGoals/${id}`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            console.log('getGoals actions', results);
+            const clientGoals = [...results.data.patientGoals];
+            dispatch({
+                type: GET_GOALS,
+                payload: clientGoals
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: COACH_ERROR,
                 payload: err.message
             });
         });

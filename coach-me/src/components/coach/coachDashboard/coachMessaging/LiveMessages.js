@@ -6,14 +6,13 @@ import {
 } from '../../../../actions/coachActions';
 import './coachMessaging.scss';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import PerfectScrollbar from 'react-perfect-scrollbar'
-import moment from 'moment'
-// import MessageCanvas from './MessageCanvas'
-// import '@progress/kendo-theme-material/dist/all.css';
-
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import moment from 'moment';
+import ScrollToBottom from 'react-scroll-to-bottom';
+import { of } from 'rxjs';
 
 function LiveMessages(props) {
-    console.log(props);
+    // console.log(props);
     const { clientprofile } = props;
     const state = useSelector(state => state);
     const dispatch = useDispatch();
@@ -23,31 +22,25 @@ function LiveMessages(props) {
         Phone: ''
     });
 
-
-  
-
     useEffect(() => {
         if (clientprofile) {
             dispatch(getMessageHistory(clientprofile.clientPhone));
             setMessage({ ...message, Phone: clientprofile.clientPhone });
         }
+        // eslint-disable-next-line
     }, [clientprofile]);
 
     useEffect(() => {
-        if(clientprofile){
+        if (clientprofile) {
             const interval = setInterval(() => {
-            
                 dispatch(
-                    getMessageHistory(clientprofile && clientprofile.clientPhone)
+                    getMessageHistory(
+                        clientprofile && clientprofile.clientPhone
+                    )
                 );
-
-            
-           
-        }, 5000);
-        return () => clearInterval(interval);
-
+            }, `${process.env.REACT_APP_SET_INTERVAL}`);
+            return () => clearInterval(interval);
         }
-        
     }, [clientprofile]);
 
     const handleInputChange = e => {
@@ -56,47 +49,73 @@ function LiveMessages(props) {
 
     const submitNewMessage = e => {
         e.preventDefault();
-        {
-            dispatch(postMessage(message));
-        }
+
+        dispatch(postMessage(message));
+
         setMessage({ ...message, message: '' });
     };
+
+    const onEnterPress = e => {
+        if (e.keyCode == 13 && e.shiftKey == false) {
+            {
+                dispatch(postMessage(message));
+            }
+            setMessage({ ...message, message: '' });
+            // e.preventDefault();
+        }
+    };
+
     return (
-        <>
+        <div>
             {/* contains get request twilio data */}
-            
 
-            <PerfectScrollbar>
-
-            <div className='message-container'>
-                {state.coach.messageHistory &&
-                    state.coach.messageHistory.map((m, i) => (
-                        
-                        <div
-                            key={i}
-                            className={`messages ${
-                                m.direction === 'inbound' ? 'left' : 'right'
-                            }`}
-                        >
-                           
-                            <p className='text'>{m.body}</p>
-                            <p className='time'>{moment(m.dateSent).format('MMMM Do YYYY, h:mm:ss a')}</p>
-                        </div>
-                    ))}
-            </div>
+            <PerfectScrollbar className='scrollbar-container'>
+                <ScrollToBottom>
+                    <div className='message-container'>
+                        {state.coach.messageHistory &&
+                            state.coach.messageHistory.map((m, i) => (
+                                <div
+                                    key={i}
+                                    className={`messages ${
+                                        m.direction === 'inbound'
+                                            ? 'left'
+                                            : 'right'
+                                    }`}
+                                >
+                                    <p className='text'>{m.body}</p>
+                                    <p className='time'>
+                                        {moment(m.dateSent).format(
+                                            'MMMM Do YYYY, h:mm a'
+                                        )}
+                                    </p>
+                                </div>
+                            ))}
+                    </div>
+                </ScrollToBottom>
             </PerfectScrollbar>
+
             <form className='text-input' onSubmit={submitNewMessage}>
-                <textarea
-                    rows='2'
-                    cols='50'
-                    onChange={handleInputChange}
-                    value={message.message}
-                    type='text'
-                    placeholder='Write messages'
-                ></textarea>
-                <button>Send</button>
+                <div className='submit'>
+                    <textarea
+                        onsubmit={submitNewMessage}
+                        onKeyDown={onEnterPress}
+                        rows='1'
+                        cols='48'
+                        onChange={handleInputChange}
+                        value={message.message}
+                        type='text'
+                        placeholder='Write messages'
+                        id='messageForm'
+                    ></textarea>
+                    <button>
+                        <img
+                            src='https://i.imgur.com/jT0eF6E.png'
+                            alt='lil arrow'
+                        ></img>
+                    </button>
+                </div>
             </form>
-        </>
+        </div>
     );
 }
 

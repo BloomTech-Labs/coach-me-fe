@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
 
 * {
     margin: 0;
@@ -9,12 +10,40 @@
 .Register-Wrapper {
     display: flex;
     height: 100vh;
-    position: relative;
     font-family: 'Poppins', sans-serif;
+
     .side-one {
         width: 50%;
-        background: #f0f0f0;
-        padding: 2%;
+        background-image: url('https://imgur.com/BjBin1U.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .objective {
+            font-family: DM Sans;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 2rem;
+            line-height: 26px;
+            color: #e6e7e7;
+            // margin: 0 auto;
+            width: 70%;
+            margin-left: 55px;
+            margin-bottom: 20px;
+        }
+        .logo-wrapper {
+            margin-top: 30px;
+            margin-left: 30px;
+            width: 100%;
+
+            .logo {
+                margin-top: -10px;
+                margin-left: 15px;
+            }
+        }
     }
     .side-two {
         width: 50%;
@@ -22,6 +51,8 @@
         align-self: center;
         display: flex;
         flex-direction: column;
+        color: #274160;
+        height: 100%;
 
         h1 {
             font-size: 2.5rem;
@@ -30,19 +61,59 @@
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.8rem;
             margin-bottom: 5rem;
+            color: rgba(113, 125, 139, 0.8);
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 29px;
         }
 
         .input-Wrapper {
             display: flex;
             flex-direction: column;
+            .input-layout {
+                display: flex;
+                flex-direction: column;
+                color: #6c6c6c;
+                label {
+                    font-family: DM Sans;
+                    font-style: normal;
 
-            input {
-                border: none;
-                border-bottom: 1px solid #0000003a;
-                margin-bottom: 6rem;
+                    margin-left: 5px;
+                    font-size: 1.4rem;
+                }
+            }
+
+            .email {
+                background: #f6f6f6;
+                border: 1.5px solid #c4cfdd;
+                border-radius: 15px;
+                margin-bottom: 30px;
                 font-size: 1.5rem;
+                padding: 3%;
+                outline: none;
+                margin-bottom: 30px;
+            }
+            .password {
+                background: #f6f6f6;
+                border: 1.5px solid #c4cfdd;
+                border-radius: 15px;
+                font-size: 1.5rem;
+                padding: 3%;
+                outline: none;
+                margin-bottom: 30px;
+            }
+
+            .fullname {
+                background: #f6f6f6;
+                border: 1.5px solid #c4cfdd;
+                border-radius: 15px;
+                font-size: 1.5rem;
+                padding: 3%;
+                outline: none;
+                margin-bottom: 30px;
             }
 
             input::placeholder {
@@ -51,25 +122,29 @@
             }
         }
         .signup-btn {
-            width: 30%;
+            width: 40%;
             padding: 1.3rem 2rem;
             font-size: 1.5rem;
             text-align: center;
             color: white;
-            background: #292929;
+            background: #274160;
             border-radius: 12px;
             cursor: pointer;
             align-self: center;
+            outline: none;
         }
         .login-container {
             font-size: 1.2rem;
             margin-top: 2rem;
             align-self: center;
             .login {
-                color: black;
-                text-decoration: none;
-                font-weight: 600;
+                font-weight: 500;
+                color: #353535;
             }
+        }
+        .layout-wrapper {
+            display: flex;
+            flex-direction: column;
         }
     }
 }

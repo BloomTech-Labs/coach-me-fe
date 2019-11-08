@@ -14,16 +14,17 @@ import {
 export const registerCoach = register => dispatch => {
     const creds = register.records[0].fields;
     dispatch({ type: REGISTER_START });
-    axios
+    return axios
         .post(
             `${process.env.REACT_APP_BACK_END_URL}/coachRoute/newRegister `,
             creds
         )
         .then(res => {
-           
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('coachName', res.data.coachName);
             dispatch({
                 type: REGISTER_SUCCESS,
-                payload: res.data
+                payload: res.data.coachName
             });
         })
         .catch(err => {
@@ -39,16 +40,18 @@ export const loginCoach = creds => dispatch => {
     return axios
         .post(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/login`, creds)
         .then(res => {
-          
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('coachName', res.data.coachName);
+
             dispatch({
-                type: LOGIN_SUCCESS
+                type: LOGIN_SUCCESS,
+                payload: res.data.coachName
             });
         })
         .catch(err => {
             dispatch({
                 type: LOGIN_FAIL,
-                payload: err.message
+                payload: err
             });
         });
 };
@@ -61,8 +64,6 @@ export const getClients = token => dispatch => {
             headers: headers
         })
         .then(res => {
-    
-
             dispatch({
                 type: GET_RECORDS_SUCCESS,
                 payload: res.data.patientList

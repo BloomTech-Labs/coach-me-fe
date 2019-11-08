@@ -9,7 +9,9 @@ import {
     GET_RECORDS_FAILURE,
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
-    GET_METRICS_FAILURE
+    GET_METRICS_FAILURE,
+    GET_CHECKIN,
+    GET_GOALS
 } from '../actions/types';
 
 const initialState = {
@@ -21,11 +23,12 @@ const initialState = {
     loading: false,
     error: null,
     clientRecords: [],
-    clientMetrics: []
+    clientMetrics: [],
+    clientCheckIn: '',
+    clientGoals: []
 };
 
 export default (state = initialState, action) => {
-
     switch (action.type) {
         case GET_TEXT_START:
             return {
@@ -61,37 +64,46 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_RECORDS_SUCCESS:
-         
             return {
                 ...state,
                 loading: false,
                 clientRecords: [...action.payload],
                 error: ''
             };
-        case GET_RECORDS_FAILURE:
-        case COACH_ERROR:
+        case GET_CHECKIN:
             return {
                 ...state,
                 loading: false,
-                error: action.payload
+                clientCheckIn: action.payload,
+                error: ''
             };
+
         case GET_METRICS_START:
             return {
                 ...state,
-                isfetching: true,
+                loading: true,
                 error: ''
             };
         case GET_METRICS_SUCCESS:
             return {
                 ...state,
-                isfetching: false,
+                loading: false,
                 clientMetrics: [...action.payload],
                 error: ''
             };
-        case GET_METRICS_FAILURE:
+        case GET_GOALS:
             return {
                 ...state,
-                isfetching: false,
+                loading: false,
+                clientGoals: [...action.payload],
+                error: ''
+            };
+        case GET_METRICS_FAILURE:
+        case GET_RECORDS_FAILURE:
+        case COACH_ERROR:
+            return {
+                ...state,
+                loading: false,
                 error: action.payload
             };
         default:

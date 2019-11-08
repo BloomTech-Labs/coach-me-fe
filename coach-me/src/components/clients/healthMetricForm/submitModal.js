@@ -13,7 +13,6 @@ const SubmitModal = props => {
                     <div className='modal-box'>
                         <Success />
                         <p>{translate('Form-Success')}!</p>
-                       
 
                         <button onClick={() => onSubmit()}>
                             {translate('continueBtn')}
@@ -29,7 +28,6 @@ const SubmitModal = props => {
                     <div className='modal-box'>
                         <Warning />
                         <p>{translate('Form-Failure')}</p>
-                       
 
                         <button onClick={() => failMetric()}>OK</button>
                     </div>

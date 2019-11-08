@@ -1,92 +1,191 @@
-.clientprofile{
-    display:flex;
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+.clientprofile {
+    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-content: center;
     justify-content: space-evenly;
     width: 100%;
-    min-height: 14%;
-    background:#FFFFFF;
-    h1{
-        font-size: 2rem;
-        font-family: 'Poppins', sans-serif;
-        width:33%;
-    }
-    h6{ 
-    text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.5);
-    align-self: flex-end;
+    height: 13.8rem;
+    background: #fdfdfd;
+    padding: 5px 2rem;
 
-
+    .seemore {
+        cursor: pointer;
     }
-    .key-details{
+
+    .checkin {
+        display: flex;
+        justify-content: flex-end;
+        margin: 10px 0.5rem;
+        font-family: DM Sans;
+
+        .checkin-label {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #b1b1b1;
+        }
+
+        .checkin-date {
+            margin: 0 0.7rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #1c3048;
+        }
+    }
+
+    .key-details {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
-        margin:0 auto;
-        width: 80%;
+        justify-content: flex-start;
+        width: 100%;
+        padding-bottom: 2rem;
 
-        p{
-        background-color: #F0F0F0;
-        border:1px solid #F0F0F0;
-        border-radius: 20px;
-        font-size: 1.2rem;
-        font-family: 'Poppins', sans-serif;
-        padding:.5rem;
-        text-align: center;
-        margin-left: 10px;
-        
+        .name {
+            font-size: 2.8rem;
+            font-family: Montserrat;
+            max-width: 33%;
+            min-width: 15%;
+            color: #1c3048;
+            font-weight: bold;
+            margin-right: 2rem;
         }
-        .details{
-            display:flex;
-           
-            .condition-container{
-                display:flex;
-                justify-content: space-between;
+
+        p {
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-family: DM Sans;
+            font-weight: 600;
+            padding: 0.7rem 1.1rem;
+            text-align: center;
+            margin: 0 1rem;
+        }
+        .details {
+            display: flex;
+
+            .spanish {
+                color: #ff9a3d;
+                background: #f9f0de;
+            }
+            .english {
+                color: #765dbd;
+                background: #eae3fc;
             }
 
+            .bloodPressure {
+                color: #26a9bb;
+                background: #d7efec;
+            }
+            .pre-diabetes {
+                color: #ff5060;
+                background: #fed6d6;
+            }
+            .diabetes {
+                color: #47b881;
+                background: #d6f3dc;
+            }
+            .hypothyroid {
+                color: #ffc512;
+                background: #fff3c9;
+            }
+            .other {
+                color: #ff5060;
+                background: #fed6d6;
+            }
+            .unknown {
+                color: #47b881;
+                background: #d6f3dc;
+            }
         }
-        
     }
-    .motivations{
-       
-        font-family: 'Poppins', sans-serif;
-        justify-content: space-evenly;
-        display:flex;
-        margin:0 auto;
-        align-items: center;
-        label{
-            font-size: 1.4rem
-        }
-        .text-container{
-            width:33%;
-            height: 1.4rem;
-            overflow: hidden;
-    
-            p{
+    .motivations {
+        display: flex;
+        margin: 10px 0;
+        width: 100%;
+
+        .motivation-text {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+
+            label {
                 font-size: 1.4rem;
-               
-                
+                font-family: DM Sans;
+                font-weight: 600;
+                color: #1c3048;
+                display: block;
             }
 
+            p {
+                font-size: 1.4rem;
+                font-family: DM Sans;
+                font-style: italic;
+                font-weight: 500;
+                color: #1c3048;
+                padding: 0 0.8rem;
+                overflow: hidden;
+                max-width: 33%;
+                height: 1.5rem;
+            }
+            button {
+                border: none;
+                background: none;
+                flex-wrap: nowrap;
+                color: grey;
+                font-size: 1.4rem;
+                cursor: pointer;
+            }
         }
-        button{
-            
-            border:none;
-            background-color:none;
-            flex-wrap: nowrap;
-            color:grey;
-            font-size: 1.4rem;
-        }
-       
-        
     }
 }
 // styling for client search input in SearchForm.js
-.search-input{
-    width:100%
+.search-input {
+    text-align: center;
+    width: 100%;
+    text-indent: 3rem;
+    height: 5.5rem;
+    background-color: #edf2f8;
+    padding: 10%;
+    border: none;
+    font-size: 1.6rem;
+    color: #717d8b;
+    border: 1px solid #c4cfdd;
 }
-.ghost{
+
+.magnifying-glass {
+    position: relative;
+    top: 38px;
+    left: 22px;
+}
+
+.ghost {
     display: none;
-    border:1px solid red;
+}
+.client-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #c4cfdd;
+    width: 100%;
+    padding: 10%;
+    background-color: #edf2f8;
+    h1 {
+        font-family: 'DM Sans';
+        font-size: 1.6rem;
+        text-align: center;
+        color: #274160;
+    }
+}
+
+.active1 {
+    background-color: #9ab2ce;
+
+    h1 {
+        color: #ffffff;
+    }
+}
+
+.scrollbar-container {
+    width: 100%;
 }

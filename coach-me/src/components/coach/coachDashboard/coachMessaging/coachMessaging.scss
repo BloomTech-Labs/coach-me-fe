@@ -2,15 +2,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgray;
+    background-color: #ffffff;
     height: 4%;
     width: 100%;
+
     .live-message {
         width: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100%;
+        padding: 2rem;
+        opacity: 0.3;
+        cursor: pointer;
     }
     .scheduled-message {
         width: 50%;
@@ -18,15 +22,21 @@
         justify-content: center;
         align-items: center;
         height: 100%;
+        padding: 2rem;
+        opacity: 0.3;
+        cursor: pointer;
     }
 }
 .active {
-    background-color: rgb(255, 255, 255);
+    background-color: #f6f6f6;
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+    padding: 2rem;
+    color: #274160;
+    cursor: pointer;
 }
 
 .message-container {
@@ -34,7 +44,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    // border: 1px solid orange;
+    width: 100%;
 
     .messages {
         // border: 2px dashed orchid;
@@ -56,38 +66,89 @@
     }
     .left {
         align-self: flex-start;
+        margin-left: 0.6rem;
         // color: red;
         .text {
-            background-color:#6D8EB4;
+            background-color: #6d8eb4;
             font-family: DM Sans;
             font-style: normal;
             font-weight: bold;
             font-size: 14px;
             line-height: 18px;
-
-           
-
-
-
-/* White */
-
-color: #F6F6F6;
+            color: #f6f6f6;
         }
     }
     .right {
         align-self: flex-end;
         // color: red;
+        margin-right: 0.6rem;
         .text {
             background-color: white;
             border: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 10px;
-           
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
+            color: #355478;
         }
     }
 }
+textarea {
+    max-width: 43.7rem;
+    resize: none;
+    border-radius: 15px;
+    outline: none;
+    padding: 2rem;
+    border: none;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+}
+.message-wrapper {
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    position: fixed;
+}
+.text-input {
+    display: flex;
+    justify-content: space-around;
+    .submit {
+        background: white;
+        border-radius: 15px;
+        padding: 1rem;
+        // margin: 3rem;
+        display: flex;
+        width: 98%;
+        margin-bottom: 20px;
+    }
+    button {
+        outline: none;
+        background: none;
+        border: none;
+        width: 2rem;
+        img {
+            outline: none;
+            width: 100%;
+            // float: right;
+            // margin-right: 5rem;
+            // margin-bottom:55533rem;
+            // float:top;
+        }
+    }
+}
+.message-selector {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
 
-// .text-input {
-//     bottom: 0;
-//     position: absolute;
-//     margin: 10px;
-// }
+    margin-left: 1rem;
+}
+
+.scrollbar-container {
+    width: 100%;
+}

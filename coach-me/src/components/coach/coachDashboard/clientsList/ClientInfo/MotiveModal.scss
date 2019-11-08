@@ -1,63 +1,89 @@
-@mixin layout{
-    display:flex;
+@mixin layout {
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
-
+    align-items: center;
 }
 
-.motive-container{
-    background-color:black;
-    width:100%;
-    min-height:100vh;
-   
-    z-index:2;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-   
-    position:absolute;
-    background-color:rgba(7, 17, 28, .5);
+.motive-container {
+    background-color: rgba(7, 17, 28, 0.5);
+    width: 100%;
+    min-height: 100%;
+    z-index: 2;
+    position: fixed;
     left: 0px;
-    bottom:0px;
-    
-    
-    }
-
-.motive-box{
-    
- @include layout();
-justify-content: space-around;
-font-family: 'DM Sans', sans-serif;
- font-style: normal;
- border-radius: 20px;
- background:  #FFFFFF;
- width:50%;
- height: 320px;
- 
-
-.label{
-    width: 74%;
-    margin: 0 auto;
-     font-size: 2rem;
-     font-weight: bold;
-}
-p{
-    flex-wrap: wrap;
-    width:74%;
-    font-size: 1.5rem;
-    margin: 0 auto;
+    top: 0px;
 }
 
-button{
+.motive-box {
+    @include layout();
+    justify-content: space-around;
     font-family: 'DM Sans', sans-serif;
     font-style: normal;
-    font-size: 1rem;
-    width: 80%;
-    border:none;
-    text-decoration:underline;
-  
-   
+    border-radius: 20px;
+    background: #ffffff;
+    width: 50%;
+    height: 320px;
+    position: absolute;
+    left: 16%;
+    bottom: 20%;
+    max-height: 80vh;
+    overflow-y: scroll;
+    padding: 30px 20px;
+
+    .x {
+        align-self: flex-end;
+
+        cursor: pointer;
+    }
+
+    .label {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2rem;
+        color: #1c3048;
+        width: 85%;
+        // margin: 50px 0 30px 0;
+    }
+    p {
+        width: 85%;
+        font-size: 1.5rem;
+        // margin: 0 auto;
+        color: #1c3048;
+    }
+
+    button {
+        background: none;
+        border: none;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.4rem;
+        text-decoration-line: underline;
+        color: #6d8eb4;
+        margin: 30px;
+        cursor: pointer;
+    }
 }
-    
+
+.motive-box::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.motive-box::-webkit-scrollbar-track {
+    background: none;
+    margin: 50px;
+}
+
+/* Handle */
+.motive-box::-webkit-scrollbar-thumb {
+    background: #717d8b63;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+.motive-box::-webkit-scrollbar-thumb:hover {
+    background: #1c304869;
 }
