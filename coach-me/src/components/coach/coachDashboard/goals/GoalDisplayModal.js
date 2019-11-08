@@ -1,6 +1,7 @@
 import React from 'react';
 import GoalCard from './GoalCard';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import Xicon from '../../../utils/assets/Xicon.svg';
 import './goalDisplayModal.scss';
 
 const GoalDisplayModal = props => {
@@ -10,7 +11,13 @@ const GoalDisplayModal = props => {
         return (
             <div className='goal-modal-container'>
                 <div className='goal-container'>
-                    <div className='label'>
+                    <img
+                        className='modal-button-close'
+                        alt='X'
+                        src={Xicon}
+                        onClick={() => toggleModal(show)}
+                    ></img>
+                    <div className='modal-label'>
                         <label>Goals</label>
                     </div>
                     <PerfectScrollbar>

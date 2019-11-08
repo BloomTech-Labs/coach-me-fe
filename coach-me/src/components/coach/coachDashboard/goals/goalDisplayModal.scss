@@ -29,9 +29,23 @@
     background: #ffffff;
     border-radius: 20px;
     width: 50%;
-    max-height: 50vh;
+    max-height: 70vh;
     // overflow-y: scroll;
     padding: 30px 20px;
+    .modal-label {
+        display: flex;
+        justify-content: space-between;
+        width: 98%;
+        margin: 0 auto;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        margin-left: 1.5rem;
+    }
+    .modal-button-close {
+        align-self: flex-end;
+        margin-right: 4rem;
+    }
     .modal-button {
         align-self: center;
         border: none;
@@ -46,6 +60,9 @@
         margin-top: 1rem;
         // font-weight: 500;
         // line-height: 16px;
+        .close {
+            border: 1px solid red;
+        }
     }
 }
 .goal-box {
