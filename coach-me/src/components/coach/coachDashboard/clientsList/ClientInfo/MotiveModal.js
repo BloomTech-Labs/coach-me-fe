@@ -1,5 +1,6 @@
 import React from 'react';
 import './MotiveModal.scss';
+import { ReactComponent as Xicon } from '../../../../utils/assets/Xicon.svg';
 
 const MotiveModal = props => {
     const { show, toggleModal, motivation } = props;
@@ -8,6 +9,7 @@ const MotiveModal = props => {
         return (
             <div className='motive-container'>
                 <div className='motive-box'>
+                    <Xicon className='x' onClick={() => toggleModal(show)} />
                     <div className='label'>
                         <label>Motivations</label>
                     </div>
