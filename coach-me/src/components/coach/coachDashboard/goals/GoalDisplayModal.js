@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GoalCard from './GoalCard';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import Xicon from '../../../utils/assets/Xicon.svg';
@@ -6,6 +6,26 @@ import './goalDisplayModal.scss';
 
 const GoalDisplayModal = props => {
     const { goals, toggleModal, show } = props;
+
+    const [showAll, setShowAll] = useState(false);
+
+    // const expandAll = (
+    //     <button
+    //         className='modal-button-expand'
+    //         onClick={() => setShowAll(!showAll)}
+    //     >
+    //         Expand All
+    //     </button>
+    // );
+    // console.log('showAll', showAll);
+    // const collapseAll = (
+    //     <button
+    //         className='modal-button-close'
+    //         onClick={() => setShowAll(!showAll)}
+    //     >
+    //         Collapse All
+    //     </button>
+    // );
 
     if (show) {
         return (
@@ -20,6 +40,9 @@ const GoalDisplayModal = props => {
                     <div className='modal-label'>
                         <label>Goals</label>
                     </div>
+                    {/* <div className='expand-collapse-button'>
+                        {showAll ? collapseAll : expandAll}
+                    </div> */}
                     <PerfectScrollbar className='scrollbar-container'>
                         {goals
                             .filter(x => x.goal !== undefined)
@@ -32,6 +55,8 @@ const GoalDisplayModal = props => {
                                         goalDetails={goal.goalDetails}
                                         metGoal={goal.metGoal}
                                         notes={goal.notes}
+                                        showAll={showAll}
+                                        setShowAll={setShowAll}
                                     />
                                 </div>
                             ))}
