@@ -12,6 +12,7 @@
         justify-content: center;
         height: 100%;
         padding: 2rem;
+        cursor: pointer;
     }
     .scheduled-message {
         width: 50%;
@@ -20,6 +21,7 @@
         align-items: center;
         height: 100%;
         padding: 2rem;
+        cursor: pointer;
     }
 }
 .active {
@@ -30,6 +32,7 @@
     align-items: center;
     height: 100%;
     padding: 2rem;
+    cursor: pointer;
 }
 
 .message-container {
@@ -37,8 +40,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-
-    // border: 1px solid orange;
+    width: 100%;
 
     .messages {
         // border: 2px dashed orchid;
