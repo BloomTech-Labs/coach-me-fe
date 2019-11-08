@@ -38,7 +38,8 @@ function ScheduledMessages(props) {
     return (
         <>
             <div className='message-container'>
-                <form onSubmit={submitNewMessage}>
+                <h1 className='new-feature'>Feature coming soon</h1>
+                {/* <form onSubmit={submitNewMessage}>
                     <textarea
                         rows='4'
                         cols='50'
@@ -317,7 +318,7 @@ function ScheduledMessages(props) {
                         required
                     />
                     <button>Submit</button>
-                </form>
+                </form> */}
             </div>
         </>
     );
