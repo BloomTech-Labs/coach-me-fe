@@ -9,10 +9,10 @@ const GoalDisplayModal = props => {
     if (show) {
         return (
             <div className='goal-modal-container'>
-                <div className='label'>
-                    <label>Goals</label>
-                </div>
                 <div className='goal-container'>
+                    <div className='label'>
+                        <label>Goals</label>
+                    </div>
                     <PerfectScrollbar>
                         {goals
                             .filter(x => x.goal !== undefined)
@@ -24,6 +24,7 @@ const GoalDisplayModal = props => {
                                         startDate={goal.startDate}
                                         goalDetails={goal.goalDetails}
                                         metGoal={goal.metGoal}
+                                        notes={goal.notes}
                                     />
                                 </div>
                             ))}

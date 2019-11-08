@@ -35,6 +35,8 @@ const ClientInfo = props => {
         checkIn = state.clientCheckIn;
     }
 
+    console.log('clientInfo', state);
+
     if (clientprofile) {
         return (
             <div className='clientprofile'>

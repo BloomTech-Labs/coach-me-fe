@@ -25,15 +25,11 @@ const GoalsDisplay = props => {
     console.log('GoalsDisplay Component State', state);
     // console.log('GoalsDisplay Component props', props);
 
-    // let goalKeys;
-    // if (Object.keys(state.clientGoals === 'goal')) {
-    //     goalKeys = [...state.clientGoals];
-    // }
-    // goalKeys = goalKeys.find(e => e.goal);
-    // console.log('goalKeys', goalKeys);
-
     return (
-        <div onClick={() => toggleModal()} className='goals-wrapper'>
+        <div className='goals-wrapper'>
+            <div className='label'>
+                <label>Goals</label>
+            </div>
             <button
                 className='goals-wrapper-button'
                 onClick={() => toggleModal()}
@@ -50,6 +46,7 @@ const GoalsDisplay = props => {
                             startDate={goal.startDate}
                             goalDetails={goal.goalDetails}
                             metGoal={goal.metGoal}
+                            notes={goal.notes}
                         />
                     </div>
                 ))}
