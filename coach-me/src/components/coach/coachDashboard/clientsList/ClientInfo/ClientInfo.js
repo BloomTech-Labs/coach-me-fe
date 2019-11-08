@@ -35,22 +35,12 @@ const ClientInfo = props => {
         checkIn = state.clientCheckIn;
     }
 
-    // let conditionType = 'Unknown';
-    // if (clientprofile.conditions === 'Pre-diabetes') {
-    //     conditionType = 'pre-diabetes';
-    // }
-    // if (clientprofile.conditions === 'Diabetes') {
-    //     conditionType = 'diabetes';
-    // }
-    // if (clientprofile.conditions === 'Hypothyroid') {
-    // }
-
     if (clientprofile) {
         return (
             <div className='clientprofile'>
                 <div className='checkin'>
-                    <p>LAST CHECK-IN </p>
-                    <h6 classname='checkin-date'> {checkIn} DAYS AGO</h6>
+                    <p className='checkin-label'>LAST CHECK-IN </p>
+                    <p className='checkin-date'>{`${checkIn} days ago`}</p>
                 </div>
 
                 <MotiveModal
@@ -59,41 +49,34 @@ const ClientInfo = props => {
                     show={show}
                 />
                 <div className='key-details'>
-                    <h1>{clientprofile.clientName}</h1>
+                    <h1 className='name'>{clientprofile.clientName}</h1>
                     <div className='details'>
-                        <div className='condition-container'>
-                            {clientprofile.conditions !== 'Unknown' &&
-                                clientprofile.conditions.map(
-                                    (conditions, i) => (
-                                        <p
-                                            className={`unknown ${
-                                                conditions === 'Pre-diabetes'
-                                                    ? 'pre-diabetes'
-                                                    : null
-                                            } ${
-                                                conditions === 'Diabetes'
-                                                    ? 'diabetes'
-                                                    : null
-                                            } ${
-                                                conditions === 'Hypothyroid'
-                                                    ? 'hypothyroid'
-                                                    : null
-                                            } ${
-                                                conditions ===
-                                                'High blood pressure'
-                                                    ? 'bloodPressure'
-                                                    : null
-                                            } ${
-                                                conditions === 'Other'
-                                                    ? 'other'
-                                                    : null
-                                            }`}
-                                        >
-                                            {conditions}
-                                        </p>
-                                    )
-                                )}
-                        </div>
+                        {clientprofile.conditions !== 'Unknown' &&
+                            clientprofile.conditions.map((conditions, i) => (
+                                <p
+                                    className={`unknown ${
+                                        conditions === 'Pre-diabetes'
+                                            ? 'pre-diabetes'
+                                            : null
+                                    } ${
+                                        conditions === 'Diabetes'
+                                            ? 'diabetes'
+                                            : null
+                                    } ${
+                                        conditions === 'Hypothyroid'
+                                            ? 'hypothyroid'
+                                            : null
+                                    } ${
+                                        conditions === 'High blood pressure'
+                                            ? 'bloodPressure'
+                                            : null
+                                    } ${
+                                        conditions === 'Other' ? 'other' : null
+                                    }`}
+                                >
+                                    {conditions}
+                                </p>
+                            ))}
 
                         <p
                             className={`${
@@ -111,12 +94,15 @@ const ClientInfo = props => {
                         clientprofile.motivations ? 'motivations' : 'ghost'
                     } `}
                 >
-                    <label>Motivation:</label>
-                    <div className='text-container'>
-                        <p> {clientprofile.motivations}</p>
-                    </div>
+                    <div className='motivation-text'>
+                        <label>Motivation:</label>
+                        <p> {`"${clientprofile.motivations}"`}</p>
 
-                    <button onClick={() => toggleModal()}> ...See More</button>
+                        <button onClick={() => toggleModal()}>
+                            {' '}
+                            ...See more
+                        </button>
+                    </div>
                 </div>
             </div>
         );
