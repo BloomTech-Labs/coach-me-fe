@@ -10,27 +10,43 @@
 .Login-Wrapper {
     display: flex;
     height: 100vh;
-    position: relative;
+
     font-family: 'Poppins', sans-serif;
+
     .side-one {
-        width: 55%;
-        background: #274160;
-        padding: 2%;
+        width: 50%;
+        background-image: url('https://imgur.com/BjBin1U.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         justify-content: space-between;
 
-        .circle {
-            background: #c4c4c4;
-            margin-bottom: 40px;
-            width: 80%;
-            height: 75%;
-            border-radius: 50%;
-            align-self: center;
-            justify-self: center;
+        .objective {
+            font-family: DM Sans;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 26px;
+            color: #e6e7e7;
+            // margin: 0 auto;
+            width: 70%;
+            margin-left: 55px;
+        }
+
+        .logo-wrapper {
+            margin-left: 30px;
+            margin-top: 30px;
+            width: 100%;
+
+            .logo {
+                margin-top: -10px;
+                margin-left: 15px;
+            }
         }
     }
+
     .side-two {
         width: 50%;
         padding: 5% 10% 5% 10%;
