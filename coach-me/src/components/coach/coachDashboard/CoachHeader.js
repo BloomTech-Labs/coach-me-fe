@@ -4,8 +4,11 @@ import coachMeIcon from '../../utils/assets/1coachHeader.svg';
 import Coach from '../../utils/assets/2coachHeader.svg';
 import Me from '../../utils/assets/3coachHeader.svg';
 import downArrow from '../../utils/assets/downArrow.svg';
+import { useDispatch, useSelector } from 'react-redux';
 
 const CoachHeader = () => {
+    const state = useSelector(state => state);
+    console.log('state', state);
     return (
         <div className='coach-header'>
             <div className='header-icon'>
