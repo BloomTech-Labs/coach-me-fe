@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgray;
+    background-color: #ffffff;
     height: 4%;
     width: 100%;
+
     .live-message {
         width: 50%;
         display: flex;
@@ -12,6 +13,7 @@
         justify-content: center;
         height: 100%;
         padding: 2rem;
+        opacity: 0.3;
         cursor: pointer;
     }
     .scheduled-message {
@@ -21,17 +23,19 @@
         align-items: center;
         height: 100%;
         padding: 2rem;
+        opacity: 0.3;
         cursor: pointer;
     }
 }
 .active {
-    background-color: rgb(255, 255, 255);
+    background-color: #f6f6f6;
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     padding: 2rem;
+    color: #274160;
     cursor: pointer;
 }
 
@@ -145,8 +149,6 @@ textarea {
     margin-left: 1rem;
 }
 
-// .text-input {
-//     bottom: 0;
-//     position: absolute;
-//     margin: 10px;
-// }
+.scrollbar-container {
+    width: 100%;
+}
