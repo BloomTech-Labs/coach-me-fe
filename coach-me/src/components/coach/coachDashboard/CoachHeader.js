@@ -9,12 +9,13 @@ import { useSelector } from 'react-redux';
 
 const CoachHeader = props => {
     const state = useSelector(state => state.auth);
-    const [coachName, setCoachName] = useState('');
+    // const [coachName, setCoachName] = useState('');
     const [toggle, setToggle] = useState(false);
+    const coachName = localStorage.getItem('coachName');
 
-    useEffect(() => {
-        setCoachName(state.coachName);
-    }, []);
+    // useEffect(() => {
+    //     setCoachName(state.coachName);
+    // }, []);
     console.log('STATE', state);
 
     const toggleLogout = () => {};
