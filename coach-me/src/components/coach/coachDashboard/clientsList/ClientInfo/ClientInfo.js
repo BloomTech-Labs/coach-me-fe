@@ -35,10 +35,16 @@ const ClientInfo = props => {
         checkIn = state.clientCheckIn;
     }
 
+    console.log('clientInfo', state);
+
     if (clientprofile) {
         return (
             <div className='clientprofile'>
-                <h6>{checkIn}</h6>
+                <div className='checkin'>
+                    <p>LAST CHECK-IN </p>
+                    <h6 classname='checkin-date'> {checkIn} DAYS AGO</h6>
+                </div>
+
                 <MotiveModal
                     toggleModal={toggleModal}
                     motivation={clientprofile.motivations}
@@ -48,12 +54,48 @@ const ClientInfo = props => {
                     <h1>{clientprofile.clientName}</h1>
                     <div className='details'>
                         <div className='condition-container'>
-                            {clientprofile.conditions.map(conditions => (
-                                <p>{conditions}</p>
-                            ))}
+                            {clientprofile.conditions !== 'Unknown' &&
+                                clientprofile.conditions.map(
+                                    (conditions, i) => (
+                                        <p
+                                            className={`unknown ${
+                                                conditions === 'Pre-diabetes'
+                                                    ? 'pre-diabetes'
+                                                    : null
+                                            } ${
+                                                conditions === 'Diabetes'
+                                                    ? 'diabetes'
+                                                    : null
+                                            } ${
+                                                conditions === 'Hypothyroid'
+                                                    ? 'hypothyroid'
+                                                    : null
+                                            } ${
+                                                conditions ===
+                                                'High blood pressure'
+                                                    ? 'bloodPressure'
+                                                    : null
+                                            } ${
+                                                conditions === 'Other'
+                                                    ? 'other'
+                                                    : null
+                                            }`}
+                                        >
+                                            {conditions}
+                                        </p>
+                                    )
+                                )}
                         </div>
 
-                        <p>{clientprofile.language}</p>
+                        <p
+                            className={`${
+                                clientprofile.language === 'spanish'
+                                    ? 'spanish'
+                                    : 'english'
+                            }`}
+                        >
+                            {clientprofile.language}
+                        </p>
                     </div>
                 </div>
                 <div
