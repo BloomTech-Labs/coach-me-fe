@@ -7,7 +7,7 @@ import downArrow from '../../utils/assets/downArrow.svg';
 import { useDispatch, useSelector } from 'react-redux';
 
 const CoachHeader = () => {
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.auth);
     console.log('state', state);
     return (
         <div className='coach-header'>
