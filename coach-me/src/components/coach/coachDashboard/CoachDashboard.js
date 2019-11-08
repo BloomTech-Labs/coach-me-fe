@@ -44,9 +44,9 @@ const CoachDashboard = props => {
             <CoachHeader {...props} />
             <div className='coachdashboard-container'>
                 <div className='clientlist-container'>
-                    <PerfectScrollbar>
-                        <SearchForm setClient={setClient} />
-                    </PerfectScrollbar>
+                    {/* <PerfectScrollbar> */}
+                    <SearchForm setClient={setClient} />
+                    {/* </PerfectScrollbar> */}
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />

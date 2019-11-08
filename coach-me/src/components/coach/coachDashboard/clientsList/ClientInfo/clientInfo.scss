@@ -136,6 +136,14 @@
     }
 }
 // styling for client search input in SearchForm.js
+
+.client-list-fixed {
+    position: fixed;
+    width: 15%;
+    height: 85%;
+    overflow-y: scroll;
+}
+
 .search-input {
     text-align: center;
     width: 100%;
@@ -144,28 +152,50 @@
     background-color: #edf2f8;
     padding: 10%;
     border: none;
+    font-size: 1.6rem;
+    color: #717d8b;
 }
 
 .magnifying-glass {
     position: absolute;
     top: 20px;
-    left: 10px;
+    left: 13%;
 }
 
 .ghost {
     display: none;
 }
+
+// .scroll-list {
+//     height: 78vh;
+//     overflow-y: scroll;
+// }
+//custom scroll bar style
+.client-list-fixed::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.client-list-fixed::-webkit-scrollbar-track {
+    display: none;
+}
+
+/* Handle */
+.client-list-fixed::-webkit-scrollbar-thumb {
+    display: none;
+}
+
 .client-card {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #c4cfdd;
+    border: 2px solid #c4cfdd;
     width: 100%;
     padding: 10%;
     background-color: #edf2f8;
     h1 {
         font-family: 'DM Sans';
-        font-size: 1.3rem;
+        font-size: 1.6rem;
         color: #274160;
     }
 }

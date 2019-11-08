@@ -52,7 +52,7 @@ const SearchForm = props => {
     }, [query, clientList]);
 
     return (
-        <>
+        <div className='client-list-fixed'>
             <form>
                 <div className='input-icon'>
                     <img
@@ -70,7 +70,7 @@ const SearchForm = props => {
                 </div>
             </form>
 
-            <div>
+            <div className='scroll-list'>
                 {ClientList &&
                     ClientList.map(client => (
                         <div className='client-card'>
@@ -83,7 +83,7 @@ const SearchForm = props => {
                         </div>
                     ))}
             </div>
-        </>
+        </div>
     );
 };
 export default SearchForm;
