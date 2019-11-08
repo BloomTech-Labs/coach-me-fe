@@ -23,7 +23,7 @@ export const registerCoach = register => dispatch => {
             localStorage.setItem('token', res.data.token);
             dispatch({
                 type: REGISTER_SUCCESS,
-                payload: res.data
+                payload: res.data.coachName
             });
         })
         .catch(err => {
