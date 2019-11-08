@@ -10,6 +10,7 @@ const GoalCard = props => {
     // console.log('GoalCards', props);
 
     const [show, setShow] = useState(false);
+
     const toggleGoal = e => {
         setShow(!show);
     };
@@ -23,9 +24,12 @@ const GoalCard = props => {
         goalMet = <RedX />;
         goalResponse = <p style={{ color: '#FD6C79' }}>Didn't Meet Goal</p>;
     }
+
+    let notes;
     let goalNotes;
-    if (props.notes !== undefined) {
+    if (props.notes !== undefined && show !== false) {
         goalNotes = props.notes;
+        notes = <p>Notes:</p>;
     }
 
     let arrow;
@@ -49,7 +53,13 @@ const GoalCard = props => {
                 <div className='goal-text'>
                     <p>{props.goal}</p>
                 </div>
-                <div className='notes-text'>Notes:{goalNotes}</div>
+                <div
+                    className={`goal-notes ${!show ? 'hidden' : 'not-hidden'}`}
+                >
+                    <p>{notes}</p>
+                    <br />
+                    <p>{goalNotes}</p>
+                </div>
             </div>
             <div className='arrow' onClick={() => toggleGoal(show)}>
                 {arrow}

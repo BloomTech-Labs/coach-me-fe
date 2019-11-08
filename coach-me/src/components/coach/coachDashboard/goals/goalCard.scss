@@ -30,6 +30,16 @@
     font-weight: normal;
     font-size: 1.2rem;
     line-height: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.goal-notes p {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    margin-top: 1rem;
 }
 
 .goal-mas {
@@ -47,6 +57,9 @@
     line-height: 1.3rem;
 }
 
-.notes-text {
+.hidden {
     display: none;
+}
+.not-hidden {
+    display: block;
 }
