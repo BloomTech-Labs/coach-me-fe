@@ -18,10 +18,10 @@ const GoalCard = props => {
     let goalResponse;
     if (props.metGoal === 'Yes') {
         goalMet = <GreenCheck />;
-        goalResponse = <p style={{ color: 'green' }}>Met Goal</p>;
+        goalResponse = <p style={{ color: '#47b881' }}>Met Goal</p>;
     } else {
         goalMet = <RedX />;
-        goalResponse = <p style={{ color: 'red' }}>Didn't Meet Goal</p>;
+        goalResponse = <p style={{ color: '#FD6C79' }}>Didn't Meet Goal</p>;
     }
     let goalNotes;
     if (props.notes !== undefined) {
