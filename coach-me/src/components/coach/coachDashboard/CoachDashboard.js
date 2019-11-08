@@ -12,7 +12,7 @@ import GoalsDisplay from './goals/GoalsDisplay';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
-const CoachDashboard = ({ history }) => {
+const CoachDashboard = props => {
     const [clientprofile, setclientprofile] = useState();
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
@@ -25,7 +25,6 @@ const CoachDashboard = ({ history }) => {
         }
         // eslint-disable-next-line
     }, [token]);
-    console.log('state', state);
 
     //This sets the default patient as the first in the list for the initial load.
     useEffect(() => {
@@ -42,7 +41,7 @@ const CoachDashboard = ({ history }) => {
 
     return (
         <>
-            <CoachHeader />
+            <CoachHeader {...props} />
             <div className='coachdashboard-container'>
                 <div className='clientlist-container'>
                     <PerfectScrollbar>
