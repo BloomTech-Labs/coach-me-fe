@@ -21,7 +21,7 @@
     font-family: DM Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.4rem;
     line-height: 1.3rem;
     color: #1c3048;
 }
@@ -30,18 +30,19 @@
     font-family: DM Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1.6rem;
-    margin-bottom: 2rem;
+    color: #1c3048;
 }
 
 .goal-notes p {
     font-family: DM Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1.6rem;
     margin-top: 1rem;
+    color: #1c3048;
 }
 
 .goal-mas {
@@ -50,13 +51,35 @@
     justify-content: space-between;
     align-items: center;
     // border: 1px solid red;
-    width: 20%;
+    width: 30%;
     text-align: center;
     font-family: DM Sans;
     font-style: normal;
     font-weight: bold;
     font-size: 1rem;
     line-height: 1.3rem;
+
+    .goalMet {
+        width: 100%;
+        height: 50%;
+    }
+
+    .green-check {
+        margin-bottom: 0.6rem;
+        width: 2rem;
+        height: auto;
+    }
+
+    .red-x {
+        margin-bottom: 0.6rem;
+        width: 2rem;
+        height: auto;
+    }
+
+    p {
+        font-size: 1.3rem;
+        margin-right: 0.4rem;
+    }
 }
 
 .hidden {

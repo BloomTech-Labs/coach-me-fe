@@ -55,9 +55,14 @@ function CoachRegistration(props) {
         <div className='Register-Wrapper'>
             <div className='side-one'>
                 <div className='logo-wrapper'>
-                    <Logo />
+                    <Logo className='logo' />
                 </div>
-                <div className='circle'></div>
+                <div className='objective'>
+                    <p>
+                        We're patient-first, a non-profit, and in the fight
+                        against chronic disease.
+                    </p>
+                </div>
             </div>
 
             <div className='side-two'>

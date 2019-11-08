@@ -14,6 +14,7 @@
         height: 100%;
         padding: 2rem;
         opacity: 0.3;
+        cursor: pointer;
     }
     .scheduled-message {
         width: 50%;
@@ -23,6 +24,7 @@
         height: 100%;
         padding: 2rem;
         opacity: 0.3;
+        cursor: pointer;
     }
 }
 .active {
@@ -34,6 +36,7 @@
     height: 100%;
     padding: 2rem;
     color: #274160;
+    cursor: pointer;
 }
 
 .message-container {
@@ -41,8 +44,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-
-    // border: 1px solid orange;
+    width: 100%;
 
     .messages {
         // border: 2px dashed orchid;
@@ -147,8 +149,6 @@ textarea {
     margin-left: 1rem;
 }
 
-// .text-input {
-//     bottom: 0;
-//     position: absolute;
-//     margin: 10px;
-// }
+.scrollbar-container {
+    width: 100%;
+}
