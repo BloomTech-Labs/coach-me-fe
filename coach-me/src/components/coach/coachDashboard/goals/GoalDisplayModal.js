@@ -20,7 +20,7 @@ const GoalDisplayModal = props => {
                     <div className='modal-label'>
                         <label>Goals</label>
                     </div>
-                    <PerfectScrollbar>
+                    <PerfectScrollbar className='scrollbar-container'>
                         {goals
                             .filter(x => x.goal !== undefined)
                             .map((goal, i) => (
