@@ -48,7 +48,11 @@ const ClientInfo = props => {
     if (clientprofile) {
         return (
             <div className='clientprofile'>
-                <h6>{checkIn}</h6>
+                <div className='checkin'>
+                    <p>LAST CHECK-IN </p>
+                    <h6 classname='checkin-date'> {checkIn} DAYS AGO</h6>
+                </div>
+
                 <MotiveModal
                     toggleModal={toggleModal}
                     motivation={clientprofile.motivations}

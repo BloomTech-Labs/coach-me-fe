@@ -25,6 +25,7 @@ const CoachDashboard = ({ history }) => {
         }
         // eslint-disable-next-line
     }, [token]);
+    console.log('state', state);
 
     //This sets the default patient as the first in the list for the initial load.
     useEffect(() => {

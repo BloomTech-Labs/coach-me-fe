@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import LiveMessages from './LiveMessages.js';
 import ScheduledMessages from './ScheduledMessages';
 import './coachMessaging.scss';
+import { ReactComponent as MessageBubble } from '../assets/messageBubble.svg';
+import { ReactComponent as ScheduleBubble } from '../assets/scheduleBubble.svg';
 
 const CoachMessaging = props => {
     const { clientprofile } = props;
@@ -18,6 +20,8 @@ const CoachMessaging = props => {
                         setType(1);
                     }}
                 >
+                    <MessageBubble />
+
                     <h1 className='message-selector'>Messages</h1>
                 </div>
 
@@ -32,6 +36,7 @@ const CoachMessaging = props => {
                     }}
                     active={type === 2}
                 >
+                    <ScheduleBubble />
                     <h1 className='message-selector'>Scheduled a Message</h1>
                 </div>
             </div>
