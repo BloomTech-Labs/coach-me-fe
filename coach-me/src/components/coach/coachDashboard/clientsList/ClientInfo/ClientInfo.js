@@ -108,7 +108,10 @@ const ClientInfo = props => {
                         <p> {clientprofile.motivations}</p>
                     </div>
 
-                    <button onClick={() => toggleModal()}> ...See More</button>
+                    <button className='seemore' onClick={() => toggleModal()}>
+                        {' '}
+                        ...See More
+                    </button>
                 </div>
             </div>
         );

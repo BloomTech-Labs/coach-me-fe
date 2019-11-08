@@ -12,7 +12,9 @@
     flex-direction: column;
     width: 65%;
 }
-
+.arrow {
+    cursor: pointer;
+}
 .start-date {
     width: 70%;
     margin-bottom: 0.8rem;
