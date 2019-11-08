@@ -34,9 +34,9 @@ const GoalCard = props => {
 
     let arrow;
     if (show === false) {
-        arrow = <Arrow />;
-    } else {
         arrow = <ArrowDown />;
+    } else {
+        arrow = <Arrow />;
     }
 
     // console.log('goalNotes', goalNotes);
