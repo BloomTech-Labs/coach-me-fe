@@ -29,18 +29,21 @@
     background: #ffffff;
     border-radius: 20px;
     width: 50%;
-    max-height: 70vh;
-    // overflow-y: scroll;
+    max-height: 80vh;
     padding: 30px 20px;
     .modal-label {
         display: flex;
         justify-content: space-between;
         width: 98%;
         margin: 0 auto;
-        font-size: 2rem;
+        font-size: 2.2rem;
         font-weight: bold;
+        font-family: DM Sans;
+        font-style: normal;
+        line-height: 2.9rem;
         margin-bottom: 1rem;
-        margin-left: 1.5rem;
+        margin-left: 5rem;
+        color: #1c3048;
     }
     .modal-button-close {
         align-self: flex-end;
@@ -77,4 +80,10 @@
     padding: 10px;
     margin: 0.7rem;
     margin-left: 2.2rems;
+}
+
+.scrollbar-container {
+    position: relative;
+    height: 100%;
+    width: 90%;
 }
