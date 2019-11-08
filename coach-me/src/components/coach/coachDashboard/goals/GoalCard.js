@@ -49,6 +49,7 @@ const GoalCard = props => {
                 <div className='goal-text'>
                     <p>{props.goal}</p>
                 </div>
+                <div className='notes-text'>Notes:{goalNotes}</div>
             </div>
             <div className='arrow' onClick={() => toggleGoal(show)}>
                 {arrow}
