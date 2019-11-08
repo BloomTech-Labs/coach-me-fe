@@ -33,7 +33,7 @@ const GoalDisplayModal = props => {
                         className='modal-button'
                         onClick={() => toggleModal(show)}
                     >
-                        close
+                        Close
                     </button>
                 </div>
             </div>

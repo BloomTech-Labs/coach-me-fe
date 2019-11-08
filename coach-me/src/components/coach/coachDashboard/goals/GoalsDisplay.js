@@ -29,13 +29,13 @@ const GoalsDisplay = props => {
         <div className='goals-wrapper'>
             <div className='label'>
                 <label>Goals</label>
+                <button
+                    className='goals-wrapper-button'
+                    onClick={() => toggleModal()}
+                >
+                    View all
+                </button>
             </div>
-            <button
-                className='goals-wrapper-button'
-                onClick={() => toggleModal()}
-            >
-                view all
-            </button>
             {state.clientGoals
                 .filter(x => x.goal !== undefined)
                 .map((goal, i) => (

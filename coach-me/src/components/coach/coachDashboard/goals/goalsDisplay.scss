@@ -16,22 +16,24 @@
     padding: 2rem;
 
     .label {
-        width: 74%;
+        display: flex;
+        justify-content: space-between;
+        width: 98%;
         margin: 0 auto;
         font-size: 2rem;
         font-weight: bold;
+        margin-bottom: 1rem;
     }
 
     .goals-wrapper-button {
-        align-self: flex-end;
         border: none;
         background: none;
         outline: none;
         color: #6d8eb4;
         font-family: DM Sans;
         font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
+        font-weight: bold;
+        font-size: 1.4rem;
         line-height: 16px;
     }
 }
