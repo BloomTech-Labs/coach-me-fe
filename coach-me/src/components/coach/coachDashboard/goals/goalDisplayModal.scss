@@ -7,7 +7,7 @@
 
 .goal-modal-container {
     background-color: black;
-    width: 100%;
+    width: 69.5%;
     min-height: 100vh;
 
     z-index: 2;
@@ -23,9 +23,10 @@
 
 .goal-container {
     @include layout();
-    position: absolute;
-    left: 16%;
-    bottom: 10%;
+    // position: absolute;
+    margin-left: 18%;
+    // left: 10%;
+    // bottom: 25%;
     background: #ffffff;
     border-radius: 20px;
     width: 50%;
