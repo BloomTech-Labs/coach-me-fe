@@ -24,7 +24,7 @@ export const getMessageHistory = liveNumber => dispatch => {
     dispatch({ type: GET_TEXT_START });
     axios
         .get(
-            `https://coach-me-development.herokuapp.com/twilioRoute/messagehistory/${liveNumber}`
+            `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/messagehistory/${liveNumber}`
         )
         .then(res => {
             console.log('getMessageHistory', res.data.message);
@@ -47,10 +47,7 @@ export const postMessage = post => dispatch => {
     dispatch({ type: ADD_TEXT_START });
     axios
 
-        .post(
-            `https://coach-me-development.herokuapp.com/twilioRoute/twilio`,
-            post
-        )
+        .post(`${process.env.REACT_APP_BACK_END_URL}/twilioRoute/twilio`, post)
 
         .then(res => {
             dispatch({
