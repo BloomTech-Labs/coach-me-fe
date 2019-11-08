@@ -35,15 +35,7 @@ const ClientInfo = props => {
         checkIn = state.clientCheckIn;
     }
 
-    // let conditionType = 'Unknown';
-    // if (clientprofile.conditions === 'Pre-diabetes') {
-    //     conditionType = 'pre-diabetes';
-    // }
-    // if (clientprofile.conditions === 'Diabetes') {
-    //     conditionType = 'diabetes';
-    // }
-    // if (clientprofile.conditions === 'Hypothyroid') {
-    // }
+    console.log('clientInfo', state);
 
     if (clientprofile) {
         return (

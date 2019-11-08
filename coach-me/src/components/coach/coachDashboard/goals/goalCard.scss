@@ -16,6 +16,30 @@
 .start-date {
     width: 70%;
     margin-bottom: 0.8rem;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    color: #1c3048;
+}
+
+.goal-text p {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.goal-notes p {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    margin-top: 1rem;
 }
 
 .goal-mas {
@@ -26,4 +50,16 @@
     // border: 1px solid red;
     width: 20%;
     text-align: center;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.3rem;
+}
+
+.hidden {
+    display: none;
+}
+.not-hidden {
+    display: block;
 }

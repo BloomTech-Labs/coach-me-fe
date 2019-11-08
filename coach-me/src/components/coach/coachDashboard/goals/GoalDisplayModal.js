@@ -1,6 +1,7 @@
 import React from 'react';
 import GoalCard from './GoalCard';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import Xicon from '../../../utils/assets/Xicon.svg';
 import './goalDisplayModal.scss';
 
 const GoalDisplayModal = props => {
@@ -9,10 +10,16 @@ const GoalDisplayModal = props => {
     if (show) {
         return (
             <div className='goal-modal-container'>
-                <div className='label'>
-                    <label>Goals</label>
-                </div>
                 <div className='goal-container'>
+                    <img
+                        className='modal-button-close'
+                        alt='X'
+                        src={Xicon}
+                        onClick={() => toggleModal(show)}
+                    ></img>
+                    <div className='modal-label'>
+                        <label>Goals</label>
+                    </div>
                     <PerfectScrollbar>
                         {goals
                             .filter(x => x.goal !== undefined)
@@ -24,6 +31,7 @@ const GoalDisplayModal = props => {
                                         startDate={goal.startDate}
                                         goalDetails={goal.goalDetails}
                                         metGoal={goal.metGoal}
+                                        notes={goal.notes}
                                     />
                                 </div>
                             ))}
@@ -32,7 +40,7 @@ const GoalDisplayModal = props => {
                         className='modal-button'
                         onClick={() => toggleModal(show)}
                     >
-                        close
+                        Close
                     </button>
                 </div>
             </div>

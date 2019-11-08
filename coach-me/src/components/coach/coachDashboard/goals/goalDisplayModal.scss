@@ -29,9 +29,23 @@
     background: #ffffff;
     border-radius: 20px;
     width: 50%;
-    max-height: 50vh;
+    max-height: 70vh;
     // overflow-y: scroll;
     padding: 30px 20px;
+    .modal-label {
+        display: flex;
+        justify-content: space-between;
+        width: 98%;
+        margin: 0 auto;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        margin-left: 1.5rem;
+    }
+    .modal-button-close {
+        align-self: flex-end;
+        margin-right: 4rem;
+    }
     .modal-button {
         align-self: center;
         border: none;
@@ -40,9 +54,15 @@
         color: #6d8eb4;
         font-family: DM Sans;
         font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 16px;
+        font-weight: bold;
+        font-size: 1.4rem;
+        text-decoration-line: underline;
+        margin-top: 1rem;
+        // font-weight: 500;
+        // line-height: 16px;
+        .close {
+            border: 1px solid red;
+        }
     }
 }
 .goal-box {
@@ -51,16 +71,10 @@
     font-family: 'DM Sans', sans-serif;
     font-style: normal;
     border-radius: 20px;
+    border: 1px solid #c4cfdd;
     background: #f6f6f6;
     width: 90%;
     padding: 10px;
     margin: 0.7rem;
     margin-left: 2.2rems;
-
-    .label {
-        width: 74%;
-        margin: 0 auto;
-        font-size: 2rem;
-        font-weight: bold;
-    }
 }
