@@ -11,3 +11,14 @@ describe('Input Test', () => {
             .should('have.value', text);
     });
 });
+
+describe('Modal Input Test', () => {
+    it('Modal Accepts Input', () => {
+        const text = 'Perfect';
+        cy.visit('/login');
+        cy.get('.forgot').click();
+        cy.get('[data-cy=input4]')
+            .type(text)
+            .should('have.value', text);
+    });
+});
