@@ -1,3 +1,4 @@
+// Creates command coachlogin that sets keys to localStorage and visits /dashboard
 Cypress.Commands.add('coachlogin', uid => {
     window.localStorage.setItem(
         'token',
@@ -7,6 +8,7 @@ Cypress.Commands.add('coachlogin', uid => {
     cy.visit('/dashboard');
 });
 
+// Visits /dashboard and checks if search bar receives text
 describe('Input Test', () => {
     before(() => {
         cy.coachlogin();

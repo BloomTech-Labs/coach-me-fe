@@ -15,6 +15,7 @@ describe('Input Test', () => {
     });
 });
 
+// Tests if page routes when link is clicked
 describe('Route Test', () => {
     it('Tests if page routes correctly', () => {
         cy.visit('/register');

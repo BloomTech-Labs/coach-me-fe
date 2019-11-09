@@ -12,6 +12,7 @@ describe('Input Test', () => {
     });
 });
 
+// Tests if modal opens and receives text
 describe('Modal Input Test', () => {
     it('Modal Accepts Input', () => {
         const text = 'Perfect';
@@ -23,6 +24,7 @@ describe('Modal Input Test', () => {
     });
 });
 
+// Tests if page routes when link is clicked
 describe('Route Test', () => {
     it('Tests if page routes correctly', () => {
         cy.visit('/login');
@@ -33,7 +35,9 @@ describe('Route Test', () => {
     });
 });
 
-// Modal Testing
+// Modal Testing //
+
+// Checks of modal opens, closes, and inputs text
 describe('Modal Cancel', () => {
     it('Modal cancels and inputs to login fields', () => {
         const text = 'Perfect';
