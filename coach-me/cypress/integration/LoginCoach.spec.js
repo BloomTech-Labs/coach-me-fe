@@ -22,3 +22,13 @@ describe('Modal Input Test', () => {
             .should('have.value', text);
     });
 });
+
+describe('Route Test', () => {
+    it('Tests if page routes correctly', () => {
+        cy.visit('/login');
+
+        cy.get('.register').click();
+
+        cy.url().should('include', '/register');
+    });
+});
