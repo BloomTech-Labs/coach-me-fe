@@ -32,3 +32,16 @@ describe('Route Test', () => {
         cy.url().should('include', '/register');
     });
 });
+
+// Modal Testing
+describe('Modal Cancel', () => {
+    it('Modal cancels and inputs to login fields', () => {
+        const text = 'Perfect';
+        cy.visit('/login');
+        cy.get('.forgot').click();
+        cy.get('.cancel').click();
+        cy.get('[data-cy=input1]')
+            .type(text)
+            .should('have.value', text);
+    });
+});
