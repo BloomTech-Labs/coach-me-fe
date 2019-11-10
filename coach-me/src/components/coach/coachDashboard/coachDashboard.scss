@@ -7,7 +7,9 @@
     .clientlist-container {
         width: 15%;
         border: 2px solid rgba(0, 0, 0, 0.05);
-        // position: fixed;
+        form {
+            margin-top: -20px;
+        }
     }
     .clientinfo-container {
         width: 60%;

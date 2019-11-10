@@ -11,6 +11,10 @@
     background: #fdfdfd;
     padding: 5px 2rem;
 
+    .seemore {
+        cursor: pointer;
+    }
+
     .checkin {
         display: flex;
         justify-content: flex-end;
@@ -154,12 +158,13 @@
     border: none;
     font-size: 1.6rem;
     color: #717d8b;
+    border: 1px solid #c4cfdd;
 }
 
 .magnifying-glass {
-    position: absolute;
-    top: 20px;
-    left: 13%;
+    position: relative;
+    top: 38px;
+    left: 22px;
 }
 
 .ghost {
@@ -196,6 +201,7 @@
     h1 {
         font-family: 'DM Sans';
         font-size: 1.6rem;
+        text-align: center;
         color: #274160;
     }
 }
@@ -206,4 +212,8 @@
     h1 {
         color: #ffffff;
     }
+}
+
+.scrollbar-container {
+    width: 100%;
 }

@@ -25,21 +25,17 @@ const GoalsDisplay = props => {
     console.log('GoalsDisplay Component State', state);
     // console.log('GoalsDisplay Component props', props);
 
-    // let goalKeys;
-    // if (Object.keys(state.clientGoals === 'goal')) {
-    //     goalKeys = [...state.clientGoals];
-    // }
-    // goalKeys = goalKeys.find(e => e.goal);
-    // console.log('goalKeys', goalKeys);
-
     return (
-        <div onClick={() => toggleModal()} className='goals-wrapper'>
-            <button
-                className='goals-wrapper-button'
-                onClick={() => toggleModal()}
-            >
-                view all
-            </button>
+        <div className='goals-wrapper'>
+            <div className='label'>
+                <label>Goals</label>
+                <button
+                    className='goals-wrapper-button'
+                    onClick={() => toggleModal()}
+                >
+                    View all
+                </button>
+            </div>
             {state.clientGoals
                 .filter(x => x.goal !== undefined)
                 .map((goal, i) => (
@@ -50,6 +46,7 @@ const GoalsDisplay = props => {
                             startDate={goal.startDate}
                             goalDetails={goal.goalDetails}
                             metGoal={goal.metGoal}
+                            notes={goal.notes}
                         />
                     </div>
                 ))}

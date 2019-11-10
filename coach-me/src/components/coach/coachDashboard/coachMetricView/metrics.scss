@@ -1,19 +1,19 @@
 .dash-metric-container {
     width: 100%;
-    max-width: 1000px;
+    // max-width: 1000px;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 30px 0;
+    margin: 1.5rem 0;
 
     .graph-container {
         width: 90%;
         border-radius: 20px;
         background: #ffffff;
         padding: 20px;
-        margin: 20px;
+        // margin: 20px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -53,7 +53,7 @@
     justify-content: center;
     align-items: center;
     padding: 25px 0 25px 0;
-    margin: 20px;
+    margin: 3rem 2rem 0 2rem;
     width: 90%;
 
     .metric-history-header {
@@ -191,7 +191,7 @@
     .metric-date {
         color: #717d8b;
         font-weight: normal;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         // border: 1px solid red;
     }
 

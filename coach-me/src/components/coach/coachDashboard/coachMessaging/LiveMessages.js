@@ -69,7 +69,7 @@ function LiveMessages(props) {
         <div>
             {/* contains get request twilio data */}
 
-            <PerfectScrollbar>
+            <PerfectScrollbar className='scrollbar-container'>
                 <ScrollToBottom>
                     <div className='message-container'>
                         {state.coach.messageHistory &&
@@ -84,7 +84,9 @@ function LiveMessages(props) {
                                 >
                                     <p className='text'>{m.body}</p>
                                     <p className='time'>
-                                        {moment(m.dateSent).format('MMM Do')}
+                                        {moment(m.dateSent).format(
+                                            'MMMM Do YYYY, h:mm a'
+                                        )}
                                     </p>
                                 </div>
                             ))}
