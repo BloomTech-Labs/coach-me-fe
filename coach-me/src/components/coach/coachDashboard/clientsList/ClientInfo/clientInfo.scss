@@ -139,13 +139,11 @@
         }
     }
 }
+
 // styling for client search input in SearchForm.js
 
-.client-list-fixed {
-    position: fixed;
-    width: 15%;
-    height: 85%;
-    overflow-y: scroll;
+.search-form {
+    margin-right: 10px;
 }
 
 .search-input {
@@ -171,23 +169,31 @@
     display: none;
 }
 
-// .scroll-list {
-//     height: 78vh;
-//     overflow-y: scroll;
-// }
+.scroll-list {
+    overflow-y: scroll;
+}
+
 //custom scroll bar style
-.client-list-fixed::-webkit-scrollbar {
+.scroll-list::-webkit-scrollbar {
     width: 10px;
 }
 
 /* Track */
-.client-list-fixed::-webkit-scrollbar-track {
+.scroll-list::-webkit-scrollbar-track {
     display: none;
+}
+.scroll-list::-webkit-scrollbar-track:hover {
+    display: block;
+    background-color: rgba(201, 201, 201, 0.15);
 }
 
 /* Handle */
-.client-list-fixed::-webkit-scrollbar-thumb {
-    display: none;
+.scroll-list::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #c4cfdda9;
+}
+.scroll-list::-webkit-scrollbar-thumb:hover {
+    background: #6d747c;
 }
 
 .client-card {
@@ -212,8 +218,4 @@
     h1 {
         color: #ffffff;
     }
-}
-
-.scrollbar-container {
-    width: 100%;
 }

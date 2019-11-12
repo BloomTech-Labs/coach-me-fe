@@ -52,8 +52,8 @@ const SearchForm = props => {
     }, [query, clientList]);
 
     return (
-        <div className='client-list-fixed'>
-            <form>
+        <>
+            <form className='search-form'>
                 <div className='input-icon'>
                     <img
                         className='magnifying-glass icon'
@@ -83,7 +83,7 @@ const SearchForm = props => {
                         </div>
                     ))}
             </div>
-        </div>
+        </>
     );
 };
 export default SearchForm;
