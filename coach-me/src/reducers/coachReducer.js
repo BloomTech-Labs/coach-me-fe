@@ -12,12 +12,14 @@ import {
     GET_METRICS_FAILURE,
     GET_CHECKIN,
     GET_GOALS,
-    POST_SCHEDULE_MESSAGE_START,
-    POST_SCHEDULE_MESSAGE_SUCCESS,
+    ADD_SCHEDULE_MESSAGE_START,
+    ADD_SCHEDULE_MESSAGE_SUCCESS,
     GET_SCHEDULE_MESSAGE_START,
     GET_SCHEDULE_MESSAGE_SUCCESS,
     DELETE_SCHEDULE_MESSAGE_START,
-    DELETE_SCHEDULE_MESSAGE_SUCCESS
+    DELETE_SCHEDULE_MESSAGE_SUCCESS,
+    UPDATE_SCHEDULE_MESSAGE_START,
+    UPDATE_SCHEDULE_MESSAGE_SUCCESS
 } from '../actions/types';
 const initialState = {
     messageHistory: [],
@@ -111,6 +113,10 @@ export default (state = initialState, action) => {
                 loading: false,
                 clientGoals: [...action.payload],
                 error: ''
+            };
+        case ADD_SCHEDULE_MESSAGE_START:
+            return {
+                ...state
             };
         case GET_METRICS_FAILURE:
         case GET_RECORDS_FAILURE:
