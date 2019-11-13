@@ -49,6 +49,7 @@
     .modal-button-close {
         align-self: flex-end;
         margin-right: 4rem;
+        cursor: pointer;
     }
     .modal-button {
         align-self: center;
@@ -62,6 +63,7 @@
         font-size: 1.4rem;
         text-decoration-line: underline;
         margin-top: 1rem;
+        cursor: pointer;
         // font-weight: 500;
         // line-height: 16px;
         .close {
@@ -83,8 +85,8 @@
     margin-left: 2.2rems;
 }
 
-.scrollbar-container {
-    position: relative;
-    height: 100%;
-    width: 90%;
-}
+// .scrollbar-container {
+//     position: relative;
+//     height: 100%;
+//     width: 90%;
+// }
