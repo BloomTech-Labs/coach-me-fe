@@ -59,6 +59,7 @@ const UserPhoneNumber = props => {
                     <div className='num-inputs'>
                         <span>(</span>
                         <input
+                            data-cy='input1'
                             type='number'
                             id='txt1'
                             maxLength='3'
@@ -75,6 +76,7 @@ const UserPhoneNumber = props => {
 
                         <span>)</span>
                         <input
+                            data-cy='input2'
                             type='number'
                             id='txt2'
                             maxLength='3'
@@ -90,6 +92,7 @@ const UserPhoneNumber = props => {
                         />
                         <span>-</span>
                         <input
+                            data-cy='input3'
                             type='number'
                             id='txt3'
                             max='9999'
