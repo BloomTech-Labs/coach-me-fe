@@ -26,7 +26,6 @@ const headers = {
 };
 
 export const getMessageHistory = liveNumber => dispatch => {
-    console.log('liiiive number', liveNumber);
     dispatch({ type: GET_TEXT_START });
     axios
         .get(
@@ -170,6 +169,37 @@ export const getGoals = id => dispatch => {
 
 // get scheduled message
 
+export const getScheduledMessage = id => dispatch => {
+    console.log('getScheduledMessages ID', id);
+    dispatch({ type: GET_SCHEDULE_MESSAGE_START });
+    axios
+        .get(
+            `https://coach-me-development.herokuapp.com/twilioRoute/getScheduled/${id}`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            console.log('getScheduledMessages', results.data);
+            // const scheduledMessage = [...results.data.scheduledMessage];
+            dispatch({
+                type: GET_SCHEDULE_MESSAGE_SUCCESS,
+                payload: results.data.data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+};
+
 // post scheduled message
 
 // delete scheduled message
+
+// update scheduled message
