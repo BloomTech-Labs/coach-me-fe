@@ -61,6 +61,7 @@ const SearchForm = props => {
                         src={magnifying}
                     ></img>
                     <input
+                        data-cy='search'
                         className='search-input'
                         onChange={handleChange}
                         placeholder='Search Client'

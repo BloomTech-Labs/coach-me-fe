@@ -25,7 +25,18 @@ const initialState = {
     clientRecords: [],
     clientMetrics: [],
     clientCheckIn: '',
-    clientGoals: []
+    clientGoals: [],
+    scheduledMessage: {
+        patientId: '',
+        msg: '',
+        min: '',
+        hour: '',
+        dom: '',
+        month: '',
+        weekday: '',
+        sec: '',
+        numbers: ''
+    }
 };
 
 export default (state = initialState, action) => {

@@ -75,6 +75,7 @@ const LoginCoach = props => {
                             <div className='input-layout'>
                                 <label>Email</label>
                                 <input
+                                    data-cy='input1'
                                     type='text'
                                     placeholder='Email'
                                     name='E-Mail'
@@ -86,6 +87,7 @@ const LoginCoach = props => {
                             <div className='input-layout'>
                                 <label>Password</label>
                                 <input
+                                    data-cy='input2'
                                     type='password'
                                     placeholder='Password'
                                     name='password'

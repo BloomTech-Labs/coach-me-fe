@@ -56,6 +56,7 @@ const Modal = ({ setModal }) => {
                 </div>
                 <div className='input-container'>
                     <input
+                        data-cy='input4'
                         placeholder='Email'
                         name='email'
                         onChange={handleChange}
