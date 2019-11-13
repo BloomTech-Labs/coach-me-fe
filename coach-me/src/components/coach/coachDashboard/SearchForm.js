@@ -53,7 +53,7 @@ const SearchForm = props => {
 
     return (
         <>
-            <form>
+            <form className='search-form'>
                 <div className='input-icon'>
                     <img
                         className='magnifying-glass icon'
@@ -71,7 +71,7 @@ const SearchForm = props => {
                 </div>
             </form>
 
-            <div>
+            <div className='scroll-list'>
                 {ClientList &&
                     ClientList.map(client => (
                         <div className='client-card'>
