@@ -10,7 +10,6 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import moment from 'moment';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { of } from 'rxjs';
-import socketIOClient from 'socket.io-client';
 
 function LiveMessages(props) {
     // console.log(props);
@@ -22,8 +21,6 @@ function LiveMessages(props) {
         message: '',
         Phone: ''
     });
-    const [response, setResponse] = useState(false);
-    const [endpoint, setEndpoint] = useState(process.env.BACK_END_URL);
 
     useEffect(() => {
         if (clientprofile) {
@@ -46,15 +43,6 @@ function LiveMessages(props) {
         }
     }, [clientprofile]);
 
-    useEffect(() => {
-        const socket = socketIOClient(endpoint);
-        socket.on('FromAPI', res => setResponse(res));
-        socket.emit('start', {
-            profile: clientprofile,
-            phone: clientprofile.clientPhone
-        });
-    }, []);
-
     const handleInputChange = e => {
         setMessage({ ...message, message: e.target.value });
     };
@@ -76,8 +64,6 @@ function LiveMessages(props) {
             // e.preventDefault();
         }
     };
-
-    console.log('RESPONSE', response);
 
     return (
         <div>
