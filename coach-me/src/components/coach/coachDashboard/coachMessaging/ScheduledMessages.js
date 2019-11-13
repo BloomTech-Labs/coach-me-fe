@@ -14,8 +14,9 @@ function ScheduledMessages(props) {
         dom: '',
         month: '',
         weekday: '',
-        sec: '',
-        numbers: ''
+        numbers: '',
+        ampm: '',
+        year: ''
     });
 
     const handleInputChange = e => {

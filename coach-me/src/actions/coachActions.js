@@ -12,7 +12,13 @@ import {
     GET_METRICS_SUCCESS,
     GET_METRICS_FAILURE,
     GET_CHECKIN,
-    GET_GOALS
+    GET_GOALS,
+    POST_SCHEDULE_MESSAGE_START,
+    POST_SCHEDULE_MESSAGE_SUCCESS,
+    GET_SCHEDULE_MESSAGE_START,
+    GET_SCHEDULE_MESSAGE_SUCCESS,
+    DELETE_SCHEDULE_MESSAGE_START,
+    DELETE_SCHEDULE_MESSAGE_SUCCESS
 } from './types';
 
 const headers = {
@@ -161,3 +167,9 @@ export const getGoals = id => dispatch => {
             });
         });
 };
+
+// get scheduled message
+
+// post scheduled message
+
+// delete scheduled message
