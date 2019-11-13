@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ScheduledMessagesList from './ScheduledMessagesList';
+import { getScheduledMessage } from '../../../../actions/coachActions';
 import axios from 'axios';
 import './ScheduledMessages.scss';
 
 function ScheduledMessages(props) {
+    const { clientprofile } = props;
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    const [sec, setSec] = useState('');
+    console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
+        patientId: `${clientprofile.clientId}`,
         msg: '',
         min: '',
         hour: '',
         dom: '',
         month: '',
         weekday: '',
-        numbers: '',
         ampm: '',
         year: ''
     });
+
+    useEffect(() => {
+        // if(clientprofile) {
+
+        // }
+        dispatch(getScheduledMessage(clientprofile.clientId));
+        // eslint-disable-next-line
+    }, [clientprofile]);
 
     const handleInputChange = e => {
         e.preventDefault();
@@ -28,14 +39,17 @@ function ScheduledMessages(props) {
     const submitNewMessage = e => {
         e.preventDefault();
         axios
-            .post('http://localhost:4000/twilioRoute/schedule', schedule)
+            .post(
+                'https://coach-me-development.herokuapp.com/twilioRoute/postScheduled',
+                schedule
+            )
             .then(res => {
-                console.log(schedule);
+                console.log('This is the schedule info', schedule);
                 console.log(res, 'res');
             })
             .catch(err => console.log(err));
     };
-    console.log(schedule.sec, 'seconds');
+    console.log(clientprofile);
     return (
         <>
             <div className='message-container'>
@@ -51,6 +65,44 @@ function ScheduledMessages(props) {
                         placeholder='Type your message here'
                         required
                     ></textarea>
+
+                    <div className='selectheader'>
+                        <select
+                            name='hour'
+                            value={schedule.hour}
+                            onChange={handleInputChange}
+                        >
+                            <option value='' disabled selected>
+                                Hour
+                            </option>
+                            <option value={'1'}>1</option>
+                            <option value={'2'}>2</option>
+                            <option value={'3'}>3</option>
+                            <option value={'4'}>4</option>
+                            <option value={'5'}>5</option>
+                            <option value={'6'}>6</option>
+                            <option value={'7'}>7</option>
+                            <option value={'8'}>8</option>
+                            <option value={'9'}>9</option>
+                            <option value={'10'}>10</option>
+                            <option value={'11'}>11</option>
+                            <option value={'12'}>12</option>
+                        </select>
+                    </div>
+                    <div className='selectheader'>
+                        <select
+                            name='ampm'
+                            value={schedule.ampm}
+                            onChange={handleInputChange}
+                        >
+                            <option value='' disabled selected>
+                                AM/PM
+                            </option>
+                            <option value={'AM'}>AM</option>
+                            <option value={'PM'}>PM</option>
+                        </select>
+                    </div>
+
                     <div className='selectheader'>
                         <select
                             name='min'
@@ -124,25 +176,25 @@ function ScheduledMessages(props) {
                     </div>
                     <div className='selectheader'>
                         <select
-                            name='hour'
-                            value={schedule.hour}
+                            name='month'
+                            value={schedule.month}
                             onChange={handleInputChange}
                         >
                             <option value='' disabled selected>
-                                Hour
+                                Month
                             </option>
-                            <option value={'1'}>1</option>
-                            <option value={'2'}>2</option>
-                            <option value={'3'}>3</option>
-                            <option value={'4'}>4</option>
-                            <option value={'5'}>5</option>
-                            <option value={'6'}>6</option>
-                            <option value={'7'}>7</option>
-                            <option value={'8'}>8</option>
-                            <option value={'9'}>9</option>
-                            <option value={'10'}>10</option>
-                            <option value={'11'}>11</option>
-                            <option value={'12'}>12</option>
+                            <option value={'Jan'}>January</option>
+                            <option value={'Feb'}>February</option>
+                            <option value={'Mar'}>March</option>
+                            <option value={'Apr'}>April</option>
+                            <option value={'May'}>May</option>
+                            <option value={'Jun'}>June</option>
+                            <option value={'Jul'}>July</option>
+                            <option value={'Aug'}>August</option>
+                            <option value={'Sep'}>September</option>
+                            <option value={'Oct'}>October</option>
+                            <option value={'Nov'}>November</option>
+                            <option value={'Dec'}>December</option>
                         </select>
                     </div>
                     <div className='selectheader'>
@@ -189,25 +241,40 @@ function ScheduledMessages(props) {
                     </div>
                     <div className='selectheader'>
                         <select
-                            name='month'
-                            value={schedule.month}
+                            name='year'
+                            value={schedule.year}
                             onChange={handleInputChange}
                         >
                             <option value='' disabled selected>
-                                Month
+                                year
                             </option>
-                            <option value={'Jan'}>January</option>
-                            <option value={'Feb'}>February</option>
-                            <option value={'Mar'}>March</option>
-                            <option value={'Apr'}>April</option>
-                            <option value={'May'}>May</option>
-                            <option value={'Jun'}>June</option>
-                            <option value={'Jul'}>July</option>
-                            <option value={'Aug'}>August</option>
-                            <option value={'Sep'}>September</option>
-                            <option value={'Oct'}>October</option>
-                            <option value={'Nov'}>November</option>
-                            <option value={'Dec'}>December</option>
+                            <option value={'2019'}>2019</option>
+                            <option value={'2020'}>2020</option>
+                            <option value={'2021'}>2021</option>
+                            <option value={'2022'}>2022</option>
+                            <option value={'2023'}>2023</option>
+                            <option value={'2024'}>2024</option>
+                            <option value={'2025'}>2025</option>
+                            <option value={'2026'}>2026</option>
+                            <option value={'2027'}>2027</option>
+                            <option value={'2028'}>2028</option>
+                            <option value={'2029'}>2029</option>
+                            <option value={'2030'}>2030</option>
+                            <option value={'2031'}>2031</option>
+                            <option value={'2032'}>2032</option>
+                            <option value={'2033'}>2033</option>
+                            <option value={'2034'}>2034</option>
+                            <option value={'2035'}>2035</option>
+                            <option value={'2035'}>2035</option>
+                            <option value={'2036'}>2036</option>
+                            <option value={'2037'}>2037</option>
+                            <option value={'2038'}>2038</option>
+                            <option value={'2039'}>2039</option>
+                            <option value={'2040'}>2040</option>
+                            <option value={'2041'}>2041</option>
+                            <option value={'2042'}>2042</option>
+                            <option value={'2043'}>2043</option>
+                            <option value={'2045'}>2045</option>
                         </select>
                     </div>
                     <div className='selectheader'>
@@ -228,8 +295,12 @@ function ScheduledMessages(props) {
                             <option value={'Saturday'}>Saturday</option>
                         </select>
                     </div>
+
                     <button>Submit</button>
                 </form>
+            </div>
+            <div>
+                <ScheduledMessagesList />
             </div>
         </>
     );

@@ -7,6 +7,7 @@ import { ReactComponent as ScheduleBubble } from '../assets/scheduleBubble.svg';
 
 const CoachMessaging = props => {
     const { clientprofile } = props;
+    // console.log(clientprofile)
     const [type, setType] = useState(1);
 
     return (
@@ -45,7 +46,9 @@ const CoachMessaging = props => {
                     case 1:
                         return <LiveMessages clientprofile={clientprofile} />;
                     case 2:
-                        return <ScheduledMessages />;
+                        return (
+                            <ScheduledMessages clientprofile={clientprofile} />
+                        );
                     default:
                         return <LiveMessages />;
                 }
