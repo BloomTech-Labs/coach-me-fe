@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgray;
+    background-color: #ffffff;
     height: 4%;
     width: 100%;
+
     .live-message {
         width: 50%;
         display: flex;
@@ -12,6 +13,7 @@
         justify-content: center;
         height: 100%;
         padding: 2rem;
+        opacity: 0.3;
         cursor: pointer;
     }
     .scheduled-message {
@@ -21,17 +23,19 @@
         align-items: center;
         height: 100%;
         padding: 2rem;
+        opacity: 0.3;
         cursor: pointer;
     }
 }
 .active {
-    background-color: rgb(255, 255, 255);
+    background-color: #f6f6f6;
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     padding: 2rem;
+    color: #274160;
     cursor: pointer;
 }
 
@@ -98,6 +102,11 @@ textarea {
     outline: none;
     padding: 2rem;
     border: none;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
 }
 .message-wrapper {
     border: 2px solid rgba(0, 0, 0, 0.05);

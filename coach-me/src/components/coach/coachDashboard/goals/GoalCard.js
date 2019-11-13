@@ -24,10 +24,10 @@ const GoalCard = props => {
     let goalMet;
     let goalResponse;
     if (props.metGoal === 'Yes') {
-        goalMet = <GreenCheck />;
+        goalMet = <GreenCheck className='green-check' />;
         goalResponse = <p style={{ color: '#47b881' }}>Met Goal</p>;
     } else {
-        goalMet = <RedX />;
+        goalMet = <RedX className='red-x' />;
         goalResponse = <p style={{ color: '#FD6C79' }}>Didn't Meet Goal</p>;
     }
 
