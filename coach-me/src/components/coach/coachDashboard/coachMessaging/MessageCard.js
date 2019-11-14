@@ -1,35 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-    updateScheduledMessage,
-    deleteScheduledMessage
+    deleteScheduledMessage,
+    getScheduledMessage,
+    updateScheduledMessage
 } from '../../../../actions/coachActions';
+// import UpdateModal from './UpdateModal'
 import { useDispatch, useSelector } from 'react-redux';
 
 const MessageCard = props => {
-    const { item } = props;
-    const state = useSelector(state => state);
+    const { item, removedMessage } = props;
+
     const dispatch = useDispatch();
-    console.log('MessageCard STATE', item);
+
+    const [show, setShow] = useState(false);
+
+    // useEffect(() => {
+    //     // if(clientprofile) {
+    //     // }
+
+    //     dispatch(getScheduledMessage(props.clientId));
+    //     // eslint-disable-next-line
+    // }, [props.clientId]);
+
+    const toggleModal = e => {
+        setShow(!show);
+    };
+
     return (
         <>
             <div style={{ border: '1px solid red' }}>
                 <div>
-                    <h1>{item.mon}</h1>
-                    <h1>{item.dom}</h1>
-                    <h1>{item.year}</h1>
-                    <h1>{item.msg}</h1>
+                    <p>{item.month}</p>
+                    <p>{item.dom}</p>
+                    <p>{item.year}</p>
+                    <p>{item.msg}</p>
                 </div>
 
                 <div className='button-container'>
-                    <button> Edit </button>
+                    <button onClick={() => toggleModal()}> Edit </button>
                     <button
-                        onClick={() => {
+                        onClick={e => {
+                            e.stopPropagation();
                             dispatch(deleteScheduledMessage(item.scheduleId));
+                            removedMessage(item.scheduleId);
                         }}
                     >
                         {' '}
                         Delete
                     </button>
+                    {/* <UpdateModal toggleModal={toggleModal} show={show}/> */}
                 </div>
             </div>
         </>

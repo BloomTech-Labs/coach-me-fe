@@ -47,7 +47,10 @@ const CoachMessaging = props => {
                         return <LiveMessages clientprofile={clientprofile} />;
                     case 2:
                         return (
-                            <ScheduledMessages clientprofile={clientprofile} />
+                            <ScheduledMessages
+                                clientprofile={clientprofile}
+                                type={type}
+                            />
                         );
                     default:
                         return <LiveMessages />;

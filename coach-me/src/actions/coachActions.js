@@ -13,8 +13,8 @@ import {
     GET_METRICS_FAILURE,
     GET_CHECKIN,
     GET_GOALS,
-    // ADD_SCHEDULE_MESSAGE_START,
-    // ADD_SCHEDULE_MESSAGE_SUCCESS,
+    ADD_SCHEDULE_MESSAGE_START,
+    ADD_SCHEDULE_MESSAGE_SUCCESS,
     GET_SCHEDULE_MESSAGE_START,
     GET_SCHEDULE_MESSAGE_SUCCESS,
     DELETE_SCHEDULE_MESSAGE_START,
@@ -201,39 +201,39 @@ export const getScheduledMessage = id => dispatch => {
 };
 
 // post scheduled message
-// export const addScheduledMessage = message => dispatch => {
-//     console.log('getScheduledMessages ID', message);
-//     dispatch({ type: ADD_SCHEDULE_MESSAGE_START });
-//     axios
-//         .post(
-//             `https://coach-me-development.herokuapp.com/twilioRoute/schedule`,
-//             message,
-//             {
-//                 headers: {
-//                     Authorization: localStorage.getItem('token')
-//                 }
-//             }
-//         )
-//         .then(results => {
-//             console.log('postScheduledMessage', results.data);
-//             dispatch({
-//                 type: ADD_SCHEDULE_MESSAGE_SUCCESS,
-//                 payload: results.data
-//             });
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             dispatch({
-//                 type: COACH_ERROR,
-//                 payload: err.message
-//             });
-//         });
-// };
+export const addScheduledMessage = message => dispatch => {
+    console.log('getScheduledMessages ID', message);
+    dispatch({ type: ADD_SCHEDULE_MESSAGE_START, payload: message });
+    axios
+        .post(
+            `https://coach-me-development.herokuapp.com/twilioRoute/postScheduled`,
+            message,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            console.log('postScheduledMessage', results.data);
+            dispatch({
+                type: ADD_SCHEDULE_MESSAGE_SUCCESS
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+};
 
 // delete scheduled message
 export const deleteScheduledMessage = id => dispatch => {
     console.log('deleteScheduledMessages ID', id);
     dispatch({ type: DELETE_SCHEDULE_MESSAGE_START });
+
     axios
         .delete(
             `https://coach-me-development.herokuapp.com/twilioRoute/deleteScheduled/${id}`

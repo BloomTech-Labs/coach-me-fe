@@ -21,6 +21,7 @@ import {
     UPDATE_SCHEDULE_MESSAGE_START,
     UPDATE_SCHEDULE_MESSAGE_SUCCESS
 } from '../actions/types';
+
 const initialState = {
     messageHistory: [],
     creds: {
@@ -36,7 +37,6 @@ const initialState = {
     scheduledMessage: []
 };
 export default (state = initialState, action) => {
-    console.log('Coach Reducer STATE', state);
     switch (action.type) {
         case GET_TEXT_START:
             return {
@@ -115,8 +115,12 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case ADD_SCHEDULE_MESSAGE_START:
+            console.log(action.payload);
             return {
-                ...state
+                ...state,
+                loading: true,
+                scheduledMessage: [...state.scheduledMessage, action.payload],
+                error: ''
             };
         case GET_METRICS_FAILURE:
         case GET_RECORDS_FAILURE:
