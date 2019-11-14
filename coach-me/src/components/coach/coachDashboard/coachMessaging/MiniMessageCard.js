@@ -12,6 +12,7 @@ export default MiniMessageCard;
 //   <div className='mini-card'>
 //     MINIMESSAARDGECARD       <p>{item.month}</p>
 //       <p>{item.dom}</p>
+//hello
 //       <p>{item.year}</p>
 //       <p>{item.msg}</p>
 //   </div>
