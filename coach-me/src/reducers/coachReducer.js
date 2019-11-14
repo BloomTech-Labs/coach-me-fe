@@ -127,7 +127,9 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 scheduledMessage: state.scheduledMessage.map(message =>
-                    message.id === action.payload.id ? action.payload : message
+                    message.scheduleId === action.payload.id
+                        ? action.payload
+                        : message
                 )
             };
         case GET_METRICS_FAILURE:

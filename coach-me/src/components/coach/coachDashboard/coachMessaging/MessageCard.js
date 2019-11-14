@@ -64,7 +64,13 @@ const MessageCard = props => {
                         {' '}
                         Delete
                     </button>
-                    <UpdateModal show={showUpdateModal} />
+                    <UpdateModal
+                        show={showUpdateModal}
+                        id={item.scheduleId}
+                        updatedMessage={updatedMessage}
+                        setShow={toggleUpdateModal}
+                        patientId={item.patientId}
+                    />
                     <DeleteModal
                         show={showDeleteModal}
                         id={item.scheduleId}

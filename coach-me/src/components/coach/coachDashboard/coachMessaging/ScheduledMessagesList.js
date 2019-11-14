@@ -50,7 +50,7 @@ const ScheduledMessagesList = props => {
     if (messages.length !== 0) {
         return (
             <div>
-                {messagelist.slice(0, 2).map(item => (
+                {messagelist.map(item => (
                     <MessageCard
                         item={item}
                         clientId={props.clientId}

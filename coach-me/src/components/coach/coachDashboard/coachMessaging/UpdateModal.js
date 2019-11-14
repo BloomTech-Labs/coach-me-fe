@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './ScheduledMessages.scss';
-import { updateScheduledMessage } from '../../../../actions/coachActions';
+import {
+    updateScheduledMessage,
+    getScheduledMessage
+} from '../../../../actions/coachActions';
 import './updateModal.scss';
 
 const UpdateModal = props => {
     const { show, id, setShow, updatedMessage } = props;
+    console.log(id);
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
-    console.log(state);
-
-    const updateMessage = () => {
-        dispatch(updateScheduledMessage(id));
-        updatedMessage(id);
-        setShow();
-    };
 
     const [schedule, setSchedule] = useState({
-        patientId: ``,
+        patientId: `${props.patientId}`,
         msg: ``,
         min: ``,
         hour: ``,
@@ -33,10 +30,23 @@ const UpdateModal = props => {
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
     };
 
-    // const submitUpdatedMessage = e => {
-    //     e.preventDefault();
-    //     dispatch(updateScheduledMessage(id));
-    // };
+    const submitUpdatedMessage = e => {
+        e.preventDefault();
+        dispatch(updateScheduledMessage(id, schedule));
+        updatedMessage(id);
+        setShow();
+        setSchedule({
+            patientId: `${props.patientId}`,
+            msg: `${props.msg}`,
+            min: `${props.min}`,
+            hour: `${props.hour}`,
+            dom: `${props.dom}`,
+            month: `${props.month}`,
+            weekday: ``,
+            ampm: `${props.ampm}`,
+            year: `${props.year}`
+        });
+    };
 
     return (
         <>
@@ -44,7 +54,7 @@ const UpdateModal = props => {
                 <div className='message-container-modal'>
                     <h1>Schedule a Message</h1>
 
-                    <form onSubmit={updateMessage}>
+                    <form onSubmit={submitUpdatedMessage}>
                         <textarea
                             rows='4'
                             cols='50'

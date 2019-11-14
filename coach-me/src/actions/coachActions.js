@@ -233,8 +233,7 @@ export const addScheduledMessage = message => dispatch => {
 export const deleteScheduledMessage = id => dispatch => {
     console.log('deleteScheduledMessages ID', id);
     dispatch({ type: DELETE_SCHEDULE_MESSAGE_START });
-
-    axios
+    return axios
         .delete(
             `https://coach-me-development.herokuapp.com/twilioRoute/deleteScheduled/${id}`
         )
@@ -255,12 +254,42 @@ export const deleteScheduledMessage = id => dispatch => {
 };
 
 // update scheduled message
-export const updateScheduledMessage = message => dispatch => {
+export const updateScheduledMessage = (id, message) => async dispatch => {
     console.log('updateScheduledMessages ID', message);
+    console.log('updateScheduledMessages ID', id);
+    // try {
+
+    //     const res = await axios
+    //     .put(
+    //         `https://coach-me-development.herokuapp.com/twilioRoute/updateScheduled/${id}`, message,
+    //         {
+    //             headers: {
+    //                 Authorization: localStorage.getItem('token')
+    //             }
+    //         }
+    //     )
+    //     const results = res.data
+    //     dispatch({
+    //         type: UPDATE_SCHEDULE_MESSAGE_SUCCESS,
+    //         payload: message
+    //     });
+    //     getScheduledMessage(message.patientId)
+    // } catch(err) {
+    //     dispatch({
+    //         type: COACH_ERROR,
+    //         payload: err.message
+    //     });
+    // }
     dispatch({ type: UPDATE_SCHEDULE_MESSAGE_START });
-    axios
-        .delete(
-            `https://coach-me-development.herokuapp.com/twilioRoute/updateScheduled/${message.id}`
+    return axios
+        .put(
+            `https://coach-me-development.herokuapp.com/twilioRoute/updateScheduled/${id}`,
+            message,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
         )
         .then(results => {
             console.log('updateScheduledMessage', results.data);

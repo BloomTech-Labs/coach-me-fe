@@ -1,7 +1,18 @@
 import React from 'react';
 
 function MiniMessageCard(props) {
-    return <div>I am the Mini list</div>;
+    const { item } = props;
+    console.log('miniMessage', item);
+    return <div>IHII</div>;
 }
 
 export default MiniMessageCard;
+
+// <div className='mini-card-container'>
+//   <div className='mini-card'>
+//     MINIMESSAARDGECARD       <p>{item.month}</p>
+//       <p>{item.dom}</p>
+//       <p>{item.year}</p>
+//       <p>{item.msg}</p>
+//   </div>
+// </div>
