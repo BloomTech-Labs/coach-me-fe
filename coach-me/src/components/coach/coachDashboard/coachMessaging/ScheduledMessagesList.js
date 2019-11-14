@@ -5,10 +5,11 @@ import {
     deleteScheduledMessage,
     getScheduledMessage
 } from '../../../../actions/coachActions';
+import backArrow from '../../../utils/assets/back.svg';
 import { useDispatch } from 'react-redux';
 
 const ScheduledMessagesList = props => {
-    const { messages } = props;
+    const { messages, show, toggleScheduler } = props;
     console.log(messages);
     const dispatch = useDispatch();
     const [messagelist, setmessagelist] = useState([]);
@@ -47,22 +48,34 @@ const ScheduledMessagesList = props => {
     };
 
     console.log(messagelist);
+    // if (show) {
+
     if (messages.length !== 0) {
         return (
             <div>
-                {messagelist.map(item => (
-                    <MessageCard
-                        item={item}
-                        clientId={props.clientId}
-                        removedMessage={removedMessage}
-                        updatedMessage={updatedMessage}
-                    />
-                ))}
+                <img
+                    className='back-button-sheduler'
+                    alt='back'
+                    src={backArrow}
+                    // onClick={() => toggleScheduler(show)}
+                ></img>
+                <div>
+                    {messagelist.map(item => (
+                        <MessageCard
+                            item={item}
+                            clientId={props.clientId}
+                            removedMessage={removedMessage}
+                            updatedMessage={updatedMessage}
+                        />
+                    ))}
+                </div>
             </div>
         );
     }
 
     return <h1>No messages scheduled</h1>;
+    // }
+    // return null
 };
 
 export default ScheduledMessagesList;

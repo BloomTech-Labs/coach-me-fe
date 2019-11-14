@@ -17,7 +17,7 @@ function MiniScheduleMsgList(props) {
 
     if (messages.length !== 0) {
         return (
-            <div>
+            <div className='mini-card-container'>
                 {messagelist.slice(0, 2).map(item => (
                     <div className='mini-card-list'>
                         <MiniMessageCard
