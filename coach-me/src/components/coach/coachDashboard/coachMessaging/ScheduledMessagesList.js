@@ -9,31 +9,32 @@ import backArrow from '../../../utils/assets/back.svg';
 import { useDispatch } from 'react-redux';
 
 const ScheduledMessagesList = props => {
+    const state = useSelector(state => state.coach);
     const { messages, show, toggleScheduler } = props;
-    console.log(messages);
+    // console.log(messages);
     const dispatch = useDispatch();
     const [messagelist, setmessagelist] = useState([]);
 
     useEffect(() => {
-        if (messages[0] !== undefined) {
-            setmessagelist(messages);
+        if (state.scheduledMessage[0] !== undefined) {
+            setmessagelist(state.scheduledMessage);
         }
-        if (messages.length === 0) {
-            setmessagelist(messages);
+        if (state.scheduledMessage.length === 0) {
+            setmessagelist(state.scheduledMessage);
         }
     }, [messages]);
 
     const removedMessage = id => {
         const filtered = messagelist.filter(item => {
             if (item.scheduleId !== id) {
-                console.log('removedMessage line 20', item);
-                console.log('removedMessage item', item);
-                console.log('removedMessage id', id);
+                // console.log('removedMessage line 20', item);
+                // console.log('removedMessage item', item);
+                // console.log('removedMessage id', id);
                 return [item];
             }
         });
 
-        console.log('filited list', filtered);
+        // console.log('filited list', filtered);
         setmessagelist(filtered);
     };
 
@@ -47,17 +48,17 @@ const ScheduledMessagesList = props => {
         setmessagelist(updated);
     };
 
-    console.log(messagelist);
+    // console.log(messagelist);
     // if (show) {
 
-    if (messages.length !== 0) {
+    if (state.scheduledMessage !== 0) {
         return (
             <div>
                 <img
                     className='back-button-sheduler'
                     alt='back'
                     src={backArrow}
-                    // onClick={() => toggleScheduler(show)}
+                    onClick={() => toggleScheduler(show)}
                 ></img>
                 <div>
                     {messagelist.map(item => (

@@ -9,7 +9,7 @@ import './updateModal.scss';
 
 const UpdateModal = props => {
     const { show, id, setShow, updatedMessage } = props;
-    console.log(id);
+    console.log('update modal props', props);
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
 

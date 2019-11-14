@@ -80,7 +80,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_SCHEDULE_MESSAGE_SUCCESS:
-            console.log('looook at me', action.payload);
+            // console.log('looook at me', action.payload);
             return {
                 ...state,
                 loading: false,
@@ -123,7 +123,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case UPDATE_SCHEDULE_MESSAGE_SUCCESS:
-            console.log('UPDATE_SCHEDULE_MESSAGE', action.payload);
+            // console.log('UPDATE_SCHEDULE_MESSAGE', action.payload);
             return {
                 ...state,
                 scheduledMessage: state.scheduledMessage.map(message =>

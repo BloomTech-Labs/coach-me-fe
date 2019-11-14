@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import MiniMessageCard from './MiniMessageCard';
+import { useSelector, useDispatch } from 'react-redux';
 
 function MiniScheduleMsgList(props) {
     const { messages } = props;
-    console.log('MiniScheduleMsgList', messages);
+    // console.log('MiniScheduleMsgList', messages);
     const [messagelist, setmessagelist] = useState([]);
+    const state = useSelector(state => state.coach);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        if (messages[0] !== undefined) {
-            setmessagelist(messages);
+        if (state.scheduledMessage[0] !== undefined) {
+            setmessagelist(state.scheduledMessage);
         }
-        if (messages.length === 0) {
-            setmessagelist(messages);
+        if (state.scheduledMessage.length === 0) {
+            setmessagelist(state.scheduledMessage);
         }
     }, [messages]);
 
-    if (messages.length !== 0) {
+    if (state.scheduledMessage !== 0) {
         return (
             <div className='mini-card-container'>
                 {messagelist.slice(0, 2).map(item => (

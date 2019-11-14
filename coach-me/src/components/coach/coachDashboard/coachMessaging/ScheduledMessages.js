@@ -33,12 +33,12 @@ function ScheduledMessages(props) {
 
         // eslint-disable-next-line
     }, [state.scheduledMessage]);
-
+    // console.log('I am REEALLLLY IMPORTANT',state.scheduledMessage[0] )
     const handleInputChange = e => {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
     };
-    console.log(clientprofile.clientId);
+    // console.log(clientprofile.clientId);
 
     const toggleScheduler = e => {
         setShow(!show);
@@ -300,16 +300,16 @@ function ScheduledMessages(props) {
 
                     <button>Submit</button>
                 </form>
-                <div>
+                {/* <div>
                     <ScheduledMessagesList
                         clientId={clientprofile.clientId}
                         messages={state.scheduledMessage}
                         toggleScheduler={toggleScheduler}
                         show={show}
                     />
-                </div>
+                </div> */}
 
-                <div className='mini-list'>
+                {/* <div className='mini-list'>
                     <MiniScheduleMsgList
                         clientId={clientprofile.clientId}
                         messages={state.scheduledMessage}
@@ -322,7 +322,7 @@ function ScheduledMessages(props) {
                     >
                         View All
                     </button>
-                </div>
+                </div> */}
             </div>
         </>
     );
