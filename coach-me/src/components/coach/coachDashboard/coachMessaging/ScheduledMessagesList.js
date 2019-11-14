@@ -35,15 +35,27 @@ const ScheduledMessagesList = props => {
         console.log('filited list', filtered);
         setmessagelist(filtered);
     };
+
+    const updatedMessage = id => {
+        const updated = messagelist.filter(item => {
+            if (item.scheduleId !== id) {
+                return [item];
+            }
+        });
+
+        setmessagelist(updated);
+    };
+
     console.log(messagelist);
     if (messages.length !== 0) {
         return (
             <div>
-                {messagelist.map(item => (
+                {messagelist.slice(0, 2).map(item => (
                     <MessageCard
                         item={item}
                         clientId={props.clientId}
                         removedMessage={removedMessage}
+                        updatedMessage={updatedMessage}
                     />
                 ))}
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ScheduledMessagesList from './ScheduledMessagesList';
+import MiniScheduleMsgList from './MiniScheduleMsgList';
 import {
     getScheduledMessage,
     addScheduledMessage
@@ -41,6 +42,17 @@ function ScheduledMessages(props) {
     const submitNewMessage = e => {
         e.preventDefault();
         dispatch(addScheduledMessage(schedule));
+        setSchedule({
+            patientId: `${clientprofile.clientId}`,
+            msg: '',
+            min: '',
+            hour: '',
+            dom: '',
+            month: '',
+            weekday: '',
+            ampm: '',
+            year: ''
+        });
     };
 
     return (
@@ -287,6 +299,12 @@ function ScheduledMessages(props) {
                     clientId={clientprofile.clientId}
                     messages={state.scheduledMessage}
                 />
+                <div className='mini-list'>
+                    <MiniScheduleMsgList
+                        clientId={clientprofile.clientId}
+                        messages={state.scheduledMessage}
+                    />
+                </div>
             </div>
             <div></div>
         </>

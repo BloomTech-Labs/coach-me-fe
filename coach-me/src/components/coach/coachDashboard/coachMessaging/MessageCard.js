@@ -10,7 +10,7 @@ import DeleteModal from './DeleteModal';
 import './messageCard.scss';
 
 const MessageCard = props => {
-    const { item, removedMessage } = props;
+    const { item, removedMessage, updatedMessage } = props;
 
     const dispatch = useDispatch();
 
