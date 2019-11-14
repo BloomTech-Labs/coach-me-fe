@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './ScheduledMessages.scss';
 import { updateScheduledMessage } from '../../../../actions/coachActions';
+import './updateModal.scss';
 
 const UpdateModal = props => {
+    const { show } = props;
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
     console.log(state);
@@ -32,7 +34,10 @@ const UpdateModal = props => {
 
     return (
         <>
-            <div className='message-container-modal'>
+            <div className={`${show === false ? 'hidden' : 'show'}`}>
+                <h1> hi </h1>
+            </div>
+            {/* <div className='message-container-modal'>
                 <h1>Schedule a Message</h1>
 
                 <form onSubmit={submitUpdatedMessage}>
@@ -270,7 +275,7 @@ const UpdateModal = props => {
 
                     <button>Submit</button>
                 </form>
-            </div>
+            </div> */}
         </>
     );
 };

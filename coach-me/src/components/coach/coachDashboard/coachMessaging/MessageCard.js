@@ -4,15 +4,18 @@ import {
     getScheduledMessage,
     updateScheduledMessage
 } from '../../../../actions/coachActions';
-// import UpdateModal from './UpdateModal'
+import UpdateModal from './UpdateModal';
 import { useDispatch, useSelector } from 'react-redux';
+import DeleteModal from './DeleteModal';
+import './messageCard.scss';
 
 const MessageCard = props => {
     const { item, removedMessage } = props;
 
     const dispatch = useDispatch();
 
-    const [show, setShow] = useState(false);
+    const [showUpdateModal, setUpdateModal] = useState(false);
+    const [showDeleteModal, setDeleteModal] = useState(false);
 
     // useEffect(() => {
     //     // if(clientprofile) {
@@ -22,8 +25,13 @@ const MessageCard = props => {
     //     // eslint-disable-next-line
     // }, [props.clientId]);
 
-    const toggleModal = e => {
-        setShow(!show);
+    const toggleUpdateModal = () => {
+        setUpdateModal(!showUpdateModal);
+        console.log('hi');
+    };
+    const toggleDeleteModal = () => {
+        setDeleteModal(!showDeleteModal);
+        console.log('hi');
     };
 
     return (
@@ -37,18 +45,32 @@ const MessageCard = props => {
                 </div>
 
                 <div className='button-container'>
-                    <button onClick={() => toggleModal()}> Edit </button>
                     <button
                         onClick={e => {
-                            e.stopPropagation();
-                            dispatch(deleteScheduledMessage(item.scheduleId));
-                            removedMessage(item.scheduleId);
+                            e.preventDefault();
+                            console.log('clicked');
+                            toggleUpdateModal();
+                        }}
+                    >
+                        {' '}
+                        Edit{' '}
+                    </button>
+                    <button
+                        onClick={e => {
+                            e.preventDefault();
+                            toggleDeleteModal();
                         }}
                     >
                         {' '}
                         Delete
                     </button>
-                    {/* <UpdateModal toggleModal={toggleModal} show={show}/> */}
+                    <UpdateModal show={showUpdateModal} />
+                    <DeleteModal
+                        show={showDeleteModal}
+                        id={item.scheduleId}
+                        removedMessage={removedMessage}
+                        setShow={toggleDeleteModal}
+                    />
                 </div>
             </div>
         </>
