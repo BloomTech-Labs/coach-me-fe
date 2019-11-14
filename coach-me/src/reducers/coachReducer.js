@@ -122,6 +122,14 @@ export default (state = initialState, action) => {
                 scheduledMessage: [...state.scheduledMessage, action.payload],
                 error: ''
             };
+        case UPDATE_SCHEDULE_MESSAGE_SUCCESS:
+            console.log('UPDATE_SCHEDULE_MESSAGE', action.payload);
+            return {
+                ...state,
+                scheduledMessage: state.scheduledMessage.map(message =>
+                    message.id === action.payload.id ? action.payload : message
+                )
+            };
         case GET_METRICS_FAILURE:
         case GET_RECORDS_FAILURE:
         case COACH_ERROR:
