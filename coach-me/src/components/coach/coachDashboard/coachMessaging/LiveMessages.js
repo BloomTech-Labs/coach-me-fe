@@ -9,7 +9,6 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import moment from 'moment';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import { of } from 'rxjs';
 
 function LiveMessages(props) {
     // console.log(props);
