@@ -3,7 +3,7 @@ import './coachMessaging.scss';
 
 function MiniMessageCard(props) {
     const { item } = props;
-    console.log('miniMessage', item);
+    // console.log('miniMessage', item);
     return (
         <div className='mini-card-container'>
             <div className='mini-card'>

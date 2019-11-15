@@ -3,12 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import ScheduledMessagesList from './ScheduledMessagesList';
 import ScheduledMessages from './ScheduledMessages';
 import MiniScheduleMsgList from './MiniScheduleMsgList';
+import { getScheduledMessage } from '../../../../actions/coachActions';
 
 function ViewAllScheduledMessages(props) {
     const { clientprofile } = props;
     const dispatch = useDispatch();
     const state = useSelector(state => state.coach);
     const [show, setShow] = useState(false);
+
+    //initial GET for scheduled Messages, useEffect set to change when new client is clicked
+    useEffect(() => {
+        dispatch(getScheduledMessage(clientprofile.clientId));
+    }, [clientprofile.clientId]);
 
     const toggleScheduler = e => {
         setShow(!show);
@@ -19,7 +25,7 @@ function ViewAllScheduledMessages(props) {
             <div>
                 <div>
                     <div className='ScheduleMessages-Container-Main'>
-                        <ScheduledMessages
+                        <ScheduledMessages // this is just the form???
                             clientprofile={props.clientprofile}
                         />
                     </div>
