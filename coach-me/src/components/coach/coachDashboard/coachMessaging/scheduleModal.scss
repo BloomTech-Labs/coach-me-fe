@@ -10,7 +10,7 @@
     border: 1px, solid, green;
 }
 
-.delete-modal-container {
+.schedule-modal-container {
     width: 100%;
     height: 100%;
 
@@ -22,7 +22,7 @@
     background-color: rgba(0, 0, 0, 0);
     left: 35%;
     top: 10%;
-    .delete-modal-box {
+    .schedule-modal-box {
         @include layout2();
         //  background-color: #ffffff;
         font-family: DM Sans;
@@ -44,7 +44,7 @@
             font-size: 1.5rem;
         }
 
-        .delete-button-container {
+        .schedule-button-container {
             display: flex;
             width: 100%;
             height: 33%;
@@ -63,7 +63,7 @@
                 outline: none;
                 cursor: pointer;
             }
-            .del-btn {
+            .sch-btn {
                 border: none;
                 background: #274160;
                 font-size: 1.8rem;

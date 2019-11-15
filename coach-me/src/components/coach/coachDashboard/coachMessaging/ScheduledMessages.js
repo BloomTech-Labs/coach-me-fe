@@ -17,7 +17,7 @@ function ScheduledMessages(props) {
     const state = useSelector(state => state.coach);
     const [show, setShow] = useState(false);
     const [submitted, setSubmitted] = useState(false);
-    const [updateModal, setUpdateModal] = useState(false);
+    const [showScheduleModal, setScheduleModal] = useState(false);
 
     // console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
@@ -55,8 +55,8 @@ function ScheduledMessages(props) {
     };
     // console.log(clientprofile.clientId);
 
-    const toggleScheduleModal = e => {
-        setUpdateModal(!updateModal);
+    const toggleScheduleModal = () => {
+        setScheduleModal(!showScheduleModal);
     };
 
     const submitNewMessage = e => {
@@ -332,8 +332,8 @@ function ScheduledMessages(props) {
                 </form>
                 <ScheduleModal
                     clientId={clientprofile.clientId}
-                    show={show}
-                    setShow={setShow}
+                    show={showScheduleModal}
+                    setShow={toggleScheduleModal}
                     submitted={submitted}
                     setSubmitted={setSubmitted}
                     submitNewMessage={submitNewMessage}
