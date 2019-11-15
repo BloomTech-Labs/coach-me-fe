@@ -11,8 +11,11 @@
 }
 .date-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
     align-items: center;
+    margin-top: 30px;
+
     width: 100%;
     h2 {
         font-family: DM Sans;
@@ -23,25 +26,31 @@
         color: #1c3048;
     }
 }
-.time-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    h2 {
-        font-family: DM Sans;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 1.6rem;
-        line-height: 18px;
-        color: #1c3048;
-    }
-}
+
 .message-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    margin: 1.5rem;
+
+    .time-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        align-items: center;
+        margin-top: 2.5rem;
+
+        h2 {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.6rem;
+            line-height: 18px;
+            color: #1c3048;
+        }
+    }
     .title {
         font-family: Montserrat;
         font-style: normal;
@@ -49,17 +58,20 @@
         font-size: 2rem;
         line-height: 22px;
         color: #1c3048;
-        align-self: flex-start;
-        margin-left: 10.5%;
+        margin-bottom: 30px;
+        align-self: start;
+        margin-left: 1.1rem;
     }
     .sch-form {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        width: 75%;
-        height: 70%;
+        justify-content: center;
+        align-items: center;
+
+        // width: 75%;
+
         textarea {
-            width: 1000%;
+            // width: 1000%;
             padding: 4.5%;
             max-width: 43.7rem;
             resize: none;
@@ -73,17 +85,8 @@
             line-height: 1.8rem;
         }
         .selectheader {
-            width: 30%;
-            .arrow {
-                background-image: url(../../../utils/assets/downArrow.svg);
-                background-repeat: no-repeat;
-                background-position: center;
-                width: 50px;
-                height: 50px;
-                position: absolute;
-                margin-left: 5.5rem;
-                margin-top: -0.5rem;
-            }
+            // width: 30%;
+
             .input-arrow {
                 position: absolute;
                 left: 81.1%;
@@ -100,29 +103,27 @@
                 font-size: 1.5rem;
                 line-height: 16px;
                 width: 10rem;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
+                // -webkit-appearance: none;
+                // -moz-appearance: none;
+                // appearance: none;
                 text-indent: 10px;
                 height: 3.5rem;
                 cursor: pointer;
                 color: #274160;
+                background-image: url(../../../utils/assets/downArrow.svg)
+                    no-repeat;
             }
         }
         .sch-submit {
-            width: 40%;
-            align-self: center;
+            width: 17.9rem;
+            height: 55px;
             background: #274160;
             border-radius: 10px;
-            font-family: DM Sans;
-            font-style: normal;
-            font-weight: 500;
-            font-size: 1.5rem;
-            line-height: 18px;
-            height: 16%;
             outline: none;
             cursor: pointer;
             color: #ffffff;
+            margin-top: 45px;
+            // margin-top:45px;
         }
     }
 }

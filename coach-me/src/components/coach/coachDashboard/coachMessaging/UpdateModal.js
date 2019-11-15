@@ -196,7 +196,7 @@ const UpdateModal = props => {
                             </div>
                         </div>
 
-                        <div className='time-wrapper'>
+                        <div className='time-wrapper-modal'>
                             <Clock />
                             <h2>TIME</h2>
                             <div className='selectheader'>
