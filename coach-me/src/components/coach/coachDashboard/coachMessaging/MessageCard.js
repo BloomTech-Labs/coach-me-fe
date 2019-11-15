@@ -27,20 +27,20 @@ const MessageCard = props => {
 
     const toggleUpdateModal = () => {
         setUpdateModal(!showUpdateModal);
-        console.log('hi');
     };
     const toggleDeleteModal = () => {
         setDeleteModal(!showDeleteModal);
-        console.log('hi');
     };
 
     return (
         <>
-            <div style={{ border: '1px solid red' }}>
-                <div>
+            <div className='message-card'>
+                <div className='date-container'>
                     <p>{item.month}</p>
                     <p>{item.dom}</p>
                     <p>{item.year}</p>
+                </div>
+                <div>
                     <p>{item.msg}</p>
                 </div>
 

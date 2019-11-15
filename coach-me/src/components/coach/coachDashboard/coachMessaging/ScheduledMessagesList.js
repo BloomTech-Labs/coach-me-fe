@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+
 import MessageCard from './MessageCard';
 import {
     deleteScheduledMessage,
     getScheduledMessage
 } from '../../../../actions/coachActions';
-import { useDispatch } from 'react-redux';
 
 const ScheduledMessagesList = props => {
     const { messages } = props;
-    console.log(messages);
-    const dispatch = useDispatch();
     const [messagelist, setmessagelist] = useState([]);
 
     useEffect(() => {
@@ -25,20 +22,17 @@ const ScheduledMessagesList = props => {
     const removedMessage = id => {
         const filtered = messagelist.filter(item => {
             if (item.scheduleId !== id) {
-                console.log('removedMessage line 20', item);
-                console.log('removedMessage item', item);
-                console.log('removedMessage id', id);
                 return [item];
             }
         });
 
-        console.log('filited list', filtered);
         setmessagelist(filtered);
     };
-    console.log(messagelist);
+
     if (messages.length !== 0) {
         return (
-            <div>
+            <>
+                <h1 className='list-header'>Previously Scheduled Messages </h1>
                 {messagelist.map(item => (
                     <MessageCard
                         item={item}
@@ -46,11 +40,16 @@ const ScheduledMessagesList = props => {
                         removedMessage={removedMessage}
                     />
                 ))}
-            </div>
+            </>
         );
     }
 
-    return <h1>No messages scheduled</h1>;
+    return (
+        <>
+            <h1>Previously Scheduled Messages </h1>
+            <h1>No messages scheduled</h1>
+        </>
+    );
 };
 
 export default ScheduledMessagesList;
