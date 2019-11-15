@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import LiveMessages from './LiveMessages.js';
 import ScheduledMessages from './ScheduledMessages';
 import ViewAllScheduledMessages from './ViewAllScheduledMessages';
@@ -15,16 +14,16 @@ const CoachMessaging = props => {
     const dispatch = useDispatch();
     const [type, setType] = useState(1);
 
-    // useEffect(() => {
-    //     if (clientprofile && type === 1) {
-    //         dispatch(getScheduledMessage(clientprofile.clientId));
-    //     }
+    useEffect(() => {
+        if (clientprofile && type === 1) {
+            dispatch(getScheduledMessage(clientprofile.clientId));
+        }
 
-    //     if (type === 2) {
-    //         dispatch(getScheduledMessage(clientprofile.clientId));
-    //     }
-    //     //eslint-disable-next-line
-    // }, [clientprofile, type]);
+        if (type === 2) {
+            dispatch(getScheduledMessage(clientprofile.clientId));
+        }
+        //eslint-disable-next-line
+    }, [clientprofile, type]);
 
     return (
         <div className='message-wrapper'>

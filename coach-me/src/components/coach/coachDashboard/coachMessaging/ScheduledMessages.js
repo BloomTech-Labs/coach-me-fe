@@ -6,11 +6,14 @@ import {
     getScheduledMessage,
     addScheduledMessage
 } from '../../../../actions/coachActions';
+import { ReactComponent as Calendar } from '../../../utils/assets/calendar.svg';
+import { ReactComponent as Clock } from '../../../utils/assets/clock.svg';
+// import {Arrow} from '../../../utils/assets/downArrow.svg';
 
 import './ScheduledMessages.scss';
 
 function ScheduledMessages(props) {
-    const { clientprofile } = props;
+    const { clientprofile, type } = props;
     const dispatch = useDispatch();
     const state = useSelector(state => state.coach);
     const [show, setShow] = useState(false);
@@ -77,9 +80,9 @@ function ScheduledMessages(props) {
     return (
         <>
             <div className='message-container'>
-                <h1>Schedule a Message</h1>
+                <h1 className='title'>Schedule a Message</h1>
 
-                <form onSubmit={submitNewMessage}>
+                <form className='sch-form' onSubmit={submitNewMessage}>
                     <textarea
                         rows='4'
                         cols='50'
@@ -92,9 +95,12 @@ function ScheduledMessages(props) {
                     ></textarea>
 
                     <div className='date-wrapper'>
+                        <Calendar />
                         <h2>DATE</h2>
 
                         <div className='selectheader'>
+                            <div className='arrow'></div>
+
                             <select
                                 name='month'
                                 value={schedule.month}
@@ -118,6 +124,7 @@ function ScheduledMessages(props) {
                             </select>
                         </div>
                         <div className='selectheader'>
+                            <div className='arrow'></div>
                             <select
                                 name='dom'
                                 value={schedule.dom}
@@ -160,6 +167,7 @@ function ScheduledMessages(props) {
                             </select>
                         </div>
                         <div className='selectheader'>
+                            <div className='arrow'></div>
                             <select
                                 name='year'
                                 value={schedule.year}
@@ -200,8 +208,9 @@ function ScheduledMessages(props) {
                     </div>
 
                     <div className='time-wrapper'>
-                        <h2>TIME</h2>
+                        <Clock /> <h2>TIME</h2>
                         <div className='selectheader'>
+                            <div className='arrow'></div>
                             <select
                                 name='hour'
                                 value={schedule.hour}
@@ -224,8 +233,8 @@ function ScheduledMessages(props) {
                                 <option value={'12'}>12</option>
                             </select>
                         </div>
-
                         <div className='selectheader'>
+                            <div className='arrow'></div>
                             <select
                                 name='min'
                                 value={schedule.min}
@@ -296,8 +305,8 @@ function ScheduledMessages(props) {
                                 <option value={'60'}>60</option>
                             </select>
                         </div>
-
                         <div className='selectheader'>
+                            <div className='arrow'></div>
                             <select
                                 name='ampm'
                                 value={schedule.ampm}
@@ -312,7 +321,7 @@ function ScheduledMessages(props) {
                         </div>
                     </div>
 
-                    <button>Submit</button>
+                    <button className='sch-submit'>Schedule</button>
                 </form>
                 {/* <div>
                     <ScheduledMessagesList

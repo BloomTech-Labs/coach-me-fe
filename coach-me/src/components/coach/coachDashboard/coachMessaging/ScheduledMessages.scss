@@ -11,8 +11,118 @@
 }
 .date-wrapper {
     display: flex;
-    // justify-content:space-between;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    h2 {
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 18px;
+        color: #1c3048;
+    }
 }
 .time-wrapper {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    h2 {
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 18px;
+        color: #1c3048;
+    }
+}
+.message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    .title {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2rem;
+        line-height: 22px;
+        color: #1c3048;
+        align-self: flex-start;
+        margin-left: 10.5%;
+    }
+    .sch-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 75%;
+        height: 70%;
+        textarea {
+            width: 100%;
+            padding: 4.5%;
+            max-width: 43.7rem;
+            resize: none;
+            border-radius: 15px;
+            outline: none;
+            border: none;
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+        }
+        .selectheader {
+            width: 30%;
+            .arrow {
+                background-image: url(../../../utils/assets/downArrow.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                margin-left: 5.5rem;
+                margin-top: -0.5rem;
+            }
+            .input-arrow {
+                position: absolute;
+                left: 81.1%;
+                right: 24%;
+                bottom: 48.3%;
+            }
+            select {
+                background: rgba(255, 255, 255, 0.6);
+                border: 1.25px solid #274160;
+                border-radius: 8px;
+                font-family: DM Sans;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.5rem;
+                line-height: 16px;
+                width: 10rem;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                text-indent: 10px;
+                height: 3.5rem;
+                cursor: pointer;
+                color: #274160;
+            }
+        }
+        .sch-submit {
+            width: 40%;
+            align-self: center;
+            background: #274160;
+            border-radius: 10px;
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 18px;
+            height: 16%;
+            outline: none;
+            cursor: pointer;
+            color: #ffffff;
+        }
+    }
 }

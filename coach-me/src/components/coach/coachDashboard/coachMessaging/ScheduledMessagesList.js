@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+
 import MessageCard from './MessageCard';
 import {
     deleteScheduledMessage,
     getScheduledMessage
 } from '../../../../actions/coachActions';
 import backArrow from '../../../utils/assets/back.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import './messageCard.scss';
 
 const ScheduledMessagesList = props => {
     const state = useSelector(state => state.coach);
@@ -53,16 +54,21 @@ const ScheduledMessagesList = props => {
 
     if (state.scheduledMessage !== 0) {
         return (
-            <div>
-                <img
-                    className='back-button-sheduler'
-                    alt='back'
-                    src={backArrow}
-                    onClick={() => toggleScheduler(show)}
-                ></img>
-                <div>
+            <div className='message-list-wrapper'>
+                <div className='back-bttn-container'>
+                    <img
+                        className='back-button-sheduler'
+                        alt='back'
+                        src={backArrow}
+                        onClick={() => toggleScheduler(show)}
+                    ></img>
+                    <h1>Back</h1>
+                </div>
+                <h1 className='title-text'>Previously Scheduled Messages</h1>
+                <div className='message-list-container'>
                     {state.scheduledMessage.map(item => (
                         <MessageCard
+                            className='message-card'
                             item={item}
                             clientId={props.clientId}
                             removedMessage={removedMessage}
