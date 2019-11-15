@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getScheduledMessage,
@@ -8,20 +8,11 @@ import { ReactComponent as Exit } from '../../../utils/assets/Xicon.svg';
 import './scheduleModal.scss';
 const ScheduleModal = props => {
     console.log('ScheduleModal', props);
-    const { show, setShow, clientId } = props;
+    const { show, setShow } = props;
     const state = useSelector(state => state.coach);
-    const dispatch = useDispatch();
-    const [scheduled, setScheduled] = useState(false);
     console.log('ScheduleModal STATE', state);
 
-    useEffect(() => {
-        dispatch(getScheduledMessage(clientId));
-        setScheduled(false);
-    }, [scheduled]);
-
     const scheduleMessage = () => {
-        dispatch(addScheduledMessage(clientId));
-        setScheduled(true);
         setShow();
     };
 
@@ -39,23 +30,15 @@ const ScheduleModal = props => {
                             setShow();
                         }}
                     />
-                    <h1> Schedule Message? </h1>
+                    <h1> Your message has been Scheduled. </h1>
                     <div className='schedule-button-container'>
-                        <button
-                            className='cancel-bttn'
-                            onClick={() => {
-                                setShow();
-                            }}
-                        >
-                            Cancel
-                        </button>
                         <button
                             className='sch-btn'
                             onClick={() => {
                                 scheduleMessage();
                             }}
                         >
-                            Schedule
+                            Continue
                         </button>
                     </div>
                 </div>
