@@ -1,39 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import MiniMessageCard from './MiniMessageCard';
 import { useSelector, useDispatch } from 'react-redux';
-import { getMessageHistory } from '../../../../actions/coachActions';
+import './miniScheduleMsgList.scss';
 
 function MiniScheduleMsgList(props) {
-    const { messages, clientId, messagelist } = props;
-    // console.log('MiniScheduleMsgList', messages);
-    // const [messagelist, setmessagelist] = useState([]);
-    const state = useSelector(state => state.coach);
+    const { messages } = props;
+    console.log('MiniScheduleMsgList', messages);
+    const [messagelist, setmessagelist] = useState([]);
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     // if (state.scheduledMessage[0] !== undefined) {
-    //         dispatch(getMessageHistory(clientId))
-    //        setmessagelist(state.scheduledMessage);
-    //     // }
-    //     // if (state.scheduledMessage.length === 0) {
-    //     //     setmessagelist(state.scheduledMessage);
-    //     //     dispatch(getMessageHistory)
-    //     // // }
+    useEffect(() => {
+        setmessagelist(messages);
+    }, [messages]);
 
-    // }, [messagelist]);
-
-    if (state.scheduledMessage !== 0) {
+    if (messages) {
         return (
-            <div className='mini-card-container'>
-                {messagelist.slice(0, 2).map(item => (
-                    <div className='mini-card-list'>
-                        <MiniMessageCard
-                            item={item}
-                            clientId={props.clientId}
-                        />
-                    </div>
-                ))}
-            </div>
+            <>
+                <div className='mini-list-container'>
+                    <h1>Previously Scheduled Messages</h1>
+                    {messagelist.slice(0, 2).map(item => (
+                        <div className='mini-card'>
+                            <MiniMessageCard
+                                item={item}
+                                clientId={props.clientId}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </>
         );
     }
     return <h1>No messages scheduled</h1>;

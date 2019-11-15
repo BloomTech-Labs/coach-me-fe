@@ -7,16 +7,21 @@ import { getScheduledMessage } from '../../../../actions/coachActions';
 import './updateModal.scss';
 
 const DeleteModal = props => {
-    const { show, id, setShow, removedMessage } = props;
+    const { show, id, setShow, removedMessage, clientId } = props;
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
+    const [deleted, setDeleted] = useState(false);
     console.log(state);
 
+    useEffect(() => {
+        dispatch(getScheduledMessage(clientId));
+        setDeleted(false);
+    }, [deleted]);
+
     const deleteMessage = () => {
-        dispatch(deleteScheduledMessage(id)).then(() => {
-            getScheduledMessage(id);
-        });
-        removedMessage(id);
+        dispatch(deleteScheduledMessage(id, clientId));
+        setDeleted(true);
+        // removedMessage(id);
         setShow();
     };
 
@@ -37,11 +42,12 @@ const DeleteModal = props => {
                     <h1> Delete Scheduled Message? </h1>
                     <div className='delete-button-container'>
                         <button
+                            className='cancel-bttn'
                             onClick={() => {
                                 setShow();
                             }}
                         >
-                            cancel
+                            Cancel
                         </button>
                         <button
                             className='del-btn'
