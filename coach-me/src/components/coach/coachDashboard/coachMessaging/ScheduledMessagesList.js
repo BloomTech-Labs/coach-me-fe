@@ -16,14 +16,14 @@ const ScheduledMessagesList = props => {
     const dispatch = useDispatch();
     const [messagelist, setmessagelist] = useState([]);
 
-    useEffect(() => {
-        if (state.scheduledMessage[0] !== undefined) {
-            setmessagelist(state.scheduledMessage);
-        }
-        if (state.scheduledMessage.length === 0) {
-            setmessagelist(state.scheduledMessage);
-        }
-    }, [messages]);
+    // useEffect(() => {
+    //     if (state.scheduledMessage[0] !== undefined) {
+    //         setmessagelist(state.scheduledMessage);
+    //     }
+    //     if (state.scheduledMessage.length === 0) {
+    //         setmessagelist(state.scheduledMessage);
+    //     }
+    // }, [messages]);
 
     const removedMessage = id => {
         const filtered = messagelist.filter(item => {
@@ -66,7 +66,7 @@ const ScheduledMessagesList = props => {
                 </div>
                 <h1 className='title-text'>Previously Scheduled Messages</h1>
                 <div className='message-list-container'>
-                    {messagelist.map(item => (
+                    {state.scheduledMessage.map(item => (
                         <MessageCard
                             className='message-card'
                             item={item}

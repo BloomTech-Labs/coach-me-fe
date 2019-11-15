@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import ScheduledMessagesList from './ScheduledMessagesList';
+import MiniScheduleMsgList from './MiniScheduleMsgList';
 import {
     getScheduledMessage,
     addScheduledMessage
@@ -16,10 +17,12 @@ function ScheduledMessages(props) {
     const dispatch = useDispatch();
     const state = useSelector(state => state.coach);
     const [show, setShow] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const loading = state.loading;
 
     // console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
-        patientId: `${clientprofile.clientId}`,
+        patientId: '',
         msg: '',
         min: '',
         hour: '',
@@ -30,6 +33,22 @@ function ScheduledMessages(props) {
         year: ''
     });
 
+    //forces the patientID to be the same as the clientID when client name is clicked
+    useEffect(() => {
+        setSchedule({ patientId: `${clientprofile.clientId}` });
+    }, [clientprofile.clientId]);
+
+    //possibly more consistant than calling in the actions after the post
+    useEffect(() => {
+        dispatch(getScheduledMessage(clientprofile.clientId));
+        setSubmitted(false);
+    }, [submitted]);
+
+    // useEffect(() => {
+    //     dispatch(getScheduledMessage(clientprofile.clientId));
+
+    //     // eslint-disable-next-line
+    // }, [clientprofile.clientId]);
     // console.log('I am REEALLLLY IMPORTANT',state.scheduledMessage[0] )
     const handleInputChange = e => {
         e.preventDefault();
@@ -44,6 +63,7 @@ function ScheduledMessages(props) {
     const submitNewMessage = e => {
         e.preventDefault();
         dispatch(addScheduledMessage(schedule));
+        setSubmitted(true);
         setSchedule({
             patientId: `${clientprofile.clientId}`,
             msg: '',
