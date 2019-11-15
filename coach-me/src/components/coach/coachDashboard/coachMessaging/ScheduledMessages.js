@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ScheduledMessagesList from './ScheduledMessagesList';
 import MiniScheduleMsgList from './MiniScheduleMsgList';
@@ -14,7 +14,9 @@ function ScheduledMessages(props) {
     const dispatch = useDispatch();
     const state = useSelector(state => state.coach);
     const [show, setShow] = useState(false);
+    console.log('I am state inside of scheduled message', state);
 
+    // const messageArray = useRef(state.ScheduledMessages);
     // console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
         patientId: `${clientprofile.clientId}`,
@@ -30,15 +32,12 @@ function ScheduledMessages(props) {
 
     useEffect(() => {
         dispatch(getScheduledMessage(clientprofile.clientId));
+    }, [state.scheduledMessage && clientprofile.clientId]);
 
-        // eslint-disable-next-line
-    }, [state.scheduledMessage]);
-    // console.log('I am REEALLLLY IMPORTANT',state.scheduledMessage[0] )
     const handleInputChange = e => {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
     };
-    // console.log(clientprofile.clientId);
 
     const toggleScheduler = e => {
         setShow(!show);
@@ -300,29 +299,6 @@ function ScheduledMessages(props) {
 
                     <button>Submit</button>
                 </form>
-                {/* <div>
-                    <ScheduledMessagesList
-                        clientId={clientprofile.clientId}
-                        messages={state.scheduledMessage}
-                        toggleScheduler={toggleScheduler}
-                        show={show}
-                    />
-                </div> */}
-
-                {/* <div className='mini-list'>
-                    <MiniScheduleMsgList
-                        clientId={clientprofile.clientId}
-                        messages={state.scheduledMessage}
-                    />
-                    <button
-                        className='veiw-all-button'
-                        onClick={() => {
-                            toggleScheduler();
-                        }}
-                    >
-                        View All
-                    </button>
-                </div> */}
             </div>
         </>
     );

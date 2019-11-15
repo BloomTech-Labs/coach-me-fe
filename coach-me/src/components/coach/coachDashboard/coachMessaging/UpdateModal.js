@@ -32,7 +32,9 @@ const UpdateModal = props => {
 
     const submitUpdatedMessage = e => {
         e.preventDefault();
-        dispatch(updateScheduledMessage(id, schedule));
+        dispatch(updateScheduledMessage(id, schedule)).then(() => {
+            getScheduledMessage(id);
+        });
         updatedMessage(id);
         setShow();
         setSchedule({

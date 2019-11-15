@@ -54,6 +54,7 @@ const CoachMessaging = props => {
                             //     clientprofile={clientprofile}
                             //     type={type}
                             // />
+
                             <ViewAllScheduledMessages
                                 clientprofile={clientprofile}
                                 type={type}

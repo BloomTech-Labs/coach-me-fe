@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import MiniMessageCard from './MiniMessageCard';
 import { useSelector, useDispatch } from 'react-redux';
+import { getMessageHistory } from '../../../../actions/coachActions';
 
 function MiniScheduleMsgList(props) {
-    const { messages } = props;
+    const { messages, clientId, messagelist } = props;
     // console.log('MiniScheduleMsgList', messages);
-    const [messagelist, setmessagelist] = useState([]);
+    // const [messagelist, setmessagelist] = useState([]);
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (state.scheduledMessage[0] !== undefined) {
-            setmessagelist(state.scheduledMessage);
-        }
-        if (state.scheduledMessage.length === 0) {
-            setmessagelist(state.scheduledMessage);
-        }
-    }, [messages]);
+    // useEffect(() => {
+    //     // if (state.scheduledMessage[0] !== undefined) {
+    //         dispatch(getMessageHistory(clientId))
+    //        setmessagelist(state.scheduledMessage);
+    //     // }
+    //     // if (state.scheduledMessage.length === 0) {
+    //     //     setmessagelist(state.scheduledMessage);
+    //     //     dispatch(getMessageHistory)
+    //     // // }
+
+    // }, [messagelist]);
 
     if (state.scheduledMessage !== 0) {
         return (
