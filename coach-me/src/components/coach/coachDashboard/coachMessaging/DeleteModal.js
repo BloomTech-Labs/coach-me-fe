@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './ScheduledMessages.scss';
 import { deleteScheduledMessage } from '../../../../actions/coachActions';
 import { ReactComponent as Exit } from '../../../utils/assets/Xicon.svg';
+import { getScheduledMessage } from '../../../../actions/coachActions';
 import './updateModal.scss';
 
 const DeleteModal = props => {
@@ -12,7 +13,9 @@ const DeleteModal = props => {
     console.log(state);
 
     const deleteMessage = () => {
-        dispatch(deleteScheduledMessage(id));
+        dispatch(deleteScheduledMessage(id)).then(() => {
+            getScheduledMessage(id);
+        });
         removedMessage(id);
         setShow();
     };
