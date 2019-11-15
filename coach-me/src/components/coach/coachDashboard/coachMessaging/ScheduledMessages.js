@@ -33,7 +33,18 @@ function ScheduledMessages(props) {
         year: ''
     });
 
-    //repeat check mark checked to set disable on required input fields
+    //forces the patientID to be the same as the clientID when client name is clicked
+    useEffect(() => {
+        setSchedule({ patientId: `${clientprofile.clientId}` });
+    }, [clientprofile.clientId]);
+
+    //possibly more consistant than calling in the actions after the post
+    useEffect(() => {
+        dispatch(getScheduledMessage(clientprofile.clientId));
+        setSubmitted(false);
+    }, [submitted]);
+
+    //repeat monthly checkbox set disable on required input fields
     const [checkedValueMonthly, setCheckedValueMonthly] = useState(false);
     const repeatMonthlyUpdate = e => {
         const repeatMonthly = {
@@ -46,6 +57,7 @@ function ScheduledMessages(props) {
         setSchedule({ ...schedule, ...repeatMonthly });
     };
 
+    //repeat weekly checkbox set disable on required input fields
     const [checkedValueWeekly, setCheckedValueWeekly] = useState(false);
     const repeatWeeklyUpdate = e => {
         const repeatWeekly = {
@@ -58,28 +70,10 @@ function ScheduledMessages(props) {
         setSchedule({ ...schedule, ...repeatWeekly });
     };
 
-    //forces the patientID to be the same as the clientID when client name is clicked
-    useEffect(() => {
-        setSchedule({ patientId: `${clientprofile.clientId}` });
-    }, [clientprofile.clientId]);
-
-    //possibly more consistant than calling in the actions after the post
-    useEffect(() => {
-        dispatch(getScheduledMessage(clientprofile.clientId));
-        setSubmitted(false);
-    }, [submitted]);
-
-    // useEffect(() => {
-    //     dispatch(getScheduledMessage(clientprofile.clientId));
-
-    //     // eslint-disable-next-line
-    // }, [clientprofile.clientId]);
-    // console.log('I am REEALLLLY IMPORTANT',state.scheduledMessage[0] )
     const handleInputChange = e => {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
     };
-    // console.log(clientprofile.clientId);
 
     const toggleScheduler = e => {
         setShow(!show);
