@@ -6,16 +6,19 @@ function MiniMessageCard(props) {
     console.log('miniMessage', item);
     return (
         <div className='mini-card-container'>
-            <div className='date-container'>
-                <p>{item.month}</p>
-                <p>{item.dom}</p>
-                <p>{item.year}</p>
+            <div className='date-time-wrapper'>
+                <div className='date-container'>
+                    <p>{item.month}</p>
+                    <p>{item.dom},</p>
+                    <p>{item.year}</p>
+                </div>
+                <div className='time-container'>
+                    <p>{item.hour}:</p>
+                    <p>{item.min} </p>
+                    <p>{item.ampm}</p>
+                </div>
             </div>
-            <div className='time-container'>
-                <p>{item.hour}</p>
-                <p>{item.min}</p>
-            </div>
-            <div className='message-container'>
+            <div className='mini-message-container'>
                 <p>{item.msg}</p>
             </div>
         </div>

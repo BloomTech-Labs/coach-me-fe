@@ -34,18 +34,27 @@ const MessageCard = props => {
 
     return (
         <>
-            <div className='message-card'>
-                <div className='date-container'>
-                    <p>{item.month}</p>
-                    <p>{item.dom}</p>
-                    <p>{item.year}</p>
+            <div className='message-card-container'>
+                <div className='message-card'>
+                    <div className='date-time-wrapper'>
+                        <div className='date-container'>
+                            <p>{item.month}</p>
+                            <p>{item.dom},</p>
+                            <p>{item.year}</p>
+                        </div>
+                        <div className='time-container'>
+                            <p>{item.hour}:</p>
+                            <p>{item.min} </p>
+                            <p>{item.ampm}</p>
+                        </div>
+                    </div>
+                    <div className='scheduled-message-container'>
+                        <p>{item.msg}</p>
+                    </div>
                 </div>
-                <div>
-                    <p>{item.msg}</p>
-                </div>
-
                 <div className='button-container'>
                     <button
+                        className='edit-bttn'
                         onClick={e => {
                             e.preventDefault();
                             console.log('clicked');
@@ -56,6 +65,7 @@ const MessageCard = props => {
                         Edit{' '}
                     </button>
                     <button
+                        className='delete-bttn'
                         onClick={e => {
                             e.preventDefault();
                             toggleDeleteModal();

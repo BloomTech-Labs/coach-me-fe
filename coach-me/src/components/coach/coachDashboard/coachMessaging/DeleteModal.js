@@ -37,11 +37,12 @@ const DeleteModal = props => {
                     <h1> Delete Scheduled Message? </h1>
                     <div className='delete-button-container'>
                         <button
+                            className='cancel-bttn'
                             onClick={() => {
                                 setShow();
                             }}
                         >
-                            cancel
+                            Cancel
                         </button>
                         <button
                             className='del-btn'

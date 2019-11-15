@@ -4,7 +4,7 @@ import ScheduledMessagesList from './ScheduledMessagesList';
 import ScheduledMessages from './ScheduledMessages';
 import MiniScheduleMsgList from './MiniScheduleMsgList';
 import { getScheduledMessage } from '../../../../actions/coachActions';
-
+import './coachMessaging.scss';
 function ViewAllScheduledMessages(props) {
     const { clientprofile, type } = props;
     const dispatch = useDispatch();
@@ -17,28 +17,26 @@ function ViewAllScheduledMessages(props) {
 
     if (!show) {
         return (
-            <div>
-                <div>
-                    <div className='ScheduleMessages-Container-Main'>
-                        <ScheduledMessages
-                            clientprofile={props.clientprofile}
-                            type={type}
-                        />
-                    </div>
-                    <div className='mini-list'>
-                        <MiniScheduleMsgList
-                            clientId={clientprofile.clientId}
-                            messages={state.scheduledMessage}
-                        />
-                        <button
-                            className='veiw-all-button'
-                            onClick={() => toggleScheduler()}
-                        >
-                            View All
-                        </button>
-                    </div>
+            <>
+                <div className='ScheduleMessages-Container-Main'>
+                    <ScheduledMessages
+                        clientprofile={props.clientprofile}
+                        type={type}
+                    />
                 </div>
-            </div>
+                <div className='mini-list'>
+                    <MiniScheduleMsgList
+                        clientId={clientprofile.clientId}
+                        messages={state.scheduledMessage}
+                    />
+                    <button
+                        className='veiw-all-button'
+                        onClick={() => toggleScheduler()}
+                    >
+                        View All
+                    </button>
+                </div>
+            </>
         );
     } else {
         return (
