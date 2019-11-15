@@ -40,7 +40,7 @@ const WelcomeScreen = props => {
             </div>
 
             <p className='footerText'>
-                {coach && coach.coachObject.coachName}
+                {coach && coach.coachObject.coachName}{' '}
                 {translate('welcomeMessage')}
             </p>
 

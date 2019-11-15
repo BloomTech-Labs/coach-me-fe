@@ -80,7 +80,7 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_SCHEDULE_MESSAGE_SUCCESS:
-            console.log('looook at me', action.payload);
+            // console.log('looook at me', action.payload);
             return {
                 ...state,
                 loading: false,
@@ -121,6 +121,16 @@ export default (state = initialState, action) => {
                 loading: true,
                 scheduledMessage: [...state.scheduledMessage, action.payload],
                 error: ''
+            };
+        case UPDATE_SCHEDULE_MESSAGE_SUCCESS:
+            // console.log('UPDATE_SCHEDULE_MESSAGE', action.payload);
+            return {
+                ...state,
+                scheduledMessage: state.scheduledMessage.map(message =>
+                    message.scheduleId === action.payload.id
+                        ? action.payload
+                        : message
+                )
             };
         case GET_METRICS_FAILURE:
         case GET_RECORDS_FAILURE:

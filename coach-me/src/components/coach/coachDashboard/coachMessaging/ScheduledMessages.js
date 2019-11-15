@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ScheduledMessagesList from './ScheduledMessagesList';
+import MiniScheduleMsgList from './MiniScheduleMsgList';
 import {
     getScheduledMessage,
     addScheduledMessage
@@ -9,9 +10,10 @@ import {
 import './ScheduledMessages.scss';
 
 function ScheduledMessages(props) {
-    const { clientprofile } = props;
+    const { clientprofile, type } = props;
     const dispatch = useDispatch();
     const state = useSelector(state => state.coach);
+    const [show, setShow] = useState(false);
 
     // console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
@@ -26,21 +28,31 @@ function ScheduledMessages(props) {
         year: ''
     });
 
-    useEffect(() => {
-        dispatch(getScheduledMessage(clientprofile.clientId));
-
-        // eslint-disable-next-line
-    }, [clientprofile.clientId]);
-
+    // console.log('I am REEALLLLY IMPORTANT',state.scheduledMessage[0] )
     const handleInputChange = e => {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
     };
-    console.log(clientprofile.clientId);
+    // console.log(clientprofile.clientId);
+
+    const toggleScheduler = e => {
+        setShow(!show);
+    };
 
     const submitNewMessage = e => {
         e.preventDefault();
         dispatch(addScheduledMessage(schedule));
+        setSchedule({
+            patientId: `${clientprofile.clientId}`,
+            msg: '',
+            min: '',
+            hour: '',
+            dom: '',
+            month: '',
+            weekday: '',
+            ampm: '',
+            year: ''
+        });
     };
 
     return (
@@ -203,15 +215,15 @@ function ScheduledMessages(props) {
                                 <option value='' disabled selected>
                                     Minutes
                                 </option>
-                                <option value={'1'}>1</option>
-                                <option value={'2'}>2</option>
-                                <option value={'3'}>3</option>
-                                <option value={'4'}>4</option>
-                                <option value={'5'}>5</option>
-                                <option value={'6'}>6</option>
-                                <option value={'7'}>7</option>
-                                <option value={'8'}>8</option>
-                                <option value={'9'}>9</option>
+                                <option value={'01'}>01</option>
+                                <option value={'02'}>02</option>
+                                <option value={'03'}>03</option>
+                                <option value={'04'}>04</option>
+                                <option value={'05'}>05</option>
+                                <option value={'06'}>06</option>
+                                <option value={'07'}>07</option>
+                                <option value={'08'}>08</option>
+                                <option value={'09'}>09</option>
                                 <option value={'10'}>10</option>
                                 <option value={'11'}>11</option>
                                 <option value={'12'}>12</option>
@@ -283,12 +295,30 @@ function ScheduledMessages(props) {
 
                     <button>Submit</button>
                 </form>
-                <ScheduledMessagesList
-                    clientId={clientprofile.clientId}
-                    messages={state.scheduledMessage}
-                />
+                {/* <div>
+                    <ScheduledMessagesList
+                        clientId={clientprofile.clientId}
+                        messages={state.scheduledMessage}
+                        toggleScheduler={toggleScheduler}
+                        show={show}
+                    />
+                </div> */}
+
+                {/* <div className='mini-list'>
+                    <MiniScheduleMsgList
+                        clientId={clientprofile.clientId}
+                        messages={state.scheduledMessage}
+                    />
+                    <button
+                        className='veiw-all-button'
+                        onClick={() => {
+                            toggleScheduler();
+                        }}
+                    >
+                        View All
+                    </button>
+                </div> */}
             </div>
-            <div></div>
         </>
     );
 }
