@@ -11,6 +11,7 @@ function ViewAllScheduledMessages(props) {
     const dispatch = useDispatch();
     const state = useSelector(state => state.coach);
     const [show, setShow] = useState(false);
+    const [messagelist, setmessagelist] = useState([]);
 
     //initial GET for scheduled Messages, useEffect set to change when new client is clicked
     useEffect(() => {

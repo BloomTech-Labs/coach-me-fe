@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ScheduleModal from './ScheduleModal';
 import {
@@ -19,6 +19,7 @@ function ScheduledMessages(props) {
     const [submitted, setSubmitted] = useState(false);
     const [showScheduleModal, setScheduleModal] = useState(false);
 
+    // const messageArray = useRef(state.ScheduledMessages);
     // console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
         patientId: '',
@@ -53,7 +54,6 @@ function ScheduledMessages(props) {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
     };
-    // console.log(clientprofile.clientId);
 
     const toggleScheduleModal = () => {
         setScheduleModal(!showScheduleModal);
@@ -130,7 +130,7 @@ function ScheduledMessages(props) {
                                 onChange={handleInputChange}
                             >
                                 <option value='' disabled selected>
-                                    Day of Month
+                                    Date
                                 </option>
                                 <option value={'1'}>1</option>
                                 <option value={'2'}>2</option>
