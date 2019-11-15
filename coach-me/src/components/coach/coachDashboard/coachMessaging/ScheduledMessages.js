@@ -322,8 +322,7 @@ function ScheduledMessages(props) {
 
                     <button
                         className='sch-submit'
-                        onClick={e => {
-                            e.preventDefault();
+                        onClick={() => {
                             toggleScheduleModal();
                         }}
                     >
@@ -334,9 +333,6 @@ function ScheduledMessages(props) {
                     clientId={clientprofile.clientId}
                     show={showScheduleModal}
                     setShow={toggleScheduleModal}
-                    submitted={submitted}
-                    setSubmitted={setSubmitted}
-                    submitNewMessage={submitNewMessage}
                 />
             </div>
         </>
