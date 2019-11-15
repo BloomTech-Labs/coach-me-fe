@@ -12,6 +12,7 @@ const UpdateModal = props => {
     console.log('update modal props', props);
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
+    const [updated, setUpdated] = useState(false);
 
     const [schedule, setSchedule] = useState({
         patientId: '',
@@ -30,6 +31,11 @@ const UpdateModal = props => {
         setSchedule(props.messageObj);
     }, [props.messageObj]);
 
+    useEffect(() => {
+        dispatch(getScheduledMessage(clientId));
+        setUpdated(false);
+    }, [updated]);
+
     const handleInputChange = e => {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
@@ -38,6 +44,7 @@ const UpdateModal = props => {
     const submitUpdatedMessage = e => {
         e.preventDefault();
         dispatch(updateScheduledMessage(id, schedule));
+        setUpdated(true);
         // updatedMessage(id);
         setShow();
         setSchedule({

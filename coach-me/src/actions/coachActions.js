@@ -250,7 +250,7 @@ export const deleteScheduledMessage = (id, patientId) => dispatch => {
                 payload: err.message
             });
         });
-    dispatch(getScheduledMessage(patientId));
+    // dispatch(getScheduledMessage(patientId));
 };
 
 // update scheduled message
@@ -283,5 +283,5 @@ export const updateScheduledMessage = (id, message) => dispatch => {
                 payload: err.message
             });
         });
-    dispatch(getScheduledMessage(message.patientId));
+    // dispatch(getScheduledMessage(message.patientId));
 };
