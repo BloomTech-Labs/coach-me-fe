@@ -8,13 +8,13 @@ import {
 import './updateModal.scss';
 
 const UpdateModal = props => {
-    const { show, id, setShow, updatedMessage } = props;
+    const { show, id, setShow, updatedMessage, clientId } = props;
     console.log('update modal props', props);
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
 
     const [schedule, setSchedule] = useState({
-        patientId: `${props.patientId}`,
+        patientId: '',
         msg: ``,
         min: ``,
         hour: ``,
@@ -25,6 +25,11 @@ const UpdateModal = props => {
         year: ``
     });
 
+    //sets the update form to start with all the current state for that message
+    useEffect(() => {
+        setSchedule(props.messageObj);
+    }, [props.messageObj]);
+
     const handleInputChange = e => {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
@@ -33,7 +38,7 @@ const UpdateModal = props => {
     const submitUpdatedMessage = e => {
         e.preventDefault();
         dispatch(updateScheduledMessage(id, schedule));
-        updatedMessage(id);
+        // updatedMessage(id);
         setShow();
         setSchedule({
             patientId: `${props.patientId}`,

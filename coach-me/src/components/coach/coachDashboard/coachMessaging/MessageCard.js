@@ -10,7 +10,7 @@ import DeleteModal from './DeleteModal';
 import './messageCard.scss';
 
 const MessageCard = props => {
-    const { item, removedMessage, updatedMessage } = props;
+    const { item, removedMessage, updatedMessage, clientId } = props;
 
     const dispatch = useDispatch();
 
@@ -69,13 +69,15 @@ const MessageCard = props => {
                         id={item.scheduleId}
                         updatedMessage={updatedMessage}
                         setShow={toggleUpdateModal}
-                        patientId={item.patientId}
+                        clientId={clientId}
+                        messageObj={item}
                     />
                     <DeleteModal
                         show={showDeleteModal}
                         id={item.scheduleId}
                         removedMessage={removedMessage}
                         setShow={toggleDeleteModal}
+                        clientId={clientId}
                     />
                 </div>
             </div>

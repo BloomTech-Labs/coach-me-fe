@@ -202,8 +202,7 @@ export const getScheduledMessage = id => dispatch => {
 
 // post scheduled message
 export const addScheduledMessage = message => dispatch => {
-    console.log('getScheduledMessages ID', message);
-    dispatch({ type: ADD_SCHEDULE_MESSAGE_START, payload: message });
+    dispatch({ type: ADD_SCHEDULE_MESSAGE_START });
     axios
         .post(
             `https://coach-me-development.herokuapp.com/twilioRoute/postScheduled`,
@@ -215,25 +214,25 @@ export const addScheduledMessage = message => dispatch => {
             }
         )
         .then(results => {
-            // console.log('postScheduledMessage', results.data);
             dispatch({
-                type: ADD_SCHEDULE_MESSAGE_SUCCESS
+                type: ADD_SCHEDULE_MESSAGE_SUCCESS,
+                payload: results.data
             });
         })
         .catch(err => {
-            console.log(err);
             dispatch({
                 type: COACH_ERROR,
                 payload: err.message
             });
         });
+    // dispatch(getScheduledMessage(message.patientId));
 };
 
 // delete scheduled message
-export const deleteScheduledMessage = id => dispatch => {
+export const deleteScheduledMessage = (id, patientId) => dispatch => {
     console.log('deleteScheduledMessages ID', id);
     dispatch({ type: DELETE_SCHEDULE_MESSAGE_START });
-    return axios
+    axios
         .delete(
             `https://coach-me-development.herokuapp.com/twilioRoute/deleteScheduled/${id}`
         )
@@ -251,6 +250,7 @@ export const deleteScheduledMessage = id => dispatch => {
                 payload: err.message
             });
         });
+    dispatch(getScheduledMessage(patientId));
 };
 
 // update scheduled message
@@ -259,7 +259,7 @@ export const updateScheduledMessage = (id, message) => dispatch => {
     // console.log('updateScheduledMessages ID', id);
 
     dispatch({ type: UPDATE_SCHEDULE_MESSAGE_START });
-    return axios
+    axios
         .put(
             `https://coach-me-development.herokuapp.com/twilioRoute/updateScheduled/${id}`,
             message,
@@ -283,4 +283,5 @@ export const updateScheduledMessage = (id, message) => dispatch => {
                 payload: err.message
             });
         });
+    dispatch(getScheduledMessage(message.patientId));
 };

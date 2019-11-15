@@ -7,16 +7,14 @@ import { getScheduledMessage } from '../../../../actions/coachActions';
 import './updateModal.scss';
 
 const DeleteModal = props => {
-    const { show, id, setShow, removedMessage } = props;
+    const { show, id, setShow, removedMessage, clientId } = props;
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
     console.log(state);
 
     const deleteMessage = () => {
-        dispatch(deleteScheduledMessage(id)).then(() => {
-            getScheduledMessage(id);
-        });
-        removedMessage(id);
+        dispatch(deleteScheduledMessage(id, clientId));
+        // removedMessage(id);
         setShow();
     };
 
