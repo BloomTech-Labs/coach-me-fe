@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './ScheduledMessages.scss';
 import {
     updateScheduledMessage,
     getScheduledMessage
 } from '../../../../actions/coachActions';
+import { ReactComponent as Exit } from '../../../utils/assets/Xicon.svg';
 import './updateModal.scss';
 
 const UpdateModal = props => {
@@ -64,24 +64,30 @@ const UpdateModal = props => {
         <>
             <div className={`${show === false ? 'hidden' : 'show'}`}>
                 <div className='message-container-modal'>
-                    <h1>Schedule a Message</h1>
-
                     <form onSubmit={submitUpdatedMessage}>
-                        <textarea
-                            rows='4'
-                            cols='50'
-                            onChange={handleInputChange}
-                            value={schedule.msg}
-                            name='msg'
-                            type='text'
-                            placeholder='Type your message here'
-                            required
-                        ></textarea>
+                        <div className='textit'>
+                            <Exit
+                                className='exit-icon'
+                                onClick={() => {
+                                    setShow();
+                                }}
+                            />
+                            <textarea
+                                rows='4'
+                                cols='50'
+                                onChange={handleInputChange}
+                                value={schedule.msg}
+                                name='msg'
+                                type='text'
+                                placeholder='Type your message here'
+                                required
+                            ></textarea>
+                        </div>
 
                         <div className='date-wrapper-modal'>
                             <h2>DATE</h2>
 
-                            <div className='selectheader-modal'>
+                            <div className='selectheader'>
                                 <select
                                     name='month'
                                     value={schedule.month}
@@ -104,7 +110,7 @@ const UpdateModal = props => {
                                     <option value={'Dec'}>December</option>
                                 </select>
                             </div>
-                            <div className='selectheader-modal'>
+                            <div className='selectheader'>
                                 <select
                                     name='dom'
                                     value={schedule.dom}
@@ -146,7 +152,7 @@ const UpdateModal = props => {
                                     <option value={'31'}>31</option>
                                 </select>
                             </div>
-                            <div className='selectheader-modal'>
+                            <div className='selectheader'>
                                 <select
                                     name='year'
                                     value={schedule.year}
@@ -186,9 +192,9 @@ const UpdateModal = props => {
                             </div>
                         </div>
 
-                        <div className='time-wrapper-modal'>
+                        <div className='time-wrapper'>
                             <h2>TIME</h2>
-                            <div className='selectheader-modal'>
+                            <div className='selectheader'>
                                 <select
                                     name='hour'
                                     value={schedule.hour}
@@ -284,7 +290,7 @@ const UpdateModal = props => {
                                 </select>
                             </div>
 
-                            <div className='selectheader-modal'>
+                            <div className='selectheader'>
                                 <select
                                     name='ampm'
                                     value={schedule.ampm}
@@ -298,8 +304,16 @@ const UpdateModal = props => {
                                 </select>
                             </div>
                         </div>
+                        {/* <div
+                            className='cancel-bttn'
+                            onClick={() => {
+                                setShow();
+                            }}
+                        >
+                            Cancel
+                        </div> */}
 
-                        <button>Submit</button>
+                        <button className='sch-submit'>Submit</button>
                     </form>
                 </div>
             </div>

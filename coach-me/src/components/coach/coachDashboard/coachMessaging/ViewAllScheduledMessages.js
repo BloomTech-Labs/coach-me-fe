@@ -14,7 +14,7 @@ function ViewAllScheduledMessages(props) {
 
     useEffect(() => {
         if (state.scheduledMessage[0] !== undefined) {
-            dispatch(getMessageHistory(clientprofile.clientId));
+            dispatch(getScheduledMessage(clientprofile.clientId));
             setmessagelist(state.scheduledMessage);
         }
         if (state.scheduledMessage.length === 0) {
