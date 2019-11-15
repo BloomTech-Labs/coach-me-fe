@@ -83,13 +83,9 @@
                 position: absolute;
                 margin-left: 5.5rem;
                 margin-top: -0.5rem;
+                appearance: none;
             }
-            .input-arrow {
-                position: absolute;
-                left: 81.1%;
-                right: 24%;
-                bottom: 48.3%;
-            }
+
             select {
                 background: rgba(255, 255, 255, 0.6);
                 border: 1.25px solid #274160;
