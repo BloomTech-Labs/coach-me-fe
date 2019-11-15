@@ -33,6 +33,27 @@ function ScheduledMessages(props) {
         year: ''
     });
 
+    const [repeatMonthly, setRepeatMonthly] = useState({
+        weekday: '',
+        month: '',
+        year: ''
+    });
+
+    const [repeatBool, setRepeatBool] = useState(true);
+    const [checkedValue, setCheckedValue] = useState(false);
+
+    const repeatMonthlyUpdate = e => {
+        const boolean = e.target.checked;
+        setCheckedValue(boolean);
+        if (e.target.checked) {
+            setSchedule({
+                ...schedule,
+                ...repeatMonthly
+            });
+            setRepeatBool(false);
+        }
+    };
+
     //forces the patientID to be the same as the clientID when client name is clicked
     useEffect(() => {
         setSchedule({ patientId: `${clientprofile.clientId}` });
@@ -61,6 +82,7 @@ function ScheduledMessages(props) {
     };
 
     const submitNewMessage = e => {
+        console.log('REPEAT CHECK BOX EDIT??', schedule);
         e.preventDefault();
         dispatch(addScheduledMessage(schedule));
         setSubmitted(true);
@@ -105,6 +127,7 @@ function ScheduledMessages(props) {
                                 name='month'
                                 value={schedule.month}
                                 onChange={handleInputChange}
+                                disabled={checkedValue}
                             >
                                 <option value='' disabled selected>
                                     Month
@@ -319,6 +342,18 @@ function ScheduledMessages(props) {
                                 <option value={'PM'}>PM</option>
                             </select>
                         </div>
+                    </div>
+                    <div className='repeat'>
+                        <label>Repeat</label>
+                        <input type='checkbox' />
+                        Weekly
+                        <input
+                            type='checkbox'
+                            name={schedule}
+                            value={repeatBool}
+                            onChange={repeatMonthlyUpdate}
+                        />
+                        Monthly
                     </div>
 
                     <button className='sch-submit'>Schedule</button>
