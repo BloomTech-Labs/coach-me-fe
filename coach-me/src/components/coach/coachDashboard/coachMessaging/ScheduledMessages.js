@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ScheduledMessagesList from './ScheduledMessagesList';
-import MiniScheduleMsgList from './MiniScheduleMsgList';
+import ScheduleModal from './ScheduleModal';
 import {
     getScheduledMessage,
     addScheduledMessage
@@ -18,7 +17,7 @@ function ScheduledMessages(props) {
     const state = useSelector(state => state.coach);
     const [show, setShow] = useState(false);
     const [submitted, setSubmitted] = useState(false);
-    const loading = state.loading;
+    const [showScheduleModal, setScheduleModal] = useState(false);
 
     // const messageArray = useRef(state.ScheduledMessages);
     // console.log('ScheduledMessages STATE', state);
@@ -56,8 +55,8 @@ function ScheduledMessages(props) {
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
     };
 
-    const toggleScheduler = e => {
-        setShow(!show);
+    const toggleScheduleModal = () => {
+        setScheduleModal(!showScheduleModal);
     };
 
     const submitNewMessage = e => {
@@ -321,8 +320,20 @@ function ScheduledMessages(props) {
                         </div>
                     </div>
 
-                    <button className='sch-submit'>Schedule</button>
+                    <button
+                        className='sch-submit'
+                        onClick={() => {
+                            toggleScheduleModal();
+                        }}
+                    >
+                        Schedule
+                    </button>
                 </form>
+                <ScheduleModal
+                    clientId={clientprofile.clientId}
+                    show={showScheduleModal}
+                    setShow={toggleScheduleModal}
+                />
             </div>
         </>
     );

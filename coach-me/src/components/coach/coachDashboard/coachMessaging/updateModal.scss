@@ -138,7 +138,7 @@
     align-items: center;
     position: absolute;
     background-color: rgba(0, 0, 0, 0);
-    left: 35%;
+    left: 36.5%;
     top: 10%;
     .delete-modal-box {
         @include layout2();
@@ -148,11 +148,13 @@
         background: #f6f6f6;
         height: 30%;
         width: 80%;
-        max-width: 400px;
-        border-radius: 10px;
+        max-width: 19%;
+        border-radius: 1rem;
         font-size: 1.8rem;
-        padding: 2.5%;
+        padding: 1.5%;
+        padding-bottom: 1.5%;
         box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+        margin-right: 2.5%;
 
         h1 {
             color: #274160;
@@ -160,6 +162,7 @@
             width: 76%;
             line-height: 141.8%;
             font-size: 1.5rem;
+            text-align: center;
         }
 
         .delete-button-container {
@@ -185,9 +188,9 @@
                 border: none;
                 background: #274160;
                 font-size: 1.8rem;
-                width: 30%;
-                height: 50%;
-                border-radius: 20px;
+                width: 40%;
+                height: 71%;
+                border-radius: 6px;
                 color: #ffffff;
                 margin-left: 10px;
                 outline: none;

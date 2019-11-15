@@ -4,6 +4,7 @@ import ScheduledMessagesList from './ScheduledMessagesList';
 import ScheduledMessages from './ScheduledMessages';
 import MiniScheduleMsgList from './MiniScheduleMsgList';
 import { getScheduledMessage } from '../../../../actions/coachActions';
+import './viewAllScheduledMessages.scss';
 
 function ViewAllScheduledMessages(props) {
     const { clientprofile, type } = props;
