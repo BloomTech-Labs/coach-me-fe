@@ -5,6 +5,9 @@ import {
     getScheduledMessage
 } from '../../../../actions/coachActions';
 import { ReactComponent as Exit } from '../../../utils/assets/Xicon.svg';
+import { ReactComponent as Calendar } from '../../../utils/assets/calendar.svg';
+import { ReactComponent as Clock } from '../../../utils/assets/clock.svg';
+
 import './updateModal.scss';
 
 const UpdateModal = props => {
@@ -65,26 +68,27 @@ const UpdateModal = props => {
             <div className={`${show === false ? 'hidden' : 'show'}`}>
                 <div className='message-container-modal'>
                     <form onSubmit={submitUpdatedMessage}>
-                        <div className='textit'>
-                            <Exit
-                                className='exit-icon'
-                                onClick={() => {
-                                    setShow();
-                                }}
-                            />
-                            <textarea
-                                rows='4'
-                                cols='50'
-                                onChange={handleInputChange}
-                                value={schedule.msg}
-                                name='msg'
-                                type='text'
-                                placeholder='Type your message here'
-                                required
-                            ></textarea>
-                        </div>
+                        <Exit
+                            className='exit-icon'
+                            onClick={() => {
+                                setShow();
+                            }}
+                        />
+
+                        <h1>Schedule a Message</h1>
+                        <textarea
+                            rows='4'
+                            cols='50'
+                            onChange={handleInputChange}
+                            value={schedule.msg}
+                            name='msg'
+                            type='text'
+                            placeholder='Type your message here'
+                            required
+                        ></textarea>
 
                         <div className='date-wrapper-modal'>
+                            <Calendar />
                             <h2>DATE</h2>
 
                             <div className='selectheader'>
@@ -117,7 +121,7 @@ const UpdateModal = props => {
                                     onChange={handleInputChange}
                                 >
                                     <option value='' disabled selected>
-                                        Day of Month
+                                        Date
                                     </option>
                                     <option value={'1'}>1</option>
                                     <option value={'2'}>2</option>
@@ -193,6 +197,7 @@ const UpdateModal = props => {
                         </div>
 
                         <div className='time-wrapper'>
+                            <Clock />
                             <h2>TIME</h2>
                             <div className='selectheader'>
                                 <select
@@ -313,7 +318,7 @@ const UpdateModal = props => {
                             Cancel
                         </div> */}
 
-                        <button className='sch-submit'>Submit</button>
+                        <button className='sch-submit'>Save</button>
                     </form>
                 </div>
             </div>
