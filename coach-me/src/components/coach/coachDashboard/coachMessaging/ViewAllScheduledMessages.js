@@ -13,18 +13,6 @@ function ViewAllScheduledMessages(props) {
     const [show, setShow] = useState(false);
     const [messagelist, setmessagelist] = useState([]);
 
-    useEffect(() => {
-        if (state.scheduledMessage[0] !== undefined) {
-            dispatch(getScheduledMessage(clientprofile.clientId));
-            setmessagelist(state.scheduledMessage);
-        }
-        if (state.scheduledMessage.length === 0) {
-            setmessagelist(state.scheduledMessage);
-            // dispatch(getMessageHistory)
-        }
-    }, [clientprofile.clientId]);
-    console.log(clientprofile);
-
     //initial GET for scheduled Messages, useEffect set to change when new client is clicked
     useEffect(() => {
         dispatch(getScheduledMessage(clientprofile.clientId));
