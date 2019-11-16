@@ -44,12 +44,32 @@ function ScheduledMessages(props) {
         setSubmitted(false);
     }, [submitted]);
 
-    // useEffect(() => {
-    //     dispatch(getScheduledMessage(clientprofile.clientId));
+    //repeat monthly checkbox set disable on required input fields
+    const [checkedValueMonthly, setCheckedValueMonthly] = useState(false);
+    const repeatMonthlyUpdate = e => {
+        const repeatMonthly = {
+            weekday: '',
+            month: '',
+            year: ''
+        };
+        const boolean = e.target.checked;
+        setCheckedValueMonthly(boolean);
+        setSchedule({ ...schedule, ...repeatMonthly });
+    };
 
-    //     // eslint-disable-next-line
-    // }, [clientprofile.clientId]);
-    // console.log('I am REEALLLLY IMPORTANT',state.scheduledMessage[0] )
+    //repeat weekly checkbox set disable on required input fields
+    const [checkedValueWeekly, setCheckedValueWeekly] = useState(false);
+    const repeatWeeklyUpdate = e => {
+        const repeatWeekly = {
+            dom: '',
+            month: '',
+            year: ''
+        };
+        const boolean = e.target.checked;
+        setCheckedValueWeekly(boolean);
+        setSchedule({ ...schedule, ...repeatWeekly });
+    };
+
     const handleInputChange = e => {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
@@ -60,6 +80,7 @@ function ScheduledMessages(props) {
     };
 
     const submitNewMessage = e => {
+        console.log('REPEAT CHECK BOX EDIT??', schedule);
         e.preventDefault();
         dispatch(addScheduledMessage(schedule));
         setSubmitted(true);
@@ -104,6 +125,9 @@ function ScheduledMessages(props) {
                                 name='month'
                                 value={schedule.month}
                                 onChange={handleInputChange}
+                                disabled={
+                                    checkedValueMonthly || checkedValueWeekly
+                                }
                             >
                                 <option value='' disabled selected>
                                     Month
@@ -128,6 +152,7 @@ function ScheduledMessages(props) {
                                 name='dom'
                                 value={schedule.dom}
                                 onChange={handleInputChange}
+                                disabled={checkedValueWeekly}
                             >
                                 <option value='' disabled selected>
                                     Date
@@ -171,6 +196,9 @@ function ScheduledMessages(props) {
                                 name='year'
                                 value={schedule.year}
                                 onChange={handleInputChange}
+                                disabled={
+                                    checkedValueMonthly || checkedValueWeekly
+                                }
                             >
                                 <option value='' disabled selected>
                                     Year
@@ -318,6 +346,40 @@ function ScheduledMessages(props) {
                                 <option value={'PM'}>PM</option>
                             </select>
                         </div>
+                    </div>
+                    <div className='repeat'>
+                        <label>Repeat</label>
+                        <input
+                            type='checkbox'
+                            id='weekly'
+                            onChange={repeatWeeklyUpdate}
+                        />
+                        <label for='weekly'>Weekly</label>
+                        <select
+                            className={`weekday ${
+                                !checkedValueWeekly ? 'hide' : null
+                            }`}
+                            name='weekday'
+                            value={schedule.weekday}
+                            onChange={handleInputChange}
+                        >
+                            <option value='' disabled selected>
+                                Weekday
+                            </option>
+                            <option value='Sunday'>Sunday</option>
+                            <option value='Monday'>Monday</option>
+                            <option value='Tuesday'>Tuesday</option>
+                            <option value='Wednesday'>Wednesday</option>
+                            <option value='Thursday'>Thursday</option>
+                            <option value='Friday'>Friday</option>
+                            <option value='Saturday'>Saturday</option>
+                        </select>
+                        <input
+                            type='checkbox'
+                            id='monthly'
+                            onChange={repeatMonthlyUpdate}
+                        />
+                        <label for='monthly'>Monthly</label>
                     </div>
 
                     <button

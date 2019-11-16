@@ -4,7 +4,7 @@
     justify-content: space-around;
     background: #f6f6f6;
 
-    height: 55rem;
+    height: 100vh;
 
     .title-text {
         font-family: Montserrat;
@@ -39,6 +39,10 @@
         justify-content: center;
         align-items: center;
         justify-content: space-evenly;
+        height: 56rem;
+        .schedule-scrollbar-container {
+            width: 100%;
+        }
 
         .message-card-container {
             display: flex;

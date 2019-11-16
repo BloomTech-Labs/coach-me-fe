@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import MessageCard from './MessageCard';
 import {
     deleteScheduledMessage,
@@ -7,15 +6,14 @@ import {
 } from '../../../../actions/coachActions';
 import backArrow from '../../../utils/assets/back.svg';
 import { useDispatch, useSelector } from 'react-redux';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import './messageCard.scss';
-
 const ScheduledMessagesList = props => {
     const state = useSelector(state => state.coach);
     const { messages, show, toggleScheduler } = props;
     // console.log(messages);
     const dispatch = useDispatch();
     const [messagelist, setmessagelist] = useState([]);
-
     // useEffect(() => {
     //     if (state.scheduledMessage[0] !== undefined) {
     //         setmessagelist(state.scheduledMessage);
@@ -24,7 +22,6 @@ const ScheduledMessagesList = props => {
     //         setmessagelist(state.scheduledMessage);
     //     }
     // }, [messages]);
-
     const removedMessage = id => {
         const filtered = messagelist.filter(item => {
             if (item.scheduleId !== id) {
@@ -34,24 +31,19 @@ const ScheduledMessagesList = props => {
                 return [item];
             }
         });
-
         // console.log('filited list', filtered);
         setmessagelist(filtered);
     };
-
     const updatedMessage = id => {
         const updated = messagelist.filter(item => {
             if (item.scheduleId !== id) {
                 return [item];
             }
         });
-
         setmessagelist(updated);
     };
-
     // console.log(messagelist);
     // if (show) {
-
     if (state.scheduledMessage !== 0) {
         return (
             <div className='message-list-wrapper'>
@@ -66,23 +58,23 @@ const ScheduledMessagesList = props => {
                 </div>
                 <h1 className='title-text'>Previously Scheduled Messages</h1>
                 <div className='message-list-container'>
-                    {state.scheduledMessage.map(item => (
-                        <MessageCard
-                            className='message-card'
-                            item={item}
-                            clientId={props.clientId}
-                            removedMessage={removedMessage}
-                            updatedMessage={updatedMessage}
-                        />
-                    ))}
+                    <PerfectScrollbar className='schedule-scrollbar-container'>
+                        {state.scheduledMessage.map(item => (
+                            <MessageCard
+                                className='message-card'
+                                item={item}
+                                clientId={props.clientId}
+                                removedMessage={removedMessage}
+                                updatedMessage={updatedMessage}
+                            />
+                        ))}
+                    </PerfectScrollbar>
                 </div>
             </div>
         );
     }
-
     return <h1>No messages scheduled</h1>;
     // }
     // return null
 };
-
 export default ScheduledMessagesList;
