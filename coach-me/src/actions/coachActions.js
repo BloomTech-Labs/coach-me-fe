@@ -255,9 +255,6 @@ export const deleteScheduledMessage = (id, patientId) => dispatch => {
 
 // update scheduled message
 export const updateScheduledMessage = (id, message) => dispatch => {
-    // console.log('updateScheduledMessages ID', message);
-    // console.log('updateScheduledMessages ID', id);
-
     dispatch({ type: UPDATE_SCHEDULE_MESSAGE_START });
     axios
         .put(

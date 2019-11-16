@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './ScheduledMessages.scss';
 import {
     updateScheduledMessage,
     getScheduledMessage
 } from '../../../../actions/coachActions';
+import { ReactComponent as Exit } from '../../../utils/assets/Xicon.svg';
+import { ReactComponent as Calendar } from '../../../utils/assets/calendar.svg';
+import { ReactComponent as Clock } from '../../../utils/assets/clock.svg';
+
 import './updateModal.scss';
 
 const UpdateModal = props => {
@@ -64,9 +67,15 @@ const UpdateModal = props => {
         <>
             <div className={`${show === false ? 'hidden' : 'show'}`}>
                 <div className='message-container-modal'>
-                    <h1>Schedule a Message</h1>
-
                     <form onSubmit={submitUpdatedMessage}>
+                        <Exit
+                            className='exit-icon'
+                            onClick={() => {
+                                setShow();
+                            }}
+                        />
+
+                        <h1>Schedule a Message</h1>
                         <textarea
                             rows='4'
                             cols='50'
@@ -79,9 +88,10 @@ const UpdateModal = props => {
                         ></textarea>
 
                         <div className='date-wrapper-modal'>
+                            <Calendar />
                             <h2>DATE</h2>
 
-                            <div className='selectheader-modal'>
+                            <div className='selectheader'>
                                 <select
                                     name='month'
                                     value={schedule.month}
@@ -104,14 +114,14 @@ const UpdateModal = props => {
                                     <option value={'Dec'}>December</option>
                                 </select>
                             </div>
-                            <div className='selectheader-modal'>
+                            <div className='selectheader'>
                                 <select
                                     name='dom'
                                     value={schedule.dom}
                                     onChange={handleInputChange}
                                 >
                                     <option value='' disabled selected>
-                                        Day of Month
+                                        Date
                                     </option>
                                     <option value={'1'}>1</option>
                                     <option value={'2'}>2</option>
@@ -146,7 +156,7 @@ const UpdateModal = props => {
                                     <option value={'31'}>31</option>
                                 </select>
                             </div>
-                            <div className='selectheader-modal'>
+                            <div className='selectheader'>
                                 <select
                                     name='year'
                                     value={schedule.year}
@@ -187,8 +197,9 @@ const UpdateModal = props => {
                         </div>
 
                         <div className='time-wrapper-modal'>
+                            <Clock />
                             <h2>TIME</h2>
-                            <div className='selectheader-modal'>
+                            <div className='selectheader'>
                                 <select
                                     name='hour'
                                     value={schedule.hour}
@@ -284,7 +295,7 @@ const UpdateModal = props => {
                                 </select>
                             </div>
 
-                            <div className='selectheader-modal'>
+                            <div className='selectheader'>
                                 <select
                                     name='ampm'
                                     value={schedule.ampm}
@@ -298,8 +309,16 @@ const UpdateModal = props => {
                                 </select>
                             </div>
                         </div>
+                        {/* <div
+                            className='cancel-bttn'
+                            onClick={() => {
+                                setShow();
+                            }}
+                        >
+                            Cancel
+                        </div> */}
 
-                        <button>Submit</button>
+                        <button className='sch-submit'>Save</button>
                     </form>
                 </div>
             </div>

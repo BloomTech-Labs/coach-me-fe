@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ScheduledMessagesList from './ScheduledMessagesList';
-import MiniScheduleMsgList from './MiniScheduleMsgList';
+import ScheduleModal from './ScheduleModal';
 import {
     getScheduledMessage,
     addScheduledMessage
@@ -18,8 +17,9 @@ function ScheduledMessages(props) {
     const state = useSelector(state => state.coach);
     const [show, setShow] = useState(false);
     const [submitted, setSubmitted] = useState(false);
-    const loading = state.loading;
+    const [showScheduleModal, setScheduleModal] = useState(false);
 
+    // const messageArray = useRef(state.ScheduledMessages);
     // console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
         patientId: '',
@@ -54,10 +54,9 @@ function ScheduledMessages(props) {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
     };
-    // console.log(clientprofile.clientId);
 
-    const toggleScheduler = e => {
-        setShow(!show);
+    const toggleScheduleModal = () => {
+        setScheduleModal(!showScheduleModal);
     };
 
     const submitNewMessage = e => {
@@ -131,7 +130,7 @@ function ScheduledMessages(props) {
                                 onChange={handleInputChange}
                             >
                                 <option value='' disabled selected>
-                                    Day of Month
+                                    Date
                                 </option>
                                 <option value={'1'}>1</option>
                                 <option value={'2'}>2</option>
@@ -321,31 +320,20 @@ function ScheduledMessages(props) {
                         </div>
                     </div>
 
-                    <button className='sch-submit'>Schedule</button>
-                </form>
-                {/* <div>
-                    <ScheduledMessagesList
-                        clientId={clientprofile.clientId}
-                        messages={state.scheduledMessage}
-                        toggleScheduler={toggleScheduler}
-                        show={show}
-                    />
-                </div> */}
-
-                {/* <div className='mini-list'>
-                    <MiniScheduleMsgList
-                        clientId={clientprofile.clientId}
-                        messages={state.scheduledMessage}
-                    />
                     <button
-                        className='veiw-all-button'
+                        className='sch-submit'
                         onClick={() => {
-                            toggleScheduler();
+                            toggleScheduleModal();
                         }}
                     >
-                        View All
+                        Schedule
                     </button>
-                </div> */}
+                </form>
+                <ScheduleModal
+                    clientId={clientprofile.clientId}
+                    show={showScheduleModal}
+                    setShow={toggleScheduleModal}
+                />
             </div>
         </>
     );

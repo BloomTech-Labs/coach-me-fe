@@ -9,11 +9,11 @@ function MiniMessageCard(props) {
             <div className='date-time-wrapper'>
                 <div className='date-container'>
                     <p>{item.month}</p>
-                    <p>{item.dom},</p>
+                    <p>{item.dom}</p>
                     <p>{item.year}</p>
                 </div>
                 <div className='time-container'>
-                    <p>{item.hour}:</p>
+                    <p>{item.hour}</p>
                     <p>{item.min} </p>
                     <p>{item.ampm}</p>
                 </div>
