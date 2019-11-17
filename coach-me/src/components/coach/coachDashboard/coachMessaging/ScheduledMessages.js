@@ -38,7 +38,7 @@ function ScheduledMessages(props) {
         setSchedule({ patientId: `${clientprofile.clientId}` });
     }, [clientprofile.clientId]);
 
-    //possibly more consistant than calling in the actions after the post
+    //updates state directly after scheduling a message
     useEffect(() => {
         dispatch(getScheduledMessage(clientprofile.clientId));
         setSubmitted(false);
@@ -80,10 +80,10 @@ function ScheduledMessages(props) {
     };
 
     const submitNewMessage = e => {
-        console.log('REPEAT CHECK BOX EDIT??', schedule);
         e.preventDefault();
         dispatch(addScheduledMessage(schedule));
         setSubmitted(true);
+        toggleScheduleModal();
         setSchedule({
             patientId: `${clientprofile.clientId}`,
             msg: '',
@@ -125,6 +125,7 @@ function ScheduledMessages(props) {
                                 name='month'
                                 value={schedule.month}
                                 onChange={handleInputChange}
+                                required
                                 disabled={
                                     checkedValueMonthly || checkedValueWeekly
                                 }
@@ -152,6 +153,7 @@ function ScheduledMessages(props) {
                                 name='dom'
                                 value={schedule.dom}
                                 onChange={handleInputChange}
+                                required
                                 disabled={checkedValueWeekly}
                             >
                                 <option value='' disabled selected>
@@ -196,6 +198,7 @@ function ScheduledMessages(props) {
                                 name='year'
                                 value={schedule.year}
                                 onChange={handleInputChange}
+                                required
                                 disabled={
                                     checkedValueMonthly || checkedValueWeekly
                                 }
@@ -242,6 +245,7 @@ function ScheduledMessages(props) {
                                 name='hour'
                                 value={schedule.hour}
                                 onChange={handleInputChange}
+                                required
                             >
                                 <option value='' disabled selected>
                                     Hour
@@ -266,10 +270,12 @@ function ScheduledMessages(props) {
                                 name='min'
                                 value={schedule.min}
                                 onChange={handleInputChange}
+                                required
                             >
                                 <option value='' disabled selected>
                                     Minutes
                                 </option>
+                                <option value={'00'}>00</option>
                                 <option value={'01'}>01</option>
                                 <option value={'02'}>02</option>
                                 <option value={'03'}>03</option>
@@ -338,6 +344,7 @@ function ScheduledMessages(props) {
                                 name='ampm'
                                 value={schedule.ampm}
                                 onChange={handleInputChange}
+                                required
                             >
                                 <option value='' disabled selected>
                                     AM/PM
@@ -362,6 +369,7 @@ function ScheduledMessages(props) {
                             name='weekday'
                             value={schedule.weekday}
                             onChange={handleInputChange}
+                            required={checkedValueWeekly}
                         >
                             <option value='' disabled selected>
                                 Weekday
@@ -384,9 +392,9 @@ function ScheduledMessages(props) {
 
                     <button
                         className='sch-submit'
-                        onClick={() => {
-                            toggleScheduleModal();
-                        }}
+                        // onClick={() => {
+                        //     toggleScheduleModal();
+                        // }}
                     >
                         Schedule
                     </button>

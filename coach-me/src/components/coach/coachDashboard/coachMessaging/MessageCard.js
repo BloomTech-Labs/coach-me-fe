@@ -16,8 +16,7 @@ const MessageCard = props => {
 
     const [showUpdateModal, setUpdateModal] = useState(false);
     const [showDeleteModal, setDeleteModal] = useState(false);
-    const [month, setMonth] = useState(item.month);
-    const [dom, setDom] = useState(item.dom);
+    const [date, setDate] = useState('');
 
     let suffix = '';
     if (typeof item.dom === 'string') {
@@ -26,12 +25,14 @@ const MessageCard = props => {
         if (item.dom.endsWith('2') && item.dom !== '12') suffix = 'nd';
         if (item.dom.endsWith('3') && item.dom !== '13') suffix = 'rd';
 
-        if (month === '' && dom === '') {
-            setDom(`${item.weekday}s at`);
+        if (item.month === '' && item.dom === '' && date === '') {
+            setDate(`${item.weekday}s,`);
         }
-        if (month === '' && dom !== '') {
-            setMonth(`${item.dom}${suffix} every month`);
-            setDom('');
+        if (item.month === '' && item.dom !== '' && date === '') {
+            setDate(`${item.dom}${suffix} of every month,`);
+        }
+        if (item.month !== '' && item.dom !== '' && date === '') {
+            setDate(`${item.month} ${item.dom}, ${item.year}`);
         }
     }
 
@@ -48,14 +49,10 @@ const MessageCard = props => {
                 <div className='message-card'>
                     <div className='date-time-wrapper'>
                         <div className='date-container'>
-                            <p>{month}</p>
-                            <p>{dom},</p>
-                            <p>{item.year}</p>
+                            <p>{date}</p>
                         </div>
                         <div className='time-container'>
-                            <p>{item.hour}:</p>
-                            <p>{item.min} </p>
-                            <p>{item.ampm}</p>
+                            <p>{`${item.hour}:${item.min} ${item.ampm}`}</p>
                         </div>
                     </div>
                     <div className='scheduled-message-container'>
