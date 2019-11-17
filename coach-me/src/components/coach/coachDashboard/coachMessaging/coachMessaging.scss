@@ -41,6 +41,7 @@
 
 .scroll-to-bottom {
     display: flex;
+    width: 100%;
 }
 
 .message-container {
@@ -48,7 +49,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 100%;
+    width: 60%;
 
     .messages {
         // border: 2px dashed orchid;
@@ -62,6 +63,7 @@
         }
         .text {
             padding: 10px;
+            overflow-wrap: break-word;
         }
         .time {
             font-size: 1.4rem;
@@ -163,7 +165,7 @@ textarea {
 }
 
 .scrollbar-message-container {
-    width: 100%;
+    width: 90%;
     display: flex;
 }
 
