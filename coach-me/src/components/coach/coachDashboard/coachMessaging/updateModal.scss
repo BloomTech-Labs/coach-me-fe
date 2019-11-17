@@ -11,7 +11,7 @@
 }
 .message-container-modal {
     width: 30%;
-    height: 61%;
+    height: 63%;
 
     z-index: 2;
     display: flex;
@@ -27,7 +27,7 @@
 
     form {
         width: 91%;
-        height: 81%;
+        height: 86%;
 
         background: #f3f3f3;
         display: flex;
@@ -53,9 +53,9 @@
         }
         .sch-submit {
             color: white;
-            width: 80%;
-            height: 35px;
-            margin-top: 45px;
+            width: 42%;
+            height: 8%;
+            margin-top: 2.1rem;
 
             background: #274160;
             border-radius: 10px;
@@ -73,6 +73,33 @@
             justify-content: space-evenly;
             width: 100%;
             align-items: center;
+        }
+        .repeat {
+            margin-top: 1.5rem;
+            max-width: 100%;
+            width: 100%;
+            margin-left: 2.3rem;
+
+            .weekday {
+                margin-left: 1rem;
+            }
+
+            label {
+                margin: 1rem;
+                font-family: DM Sans;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 18px;
+
+                /* Primary - 7 */
+
+                color: #1c3048;
+            }
+            input {
+                margin-right: 0.5rem;
+                margin-left: 1.4rem;
+            }
         }
         h1 {
             font-family: Montserrat;
