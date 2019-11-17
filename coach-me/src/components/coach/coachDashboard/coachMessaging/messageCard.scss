@@ -4,6 +4,8 @@
     justify-content: space-around;
     background: #f6f6f6;
 
+    height: 100vh;
+
     .title-text {
         font-family: Montserrat;
         font-style: normal;
@@ -36,21 +38,25 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        justify-content: space-evenly;
+        height: 56rem;
+        .schedule-scrollbar-container {
+            width: 100%;
+        }
 
-        height: 85.5%;
         .message-card-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 220px;
+            margin-bottom: 3rem;
 
             .message-card {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 50%;
+                height: 8rem;
                 justify-content: space-evenly;
                 background: #ffffff;
                 border-radius: 15px;
@@ -91,6 +97,7 @@
 
                     p {
                         color: #1c3048;
+                        word-wrap: break-word;
                     }
                 }
             }
@@ -132,16 +139,16 @@
 .mini-card {
     background: #ffffff;
     border-radius: 15px;
-    width: 80%;
-    height: 26%;
+    width: 85%;
+
     margin: 1rem;
 
     .mini-card-container {
         display: flex;
         justify-content: center;
         align-items: center;
-
-        justify-content: space-evenly;
+        width: 100%;
+        padding: 1.5rem;
 
         .date-time-wrapper {
             display: flex;
@@ -178,6 +185,7 @@
 
             p {
                 color: #1c3048;
+                word-wrap: break-word;
             }
         }
     }

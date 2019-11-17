@@ -31,7 +31,7 @@ function MiniMessageCard(props) {
                     <p>{item.year}</p>
                 </div>
                 <div className='time-container'>
-                    <p>{item.hour}:</p>
+                    <p>{item.hour}</p>
                     <p>{item.min} </p>
                     <p>{item.ampm}</p>
                 </div>
