@@ -67,6 +67,7 @@ function ScheduledMessages(props) {
         };
         const boolean = e.target.checked;
         setCheckedValueWeekly(boolean);
+        if (checkedValueWeekly) repeatWeekly.weekday = '';
         setSchedule({ ...schedule, ...repeatWeekly });
     };
 
@@ -355,13 +356,15 @@ function ScheduledMessages(props) {
                         </div>
                     </div>
                     <div className='repeat'>
-                        <input
-                            type='checkbox'
-                            id='weekly'
-                            onChange={repeatWeeklyUpdate}
-                        />
-                        <label>Repeat</label>
-                        <label for='weekly'>Weekly</label>
+                        <h3>Repeat</h3>
+                        <label for='weekly'>
+                            <input
+                                type='checkbox'
+                                id='weekly'
+                                onChange={repeatWeeklyUpdate}
+                            />
+                            Weekly
+                        </label>
                         <select
                             className={`weekday ${
                                 !checkedValueWeekly ? 'hide' : ''
@@ -370,6 +373,7 @@ function ScheduledMessages(props) {
                             value={schedule.weekday}
                             onChange={handleInputChange}
                             required={checkedValueWeekly}
+                            disabled={!checkedValueWeekly}
                         >
                             <option value='' disabled selected>
                                 Weekday
@@ -382,12 +386,14 @@ function ScheduledMessages(props) {
                             <option value='Friday'>Friday</option>
                             <option value='Saturday'>Saturday</option>
                         </select>
-                        <input
-                            type='checkbox'
-                            id='monthly'
-                            onChange={repeatMonthlyUpdate}
-                        />
-                        <label for='monthly'>Monthly</label>
+                        <label for='monthly'>
+                            <input
+                                type='checkbox'
+                                id='monthly'
+                                onChange={repeatMonthlyUpdate}
+                            />
+                            Monthly
+                        </label>
                     </div>
 
                     <button

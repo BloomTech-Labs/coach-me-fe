@@ -62,6 +62,7 @@ const UpdateModal = props => {
         };
         const boolean = e.target.checked;
         setCheckedValueWeekly(boolean);
+        if (checkedValueWeekly) repeatWeekly.weekday = '';
         setSchedule({ ...schedule, ...repeatWeekly });
     };
 
@@ -71,6 +72,7 @@ const UpdateModal = props => {
     };
 
     const submitUpdatedMessage = e => {
+        console.log('UPDATED MESSAGE', schedule);
         e.preventDefault();
         dispatch(updateScheduledMessage(id, schedule));
         setUpdated(true);
@@ -352,13 +354,15 @@ const UpdateModal = props => {
                             </div>
                         </div>
                         <div className='repeat'>
-                            <input
-                                type='checkbox'
-                                id='weekly'
-                                onChange={repeatWeeklyUpdate}
-                            />
-                            <label>Repeat</label>
-                            <label for='weekly'>Weekly</label>
+                            <h3>Repeat</h3>
+                            <label for='weekly'>
+                                <input
+                                    type='checkbox'
+                                    id='weekly'
+                                    onChange={repeatWeeklyUpdate}
+                                />
+                                Weekly
+                            </label>
                             <select
                                 className={`weekday ${
                                     !checkedValueWeekly ? 'hide' : ''
@@ -366,6 +370,8 @@ const UpdateModal = props => {
                                 name='weekday'
                                 value={schedule.weekday}
                                 onChange={handleInputChange}
+                                required={checkedValueWeekly}
+                                disabled={!checkedValueWeekly}
                             >
                                 <option value='' disabled selected>
                                     Weekday
@@ -378,13 +384,14 @@ const UpdateModal = props => {
                                 <option value='Friday'>Friday</option>
                                 <option value='Saturday'>Saturday</option>
                             </select>
-                            <input
-                                type='checkbox'
-                                id='monthly'
-                                onChange={repeatMonthlyUpdate}
-                                // checked={true}
-                            />
-                            <label for='monthly'>Monthly</label>
+                            <label for='monthly'>
+                                <input
+                                    type='checkbox'
+                                    id='monthly'
+                                    onChange={repeatMonthlyUpdate}
+                                />
+                                Monthly
+                            </label>
                         </div>
 
                         <button className='sch-submit'>Save</button>

@@ -33,6 +33,17 @@
         max-width: 100%;
         width: 100%;
         margin-left: 2.3rem;
+        display: flex;
+        align-items: center;
+
+        h3 {
+            margin: 1rem;
+            font-family: DM Sans;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
+            color: #1c3048;
+        }
 
         .weekday {
             margin-left: 1rem;
@@ -42,6 +53,10 @@
             border: 1.25px solid #274160;
             box-sizing: border-box;
             border-radius: 8px;
+        }
+
+        .hide {
+            display: none;
         }
 
         label {
@@ -55,10 +70,14 @@
             /* Primary - 7 */
 
             color: #1c3048;
+            display: flex;
+            align-items: center;
         }
         input {
             margin-right: 0.5rem;
             margin-left: 1.4rem;
+            width: 18px;
+            height: 18px;
         }
     }
 
@@ -139,6 +158,11 @@
                 color: #274160;
                 background-image: url(../../../utils/assets/downArrow.svg)
                     no-repeat;
+
+                &:disabled {
+                    color: #000000;
+                    opacity: 0.3;
+                }
             }
         }
         .sch-submit {
