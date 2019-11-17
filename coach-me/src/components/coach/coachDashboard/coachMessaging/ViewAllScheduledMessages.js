@@ -4,7 +4,6 @@ import ScheduledMessagesList from './ScheduledMessagesList';
 import ScheduledMessages from './ScheduledMessages';
 import MiniScheduleMsgList from './MiniScheduleMsgList';
 import { getScheduledMessage } from '../../../../actions/coachActions';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import './viewAllScheduledMessages.scss';
 
 function ViewAllScheduledMessages(props) {
@@ -26,26 +25,24 @@ function ViewAllScheduledMessages(props) {
     if (!show) {
         return (
             <>
-                <PerfectScrollbar className='schedule-message-container'>
-                    <div className='ScheduleMessages-Container-Main'>
-                        <ScheduledMessages
-                            clientprofile={props.clientprofile}
-                            type={type}
-                        />
-                    </div>
-                    <div className='mini-list'>
-                        <MiniScheduleMsgList
-                            clientId={clientprofile.clientId}
-                            messages={state.scheduledMessage}
-                        />
-                        <button
-                            className='veiw-all-button'
-                            onClick={() => toggleScheduler()}
-                        >
-                            View All
-                        </button>
-                    </div>
-                </PerfectScrollbar>
+                <div className='ScheduleMessages-Container-Main'>
+                    <ScheduledMessages
+                        clientprofile={props.clientprofile}
+                        type={type}
+                    />
+                </div>
+                <div className='mini-list'>
+                    <MiniScheduleMsgList
+                        clientId={clientprofile.clientId}
+                        messages={state.scheduledMessage}
+                    />
+                    <button
+                        className='veiw-all-button'
+                        onClick={() => toggleScheduler()}
+                    >
+                        View All
+                    </button>
+                </div>
             </>
         );
     } else {

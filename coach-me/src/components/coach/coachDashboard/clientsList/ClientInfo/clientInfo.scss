@@ -198,7 +198,7 @@
 
 .client-card {
     display: flex;
-    justify-content: center;
+
     align-items: center;
     border: 2px solid #c4cfdd;
     width: 100%;
@@ -206,7 +206,8 @@
     background-color: #edf2f8;
     .name-container {
         font-family: 'DM Sans';
-        font-size: 2rem;
+        font-size: 1.6rem;
+        text-align: center;
         color: #274160;
     }
 }

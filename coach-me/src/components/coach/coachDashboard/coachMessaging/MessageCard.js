@@ -1,34 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import {
+    deleteScheduledMessage,
+    getScheduledMessage,
+    updateScheduledMessage
+} from '../../../../actions/coachActions';
 import UpdateModal from './UpdateModal';
+import { useDispatch, useSelector } from 'react-redux';
 import DeleteModal from './DeleteModal';
 import './messageCard.scss';
 
 const MessageCard = props => {
     const { item, removedMessage, updatedMessage, clientId } = props;
 
+    const dispatch = useDispatch();
+
     const [showUpdateModal, setUpdateModal] = useState(false);
     const [showDeleteModal, setDeleteModal] = useState(false);
-    const [date, setDate] = useState('');
 
-    useEffect(() => {
-        let suffix = '';
-        if (typeof item.dom === 'string') {
-            if (item.dom.length > 0) suffix = 'th';
-            if (item.dom.endsWith('1') && item.dom !== '11') suffix = 'st';
-            if (item.dom.endsWith('2') && item.dom !== '12') suffix = 'nd';
-            if (item.dom.endsWith('3') && item.dom !== '13') suffix = 'rd';
+    // useEffect(() => {
+    //     // if(clientprofile) {
+    //     // }
 
-            if (item.month === '' && item.dom === '') {
-                setDate(`${item.weekday}s,`);
-            }
-            if (item.month === '' && item.dom !== '') {
-                setDate(`${item.dom}${suffix} of every month,`);
-            }
-            if (item.month !== '' && item.dom !== '') {
-                setDate(`${item.month} ${item.dom}, ${item.year}`);
-            }
-        }
-    }, [item]);
+    //     dispatch(getScheduledMessage(props.clientId));
+    //     // eslint-disable-next-line
+    // }, [props.clientId]);
 
     const toggleUpdateModal = () => {
         setUpdateModal(!showUpdateModal);
@@ -43,10 +38,14 @@ const MessageCard = props => {
                 <div className='message-card'>
                     <div className='date-time-wrapper'>
                         <div className='date-container'>
-                            <p>{date}</p>
+                            <p>{item.month}</p>
+                            <p>{item.dom},</p>
+                            <p>{item.year}</p>
                         </div>
                         <div className='time-container'>
-                            <p>{`${item.hour}:${item.min} ${item.ampm}`}</p>
+                            <p>{item.hour}:</p>
+                            <p>{item.min} </p>
+                            <p>{item.ampm}</p>
                         </div>
                     </div>
                     <div className='scheduled-message-container'>
@@ -58,6 +57,7 @@ const MessageCard = props => {
                         className='edit-bttn'
                         onClick={e => {
                             e.preventDefault();
+                            console.log('clicked');
                             toggleUpdateModal();
                         }}
                     >
