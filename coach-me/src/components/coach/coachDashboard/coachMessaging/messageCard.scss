@@ -13,15 +13,19 @@
         font-size: 1.8rem;
         line-height: 22px;
         color: #1c3048;
-        margin-left: 3.5%;
+        margin: 4.5%;
     }
 
     .back-bttn-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 20%;
+        max-width: 20%;
         cursor: pointer;
+        margin-top: 2rem;
+        .back-button-sheduler {
+            width: 2rem;
+        }
         h1 {
             font-family: DM Sans;
             font-style: normal;

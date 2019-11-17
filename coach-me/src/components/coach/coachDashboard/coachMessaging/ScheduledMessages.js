@@ -355,12 +355,12 @@ function ScheduledMessages(props) {
                         </div>
                     </div>
                     <div className='repeat'>
-                        <label>Repeat</label>
                         <input
                             type='checkbox'
                             id='weekly'
                             onChange={repeatWeeklyUpdate}
                         />
+                        <label>Repeat</label>
                         <label for='weekly'>Weekly</label>
                         <select
                             className={`weekday ${
