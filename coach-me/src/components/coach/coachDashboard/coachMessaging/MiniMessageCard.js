@@ -12,6 +12,7 @@ function MiniMessageCard(props) {
         if (item.dom.endsWith('2') && item.dom !== '12') suffix = 'nd';
         if (item.dom.endsWith('3') && item.dom !== '13') suffix = 'rd';
 
+        //date === '' added to prevent infinite loop
         if (item.month === '' && item.dom === '' && date === '') {
             setDate(`${item.weekday}s,`);
         }
