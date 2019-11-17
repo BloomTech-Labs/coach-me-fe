@@ -11,22 +11,22 @@
 }
 .message-container-modal {
     width: 30%;
-    height: 90%;
+    height: 61%;
 
     z-index: 2;
     display: flex;
 
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     background-color: rgba(15, 31, 49, 0.6);
-    left: 70%;
-    top: 11%;
+    left: 69%;
+    top: 37%;
     border-radius: 3px;
     margin: 5px;
 
     form {
-        width: 100%;
+        width: 75%;
         height: 80%;
 
         background: #f3f3f3;
@@ -138,17 +138,17 @@
     align-items: center;
     position: absolute;
     background-color: rgba(0, 0, 0, 0);
-    left: 36.5%;
-    top: 10%;
+    left: 3.5%;
+    top: -19%;
     .delete-modal-box {
         @include layout2();
         //  background-color: #ffffff;
         font-family: DM Sans;
         font-style: normal;
         background: #f6f6f6;
-        height: 30%;
+        height: 35%;
         width: 80%;
-        max-width: 19%;
+        max-width: 56%;
         border-radius: 1rem;
         font-size: 1.8rem;
         padding: 1.5%;
