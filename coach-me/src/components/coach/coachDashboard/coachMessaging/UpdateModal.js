@@ -122,6 +122,7 @@ const UpdateModal = props => {
                                     name='month'
                                     value={schedule.month}
                                     onChange={handleInputChange}
+                                    required
                                     disabled={
                                         checkedValueMonthly ||
                                         checkedValueWeekly
@@ -149,6 +150,7 @@ const UpdateModal = props => {
                                     name='dom'
                                     value={schedule.dom}
                                     onChange={handleInputChange}
+                                    required
                                     disabled={checkedValueWeekly}
                                 >
                                     <option value='' disabled selected>
@@ -192,6 +194,7 @@ const UpdateModal = props => {
                                     name='year'
                                     value={schedule.year}
                                     onChange={handleInputChange}
+                                    required
                                     disabled={
                                         checkedValueMonthly ||
                                         checkedValueWeekly
@@ -239,6 +242,7 @@ const UpdateModal = props => {
                                     name='hour'
                                     value={schedule.hour}
                                     onChange={handleInputChange}
+                                    required
                                 >
                                     <option value='' disabled selected>
                                         Hour
@@ -263,6 +267,7 @@ const UpdateModal = props => {
                                     name='min'
                                     value={schedule.min}
                                     onChange={handleInputChange}
+                                    required
                                 >
                                     <option value='' disabled selected>
                                         Minutes
@@ -336,6 +341,7 @@ const UpdateModal = props => {
                                     name='ampm'
                                     value={schedule.ampm}
                                     onChange={handleInputChange}
+                                    required
                                 >
                                     <option value='' disabled selected>
                                         AM/PM
@@ -355,7 +361,7 @@ const UpdateModal = props => {
                             <label for='weekly'>Weekly</label>
                             <select
                                 className={`weekday ${
-                                    !checkedValueWeekly ? 'hide' : null
+                                    !checkedValueWeekly ? 'hide' : ''
                                 }`}
                                 name='weekday'
                                 value={schedule.weekday}
@@ -376,6 +382,7 @@ const UpdateModal = props => {
                                 type='checkbox'
                                 id='monthly'
                                 onChange={repeatMonthlyUpdate}
+                                // checked={true}
                             />
                             <label for='monthly'>Monthly</label>
                         </div>

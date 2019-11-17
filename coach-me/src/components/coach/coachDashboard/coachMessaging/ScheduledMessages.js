@@ -364,7 +364,7 @@ function ScheduledMessages(props) {
                         <label for='weekly'>Weekly</label>
                         <select
                             className={`weekday ${
-                                !checkedValueWeekly ? 'hide' : null
+                                !checkedValueWeekly ? 'hide' : ''
                             }`}
                             name='weekday'
                             value={schedule.weekday}
