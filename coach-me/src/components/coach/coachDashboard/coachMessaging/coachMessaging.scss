@@ -41,6 +41,7 @@
 
 .scroll-to-bottom {
     display: flex;
+    width: 100%;
 }
 
 .message-container {
@@ -62,6 +63,8 @@
         }
         .text {
             padding: 10px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
         .time {
             font-size: 1.4rem;
