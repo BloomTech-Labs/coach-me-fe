@@ -5,7 +5,7 @@ import './miniScheduleMsgList.scss';
 
 function MiniScheduleMsgList(props) {
     const { messages } = props;
-    console.log('MiniScheduleMsgList', messages);
+    // console.log('MiniScheduleMsgList', messages);
     const [messagelist, setmessagelist] = useState([]);
     const dispatch = useDispatch();
 
