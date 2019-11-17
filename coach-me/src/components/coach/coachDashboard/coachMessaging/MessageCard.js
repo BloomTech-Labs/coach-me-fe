@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import {
-    deleteScheduledMessage,
-    getScheduledMessage,
-    updateScheduledMessage
-} from '../../../../actions/coachActions';
+import React, { useState } from 'react';
 import UpdateModal from './UpdateModal';
-import { useDispatch, useSelector } from 'react-redux';
 import DeleteModal from './DeleteModal';
 import './messageCard.scss';
 
 const MessageCard = props => {
     const { item, removedMessage, updatedMessage, clientId } = props;
-
-    const dispatch = useDispatch();
 
     const [showUpdateModal, setUpdateModal] = useState(false);
     const [showDeleteModal, setDeleteModal] = useState(false);
@@ -64,7 +56,6 @@ const MessageCard = props => {
                         className='edit-bttn'
                         onClick={e => {
                             e.preventDefault();
-                            console.log('clicked');
                             toggleUpdateModal();
                         }}
                     >

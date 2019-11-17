@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './messageCard.scss';
-import { timer } from 'rxjs';
 
 function MiniMessageCard(props) {
     const { item } = props;
