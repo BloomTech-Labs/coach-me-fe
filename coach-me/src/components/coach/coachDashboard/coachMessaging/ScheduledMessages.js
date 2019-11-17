@@ -132,18 +132,18 @@ function ScheduledMessages(props) {
                                 <option value='' disabled selected>
                                     Month
                                 </option>
-                                <option value={'Jan'}>January</option>
-                                <option value={'Feb'}>February</option>
-                                <option value={'Mar'}>March</option>
-                                <option value={'Apr'}>April</option>
+                                <option value={'Jan'}>Jan</option>
+                                <option value={'Feb'}>Feb</option>
+                                <option value={'Mar'}>Mar</option>
+                                <option value={'Apr'}>Apr</option>
                                 <option value={'May'}>May</option>
-                                <option value={'Jun'}>June</option>
-                                <option value={'Jul'}>July</option>
-                                <option value={'Aug'}>August</option>
-                                <option value={'Sep'}>September</option>
-                                <option value={'Oct'}>October</option>
-                                <option value={'Nov'}>November</option>
-                                <option value={'Dec'}>December</option>
+                                <option value={'Jun'}>Jun</option>
+                                <option value={'Jul'}>Jul</option>
+                                <option value={'Aug'}>Aug</option>
+                                <option value={'Sep'}>Sep</option>
+                                <option value={'Oct'}>Oct</option>
+                                <option value={'Nov'}>Nov</option>
+                                <option value={'Dec'}>Dec</option>
                             </select>
                         </div>
                         <div className='selectheader'>
