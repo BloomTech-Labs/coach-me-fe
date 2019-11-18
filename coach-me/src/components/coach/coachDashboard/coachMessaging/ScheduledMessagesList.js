@@ -55,7 +55,7 @@ const ScheduledMessagesList = props => {
                         src={backArrow}
                         onClick={() => toggleScheduler(show)}
                     ></img>
-                    <h1>Back</h1>
+                    <h1 onClick={() => toggleScheduler(show)}>Back</h1>
                 </div>
                 <h1 className='title-text'>Previously Scheduled Messages</h1>
                 <div className='message-list-container'>
