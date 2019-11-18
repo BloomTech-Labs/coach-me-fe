@@ -7,35 +7,43 @@ import { ReactComponent as GreenCheck } from '../assets/greenCheckMark.svg';
 import { ReactComponent as RedX } from '../assets/redX.svg';
 
 const GoalCard = props => {
-    // console.log('GoalCards', props);
+    console.log('GoalCards', props);
 
     const [show, setShow] = useState(false);
 
     const toggleGoal = e => {
         setShow(!show);
-        // if (props.showAll) {
-        //     setShow(props.showAll);
-        // }
     };
-    // const toggleAllGoals = e => {
-    //     setShow(props.showAll);
-    // };
 
     let goalMet;
     let goalResponse;
     if (props.metGoal === 'Yes') {
         goalMet = <GreenCheck className='green-check' />;
-        goalResponse = <p style={{ color: '#47b881' }}>Met Goal</p>;
-    } else {
+        goalResponse = (
+            <div className='met-goal'>
+                <p>Met Goal</p>
+            </div>
+        );
+    } else if (props.metGoal === 'No') {
         goalMet = <RedX className='red-x' />;
-        goalResponse = <p style={{ color: '#FD6C79' }}>Didn't Meet Goal</p>;
+        goalResponse = (
+            <div className='unmet-goal'>
+                <p>UnMet Goal</p>
+            </div>
+        );
+    } else {
+        goalResponse = (
+            <div className='in-progress'>
+                <p>In Progress</p>
+            </div>
+        );
     }
 
     let notes;
     let goalNotes;
     if (props.notes !== undefined && show !== false) {
         goalNotes = props.notes;
-        notes = <p>Notes:</p>;
+        notes = 'Notes:';
     }
 
     let arrow;
@@ -50,7 +58,7 @@ const GoalCard = props => {
         <div className='goal-text-container'>
             <div className='goal-mas'>
                 <div className='goalMet'>{goalMet}</div>
-                <p>{goalResponse}</p>
+                {goalResponse}
             </div>
             <div className='text-container'>
                 <div className='start-date'>
@@ -63,7 +71,7 @@ const GoalCard = props => {
                     className={`goal-notes ${!show ? 'hidden' : 'not-hidden'}`}
                 >
                     <p>{notes}</p>
-                    <br />
+
                     <p>{goalNotes}</p>
                 </div>
             </div>

@@ -70,16 +70,38 @@
         height: auto;
     }
 
+    .met-goal {
+        p {
+            color: #47b881;
+            font-size: 1.3rem;
+            margin-right: 0.4rem;
+        }
+    }
+    .unmet-goal {
+        p {
+            color: #fd6c79;
+            font-size: 1.3rem;
+            margin-right: 0.4rem;
+        }
+    }
+    .in-progress {
+        p {
+            color: orange;
+            font-size: 1.3rem;
+            margin-right: 0.4rem;
+        }
+    }
+
     .red-x {
         margin-bottom: 0.6rem;
         width: 2rem;
         height: auto;
     }
 
-    p {
-        font-size: 1.3rem;
-        margin-right: 0.4rem;
-    }
+    // p {
+    //     font-size: 1.3rem;
+    //     margin-right: 0.4rem;
+    // }
 }
 
 .hidden {
