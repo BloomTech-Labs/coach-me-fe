@@ -28,7 +28,7 @@ const GoalCard = props => {
         goalMet = <RedX className='red-x' />;
         goalResponse = (
             <div className='unmet-goal'>
-                <p>UnMet Goal</p>
+                <p>Unmet Goal</p>
             </div>
         );
     } else {
