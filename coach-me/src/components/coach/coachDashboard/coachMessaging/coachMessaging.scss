@@ -1,3 +1,6 @@
+LiveMessages {
+    overflow-x: hidden;
+}
 .message-header {
     display: flex;
     justify-content: center;
@@ -42,6 +45,8 @@
 .scroll-to-bottom {
     display: flex;
     width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .message-container {
@@ -50,6 +55,7 @@
     justify-content: space-evenly;
     align-items: center;
     width: 60%;
+    overflow-x: hidden;
 
     .messages {
         // border: 2px dashed orchid;
@@ -73,7 +79,7 @@
     }
     .left {
         align-self: flex-start;
-        margin-left: 0.6rem;
+        margin-left: 5rem;
         // color: red;
         .text {
             background-color: #6d8eb4;
@@ -88,7 +94,7 @@
     .right {
         align-self: flex-end;
         // color: red;
-        margin-right: 0.6rem;
+        margin-right: 5rem;
         .text {
             background-color: white;
             border: 1px solid rgba(0, 0, 0, 0.15);
@@ -165,8 +171,9 @@ textarea {
 }
 
 .scrollbar-message-container {
-    width: 90%;
+    width: 100%;
     display: flex;
+    overflow-x: hidden !important;
 }
 
 //custom scroll bar style
