@@ -45,7 +45,7 @@ const GoalCard = props => {
         goalNotes = props.notes;
         notes = 'Notes:';
     }
-
+    // followUps
     let followUps;
     let followUpText;
     if (props.followups !== undefined && show !== false) {
