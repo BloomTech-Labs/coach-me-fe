@@ -46,6 +46,13 @@ const GoalCard = props => {
         notes = 'Notes:';
     }
 
+    let followUps;
+    let followUpText;
+    if (props.followups !== undefined && show !== false) {
+        followUpText = props.followups;
+        followUps = 'Follow Up:';
+    }
+
     let arrow;
     if (show === false) {
         arrow = <ArrowDown />;
@@ -70,9 +77,14 @@ const GoalCard = props => {
                 <div
                     className={`goal-notes ${!show ? 'hidden' : 'not-hidden'}`}
                 >
-                    <p>{notes}</p>
+                    <p className='goal-notes-title'>{notes}</p>
 
                     <p>{goalNotes}</p>
+                </div>
+                <div className={`follow-up ${!show ? 'hidden' : 'not-hidden'}`}>
+                    <p className='follow-up-title'>{followUps}</p>
+
+                    <p>{followUpText}</p>
                 </div>
             </div>
             <div className='arrow' onClick={() => toggleGoal(show)}>
