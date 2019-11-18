@@ -104,6 +104,7 @@ const UpdateModal = props => {
                         />
 
                         <h1>Schedule a Message</h1>
+
                         <textarea
                             rows='4'
                             cols='50'

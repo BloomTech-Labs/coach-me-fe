@@ -13,35 +13,29 @@ const GoalCard = props => {
 
     const toggleGoal = e => {
         setShow(!show);
-        // if (props.showAll) {
-        //     setShow(props.showAll);
-        // }
     };
-    // const toggleAllGoals = e => {
-    //     setShow(props.showAll);
-    // };
 
     let goalMet;
     let goalResponse;
     if (props.metGoal === 'Yes') {
         goalMet = <GreenCheck className='green-check' />;
         goalResponse = (
-            <div style={{ color: '#47b881' }} className='met-goal'>
+            <div className='met-goal'>
                 <p>Met Goal</p>
             </div>
         );
     } else if (props.metGoal === 'No') {
         goalMet = <RedX className='red-x' />;
         goalResponse = (
-            <p style={{ color: '#FD6C79' }} className='unmet-goal'>
-                UnMet Goal
-            </p>
+            <div className='unmet-goal'>
+                <p>UnMet Goal</p>
+            </div>
         );
     } else {
         goalResponse = (
-            <p style={{ color: 'orange' }} className='in-progress'>
-                In progress
-            </p>
+            <div className='in-progress'>
+                <p>In Progress</p>
+            </div>
         );
     }
 
@@ -49,7 +43,7 @@ const GoalCard = props => {
     let goalNotes;
     if (props.notes !== undefined && show !== false) {
         goalNotes = props.notes;
-        notes = <p>Notes:</p>;
+        notes = 'Notes:';
     }
 
     let arrow;
@@ -64,7 +58,7 @@ const GoalCard = props => {
         <div className='goal-text-container'>
             <div className='goal-mas'>
                 <div className='goalMet'>{goalMet}</div>
-                <p>{goalResponse}</p>
+                {goalResponse}
             </div>
             <div className='text-container'>
                 <div className='start-date'>

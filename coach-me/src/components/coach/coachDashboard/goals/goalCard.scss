@@ -71,7 +71,22 @@
     }
 
     .met-goal {
-        color: #47b881 p {
+        p {
+            color: #47b881;
+            font-size: 1.3rem;
+            margin-right: 0.4rem;
+        }
+    }
+    .unmet-goal {
+        p {
+            color: #fd6c79;
+            font-size: 1.3rem;
+            margin-right: 0.4rem;
+        }
+    }
+    .in-progress {
+        p {
+            color: orange;
             font-size: 1.3rem;
             margin-right: 0.4rem;
         }
