@@ -37,7 +37,9 @@ const UserPhoneNumber = props => {
     return (
         <div className='phonenumber-container'>
             <div className='img-container'>
-                <Logo />
+                <a href='https://www.coachmehealth.org'>
+                    <Logo />
+                </a>
             </div>
             <div className='text-content'>
                 <div className='header'>
