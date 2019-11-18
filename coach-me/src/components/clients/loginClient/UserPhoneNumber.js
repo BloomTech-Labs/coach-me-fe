@@ -95,7 +95,7 @@ const UserPhoneNumber = props => {
                         <span>-</span>
                         <input
                             data-cy='input3'
-                            type='number'
+                            type='text'
                             id='txt3'
                             max='9999'
                             name='dig2'
@@ -104,6 +104,7 @@ const UserPhoneNumber = props => {
                             pattern='[0-9]*'
                             ng-model='vm.onlyNumbers'
                             min='0'
+                            maxLength='4'
                         />
                     </div>
                     <button className='trigger' type='submit'>
