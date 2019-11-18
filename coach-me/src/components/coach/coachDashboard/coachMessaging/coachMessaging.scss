@@ -42,6 +42,11 @@
 
 .scroll-to-bottom {
     display: flex;
+    width: 100%;
+
+    .css-y1c0xs {
+        overflow-x: hidden;
+    }
 }
 
 .message-container {
@@ -63,6 +68,8 @@
         }
         .text {
             padding: 10px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
         .time {
             font-size: 1.4rem;
@@ -148,9 +155,9 @@ textarea {
             // margin-bottom:55533rem;
             // float:top;
         }
-        .veiw-all-button {
-            border: 1px solid red;
-        }
+        // .veiw-all-button {
+        //     // border: 1px solid red;
+        // }
     }
 }
 .message-selector {

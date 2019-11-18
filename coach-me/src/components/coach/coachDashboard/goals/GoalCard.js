@@ -25,10 +25,24 @@ const GoalCard = props => {
     let goalResponse;
     if (props.metGoal === 'Yes') {
         goalMet = <GreenCheck className='green-check' />;
-        goalResponse = <p style={{ color: '#47b881' }}>Met Goal</p>;
-    } else {
+        goalResponse = (
+            <div style={{ color: '#47b881' }} className='met-goal'>
+                <p>Met Goal</p>
+            </div>
+        );
+    } else if (props.metGoal === 'No') {
         goalMet = <RedX className='red-x' />;
-        goalResponse = <p style={{ color: '#FD6C79' }}>Didn't Meet Goal</p>;
+        goalResponse = (
+            <p style={{ color: '#FD6C79' }} className='unmet-goal'>
+                UnMet Goal
+            </p>
+        );
+    } else {
+        goalResponse = (
+            <p style={{ color: 'orange' }} className='in-progress'>
+                In progress
+            </p>
+        );
     }
 
     let notes;
@@ -63,7 +77,7 @@ const GoalCard = props => {
                     className={`goal-notes ${!show ? 'hidden' : 'not-hidden'}`}
                 >
                     <p>{notes}</p>
-                    <br />
+
                     <p>{goalNotes}</p>
                 </div>
             </div>
