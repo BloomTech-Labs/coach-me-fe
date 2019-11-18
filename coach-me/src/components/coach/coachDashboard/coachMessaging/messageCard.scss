@@ -60,11 +60,13 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 8rem;
+
                 justify-content: space-evenly;
                 background: #ffffff;
                 border-radius: 15px;
                 width: 92.5%;
+                height: 90%;
+                padding: 1rem;
 
                 .date-time-wrapper {
                     display: flex;
@@ -149,10 +151,12 @@
 
     .mini-card-container {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-        width: 100%;
         padding: 1.5rem;
+        width: 92.5%;
+        height: 90%;
+        padding: 1rem;
 
         .date-time-wrapper {
             display: flex;

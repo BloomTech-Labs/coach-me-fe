@@ -18,6 +18,7 @@ LiveMessages {
         padding: 2rem;
         opacity: 0.3;
         cursor: pointer;
+        justify-content: space-between;
     }
     .scheduled-message {
         width: 50%;
@@ -228,7 +229,7 @@ textarea {
     display: flex;
     justify-content: center;
     background: #f6f6f6;
-    margin-top: 2.3rem;
+    margin-top: 0.3rem;
 
     // border: 1px solid red;
 }

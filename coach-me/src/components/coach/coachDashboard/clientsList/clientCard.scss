@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
 
+.name-container {
+    max-width: 100%;
+    h1 {
+        font-family: 'DM Sans';
+        font-size: 1.6rem;
+        color: #274160;
+        font-weight: medium;
+        max-width: 100%;
+    }
+}
+
 .client-card {
     display: flex;
     align-items: center;
@@ -13,6 +24,7 @@
         font-family: 'DM Sans';
         font-size: 1.6rem;
         color: #274160;
+        font-weight: medium;
     }
 }
 

@@ -85,7 +85,6 @@ function LiveMessages(props) {
                                     <Linkify>
                                         <p className='text'>{m.body}</p>
                                     </Linkify>
-
                                     <p className='time'>
                                         {moment(m.dateSent).format(
                                             'MMM Do YYYY, h:mm a'
