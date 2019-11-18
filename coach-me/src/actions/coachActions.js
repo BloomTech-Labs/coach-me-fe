@@ -154,7 +154,7 @@ export const getGoals = id => dispatch => {
             }
         )
         .then(results => {
-            // console.log('getGoals actions', results);
+            console.log('getGoals actions', results);
             const clientGoals = [...results.data.patientGoals];
             dispatch({
                 type: GET_GOALS,

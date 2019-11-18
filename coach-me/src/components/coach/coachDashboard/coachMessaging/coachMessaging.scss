@@ -1,3 +1,6 @@
+LiveMessages {
+    overflow-x: hidden;
+}
 .message-header {
     display: flex;
     justify-content: center;
@@ -79,7 +82,7 @@
     }
     .left {
         align-self: flex-start;
-        margin-left: 0.6rem;
+        margin-left: 5rem;
         // color: red;
         .text {
             background-color: #6d8eb4;
@@ -94,7 +97,7 @@
     .right {
         align-self: flex-end;
         // color: red;
-        margin-right: 0.6rem;
+        margin-right: 5rem;
         .text {
             background-color: white;
             border: 1px solid rgba(0, 0, 0, 0.15);
@@ -173,6 +176,7 @@ textarea {
 .scrollbar-message-container {
     width: 100%;
     display: flex;
+    overflow-x: hidden !important;
 }
 
 //custom scroll bar style
