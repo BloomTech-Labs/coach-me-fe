@@ -34,8 +34,23 @@
     line-height: 1.6rem;
     color: #1c3048;
 }
-
+.goal-notes-title {
+    text-decoration: underline;
+}
 .goal-notes p {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    margin-top: 1rem;
+    color: #1c3048;
+}
+.follow-up-title {
+    text-decoration: underline;
+}
+
+.follow-up p {
     font-family: DM Sans;
     font-style: normal;
     font-weight: normal;
