@@ -49,6 +49,7 @@ const ScheduledMessagesList = props => {
             <div className='message-list-wrapper'>
                 <div className='back-bttn-container'>
                     <img
+                        //misspelling
                         className='back-button-sheduler'
                         alt='back'
                         src={backArrow}
