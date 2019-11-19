@@ -174,7 +174,7 @@ export const getScheduledMessage = id => dispatch => {
     dispatch({ type: GET_SCHEDULE_MESSAGE_START });
     axios
         .get(
-            `https://coach-me-development.herokuapp.com/twilioRoute/getScheduled/${id}`,
+            `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/getScheduled/${id}`,
             {
                 headers: {
                     Authorization: localStorage.getItem('token')
@@ -202,7 +202,7 @@ export const addScheduledMessage = message => dispatch => {
     dispatch({ type: ADD_SCHEDULE_MESSAGE_START });
     axios
         .post(
-            `https://coach-me-development.herokuapp.com/twilioRoute/postScheduled`,
+            `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/postScheduled`,
             message,
             {
                 headers: {
@@ -231,7 +231,7 @@ export const deleteScheduledMessage = (id, patientId) => dispatch => {
     dispatch({ type: DELETE_SCHEDULE_MESSAGE_START });
     axios
         .delete(
-            `https://coach-me-development.herokuapp.com/twilioRoute/deleteScheduled/${id}`
+            `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/deleteScheduled/${id}`
         )
         .then(results => {
             // console.log('deleteScheduledMessage', results.data);
@@ -255,7 +255,7 @@ export const updateScheduledMessage = (id, message) => dispatch => {
     dispatch({ type: UPDATE_SCHEDULE_MESSAGE_START });
     axios
         .put(
-            `https://coach-me-development.herokuapp.com/twilioRoute/updateScheduled/${id}`,
+            `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/updateScheduled/${id}`,
             message,
             {
                 headers: {
