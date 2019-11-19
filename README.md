@@ -7,7 +7,7 @@
 
   
 
-1️⃣ You can find the deployed project at (app.coachmehealth.org)
+1️⃣ You can find the deployed project at (https://app.coachmehealth.org)
 
   
 
@@ -68,7 +68,7 @@
 
   
 
-1️⃣ [UX Design files]([https://www.figma.com/file/LfI0j1twxjcgzQIAN2fIYI/Labs17_Coach-Me%2C-Justin-M-%26-Rachel?node-id=639%3A52](https://www.figma.com/file/LfI0j1twxjcgzQIAN2fIYI/Labs17_Coach-Me%2C-Justin-M-%26-Rachel?node-id=639%3A52)) 
+1️⃣ [UX Design files](https://www.figma.com/file/LfI0j1twxjcgzQIAN2fIYI/Labs17_Coach-Me%2C-Justin-M-%26-Rachel?node-id=639%3A52)
 
   
 
