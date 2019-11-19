@@ -72,7 +72,6 @@ const UpdateModal = props => {
     };
 
     const submitUpdatedMessage = e => {
-        console.log('UPDATED MESSAGE', schedule);
         e.preventDefault();
         dispatch(updateScheduledMessage(id, schedule));
         setUpdated(true);

@@ -41,7 +41,6 @@ export const getMessageHistory = liveNumber => dispatch => {
             });
         })
         .catch(err => {
-            console.log('getMessageHistory ERR', err);
             dispatch({
                 type: COACH_ERROR,
                 payload: err.message
@@ -154,7 +153,6 @@ export const getGoals = id => dispatch => {
             }
         )
         .then(results => {
-            console.log('getGoals actions', results);
             const clientGoals = [...results.data.patientGoals];
             dispatch({
                 type: GET_GOALS,
@@ -192,7 +190,6 @@ export const getScheduledMessage = id => dispatch => {
             });
         })
         .catch(err => {
-            console.log(err);
             dispatch({
                 type: COACH_ERROR,
                 payload: err.message
@@ -267,7 +264,6 @@ export const updateScheduledMessage = (id, message) => dispatch => {
             }
         )
         .then(results => {
-            console.log('updateScheduledMessage', results.data);
             dispatch({
                 type: UPDATE_SCHEDULE_MESSAGE_SUCCESS,
                 payload: results.data
