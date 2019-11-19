@@ -12,7 +12,15 @@ import {
     GET_METRICS_SUCCESS,
     GET_METRICS_FAILURE,
     GET_CHECKIN,
-    GET_GOALS
+    GET_GOALS,
+    ADD_SCHEDULE_MESSAGE_START,
+    ADD_SCHEDULE_MESSAGE_SUCCESS,
+    GET_SCHEDULE_MESSAGE_START,
+    GET_SCHEDULE_MESSAGE_SUCCESS,
+    DELETE_SCHEDULE_MESSAGE_START,
+    DELETE_SCHEDULE_MESSAGE_SUCCESS,
+    UPDATE_SCHEDULE_MESSAGE_START,
+    UPDATE_SCHEDULE_MESSAGE_SUCCESS
 } from './types';
 
 const headers = {
@@ -20,21 +28,19 @@ const headers = {
 };
 
 export const getMessageHistory = liveNumber => dispatch => {
-    console.log('liiiive number', liveNumber);
     dispatch({ type: GET_TEXT_START });
     axios
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/messagehistory/${liveNumber}`
         )
         .then(res => {
-            console.log('getMessageHistory', res.data.message);
+            // console.log('getMessageHistory', res.data.message);
             dispatch({
                 type: GET_TEXT_SUCCESS,
                 payload: res.data.message
             });
         })
         .catch(err => {
-            console.log('getMessageHistory ERR', err);
             dispatch({
                 type: COACH_ERROR,
                 payload: err.message
@@ -43,7 +49,7 @@ export const getMessageHistory = liveNumber => dispatch => {
 };
 
 export const postMessage = post => dispatch => {
-    console.log(post);
+    // console.log(post);
     dispatch({ type: ADD_TEXT_START });
     axios
 
@@ -69,7 +75,7 @@ export const getClients = token => dispatch => {
             headers: headers
         })
         .then(res => {
-            console.log('coach actions', res.data);
+            // console.log('coach actions', res.data);
 
             dispatch({
                 type: GET_RECORDS_SUCCESS,
@@ -121,7 +127,7 @@ export const getLastCheckInTime = id => dispatch => {
             }
         )
         .then(results => {
-            console.log('getLastCheckInTime', results);
+            // console.log('getLastCheckInTime', results);
 
             dispatch({
                 type: GET_CHECKIN,
@@ -147,7 +153,6 @@ export const getGoals = id => dispatch => {
             }
         )
         .then(results => {
-            console.log('getGoals actions', results);
             const clientGoals = [...results.data.patientGoals];
             dispatch({
                 type: GET_GOALS,
@@ -160,4 +165,116 @@ export const getGoals = id => dispatch => {
                 payload: err.message
             });
         });
+};
+
+// get scheduled message
+
+export const getScheduledMessage = id => dispatch => {
+    // console.log('getScheduledMessages ID', id);
+    dispatch({ type: GET_SCHEDULE_MESSAGE_START });
+    axios
+        .get(
+            `https://coach-me-development.herokuapp.com/twilioRoute/getScheduled/${id}`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            // console.log('getScheduledMessages', results.data);
+            // const scheduledMessage = [...results.data.scheduledMessage];
+            dispatch({
+                type: GET_SCHEDULE_MESSAGE_SUCCESS,
+                payload: results.data.data
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+};
+
+// post scheduled message
+export const addScheduledMessage = message => dispatch => {
+    dispatch({ type: ADD_SCHEDULE_MESSAGE_START });
+    axios
+        .post(
+            `https://coach-me-development.herokuapp.com/twilioRoute/postScheduled`,
+            message,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            dispatch({
+                type: ADD_SCHEDULE_MESSAGE_SUCCESS,
+                payload: results.data
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+    // dispatch(getScheduledMessage(message.patientId));
+};
+
+// delete scheduled message
+export const deleteScheduledMessage = (id, patientId) => dispatch => {
+    // console.log('deleteScheduledMessages ID', id);
+    dispatch({ type: DELETE_SCHEDULE_MESSAGE_START });
+    axios
+        .delete(
+            `https://coach-me-development.herokuapp.com/twilioRoute/deleteScheduled/${id}`
+        )
+        .then(results => {
+            // console.log('deleteScheduledMessage', results.data);
+            dispatch({
+                type: DELETE_SCHEDULE_MESSAGE_SUCCESS,
+                payload: id
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+    // dispatch(getScheduledMessage(patientId));
+};
+
+// update scheduled message
+export const updateScheduledMessage = (id, message) => dispatch => {
+    dispatch({ type: UPDATE_SCHEDULE_MESSAGE_START });
+    axios
+        .put(
+            `https://coach-me-development.herokuapp.com/twilioRoute/updateScheduled/${id}`,
+            message,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            dispatch({
+                type: UPDATE_SCHEDULE_MESSAGE_SUCCESS,
+                payload: results.data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+    // dispatch(getScheduledMessage(message.patientId));
 };

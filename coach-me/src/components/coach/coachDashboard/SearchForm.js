@@ -12,12 +12,13 @@ const SearchForm = props => {
     const clientList = state.clientRecords;
     const [ClientList, setClientList] = useState();
     const [query, setquery] = useState();
+    const { setClient } = props;
 
     const check = goods => {
         Array.from(cardlist).filter(item => {
             const name = item.firstElementChild.textContent;
             if (goods === name) {
-                console.log(item);
+                // console.log(item);
                 item.classList.add('active1');
             }
             if (goods !== name && item.classList.length === 2) {
@@ -27,7 +28,7 @@ const SearchForm = props => {
     };
 
     const cardlist = document.getElementsByClassName(`client-card`);
-    console.log(cardlist);
+    // console.log(cardlist);
 
     const handleChange = e => {
         e.preventDefault();
@@ -53,7 +54,7 @@ const SearchForm = props => {
 
     return (
         <>
-            <form>
+            <form className='search-form'>
                 <div className='input-icon'>
                     <img
                         className='magnifying-glass icon'
@@ -61,6 +62,7 @@ const SearchForm = props => {
                         src={magnifying}
                     ></img>
                     <input
+                        data-cy='search'
                         className='search-input'
                         onChange={handleChange}
                         placeholder='Search Client'
@@ -70,10 +72,18 @@ const SearchForm = props => {
                 </div>
             </form>
 
-            <div>
+            <div className='scroll-list'>
                 {ClientList &&
                     ClientList.map(client => (
-                        <div className='client-card'>
+                        <div
+                            className='client-card'
+                            onClick={() => {
+                                if (client.clientName) {
+                                    check(client.clientName);
+                                }
+                                setClient(client.clientId);
+                            }}
+                        >
                             <ClientCard
                                 key={client.clientId}
                                 client={client}

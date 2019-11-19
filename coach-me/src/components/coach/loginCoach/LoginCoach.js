@@ -39,8 +39,8 @@ const LoginCoach = props => {
     }, [email, password]);
 
     const handleSubmit = e => {
-        console.log(creds);
         e.preventDefault();
+        localStorage.clear();
         dispatch(loginCoach(creds)).then(() => {
             props.history.push('/dashboard');
         });
@@ -51,7 +51,9 @@ const LoginCoach = props => {
             <div className='Login-Wrapper'>
                 <div className='side-one'>
                     <div className='logo-wrapper'>
-                        <Logo className='logo' />
+                        <a href='https://www.coachmehealth.org'>
+                            <Logo className='logo' />
+                        </a>
                     </div>
 
                     <div className='objective'>
@@ -75,6 +77,7 @@ const LoginCoach = props => {
                             <div className='input-layout'>
                                 <label>Email</label>
                                 <input
+                                    data-cy='input1'
                                     type='text'
                                     placeholder='Email'
                                     name='E-Mail'
@@ -86,6 +89,7 @@ const LoginCoach = props => {
                             <div className='input-layout'>
                                 <label>Password</label>
                                 <input
+                                    data-cy='input2'
                                     type='password'
                                     placeholder='Password'
                                     name='password'

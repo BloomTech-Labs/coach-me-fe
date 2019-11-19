@@ -11,12 +11,13 @@
     display: flex;
     height: 100vh;
 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'DM Sans';
 
     .side-one {
         width: 50%;
         background-image: url('https://imgur.com/BjBin1U.png');
         background-repeat: no-repeat;
+
         background-position: center;
         background-size: 100% 100%;
         display: flex;
@@ -33,6 +34,8 @@
             width: 70%;
             margin-left: 55px;
             margin-bottom: 20px;
+            align-self: center;
+            margin-bottom: 1.8rem;
         }
 
         .logo-wrapper {
@@ -59,6 +62,7 @@
             font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: 2rem;
+            font-family: Montserrat;
         }
 
         p {
@@ -122,6 +126,7 @@
             cursor: pointer;
             align-self: center;
             outline: none;
+            font-family: DM Sans;
         }
         .register-container {
             font-size: 1.2rem;
@@ -141,6 +146,7 @@
             line-height: 29px;
             font-weight: bold;
             cursor: pointer;
+            margin-right: 0.5rem;
         }
         .layout-wrapper {
             display: flex;

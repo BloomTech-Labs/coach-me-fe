@@ -9,7 +9,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import moment from 'moment';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import { of } from 'rxjs';
+import Linkify from 'linkifyjs/react';
 
 function LiveMessages(props) {
     // console.log(props);
@@ -66,11 +66,11 @@ function LiveMessages(props) {
     };
 
     return (
-        <div>
+        <>
             {/* contains get request twilio data */}
 
-            <PerfectScrollbar className='scrollbar-container'>
-                <ScrollToBottom>
+            <PerfectScrollbar className='scrollbar-message-container'>
+                <ScrollToBottom className='scroll-to-bottom'>
                     <div className='message-container'>
                         {state.coach.messageHistory &&
                             state.coach.messageHistory.map((m, i) => (
@@ -82,10 +82,12 @@ function LiveMessages(props) {
                                             : 'right'
                                     }`}
                                 >
-                                    <p className='text'>{m.body}</p>
+                                    <Linkify>
+                                        <p className='text'>{m.body}</p>
+                                    </Linkify>
                                     <p className='time'>
                                         {moment(m.dateSent).format(
-                                            'MMMM Do YYYY, h:mm a'
+                                            'MMM Do YYYY, h:mm a'
                                         )}
                                     </p>
                                 </div>
@@ -97,6 +99,7 @@ function LiveMessages(props) {
             <form className='text-input' onSubmit={submitNewMessage}>
                 <div className='submit'>
                     <textarea
+                        data-cy='message'
                         onsubmit={submitNewMessage}
                         onKeyDown={onEnterPress}
                         rows='1'
@@ -115,7 +118,7 @@ function LiveMessages(props) {
                     </button>
                 </div>
             </form>
-        </div>
+        </>
     );
 }
 

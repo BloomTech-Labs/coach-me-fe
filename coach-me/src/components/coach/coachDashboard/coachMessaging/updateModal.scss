@@ -1,0 +1,255 @@
+@mixin layout2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+    border: 1px, solid, green;
+}
+.message-container-modal {
+    width: 29%;
+    height: 70rem;
+
+    z-index: 2;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(15, 31, 49, 0.6);
+    left: 70%;
+    top: 10%;
+    border-radius: 3px;
+    margin: 5px;
+
+    form {
+        width: 91%;
+        height: 86%;
+
+        background: #f3f3f3;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+        // align-items: center;
+        margin: 18px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+        .exit-icon {
+            align-self: flex-end;
+            margin-top: 15px;
+            margin-right: 14px;
+            cursor: pointer;
+        }
+        .textit {
+            margin-top: 3rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 15px;
+        }
+        .sch-submit {
+            color: white;
+            width: 42%;
+            height: 8%;
+            margin-top: 2.1rem;
+            font-family: DM Sans;
+
+            background: #274160;
+            border-radius: 10px;
+        }
+        .date-wrapper-modal {
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 15px;
+            align-items: center;
+
+            width: 100%;
+        }
+        .time-wrapper-modal {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            align-items: center;
+        }
+        .repeat {
+            margin-top: 1.5rem;
+            max-width: 100%;
+            width: 100%;
+            margin-left: 2.3rem;
+            display: flex;
+            align-items: center;
+
+            h3 {
+                margin: 1rem;
+                font-family: DM Sans;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 18px;
+                color: #1c3048;
+            }
+
+            .weekday {
+                margin-left: 1rem;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            label {
+                margin: 1rem;
+                font-family: DM Sans;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 18px;
+
+                /* Primary - 7 */
+
+                color: #1c3048;
+                display: flex;
+                align-items: center;
+            }
+            input {
+                margin-right: 0.5rem;
+                margin-left: 1.4rem;
+                width: 18px;
+                height: 18px;
+            }
+        }
+        h1 {
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 22px;
+            /* identical to box height */
+
+            /* Primary - 7 */
+
+            color: #1c3048;
+        }
+        h2 {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+
+            /* Primary - 7 */
+
+            color: #1c3048;
+        }
+
+        textarea {
+            width: 80%;
+            padding: 4.5%;
+            max-width: 43.7rem;
+            resize: none;
+            border-radius: 15px;
+            outline: none;
+            border: none;
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+            margin-bottom: 4rem;
+            margin-top: 1.8rem;
+            text-align: center;
+        }
+        select {
+            width: 85px;
+            height: 31px;
+
+            background: rgba(255, 255, 255, 0.6);
+            /* Primary */
+
+            border: 1.25px solid #274160;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+    }
+}
+.delete-modal-container {
+    width: 35%;
+    height: 77%;
+
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0);
+    left: 68.5%;
+    top: 24%;
+    .delete-modal-box {
+        @include layout2();
+        //  background-color: #ffffff;
+        font-family: DM Sans;
+        font-style: normal;
+        background: #f6f6f6;
+        height: 35%;
+        width: 80%;
+        max-width: 56%;
+        border-radius: 1rem;
+        font-size: 1.8rem;
+        padding: 1.5%;
+        padding-bottom: 1.5%;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+        margin-right: 2.5%;
+
+        h1 {
+            color: #274160;
+            opacity: 0.8;
+            width: 100%;
+            line-height: 141.8%;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .delete-button-container {
+            display: flex;
+            width: 100%;
+            height: 33%;
+            justify-content: center;
+            align-items: center;
+            .cancel-bttn {
+                border: none;
+                background: none;
+                outline: none;
+                font-family: Poppins;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.4rem;
+                line-height: 18px;
+                color: #274160;
+                outline: none;
+                cursor: pointer;
+            }
+            .del-btn {
+                border: none;
+                background: #274160;
+                font-size: 1.8rem;
+                width: 40%;
+                height: 71%;
+                border-radius: 6px;
+                color: #ffffff;
+                margin-left: 10px;
+                outline: none;
+                cursor: pointer;
+            }
+        }
+
+        .exit-icon {
+            width: 20%;
+            align-self: flex-end;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    }
+}

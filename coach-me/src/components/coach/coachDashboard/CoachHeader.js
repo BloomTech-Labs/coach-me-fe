@@ -16,7 +16,7 @@ const CoachHeader = props => {
     // useEffect(() => {
     //     setCoachName(state.coachName);
     // }, []);
-    console.log('STATE', state);
+    // console.log('STATE', state);
 
     const toggleLogout = () => {};
 
@@ -28,13 +28,15 @@ const CoachHeader = props => {
     return (
         <div className='coach-header'>
             <div className='header-icon'>
-                <img
-                    className='coachMeIcon'
-                    alt='coachMeIcon'
-                    src={coachMeIcon}
-                ></img>
-                <img className='Coach' alt='Coach' src={Coach}></img>
-                <img className='Me' alt='Me' src={Me}></img>
+                <a href='https://www.coachmehealth.org'>
+                    <img
+                        className='coachMeIcon'
+                        alt='coachMeIcon'
+                        src={coachMeIcon}
+                    ></img>
+                    <img className='Coach' alt='Coach' src={Coach}></img>
+                    <img className='Me' alt='Me' src={Me}></img>
+                </a>
             </div>
             <div className='small-profile'>
                 <h3>{coachName}</h3>

@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LiveMessages from './LiveMessages.js';
 import ScheduledMessages from './ScheduledMessages';
+import ViewAllScheduledMessages from './ViewAllScheduledMessages';
 import './coachMessaging.scss';
+import { useSelector, useDispatch } from 'react-redux';
 import { ReactComponent as MessageBubble } from '../assets/messageBubble.svg';
 import { ReactComponent as ScheduleBubble } from '../assets/scheduleBubble.svg';
+import { getScheduledMessage } from '../../../../actions/coachActions';
 
 const CoachMessaging = props => {
     const { clientprofile } = props;
+    const state = useSelector(state => state.coach);
+    const dispatch = useDispatch();
     const [type, setType] = useState(1);
+
+    useEffect(() => {
+        if (clientprofile && type === 1) {
+            dispatch(getScheduledMessage(clientprofile.clientId));
+        }
+
+        if (type === 2) {
+            dispatch(getScheduledMessage(clientprofile.clientId));
+        }
+        //eslint-disable-next-line
+    }, [clientprofile, type]);
 
     return (
         <div className='message-wrapper'>
@@ -45,7 +61,18 @@ const CoachMessaging = props => {
                     case 1:
                         return <LiveMessages clientprofile={clientprofile} />;
                     case 2:
-                        return <ScheduledMessages />;
+                        return (
+                            // <ScheduledMessages
+                            //     clientprofile={clientprofile}
+                            //     type={type}
+                            // />
+
+                            <ViewAllScheduledMessages
+                                clientprofile={clientprofile}
+                                type={type}
+                                messages={state.ScheduledMessages}
+                            />
+                        );
                     default:
                         return <LiveMessages />;
                 }

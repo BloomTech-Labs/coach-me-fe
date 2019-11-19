@@ -55,7 +55,9 @@ function CoachRegistration(props) {
         <div className='Register-Wrapper'>
             <div className='side-one'>
                 <div className='logo-wrapper'>
-                    <Logo className='logo' />
+                    <a href='https://www.coachmehealth.org'>
+                        <Logo className='logo' />
+                    </a>
                 </div>
                 <div className='objective'>
                     <p>
@@ -76,8 +78,9 @@ function CoachRegistration(props) {
                 >
                     <div className='input-Wrapper'>
                         <div className='input-layout'>
-                            <label>FullName</label>
+                            <label>Full Name</label>
                             <input
+                                data-cy='input1'
                                 type='text'
                                 placeholder='Full Name'
                                 name='name'
@@ -89,6 +92,7 @@ function CoachRegistration(props) {
                         <div className='input-layout'>
                             <label>Email</label>
                             <input
+                                data-cy='input2'
                                 type='text'
                                 placeholder='Email'
                                 name='email'
@@ -100,6 +104,7 @@ function CoachRegistration(props) {
                         <div className='input-layout'>
                             <label>Password</label>
                             <input
+                                data-cy='input3'
                                 type='password'
                                 placeholder='Password'
                                 name='password'
