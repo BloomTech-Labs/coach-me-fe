@@ -90,6 +90,27 @@ const UpdateModal = props => {
             year: `${props.year}`
         });
     };
+    // const onEnterPress = e => {
+    //     if (e.keyCode == 13 && e.shiftKey == false) {
+    //         console.log('UPDATED MESSAGE', schedule);
+    //         e.preventDefault();
+    //         dispatch(updateScheduledMessage(id, schedule));
+    //         setUpdated(true);
+    //         // updatedMessage(id);
+    //         setShow();
+    //         setSchedule({
+    //             patientId: `${props.patientId}`,
+    //             msg: `${props.msg}`,
+    //             min: `${props.min}`,
+    //             hour: `${props.hour}`,
+    //             dom: `${props.dom}`,
+    //             month: `${props.month}`,
+    //             weekday: ``,
+    //             ampm: `${props.ampm}`,
+    //             year: `${props.year}`
+    //         });
+    //     }
+    // };
 
     return (
         <>
@@ -109,6 +130,7 @@ const UpdateModal = props => {
                             rows='4'
                             cols='50'
                             onChange={handleInputChange}
+                            // onKeyDown={onEnterPress}
                             value={schedule.msg}
                             name='msg'
                             type='text'
