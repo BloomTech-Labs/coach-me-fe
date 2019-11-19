@@ -7,8 +7,6 @@ import { ReactComponent as GreenCheck } from '../assets/greenCheckMark.svg';
 import { ReactComponent as RedX } from '../assets/redX.svg';
 
 const GoalCard = props => {
-    console.log('GoalCards', props);
-
     const [show, setShow] = useState(false);
 
     const toggleGoal = e => {
