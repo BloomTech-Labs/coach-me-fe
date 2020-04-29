@@ -51,10 +51,14 @@ const LoginClient = props => {
                 value={input.password}
                 onChange={handleChange}
                 />
+                <span>
+                    <a>Facebook</a>
+                    <a>Twitter</a>
+                    </span>
                 <button type='submit'>Login</button>
             </form>
-            <span>Don't have an account?<a href=''>Signup</a></span>
-            <span>Forgot Password<a href=''>Get new</a></span>
+            <span>Don't have an account?<a href='/register-client'>Signup</a></span>
+            <span>Forgot Password<a href='/email-request'>Get new</a></span>
         </div>
     </div>
     );

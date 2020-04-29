@@ -51,8 +51,8 @@ const RegisterClient = props => {
                     onChange={handleChange}
                     />
                     <span>
-                    <button>Facebook</button>
-                    <button>Twitter</button>
+                        <a>Facebook</a>
+                        <a>Twitter</a>
                     </span>
                     <button type='submit'>SignUp</button>
                 </form>
