@@ -13,8 +13,9 @@ import Welcome from '../clients/welcomeScreen/WelcomeScreen';
 import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import FormLogin from '../clients/loginClient/formLogin';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
-import ProfileFour from '../clients/onboarding/profileFour/ProfileFour';
-import ProfileFive from '../clients/onboarding/profileFive/ProfileFive';
+import ProfileFour from '../clients/onboarding/createProfile/profileFour/ProfileFour';
+import ProfileFive from '../clients/onboarding/createProfile/profileFive/ProfileFive';
+import ProfileSix from '../clients/onboarding/createProfile/profileSix/ProfileSix';
 
 //Styling
 import '../../App.css';
@@ -34,6 +35,7 @@ const Routes = props => {
             {/* CREATE PROFILE */}
             <Route path='/createProfile4' render={props => <ProfileFour />} />
             <Route path='/createProfile5' render={props => <ProfileFive />} />
+            <Route path='/createProfile6' render={props => <ProfileSix />} />
             {/* CREATE PROFILE */}
 
             <Route

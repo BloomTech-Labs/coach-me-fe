@@ -3,70 +3,91 @@ import  { Link } from 'react-router-dom';
 
 import ProfileFour from '../profileFour/ProfileFour';
 import Timeslot from './Timeslot';
+import TimeslotWeekend from './TimeslotWeekend';
 
 import './profileFive.scss';
 
 
-const ProfileFive = () => {
+const ProfileFive = (props) => {
 //   Created these for dummy data, i assume it will be brought in from the backend later
-    const [schedule, setSchedule] = useState({
-        weekdays: [
-            {
-                id: 0,
-                text: '6-10 am',
-                selected: true,
-            },
-            {
-                id: 1,
-                text: '10-12pm',
-                selected: false,
-            },
-            {
-                id: 2,
-                text: '12-2 pm',
-                selected: false,
-            },
-            {
-                id: 3,
-                text: '2-4 pm',
-                selected: false,
-            },
-        ],
-        weekends: [
-            {
-                id: 0,
-                text: '6-10 am',
-                selected: false,
-            },
-            {
-                id: 1,
-                text: '10-12pm',
-                selected: false,
-            },
-            {
-                id: 2,
-                text: '12-2 pm',
-                selected: false,
-            },
-            {
-                id: 3,
-                text: '2-4 pm',
-                selected: false,
-            },
-        ]
+const [weekdaySchedule, setWeekdaySchedule] = useState(
+    [
+        {
+            id: 0,
+            text: '6-10 am',
+            selected: false,
+        },
+        {
+            id: 1,
+            text: '10-12pm',
+            selected: false,
+        },
+        {
+            id: 2,
+            text: '12-2 pm',
+            selected: false,
+        },
+        {
+            id: 3,
+            text: '2-4 pm',
+            selected: false,
+        },
+    ]
+)
 
-    })
+const [weekendSchedule, setWeekendSchedule] = useState(
+    [
+        {
+            id: 0,
+            text: '6-10 am',
+            selected: false,
+        },
+        {
+            id: 1,
+            text: '10-12pm',
+            selected: false,
+        },
+        {
+            id: 2,
+            text: '12-2 pm',
+            selected: false,
+        },
+        {
+            id: 3,
+            text: '2-4 pm',
+            selected: false,
+        },
+    ]
+)
+    
 
 
     const selectTimeWeekday = id => {
     
-        setSchedule(schedule.weekdays.map(item => {
+        setWeekdaySchedule(weekdaySchedule.map(item => {
+            console.log(item)
           if(item.id === id) {
            return {...item,selected : !item.selected}
           }else {
             return item;
           } 
-        }))
+        
+        }
+        ))
+      }
+
+      const selectTimeWeekend = id => {
+    
+        setWeekendSchedule(weekendSchedule.map(item => {
+            console.log(item)
+          if(item.id === id) {
+           return {...item,selected : !item.selected}
+          }else {
+            return item;
+          } 
+        
+        }
+        ))
       }
 
 
@@ -85,7 +106,7 @@ const ProfileFive = () => {
             <div className="weekdays time-slots">
             
                 {
-                   schedule.weekdays && schedule.weekdays.map(item => {
+                   weekdaySchedule && weekdaySchedule.map(item => {
                         
                         return (
                             <Timeslot
@@ -102,11 +123,13 @@ const ProfileFive = () => {
             <div className="weekends time-slots">
             
             {
-                  schedule.weekends &&  schedule.weekends.map(item => {
+                  weekendSchedule &&  weekendSchedule.map(item => {
                         return (
-                            <Timeslot
+                            <TimeslotWeekend
                             id={item.id}
-                            text={item.text} 
+                            text={item.text}
+                            selected={item.selected}
+                            selectTimeWeekend={selectTimeWeekend} 
                             />
                         )
                     })
@@ -129,7 +152,8 @@ const ProfileFive = () => {
         {/* TIMEZONE */}
         
         <div className="next">
-        <i className="fas fa-chevron-right"></i>
+            <Link to='/createProfile6'><i className="fas fa-chevron-right"></i></Link>
+        
         </div>
     </div>
     );
