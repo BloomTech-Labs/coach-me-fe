@@ -1,0 +1,65 @@
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { ReactComponent as Logo } from '../assets/logo.svg';
+import { getClientInfo } from '../../../actions/clientActions';
+
+import './RegisterClient';
+
+const RegisterClient = props => {
+    const dispatch = useDispatch();
+    const [input, setinput] = useState({ email: '', password: '' });
+
+    const handleChange = e => {
+        setinput({ ...input, [e.target.name]: e.target.value });
+    };
+
+    // const getinfo = info => {
+    //     setConfig({ ...config, email: info.email, password: info.password });
+    //     dispatch(getClientInfo(info));
+    // };
+
+    // const handleSubmit = e => {
+    //     e.preventDefault();
+    //     const creds = [email, password]
+    //     getinfo({ credentials: creds, history: props.history });
+    // };
+    
+    return (
+        <div className='creds-container'>
+            <div className='img-container'>
+                <a href='https://www.coachmehealth.org'>
+                    <Logo />
+                </a>
+                <p>SignUp</p>
+            </div>
+            <div className='form-container'>
+                <form> 
+                {/* onSubmit={handleSubmit}> */}
+                    <label>Email</label>
+                    <input 
+                    type='text'
+                    name='email'
+                    value={input.email}
+                    onChange={handleChange}
+                    />
+                    
+                    <label>Password</label>
+                    <input 
+                    type='text'
+                    name='password'
+                    value={input.password}
+                    onChange={handleChange}
+                    />
+                    <span>
+                    <button>Facebook</button>
+                    <button>Twitter</button>
+                    </span>
+                    <button type='submit'>SignUp</button>
+                </form>
+                <span>Already have an account?<a href='/'>Login</a></span>
+            </div>
+        </div>
+    )
+};
+
+export default RegisterClient;

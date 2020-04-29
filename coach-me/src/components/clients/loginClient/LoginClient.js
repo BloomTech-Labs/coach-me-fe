@@ -1,33 +1,62 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// Redux Action Import
+import { ReactComponent as Logo } from '../assets/logo.svg';
 import { getClientInfo } from '../../../actions/clientActions';
 
-// Component Import
-import UserPhoneNumber from './UserPhoneNumber';
-
 // Styling
-import './loginClient.scss';
+import './LoginClient.scss';
 
 const LoginClient = props => {
     const dispatch = useDispatch();
-    const [config, setConfig] = useState({ phonenumber: '' });
+    const [input, setinput] = useState({ email: '', password: '' });
+
     const handleChange = e => {
-        setConfig({ ...config, [e.target.name]: e.target.value });
+        setinput({ ...input, [e.target.name]: e.target.value });
     };
 
-    const getinfo = info => {
-        setConfig({ ...config, phonenumber: info });
-        dispatch(getClientInfo(info));
-    };
+    // const getinfo = info => {
+    //     setinput({ ...input, email: info.email, password: info.password });
+    //     dispatch(getClientInfo(info));
+    // };
+
+    // const handleSubmit = e => {
+    //     e.preventDefault();
+    //     const creds = [email, password]
+    //     getinfo({ credentials: creds, history: props.history });
+    // };
 
     return (
-        <UserPhoneNumber
-            handleChange={handleChange}
-            config={config}
-            setconfig={setConfig}
-            getinfo={getinfo}
-        />
+        <div className='creds-container'>
+        <div className='img-container'>
+            <a href='https://www.coachmehealth.org'>
+                <Logo />
+            </a>
+            <p>Login</p>
+        </div>
+        <div className='form-container'>
+            <form> 
+            {/* onSubmit={handleSubmit}> */}
+                <label>Email</label>
+                <input 
+                type='text'
+                name='email'
+                value={input.email}
+                onChange={handleChange}
+                />
+                
+                <label>Password</label>
+                <input 
+                type='text'
+                name='password'
+                value={input.password}
+                onChange={handleChange}
+                />
+                <button type='submit'>Login</button>
+            </form>
+            <span>Don't have an account?<a href=''>Signup</a></span>
+            <span>Forgot Password<a href=''>Get new</a></span>
+        </div>
+    </div>
     );
 };
 
