@@ -13,6 +13,8 @@ import Welcome from '../clients/welcomeScreen/WelcomeScreen';
 import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import FormLogin from '../clients/loginClient/formLogin';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
+import ProfileOne from '../clients/onboarding/createProfile/profileOne/ProfileOne';
+import ProfileThree from '../clients/onboarding/createProfile/profileThree/ProfileThree';
 import ProfileFour from '../clients/onboarding/createProfile/profileFour/ProfileFour';
 import ProfileFive from '../clients/onboarding/createProfile/profileFive/ProfileFive';
 import ProfileSix from '../clients/onboarding/createProfile/profileSix/ProfileSix';
@@ -33,6 +35,8 @@ const Routes = props => {
                 render={props => <FormLogin {...props} />}
             />
             {/* CREATE PROFILE */}
+            <Route path='/createProfile1' render={props => <ProfileOne />} />
+            <Route path='/createProfile3' render={props => <ProfileThree />} />
             <Route path='/createProfile4' render={props => <ProfileFour />} />
             <Route path='/createProfile5' render={props => <ProfileFive />} />
             <Route path='/createProfile6' render={props => <ProfileSix />} />

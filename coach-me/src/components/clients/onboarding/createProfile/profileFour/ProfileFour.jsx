@@ -64,7 +64,8 @@ const ProfileFour = () => {
         <div>
             <div className="header">
                 <div>
-                <i className="fas fa-chevron-left"></i>
+                    <Link to='/createProfile3'><i className="fas fa-chevron-left"></i></Link>
+                
                     <h4 className='title'>What is your main health goal?</h4>
                 </div>
                 
