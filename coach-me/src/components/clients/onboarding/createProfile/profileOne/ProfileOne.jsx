@@ -5,7 +5,6 @@ import './profileOne.scss';
 const ProfileOne = () => {
 
     const [userData,setUserData] =useState({
-        name: '',
         weight: '',
         gender:''
     })
@@ -30,13 +29,6 @@ const ProfileOne = () => {
                 <button>Choose Image</button>
             </div>
             <form >
-                <input 
-                type="text"
-                name='name'
-                placeholder='Name'
-                value={userData.name}
-                onChange={handleChange}
-                />
                 <input 
                 type="text"
                 name='weight'

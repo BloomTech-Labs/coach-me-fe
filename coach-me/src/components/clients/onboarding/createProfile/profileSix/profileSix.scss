@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
 .profile-six {
     display: flex;
     flex-direction: column;
@@ -16,6 +19,7 @@
         h4 {
             text-align: center;
             font-size: 3em;
+            font-family: 'DM Sans', sans-serif;
         }
 
         .user-image {
@@ -38,6 +42,8 @@
         font-size: 1.9em;
         p {
             margin: 1em 0;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.2em;
         }
 
         ul {
@@ -48,6 +54,7 @@
 
             li {
                 margin: 0.5em 0;
+                font-family: 'DM Sans', sans-serif;
             }
         }
     }
@@ -59,5 +66,7 @@
         padding: 2%;
         width: 90%;
         border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        margin-bottom: 1em;
     }
 }

@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+
 .profile-three {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Poppins', sans-serif;
     div {
         display: flex;
         flex-direction: column;
@@ -22,10 +26,11 @@
         color: black;
         border-color: dodgerblue;
         margin: 0 auto;
-        font-size: 2em;
+        font-size: 1.6em;
         width: 80%;
         margin: 0.5em 0;
         transition: all 0.3s linear;
+        font-family: 'DM Sans', sans-serif;
     }
     .option-selected {
         background-color: dodgerblue;
@@ -34,7 +39,7 @@
         color: white;
         border-color: dodgerblue;
         margin: 0 auto;
-        font-size: 2em;
+        font-size: 1.6em;
         width: 80%;
         margin: 0.5em 0;
         transition: all 0.3s linear;
