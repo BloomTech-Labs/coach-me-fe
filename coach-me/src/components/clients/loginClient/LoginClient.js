@@ -1,33 +1,58 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// Redux Action Import
-import { getClientInfo } from '../../../actions/clientActions';
+import { ReactComponent as Logo } from '../assets/logo.svg';
+import { getClientInfoLogin } from '../../../actions/clientActions';
 
-// Component Import
-import UserPhoneNumber from './UserPhoneNumber';
-
-// Styling
-import './loginClient.scss';
+import './LoginClient.scss';
 
 const LoginClient = props => {
     const dispatch = useDispatch();
-    const [config, setConfig] = useState({ phonenumber: '' });
+    const [input, setinput] = useState({ email: '', password: '' });
+
     const handleChange = e => {
-        setConfig({ ...config, [e.target.name]: e.target.value });
+        setinput({ ...input, [e.target.name]: e.target.value });
     };
 
-    const getinfo = info => {
-        setConfig({ ...config, phonenumber: info });
-        dispatch(getClientInfo(info));
+    const handleSubmit = e => {
+        e.preventDefault();
+        dispatch(getClientInfoLogin({input, history: props.history}));
     };
 
     return (
-        <UserPhoneNumber
-            handleChange={handleChange}
-            config={config}
-            setconfig={setConfig}
-            getinfo={getinfo}
-        />
+        <div className='creds-container'>
+        <div className='img-container'>
+            <a href='https://www.coachmehealth.org'>
+                <Logo />
+            </a>
+            <p>Login</p>
+        </div>
+        <div className='form-container'>
+            <form onSubmit={handleSubmit}>
+                <label>Email</label>
+                <input 
+                type='text'
+                name='email'
+                value={input.email}
+                onChange={handleChange}
+                />
+                
+                <label>Password</label>
+                <input 
+                type='text'
+                name='password'
+                value={input.password}
+                onChange={handleChange}
+                />
+                <span>
+                    <a>Facebook</a>
+                    <a>Twitter</a>
+                    </span>
+                <button type='submit'>Login</button>
+            </form>
+            <span>Don't have an account?<a href='/register-client'>Signup</a></span>
+            <span>Forgot Password<a href='/email-request'>Get new</a></span>
+        </div>
+    </div>
     );
 };
 

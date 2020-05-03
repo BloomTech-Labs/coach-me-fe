@@ -8,10 +8,12 @@ import HealthMetric from '../clients/healthMetrics/HealthMetric';
 import CoachDashboard from '../coach/coachDashboard/CoachDashboard';
 import ClientDashboard from '../clients/clientDashboard/ClientDashboard';
 import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
+import RegisterClient from '../clients/registerClient/RegisterClient';
 import LoginClient from '../clients/loginClient/LoginClient';
+import EmailRequest from '../clients/loginClient/forgotPassword/EmailRequest';
+import PasswordReset from '../clients/loginClient/forgotPassword/PasswordReset'
 import Welcome from '../clients/welcomeScreen/WelcomeScreen';
 import CoachRegistration from '../coach/coachRegistration/coachRegistration';
-import FormLogin from '../clients/loginClient/formLogin';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
 
 import AccountOne from '../clients/onboarding/accountCreation/accountOne/AccountOne';
@@ -30,9 +32,21 @@ const Routes = props => {
     return (
         <>
             <Route
+                path='/register-client'
+                render={props => <RegisterClient {...props} />}
+            />
+            <Route
                 exact
                 path='/'
                 render={props => <LoginClient {...props} />}
+            />
+            <Route
+                path='/email-request'
+                render={props => <EmailRequest {...props} />}
+            />
+            <Route
+                path='/password-reset'
+                render={props => <PasswordReset {...props} />}
             />
             <Route
                 path='/createProfile'
