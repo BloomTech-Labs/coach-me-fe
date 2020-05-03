@@ -14,6 +14,14 @@ import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import FormLogin from '../clients/loginClient/formLogin';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
 
+import AccountOne from '../clients/onboarding/accountCreation/accountOne/AccountOne';
+
+import ProfileOne from '../clients/onboarding/createProfile/profileOne/ProfileOne';
+import ProfileThree from '../clients/onboarding/createProfile/profileThree/ProfileThree';
+import ProfileFour from '../clients/onboarding/createProfile/profileFour/ProfileFour';
+import ProfileFive from '../clients/onboarding/createProfile/profileFive/ProfileFive';
+import ProfileSix from '../clients/onboarding/createProfile/profileSix/ProfileSix';
+
 //Styling
 import '../../App.css';
 import CreateProfile from '../clients/onboarding/CreateProfile';
@@ -34,6 +42,17 @@ const Routes = props => {
                 path='/formLogin'
                 render={props => <FormLogin {...props} />}
             />
+            {/* CREATE ACCOUNT */}
+            <Route path='/createAccount' render={props => <AccountOne />} />
+            {/* CREATE ACCOUNT */}
+
+            {/* CREATE PROFILE */}
+            <Route path='/createProfile1' render={props => <ProfileOne />} />
+            <Route path='/createProfile3' render={props => <ProfileThree />} />
+            <Route path='/createProfile4' render={props => <ProfileFour />} />
+            <Route path='/createProfile5' render={props => <ProfileFive />} />
+            <Route path='/createProfile6' render={props => <ProfileSix />} />
+            {/* CREATE PROFILE */}
 
             <Route
                 path='/register'
@@ -41,15 +60,12 @@ const Routes = props => {
             />
             <Route path='/login' component={LoginCoach} />
 
-            <PrivateRoute path='/metrics' component={HealthMetric} />
-            <PrivateCoachRoute path='/dashboard' component={CoachDashboard} />
-            <PrivateRoute
-                path='/dashboard-client'
-                component={ClientDashboard}
-            />
+            <Route path='/metrics' component={HealthMetric} />
+            <Route path='/dashboard' component={CoachDashboard} />
+            <Route path='/dashboard-client' component={ClientDashboard} />
 
-            <PrivateRoute path='/metric-form' component={HealthMetricForm} />
-            <PrivateRoute path='/welcome' component={Welcome} />
+            <Route path='/metric-form' component={HealthMetricForm} />
+            <Route path='/welcome' component={Welcome} />
         </>
     );
 };

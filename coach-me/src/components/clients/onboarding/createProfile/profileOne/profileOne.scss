@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+
+.profile-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+
+    .fas {
+        font-size: 3em;
+        margin-left: 1em;
+    }
+
+    h4 {
+        font-size: 2.6em;
+        width: 75%;
+        margin: 1em auto;
+        text-align: center;
+    }
+    header {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid dodgerblue;
+        padding-top: 2em;
+        margin-bottom: 1em;
+    }
+
+    .user-photo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+        .photo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 18em;
+            width: 18em;
+            background-color: lightblue;
+            margin: 1em 0;
+            .fas {
+                margin-right: 1em;
+            }
+        }
+        button {
+            font-size: 2em;
+            margin: 1.2em 0;
+            font-family: 'DM Sans', sans-serif;
+        }
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        input {
+            width: 90%;
+            font-size: 2.3em;
+            padding: 1%;
+            margin: 1.2em 0;
+            border-radius: 8px;
+            border-color: dodgerblue;
+            font-family: 'DM Sans', sans-serif;
+        }
+    }
+}
