@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 //Icon Imports
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { ReactComponent as Logo } from './assets/logo.svg';
+import { ReactComponent as Logo } from '../assets/logo.svg';
 
 //Styling
 import './loginClient.scss';

@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+
+.account-one {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+
+    header {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-bottom: 2px solid dodgerblue;
+        font-family: 'Poppin', sans-serif;
+
+        h4 {
+            font-size: 3em;
+            padding: 3%;
+            text-align: center;
+        }
+    }
+
+    form {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 2em;
+        position: relative;
+        font-family: 'DM Sans', sans-serif;
+
+        input {
+            width: 90%;
+            margin: 0.5em auto;
+            font-size: 2.3em;
+            padding: 2%;
+            border-radius: 8px;
+        }
+        .subtext {
+            font-size: 1.6em;
+            width: 80%;
+            text-align: center;
+        }
+
+        .checkboxes {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+
+            div {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 90%;
+                margin: 1em auto;
+
+                input {
+                    height: 1em;
+                    width: 1em;
+                    margin: 1em 0;
+                }
+
+                p {
+                    width: 80%;
+                    font-size: 2em;
+                }
+            }
+        }
+    }
+
+    .continue {
+        margin-bottom: 1em;
+        font-size: 2em;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+    }
+}
