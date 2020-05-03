@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
+import { getNewPassword } from '../../../../actions/clientActions';
 
 import './PasswordReset.scss'
 
 const PasswordReset = props => {
-    const { getinfo } = props;
-    const [input, setinput] = useState({ email: '', password: '' });
+    const dispatch = useDispatch();
+    const [input, setinput] = useState({ password: '' });
 
     const handleChange = e => {
         setinput({ ...input, [e.target.name]: e.target.value });
     };
 
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     const creds = [email, password]
-    //     getinfo({ credentials: creds, history: props.history });
-    // };
+    const handleSubmit = e => {
+        e.preventDefault();
+        dispatch(getNewPassword({input, history: props.history}));
+    };
     
     return (
         <div className='reset-container'>
@@ -27,7 +27,7 @@ const PasswordReset = props => {
                 <p>Forgot Password</p>
             </div>
             <div className='form-container'>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label>New Password</label>
                     <input 
                     type=''
@@ -50,4 +50,4 @@ const PasswordReset = props => {
     )
 }
 
-export default withRouter(PasswordReset);
+export default PasswordReset;

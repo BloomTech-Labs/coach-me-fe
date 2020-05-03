@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../assets/logo.svg';
-import { getClientInfo } from '../../../actions/clientActions';
+import { getClientInfoRegister } from '../../../actions/clientActions';
 
 import './RegisterClient';
 
@@ -10,19 +10,14 @@ const RegisterClient = props => {
     const [input, setinput] = useState({ email: '', password: '' });
 
     const handleChange = e => {
+        console.log(e.target.value)
         setinput({ ...input, [e.target.name]: e.target.value });
     };
 
-    // const getinfo = info => {
-    //     setConfig({ ...config, email: info.email, password: info.password });
-    //     dispatch(getClientInfo(info));
-    // };
-
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     const creds = [email, password]
-    //     getinfo({ credentials: creds, history: props.history });
-    // };
+    const handleSubmit = e => {
+        e.preventDefault();
+        dispatch(getClientInfoRegister({input, history: props.history}));
+    };
     
     return (
         <div className='creds-container'>
@@ -33,8 +28,7 @@ const RegisterClient = props => {
                 <p>SignUp</p>
             </div>
             <div className='form-container'>
-                <form> 
-                {/* onSubmit={handleSubmit}> */}
+                <form onSubmit={handleSubmit}>
                     <label>Email</label>
                     <input 
                     type='text'

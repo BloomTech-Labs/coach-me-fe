@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../assets/logo.svg';
-import { getClientInfo } from '../../../actions/clientActions';
+import { getClientInfoLogin } from '../../../actions/clientActions';
 
-// Styling
 import './LoginClient.scss';
 
 const LoginClient = props => {
@@ -14,16 +13,10 @@ const LoginClient = props => {
         setinput({ ...input, [e.target.name]: e.target.value });
     };
 
-    // const getinfo = info => {
-    //     setinput({ ...input, email: info.email, password: info.password });
-    //     dispatch(getClientInfo(info));
-    // };
-
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     const creds = [email, password]
-    //     getinfo({ credentials: creds, history: props.history });
-    // };
+    const handleSubmit = e => {
+        e.preventDefault();
+        dispatch(getClientInfoLogin({input, history: props.history}));
+    };
 
     return (
         <div className='creds-container'>
@@ -34,8 +27,7 @@ const LoginClient = props => {
             <p>Login</p>
         </div>
         <div className='form-container'>
-            <form> 
-            {/* onSubmit={handleSubmit}> */}
+            <form onSubmit={handleSubmit}>
                 <label>Email</label>
                 <input 
                 type='text'
