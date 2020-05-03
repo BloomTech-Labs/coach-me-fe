@@ -11,7 +11,7 @@ import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
 import RegisterClient from '../clients/registerClient/RegisterClient';
 import LoginClient from '../clients/loginClient/LoginClient';
 import EmailRequest from '../clients/loginClient/forgotPassword/EmailRequest';
-import PasswordReset from '../clients/loginClient/forgotPassword/PasswordReset'
+import PasswordReset from '../clients/loginClient/forgotPassword/PasswordReset';
 import Welcome from '../clients/welcomeScreen/WelcomeScreen';
 import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
@@ -52,10 +52,7 @@ const Routes = props => {
                 path='/createProfile'
                 render={props => <CreateProfile {...props} />}
             />
-            <Route
-                path='/formLogin'
-                render={props => <FormLogin {...props} />}
-            />
+
             {/* CREATE ACCOUNT */}
             <Route path='/createAccount' render={props => <AccountOne />} />
             {/* CREATE ACCOUNT */}
