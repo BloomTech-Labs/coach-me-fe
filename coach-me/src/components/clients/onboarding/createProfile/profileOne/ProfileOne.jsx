@@ -17,7 +17,7 @@ const ProfileOne = () => {
     return (
         <div className='profile-one'>
             <header>
-            <Link to='/createProfile3'><i className="fas fa-chevron-left"></i></Link>
+            <Link to='/createAccount'><i className="fas fa-chevron-left"></i></Link>
                 <h4>Let's create your Coach Me profile.</h4>
             </header>
             <div className="user-photo">

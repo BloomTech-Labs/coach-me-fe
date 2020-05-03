@@ -57,14 +57,13 @@ const ProfileThree = () => {
       }
 
       const selectCondition = id => {
-    
         setConditions(conditions.map(item => {
           if(item.id === id) {
            return {...item,selected : !item.selected}
           }else {
             return item;
           } 
-        }))
+        })) 
       }
 
     return (
