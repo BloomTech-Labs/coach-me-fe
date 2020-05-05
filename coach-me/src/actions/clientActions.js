@@ -23,22 +23,14 @@ export const getClientInfoRegister = props => dispatch => {
     dispatch({ type: GET_CLIENTS_START });
     axios
         .post(
-            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
+            `BACK_END_ROUTE/to register`,
             clientInfo//trey
         )
         .then(res => {
             localStorage.setItem('token', res.data.token);
-            localStorage.setItem('loginAttempts', res.data.loginAttempts);
-            const loginAttempts = localStorage.getItem('loginAttempts');
-            if (loginAttempts == 1) {
-                props.history.push('/welcome');
-            } else {
-                props.history.push('/metrics'); 
-            }
-
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject.fields
+                payload: res.data//clientInfo object
             });
         })
         .catch(err => {
@@ -56,7 +48,7 @@ export const getClientInfoLogin = props => dispatch => {//trey | change name
 
     axios
         .post(
-            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
+            `BACK_END_ROUTE/to login`,
             clientInfo//trey
         )
         .then(res => {
@@ -65,7 +57,7 @@ export const getClientInfoLogin = props => dispatch => {//trey | change name
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject.fields
+                payload: res.data//clientInfo object
             });
         })
         .catch(err => {

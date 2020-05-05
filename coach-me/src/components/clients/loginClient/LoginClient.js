@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { getClientInfoLogin } from '../../../actions/clientActions';
 
-import './loginClient.scss';
+import '../ClientStart.scss';
 
 const LoginClient = props => {
     const dispatch = useDispatch();

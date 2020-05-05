@@ -3,14 +3,13 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { getClientInfoRegister } from '../../../actions/clientActions';
 
-import './RegisterClient';
+import '../loginClient/ClientStart.scss';
 
 const RegisterClient = props => {
     const dispatch = useDispatch();
     const [input, setinput] = useState({ email: '', password: '' });
 
     const handleChange = e => {
-        console.log(e.target.value)
         setinput({ ...input, [e.target.name]: e.target.value });
     };
 

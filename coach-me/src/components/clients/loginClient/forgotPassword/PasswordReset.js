@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 import { getNewPassword } from '../../../../actions/clientActions';
 
-import './PasswordReset.scss'
+import '../ClientStart.scss';
 
 const PasswordReset = props => {
     const dispatch = useDispatch();

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 import { getEmail } from '../../../../actions/clientActions';
 
-import './EmailRequest.scss'
+import '../ClientStart.scss';
 
 const EmailRequest = props => {
     const dispatch = useDispatch();
