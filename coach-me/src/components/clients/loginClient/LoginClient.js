@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { getClientInfoLogin } from '../../../actions/clientActions';
+import { Link } from 'react-router-dom';
 
 import './loginClient.scss';
 
@@ -50,7 +51,8 @@ const LoginClient = props => {
                     <button type='submit'>Login</button>
                 </form>
                 <span>
-                    Don't have an account?<a href='/register-client'>Signup</a>
+                    Don't have an account?
+                    <Link to='/createAccount'>Signup</Link>
                 </span>
                 <span>
                     Forgot Password<a href='/email-request'>Get new</a>

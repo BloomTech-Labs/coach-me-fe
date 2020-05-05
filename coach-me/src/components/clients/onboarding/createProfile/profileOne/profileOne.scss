@@ -10,11 +10,17 @@
 
     .fas {
         font-size: 3em;
+        margin-left: 0.5em;
+    }
+    .fa-chevron-right {
+        margin-bottom: 1em;
+    }
+    .fa-camera-retro {
         margin-left: 1em;
     }
 
     h4 {
-        font-size: 2.6em;
+        font-size: 2.8em;
         width: 75%;
         margin: 1em auto;
         text-align: center;
@@ -65,11 +71,24 @@
         input {
             width: 90%;
             font-size: 2.3em;
-            padding: 1%;
+            padding: 1.5%;
             margin: 1.2em 0;
             border-radius: 8px;
             border-color: dodgerblue;
             font-family: 'DM Sans', sans-serif;
+        }
+        .medication-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .subheading {
+                font-size: 1.4em;
+                font-weight: bold;
+                line-height: 1.3em;
+                width: 90%;
+                text-align: center;
+            }
         }
     }
 }
