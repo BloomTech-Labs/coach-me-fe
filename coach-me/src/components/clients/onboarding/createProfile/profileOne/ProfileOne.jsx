@@ -5,8 +5,8 @@ import './profileOne.scss';
 const ProfileOne = () => {
 
     const [userData,setUserData] =useState({
-        weight: '',
-        gender:''
+        
+        medications: '',
     })
 
     const handleChange = (e) => {
@@ -29,20 +29,23 @@ const ProfileOne = () => {
                 <button>Choose Image</button>
             </div>
             <form >
-                <input 
-                type="text"
-                name='weight'
-                placeholder='Weight'
-                value={userData.weight}
-                onChange={handleChange}
-                />
-                <input 
-                type="text"
-                name='gender'
-                placeholder='Gender'
-                value={userData.gender}
-                onChange={handleChange}
-                />
+
+                
+                <div className="medication-info">
+
+                    <p className="subheading">Please list any medications you are taking. If multiple please seperate them by commas.</p>
+
+                    <input 
+                    type="text"
+                    name='medications'
+                    placeholder=''
+                    value={userData.medications}
+                    onChange={handleChange}
+                    />
+                </div>
+                
+
+               
                 
             </form>
 

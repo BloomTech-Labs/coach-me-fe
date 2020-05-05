@@ -7,13 +7,14 @@ import './accountOne.scss';
 const AccountOne = () => {
 
     const [userAccountDetails, setUserAccountDetails] = useState({
-        name: '',
-        email:'',
+        firstName: '',
+        lastName: '',
+        email: '',
         dob: '',
         password: '',
         confirmPassword: '',
-        agreeText: false,
-        agreeTos: false
+        height: '',
+        sex: '',
     })
 
     const [showModal, setShowModal]= useState(false);
@@ -37,9 +38,16 @@ const AccountOne = () => {
             <form >
                 <input 
                 type="text"
-                name='name'
-                placeholder='Full Name'
-                value={userAccountDetails.name}
+                name='firstName'
+                placeholder='First Name'
+                value={userAccountDetails.firstName}
+                onChange={changeHandler}
+                />
+                <input 
+                type="text"
+                name='lastName'
+                placeholder='Last Name'
+                value={userAccountDetails.lastName}
                 onChange={changeHandler}
                 />
                 <input 
@@ -70,6 +78,27 @@ const AccountOne = () => {
                 value={userAccountDetails.confirmPassword}
                 onChange={changeHandler}
                 />
+                <input 
+                type="text"
+                name='height'
+                placeholder='Height*'
+                value={userAccountDetails.height}
+                onChange={changeHandler}
+                />
+                <input 
+                type="text"
+                name='weight'
+                placeholder='Weight'
+                value={userAccountDetails.weight}
+                onChange={changeHandler}
+                />
+                <input 
+                type="text"
+                name='sex'
+                placeholder='Sex*'
+                value={userAccountDetails.gender}
+                onChange={changeHandler}
+                />
                 <p className='subtext'>A valid password must have a minimum of 800 characters and include a number and a special symbol</p>
                 <div className="checkboxes">
                     <div>
@@ -79,13 +108,9 @@ const AccountOne = () => {
                     <div>
                         <input type="checkbox"/>
                         <p>I have read and agree to the terms of service and Privacy Policy.</p>
-                    </div>
-                  
-                </div>
-
-                
+                    </div> 
+                </div> 
             </form>
-            
             <button 
             className='continue'
             onClick={()=>setShowModal(true)}
@@ -93,5 +118,4 @@ const AccountOne = () => {
         </div>
     );
 }
-
 export default AccountOne;
