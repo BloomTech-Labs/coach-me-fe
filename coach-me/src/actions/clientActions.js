@@ -14,26 +14,29 @@ import {
     EMAIL_REQUEST_FAILURE,
     PASSWORD_RESET_START,
     PASSWORD_RESET_SUCCESS,
-    PASSWORD_RESET_FAILURE,
+    PASSWORD_RESET_FAILURE
 } from './types';
 
-//Register endpoint for client 
+//Register endpoint for client
+
+//updated the data needed to align with the new back-end. 04/05/2020
 export const getClientInfoRegister = props => dispatch => {
-    const clientInfo = { email: props.input.email, password: props.input.password };//trey
-    dispatch({ type: GET_CLIENTS_START });
+    console.log(props);
+
     axios
         .post(
-            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
-            clientInfo//trey
+            `http://localhost:5000/api/auth/register?user_type=client`,
+            props.userAccountDetails
         )
         .then(res => {
+            console.log(res);
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('loginAttempts', res.data.loginAttempts);
             const loginAttempts = localStorage.getItem('loginAttempts');
             if (loginAttempts == 1) {
                 props.history.push('/welcome');
             } else {
-                props.history.push('/metrics'); 
+                props.history.push('/metrics');
             }
 
             dispatch({
@@ -49,15 +52,19 @@ export const getClientInfoRegister = props => dispatch => {
         });
 };
 
-//Login endpoint for client 
-export const getClientInfoLogin = props => dispatch => {//trey | change name
-    const clientInfo = { email: props.input.email, password: props.input.password };//trey
+//Login endpoint for client
+export const getClientInfoLogin = props => dispatch => {
+    //trey | change name
+    const clientInfo = {
+        email: props.input.email,
+        password: props.input.password
+    }; //trey
     dispatch({ type: GET_CLIENTS_START });
 
     axios
         .post(
             `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
-            clientInfo//trey
+            clientInfo //trey
         )
         .then(res => {
             localStorage.setItem('token', res.data.token);
@@ -134,10 +141,7 @@ export const getEmail = props => dispatch => {
     const userEmail = { email: props.input.email };
     dispatch({ type: EMAIL_REQUEST_START });
     axios
-        .post(
-            `path to route for user email to reset`,
-            userEmail
-        )
+        .post(`path to route for user email to reset`, userEmail)
         .then(results => {
             const clientEmail = [...results.data.email];
             dispatch({
@@ -157,10 +161,7 @@ export const getNewPassword = props => dispatch => {
     const userPassword = { password: props.input.password };
     dispatch({ type: PASSWORD_RESET_START });
     axios
-        .post(
-            `path to route for new password`,
-            userPassword
-        )
+        .post(`path to route for new password`, userPassword)
         .then(results => {
             const clientPassword = [...results.data.clientPassword];
             dispatch({

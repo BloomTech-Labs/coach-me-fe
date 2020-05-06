@@ -4,23 +4,34 @@ import Backdrop from '../../../../utils/UI/Backdrop';
 import AccountModal from './AccountModal';
 import './accountOne.scss';
 
-const AccountOne = () => {
+import { useDispatch } from 'react-redux';
+import { getClientInfoRegister } from '../../../../../actions/clientActions';
 
+const AccountOne = (props) => {
+    const dispatch = useDispatch();
     const [userAccountDetails, setUserAccountDetails] = useState({
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
+        phone: '',
         dob: '',
         password: '',
-        confirmPassword: '',
+        confirm_password: '',
         height: '',
         sex: '',
+        gender:''
     })
 
     const [showModal, setShowModal]= useState(false);
 
     const changeHandler = (e) => {
         setUserAccountDetails({...userAccountDetails,[e.target.name]: e.target.value})
+        console.log(userAccountDetails)
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        dispatch(getClientInfoRegister( {userAccountDetails, history: props.history}))
     }
 
     return (
@@ -38,16 +49,16 @@ const AccountOne = () => {
             <form >
                 <input 
                 type="text"
-                name='firstName'
+                name='first_name'
                 placeholder='First Name'
-                value={userAccountDetails.firstName}
+                value={userAccountDetails.first_name}
                 onChange={changeHandler}
                 />
                 <input 
                 type="text"
-                name='lastName'
+                name='last_name'
                 placeholder='Last Name'
-                value={userAccountDetails.lastName}
+                value={userAccountDetails.last_name}
                 onChange={changeHandler}
                 />
                 <input 
@@ -59,9 +70,15 @@ const AccountOne = () => {
                 />
                 <input 
                 type="date"
-                name='birthdate'
-                placeholder='Birthdate'
+                name='dob'
                 value={userAccountDetails.dob}
+                onChange={changeHandler}
+                />
+                <input 
+                type="text"
+                name='phone'
+                placeholder='Phone'
+                value={userAccountDetails.phone}
                 onChange={changeHandler}
                 />
                 <input 
@@ -73,9 +90,9 @@ const AccountOne = () => {
                 />
                 <input 
                 type="password"
-                name='confirmPassword'
+                name='confirm_password'
                 placeholder='Confirm Password'
-                value={userAccountDetails.confirmPassword}
+                value={userAccountDetails.confirm_password}
                 onChange={changeHandler}
                 />
                 <input 
@@ -96,6 +113,13 @@ const AccountOne = () => {
                 type="text"
                 name='sex'
                 placeholder='Sex*'
+                value={userAccountDetails.sex}
+                onChange={changeHandler}
+                />
+                <input 
+                type="text"
+                name='gender'
+                placeholder='Gender'
                 value={userAccountDetails.gender}
                 onChange={changeHandler}
                 />
@@ -110,11 +134,12 @@ const AccountOne = () => {
                         <p>I have read and agree to the terms of service and Privacy Policy.</p>
                     </div> 
                 </div> 
-            </form>
-            <button 
+                <button 
             className='continue'
-            onClick={()=>setShowModal(true)}
+            onClick={handleSubmit}
             >Continue</button>
+            </form>
+            
         </div>
     );
 }
