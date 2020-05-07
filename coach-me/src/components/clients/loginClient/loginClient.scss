@@ -8,10 +8,12 @@
     justify-content: space-evenly;
     min-height: 100vh;
     font-size: 1.8rem;
-
+    margin: 0 auto;
+    
     .img-container {
-        margin: 0 auto;
         text-align: center;
+        color: white;
+        margin-bottom: 10%;
     }
 
     span {
@@ -19,8 +21,26 @@
         font-style: normal;
         font-weight: bold;
         font-size: 1.2rem;
-        line-height: 36px;
+        line-height: 15px;
+        margin-bottom: 4%;
     }
+    
+    button {
+        margin: 2%;
+        width: 97%;
+        border-radius: 25px;
+        background-color: #274160;
+    }
+
+    .fb {
+        background-color: #3b5998;
+    }
+    
+        
+    .tw {
+        background-color: #00aced;
+    }
+   
 
     .form-container {
         display: flex;
@@ -34,15 +54,21 @@
         form {
             display: flex;
             flex-direction: column;
-            width: 100%;
-            margin: 0 auto;
+            width: 80%;
+            margin: 3%;
 
             input {
                 height: 40px;
-                border-bottom: 1.5px solid #274160;
+                border: none;
+                border-bottom: 1px solid #274160;
                 box-shadow: none;
                 font-size: 1.8rem;
-                margin: 8px;
+                margin: 3%;
+            }
+
+            div {
+                display: flex;
+                justify-content: space-between;
             }
         }
     }

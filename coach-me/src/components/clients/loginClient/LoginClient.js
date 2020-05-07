@@ -44,18 +44,16 @@ const LoginClient = props => {
                         value={input.password}
                         onChange={handleChange}
                     />
-                    <span>
-                        <a>Facebook</a>
-                        <a>Twitter</a>
-                    </span>
+                    <div>
+                        <button className="fb">Facebook</button>
+                        <button className="tw">Twitter</button>
+                    </div>
                     <button type='submit'>Login</button>
                 </form>
                 <span>
-                    Don't have an account?
-                    <Link to='/createAccount'>Signup</Link>
-                </span>
-                <span>
-                    Forgot Password<a href='/email-request'>Get new</a>
+                    <p>Don't have an account?
+                    <Link to='/createAccount'>Signup</Link></p>
+                    <p>Forgot Password<a href='/email-request'>Get new</a></p>
                 </span>
             </div>
         </div>
