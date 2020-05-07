@@ -2,17 +2,16 @@
 @import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
 
 .completion {
+    margin-top: -15em;
     background-color: white;
     border-radius: 8px;
-    width: 75%;
+    width: 90%;
     z-index: 800;
     border: 2px solid dodgerblue;
-    position: fixed;
-    top: 20em;
 
     .modal-content {
         width: 90%;
-        margin: 0 auto;
+        margin: 3em auto;
         padding: 3%;
         text-align: center;
         font-size: 3em;
