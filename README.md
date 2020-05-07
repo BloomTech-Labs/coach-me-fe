@@ -1,8 +1,9 @@
 # 1️⃣ Coach Me
 
+## Code Climate
+
 ![](https://api.codeclimate.com/v1/badges/bc888c901260b12fae40/maintainability)
 ![](https://api.codeclimate.com/v1/badges/bc888c901260b12fae40/test_coverage)
-1️⃣ You can find the deployed project at (https://app.coachmehealth.org)
 
 ## 4️⃣ Contributors
 
