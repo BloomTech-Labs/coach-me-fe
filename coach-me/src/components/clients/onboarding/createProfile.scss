@@ -1,0 +1,22 @@
+.create-profile {
+    
+    h1 {
+        display: flex;
+        width: 100%;
+        margin: 5% 0;
+        justify-content: center;
+        font-size: 18px;
+        border-bottom: 2px solid dodgerblue;
+        padding: 5%;
+        color: #323232;
+    }
+    .create-input{
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        border-radius: 5px;
+        background-color: #e3f6f5;
+        padding: 10px;
+        margin: 5% auto;
+    }
+}

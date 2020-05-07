@@ -16,6 +16,7 @@ import LoginCoach from '../coach/loginCoach/LoginCoach';
 
 //Styling
 import '../../App.css';
+import CreateProfile from '../clients/onboarding/CreateProfile';
 
 const Routes = props => {
     return (
@@ -24,6 +25,10 @@ const Routes = props => {
                 exact
                 path='/'
                 render={props => <LoginClient {...props} />}
+            />
+            <Route
+                path='/createProfile'
+                render={props => <CreateProfile {...props} />}
             />
             <Route
                 path='/formLogin'
