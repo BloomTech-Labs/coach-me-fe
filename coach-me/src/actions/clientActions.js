@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {
-    GET_CLIENTS_START,
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
     UPDATE_METRIC_START,
@@ -21,8 +20,6 @@ import {
 
 //updated the data needed to align with the new back-end. 04/05/2020
 export const getClientInfoRegister = props => dispatch => {
-    console.log(props);
-
     axios
         .post(
             `http://localhost:5000/api/auth/register?user_type=client`,
@@ -31,54 +28,41 @@ export const getClientInfoRegister = props => dispatch => {
         .then(res => {
             console.log(res);
             localStorage.setItem('token', res.data.token);
-            localStorage.setItem('loginAttempts', res.data.loginAttempts);
-            const loginAttempts = localStorage.getItem('loginAttempts');
-            if (loginAttempts == 1) {
-                props.history.push('/welcome');
-            } else {
-                props.history.push('/metrics');
-            }
+            props.history.push('/createAccount');
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject.fields
+                payload: res.data.clientObject.fields //need to change
             });
         })
         .catch(err => {
             dispatch({
                 type: GET_CLIENTS_FAILURE,
-                payload: err
+                payload: err.response
             });
         });
 };
 
 //Login endpoint for client
 export const getClientInfoLogin = props => dispatch => {
-    //trey | change name
-    const clientInfo = {
-        email: props.input.email,
-        password: props.input.password
-    }; //trey
-    dispatch({ type: GET_CLIENTS_START });
-
     axios
         .post(
-            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
-            clientInfo //trey
+            `http://localhost:5000/api/auth/login?user_type=client`,
+            props.userAccountDetails
         )
         .then(res => {
             localStorage.setItem('token', res.data.token);
-            props.history.push('/metric-form'); //trey | user-dashboard
+            props.history.push('/user-dashboard');
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject.fields
+                payload: res.data.clientObject.fields //need to change
             });
         })
         .catch(err => {
             dispatch({
                 type: GET_CLIENTS_FAILURE,
-                payload: err
+                payload: err.response
             });
         });
 };

@@ -28,7 +28,7 @@ const EmailRequest = props => {
             </div>
             <div className='form-container'>
                 <form onSubmit={handleSubmit}>
-                    <label>Your email</label>
+                    <label>Email</label>
                     <input 
                     type=''
                     name='email'

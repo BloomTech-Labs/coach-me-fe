@@ -59,13 +59,6 @@ export default (state = initialState, action) => {
                 isfetching: false,
                 err: action.payload
             };
-
-        case GET_CLIENTS_START:
-            return {
-                ...state,
-                isfetching: true,
-                error: ''
-            };
         case GET_CLIENTS_SUCCESS:
             return {
                 ...state,

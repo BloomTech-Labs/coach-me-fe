@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
+import ShowEye from '../../assets/show_password.png';
+import HideEye from '../../assets/hide_password.png';
 import { getNewPassword } from '../../../../actions/clientActions';
 
 import '../loginClient.scss';
@@ -29,19 +31,25 @@ const PasswordReset = props => {
             <div className='form-container'>
                 <form onSubmit={handleSubmit}>
                     <label>New Password</label>
+                    <div className='password-container'>
                     <input 
                     type=''
                     name=''
                     value=''
                     onChange={handleChange}
                     />
+                    <img className='eye' src={ShowEye} alt='eye'/>
+                    </div>
                     <label>Repeat Password</label>
+                    <div className='password-container'>
                      <input 
                     type=''
                     name=''
                     value=''
                     onChange={handleChange}
                     />
+                    <img className='eye' src={ShowEye} alt='eye'/>
+                    </div>
                     <button type='submit'>Reset Password</button>
                 </form>
                 <span>Don't have an account?<a href='/register-client'>Signup</a></span>

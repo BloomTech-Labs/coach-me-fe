@@ -4,12 +4,10 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: #274160;
-    justify-content: space-evenly;
-    min-height: 100vh;
-    font-size: 1.8rem;
     margin: 0 auto;
-    
+    font-size: 1.8rem;
+    background-color: #274160;
+
     .img-container {
         text-align: center;
         color: white;
@@ -18,72 +16,82 @@
 
     span {
         font-family: 'DM Sans', sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 1.2rem;
-        line-height: 15px;
-        margin-bottom: 4%;
-    }
-    
-    a {
-        margin: 2%;
-        border-radius: 25px;
+        font-size: 1.5rem;
+        line-height: 20px;
+
+        a{
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+        }
     }
 
     .fb {
         margin: 2%;
-        padding: 5%;
-        width: 50%;
+        padding: 15px;
+        width: 200px;
         text-align: center;
         border-radius: 25px;
         color: white;
         background-color: #3b5998;
     }
-    
-        
+      
     .tw {
         margin: 2%;
-        width: 50%;
-        padding: 5%;
+        width: 200px;
+        padding: 15px;
         text-align: center;
         border-radius: 25px;
         color: white;
         background-color: #00aced;
     }
-   
+}
+    
+.form-container {
+    height: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
 
-    .form-container {
+    form {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        background-color: white;
+        width: 60%;
+        margin: 3%;
 
-        form {
+        div {
             display: flex;
-            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        input {
             width: 80%;
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid #274160;
+            font-size: 1.8rem;
             margin: 3%;
+        }
 
-            input {
-                height: 40px;
-                border: none;
-                border-bottom: 1px solid #274160;
-                box-shadow: none;
-                font-size: 1.8rem;
-                margin: 3%;
-            }
+        .eye {
+            height: 25px;
+            width: 25px;
+        }
 
-            div {
-                display: flex;
-                justify-content: space-between;
-            }
+        .password-container {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
 
-            button {
-                width: 100%;
-            }
+        button {
+            height: 50px;
+            width: 100%;
+            border-radius: 25px;
+            background-color: #274160;
         }
     }
 }

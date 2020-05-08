@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../assets/logo.svg';
+import ShowEye from '../assets/show_password.png';
+import HideEye from '../assets/hide_password.png';
 import { getClientInfoLogin } from '../../../actions/clientActions';
 import { Link } from 'react-router-dom';
 
@@ -38,22 +40,24 @@ const LoginClient = props => {
                     />
 
                     <label>Password</label>
-                    <input
+                    <div className='password-container'>
+                        <input 
                         type='text'
                         name='password'
                         value={input.password}
                         onChange={handleChange}
-                    />
-                    <div>
+                        />
+                        <img className='eye' src={ShowEye} alt='eye'/>
+                    </div>
+                    <div className="social-links">
                         <a className="fb">Facebook</a>
                         <a className="tw">Twitter</a>
                     </div>
                     <button type='submit'>Login</button>
                 </form>
                 <span>
-                    <p>Don't have an account?
-                    <Link to='/createAccount'>Signup</Link></p>
-                    <p>Forgot Password<a href='/email-request'>Get new</a></p>
+                    <p>Don't have an account?<Link to='/createAccount'>Signup</Link></p>
+                    <p>Forgot Password<Link to='/email-request'>Get new</Link></p>
                 </span>
             </div>
         </div>
