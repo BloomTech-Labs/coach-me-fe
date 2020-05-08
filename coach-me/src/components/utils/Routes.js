@@ -26,7 +26,6 @@ import ProfileSix from '../clients/onboarding/createProfile/profileSix/ProfileSi
 
 //Styling
 import '../../App.css';
-import CreateProfile from '../clients/onboarding/CreateProfile';
 
 const Routes = props => {
     return (
