@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Backdrop from '../../../../utils/UI/Backdrop';
 import AccountModal from './AccountModal';
 import './accountOne.scss';

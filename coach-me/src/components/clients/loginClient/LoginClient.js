@@ -45,8 +45,8 @@ const LoginClient = props => {
                         onChange={handleChange}
                     />
                     <div>
-                        <button className="fb">Facebook</button>
-                        <button className="tw">Twitter</button>
+                        <a className="fb">Facebook</a>
+                        <a className="tw">Twitter</a>
                     </div>
                     <button type='submit'>Login</button>
                 </form>
