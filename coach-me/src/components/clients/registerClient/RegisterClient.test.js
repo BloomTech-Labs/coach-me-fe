@@ -12,10 +12,6 @@ describe('RegisterClient component and texts', () => {
         const { getAllByText } = await render(<RegisterClient />)
         expect(getAllByText(/Signup/i)).toBeTruthy();
     })
-    it('Login button text', async () => {
-        const { getByText } = await render(<RegisterClient />)
-        expect(getByText(/Login/i)).toBeTruthy();
-    })
     it('Email input text', async () => {
         const { getByText } = await render(<RegisterClient />)
         expect(getByText(/Email/i)).toBeTruthy();
@@ -31,5 +27,13 @@ describe('RegisterClient component and texts', () => {
     it('Twitter link text', async () => {
         const { getByText } = await render(<RegisterClient />)
         expect(getByText(/Twitter/i)).toBeTruthy();
+    })
+    it('Login Link prompt text', async () => {
+        const { getByText } = await render(<RegisterClient />)
+        expect(getByText(/Already have an account?/i)).toBeTruthy();
+    })
+    it('Login button text', async () => {
+        const { getByText } = await render(<RegisterClient />)
+        expect(getByText(/Login/i)).toBeTruthy();
     })
 });

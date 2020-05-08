@@ -57,7 +57,7 @@ const LoginClient = props => {
                 </form>
                 <span>
                     <p>Don't have an account?<Link to='/createAccount'>Signup</Link></p>
-                    <p>Forgot Password<Link to='/email-request'>Get new</Link></p>
+                    <p>Forgot Password?<Link to='/email-request'>Get new</Link></p>
                 </span>
             </div>
         </div>
