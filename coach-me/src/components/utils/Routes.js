@@ -26,11 +26,11 @@ import ProfileSix from '../clients/onboarding/createProfile/profileSix/ProfileSi
 
 //Styling
 import '../../App.css';
-import CreateProfile from '../clients/onboarding/CreateProfile';
 
 const Routes = props => {
     return (
         <>
+<<<<<<< HEAD
             <Router>
                 <Route
                     path='/register-client'
@@ -53,6 +53,25 @@ const Routes = props => {
                     path='/createProfile'
                     render={props => <CreateProfile {...props} />}
                 />
+=======
+            <Route
+                path='/register-client'
+                render={props => <RegisterClient {...props} />}
+            />
+            <Route
+                exact
+                path='/'
+                render={props => <LoginClient {...props} />}
+            />
+            <Route
+                path='/email-request'
+                render={props => <EmailRequest {...props} />}
+            />
+            <Route
+                path='/password-reset'
+                render={props => <PasswordReset {...props} />}
+            />
+>>>>>>> 59f4bed0fd9461243f7a3e1d927b8f66d270d81e
 
                 {/* CREATE ACCOUNT */}
                 <Route path='/createAccount' render={props => <AccountOne />} />
