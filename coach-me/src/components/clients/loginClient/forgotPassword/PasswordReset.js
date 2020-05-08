@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 import { getNewPassword } from '../../../../actions/clientActions';
 
-import './PasswordReset.scss'
+import '../loginClient.scss';
 
 const PasswordReset = props => {
     const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const PasswordReset = props => {
     };
     
     return (
-        <div className='reset-container'>
+        <div className='creds-container'>
             <div className='img-container'>
                 <a href='https://www.coachmehealth.org'>
                     <Logo />

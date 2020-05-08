@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { getClientInfoRegister } from '../../../actions/clientActions';
 
-import './RegisterClient';
+import '../loginClient/loginClient.scss';
 
 const RegisterClient = props => {
     const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const RegisterClient = props => {
                 <a href='https://www.coachmehealth.org'>
                     <Logo />
                 </a>
-                <p>SignUp</p>
+                <p>Signup</p>
             </div>
             <div className='form-container'>
                 <form onSubmit={handleSubmit}>
@@ -44,11 +44,11 @@ const RegisterClient = props => {
                     value={input.password}
                     onChange={handleChange}
                     />
-                    <span>
-                        <a>Facebook</a>
-                        <a>Twitter</a>
-                    </span>
-                    <button type='submit'>SignUp</button>
+                    <div>
+                        <a className="fb">Facebook</a>
+                        <a className="tw">Twitter</a>
+                    </div>
+                    <button className="send" type='submit'>SignUp</button>
                 </form>
                 <span>Already have an account?<a href='/'>Login</a></span>
             </div>

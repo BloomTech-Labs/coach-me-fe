@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Component Imports
 import PrivateRoute from './PrivateRoute';
@@ -30,48 +30,54 @@ import '../../App.css';
 const Routes = props => {
     return (
         <>
-            <Route
-                path='/register-client'
-                render={props => <RegisterClient {...props} />}
-            />
-            <Route
-                exact
-                path='/'
-                render={props => <LoginClient {...props} />}
-            />
-            <Route
-                path='/email-request'
-                render={props => <EmailRequest {...props} />}
-            />
-            <Route
-                path='/password-reset'
-                render={props => <PasswordReset {...props} />}
-            />
+            <Router>
+                <Route
+                    path='/register-client'
+                    render={props => <RegisterClient {...props} />}
+                />
+                <Route
+                    exact
+                    path='/'
+                    render={props => <LoginClient {...props} />}
+                />
+                <Route
+                    path='/email-request'
+                    render={props => <EmailRequest {...props} />}
+                />
+                <Route
+                    path='/password-reset'
+                    render={props => <PasswordReset {...props} />}
+                />
+                <Route
+                    path='/createProfile'
+                    render={props => <CreateProfile {...props} />}
+                />
 
-            {/* CREATE ACCOUNT */}
-            <Route path='/createAccount' render={props => <AccountOne />} />
-            {/* CREATE ACCOUNT */}
+                {/* CREATE ACCOUNT */}
+                <Route path='/createAccount' render={props => <AccountOne />} />
+                {/* CREATE ACCOUNT */}
 
-            {/* CREATE PROFILE */}
-            <Route path='/createProfile1' render={props => <ProfileOne />} />
-            <Route path='/createProfile3' render={props => <ProfileThree />} />
-            <Route path='/createProfile4' render={props => <ProfileFour />} />
-            <Route path='/createProfile5' render={props => <ProfileFive />} />
-            <Route path='/createProfile6' render={props => <ProfileSix />} />
-            {/* CREATE PROFILE */}
+                {/* CREATE PROFILE */}
+                <Route path='/createProfile1' render={props => <ProfileOne />} />
+                <Route path='/createProfile3' render={props => <ProfileThree />} />
+                <Route path='/createProfile4' render={props => <ProfileFour />} />
+                <Route path='/createProfile5' render={props => <ProfileFive />} />
+                <Route path='/createProfile6' render={props => <ProfileSix />} />
+                {/* CREATE PROFILE */}
 
-            <Route
-                path='/register'
-                render={props => <CoachRegistration {...props} />}
-            />
-            <Route path='/login' component={LoginCoach} />
+                <Route
+                    path='/register'
+                    render={props => <CoachRegistration {...props} />}
+                />
+                <Route path='/login' component={LoginCoach} />
 
-            <Route path='/metrics' component={HealthMetric} />
-            <Route path='/dashboard' component={CoachDashboard} />
-            <Route path='/dashboard-client' component={ClientDashboard} />
+                <Route path='/metrics' component={HealthMetric} />
+                <Route path='/dashboard' component={CoachDashboard} />
+                <Route path='/dashboard-client' component={ClientDashboard} />
 
-            <Route path='/metric-form' component={HealthMetricForm} />
-            <Route path='/welcome' component={Welcome} />
+                <Route path='/metric-form' component={HealthMetricForm} />
+                <Route path='/welcome' component={Welcome} />
+            </Router>
         </>
     );
 };
