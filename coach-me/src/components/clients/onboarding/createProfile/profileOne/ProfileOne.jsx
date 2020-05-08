@@ -29,10 +29,7 @@ const ProfileOne = () => {
                 <button>Choose Image</button>
             </div>
             <form >
-
-                
                 <div className="medication-info">
-
                     <p className="subheading">Please list any medications you are taking. If multiple please seperate them by commas.</p>
 
                     <input 
@@ -43,12 +40,7 @@ const ProfileOne = () => {
                     onChange={handleChange}
                     />
                 </div>
-                
-
-               
-                
             </form>
-
             <Link to='/createProfile3'><i className="fas fa-chevron-right"></i></Link>
         </div>
     );

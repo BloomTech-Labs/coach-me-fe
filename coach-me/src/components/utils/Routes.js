@@ -26,7 +26,6 @@ import ProfileSix from '../clients/onboarding/createProfile/profileSix/ProfileSi
 
 //Styling
 import '../../App.css';
-import CreateProfile from '../clients/onboarding/CreateProfile';
 
 const Routes = props => {
     return (
@@ -47,10 +46,6 @@ const Routes = props => {
             <Route
                 path='/password-reset'
                 render={props => <PasswordReset {...props} />}
-            />
-            <Route
-                path='/createProfile'
-                render={props => <CreateProfile {...props} />}
             />
 
             {/* CREATE ACCOUNT */}
