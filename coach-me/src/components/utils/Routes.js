@@ -48,21 +48,32 @@ const Routes = props => {
                     path='/password-reset'
                     render={props => <PasswordReset {...props} />}
                 />
-                <Route
-                    path='/createProfile'
-                    render={props => <CreateProfile {...props} />}
-                />
 
                 {/* CREATE ACCOUNT */}
                 <Route path='/createAccount' render={props => <AccountOne />} />
                 {/* CREATE ACCOUNT */}
 
                 {/* CREATE PROFILE */}
-                <Route path='/createProfile1' render={props => <ProfileOne />} />
-                <Route path='/createProfile3' render={props => <ProfileThree />} />
-                <Route path='/createProfile4' render={props => <ProfileFour />} />
-                <Route path='/createProfile5' render={props => <ProfileFive />} />
-                <Route path='/createProfile6' render={props => <ProfileSix />} />
+                <Route
+                    path='/createProfile1'
+                    render={props => <ProfileOne />}
+                />
+                <Route
+                    path='/createProfile3'
+                    render={props => <ProfileThree />}
+                />
+                <Route
+                    path='/createProfile4'
+                    render={props => <ProfileFour />}
+                />
+                <Route
+                    path='/createProfile5'
+                    render={props => <ProfileFive />}
+                />
+                <Route
+                    path='/createProfile6'
+                    render={props => <ProfileSix />}
+                />
                 {/* CREATE PROFILE */}
 
                 <Route
