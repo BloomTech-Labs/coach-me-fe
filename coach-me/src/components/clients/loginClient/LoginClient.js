@@ -51,13 +51,13 @@ const LoginClient = props => {
                     </div>
                     <div className="social-links">
                         <a className="fb">Facebook</a>
-                        <a className="tw">Twitter</a>
+                        <a className="go">Google</a>
                     </div>
                     <button type='submit'>Login</button>
                 </form>
                 <span>
-                    <p>Don't have an account?<Link to='/createAccount'>Signup</Link></p>
-                    <p>Forgot Password?<Link to='/email-request'>Get new</Link></p>
+                    <p>Don't have an account? <Link to='/createAccount'>Signup</Link></p>
+                    <p>Forgot Password? <Link to='/email-request'>Get new</Link></p>
                 </span>
             </div>
         </div>

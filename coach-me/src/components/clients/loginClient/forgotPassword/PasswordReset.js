@@ -52,7 +52,7 @@ const PasswordReset = props => {
                     </div>
                     <button type='submit'>Reset Password</button>
                 </form>
-                <span>Don't have an account?<a href='/register-client'>Signup</a></span>
+                <span>Don't have an account? <a href='/register-client'>Signup</a></span>
             </div>
         </div>
     )
