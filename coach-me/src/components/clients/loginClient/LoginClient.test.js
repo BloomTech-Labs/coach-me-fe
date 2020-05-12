@@ -9,36 +9,61 @@ describe('LoginClient component and texts', () => {
     it('Renders without crashing', async () => {
         render(<LoginClient />);
     })
-    it('Header and submit button text', async () => {
-        const { getAllByText } = render(<LoginClient />)
-        expect(getAllByText(/Login/i)).toBeTruthy();
+    it(('Header text'), () => {
+        const container = render(<LoginClient />)
+        const text = container.getByText('Login')
+        expect(text).toBeTruthy()
     })
-    it('Email input text', async () => {
-        const { getByText } = render(<LoginClient />)
-        expect(getByText(/Email/i)).toBeTruthy();
+}),
+
+describe('LoginClient Form', () => {
+    it('Email input field', async () => {
+        const container = render(<LoginClient />)
+        const emailText = container.getByText('Email')
+        expect(emailText).toBeTruthy()
     })
-    it('Facebook link text', async () => {
-        const { getByText } = render(<LoginClient />)
-        expect(getByText(/Facebook/i)).toBeTruthy();
+    it('Password input field', async () => {
+        const container = render(<LoginClient />)
+        const passText = container.getByText('Password')
+        expect(passText).toBeTruthy()
     })
-    it('Google link text', async () => {
-        const { getByText } = render(<LoginClient />)
-        expect(getByText(/Google/i)).toBeTruthy();
+    it(('Password eye'), () => {
+        const container = render(<LoginClient />);
+        const image = container.getByAltText('eye')
+        expect(image.src).toBe('http://localhost/show_password.png')
+     })
+     it('Submit button', async () => {
+        const container = render(<LoginClient />)
+        const text = container.getByText('Log in')
+        expect(text).toBeTruthy()
     })
-    it('Signup Link prompt text', async () => {
-        const { getByText } = render(<LoginClient />)
-        expect(getByText(/Don't have an account?/i)).toBeTruthy();
+}),
+
+describe('LoginClient social media links', () => {
+    it('texts and classes', async () => {
+        const container = render(<LoginClient />)
+        const fbLink = container.getByText('Facebook')
+        const goLink = container.getByText('Google')
+        expect(fbLink).toBeTruthy()
+        expect(fbLink).toHaveClass('fb')
+        expect(goLink).toBeTruthy()
+        expect(goLink).toHaveClass('go')
     })
-    it('Get New Link prompt text', async () => {
-        const { getByText } = render(<LoginClient />)
-        expect(getByText(/Forgot Password?/i)).toBeTruthy();
+}),
+
+describe('LoginClient redirect links', () => {
+    it('Signup link ', async () => {
+        const container = render(<LoginClient />)
+        const prompt = container.getByText('Don\'t have an account?')
+        const text = container.getByText('Signup')
+        expect(prompt).toBeTruthy();
+        expect(text).toBeTruthy();
     })
-    it('Signup button text', async () => {
-        const { getByText } = render(<LoginClient />)
-        expect(getByText(/Signup/i)).toBeTruthy();
-    })
-    it('Get new button text', async () => {
-        const { getByText } = render(<LoginClient />)
-        expect(getByText(/Get new/i)).toBeTruthy();
+    it('Get New link', async () => {
+        const container = render(<LoginClient />)
+        const prompt = container.getByText('Forgot Password?')
+        const text = container.getByText('Get new')
+        expect(prompt).toBeTruthy();
+        expect(text).toBeTruthy();
     })
 });

@@ -5,32 +5,41 @@ import '@testing-library/jest-dom/extend-expect'
 import PasswordReset from './PasswordReset';
 afterEach(cleanup);
 
-describe('PasswordReset component and texts', () => {
+describe('PasswordReset Header', () => {
     it('Renders without crashing', async () => {
-        render(<PasswordReset />);
+        render(<PasswordReset />)
     })
-    it('Header text', async () => {
-        const { getAllByText } = render(<PasswordReset />)
-        expect(getAllByText(/Forgot Password/i)).toBeTruthy();
+    it(('Header text'), () => {
+        const container = render(<PasswordReset />)
+        const text = container.getByText('Forgot Password')
+        expect(text).toBeTruthy()
     })
-    it('New Password input text', async () => {
-        const { getByText } = render(<PasswordReset />)
-        expect(getByText(/New Password/i)).toBeTruthy();
+}),
+
+describe('PasswordReset Form', () => {
+    it('New Password input field', async () => {
+        const container = render(<PasswordReset />)
+        const text = container.getByText('New Password')
+        expect(text).toBeTruthy()
     })
-    it('Repeat Password input text', async () => {
-        const { getByText } = render(<PasswordReset />)
-        expect(getByText(/Repeat Password/i)).toBeTruthy();
+    it('Password input field', async () => {
+        const container = render(<PasswordReset />)
+        const text = container.getByText('Repeat Password')
+        expect(text).toBeTruthy()
     })
-    it('Reset Password button text', async () => {
-        const { getByText } = render(<PasswordReset />)
-        expect(getByText(/Reset Password/i)).toBeTruthy();
+    it('Reset Password button', async () => {
+        const container = render(<PasswordReset />)
+        const text = container.getByText('Reset Password')
+        expect(text).toBeTruthy()
     })
-    it('Link prompt text', async () => {
-        const { getByText } = render(<PasswordReset />)
-        expect(getByText(/Don't have an account?/i)).toBeTruthy();
-    })
-    it('Signup link text', async () => {
-        const { getByText } = render(<PasswordReset />)
-        expect(getByText(/Signup/i)).toBeTruthy();
+}),
+
+describe('PasswordReset redirect link', () => {
+    it('Signup link ', async () => {
+        const container = render(<PasswordReset />)
+        const prompt = container.getByText('Don\'t have an account?')
+        const text = container.getByText('Signup')
+        expect(prompt).toBeTruthy();
+        expect(text).toBeTruthy();
     })
 });

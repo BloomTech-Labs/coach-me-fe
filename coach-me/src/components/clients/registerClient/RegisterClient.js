@@ -25,7 +25,7 @@ const RegisterClient = props => {
     return (
         <div className='creds-container'>
             <div className='img-container'>
-                <a href='https://www.coachmehealth.org' ><Logo alt='logo'/></a>
+                <a href='https://www.coachmehealth.org' alt='logo'><Logo /></a>
                 <p>Signup</p>
             </div>
             <div className='form-container'>

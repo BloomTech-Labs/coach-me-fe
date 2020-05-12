@@ -17,31 +17,30 @@ describe('RegisterClient Header', () => {
 }),
 
 describe('RegisterClient Form', () => {
-    it(('Buttons'), () => {
-       const container = render(<RegisterClient />);
-    })
-}),
-
-describe('RegisterClient input fields', () => {
-    it('Email input text', async () => {
+    it('Email input field', async () => {
         const container = render(<RegisterClient />)
-        const emailText = container.getByText('Email')
-        expect(emailText).toBeTruthy()
+        const text = container.getByText('Email')
+        expect(text).toBeTruthy()
     })
-    it('Password input text', async () => {
+    it('Password input field', async () => {
         const container = render(<RegisterClient />)
-        const passText = container.getByText('Password')
-        expect(passText).toBeTruthy()
+        const text = container.getByText('Password')
+        expect(text).toBeTruthy()
     })
     it(('Password eye'), () => {
         const container = render(<RegisterClient />);
         const image = container.getByAltText('eye')
         expect(image.src).toBe('http://localhost/show_password.png')
      })
+     it('Submit button', async () => {
+        const container = render(<RegisterClient />)
+        const text = container.getByText('Sign up')
+        expect(text).toBeTruthy()
+    })
 }),
 
 describe('RegisterClient social media links', () => {
-    it('Facebook link', async () => {
+    it('Texts and classes', async () => {
         const container = render(<RegisterClient />)
         const fbLink = container.getByText('Facebook')
         const goLink = container.getByText('Google')
@@ -52,8 +51,8 @@ describe('RegisterClient social media links', () => {
     })
 }),
 
-describe('RegisterClient redirect links', () => {
-    it('Login Link', async () => {
+describe('RegisterClient redirect link', () => {
+    it('Login link', async () => {
         const container = render(<RegisterClient />)
         const text = container.getByText('Already have an account?')
         const link = container.getByText('Login')

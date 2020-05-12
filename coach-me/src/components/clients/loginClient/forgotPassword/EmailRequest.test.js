@@ -5,20 +5,26 @@ import '@testing-library/jest-dom/extend-expect'
 import EmailRequest from './EmailRequest';
 afterEach(cleanup);
 
-describe('EmailRequest component and texts', () => {
+describe('EmailRequest Header', () => {
     it('Renders without crashing', async () => {
-        render(<EmailRequest />);
+        render(<EmailRequest />)
     })
-    it('Header and submit button text', async () => {
-        const { getAllByText } = render(<EmailRequest />)
-        expect(getAllByText(/Forgot Password/i)).toBeTruthy();
+    it(('Header text'), () => {
+        const container = render(<EmailRequest />)
+        const text = container.getByText('Forgot Password')
+        expect(text).toBeTruthy()
     })
+}),
+
+describe('EmailRequest Form', () => {
     it('Email input text', async () => {
-        const { getByText } = render(<EmailRequest />)
-        expect(getByText(/Email/i)).toBeTruthy();
+        const container = render(<EmailRequest />)
+        const text = container.getByText('Email')
+        expect(text).toBeTruthy()
     })
-    it('Request Password button text', async () => {
-        const { getByText } = render(<EmailRequest />)
-        expect(getByText(/Request Password/i)).toBeTruthy();
+    it('Request Password button ', async () => {
+        const container = render(<EmailRequest />)
+        const text = container.getByText('Request Password')
+        expect(text).toBeTruthy()
     })
 });

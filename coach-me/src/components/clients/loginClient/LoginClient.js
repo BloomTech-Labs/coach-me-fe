@@ -51,7 +51,7 @@ const LoginClient = props => {
                         <a className="fb">Facebook</a>
                         <a className="go">Google</a>
                     </div>
-                    <button type='submit'>Login</button>
+                    <button type='submit'>Log in</button>
                 </form>
                 <span>
                     <p>Don't have an account? <Link to='/createAccount'>Signup</Link></p>
