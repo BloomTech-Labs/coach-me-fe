@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helper as render } from '../../../utils/helpers';
-import { fireEvent, cleanup } from '@testing-library/react';
+import { fireEvent, act, cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect'
 import PasswordReset from './PasswordReset';
 afterEach(cleanup);
 

@@ -4,18 +4,16 @@ import { ReactComponent as Logo } from '../assets/logo.svg';
 import Show from '../assets/show_password.png';
 import Hide from '../assets/hide_password.png';
 import { getClientInfoRegister } from '../../../actions/clientActions';
-
+import { Link } from 'react-router-dom';
 import '../loginClient/loginClient.scss';
 
 const RegisterClient = props => {
     const dispatch = useDispatch();
     const [input, setinput] = useState({ email: '', password: '' });
-    let hidden = true;
-    let source = Show;
+    const [hidden, setHidden] = useState(true);
+    const [source, setSource] = useState(Show);
     const handleClick = () => {
-        console.log("hidden",hidden," source",source)
-        if(hidden == true) return hidden=false,source=Hide;
-        else if (hidden == false) return hidden==true,source=Show;
+        if(hidden == false){setHidden(true);setSource(Show);}else{setHidden(false);setSource(Hide);}
     };
     const handleChange = e => {
         setinput({ ...input, [e.target.name]: e.target.value });
@@ -27,7 +25,7 @@ const RegisterClient = props => {
     return (
         <div className='creds-container'>
             <div className='img-container'>
-                <a href='https://www.coachmehealth.org'><Logo /></a>
+                <a href='https://www.coachmehealth.org' ><Logo alt='logo'/></a>
                 <p>Signup</p>
             </div>
             <div className='form-container'>
@@ -39,11 +37,10 @@ const RegisterClient = props => {
                     value={input.email}
                     onChange={handleChange}
                     />
-
                     <label>Password</label>
                     <div className='password-container'>
                         <input 
-                        type={hidden?'password':'text'}/*'text'*/
+                        type={hidden?'password':'text'}
                         name='password'
                         value={input.password}
                         onChange={handleChange}
@@ -54,13 +51,11 @@ const RegisterClient = props => {
                         <a className="fb">Facebook</a>
                         <a className="go">Google</a>
                     </div>
-                    <button className="send" type='submit'>Signup</button>
+                    <button type='submit'>Sign up</button>
                 </form>
-                <span>Already have an account? <a href='/'>Login</a></span>
+                <span>Already have an account? <Link to='/'>Login</Link></span>
             </div>
-            {}
         </div>
-    )
-};
+)};
 
 export default RegisterClient;

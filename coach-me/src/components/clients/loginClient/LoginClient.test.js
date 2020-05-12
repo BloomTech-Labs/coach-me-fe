@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helper as render } from '../../utils/helpers';
-import { fireEvent, cleanup } from '@testing-library/react';
+import { fireEvent, act, cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect'
 import LoginClient from './LoginClient';
 afterEach(cleanup);
 
@@ -20,9 +21,9 @@ describe('LoginClient component and texts', () => {
         const { getByText } = render(<LoginClient />)
         expect(getByText(/Facebook/i)).toBeTruthy();
     })
-    it('Twitter link text', async () => {
+    it('Google link text', async () => {
         const { getByText } = render(<LoginClient />)
-        expect(getByText(/Twitter/i)).toBeTruthy();
+        expect(getByText(/Google/i)).toBeTruthy();
     })
     it('Signup Link prompt text', async () => {
         const { getByText } = render(<LoginClient />)
