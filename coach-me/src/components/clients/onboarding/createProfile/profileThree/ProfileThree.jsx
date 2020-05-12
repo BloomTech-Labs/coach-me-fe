@@ -9,7 +9,7 @@ const ProfileThree = () => {
         <div className='profile-three'>
             <header>
             <Link to='/createProfile1'><i className="fas fa-chevron-left"></i></Link>
-                <h4>We'll need a little bit of information to get started.</h4>
+                <h4 data-testid='header-text'>We'll need a little bit of information to get started.</h4>
             </header>
             <JoiningOptions/>
             <Conditions />

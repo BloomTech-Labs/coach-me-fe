@@ -38,11 +38,12 @@ const Weekends = () => {
         ))
       }
     return (
-        <div className="weekends time-slots">
-        {weekendSchedule &&  weekendSchedule.map(item => {
+        <div data-testid='weekend-div' className="weekends time-slots">
+        {weekendSchedule &&  weekendSchedule.map((item, i) => {
                     return (
                         <TimeslotWeekend
                         id={item.id}
+                        key={i}
                         text={item.text}
                         selected={item.selected}
                         selectTimeWeekend={selectTimeWeekend} 

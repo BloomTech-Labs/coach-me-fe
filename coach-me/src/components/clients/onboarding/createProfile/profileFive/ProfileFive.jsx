@@ -16,11 +16,11 @@ const ProfileFive = (props) => {
             <div>
             <Link to='/createProfile4'><i className="fas fa-chevron-left"></i></Link>
             
-                <h4 className='title'>When are you usually available?</h4>
+                <h4 data-testid='title' className='title'>When are you usually available?</h4>
             </div>
         </div>
-        <div className="scheduling">
-            <p className='help-text'>As part of Coach Me you'll regularly chat with your coach. Select what time(s) work best for you.</p>
+        <div  data-testid='scheduling' className="scheduling">
+            <p data-testid='help-text' className='help-text'>As part of Coach Me you'll regularly chat with your coach. Select what time(s) work best for you.</p>
             <h4 className='heading'>Weekdays</h4>
             <Weekdays />
             <h4 className='heading'>WeekEnds</h4>
@@ -28,7 +28,8 @@ const ProfileFive = (props) => {
         </div>
         <div className="timezone">
             <h4 className="heading">Time Zone</h4>
-            <select className='zone-select' name="time-zone" >
+            <select data-testid='zone-select' className='zone-select' name="time-zone" >
+                <option val=''>Select Your timezone...</option>
                 <option value="Hawaii">Hawaii</option>
                 <option value="Pacific">Pacific</option>
                 <option value="Mountain">Mountain</option>

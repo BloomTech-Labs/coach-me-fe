@@ -20,7 +20,7 @@ const ProfileFour = () => {
         },
         {
             id: 2,
-            text: 'Boost Excercise',
+            text: 'Boost Exercise',
             selected: false
         },
         {
@@ -66,15 +66,18 @@ const ProfileFour = () => {
                 <div>
                     <Link to='/createProfile3'><i className="fas fa-chevron-left"></i></Link>
                 
-                    <h4 className='title'>What is your main health goal?</h4>
+                    <h4 
+                    data-testid='header-four'
+                    className='title'>What is your main health goal?</h4>
                 </div>
                 
             </div>
             <div className="goals">
-                {healthGoals && healthGoals.map(goal => {
+                {healthGoals && healthGoals.map((goal,i) => {
                     return ( 
                         <HealthGoal 
                         id={goal.id}
+                        key={i}
                         text={goal.text}
                         selected={goal.selected}
                         selectGoal={selectGoal} />

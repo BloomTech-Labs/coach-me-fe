@@ -31,14 +31,15 @@ const JoiningOptions = (props) => {
         }))
       }
     return (
-        <div className="joining-options">
-            <h4>Are you joining Coach Me on your own or an organization, such as your employer or health insurance?</h4>
-                {joiningOptions.map(option => {
+        <div data-testid='joining-options' className="joining-options">
+            <h4 data-testid='joining-header-text'>Are you joining Coach Me on your own or an organization, such as your employer or health insurance?</h4>
+                {joiningOptions.map((option, i) => {
                     return(
-                        <div>
+                        <div key={i}>
                             <button 
                             className={option.selected ? 'option-selected' : 'option'}
                             id={option.id}
+                            
                             onClick={()=>selectOption(option.id)}
                             >{option.text}</button>
                         </div>

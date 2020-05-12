@@ -38,13 +38,16 @@ const Conditions = (props) => {
       }
     return (
         <div className="conditions-query">
-        <h4>Do you have any of the following conditions?</h4>
-        <div className="conditions">
-            {conditions.map(condition => {
+        <h4 data-testid='conditions-header-text'>Do you have any of the following conditions?</h4>
+        <div 
+        data-testid='conditions'
+        className="conditions">
+            {conditions.map((condition,i) => {
                 return (
-                    <button 
+                    <button
                     className={condition.selected ? 'option-selected' : 'option'}
                     id={condition.id}
+                    key={i}
                     onClick={()=>selectCondition(condition.id)}
                     >{condition.text}</button>
                 )
