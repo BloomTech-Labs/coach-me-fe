@@ -1,6 +1,4 @@
-$input-background: #ffffff;
-
-.phonenumber-container {
+.creds-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,85 +7,50 @@ $input-background: #ffffff;
     background-color: #274160;
     justify-content: space-evenly;
     min-height: 100vh;
+    font-size: 1.8rem;
+    margin: 0 auto;
+    
     .img-container {
-        margin: 0 auto;
-    }
-
-    input {
-        width: 20%;
-        height: 40px;
-        background-color: $input-background;
-        border-radius: 10px;
-        border: 1.5px solid #274160;
-        box-shadow: none;
-        font-size: 1.8rem;
-        margin: 8px;
         text-align: center;
+        color: white;
+        margin-bottom: 10%;
     }
 
     span {
         font-family: 'DM Sans', sans-serif;
         font-style: normal;
         font-weight: bold;
-        font-size: 1.8rem;
-        line-height: 36px;
-        color: #ffffff;
+        font-size: 1.2rem;
+        line-height: 15px;
+        margin-bottom: 4%;
+    }
+    
+    a {
+        margin: 2%;
+        border-radius: 25px;
     }
 
-    .text-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .header {
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            width: 70%;
-
-            p {
-                display: flex;
-                font-family: 'DM Sans', sans-serif;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 2.2rem;
-                color: #ffffff;
-                flex-wrap: wrap;
-            }
-
-            // p.spanish {
-
-            //     font-family: 'DM Sans', sans-serif;
-            //     font-style: normal;
-            //     font-weight: bold;
-            //     font-size: 2.2rem;
-            //     color: #ffffff;
-            // }
-        }
-
-        .subtext {
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            font-family: 'DM Sans', sans-serif;
-            font-style: normal;
-            color: #ffffff;
-            font-weight: 500;
-            line-height: 24px;
-            width: 70%;
-            height: 24px;
-
-            p {
-                font-family: 'DM Sans', sans-serif;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 2.2rem;
-                color: #ffffff;
-                margin-top: 1.9rem;
-            }
-        }
+    .fb {
+        margin: 2%;
+        padding: 5%;
+        width: 50%;
+        text-align: center;
+        border-radius: 25px;
+        color: white;
+        background-color: #3b5998;
     }
+    
+        
+    .tw {
+        margin: 2%;
+        width: 50%;
+        padding: 5%;
+        text-align: center;
+        border-radius: 25px;
+        color: white;
+        background-color: #00aced;
+    }
+   
 
     .form-container {
         display: flex;
@@ -96,28 +59,30 @@ $input-background: #ffffff;
         justify-content: center;
         align-items: center;
         margin: 0 auto;
+        background-color: white;
 
         form {
             display: flex;
             flex-direction: column;
-            margin: 0 auto;
+            width: 80%;
+            margin: 3%;
 
-            .num-inputs {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            input {
+                height: 40px;
+                border: none;
+                border-bottom: 1px solid #274160;
+                box-shadow: none;
+                font-size: 1.8rem;
+                margin: 3%;
             }
-            .trigger {
-                align-self: flex-end;
-                background: #ffffff;
-                border-radius: 20px;
-                width: 69px;
-                height: 52px;
-                color: #274160;
-                font-size: 1.3rem;
-                border: 1.5px solid #274160;
-                margin-right: 10%;
-                margin-top: 5%;
+
+            div {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            button {
+                width: 100%;
             }
         }
     }

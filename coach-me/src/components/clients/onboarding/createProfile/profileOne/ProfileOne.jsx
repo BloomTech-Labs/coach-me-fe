@@ -5,8 +5,8 @@ import './profileOne.scss';
 const ProfileOne = () => {
 
     const [userData,setUserData] =useState({
-        weight: '',
-        gender:''
+        
+        medications: '',
     })
 
     const handleChange = (e) => {
@@ -16,36 +16,34 @@ const ProfileOne = () => {
 
     return (
         <div className='profile-one'>
-            <header>
-            <Link to='/createProfile3'><i className="fas fa-chevron-left"></i></Link>
-                <h4>Let's create your Coach Me profile.</h4>
+            <header >
+            <Link to='/createAccount'><i className="fas fa-chevron-left"></i></Link>
+                <h4 data-testid='header'>Let's create your Coach Me profile.</h4>
             </header>
-            <div className="user-photo">
-                <h4>Upload a photo</h4>
+            <div 
+            data-testid='user-photo'
+            className="user-photo">
+                <h4 data-testid='upload-text'>Upload a photo</h4>
                 <div className="photo">
                 <i className="fas fa-camera-retro fa-3x"></i> 
 
                 </div>
-                <button>Choose Image</button>
+                <button data-testid='image-button' className='button'>Choose Image</button>
             </div>
             <form >
-                <input 
-                type="text"
-                name='weight'
-                placeholder='Weight'
-                value={userData.weight}
-                onChange={handleChange}
-                />
-                <input 
-                type="text"
-                name='gender'
-                placeholder='Gender'
-                value={userData.gender}
-                onChange={handleChange}
-                />
-                
-            </form>
+                <div data-testid='medication-div' className="medication-info">
+                    <p className="subheading">Please list any medications you are taking. If multiple please seperate them by commas.</p>
 
+                    <textarea 
+                    data-testid='medication-field'
+                    type="text"
+                    name='medications'
+                    placeholder=''
+                    value={userData.medications}
+                    onChange={handleChange}
+                    />
+                </div>
+            </form>
             <Link to='/createProfile3'><i className="fas fa-chevron-right"></i></Link>
         </div>
     );
