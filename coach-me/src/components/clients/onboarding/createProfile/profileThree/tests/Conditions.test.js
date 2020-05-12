@@ -22,14 +22,17 @@ describe('Conditions component', () => {
         const anxiety = container.getByText('Anxiety');
         const cholesterol = container.getByText('High Cholesterol');
         const conditions = container.getByTestId('conditions');
+        const diabetes = container.getByText('Diabetes');
         expect(conditions).toContainElement(anxiety);
         expect(anxiety).toHaveClass('option');
         expect(cholesterol).toHaveClass('option');
+        expect(diabetes).toHaveClass('option');
 
         act(() => {
             fireEvent.click(anxiety);
         });
         expect(anxiety).toHaveClass('option-selected');
         expect(cholesterol).not.toHaveClass('option-selected');
+        expect(diabetes).not.toHaveClass('option-slected');
     });
 });
