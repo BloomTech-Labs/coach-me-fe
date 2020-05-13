@@ -9,6 +9,15 @@
     font-family: 'Poppins', sans-serif;
     border-bottom: 2px solid dodgerblue;
 
+    a {
+        text-decoration: none;
+        color: dodgerblue;
+    }
+    .fas {
+        cursor: pointer;
+        color: dodgerblue;
+    }
+
     div {
         display: flex;
         justify-content: left;
@@ -32,8 +41,9 @@
     justify-content: center;
     align-items: center;
     font-size: 3em;
-}
 
-.fas {
-    cursor: pointer;
+    a {
+        text-decoration: none;
+        color: dodgerblue;
+    }
 }

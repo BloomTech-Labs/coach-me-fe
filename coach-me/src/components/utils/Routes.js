@@ -48,12 +48,8 @@ const Routes = props => {
                     path='/password-reset'
                     render={props => <PasswordReset {...props} />}
                 />
-
                 {/* CREATE ACCOUNT */}
                 <Route path='/createAccount' render={props => <AccountOne />} />
-                {/* CREATE ACCOUNT */}
-
-                {/* CREATE PROFILE */}
                 <Route
                     path='/createProfile1'
                     render={props => <ProfileOne />}
@@ -74,18 +70,15 @@ const Routes = props => {
                     path='/createProfile6'
                     render={props => <ProfileSix />}
                 />
-                {/* CREATE PROFILE */}
-
+                {/* CREATE ACCOUNT */}
                 <Route
                     path='/register'
                     render={props => <CoachRegistration {...props} />}
                 />
                 <Route path='/login' component={LoginCoach} />
-
                 <Route path='/metrics' component={HealthMetric} />
                 <Route path='/dashboard' component={CoachDashboard} />
                 <Route path='/dashboard-client' component={ClientDashboard} />
-
                 <Route path='/metric-form' component={HealthMetricForm} />
                 <Route path='/welcome' component={Welcome} />
             </Router>
