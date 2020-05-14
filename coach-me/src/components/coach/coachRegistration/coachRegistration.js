@@ -16,8 +16,11 @@ function CoachRegistration(props) {
         last_name: '',
         email: '',
         phone: '',
+        dob: '',
         password: '',
-        confirm_password: ''
+        confirm_password: '',
+        height: '',
+        sex: ''
     });
     const handleChange = e => {
         setCoachCredentials({
@@ -28,7 +31,7 @@ function CoachRegistration(props) {
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(registerCoach(coachCredentials)).then(() => {
-            // props.history.push('/dashboard');
+            props.history.push('/dashboard');
         });
     };
     return (

@@ -32,7 +32,13 @@ const CoachForm = (props) => {
                     onChange={props.handleChange}
                     value={props.coachCredentials.phone}
                 />
-                <input
+                <input 
+                    type="date"
+                    name='dob'
+                    value={props.coachCredentials.dob}
+                    onChange={props.handleChange}
+                />
+                 <input
                     type='password'
                     name='password'
                     placeholder='Password'
@@ -41,7 +47,7 @@ const CoachForm = (props) => {
                     onChange={props.handleChange}
                     value={props.coachCredentials.password}
                 /> 
-                                <input
+                <input
                     type='password'
                     name='confirm_password'
                     placeholder='Confirm Password'
@@ -49,6 +55,20 @@ const CoachForm = (props) => {
                     // required
                     onChange={props.handleChange}
                     value={props.coachCredentials.confirm_password}
+                />
+                <input 
+                    type="text"
+                    name='height'
+                    placeholder='Height*'
+                    value={props.coachCredentials.height}
+                    onChange={props.handleChange}
+                />
+                <input 
+                    type="text"
+                    name='sex'
+                    placeholder='Sex*'
+                    value={props.coachCredentials.sex}
+                    onChange={props.handleChange}
                 />
                 <button>Sign Up!</button>   
         </form>

@@ -12,19 +12,16 @@ import {
 } from './types';
 
 //Coach Registration endpoint
-export const registerCoach = props => dispatch => {
-    console.log(props);
-
+export const registerCoach = coachData => dispatch => {
+    console.log(coachData);
     dispatch({ type: REGISTER_START });
     return axios
         .post(
             `http://localhost:5000/api/auth/register?user_type=coach`,
-            props.coachCredentials
+            coachData
         )
         .then(res => {
             console.log(res);
-            // localStorage.setItem('token', res.data.token);
-            // localStorage.setItem('coachName', res.data.first_name);
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data.coachCredentials
@@ -45,7 +42,6 @@ export const loginCoach = creds => dispatch => {
         .then(res => {
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('coachName', res.data.coachName);
-
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data.coachName
@@ -58,7 +54,6 @@ export const loginCoach = creds => dispatch => {
             });
         });
 };
-
 //Get Coach Clientlist
 export const getClients = token => dispatch => {
     const headers = { Authorization: token };
