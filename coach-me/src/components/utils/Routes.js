@@ -17,7 +17,7 @@ import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
 
 import AccountOne from '../clients/onboarding/accountCreation/accountOne/AccountOne';
-
+import Splash from '../splash/Splash';
 import ProfileOne from '../clients/onboarding/createProfile/profileOne/ProfileOne';
 import ProfileThree from '../clients/onboarding/createProfile/profileThree/ProfileThree';
 import ProfileFour from '../clients/onboarding/createProfile/profileFour/ProfileFour';
@@ -31,13 +31,14 @@ const Routes = props => {
     return (
         <>
             <Router>
+                <Route exact path='/' component={Splash} />
                 <Route
                     path='/register-client'
                     render={props => <RegisterClient {...props} />}
                 />
                 <Route
                     exact
-                    path='/'
+                    path='/client-login'
                     render={props => <LoginClient {...props} />}
                 />
                 <Route
@@ -72,10 +73,10 @@ const Routes = props => {
                 />
                 {/* CREATE ACCOUNT */}
                 <Route
-                    path='/register'
+                    path='/coach-register'
                     render={props => <CoachRegistration {...props} />}
                 />
-                <Route path='/login' component={LoginCoach} />
+                <Route path='/coach-login' component={LoginCoach} />
                 <Route path='/metrics' component={HealthMetric} />
                 <Route path='/dashboard' component={CoachDashboard} />
                 <Route path='/dashboard-client' component={ClientDashboard} />
