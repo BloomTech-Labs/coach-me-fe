@@ -40,11 +40,12 @@ const Weekdays = () => {
       }
     return (
         <div className="weekdays time-slots">
-            {weekdaySchedule && weekdaySchedule.map(item => {
+            {weekdaySchedule && weekdaySchedule.map((item, i) => {
                     
                     return (
                         <Timeslot
                         id={item.id}
+                        key={i}
                         text={item.text}
                         selected={item.selected}
                         selectTimeWeekday={selectTimeWeekday} 
