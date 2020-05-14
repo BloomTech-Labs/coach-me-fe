@@ -47,13 +47,13 @@ const RegisterClient = props => {
                         />
                         <img className='eye' onClick={handleClick} src={source} alt='eye'/>
                     </div>
-                    <div className="social-links">
-                        <a className="fb">Facebook</a>
-                        <a className="go">Google</a>
-                    </div>
                     <button type='submit'>Sign up</button>
                 </form>
-                <span>Already have an account? <Link to='/'>Login</Link></span>
+                <div className="social-links">
+                    <a className="fb">Facebook</a>
+                    {/* <a className="go">Google</a> */}
+                </div>
+                <p>Already have an account?<Link to='/'>Login</Link></p>
             </div>
         </div>
 )};

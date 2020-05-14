@@ -2,19 +2,20 @@ import axios from 'axios';
 import {
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
+    EMAIL_REQUEST_SUCCESS,
+    EMAIL_REQUEST_FAILURE,
+    PASSWORD_RESET_SUCCESS,
+    PASSWORD_RESET_FAILURE,
+
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
-    GET_METRICS_FAILURE,
-    EMAIL_REQUEST_START,
-    EMAIL_REQUEST_SUCCESS,
-    EMAIL_REQUEST_FAILURE,
-    PASSWORD_RESET_START,
-    PASSWORD_RESET_SUCCESS,
-    PASSWORD_RESET_FAILURE
+    GET_METRICS_FAILURE
 } from './types';
+
+// const mainRoute = axios.create({ baseURL: 'https://coach-me-be.herokuapp.com/api'});
 
 //Register endpoint for client
 
@@ -22,13 +23,12 @@ import {
 export const getClientInfoRegister = props => dispatch => {
     axios
         .post(
-            `http://localhost:5000/api/auth/register?user_type=client`,
+            `localhost:5000/api/auth/register?user_type=client`, 
             props.userAccountDetails
         )
         .then(res => {
             console.log(res);
             localStorage.setItem('token', res.data.token);
-            props.history.push('/createAccount');
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
@@ -47,12 +47,11 @@ export const getClientInfoRegister = props => dispatch => {
 export const getClientInfoLogin = props => dispatch => {
     axios
         .post(
-            `http://localhost:5000/api/auth/login?user_type=client`,
+            `localhost:5000/api/auth/login?user_type=client`,
             props.userAccountDetails
         )
         .then(res => {
             localStorage.setItem('token', res.data.token);
-            props.history.push('/user-dashboard');
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
@@ -122,15 +121,15 @@ export const getClientRecords = () => dispatch => {
 
 //trey
 export const getEmail = props => dispatch => {
-    const userEmail = { email: props.input.email };
-    dispatch({ type: EMAIL_REQUEST_START });
     axios
-        .post(`path to route for user email to reset`, userEmail)
-        .then(results => {
-            const clientEmail = [...results.data.email];
+        .post(`localhost:5000/api/auth/forgot_password/method=phone?user_type=client?`,
+        props.userAccountDetails)
+        //method, user type, cred value
+        .then(res => {
+            localStorage.setItem('token', res.data.token);
             dispatch({
                 type: EMAIL_REQUEST_SUCCESS,
-                payload: clientEmail
+                // payload:
             });
         })
         .catch(err => {
@@ -142,15 +141,13 @@ export const getEmail = props => dispatch => {
 };
 
 export const getNewPassword = props => dispatch => {
-    const userPassword = { password: props.input.password };
-    dispatch({ type: PASSWORD_RESET_START });
     axios
-        .post(`path to route for new password`, userPassword)
-        .then(results => {
-            const clientPassword = [...results.data.clientPassword];
+        .post(`localhost:5000/api/auth`, )
+        .then(res => {
+            localStorage.setItem('token', res.data.token);
             dispatch({
                 type: PASSWORD_RESET_SUCCESS,
-                payload: clientPassword
+                // payload:
             });
         })
         .catch(err => {

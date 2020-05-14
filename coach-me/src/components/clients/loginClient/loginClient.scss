@@ -11,10 +11,10 @@
     .img-container {
         text-align: center;
         color: white;
-        margin-bottom: 10%;
+        margin-bottom: 50px;
     }
 
-    span {
+    p {
         font-family: 'DM Sans', sans-serif;
         font-size: 1.5rem;
         line-height: 20px;
@@ -26,30 +26,9 @@
             border-radius: 25px;
         }
     }
-
-    .fb {
-        margin: 2%;
-        padding: 15px;
-        width: 200px;
-        text-align: center;
-        border-radius: 25px;
-        color: white;
-        background-color: #3b5998;
-    }
-      
-    .go {
-        margin: 2%;
-        width: 200px;
-        padding: 15px;
-        text-align: center;
-        border-radius: 25px;
-        color: white;
-        background-color: #DB4437;
-    }
 }
-    
+
 .form-container {
-    height: 350px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -60,25 +39,24 @@
         display: flex;
         flex-direction: column;
         width: 350px;
-        margin: 5%;
 
-        div {
-            display: flex;
-            justify-content: space-around;
+        label {
+            margin-top: 20px;
         }
 
         input {
-            width: 80%;
+            width: 100%;
             height: 40px;
             border: none;
             border-bottom: 1px solid #274160;
             font-size: 1.8rem;
-            margin: 3%;
         }
 
         .eye {
-            height: 25px;
-            width: 25px;
+            height: 35px;
+            width: 35px;
+            margin-top: 6px;
+            border-bottom: 1px solid #274160;
         }
 
         .password-container {
@@ -88,11 +66,38 @@
         }
 
         button {
+            margin-top: 10px;
             height: 50px;
             width: 100%;
             border-radius: 25px;
             box-shadow: none;
             background-color: #274160;
         }
+    }
+}
+
+.social-links {
+    display: flex;
+    margin-top: 10px;
+    width: 350px;
+
+    .fb {
+        // margin: 2%;
+        padding: 13px;
+        width: 500px;
+        text-align: center;
+        border-radius: 25px;
+        color: white;
+        background-color: #3b5998;
+    }
+      
+    .go {
+        margin: 2%;
+        padding: 13px;
+        width: 250px;
+        text-align: center;
+        border-radius: 25px;
+        color: white;
+        background-color: #DB4437;
     }
 }

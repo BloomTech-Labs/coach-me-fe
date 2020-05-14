@@ -47,16 +47,14 @@ const LoginClient = props => {
                         />
                         <img className='eye' onClick={handleClick} src={source} alt='eye'/>
                     </div>
-                    <div className="social-links">
-                        <a className="fb">Facebook</a>
-                        <a className="go">Google</a>
-                    </div>
                     <button type='submit'>Log in</button>
                 </form>
-                <span>
-                    <p>Don't have an account? <Link to='/createAccount'>Signup</Link></p>
-                    <p>Forgot Password? <Link to='/email-request'>Get new</Link></p>
-                </span>
+                <div className="social-links">
+                    <a className="fb">Facebook</a>
+                    {/* <a className="go">Google</a> */}
+                </div>
+                <p>Don't have an account?<Link to='/register-client'>Signup</Link></p>
+                <p><Link to='/email-request'>Forgot Password?</Link></p>
             </div>
         </div>
 )};
