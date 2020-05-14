@@ -15,8 +15,6 @@ import {
     GET_METRICS_FAILURE
 } from './types';
 
-// const mainRoute = axios.create({ baseURL: 'https://coach-me-be.herokuapp.com/api'});
-
 //Register endpoint for client
 
 //updated the data needed to align with the new back-end. 04/05/2020
