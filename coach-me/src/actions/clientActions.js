@@ -21,7 +21,7 @@ import {
 export const getClientInfoRegister = props => dispatch => {
     axios
         .post(
-            `localhost:5000/api/auth/register?user_type=client`, 
+            `http://localhost:5000/api/auth/register?user_type=client`, 
             props.userAccountDetails
         )
         .then(res => {
@@ -45,7 +45,7 @@ export const getClientInfoRegister = props => dispatch => {
 export const getClientInfoLogin = props => dispatch => {
     axios
         .post(
-            `localhost:5000/api/auth/login?user_type=client`,
+            `http://localhost:5000/api/auth/login?user_type=client`,
             props.userAccountDetails
         )
         .then(res => {
@@ -120,7 +120,7 @@ export const getClientRecords = () => dispatch => {
 //trey
 export const getEmail = props => dispatch => {
     axios
-        .post(`localhost:5000/api/auth/forgot_password/method=phone?user_type=client?`,
+        .post(`http://localhost:5000/api/auth/forgot_password/method=phone?user_type=client?`,
         props.userAccountDetails)
         //method, user type, cred value
         .then(res => {
@@ -140,7 +140,7 @@ export const getEmail = props => dispatch => {
 
 export const getNewPassword = props => dispatch => {
     axios
-        .post(`localhost:5000/api/auth`, )
+        .post(`http://localhost:5000/api/auth`, )
         .then(res => {
             localStorage.setItem('token', res.data.token);
             dispatch({
