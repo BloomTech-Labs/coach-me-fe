@@ -17,7 +17,7 @@ import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
 
 import AccountOne from '../clients/onboarding/accountCreation/accountOne/AccountOne';
-
+// import CreateProfile from '../clients/onboarding/createProfile/';
 import ProfileOne from '../clients/onboarding/createProfile/profileOne/ProfileOne';
 import ProfileThree from '../clients/onboarding/createProfile/profileThree/ProfileThree';
 import ProfileFour from '../clients/onboarding/createProfile/profileFour/ProfileFour';
@@ -30,6 +30,7 @@ import '../../App.css';
 const Routes = props => {
     return (
         <>
+
             <Router>
                 <Route
                     path='/register-client'
@@ -48,6 +49,13 @@ const Routes = props => {
                     path='/password-reset'
                     render={props => <PasswordReset {...props} />}
                 />
+<<<<<<< HEAD
+                {/* <Route
+                    path='/createProfile'
+                    render={props => <CreateProfile {...props} />}
+                /> */}
+=======
+>>>>>>> 9276a1f1f9c0946939cf3396f200694c2e9582bc
 
                 {/* CREATE ACCOUNT */}
                 <Route path='/createAccount' render={props => <AccountOne />} />

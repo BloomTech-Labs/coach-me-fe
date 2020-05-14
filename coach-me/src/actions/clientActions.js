@@ -1,84 +1,65 @@
 import axios from 'axios';
 import {
-    GET_CLIENTS_START,
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
+    EMAIL_REQUEST_SUCCESS,
+    EMAIL_REQUEST_FAILURE,
+    PASSWORD_RESET_SUCCESS,
+    PASSWORD_RESET_FAILURE,
+
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
-    GET_METRICS_FAILURE,
-    EMAIL_REQUEST_START,
-    EMAIL_REQUEST_SUCCESS,
-    EMAIL_REQUEST_FAILURE,
-    PASSWORD_RESET_START,
-    PASSWORD_RESET_SUCCESS,
-    PASSWORD_RESET_FAILURE
+    GET_METRICS_FAILURE
 } from './types';
 
 //Register endpoint for client
 
 //updated the data needed to align with the new back-end. 04/05/2020
 export const getClientInfoRegister = props => dispatch => {
-    console.log(props);
-
     axios
         .post(
-            `http://localhost:5000/api/auth/register?user_type=client`,
+            `http://localhost:5000/api/auth/register?user_type=client`, 
             props.userAccountDetails
         )
         .then(res => {
             console.log(res);
             localStorage.setItem('token', res.data.token);
-            localStorage.setItem('loginAttempts', res.data.loginAttempts);
-            const loginAttempts = localStorage.getItem('loginAttempts');
-            if (loginAttempts == 1) {
-                props.history.push('/welcome');
-            } else {
-                props.history.push('/metrics');
-            }
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject.fields
+                payload: res.data.clientObject.fields //need to change
             });
         })
         .catch(err => {
             dispatch({
                 type: GET_CLIENTS_FAILURE,
-                payload: err
+                payload: err.response
             });
         });
 };
 
 //Login endpoint for client
 export const getClientInfoLogin = props => dispatch => {
-    //trey | change name
-    const clientInfo = {
-        email: props.input.email,
-        password: props.input.password
-    }; //trey
-    dispatch({ type: GET_CLIENTS_START });
-
     axios
         .post(
-            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
-            clientInfo //trey
+            `http://localhost:5000/api/auth/login?user_type=client`,
+            props.userAccountDetails
         )
         .then(res => {
             localStorage.setItem('token', res.data.token);
-            props.history.push('/metric-form'); //trey | user-dashboard
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject.fields
+                payload: res.data.clientObject.fields //need to change
             });
         })
         .catch(err => {
             dispatch({
                 type: GET_CLIENTS_FAILURE,
-                payload: err
+                payload: err.response
             });
         });
 };
@@ -138,15 +119,15 @@ export const getClientRecords = () => dispatch => {
 
 //trey
 export const getEmail = props => dispatch => {
-    const userEmail = { email: props.input.email };
-    dispatch({ type: EMAIL_REQUEST_START });
     axios
-        .post(`path to route for user email to reset`, userEmail)
-        .then(results => {
-            const clientEmail = [...results.data.email];
+        .post(`http://localhost:5000/api/auth/forgot_password/method=phone?user_type=client?`,
+        props.userAccountDetails)
+        //method, user type, cred value
+        .then(res => {
+            localStorage.setItem('token', res.data.token);
             dispatch({
                 type: EMAIL_REQUEST_SUCCESS,
-                payload: clientEmail
+                // payload:
             });
         })
         .catch(err => {
@@ -158,15 +139,13 @@ export const getEmail = props => dispatch => {
 };
 
 export const getNewPassword = props => dispatch => {
-    const userPassword = { password: props.input.password };
-    dispatch({ type: PASSWORD_RESET_START });
     axios
-        .post(`path to route for new password`, userPassword)
-        .then(results => {
-            const clientPassword = [...results.data.clientPassword];
+        .post(`http://localhost:5000/api/auth`, )
+        .then(res => {
+            localStorage.setItem('token', res.data.token);
             dispatch({
                 type: PASSWORD_RESET_SUCCESS,
-                payload: clientPassword
+                // payload:
             });
         })
         .catch(err => {
