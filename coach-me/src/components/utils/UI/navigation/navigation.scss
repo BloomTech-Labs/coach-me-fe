@@ -1,0 +1,17 @@
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: 'Poppins', sans-serif;
+$text-font: 'DM Sans', serif;
+
+.navigation {
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $dark-background;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    color: white;
+}

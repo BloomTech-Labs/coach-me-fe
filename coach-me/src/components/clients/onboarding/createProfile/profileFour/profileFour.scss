@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: 'Poppins', sans-serif;
+$text-font: 'DM Sans', serif;
 .header {
     display: flex;
     justify-content: center;
@@ -7,12 +11,23 @@
     font-size: 3em;
     padding: 3%;
     font-family: 'Poppins', sans-serif;
-    border-bottom: 2px solid dodgerblue;
+    background-color: $light-background;
+    color: white;
+
+    a {
+        text-decoration: none;
+        color: dodgerblue;
+    }
+    .fas {
+        cursor: pointer;
+        color: dodgerblue;
+    }
 
     div {
         display: flex;
         justify-content: left;
         align-items: center;
+        margin-top: 3em;
 
         .title {
             width: 60%;
@@ -32,8 +47,9 @@
     justify-content: center;
     align-items: center;
     font-size: 3em;
-}
 
-.fas {
-    cursor: pointer;
+    a {
+        text-decoration: none;
+        color: dodgerblue;
+    }
 }

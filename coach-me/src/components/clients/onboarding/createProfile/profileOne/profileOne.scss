@@ -1,12 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
 
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: 'Poppins', sans-serif;
+$text-font: 'DM Sans', serif;
+
 .profile-one {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Poppins', sans-serif;
+
+    a {
+        text-decoration: none;
+        color: dodgerblue;
+    }
 
     .fas {
         font-size: 3em;
@@ -30,9 +41,10 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        border-bottom: 2px solid dodgerblue;
-        padding-top: 2em;
+        background-color: $light-background;
+        padding-top: 7em;
         margin-bottom: 1em;
+        color: white;
     }
 
     .user-photo {
@@ -56,39 +68,34 @@
             }
         }
         .button {
+            width: 60%;
             font-size: 2em;
             margin: 1.2em 0;
             font-family: 'DM Sans', sans-serif;
         }
     }
 
-    form {
-        width: 100%;
+    textarea {
+        width: 90%;
+        font-size: 2.3em;
+        padding: 1.5%;
+        margin: 1.2em 0;
+        border-radius: 8px;
+        border: 2px solid dodgerblue;
+        font-family: 'DM Sans', sans-serif;
+        height: 4em;
+    }
+    .medication-info {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        input {
+        .subheading {
+            font-size: 1.4em;
+            font-weight: bold;
+            line-height: 1.3em;
             width: 90%;
-            font-size: 2.3em;
-            padding: 1.5%;
-            margin: 1.2em 0;
-            border-radius: 8px;
-            border-color: dodgerblue;
-            font-family: 'DM Sans', sans-serif;
-        }
-        .medication-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            .subheading {
-                font-size: 1.4em;
-                font-weight: bold;
-                line-height: 1.3em;
-                width: 90%;
-                text-align: center;
-            }
+            text-align: center;
         }
     }
 }

@@ -1,20 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: 'Poppins', sans-serif;
+$text-font: 'DM Sans', serif;
 
 .profile-six {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 3%;
 
     header {
-        border-bottom: 2px solid dodgerblue;
+        background-color: $light-background;
+        color: white;
+        margin-top: 7em;
 
         a {
             float: left;
+            margin-top: 0.5em;
             margin-left: 0.5em;
             font-size: 3em;
+            text-decoration: none;
+            color: dodgerblue;
         }
         h4 {
             text-align: center;
@@ -24,6 +33,7 @@
 
         .user-image {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
 
