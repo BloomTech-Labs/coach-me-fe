@@ -17,7 +17,9 @@ import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
 
 import AccountOne from '../clients/onboarding/accountCreation/accountOne/AccountOne';
+
 import Splash from '../splash/Splash';
+
 import ProfileOne from '../clients/onboarding/createProfile/profileOne/ProfileOne';
 import ProfileThree from '../clients/onboarding/createProfile/profileThree/ProfileThree';
 import ProfileFour from '../clients/onboarding/createProfile/profileFour/ProfileFour';
@@ -30,6 +32,7 @@ import '../../App.css';
 const Routes = props => {
     return (
         <>
+
             <Router>
                 <Route exact path='/' component={Splash} />
                 <Route
@@ -49,6 +52,9 @@ const Routes = props => {
                     path='/password-reset'
                     render={props => <PasswordReset {...props} />}
                 />
+
+
+
                 {/* CREATE ACCOUNT */}
                 <Route path='/createAccount' render={props => <AccountOne />} />
                 <Route

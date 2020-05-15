@@ -4,86 +4,100 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: #274160;
-    justify-content: space-evenly;
-    min-height: 100vh;
-    font-size: 1.8rem;
     margin: 0 auto;
-    
+    font-size: 1.8rem;
+    background-color: #274160;
+
     .img-container {
         text-align: center;
         color: white;
-        margin-bottom: 10%;
+        margin-bottom: 50px;
     }
 
-    span {
+    p {
         font-family: 'DM Sans', sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 1.2rem;
-        line-height: 15px;
-        margin-bottom: 4%;
+        font-size: 1.5rem;
+        line-height: 20px;
+
+        a{
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+        }
     }
-    
-    a {
-        margin: 2%;
-        border-radius: 25px;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+
+        label {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid #274160;
+            font-size: 1.8rem;
+        }
+
+        .eye {
+            height: 35px;
+            width: 35px;
+            margin-top: 6px;
+            border-bottom: 1px solid #274160;
+        }
+
+        .password-container {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+
+        button {
+            margin-top: 10px;
+            height: 50px;
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: none;
+            background-color: #274160;
+        }
     }
+}
+
+.social-links {
+    display: flex;
+    margin-top: 10px;
+    width: 350px;
 
     .fb {
-        margin: 2%;
-        padding: 5%;
-        width: 50%;
+        // margin: 2%;
+        padding: 13px;
+        width: 500px;
         text-align: center;
         border-radius: 25px;
         color: white;
         background-color: #3b5998;
     }
-    
-        
-    .tw {
+      
+    .go {
         margin: 2%;
-        width: 50%;
-        padding: 5%;
+        padding: 13px;
+        width: 250px;
         text-align: center;
         border-radius: 25px;
         color: white;
-        background-color: #00aced;
-    }
-   
-
-    .form-container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        background-color: white;
-
-        form {
-            display: flex;
-            flex-direction: column;
-            width: 80%;
-            margin: 3%;
-
-            input {
-                height: 40px;
-                border: none;
-                border-bottom: 1px solid #274160;
-                box-shadow: none;
-                font-size: 1.8rem;
-                margin: 3%;
-            }
-
-            div {
-                display: flex;
-                justify-content: space-between;
-            }
-
-            button {
-                width: 100%;
-            }
-        }
+        background-color: #DB4437;
     }
 }
