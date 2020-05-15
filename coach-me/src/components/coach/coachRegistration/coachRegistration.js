@@ -61,7 +61,7 @@ function CoachRegistration(props) {
                 />
                 <div className='login-container'>
                     Already have an account?{' '}
-                    <Link className='login' to='/login'>
+                    <Link className='login' to='/coach-login'>
                         Login
                     </Link>
                 </div>
