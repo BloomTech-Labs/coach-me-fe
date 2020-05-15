@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
 
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: 'Poppins', sans-serif;
+$text-font: 'DM Sans', serif;
+
 .account-one {
     display: flex;
     justify-content: space-evenly;
@@ -8,11 +14,11 @@
     flex-direction: column;
 
     header {
+        margin-top: 7em;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        background-color: #274160;
-        border-bottom: 2px solid dodgerblue;
+        background-color: $light-background;
         font-family: 'Poppin', sans-serif;
         .fas {
             font-size: 3em;
