@@ -19,6 +19,8 @@ import {
 
 //updated the data needed to align with the new back-end. 04/05/2020
 export const getClientInfoRegister = props => dispatch => {
+    console.log(props,";")
+    console.log(props.userAccountDetails)
     axios
         .post(
             `http://localhost:5000/api/auth/register?user_type=client`, 
@@ -43,6 +45,8 @@ export const getClientInfoRegister = props => dispatch => {
 
 //Login endpoint for client
 export const getClientInfoLogin = props => dispatch => {
+    console.log(props,";")
+    console.log(props.userAccountDetails)
     axios
         .post(
             `http://localhost:5000/api/auth/login?user_type=client`,

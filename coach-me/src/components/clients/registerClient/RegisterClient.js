@@ -3,24 +3,24 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import Show from '../assets/show_password.png';
 import Hide from '../assets/hide_password.png';
-import { getClientInfoRegister } from '../../../actions/clientActions';
+// import { getClientInfoRegister } from '../../../actions/clientActions';
 import { Link } from 'react-router-dom';
 import '../loginClient/loginClient.scss';
 
 const RegisterClient = props => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const [input, setinput] = useState({ email: '', password: '' });
     const [hidden, setHidden] = useState(true);
     const [source, setSource] = useState(Show);
     const handleClick = () => {
-        if(hidden == false){setHidden(true);setSource(Show);}else{setHidden(false);setSource(Hide);}
+        if(hidden === false){setHidden(true);setSource(Show);}else{setHidden(false);setSource(Hide);}
     };
     const handleChange = e => {
         setinput({ ...input, [e.target.name]: e.target.value });
     };
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(getClientInfoRegister({input, history: props.history}));
+        // dispatch(getClientInfoRegister({input, history: props.history}));
     };
     return (
         <div className='creds-container'>
@@ -47,7 +47,8 @@ const RegisterClient = props => {
                         />
                         <img className='eye' onClick={handleClick} src={source} alt='eye'/>
                     </div>
-                    <button type='submit'>Sign up</button>
+                    <Link to="/createAccount">Sign up</Link>
+                    {/* <button type='submit'>Sign up</button> */}
                 </form>
                 <div className="social-links">
                     <a className="fb">Facebook</a>
