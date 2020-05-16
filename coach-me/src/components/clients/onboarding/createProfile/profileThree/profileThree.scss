@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: 'Poppins', sans-serif;
+$text-font: 'DM Sans', serif;
+
+.profile-three {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+
+    header {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: $light-background;
+        color: white;
+        padding-top: 7em;
+        margin-bottom: 1em;
+
+        h4 {
+            font-size: 2.5em;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: dodgerblue;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .fas {
+        font-size: 3em;
+        margin-left: 0.5em;
+    }
+    .option {
+        background-color: rgba(242, 242, 242, 0.5);
+        box-shadow: 2px 1px 2px rgba(22, 30, 16, 0.3);
+        text-shadow: 0px 0px 2px rgba(22, 30, 16, 0.3);
+        color: black;
+        border-color: dodgerblue;
+        margin: 0 auto;
+        font-size: 1.6em;
+        width: 80%;
+        margin: 0.5em 0;
+        transition: all 0.3s linear;
+        font-family: 'DM Sans', sans-serif;
+    }
+    .option-selected {
+        background-color: dodgerblue;
+        box-shadow: 2px 1px 2px rgba(22, 30, 16, 0.3);
+        text-shadow: 0px 0px 2px rgba(22, 30, 16, 0.3);
+        color: white;
+        border-color: dodgerblue;
+        margin: 0 auto;
+        font-size: 1.6em;
+        width: 80%;
+        margin: 0.5em 0;
+        transition: all 0.3s linear;
+    }
+
+    h4 {
+        font-size: 2em;
+        width: 75%;
+        margin: 1em auto;
+        text-align: center;
+    }
+
+    .joining-options {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

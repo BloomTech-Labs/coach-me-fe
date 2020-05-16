@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: 'Poppins', sans-serif;
+$text-font: 'DM Sans', serif;
+
+.profile-six {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    header {
+        background-color: $light-background;
+        color: white;
+        margin-top: 7em;
+
+        a {
+            float: left;
+            margin-top: 0.5em;
+            margin-left: 0.5em;
+            font-size: 3em;
+            text-decoration: none;
+            color: dodgerblue;
+        }
+        h4 {
+            text-align: center;
+            font-size: 3em;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .user-image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            width: 90%;
+            margin: 1em auto;
+            margin-top: 2em;
+            img {
+                width: 60%;
+                height: 35em;
+            }
+        }
+    }
+
+    .confirmation {
+        padding: 2%;
+        font-size: 1.9em;
+        p {
+            margin: 1em 0;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.2em;
+        }
+
+        ul {
+            width: 80%;
+            margin: 0 auto;
+            list-style: circle;
+            list-style-position: inside;
+
+            li {
+                margin: 0.5em 0;
+                font-family: 'DM Sans', sans-serif;
+            }
+        }
+    }
+
+    .continue {
+        background-color: dodgerblue;
+        color: white;
+        font-size: 2em;
+        padding: 2%;
+        width: 90%;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        margin-bottom: 1em;
+    }
+}

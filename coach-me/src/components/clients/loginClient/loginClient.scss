@@ -1,124 +1,103 @@
-$input-background: #ffffff;
-
-.phonenumber-container {
+.creds-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 0 auto;
+    font-size: 1.8rem;
     background-color: #274160;
-    justify-content: space-evenly;
-    min-height: 100vh;
+
     .img-container {
-        margin: 0 auto;
-    }
-
-    input {
-        width: 20%;
-        height: 40px;
-        background-color: $input-background;
-        border-radius: 10px;
-        border: 1.5px solid #274160;
-        box-shadow: none;
-        font-size: 1.8rem;
-        margin: 8px;
         text-align: center;
+        color: white;
+        margin-bottom: 50px;
     }
 
-    span {
+    p {
         font-family: 'DM Sans', sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 1.8rem;
-        line-height: 36px;
-        color: #ffffff;
-    }
+        font-size: 1.5rem;
+        line-height: 20px;
 
-    .text-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .header {
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            width: 70%;
-
-            p {
-                display: flex;
-                font-family: 'DM Sans', sans-serif;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 2.2rem;
-                color: #ffffff;
-                flex-wrap: wrap;
-            }
-
-            // p.spanish {
-
-            //     font-family: 'DM Sans', sans-serif;
-            //     font-style: normal;
-            //     font-weight: bold;
-            //     font-size: 2.2rem;
-            //     color: #ffffff;
-            // }
-        }
-
-        .subtext {
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            font-family: 'DM Sans', sans-serif;
-            font-style: normal;
-            color: #ffffff;
-            font-weight: 500;
-            line-height: 24px;
-            width: 70%;
-            height: 24px;
-
-            p {
-                font-family: 'DM Sans', sans-serif;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 2.2rem;
-                color: #ffffff;
-                margin-top: 1.9rem;
-            }
+        a{
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
         }
     }
+}
 
-    .form-container {
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+
+    form {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
+        width: 350px;
 
-        form {
-            display: flex;
-            flex-direction: column;
-            margin: 0 auto;
-
-            .num-inputs {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .trigger {
-                align-self: flex-end;
-                background: #ffffff;
-                border-radius: 20px;
-                width: 69px;
-                height: 52px;
-                color: #274160;
-                font-size: 1.3rem;
-                border: 1.5px solid #274160;
-                margin-right: 10%;
-                margin-top: 5%;
-            }
+        label {
+            margin-top: 20px;
         }
+
+        input {
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid #274160;
+            font-size: 1.8rem;
+        }
+
+        .eye {
+            height: 35px;
+            width: 35px;
+            margin-top: 6px;
+            border-bottom: 1px solid #274160;
+        }
+
+        .password-container {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+
+        button {
+            margin-top: 10px;
+            height: 50px;
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: none;
+            background-color: #274160;
+        }
+    }
+}
+
+.social-links {
+    display: flex;
+    margin-top: 10px;
+    width: 350px;
+
+    .fb {
+        // margin: 2%;
+        padding: 13px;
+        width: 500px;
+        text-align: center;
+        border-radius: 25px;
+        color: white;
+        background-color: #3b5998;
+    }
+      
+    .go {
+        margin: 2%;
+        padding: 13px;
+        width: 250px;
+        text-align: center;
+        border-radius: 25px;
+        color: white;
+        background-color: #DB4437;
     }
 }

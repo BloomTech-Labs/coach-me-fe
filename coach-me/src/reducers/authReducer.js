@@ -10,7 +10,6 @@ import {
 } from '../actions/types';
 
 const initialState = {
-    coachName: '',
     loggingIn: false,
     isfetching: false,
     error: null

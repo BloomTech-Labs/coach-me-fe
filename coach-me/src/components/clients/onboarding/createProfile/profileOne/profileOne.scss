@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: 'Poppins', sans-serif;
+$text-font: 'DM Sans', serif;
+
+.profile-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+
+    a {
+        text-decoration: none;
+        color: dodgerblue;
+    }
+
+    .fas {
+        font-size: 3em;
+        margin-left: 0.5em;
+    }
+    .fa-chevron-right {
+        margin-bottom: 1em;
+    }
+    .fa-camera-retro {
+        margin-left: 1em;
+    }
+
+    h4 {
+        font-size: 2.8em;
+        width: 75%;
+        margin: 1em auto;
+        text-align: center;
+    }
+    header {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: $light-background;
+        padding-top: 7em;
+        margin-bottom: 1em;
+        color: white;
+    }
+
+    .user-photo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+        .photo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 18em;
+            width: 18em;
+            background-color: lightblue;
+            margin: 1em 0;
+            .fas {
+                margin-right: 1em;
+            }
+        }
+        .button {
+            width: 60%;
+            font-size: 2em;
+            margin: 1.2em 0;
+            font-family: 'DM Sans', sans-serif;
+        }
+    }
+
+    textarea {
+        width: 90%;
+        font-size: 2.3em;
+        padding: 1.5%;
+        margin: 1.2em 0;
+        border-radius: 8px;
+        border: 2px solid dodgerblue;
+        font-family: 'DM Sans', sans-serif;
+        height: 4em;
+    }
+    .medication-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .subheading {
+            font-size: 1.4em;
+            font-weight: bold;
+            line-height: 1.3em;
+            width: 90%;
+            text-align: center;
+        }
+    }
+}

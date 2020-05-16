@@ -1,8 +1,12 @@
 import axios from 'axios';
 import {
-    GET_CLIENTS_START,
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
+    EMAIL_REQUEST_SUCCESS,
+    EMAIL_REQUEST_FAILURE,
+    PASSWORD_RESET_SUCCESS,
+    PASSWORD_RESET_FAILURE,
+
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
@@ -11,64 +15,51 @@ import {
     GET_METRICS_FAILURE
 } from './types';
 
-//Get client info endpoint
-export const getClientInfo = props => dispatch => {
-    const clientnum = { clientPhone: props.num };
-    dispatch({ type: GET_CLIENTS_START });
+//Register endpoint for client
+
+//updated the data needed to align with the new back-end. 04/05/2020
+export const getClientInfoRegister = props => dispatch => {
     axios
         .post(
-            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
-            clientnum
+            `http://localhost:5000/api/auth/register?user_type=client`, 
+            props.userAccountDetails
         )
         .then(res => {
+            console.log(res);
             localStorage.setItem('token', res.data.token);
-            localStorage.setItem('loginAttempts', res.data.loginAttempts);
-            const loginAttempts = localStorage.getItem('loginAttempts');
-            if (loginAttempts == 1) {
-                props.history.push('/welcome');
-            } else {
-                props.history.push('/metrics');
-            }
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject.fields
+                payload: res.data.clientObject.fields //need to change
             });
         })
         .catch(err => {
             dispatch({
                 type: GET_CLIENTS_FAILURE,
-                payload: err
+                payload: err.response
             });
         });
 };
 
-//Login endpoint for client (uses client phone number from airtable)
+//Login endpoint for client
 export const getClientInfoLogin = props => dispatch => {
-    const clientnum = { clientPhone: props.num };
-    dispatch({ type: GET_CLIENTS_START });
-
     axios
         .post(
-            `${process.env.REACT_APP_BACK_END_URL}/clientRoute/login`,
-            clientnum
+            `http://localhost:5000/api/auth/login?user_type=client`,
+            props.userAccountDetails
         )
         .then(res => {
             localStorage.setItem('token', res.data.token);
 
-            const loginAttempts = localStorage.getItem('loginAttempts');
-
-            props.history.push('/metric-form');
-
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject.fields
+                payload: res.data.clientObject.fields //need to change
             });
         })
         .catch(err => {
             dispatch({
                 type: GET_CLIENTS_FAILURE,
-                payload: err
+                payload: err.response
             });
         });
 };
@@ -121,6 +112,45 @@ export const getClientRecords = () => dispatch => {
         .catch(err => {
             dispatch({
                 type: GET_METRICS_FAILURE,
+                payload: err.message
+            });
+        });
+};
+
+//trey
+export const getEmail = props => dispatch => {
+    axios
+        .post(`http://localhost:5000/api/auth/forgot_password/method=phone?user_type=client?`,
+        props.userAccountDetails)
+        //method, user type, cred value
+        .then(res => {
+            localStorage.setItem('token', res.data.token);
+            dispatch({
+                type: EMAIL_REQUEST_SUCCESS,
+                // payload:
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: EMAIL_REQUEST_FAILURE,
+                payload: err.message
+            });
+        });
+};
+
+export const getNewPassword = props => dispatch => {
+    axios
+        .post(`http://localhost:5000/api/auth`, )
+        .then(res => {
+            localStorage.setItem('token', res.data.token);
+            dispatch({
+                type: PASSWORD_RESET_SUCCESS,
+                // payload:
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: PASSWORD_RESET_FAILURE,
                 payload: err.message
             });
         });
