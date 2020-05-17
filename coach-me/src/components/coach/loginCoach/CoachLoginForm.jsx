@@ -39,7 +39,7 @@ const CoachLoginForm = (props) => {
             </div>
             <div className='register-container'>
                 Don't have an account?{' '}
-                <Link className='register' to='/register'>
+                <Link className='register' to='/coach-register'>
                     Sign up
                 </Link>
             </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { ReactComponent as Logo } from '../../utils/assets/coachmelogo-white.svg';
+import SideOne from '../SideOne';
 import CoachForm from './CoachForm';
 // Redux Action
 import { registerCoach } from '../../../actions/authActions';
@@ -36,19 +36,8 @@ function CoachRegistration(props) {
     };
     return (
         <div className='Register-Wrapper'>
-            <div className='side-one'>
-                <div className='logo-wrapper'>
-                    <a href='https://www.coachmehealth.org'>
-                        <Logo className='logo' />
-                    </a>
-                </div>
-                <div className='objective'>
-                    <p>
-                        We're patient-first, a non-profit, and in the fight
-                        against chronic disease.
-                    </p>
-                </div>
-            </div>
+           <SideOne />
+            
             <div className='side-two'>
                 <h4 className='coach-text'>
                     Thank you for your interest in becoming a health coach!
