@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 // Component Imports
 import PrivateRoute from './PrivateRoute';
@@ -33,7 +33,7 @@ const Routes = props => {
     return (
         <>
 
-            <Router>
+            
                 <Route exact path='/' component={Splash} />
                 <Route
                     path='/register-client'
@@ -88,7 +88,7 @@ const Routes = props => {
                 <Route path='/dashboard-client' component={ClientDashboard} />
                 <Route path='/metric-form' component={HealthMetricForm} />
                 <Route path='/welcome' component={Welcome} />
-            </Router>
+            
         </>
     );
 };

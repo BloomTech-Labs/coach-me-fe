@@ -37,7 +37,6 @@ function CoachRegistration(props) {
     return (
         <div className='Register-Wrapper'>
            <SideOne />
-            
             <div className='side-two'>
                 <h4 className='coach-text'>
                     Thank you for your interest in becoming a health coach!

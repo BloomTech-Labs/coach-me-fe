@@ -41,8 +41,8 @@ const AccountOne = (props) => {
                 <h4>Let's create your Coach Me account</h4>
             </header>
             <Backdrop
-            showModal={showModal}
-            setShowModal={setShowModal}
+            show={showModal}
+            set={setShowModal}
              />
             <AccountModal
             showModal={showModal}

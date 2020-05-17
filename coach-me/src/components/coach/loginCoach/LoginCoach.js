@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginCoach } from '../../../actions/authActions';
-import { Link } from 'react-router-dom';
 import CoachLoginForm from './CoachLoginForm';
 import SideOne from '../SideOne';
 
@@ -17,13 +16,10 @@ const LoginCoach = props => {
         password: ''
     });
     const dispatch = useDispatch();
-
     const [modal, setModal] = useState(false);
-
     const triggerModal = () => {
         setModal(true);
     };
-
     const handleChange = e => {
         e.preventDefault();
         setCoachCredentials({
@@ -31,7 +27,6 @@ const LoginCoach = props => {
             [e.target.name]: e.target.value
         });
     };
-
     const handleSubmit = e => {
         e.preventDefault();
         localStorage.clear();
