@@ -39,11 +39,12 @@ export const loginCoach = coachCreds => dispatch => {
     return axios
         .post(`http://localhost:5000/api/auth/login?user_type=coach`, coachCreds)
         .then(res => {
-            console.log(res)
+            console.log(res.data)
             dispatch({
                 type: LOGIN_SUCCESS,
-                payload: res.data.coachName
+                payload: res.data
             });
+            return res.data
         })
         .catch(err => {
             dispatch({
