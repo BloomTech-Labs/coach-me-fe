@@ -31,8 +31,12 @@ const LoginCoach = props => {
         e.preventDefault();
         localStorage.clear();
         dispatch(loginCoach(coachCredentials)).then((res) => {
-            // props.history.push('/dashboard');
+           
             console.log(res)
+            if(res === 'Login successful') {
+                 props.history.push('/dashboard');
+            }
+            
         });
     };
     return (

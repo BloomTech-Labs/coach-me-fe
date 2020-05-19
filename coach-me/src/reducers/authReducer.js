@@ -26,7 +26,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loggingIn: false,
-                coachName: action.payload
+                success: action.payload
             };
         case REGISTER_FAIL:
             return {
@@ -42,7 +42,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loggingIn: false,
-                coachName: action.payload
+                
             };
         case LOGIN_FAIL:
             return {
