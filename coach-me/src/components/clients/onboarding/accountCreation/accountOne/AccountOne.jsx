@@ -38,7 +38,6 @@ const AccountOne = (props) => {
     return (
         <div className='account-one'>
             <header>
-            <Link to='/'><i className="fas fa-chevron-left"></i></Link>
                 <h4>Let's create your Coach Me account</h4>
             </header>
             <Backdrop

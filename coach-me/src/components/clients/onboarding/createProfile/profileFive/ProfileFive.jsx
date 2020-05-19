@@ -14,8 +14,6 @@ const ProfileFive = (props) => {
         <div>
         <div className="header">
             <div>
-            <Link to='/createProfile4'><i className="fas fa-chevron-left"></i></Link>
-            
                 <h4 data-testid='title' className='title'>When are you usually available?</h4>
             </div>
         </div>

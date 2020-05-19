@@ -20,11 +20,11 @@ const ProfileSix = () => {
               />
              
             <header>
-            <Link to='/createProfile5'><i className="fas fa-chevron-left"></i></Link>
                 <div className="user-image">
                     <img src={randomLady} alt=""/>
+                    <h4>Almost done!</h4>
                 </div>
-                <h4>Almost done!</h4>
+                
             </header>
             <div className="confirmation">
                 <p>This program offers a bridge between where you are and where you want to be.</p>
