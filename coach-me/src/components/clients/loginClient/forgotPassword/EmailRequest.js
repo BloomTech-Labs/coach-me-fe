@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
-import { getEmail } from '../../../../actions/clientActions';
+import { sendEmail } from '../../../../actions/clientActions';
 import '../loginClient.scss';
 
 const EmailRequest = props => {
@@ -12,7 +12,7 @@ const EmailRequest = props => {
     };
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(getEmail({input, history: props.history}));
+        dispatch(sendEmail({input, history: props.history}));
     };
     return (
         <div className='creds-container'>
@@ -24,9 +24,9 @@ const EmailRequest = props => {
                 <form onSubmit={handleSubmit}>
                     <label>Email</label>
                     <input 
-                    type=''
+                    type='text'
                     name='email'
-                    value=''
+                    value={input.email}
                     onChange={handleChange}
                     />
                     <button type='submit'>Request Password</button>

@@ -19,18 +19,34 @@ describe('LoginClient component and texts', () => {
 describe('LoginClient Form', () => {
     it('Email input field', async () => {
         const container = render(<LoginClient />)
-        const emailText = container.getByText('Email')
-        expect(emailText).toBeTruthy()
+        const emailField = container.getByTestId('email-field')
+        expect(emailField).toBeTruthy()
+        act(() => {
+            fireEvent.change(emailField, {
+                target: { value: 'test@email.com' }
+            })
+        })
+        expect(emailField).toHaveValue('test@email.com')
     })
     it('Password input field', async () => {
         const container = render(<LoginClient />)
-        const passText = container.getByText('Password')
-        expect(passText).toBeTruthy()
+        const passwordField = container.getByTestId('password-field')
+        expect(passwordField).toBeTruthy()
+        act(() => {
+            fireEvent.change(passwordField, {
+                target: { value: 'testPassword' }
+            })
+        })
+        expect(passwordField).toHaveValue('testPassword')
     })
     it(('Password eye'), () => {
         const container = render(<LoginClient />);
         const image = container.getByAltText('eye')
         expect(image.src).toBe('http://localhost/show_password.png')
+        act(() => {
+            fireEvent.click(image)
+        })
+        expect(image.src).toBe('http://localhost/hide_password.png')
      })
      it('Submit button', async () => {
         const container = render(<LoginClient />)
@@ -43,11 +59,8 @@ describe('LoginClient social media links', () => {
     it('texts and classes', async () => {
         const container = render(<LoginClient />)
         const fbLink = container.getByText('Facebook')
-        const goLink = container.getByText('Google')
         expect(fbLink).toBeTruthy()
         expect(fbLink).toHaveClass('fb')
-        expect(goLink).toBeTruthy()
-        expect(goLink).toHaveClass('go')
     })
 }),
 
@@ -55,15 +68,13 @@ describe('LoginClient redirect links', () => {
     it('Signup link ', async () => {
         const container = render(<LoginClient />)
         const prompt = container.getByText('Don\'t have an account?')
-        const text = container.getByText('Signup')
-        expect(prompt).toBeTruthy();
-        expect(text).toBeTruthy();
+        const link = container.getByText('Signup')
+        expect(prompt).toBeTruthy()
+        expect(link).toBeTruthy()
     })
     it('Get New link', async () => {
         const container = render(<LoginClient />)
-        const prompt = container.getByText('Forgot Password?')
-        const text = container.getByText('Get new')
-        expect(prompt).toBeTruthy();
-        expect(text).toBeTruthy();
+        const link = container.getByText('Forgot Password?')
+        expect(link).toBeTruthy()
     })
 });

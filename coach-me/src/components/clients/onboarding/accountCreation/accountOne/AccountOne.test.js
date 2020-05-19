@@ -5,9 +5,9 @@ import '@testing-library/jest-dom/extend-expect'
 import AccountOne from './AccountOne';
 afterEach(cleanup);
 
-describe('AccountOne component', () => {
-    it('reners without crashing', async () => {
-        render(<AccountOne />);
+describe('AccountOne header', () => {
+    it('renders without crashing', async () => {
+         render(<AccountOne />)
     })
     it('Header text', async () => {
         const container = render(<AccountOne />)

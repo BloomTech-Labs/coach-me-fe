@@ -43,20 +43,17 @@ describe('RegisterClient social media links', () => {
     it('Texts and classes', async () => {
         const container = render(<RegisterClient />)
         const fbLink = container.getByText('Facebook')
-        const goLink = container.getByText('Google')
         expect(fbLink).toBeTruthy()
         expect(fbLink).toHaveClass('fb')
-        expect(goLink).toBeTruthy()
-        expect(goLink).toHaveClass('go')
     })
 }),
 
 describe('RegisterClient redirect link', () => {
     it('Login link', async () => {
         const container = render(<RegisterClient />)
-        const text = container.getByText('Already have an account?')
+        const prompt = container.getByText('Already have an account?')
         const link = container.getByText('Login')
-        expect(text).toBeTruthy()
+        expect(prompt).toBeTruthy()
         expect(link).toBeTruthy()
     })
 });

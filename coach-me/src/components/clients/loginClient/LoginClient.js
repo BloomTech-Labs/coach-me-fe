@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import Show from '../assets/show_password.png';
 import Hide from '../assets/hide_password.png';
-import { getClientInfoLogin } from '../../../actions/clientActions';
+import { clientInfoLogin } from '../../../actions/clientActions';
 import { Link } from 'react-router-dom';
 import './loginClient.scss';
 
@@ -20,7 +20,7 @@ const LoginClient = props => {
     };
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(getClientInfoLogin({ input, history: props.history }));
+        dispatch(clientInfoLogin({ input, history: props.history }));
     };
     return (
         <div className='creds-container'>
@@ -31,7 +31,7 @@ const LoginClient = props => {
             <div className='form-container'>
                 <form onSubmit={handleSubmit}>
                     <label>Email</label>
-                    <input
+                    <input data-testid='email-field'
                         type='text'
                         name='email'
                         value={input.email}
@@ -39,7 +39,7 @@ const LoginClient = props => {
                     />
                     <label>Password</label>
                     <div className='password-container'>
-                        <input 
+                        <input data-testid='password-field'
                         type={hidden?'password':'text'}
                         name='password'
                         value={input.password}

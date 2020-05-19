@@ -4,8 +4,6 @@ import {
     GET_CLIENTS_FAILURE,
     EMAIL_REQUEST_SUCCESS,
     EMAIL_REQUEST_FAILURE,
-    PASSWORD_RESET_SUCCESS,
-    PASSWORD_RESET_FAILURE,
 
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
@@ -14,8 +12,6 @@ import {
     GET_METRICS_SUCCESS,
     GET_METRICS_FAILURE
 } from './types';
-
-//Register endpoint for client
 
 //updated the data needed to align with the new back-end. 04/05/2020
 export const getClientInfoRegister = props => dispatch => {
@@ -43,10 +39,7 @@ export const getClientInfoRegister = props => dispatch => {
         });
 };
 
-//Login endpoint for client
-export const getClientInfoLogin = props => dispatch => {
-    console.log(props,";")
-    console.log(props.userAccountDetails)
+export const clientInfoLogin = props => dispatch => {
     axios
         .post(
             `http://localhost:5000/api/auth/login?user_type=client`,
@@ -64,6 +57,27 @@ export const getClientInfoLogin = props => dispatch => {
             dispatch({
                 type: GET_CLIENTS_FAILURE,
                 payload: err.response
+            });
+        });
+};
+
+export const sendEmail = props => dispatch => {
+    console.log(props.input)
+    axios
+        .post(`http://localhost:5000/api/auth/forgot_password?method=phone&user_type=client&cred_value=email`,
+        props.input)
+        //method, user type, cred value
+        .then(res => {
+            localStorage.setItem('token', res.data.token);
+            dispatch({
+                type: EMAIL_REQUEST_SUCCESS,
+                // payload:
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: EMAIL_REQUEST_FAILURE,
+                payload: err.message
             });
         });
 };
@@ -116,45 +130,6 @@ export const getClientRecords = () => dispatch => {
         .catch(err => {
             dispatch({
                 type: GET_METRICS_FAILURE,
-                payload: err.message
-            });
-        });
-};
-
-//trey
-export const getEmail = props => dispatch => {
-    axios
-        .post(`http://localhost:5000/api/auth/forgot_password/method=phone?user_type=client?`,
-        props.userAccountDetails)
-        //method, user type, cred value
-        .then(res => {
-            localStorage.setItem('token', res.data.token);
-            dispatch({
-                type: EMAIL_REQUEST_SUCCESS,
-                // payload:
-            });
-        })
-        .catch(err => {
-            dispatch({
-                type: EMAIL_REQUEST_FAILURE,
-                payload: err.message
-            });
-        });
-};
-
-export const getNewPassword = props => dispatch => {
-    axios
-        .post(`http://localhost:5000/api/auth`, )
-        .then(res => {
-            localStorage.setItem('token', res.data.token);
-            dispatch({
-                type: PASSWORD_RESET_SUCCESS,
-                // payload:
-            });
-        })
-        .catch(err => {
-            dispatch({
-                type: PASSWORD_RESET_FAILURE,
                 payload: err.message
             });
         });
