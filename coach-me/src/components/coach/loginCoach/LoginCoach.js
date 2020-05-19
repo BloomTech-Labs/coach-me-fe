@@ -30,8 +30,9 @@ const LoginCoach = props => {
     const handleSubmit = e => {
         e.preventDefault();
         localStorage.clear();
-        dispatch(loginCoach(coachCredentials)).then(() => {
-            props.history.push('/dashboard');
+        dispatch(loginCoach(coachCredentials)).then((res) => {
+            // props.history.push('/dashboard');
+            console.log(res)
         });
     };
     return (

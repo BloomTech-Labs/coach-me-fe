@@ -13,6 +13,7 @@ const CoachLoginForm = (props) => {
                 type='text'
                 placeholder='Email'
                 name='email'
+                required
                 className='email'
                 onChange={props.handleChange}
                 value={props.coachCredentials.email}
@@ -20,6 +21,7 @@ const CoachLoginForm = (props) => {
             <input
                 type='password'
                 placeholder='Password'
+                required
                 name='password'
                 className='password'
                 onChange={props.handleChange}

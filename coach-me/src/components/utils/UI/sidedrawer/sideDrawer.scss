@@ -7,7 +7,7 @@ $text-font: 'DM Sans', serif;
 .sidedrawer {
     height: 100vh;
     width: 40vh;
-    background-color: #ddd;
+    background-color: $dark-background;
     transform: translateX(-100%);
     transition: all 0.3s ease-out;
     position: fixed;
@@ -16,10 +16,16 @@ $text-font: 'DM Sans', serif;
     top: 0;
     left: 0;
     z-index: 300;
-
-    
+    .logo {
+        margin-top: 2em;
+        color: transparent;
+    }
+    a {
+        color: transparent;
+        font-size: 3em;
+        margin: 1em 0em;
+    } 
   }
-
   .sidedrawer-open {
     transform: translateX(0);
     height: 100vh;
@@ -41,8 +47,6 @@ $text-font: 'DM Sans', serif;
         display: flex;
         flex-direction: column;
         margin-top: 3em;
-        
-       
         a {
             color: white;
             font-size: 3em;

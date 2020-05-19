@@ -13,7 +13,6 @@ import {
 
 //Coach Registration endpoint
 export const registerCoach = coachData => dispatch => {
-    console.log(coachData);
     dispatch({ type: REGISTER_START });
     return axios
         .post(
@@ -35,13 +34,12 @@ export const registerCoach = coachData => dispatch => {
         });
 };
 //Coach login endpoint
-export const loginCoach = creds => dispatch => {
+export const loginCoach = coachCreds => dispatch => {
     dispatch({ type: LOGIN_START });
     return axios
-        .post(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/login`, creds)
+        .post(`http://localhost:5000/api/auth/login?user_type=coach`, coachCreds)
         .then(res => {
-            localStorage.setItem('token', res.data.token);
-            localStorage.setItem('coachName', res.data.coachName);
+            console.log(res)
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data.coachName

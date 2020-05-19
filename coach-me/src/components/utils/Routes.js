@@ -15,11 +15,8 @@ import PasswordReset from '../clients/loginClient/forgotPassword/PasswordReset';
 import Welcome from '../clients/welcomeScreen/WelcomeScreen';
 import CoachRegistration from '../coach/coachRegistration/coachRegistration';
 import LoginCoach from '../coach/loginCoach/LoginCoach';
-
 import AccountOne from '../clients/onboarding/accountCreation/accountOne/AccountOne';
-
 import Splash from '../splash/Splash';
-
 import ProfileOne from '../clients/onboarding/createProfile/profileOne/ProfileOne';
 import ProfileThree from '../clients/onboarding/createProfile/profileThree/ProfileThree';
 import ProfileFour from '../clients/onboarding/createProfile/profileFour/ProfileFour';
@@ -52,9 +49,6 @@ const Routes = props => {
                     path='/password-reset'
                     render={props => <PasswordReset {...props} />}
                 />
-
-
-
                 {/* CREATE ACCOUNT */}
                 <Route path='/createAccount' render={props => <AccountOne />} />
                 <Route
@@ -87,8 +81,6 @@ const Routes = props => {
                 <Route path='/dashboard' component={CoachDashboard} />
                 <Route path='/dashboard-client' component={ClientDashboard} />
                 <Route path='/metric-form' component={HealthMetricForm} />
-                <Route path='/welcome' component={Welcome} />
-            
         </>
     );
 };

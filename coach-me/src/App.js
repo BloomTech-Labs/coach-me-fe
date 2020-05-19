@@ -12,9 +12,8 @@ import './App.css';
 // Test commit
 
 function App() {
-    const [drawerOpen,setDrawerOpen] =useState(true)
+    const [drawerOpen,setDrawerOpen] =useState(false)
     const backdropHandler = () => {
-      console.log(drawerOpen)
       setDrawerOpen(!drawerOpen)
     }
     return (
@@ -26,10 +25,8 @@ function App() {
                     <Routes />
                     <Footer />
                 </div>
-            </Router>
-            
-        </UIContext.Provider>
-        
+            </Router>  
+        </UIContext.Provider>  
     );
 }
 
