@@ -11,8 +11,8 @@ const ProfileSix = () => {
     return (
         <div className='profile-six'>
             <Backdrop
-            showModal={showModal}
-            setShowModal={setShowModal}
+            show={showModal}
+            set={setShowModal}
              />
              <CompleteModal
               showModal={showModal}

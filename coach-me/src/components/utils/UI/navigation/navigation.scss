@@ -12,6 +12,17 @@ $text-font: 'DM Sans', serif;
     background-color: $dark-background;
     position: fixed;
     width: 100%;
-    z-index: 1000;
+    z-index: 300;
     color: white;
+}
+
+.fa-bars {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    @media(min-width: 800px) {
+        display: none;
+    }
+}
+.rotate {
+    transform: rotate(90deg);
 }

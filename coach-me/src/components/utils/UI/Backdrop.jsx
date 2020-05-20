@@ -3,8 +3,8 @@ import './backdrop.scss';
 const Backdrop = (props) => {
     return (
         <div 
-        className={props.showModal ? 'backdrop':'backdrop-closed'}
-        onClick={()=>props.setShowModal(false)}>
+        className={props.show ? 'backdrop':'backdrop-closed'}
+        onClick={()=>props.set(false)}>
             
         </div>
     );
