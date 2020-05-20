@@ -6,6 +6,7 @@ const CoachForm = (props) => {
         <form onSubmit={props.handleSubmit}>
                 <input
                     type='text'
+                    required
                     name='first_name'
                     placeholder='First Name'
                     value={props.coachCredentials.first_name}
@@ -13,6 +14,7 @@ const CoachForm = (props) => {
                 />
                 <input
                     type='text'
+                    required
                     name='last_name'
                     placeholder='Last Name'
                     onChange={props.handleChange}
@@ -20,6 +22,7 @@ const CoachForm = (props) => {
                 />
                 <input
                     type='email'
+                    required
                     name='email'
                     placeholder='E-Mail'
                     onChange={props.handleChange}
@@ -27,6 +30,7 @@ const CoachForm = (props) => {
                 />
                 <input
                     type='text'
+                    required
                     placeholder='Phone'
                     name='phone'
                     onChange={props.handleChange}
@@ -34,25 +38,28 @@ const CoachForm = (props) => {
                 />
                 <input 
                     type="date"
+                    required
                     name='dob'
                     value={props.coachCredentials.dob}
                     onChange={props.handleChange}
                 />
                  <input
                     type='password'
+                    required
                     name='password'
                     placeholder='Password'
                     // pattern='(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})'
-                    // required
+                    required
                     onChange={props.handleChange}
                     value={props.coachCredentials.password}
                 /> 
                 <input
                     type='password'
+                    required
                     name='confirm_password'
                     placeholder='Confirm Password'
                     // pattern='(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})'
-                    // required
+                    required
                     onChange={props.handleChange}
                     value={props.coachCredentials.confirm_password}
                 />
@@ -65,6 +72,7 @@ const CoachForm = (props) => {
                 />
                 <input 
                     type="text"
+                    required
                     name='sex'
                     placeholder='Sex*'
                     value={props.coachCredentials.sex}
