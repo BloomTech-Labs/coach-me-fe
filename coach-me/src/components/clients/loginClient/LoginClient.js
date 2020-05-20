@@ -29,9 +29,9 @@ const LoginClient = props => {
                 <p>Login</p>
             </div>
             <div className='form-container'>
-                <form onSubmit={handleSubmit}>
+                <form className='form' onSubmit={handleSubmit}>
                     <label>Email</label>
-                    <input data-testid='email-field'
+                    <input className='input' data-testid='email-field'
                         type='text'
                         name='email'
                         value={input.email}
@@ -39,7 +39,7 @@ const LoginClient = props => {
                     />
                     <label>Password</label>
                     <div className='password-container'>
-                        <input data-testid='password-field'
+                        <input className='input' data-testid='password-field'
                         type={hidden?'password':'text'}
                         name='password'
                         value={input.password}

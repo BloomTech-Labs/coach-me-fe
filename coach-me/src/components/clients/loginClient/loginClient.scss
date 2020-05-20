@@ -35,7 +35,7 @@
     align-items: center;
     background-color: white;
 
-    form {
+    .form {
         display: flex;
         flex-direction: column;
         width: 350px;
@@ -44,7 +44,7 @@
             margin-top: 20px;
         }
 
-        input {
+        .input {
             width: 100%;
             height: 40px;
             border: none;
