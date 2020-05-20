@@ -15,8 +15,7 @@ import {
 
 //updated the data needed to align with the new back-end. 04/05/2020
 export const getClientInfoRegister = props => dispatch => {
-    console.log(props,";")
-    console.log(props.userAccountDetails)
+
     axios
         .post(
             `http://localhost:5000/api/auth/register?user_type=client`, 
@@ -46,8 +45,6 @@ export const clientInfoLogin = props => dispatch => {
             props.userAccountDetails
         )
         .then(res => {
-            localStorage.setItem('token', res.data.token);
-
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject.fields //need to change
@@ -61,14 +58,31 @@ export const clientInfoLogin = props => dispatch => {
         });
 };
 
-export const sendEmail = props => dispatch => {
-    console.log(props.input)
+export const sendEmail = ({cred_value, method}) => dispatch => {
+    console.log(method, cred_value)
     axios
-        .post(`http://localhost:5000/api/auth/forgot_password?method=phone&user_type=client&cred_value=email`,
-        props.input)
-        //method, user type, cred value
+        .post(`http://localhost:5000/api/auth/forgot_password?user_type=client`,
+        {method, cred_value})
         .then(res => {
-            localStorage.setItem('token', res.data.token);
+            dispatch({
+                type: EMAIL_REQUEST_SUCCESS,
+                // payload:
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: EMAIL_REQUEST_FAILURE,
+                payload: err.message
+            });
+        });
+};
+
+export const getNewPassword = ({newPassword, repPassword, token}) => dispatch => {
+    console.log(newPassword, repPassword)
+    axios
+        .post(`http://localhost:5000/api/auth/forgot_password/password_recovery?token=${token}`,
+        {password: newPassword})
+        .then(res => {
             dispatch({
                 type: EMAIL_REQUEST_SUCCESS,
                 // payload:

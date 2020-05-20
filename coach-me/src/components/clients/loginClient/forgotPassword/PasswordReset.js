@@ -3,24 +3,26 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 import Show from '../../assets/show_password.png';
 import Hide from '../../assets/hide_password.png';
-// import { getNewPassword } from '../../../../actions/clientActions';
-import { Link } from 'react-router-dom';
+import { getNewPassword } from '../../../../actions/clientActions';
+import { Link , useLocation } from 'react-router-dom';
 import '../loginClient.scss';
 
-const PasswordReset = props => {
-    // const dispatch = useDispatch();
+const PasswordReset = () => {
+    const location = useLocation();
+    const dispatch = useDispatch();
     const [input, setinput] = useState({ newPassword: '', repPassword: '' });
     const [hidden, setHidden] = useState(true);
     const [source, setSource] = useState(Show);
     const handleClick = () => {
-        if(hidden === false){setHidden(true);setSource(Show);}else{setHidden(false);setSource(Hide);}
+        if(hidden === false){setHidden(true);setSource(Show)}else{setHidden(false);setSource(Hide)}
     };
     const handleChange = e => {
         setinput({ ...input, [e.target.name]: e.target.value });
     };
     const handleSubmit = e => {
         e.preventDefault();
-        // dispatch(getNewPassword({input, history: props.history}));
+        // (input.newPassword != input.repPassword)?console.log('not same'):console.log('same')
+        dispatch(getNewPassword({input, token: location.search.split('?token=')[1]}));
     };
     return (
         <div className='creds-container'>

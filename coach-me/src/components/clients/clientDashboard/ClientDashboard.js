@@ -1,15 +1,15 @@
 import React from 'react';
-
-//Component Imports
-import HealthMetric from '../healthMetrics/HealthMetric';
-
-// Styling
+import Dropdown from './Dropdown';
 import './clientDashboard.scss';
 
-const ClientDashboard = () => {
+const ClientDashboard = (props) => {
+    console.log('props',props)
     return (
         <div className='client-dashboard'>
-            <HealthMetric />
+            <Dropdown />
+            <div className='main'>
+                <p>Welcome Name</p>
+            </div>
         </div>
     );
 };

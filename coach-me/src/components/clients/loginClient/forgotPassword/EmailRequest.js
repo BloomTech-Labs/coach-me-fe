@@ -6,8 +6,9 @@ import '../loginClient.scss';
 
 const EmailRequest = props => {
     const dispatch = useDispatch();
-    const [input, setinput] = useState({ email: '' });
+    const [input, setinput] = useState({ cred_value: '', method: 'email' });
     const handleChange = e => {
+        console.log("changed", e.target.value)
         setinput({ ...input, [e.target.name]: e.target.value });
     };
     const handleSubmit = e => {
@@ -25,8 +26,8 @@ const EmailRequest = props => {
                     <label>Email</label>
                     <input 
                     type='text'
-                    name='email'
-                    value={input.email}
+                    name='cred_value'
+                    value={input.cred_value}
                     onChange={handleChange}
                     />
                     <button type='submit'>Request Password</button>

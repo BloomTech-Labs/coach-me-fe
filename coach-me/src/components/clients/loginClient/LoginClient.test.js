@@ -55,15 +55,6 @@ describe('LoginClient Form', () => {
     })
 }),
 
-describe('LoginClient social media links', () => {
-    it('texts and classes', async () => {
-        const container = render(<LoginClient />)
-        const fbLink = container.getByText('Facebook')
-        expect(fbLink).toBeTruthy()
-        expect(fbLink).toHaveClass('fb')
-    })
-}),
-
 describe('LoginClient redirect links', () => {
     it('Signup link ', async () => {
         const container = render(<LoginClient />)
