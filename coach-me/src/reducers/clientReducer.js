@@ -18,10 +18,16 @@ const initialState = {
     LoginAttempts: 0,
     clientinfo: {
         id: '',
-         //Change------
+        first_name: '',
+        last_name: '',
         email: '',
+        phone: '',
+        dob: '',
         password: '',
-         //------------
+        confirm_password: '',
+        height: '',
+        sex: '',
+        gender:'',
         coach: '',
         language: '',
         name: ''
@@ -66,10 +72,16 @@ export default (state = initialState, action) => {
                 clientinfo: {
                     ...state.clientinfo,
                     id: action.payload['Coaching master table'],
-                    //Change------
-                    email: action.email,
-                    password: action.password,
-                    //------------
+                    first_name: payload.first_name,
+                    last_name: payload.last_name,
+                    email: payload.email,
+                    phone: payload.phone,
+                    dob: payload.dob,
+                    password: payload.password,
+                    confirm_password: payload.confirm_password,
+                    height: payload.height,
+                    sex: payload.sex,
+                    gender:payload.gender,
                     coach: action.payload.Coach,
                     language: action.payload.Language,
                     name: action.payload['Client Name']
