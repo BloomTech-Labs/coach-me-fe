@@ -14,15 +14,13 @@ const PasswordReset = () => {
     const [hidden, setHidden] = useState(true);
     const [source, setSource] = useState(Show);
     const handleClick = () => {
-        if(hidden === false){setHidden(true);setSource(Show)}else{setHidden(false);setSource(Hide)}
+        if(hidden === false){setHidden(true);setSource(Show);}else{setHidden(false);setSource(Hide);}
     };
-    const handleChange = e => {
-        setinput({ ...input, [e.target.name]: e.target.value });
-    };
+    const handleChange = e => setinput({ ...input, [e.target.name]: e.target.value })
     const handleSubmit = e => {
         e.preventDefault();
-        // (input.newPassword != input.repPassword)?console.log('not same'):console.log('same')
-        dispatch(getNewPassword({input, token: location.search.split('?token=')[1]}));
+        if (input.newPassword === input.repPassword) (
+            dispatch(getNewPassword({...input, token: location.search.split('?token=')[1]})))
     };
     return (
         <div className='creds-container'>
@@ -54,7 +52,7 @@ const PasswordReset = () => {
                     </div>
                     <button type='submit'>Reset Password</button>
                 </form>
-                <p>Don't have an account?<Link to='/register-client'>Signup</Link></p>
+                <p>Don't have an account?<Link to='/createAccount'>Signup</Link></p>
             </div>
         </div>
 )};
