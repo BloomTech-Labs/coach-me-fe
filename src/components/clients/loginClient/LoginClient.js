@@ -30,10 +30,12 @@ const LoginClient = (props) => {
 	};
 	return (
 		<div className="creds-container">
-			<div className="img-container">
-				<a href="https://www.coachmehealth.org">
+			<div className="welcome-message">
+				{/* <a href="https://www.coachmehealth.org">
 					<Logo />
-				</a>
+				</a> */}
+				<h1>Login</h1>
+				<p>Welcome back! Please login to your account.</p>
 			</div>
 			<div className="form-container">
 				<form onSubmit={handleSubmit}>
@@ -65,11 +67,11 @@ const LoginClient = (props) => {
 					<a className="fb">Facebook</a>
 					{/* <a className="go">Google</a> */}
 				</div>
-				<p>
+				<p className="top signup-forgot">
 					Don't have an account?
 					<Link to="/register-client">Signup</Link>
 				</p>
-				<p>
+				<p className="signup-forgot">
 					<Link to="/email-request">Forgot Password?</Link>
 				</p>
 			</div>

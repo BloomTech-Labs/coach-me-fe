@@ -1,12 +1,37 @@
 .creds-container {
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	margin: 0 auto;
+	/* width: 100%; */
+	/* margin: 0 auto; */
 	font-size: 1.8rem;
-	background-color: #274160;
+	background-color: white;
+	margin-top: 17em;
+	margin-bottom: 12em;
+
+	.welcome-message {
+		width: 32%;
+
+		h1 {
+			font-size: 4.5rem;
+			font-weight: 600;
+			margin-bottom: 2rem;
+			color: #365478;
+			font-family: Montserrat;
+			background-color: white;
+		}
+
+		p {
+			font-size: 1.8rem;
+			margin-bottom: 5rem;
+			color: rgba(113, 125, 139, 0.8);
+			font-family: DM Sans;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 29px;
+		}
+	}
 
 	.img-container {
 		text-align: center;
@@ -26,8 +51,20 @@
 			border-radius: 25px;
 		}
 	}
+
 	@media (max-width: 800px) {
-		padding-top: 5em;
+		margin-top: 6em;
+		margin-bottom: 1em;
+		flex-direction: column;
+		align-items: center;
+
+		.welcome-message {
+			width: 77%;
+
+			p {
+				margin-bottom: 2rem;
+			}
+		}
 
 		.img-container {
 			margin-bottom: 0px;
@@ -36,19 +73,20 @@
 }
 
 .form-container {
-	width: 100%;
+	width: 40%;
 	display: flex;
+	/* margin: 0 auto; */
 	flex-direction: column;
-	align-items: center;
+	/* align-items: center; */
 	background-color: white;
 
 	form {
 		display: flex;
 		flex-direction: column;
-		width: 350px;
 
 		label {
 			margin-top: 20px;
+			width: 100%;
 		}
 
 		input {
@@ -70,6 +108,7 @@
 			display: flex;
 			justify-content: start;
 			align-items: center;
+			width: 100%;
 		}
 
 		button {
@@ -81,17 +120,20 @@
 			background-color: #274160;
 		}
 	}
+
+	@media (max-width: 800px) {
+		width: 75%;
+	}
 }
 
 .social-links {
 	display: flex;
 	margin-top: 10px;
-	width: 350px;
+	width: 100%;
 
 	.fb {
-		// margin: 2%;
 		padding: 13px;
-		width: 500px;
+		width: 100%;
 		text-align: center;
 		border-radius: 25px;
 		color: white;
@@ -107,4 +149,12 @@
 		color: white;
 		background-color: #db4437;
 	}
+}
+
+.top.signup-forgot {
+	text-align: center;
+	margin-top: 1em;
+}
+.signup-forgot {
+	text-align: center;
 }
