@@ -3,10 +3,8 @@ import { useDispatch } from 'react-redux';
 import { loginCoach } from '../../../actions/authActions';
 import CoachLoginForm from './CoachLoginForm';
 import SideOne from '../SideOne';
-
 //Component Imports
 import Modal from './Modal';
-
 //Styling
 import './loginCoach.scss';
 
@@ -31,8 +29,6 @@ const LoginCoach = props => {
         e.preventDefault();
         localStorage.clear();
         dispatch(loginCoach(coachCredentials)).then((res) => {
-           
-            console.log(res)
             if(res === 'Login successful') {
                  props.history.push('/dashboard');
             }
