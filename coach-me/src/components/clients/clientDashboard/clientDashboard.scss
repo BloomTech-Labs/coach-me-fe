@@ -1,36 +1,11 @@
 .client-dashboard {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    padding-top: 15%;
-    
+    padding-top: 5.8em;
     font-size: 1.5rem;
 
-    .main {
-        margin: 2% 10% 0 0;
+    .top-section {
+        border: 1px solid black;
     }
 }
-
-.dashboard-nav {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5px;
-
-    button {
-        width: 100px;
-        margin: 10px;
-        background-color: #274160;
-        border: 1px solid black;
-    }
-    a {
-        display: flex;
-        justify-content: center;
-        width: 150px;
-        text-decoration: none;
-        background-color: white;
-        color: black;
-        margin: 5px;
-        padding: 5px;
-        border: 1px solid black;
-        border-radius: 10px;
-    }
-}  
