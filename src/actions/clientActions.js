@@ -30,7 +30,7 @@ export const getClientInfoRegister = props => dispatch => {
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject.fields //need to change
+                payload: res.data.clientObject
             });
         })
         .catch(err => {
@@ -43,6 +43,7 @@ export const getClientInfoRegister = props => dispatch => {
 
 //Login endpoint for client
 export const getClientInfoLogin = props => dispatch => {
+    console.log(props)
     axios
         .post(
             `http://localhost:5000/api/auth/login?user_type=client`,
@@ -53,13 +54,51 @@ export const getClientInfoLogin = props => dispatch => {
 
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject.fields //need to change
+                payload: res.data.clientObject
             });
         })
         .catch(err => {
             dispatch({
                 type: GET_CLIENTS_FAILURE,
                 payload: err.response
+            });
+        });
+};
+
+export const sendEmail = ({cred_value, method}) => dispatch => {
+    console.log(method, cred_value)
+    axios
+        .post(`http://localhost:5000/api/auth/forgot_password?user_type=client`,
+        {method, cred_value})
+        .then(res => {
+            dispatch({
+                type: EMAIL_REQUEST_SUCCESS,
+                // payload:
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: EMAIL_REQUEST_FAILURE,
+                payload: err.message
+            });
+        });
+};
+
+export const getNewPassword = ({newPassword, repPassword, token}) => dispatch => {
+    console.log(newPassword, repPassword)
+    axios
+        .post(`http://localhost:5000/api/auth/forgot_password/password_recovery?token=${token}`,
+        {password: newPassword})
+        .then(res => {
+            dispatch({
+                type: EMAIL_REQUEST_SUCCESS,
+                // payload:
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: EMAIL_REQUEST_FAILURE,
+                payload: err.message
             });
         });
 };
@@ -112,45 +151,6 @@ export const getClientRecords = () => dispatch => {
         .catch(err => {
             dispatch({
                 type: GET_METRICS_FAILURE,
-                payload: err.message
-            });
-        });
-};
-
-//trey
-export const getEmail = props => dispatch => {
-    axios
-        .post(`http://localhost:5000/api/auth/forgot_password/method=phone?user_type=client?`,
-        props.userAccountDetails)
-        //method, user type, cred value
-        .then(res => {
-            localStorage.setItem('token', res.data.token);
-            dispatch({
-                type: EMAIL_REQUEST_SUCCESS,
-                // payload:
-            });
-        })
-        .catch(err => {
-            dispatch({
-                type: EMAIL_REQUEST_FAILURE,
-                payload: err.message
-            });
-        });
-};
-
-export const getNewPassword = props => dispatch => {
-    axios
-        .post(`http://localhost:5000/api/auth`, )
-        .then(res => {
-            localStorage.setItem('token', res.data.token);
-            dispatch({
-                type: PASSWORD_RESET_SUCCESS,
-                // payload:
-            });
-        })
-        .catch(err => {
-            dispatch({
-                type: PASSWORD_RESET_FAILURE,
                 payload: err.message
             });
         });

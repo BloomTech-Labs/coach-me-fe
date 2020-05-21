@@ -13,14 +13,14 @@ const LoginClient = props => {
     const [hidden, setHidden] = useState(true);
     const [source, setSource] = useState(Show);
     const handleClick = () => {
-        if(hidden == false){setHidden(true);setSource(Show);}else{setHidden(false);setSource(Hide);}
+        if(hidden === false){setHidden(true);setSource(Show);}else{setHidden(false);setSource(Hide);}
     };
     const handleChange = e => {
         setinput({ ...input, [e.target.name]: e.target.value });
     };
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(getClientInfoLogin({ input, history: props.history }));
+        dispatch(getClientInfoLogin({input, history: props.history }));
     };
     return (
         <div className='creds-container'>
@@ -31,7 +31,7 @@ const LoginClient = props => {
             <div className='form-container'>
                 <form onSubmit={handleSubmit}>
                     <label>Email</label>
-                    <input
+                    <input data-testid='email-field'
                         type='text'
                         name='email'
                         value={input.email}
@@ -39,7 +39,7 @@ const LoginClient = props => {
                     />
                     <label>Password</label>
                     <div className='password-container'>
-                        <input 
+                        <input data-testid='password-field'
                         type={hidden?'password':'text'}
                         name='password'
                         value={input.password}
@@ -50,10 +50,10 @@ const LoginClient = props => {
                     <button type='submit'>Log in</button>
                 </form>
                 <div className="social-links">
-                    <a className="fb">Facebook</a>
+                    {/* <a className="fb">Facebook</a> */}
                     {/* <a className="go">Google</a> */}
                 </div>
-                <p>Don't have an account?<Link to='/register-client'>Signup</Link></p>
+                <p>Don't have an account?<Link to='/createAccount'>Signup</Link></p>
                 <p><Link to='/email-request'>Forgot Password?</Link></p>
             </div>
         </div>

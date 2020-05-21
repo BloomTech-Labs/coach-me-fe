@@ -8,7 +8,6 @@ import HealthMetric from '../clients/healthMetrics/HealthMetric';
 import CoachDashboard from '../coach/coachDashboard/CoachDashboard';
 import ClientDashboard from '../clients/clientDashboard/ClientDashboard';
 import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
-import RegisterClient from '../clients/registerClient/RegisterClient';
 import LoginClient from '../clients/loginClient/LoginClient';
 import EmailRequest from '../clients/loginClient/forgotPassword/EmailRequest';
 import PasswordReset from '../clients/loginClient/forgotPassword/PasswordReset';
@@ -32,10 +31,6 @@ const Routes = props => {
 
             
                 <Route exact path='/' component={Splash} />
-                <Route
-                    path='/register-client'
-                    render={props => <RegisterClient {...props} />}
-                />
                 <Route
                     exact
                     path='/client-login'

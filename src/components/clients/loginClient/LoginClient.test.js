@@ -39,31 +39,18 @@ describe('LoginClient Form', () => {
     })
 }),
 
-describe('LoginClient social media links', () => {
-    it('texts and classes', async () => {
-        const container = render(<LoginClient />)
-        const fbLink = container.getByText('Facebook')
-        const goLink = container.getByText('Google')
-        expect(fbLink).toBeTruthy()
-        expect(fbLink).toHaveClass('fb')
-        expect(goLink).toBeTruthy()
-        expect(goLink).toHaveClass('go')
-    })
-}),
-
 describe('LoginClient redirect links', () => {
     it('Signup link ', async () => {
         const container = render(<LoginClient />)
         const prompt = container.getByText('Don\'t have an account?')
-        const text = container.getByText('Signup')
+        const link = container.getByText('Signup')
         expect(prompt).toBeTruthy();
-        expect(text).toBeTruthy();
+        expect(link).toBeTruthy();
     })
     it('Get New link', async () => {
         const container = render(<LoginClient />)
-        const prompt = container.getByText('Forgot Password?')
-        const text = container.getByText('Get new')
-        expect(prompt).toBeTruthy();
-        expect(text).toBeTruthy();
+        const link = container.getByText('Forgot Password?')
+        expect(link).toBeTruthy();
+
     })
 });

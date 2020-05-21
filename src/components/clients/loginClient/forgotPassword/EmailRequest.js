@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
-import { getEmail } from '../../../../actions/clientActions';
+import { sendEmail } from '../../../../actions/clientActions';
 import '../loginClient.scss';
 
 const EmailRequest = props => {
     const dispatch = useDispatch();
-    const [input, setinput] = useState({ email: '' });
+    const [input, setinput] = useState({ cred_value: ''});
     const handleChange = e => {
         setinput({ ...input, [e.target.name]: e.target.value });
     };
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(getEmail({input, history: props.history}));
+        dispatch(sendEmail({input, history: props.history}));
     };
     return (
         <div className='creds-container'>
@@ -24,9 +24,9 @@ const EmailRequest = props => {
                 <form onSubmit={handleSubmit}>
                     <label>Email</label>
                     <input 
-                    type=''
-                    name='email'
-                    value=''
+                    type='text'
+                    name='cred_value'
+                    value={input.cred_value}
                     onChange={handleChange}
                     />
                     <button type='submit'>Request Password</button>

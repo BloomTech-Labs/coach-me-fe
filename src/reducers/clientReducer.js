@@ -18,10 +18,16 @@ const initialState = {
     LoginAttempts: 0,
     clientinfo: {
         id: '',
-         //Change------
+        first_name: '',
+        last_name: '',
         email: '',
+        phone: '',
+        dob: '',
         password: '',
-         //------------
+        confirm_password: '',
+        height: '',
+        sex: '',
+        gender:'',
         coach: '',
         language: '',
         name: ''
@@ -64,15 +70,17 @@ export default (state = initialState, action) => {
                 ...state,
                 isfetching: false,
                 clientinfo: {
-                    ...state.clientinfo,
-                    id: action.payload['Coaching master table'],
-                    //Change------
-                    email: action.email,
-                    password: action.password,
-                    //------------
-                    coach: action.payload.Coach,
-                    language: action.payload.Language,
-                    name: action.payload['Client Name']
+                    ...state,
+                    first_name: action.payload.first_name,
+                    last_name: action.payload.last_name,
+                    email: action.payload.email,
+                    phone: action.payload.phone,
+                    dob: action.payload.dob,
+                    password: action.payload.password,
+                    confirm_password: action.payload.confirm_password,
+                    height: action.payload.height,
+                    sex: action.payload.sex,
+                    gender: action.payload.gender,
                 },
                 error: ''
             };
