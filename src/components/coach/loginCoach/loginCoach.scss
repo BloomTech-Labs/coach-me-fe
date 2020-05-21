@@ -9,7 +9,7 @@
 
 .Login-Wrapper {
 	display: flex;
-	height: 100vh;
+	height: 92vh;
 
 	font-family: "DM Sans";
 
@@ -63,15 +63,15 @@
 		justify-content: center;
 
 		h1 {
-			font-size: 2.5rem;
+			font-size: 3.5rem;
 			font-weight: 600;
 			margin-bottom: 2rem;
 			font-family: Montserrat;
 		}
 
 		p {
-			font-size: 1.8rem;
-			margin-bottom: 5rem;
+			font-size: 2.2rem;
+			margin-bottom: 3rem;
 			color: rgba(113, 125, 139, 0.8);
 			font-family: DM Sans;
 			font-style: normal;
@@ -158,6 +158,7 @@
 			line-height: 29px;
 			font-weight: bold;
 			cursor: pointer;
+			font-size: 1.5em;
 			// margin-right: 3rem;
 		}
 		.layout-wrapper {
@@ -173,12 +174,16 @@
 			width: 80%;
 
 			p {
-				margin-bottom: 1rem;
+				margin-bottom: 2rem;
 			}
 			.forgot {
 				margin-bottom: 2rem;
-				margin-right: 2rem;
+				// margin-right: 2rem;
 			}
 		}
+	}
+
+	@media (max-width: 800px) {
+		height: 93vh;
 	}
 }
