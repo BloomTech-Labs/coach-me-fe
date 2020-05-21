@@ -2,8 +2,9 @@ import React from 'react';
 
 const UserForm = (props) => {
     return (
-        <form >
+        <form className='user-form' >
                 <input 
+                className='user-input'
                 type="text"
                 name='first_name'
                 placeholder='First Name'
@@ -11,6 +12,7 @@ const UserForm = (props) => {
                 onChange={props.changeHandler}
                 />
                 <input 
+                className='user-input'
                 type="text"
                 name='last_name'
                 placeholder='Last Name'
@@ -18,6 +20,7 @@ const UserForm = (props) => {
                 onChange={props.changeHandler}
                 />
                 <input 
+                className='user-input'
                 type="text"
                 name='email'
                 placeholder='electronic Mail'
@@ -25,19 +28,22 @@ const UserForm = (props) => {
                 onChange={props.changeHandler}
                 />
                 <input 
+                className='user-input'
                 type="date"
                 name='dob'
                 value={props.userAccountDetails.dob}
                 onChange={props.changeHandler}
                 />
                 <input 
+                className='user-input'
                 type="text"
                 name='phone'
                 placeholder='Phone'
                 value={props.userAccountDetails.phone}
                 onChange={props.changeHandler}
                 />
-                <input 
+                <input
+                className='user-input' 
                 type="password"
                 name='password'
                 placeholder='Password'
@@ -46,6 +52,7 @@ const UserForm = (props) => {
                 />
                 <p className='subtext'>A valid password must have a minimum of 800 characters and include a number and a special symbol</p>
                 <input 
+                className='user-input'
                 type="password"
                 name='confirm_password'
                 placeholder='Confirm Password'
@@ -53,6 +60,7 @@ const UserForm = (props) => {
                 onChange={props.changeHandler}
                 />
                 <input 
+                className='user-input'
                 type="text"
                 name='height'
                 placeholder='Height*'
@@ -60,6 +68,7 @@ const UserForm = (props) => {
                 onChange={props.changeHandler}
                 />
                 <input 
+                className='user-input'
                 type="text"
                 name='weight'
                 placeholder='Weight'
@@ -67,6 +76,7 @@ const UserForm = (props) => {
                 onChange={props.changeHandler}
                 />
                 <input 
+                className='user-input'
                 type="text"
                 name='sex'
                 placeholder='Sex*'
@@ -74,6 +84,7 @@ const UserForm = (props) => {
                 onChange={props.changeHandler}
                 />
                 <input 
+                className='user-input'
                 type="text"
                 name='gender'
                 placeholder='Gender'

@@ -3,7 +3,7 @@ import './coachForm.scss';
 
 const CoachForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form className ='coach-form'onSubmit={props.handleSubmit}>
                 <input
                     type='text'
                     required

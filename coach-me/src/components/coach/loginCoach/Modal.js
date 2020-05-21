@@ -6,7 +6,7 @@ import axios from 'axios';
 import './modal.scss';
 
 const Modal = ({ setModal }) => {
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState({cred_value: ''});
     const [showError, setShowError] = useState(false);
     const [messageFromServer, setMessageFromServer] = useState('');
 
@@ -18,24 +18,20 @@ const Modal = ({ setModal }) => {
         setModal(false);
     };
 
-    const sendEmail = e => {
+    const sendEmail = (e) => {
         e.preventDefault();
-        if (email === '') {
+        if (email.cred_value === '') {
             setShowError(false);
             setMessageFromServer('');
         } else {
             axios
-                .post(`${process.env.REACT_APP_BACK_END_URL}/forgotPassword`, {
-                    email: email
-                })
+                .post(`http://localhost:5000/api/auth/forgot_password`, {
+                    method: 'email',
+                    user_type: 'coach',
+                    cred_value: email
+                    })
                 .then(res => {
-                    if (res.data === 'email not in db') {
-                        setShowError(true);
-                        setMessageFromServer('');
-                    } else if (res.data === 'recovery email sent') {
-                        setShowError(false);
-                        setMessageFromServer('recovery email sent');
-                    }
+                   console.log(res)
                 })
                 .catch(err => {
                     console.log(err.data);
@@ -58,6 +54,7 @@ const Modal = ({ setModal }) => {
                         data-cy='input4'
                         placeholder='Email'
                         name='email'
+                        value={email.cred_value}
                         onChange={handleChange}
                     ></input>
                 </div>
