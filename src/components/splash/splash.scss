@@ -72,6 +72,19 @@ $text-font: "DM Sans", serif;
 			.hero-text {
 				width: 80%;
 				text-shadow: 0px 0px 2px #333;
+
+				h1 {
+					font-size: 6em;
+				}
+				p {
+					font-size: 2.5em;
+				}
+				.small-text {
+					font-size: 1.7em;
+				}
+			}
+			.hero-img {
+				margin-left: 0;
 			}
 		}
 	}
@@ -152,6 +165,12 @@ $text-font: "DM Sans", serif;
 					font-family: $text-font;
 					color: #ff98a0;
 				}
+			}
+		}
+
+		@media (max-width: 800px) {
+			.buttons {
+				width: 100%;
 			}
 		}
 	}
