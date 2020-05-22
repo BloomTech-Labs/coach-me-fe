@@ -1,75 +1,83 @@
-// @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
-// * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-// }
+.client-dashboard {
+    padding-top: 6em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+}
 
-// .Register-Wrapper {
-//     display: flex;
-//     height: 100vh;
-//     position: relative;
-//     font-family: 'Poppins', sans-serif;
-//     .side-one {
-//         width: 50%;
-//         background: #f0f0f0;
-//         padding: 2%;
-//     }
-//     .side-two {
-//         width: 50%;
-//         padding: 5% 10% 5% 10%;
-//         align-self: center;
-//         display: flex;
-//         flex-direction: column;
+.notifications-container {
+    width: 90%;
+    margin: 1em;
+    border: 1px solid #274160;
 
-//         h1 {
-//             font-size: 2.5rem;
-//             font-weight: 600;
-//             margin-bottom: 2rem;
-//         }
+    h1 {
+        padding: .5em;
+        color: white;
+        background-color: #274160;
+        text-align: center;
+    }
 
-//         p {
-//             font-size: 1.2rem;
-//             margin-bottom: 5rem;
-//         }
+    .notifications {
 
-//         .input-Wrapper {
-//             display: flex;
-//             flex-direction: column;
+        p {
+            padding: 1em;
+            border-top: 1px solid #274160;
+        }
+    }
+}
 
-//             input {
-//                 border: none;
-//                 border-bottom: 1px solid #0000003a;
-//                 margin-bottom: 6rem;
-//                 font-size: 1.5rem;
-//             }
+.resource-center {
+    width: 90%;
+    margin: 1em;
+    border: 1px solid #274160;
 
-//             input::placeholder {
-//                 color: #c4c4c4;
-//                 font-size: 1.5rem;
-//             }
-//         }
-//         .signup-btn {
-//             width: 30%;
-//             padding: 1.3rem 2rem;
-//             font-size: 1.5rem;
-//             text-align: center;
-//             color: white;
-//             background: #292929;
-//             border-radius: 12px;
-//             cursor: pointer;
-//             align-self: center;
-//         }
-//         .login-container {
-//             font-size: 1.2rem;
-//             margin-top: 2rem;
-//             align-self: center;
-//             .login {
-//                 color: black;
-//                 text-decoration: none;
-//                 font-weight: 600;
-//             }
-//         }
-//     }
-// }
+    h1 {
+        padding: .5em;
+        color: white;
+        background-color: #274160;
+        text-align: center;
+    }
+
+    .resources {
+
+        p {
+            padding: 1em;
+            border-top: 1px solid #274160;
+        }
+    }
+}
+
+.session-notes {
+    width: 90%;
+    margin: 1em;
+    border: 1px solid #274160;
+
+    h1 {
+        padding: .5em;
+        color: white;
+        background-color: #274160;
+        text-align: center;
+    }
+
+    .notes {
+
+        p {
+            padding: 1em;
+            border-top: 1px solid #274160;
+        }
+    }
+}
+
+.settings {
+    width: 90%;
+    margin: 1em;
+    border: 1px solid #274160;
+
+    h1 {
+        padding: .5em;
+        color: white;
+        background-color: #274160;
+        text-align: center;
+    }
+}

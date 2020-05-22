@@ -1,14 +1,16 @@
 import React from 'react';
-
-//Component Imports
+import Notifications from './Notifications';
+import ResourceCenter from './ResourceCenter';
+import SessionNotes from './SessionNotes';
 import HealthMetric from '../healthMetrics/HealthMetric';
-
-// Styling
 import './clientDashboard.scss';
 
 const ClientDashboard = () => {
     return (
         <div className='client-dashboard'>
+            <Notifications />
+            <ResourceCenter />
+            <SessionNotes />
             <HealthMetric />
         </div>
     );
