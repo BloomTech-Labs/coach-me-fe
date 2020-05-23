@@ -21,7 +21,7 @@ export const getClientInfoRegister = props => dispatch => {
     console.log(props)
     axios
         .post(
-            `${baseUrl}auth/register?user_type=client`, 
+            `http://localhost:5000/api/auth/register?user_type=client`, 
             props.userAccountDetails
         )
         .then(res => {
@@ -41,7 +41,6 @@ export const getClientInfoRegister = props => dispatch => {
         });
 };
 
-//Login endpoint for client
 export const getClientInfoLogin = props => dispatch => {
     console.log(props)
     axios

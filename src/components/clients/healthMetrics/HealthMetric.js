@@ -35,9 +35,9 @@ const HealthMetric = props => {
     const [historyScale, setHistoryScale] = useState('');
     const [historyFilter, setHistoryFilter] = useState('');
 
-    useEffect(() => {
-        dispatch(getClientRecords());
-    }, []);
+    // useEffect(() => {
+    //     dispatch(getClientRecords());
+    // }, []);
 
     const handleClick = (heading, label, filter, filter2) => {
         window.scrollTo(0, 0);

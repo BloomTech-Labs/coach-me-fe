@@ -1,13 +1,13 @@
 import React from 'react';
 import './clientDashboard.scss';
 
-const Notifications = () => {
+const Notifications = (props) => {
     return (
         <div className='notifications-container'>
             <h1>Notifications</h1>
             <div className='notifications'>
                 {/*Eventually array of notifications */}
-                <p>Welcome To CoachMe, $name!</p>
+                <p>{`Welcome To CoachMe, ${props.first_name}!`}</p>
             </div>
             
         </div>
