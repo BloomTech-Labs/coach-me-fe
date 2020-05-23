@@ -15,10 +15,10 @@ import {
     GET_METRICS_FAILURE
 } from './types';
 
-//Register endpoint for client
+const baseUrl = axios.create('http://localhost:5000/api/')
 
-//updated the data needed to align with the new back-end. 04/05/2020
 export const getClientInfoRegister = props => dispatch => {
+    console.log(props)
     axios
         .post(
             `http://localhost:5000/api/auth/register?user_type=client`, 
@@ -41,17 +41,15 @@ export const getClientInfoRegister = props => dispatch => {
         });
 };
 
-//Login endpoint for client
 export const getClientInfoLogin = props => dispatch => {
     console.log(props)
     axios
         .post(
             `http://localhost:5000/api/auth/login?user_type=client`,
-            props.userAccountDetails
+            props.input
         )
         .then(res => {
             localStorage.setItem('token', res.data.token);
-
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject
@@ -73,7 +71,7 @@ export const sendEmail = ({cred_value, method}) => dispatch => {
         .then(res => {
             dispatch({
                 type: EMAIL_REQUEST_SUCCESS,
-                // payload:
+                payload: res.data.clientObject
             });
         })
         .catch(err => {
@@ -87,22 +85,24 @@ export const sendEmail = ({cred_value, method}) => dispatch => {
 export const getNewPassword = ({newPassword, repPassword, token}) => dispatch => {
     console.log(newPassword, repPassword)
     axios
-        .post(`http://localhost:5000/api/auth/forgot_password/password_recovery?token=${token}`,
+        .post(`${baseUrl}auth/forgot_password/password_recovery?token=${token}`,
         {password: newPassword})
         .then(res => {
             dispatch({
-                type: EMAIL_REQUEST_SUCCESS,
-                // payload:
+                type: PASSWORD_RESET_SUCCESS,
+                payload: res.data.clientObject
             });
         })
         .catch(err => {
             dispatch({
-                type: EMAIL_REQUEST_FAILURE,
+                type: PASSWORD_RESET_FAILURE,
                 payload: err.message
             });
         });
 };
 
+
+//legacy
 export const addMetric = metricUpdate => dispatch => {
     dispatch({ type: UPDATE_METRIC_START });
     axios
