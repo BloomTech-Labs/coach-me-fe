@@ -15,13 +15,13 @@ import {
     GET_METRICS_FAILURE
 } from './types';
 
-const baseUrl = axios.create('http://localhost:5000/api/')
+const baseUrl = axios.create('https://coach-me-be.herokuapp.com/api')
 
 export const getClientInfoRegister = props => dispatch => {
     console.log(props)
     axios
         .post(
-            `http://localhost:5000/api/auth/register?user_type=client`, 
+            `https://coach-me-be.herokuapp.com/api/auth/register?user_type=client`, 
             props.userAccountDetails
         )
         .then(res => {
@@ -45,7 +45,7 @@ export const getClientInfoLogin = props => dispatch => {
     console.log(props)
     axios
         .post(
-            `http://localhost:5000/api/auth/login?user_type=client`,
+            `https://coach-me-be.herokuapp.com/api/auth/login?user_type=client`,
             props.input
         )
         .then(res => {
@@ -66,7 +66,7 @@ export const getClientInfoLogin = props => dispatch => {
 export const sendEmail = ({cred_value, method}) => dispatch => {
     console.log(method, cred_value)
     axios
-        .post(`http://localhost:5000/api/auth/forgot_password?user_type=client`,
+        .post(`https://coach-me-be.herokuapp.com/api/auth/forgot_password?user_type=client`,
         {method, cred_value})
         .then(res => {
             dispatch({
