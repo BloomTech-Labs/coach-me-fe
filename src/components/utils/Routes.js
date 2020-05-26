@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Component Imports
 import PrivateRoute from './PrivateRoute';
@@ -8,7 +8,6 @@ import HealthMetric from '../clients/healthMetrics/HealthMetric';
 import CoachDashboard from '../coach/coachDashboard/CoachDashboard';
 import ClientDashboard from '../clients/clientDashboard/ClientDashboard';
 import HealthMetricForm from '../clients/healthMetricForm/HealthMetricForm';
-import RegisterClient from '../clients/registerClient/RegisterClient';
 import LoginClient from '../clients/loginClient/LoginClient';
 import EmailRequest from '../clients/loginClient/forgotPassword/EmailRequest';
 import PasswordReset from '../clients/loginClient/forgotPassword/PasswordReset';
@@ -30,12 +29,8 @@ const Routes = props => {
     return (
         <>
 
-            
+            <Router>
                 <Route exact path='/' component={Splash} />
-                <Route
-                    path='/register-client'
-                    render={props => <RegisterClient {...props} />}
-                />
                 <Route
                     exact
                     path='/client-login'
@@ -81,6 +76,7 @@ const Routes = props => {
                 <Route path='/dashboard' component={CoachDashboard} />
                 <Route path='/dashboard-client' component={ClientDashboard} />
                 <Route path='/metric-form' component={HealthMetricForm} />
+            </Router>
         </>
     );
 };
