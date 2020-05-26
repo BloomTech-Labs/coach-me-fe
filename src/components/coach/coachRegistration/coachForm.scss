@@ -1,17 +1,32 @@
 form {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 2em;
-    position: relative;
-    font-family: 'DM Sans', sans-serif;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 2em;
+	position: relative;
+	font-family: "DM Sans", sans-serif;
 
-    input {
-        width: 90%;
-        margin: 0.5em auto;
-        font-size: 2.3em;
-        padding: 2%;
-        border-radius: 8px;
-    }
+	.labels {
+		width: 85%;
+
+		h1 {
+			text-align: left;
+			font-size: 2.5em;
+		}
+
+		p {
+			text-align: left;
+			font-size: 1.5em;
+			margin-top: 2em;
+		}
+
+		input {
+			width: 90%;
+			margin: 0.5em auto;
+			font-size: 2.3em;
+			padding: 2%;
+			border-radius: 8px;
+		}
+	}
 }

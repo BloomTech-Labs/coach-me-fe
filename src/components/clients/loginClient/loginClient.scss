@@ -1,104 +1,161 @@
 .creds-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    font-size: 1.8rem;
-    background-color: #274160;
+	display: flex;
+	/* flex-direction: column; */
+	justify-content: center;
+	align-items: center;
+	/* width: 100%; */
+	/* margin: 0 auto; */
+	font-size: 1.8rem;
+	background-color: white;
+	margin-top: 17em;
+	margin-bottom: 12em;
 
-    .img-container {
-        margin-top: 6em;
-        text-align: center;
-        color: white;
-        margin-bottom: 50px;
-    }
+	.welcome-message {
+		width: 32%;
 
-    p {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 1.5rem;
-        line-height: 20px;
+		h1 {
+			font-size: 4.5rem;
+			font-weight: 600;
+			margin-bottom: 2rem;
+			color: #365478;
+			font-family: Montserrat;
+			background-color: white;
+		}
 
-        a{
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-        }
-    }
+		p {
+			font-size: 1.8rem;
+			margin-bottom: 5rem;
+			color: rgba(113, 125, 139, 0.8);
+			font-family: DM Sans;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 29px;
+		}
+	}
+
+	.img-container {
+		text-align: center;
+		color: white;
+		margin-bottom: 50px;
+	}
+
+	p {
+		font-family: "DM Sans", sans-serif;
+		font-size: 1.5rem;
+		line-height: 20px;
+
+		a {
+			color: black;
+			text-decoration: none;
+			font-weight: bold;
+			border-radius: 25px;
+		}
+	}
+
+	@media (max-width: 800px) {
+		margin-top: 6em;
+		margin-bottom: 1em;
+		flex-direction: column;
+		align-items: center;
+
+		.welcome-message {
+			width: 77%;
+
+			p {
+				margin-bottom: 2rem;
+			}
+		}
+
+		.img-container {
+			margin-bottom: 0px;
+		}
+	}
+
 }
 
 .form-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
+	width: 40%;
+	display: flex;
+	/* margin: 0 auto; */
+	flex-direction: column;
+	/* align-items: center; */
+	background-color: white;
 
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 350px;
+	form {
+		display: flex;
+		flex-direction: column;
 
-        label {
-            margin-top: 20px;
-        }
+		label {
+			margin-top: 20px;
+			width: 100%;
+		}
 
-        input {
-            width: 100%;
-            height: 40px;
-            border: none;
-            border-bottom: 1px solid #274160;
-            font-size: 1.8rem;
-        }
+		input {
+			width: 100%;
+			height: 40px;
+			border: none;
+			border-bottom: 1px solid #274160;
+			font-size: 1.8rem;
+		}
 
-        .eye {
-            height: 35px;
-            width: 35px;
-            margin-top: 6px;
-            border-bottom: 1px solid #274160;
-        }
+		.eye {
+			height: 35px;
+			width: 35px;
+			margin-top: 6px;
+			border-bottom: 1px solid #274160;
+		}
 
-        .password-container {
-            display: flex;
-            justify-content: start;
-            align-items: center;
-        }
+		.password-container {
+			display: flex;
+			justify-content: start;
+			align-items: center;
+			width: 100%;
+		}
 
-        button {
-            margin-top: 10px;
-            height: 50px;
-            width: 100%;
-            border-radius: 25px;
-            box-shadow: none;
-            background-color: #274160;
-        }
-    }
+		button {
+			margin-top: 10px;
+			height: 50px;
+			width: 100%;
+			border-radius: 25px;
+			box-shadow: none;
+			background-color: #274160;
+		}
+	}
+
+	@media (max-width: 800px) {
+		width: 75%;
+	}
 }
 
 .social-links {
-    display: flex;
-    margin-top: 10px;
-    width: 350px;
+	display: flex;
+	margin-top: 10px;
+	width: 100%;
 
-    .fb {
-        // margin: 2%;
-        padding: 13px;
-        width: 500px;
-        text-align: center;
-        border-radius: 25px;
-        color: white;
-        background-color: #3b5998;
-    }
-      
-    .go {
-        margin: 2%;
-        padding: 13px;
-        width: 250px;
-        text-align: center;
-        border-radius: 25px;
-        color: white;
-        background-color: #DB4437;
-    }
+	.fb {
+		padding: 13px;
+		width: 100%;
+		text-align: center;
+		border-radius: 25px;
+		color: white;
+		background-color: #3b5998;
+	}
+
+	.go {
+		margin: 2%;
+		padding: 13px;
+		width: 250px;
+		text-align: center;
+		border-radius: 25px;
+		color: white;
+		background-color: #db4437;
+	}
+}
+
+.top.signup-forgot {
+	text-align: center;
+	margin-top: 1em;
+}
+.signup-forgot {
+	text-align: center;
 }
