@@ -69,7 +69,7 @@ const LoginClient = (props) => {
 				</div>
 				<p className="top signup-forgot">
 					Don't have an account?
-					<Link to="/register-client">Signup</Link>
+					<Link to="/createAccount">Signup</Link>
 				</p>
 				<p className="signup-forgot">
 					<Link to="/email-request">Forgot Password?</Link>

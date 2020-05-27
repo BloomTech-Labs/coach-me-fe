@@ -17,8 +17,8 @@ const initialState = {
     LoginAttempts: 0,
     clientinfo: {
         id: '',
-        first_name: '',
-        last_name: '',
+        first_name: '"First name"',
+        last_name: '"Last name"',
         email: '',
         phone: '',
         dob: '',
@@ -27,9 +27,7 @@ const initialState = {
         height: '',
         sex: '',
         gender:'',
-        coach: '',
-        language: '',
-        name: ''
+        coach: ''
     },
     records: null,
     Blood_sugar: 0,
