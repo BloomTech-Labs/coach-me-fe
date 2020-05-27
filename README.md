@@ -6,9 +6,6 @@
 1️⃣ You can find the deployed project at (https://app.coachmehealth.org)
  
   
-
-
-
 ## Code Climate
 
 ![](https://api.codeclimate.com/v1/badges/bc888c901260b12fae40/maintainability)
@@ -83,11 +80,7 @@ Coach Me is an application created with real communication between health coache
 - Redux-Thunk
 - Redux-Logger
 - Twilio
-- Cron Jobs
 - Chart JS
-- Linkify
-- Perfect Scrollbar
-- Husky
 - Cypress
 - Font Awesome
 - Moment JS
