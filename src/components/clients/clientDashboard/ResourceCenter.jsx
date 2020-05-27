@@ -3,10 +3,9 @@ import './clientDashboard.scss';
 
 const ResourceCenter = () => {
     return (
-        <div className='resource-center'>
+        <div className='wrapper'>
             <h1>Resource Center</h1>
-            <div className='resources'>
-                 {/*Eventually array of resources */}
+            <div className='container'>
                  <p>You have no resources at this time!</p>
             </div>
         </div>

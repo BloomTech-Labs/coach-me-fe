@@ -1,13 +1,19 @@
 // @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 .client-dashboard {
+    display: flex;
+    flex-direction: column;
     padding-top: 6em;
     // font-family: 'Poppins', sans-serif;
     font-size: 2rem;
+
+    .profile-container {
+        margin: 1em;
+        padding: 1em;
+    }
 }
 
-.notifications-container {
-    width: 90%;
+.wrapper {
     margin: 1em;
     border: 1px solid #274160;
 
@@ -18,66 +24,11 @@
         text-align: center;
     }
 
-    .notifications {
+    .container {
 
         p {
             padding: 1em;
             border-top: 1px solid #274160;
         }
-    }
-}
-
-.resource-center {
-    width: 90%;
-    margin: 1em;
-    border: 1px solid #274160;
-
-    h1 {
-        padding: .5em;
-        color: white;
-        background-color: #274160;
-        text-align: center;
-    }
-
-    .resources {
-
-        p {
-            padding: 1em;
-            border-top: 1px solid #274160;
-        }
-    }
-}
-
-.session-notes {
-    width: 90%;
-    margin: 1em;
-    border: 1px solid #274160;
-
-    h1 {
-        padding: .5em;
-        color: white;
-        background-color: #274160;
-        text-align: center;
-    }
-
-    .notes {
-
-        p {
-            padding: 1em;
-            border-top: 1px solid #274160;
-        }
-    }
-}
-
-.settings {
-    width: 90%;
-    margin: 1em;
-    border: 1px solid #274160;
-
-    h1 {
-        padding: .5em;
-        color: white;
-        background-color: #274160;
-        text-align: center;
     }
 }

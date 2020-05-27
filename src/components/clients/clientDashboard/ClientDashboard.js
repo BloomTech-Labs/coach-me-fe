@@ -7,10 +7,12 @@ import { connect } from 'react-redux';
 import './clientDashboard.scss';
 
 const ClientDashboard = (props) => {
-    console.log(props)
     return (
         <div className='client-dashboard'>
-            <Notifications first_name={props.object.first_name}/>
+            <div className="profile-container">
+                {`Welcome ${props.info.first_name} ${props.info.last_name}!`}
+            </div>
+            <Notifications />
             <ResourceCenter />
             <SessionNotes />
             <HealthMetric />
@@ -21,7 +23,7 @@ const ClientDashboard = (props) => {
 const mapStateToProps = state => {
     console.log(state.client.clientinfo)
     return {
-        object : {
+        info : {
         first_name: state.client.clientinfo.first_name,
         last_name: state.client.clientinfo.last_name,
         email: state.client.clientinfo.email,

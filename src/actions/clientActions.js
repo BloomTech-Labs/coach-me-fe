@@ -15,8 +15,6 @@ import {
     GET_METRICS_FAILURE
 } from './types';
 
-const baseUrl = axios.create('https://coach-me-be.herokuapp.com/api')
-
 export const getClientInfoRegister = props => dispatch => {
     console.log(props)
     axios
@@ -85,7 +83,7 @@ export const sendEmail = ({cred_value, method}) => dispatch => {
 export const getNewPassword = ({newPassword, repPassword, token}) => dispatch => {
     console.log(newPassword, repPassword)
     axios
-        .post(`${baseUrl}auth/forgot_password/password_recovery?token=${token}`,
+        .post(`https://coach-me-be.herokuapp.com/api/auth/forgot_password/password_recovery?token=${token}`,
         {password: newPassword})
         .then(res => {
             dispatch({
