@@ -5,7 +5,6 @@ import {
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
-    GET_CLIENTS_START,
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
     GET_METRICS_START,
@@ -18,13 +17,17 @@ const initialState = {
     LoginAttempts: 0,
     clientinfo: {
         id: '',
-         //Change------
+        first_name: '"First name"',
+        last_name: '"Last name"',
         email: '',
+        phone: '',
+        dob: '',
         password: '',
-         //------------
-        coach: '',
-        language: '',
-        name: ''
+        confirm_password: '',
+        height: '',
+        sex: '',
+        gender:'',
+        coach: ''
     },
     records: null,
     Blood_sugar: 0,
@@ -64,15 +67,17 @@ export default (state = initialState, action) => {
                 ...state,
                 isfetching: false,
                 clientinfo: {
-                    ...state.clientinfo,
-                    id: action.payload['Coaching master table'],
-                    //Change------
-                    email: action.email,
-                    password: action.password,
-                    //------------
-                    coach: action.payload.Coach,
-                    language: action.payload.Language,
-                    name: action.payload['Client Name']
+                    ...state,
+                    first_name: action.payload.first_name,
+                    last_name: action.payload.last_name,
+                    email: action.payload.email,
+                    phone: action.payload.phone,
+                    dob: action.payload.dob,
+                    password: action.payload.password,
+                    confirm_password: action.payload.confirm_password,
+                    height: action.payload.height,
+                    sex: action.payload.sex,
+                    gender: action.payload.gender,
                 },
                 error: ''
             };

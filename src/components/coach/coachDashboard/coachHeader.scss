@@ -1,74 +1,75 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 .coach-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #ffffff;
-    height: 8rem;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
+	// display: flex;
+	// align-items: center;
+	// justify-content: space-between;
+	// background-color: #ffffff;
+	// height: 8rem;
+	// width: 100%;
+	// position: fixed;
+	// z-index: 1;
+	display: none;
 
-    .header-icon {
-        display: flex;
-        align-items: center;
+	.header-icon {
+		display: flex;
+		align-items: center;
 
-        .coachMeIcon {
-            padding-left: 5rem;
-            padding-right: 1rem;
-        }
-    }
-    a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+		.coachMeIcon {
+			padding-left: 5rem;
+			padding-right: 1rem;
+		}
+	}
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-    .small-profile {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 5rem;
+	.small-profile {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 5rem;
 
-        h3 {
-            font-family: Montserrat;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 1.5rem;
-            color: #1c3048;
-            padding-right: 1rem;
-        }
+		h3 {
+			font-family: Montserrat;
+			font-style: normal;
+			font-weight: 600;
+			font-size: 1.5rem;
+			color: #1c3048;
+			padding-right: 1rem;
+		}
 
-        .arrow {
-            margin-right: 1rem;
-            cursor: pointer;
-            // border: 1px solid red;
-        }
+		.arrow {
+			margin-right: 1rem;
+			cursor: pointer;
+			// border: 1px solid red;
+		}
 
-        .hide {
-            display: none;
-        }
+		.hide {
+			display: none;
+		}
 
-        .menu {
-            background: #f6f6f6;
-            border: 1px solid #c4cfdd;
-            box-shadow: 1px 4px 14px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            font-family: DM Sans;
-            font-weight: bold;
-            font-size: 1.4rem;
-            color: #274160;
-            position: absolute;
-            right: 4%;
-            top: 75%;
-            min-width: 112px;
-            min-height: 42px;
-            cursor: pointer;
+		.menu {
+			background: #f6f6f6;
+			border: 1px solid #c4cfdd;
+			box-shadow: 1px 4px 14px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+			font-family: DM Sans;
+			font-weight: bold;
+			font-size: 1.4rem;
+			color: #274160;
+			position: absolute;
+			right: 4%;
+			top: 75%;
+			min-width: 112px;
+			min-height: 42px;
+			cursor: pointer;
 
-            &:hover {
-                background: #ffffff;
-                font-size: 1.6rem;
-            }
-        }
-    }
+			&:hover {
+				background: #ffffff;
+				font-size: 1.6rem;
+			}
+		}
+	}
 }

@@ -1,92 +1,112 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css?family=DM+Sans&display=swap");
 
 $dark-background: #274160;
 $light-background: #355478;
 $font-color: white;
-$header-font: 'Poppins', sans-serif;
-$text-font: 'DM Sans', serif;
+$header-font: "Poppins", sans-serif;
+$text-font: "DM Sans", serif;
 
 .account-one {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
 
-    header {
-        margin-top: 7em;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        background-color: $light-background;
-        font-family: 'Poppin', sans-serif;
-        .fas {
-            font-size: 3em;
-            margin-left: 0.5em;
-            color: white;
-        }
+	header {
+		margin-top: 16em;
+		display: flex;
+		width: 45%;
+		border-radius: 50px;
+		justify-content: space-evenly;
+		align-items: center;
+		background-color: $light-background;
+		font-family: $text-font;
+		.fas {
+			font-size: 3em;
+			margin-left: 0.5em;
+			color: white;
+		}
 
-        h4 {
-            font-size: 3em;
-            padding: 3%;
-            text-align: center;
-            color: white;
-        }
-    }
+		h4 {
+			font-size: 3.5em;
+			width: 100%;
+			padding: 3%;
+			text-align: center;
+			color: white;
+		}
+	}
 
-    form {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 2em;
-        position: relative;
-        font-family: 'DM Sans', sans-serif;
+	form {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		flex-direction: column;
+		margin-top: 2em;
+		position: relative;
+		font-family: "DM Sans", sans-serif;
 
-        input {
-            width: 90%;
-            margin: 0.5em auto;
-            font-size: 2.3em;
-            padding: 2%;
-            border-radius: 8px;
-        }
-        .subtext {
-            font-size: 1.6em;
-            width: 80%;
-            text-align: center;
-        }
+		.labels {
+			width: 85%;
 
-        .checkboxes {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
+			h1 {
+				text-align: left;
+				margin-left: 1.3em;
+				font-size: 2.5em;
+			}
 
-            div {
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                width: 90%;
-                margin: 1em auto;
+			p {
+				text-align: left;
+				font-size: 1.5em;
+				margin-top: 2em;
+				margin-left: 2.3em;
+			}
+		}
 
-                input {
-                    height: 1em;
-                    width: 1em;
-                    margin: 1em 0;
-                }
+		input {
+			width: 90%;
+			margin: 0.5em auto;
+			font-size: 2.3em;
+			padding: 2%;
+			border-radius: 8px;
+		}
+		.subtext {
+			font-size: 1.6em;
+			width: 80%;
+			text-align: center;
+		}
 
-                p {
-                    width: 80%;
-                    font-size: 2em;
-                }
-            }
-        }
-        .continue {
-            margin-bottom: 1em;
-            font-size: 2em;
-            font-family: 'Poppins', sans-serif;
-            font-weight: bold;
-        }
-    }
+		.checkboxes {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			flex-direction: column;
+			width: 100%;
+
+			div {
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+				width: 90%;
+				margin: 1em auto;
+
+				input {
+					height: 1em;
+					width: 1em;
+					margin: 1em 0;
+				}
+
+				p {
+					width: 80%;
+					font-size: 2em;
+				}
+			}
+		}
+		.continue {
+			margin-bottom: 1em;
+			font-size: 2em;
+			font-family: "Poppins", sans-serif;
+			font-weight: bold;
+		}
+	}
 }

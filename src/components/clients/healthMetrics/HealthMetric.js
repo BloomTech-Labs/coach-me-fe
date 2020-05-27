@@ -35,9 +35,9 @@ const HealthMetric = props => {
     const [historyScale, setHistoryScale] = useState('');
     const [historyFilter, setHistoryFilter] = useState('');
 
-    useEffect(() => {
-        dispatch(getClientRecords());
-    }, []);
+    // useEffect(() => {
+    //     dispatch(getClientRecords());
+    // }, []);
 
     const handleClick = (heading, label, filter, filter2) => {
         window.scrollTo(0, 0);
@@ -88,10 +88,11 @@ const HealthMetric = props => {
             />
 
             <div className='metric-container'>
-                <div className='metric-header'>
+                <h1>Metrics</h1>
+                {/* <div className='metric-header'>
                     <h3>{translate('hello')}</h3>
                     <h2>{state.clientinfo.name}!</h2>
-                </div>
+                </div> */}
                 <div className='metric-values'>
                     <div className='health-value'>
                         <div className='metric'>
@@ -109,7 +110,7 @@ const HealthMetric = props => {
                             datesArray={datesArray}
                             metricType={'bloodGlucose'}
                         />
-                        <div className='btn-container'>
+                        {/* <div className='btn-container'>
                             <button
                                 className='metric-button'
                                 onClick={() =>
@@ -127,7 +128,7 @@ const HealthMetric = props => {
                                     src={iconSeeHistory}
                                 ></img>
                             </button>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className='health-value'>
@@ -146,7 +147,7 @@ const HealthMetric = props => {
                             datesArray={datesArray}
                             metricType={'weight'}
                         />
-                        <div className='btn-container'>
+                        {/* <div className='btn-container'>
                             <button
                                 className='metric-button'
                                 onClick={() =>
@@ -160,7 +161,7 @@ const HealthMetric = props => {
                                     src={iconSeeHistory}
                                 ></img>
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                     <div className='health-value'>
                         <div className='metric'>
@@ -179,7 +180,7 @@ const HealthMetric = props => {
                             datesArray={datesArray}
                             metricType={'bloodPressure'}
                         />
-                        <div className='btn-container'>
+                        {/* <div className='btn-container'>
                             <button
                                 className='metric-button'
                                 onClick={() =>
@@ -198,7 +199,7 @@ const HealthMetric = props => {
                                     src={iconSeeHistory}
                                 ></img>
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
