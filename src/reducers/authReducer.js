@@ -11,11 +11,12 @@ import {
 
 const initialState = {
     loggingIn: false,
+    loggedIn: false,
     isfetching: false,
     error: null
 };
 
-export default (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case REGISTER_START:
             return {
@@ -26,7 +27,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loggingIn: false,
-                success: action.payload
+                success: action.payload,
+                loggedIn: true
             };
         case REGISTER_FAIL:
             return {
@@ -42,6 +44,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loggingIn: false,
+                loggedIn: true
                 
             };
         case LOGIN_FAIL:
@@ -53,3 +56,5 @@ export default (state = initialState, action) => {
             return state;
     }
 };
+
+export default authReducer;

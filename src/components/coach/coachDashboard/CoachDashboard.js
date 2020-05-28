@@ -13,17 +13,19 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
 const CoachDashboard = props => {
     const [clientprofile, setclientprofile] = useState();
+    const [coachName, setCoachName] = useState({
+        first: '',
+        last: ''
+    })
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
-    const token = localStorage.getItem('token');
+    
     useEffect(() => {
-        // Gt request to airtable endpoint with api key appended to the end of url
-
-        if (token) {
-            dispatch(getClients(token));
-        }
-        // eslint-disable-next-line
-    }, [token]);
+            dispatch(getClients());
+            setCoachName({...coachName,first: localStorage.getItem('first_name'), last: localStorage.getItem('last_name')})
+        
+    }, []);
+    console.log(coachName)
 
     //This sets the default patient as the first in the list for the initial load.
     useEffect(() => {
@@ -40,14 +42,18 @@ const CoachDashboard = props => {
 
     return (
         <>
-            <CoachHeader {...props} />
+            
             <div className='coachdashboard-container'>
+                
+   
                 <div className='clientlist-container'>
                     <SearchForm setClient={setClient} />
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
-                    <GoalsDisplay clientprofile={clientprofile} />
+                    <GoalsDisplay 
+                    coachName={coachName}
+                    clientprofile={clientprofile} />
                     <Metrics clientprofile={clientprofile} />
                 </div>
                 <div className='coach-messaging'>

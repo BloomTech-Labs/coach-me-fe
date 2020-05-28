@@ -28,13 +28,7 @@ const GoalsDisplay = props => {
     return (
         <div className='goals-wrapper'>
             <div className='label'>
-                <label>Goals</label>
-                <button
-                    className='goals-wrapper-button'
-                    onClick={() => toggleModal()}
-                >
-                    View all
-                </button>
+    <h4>Welcome, {props.coachName.first} {props.coachName.last}!</h4>
             </div>
             {state.clientGoals
                 .filter(x => x.goal !== undefined)
