@@ -17,7 +17,7 @@
 
 | [Joshua Humprey](https://github.com/Humphreyj) | [Trey McGarity](https://github.com/TreyMcGarity) | 
 
-[<img src="https://avatars3.githubusercontent.com/u/42652624?s=400&u=67ee8021c518676f3ec3e99d8c12906b36842365&v=4.png" width= "200" />](https://github.com/Humphreyj) | [<img src="https://avatars1.githubusercontent.com/u/42306353?s=460&u=65371f6479b1595f917516932f5bb3658fc38ded&v=4.png" width = "200" />](https://github.com/TreyMcGarity)
+[<img src="https://avatars3.githubusercontent.com/u/25293087?s=400&u=b5f66eff93935f3aaf92d4dd4c8cf1121d633654&v=4.png" width= "200" />](https://github.com/Humphreyj) | [<img src="https://avatars1.githubusercontent.com/u/42306353?s=460&u=65371f6479b1595f917516932f5bb3658fc38ded&v=4.png" width = "200" />](https://github.com/TreyMcGarity)
 
 # Previous Web Developers
 
