@@ -10,7 +10,7 @@ const ClientDashboard = (props) => {
     return (
         <div className='client-dashboard'>
             <div className="profile-container">
-                {`Welcome ${props.info.first_name} ${props.info.last_name}!`}
+                {`Welcome ${props.info.first_name}!`}
             </div>
             <Notifications />
             <ResourceCenter />

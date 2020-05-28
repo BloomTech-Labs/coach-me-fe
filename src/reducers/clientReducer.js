@@ -17,8 +17,8 @@ const initialState = {
     LoginAttempts: 0,
     clientinfo: {
         id: '',
-        first_name: '"First name"',
-        last_name: '"Last name"',
+        first_name: '',
+        last_name: '',
         email: '',
         phone: '',
         dob: '',
