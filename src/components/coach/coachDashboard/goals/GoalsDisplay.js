@@ -13,10 +13,8 @@ const GoalsDisplay = props => {
     const { clientprofile } = props;
 
     useEffect(() => {
-        if (clientprofile && clientprofile.clientId) {
-            dispatch(getGoals(clientprofile.clientId));
-        }
-    }, [clientprofile]);
+     
+    }, []);
 
     const toggleModal = e => {
         setShow(!show);

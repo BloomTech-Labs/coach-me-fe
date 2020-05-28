@@ -21,16 +21,16 @@ const CoachDashboard = props => {
     const dispatch = useDispatch();
     
     useEffect(() => {
-            dispatch(getClients());
+            dispatch(getClients())
             setCoachName({...coachName,first: localStorage.getItem('first_name'), last: localStorage.getItem('last_name')})
         
     }, []);
     console.log(coachName)
 
     //This sets the default patient as the first in the list for the initial load.
-    useEffect(() => {
-        setclientprofile(state.clientRecords[0]);
-    }, [state.clientRecords]);
+    // useEffect(() => {
+    //     setclientprofile(state.clientRecords[0]);
+    // }, [state.clientRecords]);
 
     const setClient = clientID => {
         state.clientRecords.filter(client => {

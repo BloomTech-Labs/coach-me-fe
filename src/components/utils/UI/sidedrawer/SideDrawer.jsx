@@ -4,12 +4,20 @@ import { connect } from 'react-redux';
 import { ReactComponent as Logo } from '../.././assets/coachmelogo-white.svg';
 import Backdrop from '../Backdrop';
 import UIContext from '../../context/UIContext';
+import api from '../../api';
+
 import './sideDrawer.scss';
 const SideDrawer = (props) => {
     const { drawerOpen, backdropHandler } = useContext(UIContext);
     useEffect(() => {
         console.log(props.loggedIn)
     },[])
+ 
+    const logout = () => {
+        localStorage.clear()
+        
+        api.post(`${process.env.REACT_APP_BACKEND}/auth/logout`, {withCredentials: true})
+    }
     return (
         <div>
             {console.log(props.loggedIn)}
@@ -20,9 +28,11 @@ const SideDrawer = (props) => {
                 <Logo className='logo' />
                 <div className="nav">
                     <Link to='/'>Home</Link>
-                    <Link to='/'>Dashboard</Link>
+                    <Link to='/dashboard'>Dashboard</Link>
                     <Link to='/'>Support</Link>
-                    <Link to='/'>Logout</Link>
+                    <Link
+                    onClick={logout}
+                     to='/'>Logout</Link>
                 </div>
    
             </div>
