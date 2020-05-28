@@ -13,7 +13,7 @@ const LoginClient = (props) => {
 	const [hidden, setHidden] = useState(true);
 	const [source, setSource] = useState(Show);
 	const handleClick = () => {
-		if (hidden == false) {
+		if (hidden === false) {
 			setHidden(true);
 			setSource(Show);
 		} else {

@@ -67,7 +67,6 @@ export default (state = initialState, action) => {
                 ...state,
                 isfetching: false,
                 clientinfo: {
-                    ...state,
                     first_name: action.payload.first_name,
                     last_name: action.payload.last_name,
                     email: action.payload.email,

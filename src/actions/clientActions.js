@@ -16,16 +16,24 @@ import {
 } from './types';
 
 export const getClientInfoRegister = props => dispatch => {
-    console.log(props)
     axios
         .post(
             `https://coach-me-be.herokuapp.com/api/auth/register?user_type=client`, 
-            props.userAccountDetails
+            {
+                first_name: props.userAccountDetails.first_name,
+                last_name: props.userAccountDetails.last_name,
+                email: props.userAccountDetails.email,
+                phone: props.userAccountDetails.phone,
+                dob: props.userAccountDetails.dob,
+                password:props.userAccountDetails.password,
+                confirm_password: props.userAccountDetails.confirm_password,
+                height: props.userAccountDetails.height,
+                sex: props.userAccountDetails.sex,
+                gender: props.userAccountDetails.gender
+            },
+            { withCredentials: true }
         )
         .then(res => {
-            console.log(res);
-            localStorage.setItem('token', res.data.token);
-
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject
@@ -39,15 +47,17 @@ export const getClientInfoRegister = props => dispatch => {
         });
 };
 
-export const getClientInfoLogin = props => dispatch => {
-    console.log(props)
+export const getClientInfoLogin = (props) => dispatch => {
     axios
         .post(
             `https://coach-me-be.herokuapp.com/api/auth/login?user_type=client`,
-            props.input
+            {
+                email: props.input.email, 
+                password: props.input.password
+            }, 
+            { withCredentials: true }
         )
         .then(res => {
-            localStorage.setItem('token', res.data.token);
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject
