@@ -44,7 +44,8 @@ export const loginCoach = coachCreds => dispatch => {
         .then(res => {
             console.log(res.data)
             dispatch({
-                type: LOGIN_SUCCESS
+                type: LOGIN_SUCCESS,
+                payload: res.data
             });
             return res.data
         })
@@ -58,14 +59,16 @@ export const loginCoach = coachCreds => dispatch => {
 //Get Coach Clientlist
 export const getClients = token => dispatch => {
     
-    dispatch({ type: GET_RECORDS_START });
+    
     api
         .get(`${process.env.REACT_APP_BACKEND}/coach/me`, {withCredentials: true})
         .then(res => {
             console.log(res.data)
             localStorage.setItem('first_name', res.data.first_name)
             localStorage.setItem('last_name', res.data.last_name)
-            return res 
+            dispatch({ type: GET_RECORDS_START,
+                payload: res.data });
+            return res.data 
             
            
         })

@@ -73,7 +73,7 @@ const SearchForm = props => {
             </form>
 
             <div className='scroll-list'>
-                {ClientList &&
+                {/* {ClientList &&
                     ClientList.map(client => (
                         <div
                             className='client-card'
@@ -91,7 +91,8 @@ const SearchForm = props => {
                                 check={check}
                             />
                         </div>
-                    ))}
+                    ))} */}
+                    <h4 className='aint'>You Currently have no clients!</h4>
             </div>
         </>
     );

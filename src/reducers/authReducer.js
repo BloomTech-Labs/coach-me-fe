@@ -13,7 +13,8 @@ const initialState = {
     loggingIn: false,
     loggedIn: false,
     isfetching: false,
-    error: null
+    error: null,
+    data: {}
 };
 
 const authReducer = (state = initialState, action) => {
@@ -44,7 +45,8 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loggingIn: false,
-                loggedIn: true
+                loggedIn: true,
+                data: action.payload
                 
             };
         case LOGIN_FAIL:

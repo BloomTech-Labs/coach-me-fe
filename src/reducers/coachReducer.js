@@ -25,8 +25,8 @@ import {
 const initialState = {
     messageHistory: [],
     creds: {
-        message: '',
-        Phone: ''
+        first_name: '',
+        last_name: ''
     },
     loading: false,
     error: null,
@@ -70,7 +70,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: true,
-                error: ''
+                first_name: action.payload.first_name,
+                last_name: action.payload.last_name
             };
         case GET_RECORDS_SUCCESS:
             return {
