@@ -10,7 +10,7 @@ const ClientDashboard = (props) => {
     return (
         <div className='client-dashboard'>
             <div className="profile-container">
-                {`Welcome ${props.info.first_name}!`}
+                {`Welcome ${props.first_name}!`}
             </div>
             <Notifications />
             <ResourceCenter />
@@ -23,7 +23,6 @@ const ClientDashboard = (props) => {
 const mapStateToProps = state => {
     console.log(state.client.clientinfo)
     return {
-        info : {
         first_name: state.client.clientinfo.first_name,
         last_name: state.client.clientinfo.last_name,
         email: state.client.clientinfo.email,
@@ -33,8 +32,7 @@ const mapStateToProps = state => {
         confirm_password: state.client.clientinfo.confirm_password,
         height: state.client.clientinfo.height,
         sex: state.client.clientinfo.sex,
-        gender: state.client.clientinfo.gender,
-        }
+        gender: state.client.clientinfo.gender
     }
   }
   

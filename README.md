@@ -15,20 +15,15 @@
 
 # Current Web Developers
 
-| [Joshua Humprey](https://github.com/FrancoisCoding) | [Trey McGarity](https://github.com/TreyMcGarity) | 
+| [Joshua Humprey](https://github.com/Humphreyj) | [Trey McGarity](https://github.com/TreyMcGarity) | 
+
+[<img src="https://avatars3.githubusercontent.com/u/42652624?s=400&u=67ee8021c518676f3ec3e99d8c12906b36842365&v=4.png" width= "200" />](https://github.com/Humphreyj) | [<img src="https://avatars1.githubusercontent.com/u/42306353?s=460&u=65371f6479b1595f917516932f5bb3658fc38ded&v=4.png" width = "200" />](https://github.com/TreyMcGarity)
 
 # Previous Web Developers
 
-| [Nick Ballenger](https://github.com/Nick-Ballenger) | [Pat Palmerston](https://github.com/patpalmerston) | [Josh Gorton](https://github.com/jjgorton) | [Darren Richardson](https://github.com/AntonioUniverse) | [Mason Karsevar](https://github.com/Karsevar) | [Jenny Li](https://github.com/jli226) |
+| [Isaiah](https://github.com/FrancoisCoding) | [Nick Ballenger](https://github.com/Nick-Ballenger) | [Pat Palmerston](https://github.com/patpalmerston) | [Josh Gorton](https://github.com/jjgorton) | [Darren Richardson](https://github.com/AntonioUniverse) | [Mason Karsevar](https://github.com/Karsevar) | [Jenny Li](https://github.com/jli226) |
 
-
-
-
-
-| [<img src="https://avatars1.githubusercontent.com/u/42306353?s=460&u=65371f6479b1595f917516932f5bb3658fc38ded&v=4.png" width = "200" />](https://github.com/TreyMcGarity)
-| [<img src="https://avatars1.githubusercontent.com/u/42652624?s=400&u=3dec76e609673645ad239bbadbdb5a082acd008a&v=4.png" width = "200" />](https://github.com/FrancoisCoding)
-
-| [<img src="https://avatars3.githubusercontent.com/u/46663387?s=460&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars2.githubusercontent.com/u/45890605?s=460&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/46949726?s=460&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/43352876?s=460&v=4" width = "200" />](https://github.com/) |
+| [<img src="https://avatars1.githubusercontent.com/u/42652624?s=400&u=3dec76e609673645ad239bbadbdb5a082acd008a&v=4.png" width = "200" />](https://github.com/FrancoisCoding) | [<img src="https://avatars3.githubusercontent.com/u/46663387?s=460&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars2.githubusercontent.com/u/45890605?s=460&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/46949726?s=460&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/43352876?s=460&v=4" width = "200" />](https://github.com/) |
 | [<img src="https://avatars3.githubusercontent.com/u/30188331?s=460&v=4" width = "200" />](https://github.com/)
 | [<img src="https://avatars0.githubusercontent.com/u/43501127?s=460&v=4" width = "200" />](https://github.com/) |
 

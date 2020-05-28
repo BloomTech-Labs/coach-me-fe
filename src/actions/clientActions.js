@@ -47,7 +47,7 @@ export const getClientInfoRegister = props => dispatch => {
         });
 };
 
-export const getClientInfoLogin = (props) => dispatch => {
+export const getClientInfoLogin = props => dispatch => {
     axios
         .post(
             `https://coach-me-be.herokuapp.com/api/auth/login?user_type=client`,
@@ -58,6 +58,7 @@ export const getClientInfoLogin = (props) => dispatch => {
             { withCredentials: true }
         )
         .then(res => {
+            props.history.push('/dashboard-client');
             dispatch({
                 type: GET_CLIENTS_SUCCESS,
                 payload: res.data.clientObject
