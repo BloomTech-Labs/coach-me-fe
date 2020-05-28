@@ -24,7 +24,7 @@ const initialState = {
         dob: '',
         password: '',
         confirm_password: '',
-        height: '',
+        height: 0,
         sex: '',
         gender:'',
         coach: ''
