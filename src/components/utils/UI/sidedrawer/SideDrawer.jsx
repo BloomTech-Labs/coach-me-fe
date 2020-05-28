@@ -1,13 +1,18 @@
-import React,{useContext} from 'react';
+import React,{useContext, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { ReactComponent as Logo } from '../.././assets/coachmelogo-white.svg';
 import Backdrop from '../Backdrop';
 import UIContext from '../../context/UIContext';
 import './sideDrawer.scss';
-const SideDrawer = () => {
+const SideDrawer = (props) => {
     const { drawerOpen, backdropHandler } = useContext(UIContext);
+    useEffect(() => {
+        console.log(props.loggedIn)
+    },[])
     return (
         <div>
+            {console.log(props.loggedIn)}
             <Backdrop
             show={drawerOpen}
             set={backdropHandler} />
@@ -24,5 +29,10 @@ const SideDrawer = () => {
         </div>
     );
 }
+const mapStateToProps = state => {
+    return {
+        loggedIn: state.loggedIn
+    }
+}
 
-export default SideDrawer;
+export default connect(mapStateToProps)(SideDrawer);
