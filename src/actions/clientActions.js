@@ -1,4 +1,7 @@
 import axios from 'axios';
+import toastr from 'toastr';
+import withAxios from '../components/utils/api';
+
 import {
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
@@ -16,9 +19,9 @@ import {
 } from './types';
 
 export const getClientInfoRegister = props => dispatch => {
-    axios
+    withAxios()
         .post(
-            `https://coach-me-be.herokuapp.com/api/auth/register?user_type=client`, 
+            `/auth/register?user_type=client`, 
             {
                 first_name: props.userAccountDetails.first_name,
                 last_name: props.userAccountDetails.last_name,
@@ -33,11 +36,8 @@ export const getClientInfoRegister = props => dispatch => {
             },
             { withCredentials: true }
         )
-        .then(res => {
-            dispatch({
-                type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject
-            });
+        .then(() => {
+            props.history.push('/dashboard-client');
         })
         .catch(err => {
             dispatch({
@@ -48,40 +48,30 @@ export const getClientInfoRegister = props => dispatch => {
 };
 
 export const getClientInfoLogin = props => dispatch => {
-    axios
+    withAxios()
         .post(
-            `https://coach-me-be.herokuapp.com/api/auth/login?user_type=client`,
+            `/auth/login?user_type=client`,
             {
                 email: props.input.email, 
                 password: props.input.password
             }, 
             { withCredentials: true }
         )
-        .then(res => {
+        .then(() => {
             props.history.push('/dashboard-client');
-            dispatch({
-                type: GET_CLIENTS_SUCCESS,
-                payload: res.data.clientObject
-            });
         })
         .catch(err => {
-            dispatch({
-                type: GET_CLIENTS_FAILURE,
-                payload: err.response
-            });
+            toastr.error('There was an error.');
         });
 };
 
 export const sendEmail = ({cred_value, method}) => dispatch => {
     console.log(method, cred_value)
-    axios
-        .post(`https://coach-me-be.herokuapp.com/api/auth/forgot_password?user_type=client`,
+    withAxios()
+        .post(`/auth/forgot_password?user_type=client`,
         {method, cred_value})
-        .then(res => {
-            dispatch({
-                type: EMAIL_REQUEST_SUCCESS,
-                payload: res.data.clientObject
-            });
+        .then(() => {
+
         })
         .catch(err => {
             dispatch({
@@ -93,14 +83,11 @@ export const sendEmail = ({cred_value, method}) => dispatch => {
 
 export const getNewPassword = ({newPassword, repPassword, token}) => dispatch => {
     console.log(newPassword, repPassword)
-    axios
-        .post(`https://coach-me-be.herokuapp.com/api/auth/forgot_password/password_recovery?token=${token}`,
+    withAxios()
+        .post(`/auth/forgot_password/password_recovery?token=${token}`,
         {password: newPassword})
-        .then(res => {
-            dispatch({
-                type: PASSWORD_RESET_SUCCESS,
-                payload: res.data.clientObject
-            });
+        .then(() => {
+
         })
         .catch(err => {
             dispatch({
@@ -110,6 +97,25 @@ export const getNewPassword = ({newPassword, repPassword, token}) => dispatch =>
         });
 };
 
+
+export const getClientInfo = (id) => dispatch => {
+
+    withAxios()
+        .get(`/api/client/me`, {withCredentials: true})
+        .then(res => {
+            console.log(res)
+            dispatch({
+                type: GET_CLIENTS_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_CLIENTS_FAILURE,
+                payload: err.message
+            });
+        });
+}
 
 //legacy
 export const addMetric = metricUpdate => dispatch => {

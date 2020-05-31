@@ -5,7 +5,7 @@ import "../loginClient.scss";
 
 const EmailRequest = props => {
     const dispatch = useDispatch();
-    const [input, setinput] = useState({ cred_value: ""});
+    const [input, setinput] = useState({ cred_value: "", method: "email"});
     const handleChange = e => {
         setinput({ ...input, [e.target.name]: e.target.value });
     };
