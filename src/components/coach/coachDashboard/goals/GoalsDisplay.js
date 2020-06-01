@@ -13,10 +13,8 @@ const GoalsDisplay = props => {
     const { clientprofile } = props;
 
     useEffect(() => {
-        if (clientprofile && clientprofile.clientId) {
-            dispatch(getGoals(clientprofile.clientId));
-        }
-    }, [clientprofile]);
+     
+    }, []);
 
     const toggleModal = e => {
         setShow(!show);
@@ -28,7 +26,7 @@ const GoalsDisplay = props => {
     return (
         <div className='goals-wrapper'>
             <div className='label'>
-    <h4>Welcome, {props.coachName.first} {props.coachName.last}!</h4>
+    
             </div>
             {state.clientGoals
                 .filter(x => x.goal !== undefined)
