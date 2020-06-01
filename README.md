@@ -1,11 +1,7 @@
 # 1️⃣ Coach Me
 
-
-  
-
 1️⃣ You can find the deployed project at (https://app.coachmehealth.org)
- 
-  
+
 ## Code Climate
 
 ![](https://api.codeclimate.com/v1/badges/bc888c901260b12fae40/maintainability)
@@ -15,15 +11,12 @@
 
 # Current Web Developers
 
-| [Joshua Humprey](https://github.com/FrancoisCoding) | [Trey McGarity](https://github.com/TreyMcGarity) | 
+| [Joshua Humprey](https://github.com/FrancoisCoding) | [Trey McGarity](https://github.com/TreyMcGarity) |
+[Jesse Tingle](https://github.com/Jesse-Tingle)
 
 # Previous Web Developers
 
 | [Nick Ballenger](https://github.com/Nick-Ballenger) | [Pat Palmerston](https://github.com/patpalmerston) | [Josh Gorton](https://github.com/jjgorton) | [Darren Richardson](https://github.com/AntonioUniverse) | [Mason Karsevar](https://github.com/Karsevar) | [Jenny Li](https://github.com/jli226) |
-
-
-
-
 
 | [<img src="https://avatars1.githubusercontent.com/u/42306353?s=460&u=65371f6479b1595f917516932f5bb3658fc38ded&v=4.png" width = "200" />](https://github.com/TreyMcGarity)
 | [<img src="https://avatars1.githubusercontent.com/u/42652624?s=400&u=3dec76e609673645ad239bbadbdb5a082acd008a&v=4.png" width = "200" />](https://github.com/FrancoisCoding)
@@ -36,7 +29,6 @@
 
 <br>
 # UX
-
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
@@ -58,53 +50,53 @@ Coach Me is an application created with real communication between health coache
 
 ### 4️⃣ Key Features
 
-- Log user health data
+-   Log user health data
 
-- Data Visualization of health metrics
-- Coach Dashboard (easily searchable and interactive list of clients and client data)
-- SMS messaging (twilio integration)
-- SMS Reminder/Scheduler (integrating Cron Jobs)
+-   Data Visualization of health metrics
+-   Coach Dashboard (easily searchable and interactive list of clients and client data)
+-   SMS messaging (twilio integration)
+-   SMS Reminder/Scheduler (integrating Cron Jobs)
 
 ## 1️⃣ Tech Stack
 
 ### Front end built using:
 
-- React
+-   React
 
-- Redux
+-   Redux
 
-- Sass
+-   Sass
 
-- Axios
+-   Axios
 
-- Redux-Thunk
-- Redux-Logger
-- Twilio
-- Chart JS
-- Cypress
-- Font Awesome
-- Moment JS
-- Yup
+-   Redux-Thunk
+-   Redux-Logger
+-   Twilio
+-   Chart JS
+-   Cypress
+-   Font Awesome
+-   Moment JS
+-   Yup
 
 #### React
 
-- Familiarity with react (lower technical debt)
+-   Familiarity with react (lower technical debt)
 
-- Single page application needed
+-   Single page application needed
 
-- Faster Load Times (more performant)
+-   Faster Load Times (more performant)
 
-- Reusable UI Components
+-   Reusable UI Components
 
 #### Front end deployed to (app.coachmehealth.org)
 
 #### [Back end](<[https://coach-me-backend.herokuapp.com/](https://coach-me-backend.herokuapp.com/)>) built using:
 
-- Node JS
-- Express
-- Twilio
-- Cron Jobs
-- Airtable
+-   Node JS
+-   Express
+-   Twilio
+-   Cron Jobs
+-   Airtable
 
 # APIs
 
@@ -142,10 +134,10 @@ In the root folder run "yarn"
 
 ## Other Scripts
 
-- yarn start (starts local server)
+-   yarn start (starts local server)
 
-* yarn cypress - runs all cypress tests
-* yarn test - runs all react testing tests
+*   yarn cypress - runs all cypress tests
+*   yarn test - runs all react testing tests
 
 # Contributing
 
@@ -157,13 +149,13 @@ Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it 
 
 **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
 
-- Check first to see if your issue has already been reported.
+-   Check first to see if your issue has already been reported.
 
-- Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+-   Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
 
-- Create a live example of the problem.
+-   Create a live example of the problem.
 
-- Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
+-   Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests
 
@@ -177,15 +169,15 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 #### Pull Request Guidelines
 
-- Ensure any install or build dependencies are removed before the end of the layer when doing a build.
+-   Ensure any install or build dependencies are removed before the end of the layer when doing a build.
 
-- Update the README.md with details of changes to the interface, including new plist variables, exposed ports, useful file locations and container parameters.
+-   Update the README.md with details of changes to the interface, including new plist variables, exposed ports, useful file locations and container parameters.
 
-- Ensure that your code conforms to our existing code conventions and test coverage.
+-   Ensure that your code conforms to our existing code conventions and test coverage.
 
-- Include the relevant issue number, if applicable.
+-   Include the relevant issue number, if applicable.
 
-- You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
+-   You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
 
 ### Attribution
 
