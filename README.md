@@ -1,6 +1,6 @@
 # 1️⃣ Coach Me
 
-1️⃣ You can find the deployed project at (https://app.coachmehealth.org)
+1️⃣ You can find the deployed project at (https://lambda-coachme.com)
 
 ## Code Climate
 
