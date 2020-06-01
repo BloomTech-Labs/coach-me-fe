@@ -14,6 +14,8 @@
 | [Joshua Humprey](https://github.com/FrancoisCoding) | [Trey McGarity](https://github.com/TreyMcGarity) |
 [Jesse Tingle](https://github.com/Jesse-Tingle)
 
+|[<img src="https://avatars.githubusercontent.com/Jesse-Tingle" width= "200" /> ](https://github.com/Jesse-Tingle)
+
 # Previous Web Developers
 
 | [Nick Ballenger](https://github.com/Nick-Ballenger) | [Pat Palmerston](https://github.com/patpalmerston) | [Josh Gorton](https://github.com/jjgorton) | [Darren Richardson](https://github.com/AntonioUniverse) | [Mason Karsevar](https://github.com/Karsevar) | [Jenny Li](https://github.com/jli226) |
