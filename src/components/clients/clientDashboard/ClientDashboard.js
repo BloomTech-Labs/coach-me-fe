@@ -19,7 +19,7 @@ const ClientDashboard = (props) => {
         <div className='client-dashboard'>
             <div className="profile-container">
                 {console.log(props.state.email)}
-                { <h4>Welcome {props.state.email}</h4> }
+                { <h4>Welcome, {props.state.first_name}!</h4> }
             </div>
             <Notifications />
             <ResourceCenter />
