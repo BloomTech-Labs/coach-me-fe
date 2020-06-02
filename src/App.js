@@ -16,6 +16,9 @@ function App() {
     const backdropHandler = () => {
       setDrawerOpen(!drawerOpen)
     }
+    const test = () => {
+        console.log('yo dawg')
+    }
     return (
         <UIContext.Provider value={{drawerOpen,backdropHandler}}>
             <Router>
