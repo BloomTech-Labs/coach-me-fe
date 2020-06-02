@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import SideOne from '../SideOne';
 import CoachForm from './CoachForm';
+
 // Redux Action
 import { registerCoach } from '../../../actions/authActions';
 
@@ -30,8 +31,9 @@ function CoachRegistration(props) {
     };
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(registerCoach(coachCredentials)).then(() => {
-            props.history.push('/dashboard');
+        dispatch(registerCoach(coachCredentials)).then((res) => {
+           console.log(res)
+           props.history.push('/dashboard')
         });
     };
     return (

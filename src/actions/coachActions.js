@@ -1,4 +1,4 @@
-import axios from 'axios';
+import api from '../components/utils/api';
 import {
     GET_TEXT_START,
     GET_TEXT_SUCCESS,
@@ -29,7 +29,7 @@ const headers = {
 
 export const getMessageHistory = liveNumber => dispatch => {
     dispatch({ type: GET_TEXT_START });
-    axios
+    api
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/messagehistory/${liveNumber}`
         )
@@ -51,7 +51,7 @@ export const getMessageHistory = liveNumber => dispatch => {
 export const postMessage = post => dispatch => {
     // console.log(post);
     dispatch({ type: ADD_TEXT_START });
-    axios
+    api
 
         .post(`${process.env.REACT_APP_BACK_END_URL}/twilioRoute/twilio`, post)
 
@@ -70,11 +70,10 @@ export const postMessage = post => dispatch => {
 
 export const getClients = token => dispatch => {
     dispatch({ type: GET_RECORDS_START });
-    axios
-        .get(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getPatients`, {
-            headers: headers
-        })
+    api
+        .get(`http://localhost:5000/api/coach/me`,{withCredentials: true})
         .then(res => {
+            console.log(res)
             // console.log('coach actions', res.data);
 
             dispatch({
@@ -92,7 +91,7 @@ export const getClients = token => dispatch => {
 
 export const getClientMetrics = id => dispatch => {
     dispatch({ type: GET_METRICS_START });
-    axios
+    api
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientMetrics/${id}`,
             {
@@ -117,7 +116,7 @@ export const getClientMetrics = id => dispatch => {
 };
 
 export const getLastCheckInTime = id => dispatch => {
-    axios
+    api
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getLastCheckinTime/${id}`,
             {
@@ -143,7 +142,7 @@ export const getLastCheckInTime = id => dispatch => {
 };
 
 export const getGoals = id => dispatch => {
-    axios
+    api
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientGoals/${id}`,
             {
@@ -172,7 +171,7 @@ export const getGoals = id => dispatch => {
 export const getScheduledMessage = id => dispatch => {
     // console.log('getScheduledMessages ID', id);
     dispatch({ type: GET_SCHEDULE_MESSAGE_START });
-    axios
+    api
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/getScheduled/${id}`,
             {
@@ -200,7 +199,7 @@ export const getScheduledMessage = id => dispatch => {
 // post scheduled message
 export const addScheduledMessage = message => dispatch => {
     dispatch({ type: ADD_SCHEDULE_MESSAGE_START });
-    axios
+    api
         .post(
             `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/postScheduled`,
             message,
@@ -229,7 +228,7 @@ export const addScheduledMessage = message => dispatch => {
 export const deleteScheduledMessage = (id, patientId) => dispatch => {
     // console.log('deleteScheduledMessages ID', id);
     dispatch({ type: DELETE_SCHEDULE_MESSAGE_START });
-    axios
+    api
         .delete(
             `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/deleteScheduled/${id}`
         )
@@ -253,7 +252,7 @@ export const deleteScheduledMessage = (id, patientId) => dispatch => {
 // update scheduled message
 export const updateScheduledMessage = (id, message) => dispatch => {
     dispatch({ type: UPDATE_SCHEDULE_MESSAGE_START });
-    axios
+    api
         .put(
             `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/updateScheduled/${id}`,
             message,

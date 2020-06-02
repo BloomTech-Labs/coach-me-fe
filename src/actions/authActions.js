@@ -1,3 +1,5 @@
+import api from '../components/utils/api';
+import axiosWithCred from '../components/utils/axiosWithCred'
 import axios from 'axios';
 import {
     REGISTER_START,
@@ -14,19 +16,21 @@ import {
 //Coach Registration endpoint
 export const registerCoach = coachData => dispatch => {
     dispatch({ type: REGISTER_START });
-    return axios
+    return api()
         .post(
-            `http://localhost:5000/api/auth/register?user_type=coach`,
+            `${process.env.REACT_APP_BACKEND}/auth/register?user_type=coach`,
             coachData
         )
         .then(res => {
             console.log(res);
             dispatch({
                 type: REGISTER_SUCCESS,
-                payload: res.data.coachCredentials
+                payload: res.data
             });
+            return res.data
         })
         .catch(err => {
+            
             dispatch({
                 type: REGISTER_FAIL,
                 payload: err.message
@@ -36,8 +40,8 @@ export const registerCoach = coachData => dispatch => {
 //Coach login endpoint
 export const loginCoach = coachCreds => dispatch => {
     dispatch({ type: LOGIN_START });
-    return axios
-        .post(`http://localhost:5000/api/auth/login?user_type=coach`, coachCreds)
+    return axiosWithCred
+        .post(`${process.env.REACT_APP_BACKEND}/auth/login?user_type=coach`, coachCreds)
         .then(res => {
             console.log(res.data)
             dispatch({
@@ -55,17 +59,19 @@ export const loginCoach = coachCreds => dispatch => {
 };
 //Get Coach Clientlist
 export const getClients = token => dispatch => {
-    const headers = { Authorization: token };
-    dispatch({ type: GET_RECORDS_START });
-    axios
-        .get(`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getPatients`, {
-            headers: headers
-        })
+    
+    
+    axiosWithCred
+        .get(`${process.env.REACT_APP_BACKEND}/coach/me`)
         .then(res => {
-            dispatch({
-                type: GET_RECORDS_SUCCESS,
-                payload: res.data.patientList
-            });
+            console.log(res.data)
+            localStorage.setItem('first_name', res.data.first_name)
+            localStorage.setItem('last_name', res.data.last_name)
+            dispatch({ type: GET_RECORDS_START,
+                payload: res.data });
+            return res.data 
+            
+           
         })
         .catch(err => {
             dispatch({
