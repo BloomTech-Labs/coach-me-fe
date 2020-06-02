@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -11,7 +12,6 @@ import * as serviceWorker from './serviceWorker';
 
 //Styling
 import './index.css';
-
 ReactDOM.render(
     <Provider store={store}>
             <App />
