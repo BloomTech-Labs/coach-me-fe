@@ -1,7 +1,7 @@
 import axios from 'axios';
 import toastr from 'toastr';
-import withAxios from '../components/utils/api';
-
+import apiCall from '../components/utils/api';
+import axiosWithCred from '../components/utils/axiosWithCred';
 import {
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
@@ -19,7 +19,7 @@ import {
 } from './types';
 
 export const getClientInfoRegister = props => dispatch => {
-    withAxios()
+    apiCall()
         .post(
             `/auth/register?user_type=client`, 
             {
@@ -48,7 +48,7 @@ export const getClientInfoRegister = props => dispatch => {
 };
 
 export const getClientInfoLogin = props => dispatch => {
-    withAxios()
+    apiCall()
         .post(
             `/auth/login?user_type=client`,
             {
@@ -67,7 +67,7 @@ export const getClientInfoLogin = props => dispatch => {
 
 export const sendEmail = ({cred_value, method}) => dispatch => {
     console.log(method, cred_value)
-    withAxios()
+    apiCall()
         .post(`/auth/forgot_password?user_type=client`,
         {method, cred_value})
         .then(() => {
@@ -83,7 +83,7 @@ export const sendEmail = ({cred_value, method}) => dispatch => {
 
 export const getNewPassword = ({newPassword, repPassword, token}) => dispatch => {
     console.log(newPassword, repPassword)
-    withAxios()
+    apiCall()
         .post(`/auth/forgot_password/password_recovery?token=${token}`,
         {password: newPassword})
         .then(() => {
@@ -100,7 +100,7 @@ export const getNewPassword = ({newPassword, repPassword, token}) => dispatch =>
 
 export const getClientInfo = (id) => dispatch => {
 
-    withAxios()
+    apiCall()
         .get(`/api/client/me`, {withCredentials: true})
         .then(res => {
             console.log(res)
