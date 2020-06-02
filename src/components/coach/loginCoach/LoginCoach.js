@@ -33,9 +33,9 @@ const LoginCoach = props => {
         dispatch(loginCoach(coachCredentials)).then((res) => {
            
             console.log(res)
-            if(res === 'Login successful') {
-                 props.history.push('/dashboard');
-            }
+            
+            props.history.push('/dashboard');
+           
             
         });
     };

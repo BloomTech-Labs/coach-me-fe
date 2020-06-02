@@ -16,6 +16,7 @@
         "firebase": "^7.2.0",
         "firebaseui": "^4.2.0",
         "formik": "^1.5.8",
+        "jquery": "^3.5.1",
         "linkifyjs": "^2.1.8",
         "moment": "^2.24.0",
         "node-sass": "^4.14.1",
@@ -33,6 +34,7 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
         "socket.io-client": "^2.3.0",
+        "toastr": "^2.1.4",
         "twilio-chat": "^3.3.2",
         "yup": "^0.27.0"
     },
