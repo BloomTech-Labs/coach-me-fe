@@ -65,7 +65,7 @@ export const getClientInfoLogin = props => dispatch => {
 
 export const sendEmail = ({cred_value, method}) => dispatch => {
     console.log(method, cred_value)
-    apiCall()
+    axiosWithCred
         .post(`/auth/forgot_password?user_type=client`,
         {method, cred_value})
         .then(() => {
@@ -98,8 +98,8 @@ export const getNewPassword = ({newPassword, repPassword, token}) => dispatch =>
 
 export const getClientInfo = (id) => dispatch => {
 
-    apiCall()
-        .get(`/api/client/me`, {withCredentials: true})
+    axiosWithCred
+        .get(`/api/client/me`)
         .then(res => {
             console.log(res)
             dispatch({
@@ -118,7 +118,7 @@ export const getClientInfo = (id) => dispatch => {
 //legacy
 export const addMetric = metricUpdate => dispatch => {
     dispatch({ type: UPDATE_METRIC_START });
-    axios
+    axiosWithCred
         .post(
             `${process.env.REACT_APP_BACK_END_URL}/clientRoute/logMetrics `,
             metricUpdate,
@@ -145,7 +145,7 @@ export const addMetric = metricUpdate => dispatch => {
 
 export const getClientRecords = () => dispatch => {
     dispatch({ type: GET_METRICS_START });
-    axios
+    axiosWithCred
         .get(
             `${process.env.REACT_APP_BACK_END_URL}/clientRoute/paginationGetMetrics`,
             {
