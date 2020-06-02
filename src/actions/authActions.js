@@ -1,6 +1,7 @@
 import api from '../components/utils/api';
 import axiosWithCred from '../components/utils/axiosWithCred'
 import axios from 'axios';
+import toastr from 'toastr';
 import {
     REGISTER_START,
     REGISTER_SUCCESS,
@@ -15,9 +16,9 @@ import {
 } from './types';
 
 //Coach Registration endpoint
-export const registerCoach = coachData => dispatch => {
+export const registerCoach = (props,coachData) => dispatch => {
     dispatch({ type: REGISTER_START });
-    return api()
+    return axiosWithCred
         .post(
             `${process.env.REACT_APP_BACKEND}/auth/register?user_type=coach`,
             coachData
@@ -28,6 +29,7 @@ export const registerCoach = coachData => dispatch => {
                 type: REGISTER_SUCCESS,
                 payload: res.data
             });
+            props.history.push('/coach-login')
             return res.data
         })
         .catch(err => {
@@ -39,7 +41,7 @@ export const registerCoach = coachData => dispatch => {
         });
 };
 //Coach login endpoint
-export const loginCoach = coachCreds => dispatch => {
+export const loginCoach = (coachCreds) => dispatch => {
     dispatch({ type: LOGIN_START });
     return axiosWithCred
         .post(`${process.env.REACT_APP_BACKEND}/auth/login?user_type=coach`, coachCreds)
@@ -49,13 +51,16 @@ export const loginCoach = coachCreds => dispatch => {
                 type: LOGIN_SUCCESS,
                 payload: res.data
             });
+            
             return res.data
+            
         })
         .catch(err => {
             dispatch({
                 type: LOGIN_FAIL,
                 payload: err
             });
+            toastr.error(err)
         });
 };
 //Get Coach Clientlist

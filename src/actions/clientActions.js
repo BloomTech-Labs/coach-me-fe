@@ -22,12 +22,12 @@ import {
 } from './types';
 
 export const getClientInfoRegister = userAccountDetails => dispatch => {
-    apiCall()
+   return apiCall()
         .post(
-            `/auth/register?user_type=client`, userAccountDetails
-            
+            `${process.env.REACT_APP_BACKEND}/auth/register?user_type=client`, userAccountDetails 
         )
-        .then((res) => {
+        .then(res => {
+            console.log(res)
             console.log(res.config.data)
             dispatch({
                 type: CLIENT_REGISTER_SUCCESS,
@@ -46,12 +46,12 @@ export const getClientInfoRegister = userAccountDetails => dispatch => {
 export const getClientInfoLogin = input => dispatch => {
    return apiCall()
         .post(
-            `/auth/login?user_type=client`,input 
-        )
-        .then((res) => {   
+            `${process.env.REACT_APP_BACKEND}/auth/login?user_type=client`,input)
+        .then(res => {   
+            console.log(res.data)
             dispatch({
                 type: CLIENT_LOGIN_SUCCESS,
-                payload: res.config.data
+                payload: res.data
             })
             return res
             
@@ -97,7 +97,7 @@ export const getNewPassword = ({newPassword, repPassword, token}) => dispatch =>
 export const getClientInfo = token => dispatch => {
 
     axiosWithCred
-        .get(`/api/client/me`)
+        .get(`/client/me`)
         .then(res => {
             console.log(res)
             dispatch({

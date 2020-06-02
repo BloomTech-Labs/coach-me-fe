@@ -15,10 +15,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
 const CoachDashboard = props => {
     const [clientprofile, setclientprofile] = useState();
-    const [coachName, setCoachName] = useState({
-        first: '',
-        last: ''
-    })
+ 
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
     
@@ -39,9 +36,8 @@ const CoachDashboard = props => {
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
-                     <h4 className='coach-name'>{props.state.first_name} {props.state.last_name}</h4>}
+                     <h4 className='coach-name'>Welcome, {props.state.first_name} {props.state.last_name}</h4>
                     <GoalsDisplay 
-                    coachName={coachName}
                     clientprofile={clientprofile} />
                     <Metrics clientprofile={clientprofile} />
                 </div>

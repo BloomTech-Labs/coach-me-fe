@@ -47,10 +47,10 @@ const AccountOne = (props) => {
             show={showModal}
             set={setShowModal}
              />
-            <AccountModal
+            {/* <AccountModal
             showModal={showModal}
             setShowModal={setShowModal} 
-            />
+            /> */}
             <UserForm
             userAccountDetails={userAccountDetails}
             handleSubmit={handleSubmit}

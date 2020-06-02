@@ -7,11 +7,10 @@ import './navigation.scss';
 import { FormikProvider } from 'formik';
 import axiosWithCred from '../../axiosWithCred';
 
-const Navigation = () => {
+const Navigation = (props) => {
 
     const { backdropHandler, drawerOpen } = useContext(UIContext)
     const logout = () => {
-        localStorage.clear()
         axiosWithCred.post(`${process.env.REACT_APP_BACKEND}/auth/logout`, {withCredentials: true})
     }
     return (

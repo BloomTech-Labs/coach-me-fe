@@ -20,7 +20,9 @@ const LoginClient = (props) => {
 			setSource(Hide);
 		}
 	};
-	const handleChange = (e) => setinput({ ...input, [e.target.name]: e.target.value });
+	const handleChange = (e) => {
+		setinput({ ...input, [e.target.name]: e.target.value });
+	}
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(getClientInfoLogin(input)).then(res => {
