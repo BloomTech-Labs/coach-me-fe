@@ -29,7 +29,7 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loggingIn: false,
-                success: action.payload,
+                data: action.payload,
                 loggedIn: true
             };
         case REGISTER_FAIL:
@@ -56,7 +56,6 @@ const authReducer = (state = initialState, action) => {
                 error: action.payload
             };
         case GET_COACH_INFO:
-            console.log(action.payload)
             return {
                 ...state,
                 data: action.payload

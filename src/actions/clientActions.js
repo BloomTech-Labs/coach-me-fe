@@ -9,13 +9,16 @@ import {
     EMAIL_REQUEST_FAILURE,
     PASSWORD_RESET_SUCCESS,
     PASSWORD_RESET_FAILURE,
-
+    CLIENT_LOGIN_SUCCESS,
+    CLIENT_REGISTER_SUCCESS,
+    REGISTER_SUCCESS,
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
-    GET_METRICS_FAILURE
+    GET_METRICS_FAILURE,
+    GET_CLIENT_INFO
 } from './types';
 
 export const getClientInfoRegister = props => dispatch => {
@@ -35,8 +38,13 @@ export const getClientInfoRegister = props => dispatch => {
                 gender: props.userAccountDetails.gender
             },
         )
-        .then(() => {
-            props.history.push('/dashboard-client');
+        .then((res) => {
+            console.log(res.config.data)
+            dispatch({
+                type: CLIENT_REGISTER_SUCCESS,
+                payload: res.config.data
+            })
+            // props.history.push('/dashboard-client');
         })
         .catch(err => {
             dispatch({
@@ -46,20 +54,21 @@ export const getClientInfoRegister = props => dispatch => {
         });
 };
 
-export const getClientInfoLogin = props => dispatch => {
-    apiCall()
+export const getClientInfoLogin = input => dispatch => {
+   return apiCall()
         .post(
-            `/auth/login?user_type=client`,
-            {
-                email: props.input.email, 
-                password: props.input.password
-            }, 
+            `/auth/login?user_type=client`,input 
         )
-        .then(() => {
-            props.history.push('/dashboard-client');
+        .then((res) => {   
+            dispatch({
+                type: CLIENT_LOGIN_SUCCESS,
+                payload: res.config.data
+            })
+            return res
+            
         })
         .catch(err => {
-            toastr.error('There was an error.');
+            toastr.error(err);
         });
 };
 
@@ -96,14 +105,14 @@ export const getNewPassword = ({newPassword, repPassword, token}) => dispatch =>
 };
 
 
-export const getClientInfo = (id) => dispatch => {
+export const getClientInfo = token => dispatch => {
 
     axiosWithCred
         .get(`/api/client/me`)
         .then(res => {
             console.log(res)
             dispatch({
-                type: GET_CLIENTS_SUCCESS,
+                type: GET_CLIENT_INFO,
                 payload: res.data
             })
         })

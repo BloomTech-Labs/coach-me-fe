@@ -29,7 +29,7 @@ const LoginCoach = props => {
     };
     const handleSubmit = e => {
         e.preventDefault();
-        localStorage.clear();
+       
         dispatch(loginCoach(coachCredentials)).then((res) => {
            
             console.log(res)

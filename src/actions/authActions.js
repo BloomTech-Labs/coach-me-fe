@@ -61,7 +61,6 @@ export const loginCoach = coachCreds => dispatch => {
 //Get Coach Clientlist
 export const getClients = token => dispatch => {
     
-    
     axiosWithCred
         .get(`${process.env.REACT_APP_BACKEND}/coach/me`)
         .then(res => {

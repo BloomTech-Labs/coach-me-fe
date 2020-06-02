@@ -28,29 +28,14 @@ const CoachDashboard = props => {
         
     }, []);
     console.log(props)
-
-    //This sets the default patient as the first in the list for the initial load.
-    // useEffect(() => {
-    //     setclientprofile(state.clientRecords[0]);
-    // }, [state.clientRecords]);
-
-    const setClient = clientID => {
-        state.clientRecords.filter(client => {
-            if (clientID === client.clientId) {
-                setclientprofile(client);
-            }
-        });
-    };
-
     return (
         <>
             
             <div className='coachdashboard-container'>
                 
-                <h1>{props.state.first_name}</h1>
 
                 <div className='clientlist-container'>
-                    <SearchForm setClient={setClient} />
+                    <SearchForm  />
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
