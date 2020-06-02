@@ -51,6 +51,7 @@ const CoachDashboard = props => {
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
+                    {coachName.first === "" ? <h4 className='coach-name'>Please Wait</h4> : <h4 className='coach-name'>{coachName.first} {coachName.last}</h4>}
                     <GoalsDisplay 
                     coachName={coachName}
                     clientprofile={clientprofile} />

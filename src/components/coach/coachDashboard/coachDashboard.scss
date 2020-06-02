@@ -1,8 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 .coachdashboard-container {
 	display: flex;
-	margin-top: 10em;
+	margin-top: 8.9em;
 	height: 77vh;
+	@media(min-width: 800px) {
+		margin-top: 12em;
+	}
+
+	.coach-name {
+		text-align: center;
+		font-size: 2em;
+		margin-top: 2em;
+	}
+
+	
 
 	.clientlist-container {
 		border: 2px solid rgba(0, 0, 0, 0.05);
@@ -22,6 +33,11 @@
 		display: flex;
 		flex-direction: column;
 		border: 2px solid rgba(0, 0, 0, 0.05);
+
+		.welcome-text {
+			font-size: 2em;
+			text-align: center;
+		}
 	}
 	.coach-messaging {
 		width: 33%;

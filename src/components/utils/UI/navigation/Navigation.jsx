@@ -11,7 +11,6 @@ const Navigation = () => {
 	const { backdropHandler, drawerOpen } = useContext(UIContext);
 	const logout = () => {
 		localStorage.clear();
-
 		api.post(`${process.env.REACT_APP_BACKEND}/auth/logout`, {
 			withCredentials: true,
 		});
