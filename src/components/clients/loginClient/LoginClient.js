@@ -20,10 +20,15 @@ const LoginClient = (props) => {
 			setSource(Hide);
 		}
 	};
-	const handleChange = (e) => setinput({ ...input, [e.target.name]: e.target.value });
+	const handleChange = (e) => {
+		setinput({ ...input, [e.target.name]: e.target.value });
+	}
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(getClientInfoLogin({ input, history: props.history }));
+		dispatch(getClientInfoLogin(input)).then(res => {
+			console.log(res)
+			props.history.push('/dashboard-client');
+		});
 	};
 	return (
 		<LoginForm 

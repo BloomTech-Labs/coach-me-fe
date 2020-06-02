@@ -33,7 +33,7 @@ function CoachRegistration(props) {
         e.preventDefault();
         dispatch(registerCoach(coachCredentials)).then((res) => {
            console.log(res)
-           props.history.push('/dashboard')
+        //    props.history.push('/coach-login')
         });
     };
     return (
