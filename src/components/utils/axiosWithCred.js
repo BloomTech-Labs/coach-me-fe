@@ -6,4 +6,4 @@ const axiosWithCred = (axios.create({
     withCredentials: true
 }));
 
-export default axiosWithCred();
+export default axiosWithCred;
