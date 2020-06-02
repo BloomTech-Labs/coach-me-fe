@@ -1,4 +1,5 @@
 import api from '../components/utils/api';
+import axiosWithCred from '../components/utils/axiosWithCred'
 import axios from 'axios';
 import {
     REGISTER_START,
@@ -15,10 +16,10 @@ import {
 //Coach Registration endpoint
 export const registerCoach = coachData => dispatch => {
     dispatch({ type: REGISTER_START });
-    return api
+    return api()
         .post(
             `${process.env.REACT_APP_BACKEND}/auth/register?user_type=coach`,
-            coachData, {withCredentials: true}
+            coachData
         )
         .then(res => {
             console.log(res);
@@ -39,8 +40,8 @@ export const registerCoach = coachData => dispatch => {
 //Coach login endpoint
 export const loginCoach = coachCreds => dispatch => {
     dispatch({ type: LOGIN_START });
-    return api
-        .post(`${process.env.REACT_APP_BACKEND}/auth/login?user_type=coach`, coachCreds, {withCredentials: true})
+    return axiosWithCred
+        .post(`${process.env.REACT_APP_BACKEND}/auth/login?user_type=coach`, coachCreds)
         .then(res => {
             console.log(res.data)
             dispatch({
@@ -60,8 +61,8 @@ export const loginCoach = coachCreds => dispatch => {
 export const getClients = token => dispatch => {
     
     
-    api
-        .get(`${process.env.REACT_APP_BACKEND}/coach/me`, {withCredentials: true})
+    axiosWithCred
+        .get(`${process.env.REACT_APP_BACKEND}/coach/me`)
         .then(res => {
             console.log(res.data)
             localStorage.setItem('first_name', res.data.first_name)
