@@ -21,22 +21,11 @@ import {
     GET_CLIENT_INFO
 } from './types';
 
-export const getClientInfoRegister = props => dispatch => {
+export const getClientInfoRegister = userAccountDetails => dispatch => {
     apiCall()
         .post(
-            `/auth/register?user_type=client`, 
-            {
-                first_name: props.userAccountDetails.first_name,
-                last_name: props.userAccountDetails.last_name,
-                email: props.userAccountDetails.email,
-                phone: props.userAccountDetails.phone,
-                dob: props.userAccountDetails.dob,
-                password:props.userAccountDetails.password,
-                confirm_password: props.userAccountDetails.confirm_password,
-                height: props.userAccountDetails.height,
-                sex: props.userAccountDetails.sex,
-                gender: props.userAccountDetails.gender
-            },
+            `/auth/register?user_type=client`, userAccountDetails
+            
         )
         .then((res) => {
             console.log(res.config.data)
@@ -44,7 +33,7 @@ export const getClientInfoRegister = props => dispatch => {
                 type: CLIENT_REGISTER_SUCCESS,
                 payload: res.config.data
             })
-            // props.history.push('/dashboard-client');
+           return res
         })
         .catch(err => {
             dispatch({
