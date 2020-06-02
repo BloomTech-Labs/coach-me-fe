@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { ReactComponent as Logo } from '../.././assets/coachmelogo-white.svg';
 import Backdrop from '../Backdrop';
 import UIContext from '../../context/UIContext';
-import api from '../../api';
+import axiosWithCred from '../../axiosWithCred';
 
 import './sideDrawer.scss';
 const SideDrawer = (props) => {
@@ -16,7 +16,7 @@ const SideDrawer = (props) => {
     const logout = () => {
         localStorage.clear()
         
-        api.post(`${process.env.REACT_APP_BACKEND}/auth/logout`, {withCredentials: true})
+        axiosWithCred.post(`${process.env.REACT_APP_BACKEND}/auth/logout`, {withCredentials: true})
     }
     return (
         <div>
