@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './coachDashboard.scss';
+import {connect} from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
 import { getClients } from '../../../actions/authActions';
 import { getLastCheckInTime } from '../../../actions/coachActions';
@@ -10,6 +11,7 @@ import CoachMessaging from './coachMessaging/CoachMessaging';
 import Metrics from './coachMetricView/Metrics';
 import GoalsDisplay from './goals/GoalsDisplay';
 import 'react-perfect-scrollbar/dist/css/styles.css';
+
 
 const CoachDashboard = props => {
     const [clientprofile, setclientprofile] = useState();
@@ -22,10 +24,10 @@ const CoachDashboard = props => {
     
     useEffect(() => {
             dispatch(getClients())
-            setCoachName({...coachName,first: localStorage.getItem('first_name'), last: localStorage.getItem('last_name')})
+            // setCoachName({...coachName,first: localStorage.getItem('first_name'), last: localStorage.getItem('last_name')})
         
     }, []);
-    console.log(coachName)
+    console.log(props)
 
     //This sets the default patient as the first in the list for the initial load.
     // useEffect(() => {
@@ -45,13 +47,14 @@ const CoachDashboard = props => {
             
             <div className='coachdashboard-container'>
                 
-   
+                <h1>{props.state.first_name}</h1>
+
                 <div className='clientlist-container'>
                     <SearchForm setClient={setClient} />
                 </div>
                 <div className='clientinfo-container'>
                     <ClientInfo clientprofile={clientprofile} />
-                    {coachName.first === "" ? <h4 className='coach-name'>Please Wait</h4> : <h4 className='coach-name'>{coachName.first} {coachName.last}</h4>}
+                     <h4 className='coach-name'>{props.state.first_name} {props.state.last_name}</h4>}
                     <GoalsDisplay 
                     coachName={coachName}
                     clientprofile={clientprofile} />
@@ -65,4 +68,11 @@ const CoachDashboard = props => {
     );
 };
 
-export default CoachDashboard;
+
+const mapStateToProps = state => {
+    return {
+        state: state.coach.data
+    }
+}
+
+export default connect(mapStateToProps)(CoachDashboard);

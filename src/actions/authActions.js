@@ -10,7 +10,8 @@ import {
     LOGIN_START,
     GET_RECORDS_START,
     GET_RECORDS_SUCCESS,
-    GET_RECORDS_FAILURE
+    GET_RECORDS_FAILURE,
+    GET_COACH_INFO
 } from './types';
 
 //Coach Registration endpoint
@@ -65,9 +66,8 @@ export const getClients = token => dispatch => {
         .get(`${process.env.REACT_APP_BACKEND}/coach/me`)
         .then(res => {
             console.log(res.data)
-            localStorage.setItem('first_name', res.data.first_name)
-            localStorage.setItem('last_name', res.data.last_name)
-            dispatch({ type: GET_RECORDS_START,
+            
+            dispatch({ type: GET_COACH_INFO,
                 payload: res.data });
             return res.data 
             

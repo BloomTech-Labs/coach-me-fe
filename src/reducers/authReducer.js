@@ -5,7 +5,8 @@ import {
     REGISTER_FAIL,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGIN_START
+    LOGIN_START,
+    GET_COACH_INFO
     // LOGOUT,
 } from '../actions/types';
 
@@ -53,6 +54,12 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: action.payload
+            };
+        case GET_COACH_INFO:
+            console.log(action.payload)
+            return {
+                ...state,
+                data: action.payload
             };
         default:
             return state;
