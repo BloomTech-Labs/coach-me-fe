@@ -60,6 +60,8 @@ Coach Me is an application created with real communication between health coache
 
 ### Front end built using:
 
+<<<<<<< HEAD
+
 -   React
 
 -   Redux
@@ -75,7 +77,20 @@ Coach Me is an application created with real communication between health coache
 -   Cypress
 -   Font Awesome
 -   Moment JS
+-   # Yup
+-   React
+-   Redux
+-   Sass
+-   Axios
+-   Redux-Thunk
+-   Redux-Logger
+-   Twilio
+-   Chart JS
+-   Cypress
+-   Font Awesome
+-   Moment JS
 -   Yup
+    > > > > > > > ae37f97e5aac42d39f874c4e96437c5643b51313
 
 #### React
 

@@ -7,6 +7,10 @@ import {
     UPDATE_METRIC_FAILURE,
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
+    EMAIL_REQUEST_SUCCESS,
+    EMAIL_REQUEST_FAILURE,
+    PASSWORD_RESET_SUCCESS,
+    PASSWORD_RESET_FAILURE,
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
     GET_METRICS_FAILURE
@@ -17,14 +21,14 @@ const initialState = {
     LoginAttempts: 0,
     clientinfo: {
         id: '',
-        first_name: '"First name"',
-        last_name: '"Last name"',
+        first_name: '',
+        last_name: '',
         email: '',
         phone: '',
         dob: '',
         password: '',
         confirm_password: '',
-        height: '',
+        height: 0,
         sex: '',
         gender:'',
         coach: ''
@@ -63,11 +67,13 @@ export default (state = initialState, action) => {
                 err: action.payload
             };
         case GET_CLIENTS_SUCCESS:
+            console.log('Am I even getting here yo?')
             return {
                 ...state,
                 isfetching: false,
                 clientinfo: {
                     ...state,
+                    id: action.payload.id,
                     first_name: action.payload.first_name,
                     last_name: action.payload.last_name,
                     email: action.payload.email,
@@ -82,6 +88,30 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_CLIENTS_FAILURE:
+            return {
+                ...state,
+                isfetching: false,
+                error: action.payload
+            };
+        case EMAIL_REQUEST_SUCCESS:
+            return {
+                ...state,
+                isfetching: false,
+                error: action.payload
+            };
+        case  EMAIL_REQUEST_FAILURE:
+            return {
+                ...state,
+                isfetching: false,
+                error: action.payload
+            };
+        case PASSWORD_RESET_SUCCESS:
+            return {
+                ...state,
+                isfetching: false,
+                error: action.payload
+            };
+        case PASSWORD_RESET_FAILURE:
             return {
                 ...state,
                 isfetching: false,

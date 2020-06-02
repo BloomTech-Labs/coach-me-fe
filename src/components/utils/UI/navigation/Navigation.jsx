@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import UIContext from "../../context/UIContext";
 import { ReactComponent as Logo } from "../.././assets/coachmelogo-white.svg";
 import "./navigation.scss";
 import { FormikProvider } from "formik";
 import api from "../../api";
-import UIContext from "../../context/UIContext";
 
 const Navigation = () => {
 	const { backdropHandler, drawerOpen } = useContext(UIContext);
