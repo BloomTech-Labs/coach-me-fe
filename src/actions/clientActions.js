@@ -4,12 +4,8 @@ import apiCall from '../components/utils/api';
 import axiosWithCred from '../components/utils/axiosWithCred';
 import {
     GET_CLIENTS_SUCCESS,
-    GET_CLIENTS_FAILURE,
     EMAIL_REQUEST_SUCCESS,
-    EMAIL_REQUEST_FAILURE,
     PASSWORD_RESET_SUCCESS,
-    PASSWORD_RESET_FAILURE,
-
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
@@ -38,11 +34,8 @@ export const getClientInfoRegister = props => dispatch => {
         .then(() => {
             props.history.push('/dashboard-client');
         })
-        .catch(err => {
-            dispatch({
-                type: GET_CLIENTS_FAILURE,
-                payload: err.response
-            });
+        .catch(() => {
+            toastr.error('There was an error.');
         });
 };
 
@@ -58,7 +51,7 @@ export const getClientInfoLogin = props => dispatch => {
         .then(() => {
             props.history.push('/dashboard-client');
         })
-        .catch(err => {
+        .catch(() => {
             toastr.error('There was an error.');
         });
 };
@@ -69,13 +62,10 @@ export const sendEmail = ({cred_value, method}) => dispatch => {
         .post(`/auth/forgot_password?user_type=client`,
         {method, cred_value})
         .then(() => {
-
+            
         })
-        .catch(err => {
-            dispatch({
-                type: EMAIL_REQUEST_FAILURE,
-                payload: err.message
-            });
+        .catch(() => {
+            toastr.error('There was an error.');
         });
 };
 
@@ -87,11 +77,8 @@ export const getNewPassword = ({newPassword, repPassword, token}) => dispatch =>
         .then(() => {
 
         })
-        .catch(err => {
-            dispatch({
-                type: PASSWORD_RESET_FAILURE,
-                payload: err.message
-            });
+        .catch(() => {
+            toastr.error('There was an error.');
         });
 };
 
@@ -108,10 +95,7 @@ export const getClientInfo = (id) => dispatch => {
             })
         })
         .catch(err => {
-            dispatch({
-                type: GET_CLIENTS_FAILURE,
-                payload: err.message
-            });
+            toastr.error('There was an error.');
         });
 }
 

@@ -87,31 +87,13 @@ export default (state = initialState, action) => {
                 },
                 error: ''
             };
-        case GET_CLIENTS_FAILURE:
-            return {
-                ...state,
-                isfetching: false,
-                error: action.payload
-            };
         case EMAIL_REQUEST_SUCCESS:
             return {
                 ...state,
                 isfetching: false,
                 error: action.payload
             };
-        case  EMAIL_REQUEST_FAILURE:
-            return {
-                ...state,
-                isfetching: false,
-                error: action.payload
-            };
-        case PASSWORD_RESET_SUCCESS:
-            return {
-                ...state,
-                isfetching: false,
-                error: action.payload
-            };
-        case PASSWORD_RESET_FAILURE:
+       case PASSWORD_RESET_SUCCESS:
             return {
                 ...state,
                 isfetching: false,
