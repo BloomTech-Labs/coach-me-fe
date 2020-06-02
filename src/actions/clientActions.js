@@ -34,7 +34,6 @@ export const getClientInfoRegister = props => dispatch => {
                 sex: props.userAccountDetails.sex,
                 gender: props.userAccountDetails.gender
             },
-            { withCredentials: true }
         )
         .then(() => {
             props.history.push('/dashboard-client');
@@ -54,8 +53,7 @@ export const getClientInfoLogin = props => dispatch => {
             {
                 email: props.input.email, 
                 password: props.input.password
-            }, 
-            { withCredentials: true }
+            }
         )
         .then(() => {
             props.history.push('/dashboard-client');
@@ -101,7 +99,7 @@ export const getNewPassword = ({newPassword, repPassword, token}) => dispatch =>
 export const getClientInfo = (id) => dispatch => {
 
     withAxios()
-        .get(`/api/client/me`, {withCredentials: true})
+        .get(`/api/client/me`)
         .then(res => {
             console.log(res)
             dispatch({
