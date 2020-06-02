@@ -33,7 +33,10 @@ const AccountOne = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         setShowModal(true);
-        dispatch(getClientInfoRegister( {userAccountDetails, history: props.history}))
+        dispatch(getClientInfoRegister(userAccountDetails)).then(res => {
+            console.log(res)
+            props.history.push('/dashboard-client')
+        })
     }
     return (
         <div className='account-one'>
@@ -44,10 +47,10 @@ const AccountOne = (props) => {
             show={showModal}
             set={setShowModal}
              />
-            <AccountModal
+            {/* <AccountModal
             showModal={showModal}
             setShowModal={setShowModal} 
-            />
+            /> */}
             <UserForm
             userAccountDetails={userAccountDetails}
             handleSubmit={handleSubmit}
