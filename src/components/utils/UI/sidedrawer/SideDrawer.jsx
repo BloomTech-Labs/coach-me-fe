@@ -15,7 +15,9 @@ const SideDrawer = (props) => {
     const logout = () => {
         localStorage.clear()
         
-        axiosWithCred.post(`${process.env.REACT_APP_BACKEND}/auth/logout`, {withCredentials: true})
+        axiosWithCred.post(`${process.env.REACT_APP_BACKEND}/auth/logout`, {withCredentials: true}).then(res => {
+            window.location = '/'
+        })
     }
     return (
         <div>
