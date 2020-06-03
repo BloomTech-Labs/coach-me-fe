@@ -16,50 +16,27 @@ import {
 } from './types';
 
 //Coach Registration endpoint
-export const registerCoach = (props,coachData) => dispatch => {
-    dispatch({ type: REGISTER_START });
+export const registerCoach = (coachData) => dispatch => {
     return axiosWithCred
         .post(
             `${process.env.REACT_APP_BACKEND}/auth/register?user_type=coach`,
             coachData
         )
         .then(res => {
-            console.log(res);
-            dispatch({
-                type: REGISTER_SUCCESS,
-                payload: res.data
-            });
-            props.history.push('/coach-login')
-            return res.data
+            window.location = '/coach-login';
         })
         .catch(err => {
-            
-            dispatch({
-                type: REGISTER_FAIL,
-                payload: err.message
-            });
+            toastr.error(err);
         });
 };
 //Coach login endpoint
 export const loginCoach = (coachCreds) => dispatch => {
-    dispatch({ type: LOGIN_START });
     return axiosWithCred
         .post(`${process.env.REACT_APP_BACKEND}/auth/login?user_type=coach`, coachCreds)
-        .then(res => {
-            console.log(res.data)
-            dispatch({
-                type: LOGIN_SUCCESS,
-                payload: res.data
-            });
-            
-            return res.data
-            
+        .then(async res => {
+            window.location = '/dashboard'          
         })
         .catch(err => {
-            dispatch({
-                type: LOGIN_FAIL,
-                payload: err
-            });
             toastr.error(err)
         });
 };
