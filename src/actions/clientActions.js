@@ -27,8 +27,6 @@ export const getClientInfoRegister = userAccountDetails => dispatch => {
             `${process.env.REACT_APP_BACKEND}/auth/register?user_type=client`, userAccountDetails 
         )
         .then(res => {
-            console.log(res)
-            console.log(res.config.data)
             dispatch({
                 type: CLIENT_REGISTER_SUCCESS,
                 payload: res.config.data
@@ -44,17 +42,15 @@ export const getClientInfoRegister = userAccountDetails => dispatch => {
 };
 
 export const getClientInfoLogin = input => dispatch => {
-   return apiCall()
-        .post(
-            `${process.env.REACT_APP_BACKEND}/auth/login?user_type=client`,input)
+    return apiCall()
+    .post(
+        `${process.env.REACT_APP_BACKEND}/auth/login?user_type=client`,input)
         .then(res => {   
-            console.log(res.data)
-            dispatch({
-                type: CLIENT_LOGIN_SUCCESS,
-                payload: res.data
-            })
-            return res
-            
+            window.location = '/dashboard-client'
+            // dispatch({
+            //     type: CLIENT_LOGIN_SUCCESS,
+            //     payload: res.data
+            // })
         })
         .catch(err => {
             toastr.error(err);
@@ -62,7 +58,6 @@ export const getClientInfoLogin = input => dispatch => {
 };
 
 export const sendEmail = ({cred_value, method}) => dispatch => {
-    console.log(method, cred_value)
     axiosWithCred
         .post(`/auth/forgot_password?user_type=client`,
         {method, cred_value})
@@ -78,7 +73,6 @@ export const sendEmail = ({cred_value, method}) => dispatch => {
 };
 
 export const getNewPassword = ({newPassword, repPassword, token}) => dispatch => {
-    console.log(newPassword, repPassword)
     apiCall()
         .post(`/auth/forgot_password/password_recovery?token=${token}`,
         {password: newPassword})
@@ -99,7 +93,6 @@ export const getClientInfo = token => dispatch => {
     axiosWithCred
         .get(`/client/me`)
         .then(res => {
-            console.log(res)
             dispatch({
                 type: GET_CLIENT_INFO,
                 payload: res.data

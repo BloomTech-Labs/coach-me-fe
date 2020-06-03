@@ -45,7 +45,7 @@ const Routes = props => {
                     render={props => <PasswordReset {...props} />}
                 />
                 {/* CREATE ACCOUNT */}
-                <Route path='/createAccount' render={props => <AccountOne />} />
+                <Route path='/createAccount' component={AccountOne} />
                 <Route
                     path='/createProfile1'
                     render={props => <ProfileOne />}

@@ -34,9 +34,9 @@ const LoginForm = (props) => {
 					</div>
 					<button type="submit">Log in</button>
 				</form>
-				<div className="social-links">
+				{/* <div className="social-links">
 					<Link to="" className="fb">Facebook</Link>
-				</div>
+				</div> */}
 				<p className="top signup-forgot">
 					Don't have an account?
 					<Link to="/createAccount">Signup</Link>
