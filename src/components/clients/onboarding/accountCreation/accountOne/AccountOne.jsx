@@ -35,7 +35,7 @@ const AccountOne = (props) => {
         setShowModal(true);
         dispatch(getClientInfoRegister(userAccountDetails)).then(res => {
             console.log(res)
-            props.history.push('/dashboard-client')
+            
         })
     }
     return (

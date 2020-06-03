@@ -74,7 +74,7 @@ const Routes = props => {
                 <Route path='/coach-login' component={LoginCoach} />
                 <Route path='/metrics' component={HealthMetric} />
                 <Route path='/dashboard' component={CoachDashboard} />
-                <Route path='/dashboard-client' component={ClientDashboard} />
+                <PrivateRoute path='/dashboard-client' component={ClientDashboard} />
                 <Route path='/metric-form' component={HealthMetricForm} />
             </Router>
         </>

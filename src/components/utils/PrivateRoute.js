@@ -1,18 +1,37 @@
-import React from 'react';
-
+import React, {useEffect, useState} from 'react';
+import AxiosWithCred from './axiosWithCred';
 import { Route, Redirect } from 'react-router';
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute =  ({ component: Component, ...rest }) => {
+    const [auth, setAuth] = useState({isAuth: false,
+                                      ready: false
+                                    });
+    useEffect( ()=>{
+        const checkAuth = async () => {
+            try {
+                await AxiosWithCred.get('/auth/verify_session');
+                setAuth({
+                    isAuth: true,
+                    ready: true
+                })
+            } catch (error) {
+                setAuth({...auth, ready: true})
+            }
+        }
+        checkAuth();
+    }, [])
     return (
-        <Route
+        <>
+        {auth.ready && <Route
             {...rest}
             render={props => {
-                if (localStorage.getItem('token')) {
+                if ( auth.isAuth ) {
                     return <Component {...props} />;
                 }
                 return <Redirect to='/' />;
             }}
-        />
+        />}
+        </>
     );
 };
 

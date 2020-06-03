@@ -27,6 +27,7 @@ export const getClientInfoRegister = userAccountDetails => dispatch => {
             `${process.env.REACT_APP_BACKEND}/auth/register?user_type=client`, userAccountDetails 
         )
         .then(res => {
+            window.location = '/client-login'
             dispatch({
                 type: CLIENT_REGISTER_SUCCESS,
                 payload: res.config.data
