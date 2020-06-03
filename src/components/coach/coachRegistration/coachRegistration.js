@@ -31,10 +31,7 @@ function CoachRegistration(props) {
     };
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(registerCoach(coachCredentials)).then((res) => {
-           console.log(res)
-        //    props.history.push('/coach-login')
-        });
+        dispatch(registerCoach(coachCredentials))
     };
     return (
         <div className='Register-Wrapper'>
