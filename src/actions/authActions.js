@@ -33,7 +33,6 @@ export const registerCoach = (props,coachData) => dispatch => {
             return res.data
         })
         .catch(err => {
-            
             dispatch({
                 type: REGISTER_FAIL,
                 payload: err.message
@@ -51,9 +50,7 @@ export const loginCoach = (coachCreds) => dispatch => {
                 type: LOGIN_SUCCESS,
                 payload: res.data
             });
-            
             return res.data
-            
         })
         .catch(err => {
             dispatch({
@@ -65,17 +62,13 @@ export const loginCoach = (coachCreds) => dispatch => {
 };
 //Get Coach Clientlist
 export const getClients = token => dispatch => {
-    
     axiosWithCred
         .get(`${process.env.REACT_APP_BACKEND}/coach/me`)
         .then(res => {
             console.log(res.data)
-            
             dispatch({ type: GET_COACH_INFO,
                 payload: res.data });
             return res.data 
-            
-           
         })
         .catch(err => {
             dispatch({
