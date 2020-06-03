@@ -34,7 +34,6 @@ export const getMessageHistory = liveNumber => dispatch => {
             `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/messagehistory/${liveNumber}`
         )
         .then(res => {
-            // console.log('getMessageHistory', res.data.message);
             dispatch({
                 type: GET_TEXT_SUCCESS,
                 payload: res.data.message
@@ -49,7 +48,6 @@ export const getMessageHistory = liveNumber => dispatch => {
 };
 
 export const postMessage = post => dispatch => {
-    // console.log(post);
     dispatch({ type: ADD_TEXT_START });
     api
 
@@ -73,9 +71,6 @@ export const getClients = token => dispatch => {
     api
         .get(`http://localhost:5000/api/coach/me`,{withCredentials: true})
         .then(res => {
-            console.log(res)
-            // console.log('coach actions', res.data);
-
             dispatch({
                 type: GET_RECORDS_SUCCESS,
                 payload: res.data.patientList
@@ -126,8 +121,6 @@ export const getLastCheckInTime = id => dispatch => {
             }
         )
         .then(results => {
-            // console.log('getLastCheckInTime', results);
-
             dispatch({
                 type: GET_CHECKIN,
                 payload: results.data.lastCheckin
@@ -169,7 +162,6 @@ export const getGoals = id => dispatch => {
 // get scheduled message
 
 export const getScheduledMessage = id => dispatch => {
-    // console.log('getScheduledMessages ID', id);
     dispatch({ type: GET_SCHEDULE_MESSAGE_START });
     api
         .get(
@@ -181,7 +173,6 @@ export const getScheduledMessage = id => dispatch => {
             }
         )
         .then(results => {
-            // console.log('getScheduledMessages', results.data);
             // const scheduledMessage = [...results.data.scheduledMessage];
             dispatch({
                 type: GET_SCHEDULE_MESSAGE_SUCCESS,
@@ -226,21 +217,18 @@ export const addScheduledMessage = message => dispatch => {
 
 // delete scheduled message
 export const deleteScheduledMessage = (id, patientId) => dispatch => {
-    // console.log('deleteScheduledMessages ID', id);
     dispatch({ type: DELETE_SCHEDULE_MESSAGE_START });
     api
         .delete(
             `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/deleteScheduled/${id}`
         )
         .then(results => {
-            // console.log('deleteScheduledMessage', results.data);
             dispatch({
                 type: DELETE_SCHEDULE_MESSAGE_SUCCESS,
                 payload: id
             });
         })
         .catch(err => {
-            console.log(err);
             dispatch({
                 type: COACH_ERROR,
                 payload: err.message
@@ -269,7 +257,6 @@ export const updateScheduledMessage = (id, message) => dispatch => {
             });
         })
         .catch(err => {
-            console.log(err);
             dispatch({
                 type: COACH_ERROR,
                 payload: err.message

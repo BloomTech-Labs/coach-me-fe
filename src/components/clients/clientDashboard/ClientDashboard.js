@@ -18,7 +18,6 @@ const ClientDashboard = (props) => {
     return (
         <div className='client-dashboard'>
             <div className="profile-container">
-                {console.log(props.state.email)}
                 { <h4>Welcome, {props.state.first_name}!</h4> }
             </div>
             <Notifications />
@@ -30,7 +29,6 @@ const ClientDashboard = (props) => {
 };
 
 const mapStateToProps = state => {
-    console.log("in mapStateToProps", state.client.client_data)
     return {
         state: state.client.client_data
         }

@@ -27,16 +27,12 @@ const AccountOne = (props) => {
 
     const changeHandler = (e) => {
         setUserAccountDetails({...userAccountDetails,[e.target.name]: e.target.value})
-        console.log(userAccountDetails)
     }
 
     const handleSubmit = e => {
         e.preventDefault();
         setShowModal(true);
-        dispatch(getClientInfoRegister(userAccountDetails)).then(res => {
-            console.log(res)
-            
-        })
+        dispatch(getClientInfoRegister(userAccountDetails))
     }
     return (
         <div className='account-one'>

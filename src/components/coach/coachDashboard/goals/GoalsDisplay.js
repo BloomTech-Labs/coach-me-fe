@@ -20,9 +20,6 @@ const GoalsDisplay = props => {
         setShow(!show);
     };
 
-    // console.log('GoalsDisplay Component State', state);
-    // console.log('GoalsDisplay Component props', props);
-
     return (
         <div className='goals-wrapper'>
             <div className='label'>

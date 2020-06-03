@@ -83,7 +83,6 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_SCHEDULE_MESSAGE_SUCCESS:
-            // console.log('looook at me', action.payload);
             return {
                 ...state,
                 loading: false,
@@ -118,7 +117,6 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case ADD_SCHEDULE_MESSAGE_START:
-            // console.log(action.payload);
             return {
                 ...state,
                 loading: true
@@ -129,7 +127,6 @@ export default (state = initialState, action) => {
                 laoding: false
             };
         case UPDATE_SCHEDULE_MESSAGE_SUCCESS:
-            // console.log('UPDATE_SCHEDULE_MESSAGE', action.payload);
             // return {
             //     ...state,
             //     scheduledMessage: state.scheduledMessage.map(message =>
@@ -153,7 +150,6 @@ export default (state = initialState, action) => {
                 error: action.payload
             };
         case GET_COACH_INFO:
-            console.log('yo mama', action.payload);
             return {
                 ...state,
                 data: action.payload

@@ -12,7 +12,6 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import Linkify from 'linkifyjs/react';
 
 function LiveMessages(props) {
-    // console.log(props);
     const { clientprofile } = props;
     const state = useSelector(state => state);
     const dispatch = useDispatch();

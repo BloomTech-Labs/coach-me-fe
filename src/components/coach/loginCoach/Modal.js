@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import toastr from 'toastr';
 import axios from 'axios';
 
 //Styling
@@ -38,7 +38,7 @@ const Modal = ({ setModal }) => {
                     }
                 })
                 .catch(err => {
-                    console.log(err.data);
+                    toastr.error(err)
                 });
         }
     };
