@@ -7,7 +7,7 @@ const PrivateRoute =  ({ component: Component, ...rest }) => {
                                       ready: false
                                     });
     useEffect( ()=>{
-        const peepee = async () => {
+        const checkAuth = async () => {
             try {
                 const verified = await AxiosWithCred.get('/auth/verify_session');
                 setAuth({
@@ -18,7 +18,7 @@ const PrivateRoute =  ({ component: Component, ...rest }) => {
                 setAuth({...auth, ready: true})
             }
         }
-        peepee();
+        checkAuth();
     }, [])
     return (
         <>
