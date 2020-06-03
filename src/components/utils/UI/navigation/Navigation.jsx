@@ -11,7 +11,7 @@ const Navigation = (props) => {
 
     const { backdropHandler, drawerOpen } = useContext(UIContext)
     const logout = () => {
-        axiosWithCred.post(`${process.env.REACT_APP_BACKEND}/auth/logout`, {withCredentials: true})
+        axiosWithCred.post(`${process.env.REACT_APP_BACKEND}/auth/logout`)
     }
     return (
         <nav className='navigation'>

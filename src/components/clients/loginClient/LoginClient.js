@@ -27,7 +27,7 @@ const LoginClient = (props) => {
 		e.preventDefault();
 		dispatch(getClientInfoLogin(input)).then(res => {
 			console.log(res)
-			props.history.push('/dashboard-client');
+			// props.history.push('/dashboard-client');
 		});
 	};
 	return (

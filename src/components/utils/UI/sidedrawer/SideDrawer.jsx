@@ -10,7 +10,6 @@ import './sideDrawer.scss';
 const SideDrawer = (props) => {
     const { drawerOpen, backdropHandler } = useContext(UIContext);
     useEffect(() => {
-        console.log(props.loggedIn)
     },[])
  
     const logout = () => {
@@ -20,7 +19,6 @@ const SideDrawer = (props) => {
     }
     return (
         <div>
-            {console.log(props.loggedIn)}
             <Backdrop
             show={drawerOpen}
             set={backdropHandler} />
