@@ -19,7 +19,8 @@ import {
     DELETE_SCHEDULE_MESSAGE_START,
     DELETE_SCHEDULE_MESSAGE_SUCCESS,
     UPDATE_SCHEDULE_MESSAGE_START,
-    UPDATE_SCHEDULE_MESSAGE_SUCCESS
+    UPDATE_SCHEDULE_MESSAGE_SUCCESS,
+    GET_COACH_INFO
 } from '../actions/types';
 
 const initialState = {
@@ -34,7 +35,8 @@ const initialState = {
     clientMetrics: [],
     clientCheckIn: '',
     clientGoals: [],
-    scheduledMessage: []
+    scheduledMessage: [],
+    data: {}
 };
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -150,6 +152,13 @@ export default (state = initialState, action) => {
                 loading: false,
                 error: action.payload
             };
+        case GET_COACH_INFO:
+            console.log('yo mama', action.payload);
+            return {
+                ...state,
+                data: action.payload
+
+            }
         default:
             return state;
     }

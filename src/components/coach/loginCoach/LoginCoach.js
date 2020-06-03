@@ -21,7 +21,6 @@ const LoginCoach = props => {
         setModal(true);
     };
     const handleChange = e => {
-        e.preventDefault();
         setCoachCredentials({
             ...coachCredentials,
             [e.target.name]: e.target.value
@@ -29,14 +28,10 @@ const LoginCoach = props => {
     };
     const handleSubmit = e => {
         e.preventDefault();
-        localStorage.clear();
+       
         dispatch(loginCoach(coachCredentials)).then((res) => {
-           
-            console.log(res)
-            
+            console.log(res) 
             props.history.push('/dashboard');
-           
-            
         });
     };
     return (

@@ -39,7 +39,7 @@ const UserForm = (props) => {
 			<div className="labels">
 				<p>Height:</p>
 				<input
-					type="text"
+					type="number"
 					name="height"
 					placeholder="Height*"
 					value={props.userAccountDetails.height}
@@ -50,7 +50,7 @@ const UserForm = (props) => {
 			<div className="labels">
 				<p>Weight:</p>
 				<input
-					type="text"
+					type="number"
 					name="weight"
 					placeholder="Weight"
 					value={props.userAccountDetails.weight}
@@ -60,13 +60,17 @@ const UserForm = (props) => {
 
 			<div className="labels">
 				<p>Sex:</p>
-				<input
+				
+				<select
 					type="text"
 					name="sex"
 					placeholder="Sex*"
 					value={props.userAccountDetails.sex}
 					onChange={props.changeHandler}
-				/>
+				>
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
 			</div>
 
 			<div className="labels">
@@ -95,7 +99,7 @@ const UserForm = (props) => {
 			<div className="labels">
 				<p>Phone:</p>
 				<input
-					type="text"
+					type="tel"
 					name="phone"
 					placeholder="Phone"
 					value={props.userAccountDetails.phone}

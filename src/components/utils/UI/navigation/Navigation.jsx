@@ -1,18 +1,17 @@
 
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom'
-
+import UIContext from '../../context/UIContext';
 import { ReactComponent as Logo } from '../.././assets/coachmelogo-white.svg';
 import './navigation.scss';
 import { FormikProvider } from 'formik';
-import api from '../../api';
+import axiosWithCred from '../../axiosWithCred';
 
-const Navigation = () => {
+const Navigation = (props) => {
 
     const { backdropHandler, drawerOpen } = useContext(UIContext)
     const logout = () => {
-        localStorage.clear()
-        api.post(`${process.env.REACT_APP_BACKEND}/auth/logout`, {withCredentials: true})
+        axiosWithCred.post(`${process.env.REACT_APP_BACKEND}/auth/logout`)
     }
     return (
         <nav className='navigation'>

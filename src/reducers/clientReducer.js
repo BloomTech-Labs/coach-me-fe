@@ -7,28 +7,22 @@ import {
     UPDATE_METRIC_FAILURE,
     GET_CLIENTS_SUCCESS,
     GET_CLIENTS_FAILURE,
+    EMAIL_REQUEST_SUCCESS,
+    EMAIL_REQUEST_FAILURE,
+    PASSWORD_RESET_SUCCESS,
+    PASSWORD_RESET_FAILURE,
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
-    GET_METRICS_FAILURE
+    GET_METRICS_FAILURE,
+    GET_CLIENT_INFO,
+    CLIENT_REGISTER_SUCCESS,
+    CLIENT_LOGIN_SUCCESS
 } from '../actions/types';
 
 const initialState = {
     message: '',
     LoginAttempts: 0,
-    clientinfo: {
-        id: '',
-        first_name: '"First name"',
-        last_name: '"Last name"',
-        email: '',
-        phone: '',
-        dob: '',
-        password: '',
-        confirm_password: '',
-        height: '',
-        sex: '',
-        gender:'',
-        coach: ''
-    },
+    clientinfo: {},
     records: null,
     Blood_sugar: 0,
     Weight: 0,
@@ -37,6 +31,7 @@ const initialState = {
     Date_time: null,
     isfetching: false,
     error: '',
+    client_data: {},
 
     clientMetrics: []
 };
@@ -63,25 +58,38 @@ export default (state = initialState, action) => {
                 err: action.payload
             };
         case GET_CLIENTS_SUCCESS:
+            console.log('Am I even getting here yo?')
             return {
                 ...state,
                 isfetching: false,
-                clientinfo: {
-                    ...state,
-                    first_name: action.payload.first_name,
-                    last_name: action.payload.last_name,
-                    email: action.payload.email,
-                    phone: action.payload.phone,
-                    dob: action.payload.dob,
-                    password: action.payload.password,
-                    confirm_password: action.payload.confirm_password,
-                    height: action.payload.height,
-                    sex: action.payload.sex,
-                    gender: action.payload.gender,
-                },
+                client_data: action.payload,
                 error: ''
             };
         case GET_CLIENTS_FAILURE:
+            return {
+                ...state,
+                isfetching: false,
+                error: action.payload
+            };
+        case EMAIL_REQUEST_SUCCESS:
+            return {
+                ...state,
+                isfetching: false,
+                error: action.payload
+            };
+        case  EMAIL_REQUEST_FAILURE:
+            return {
+                ...state,
+                isfetching: false,
+                error: action.payload
+            };
+        case PASSWORD_RESET_SUCCESS:
+            return {
+                ...state,
+                isfetching: false,
+                error: action.payload
+            };
+        case PASSWORD_RESET_FAILURE:
             return {
                 ...state,
                 isfetching: false,
@@ -113,10 +121,15 @@ export default (state = initialState, action) => {
                 isfetching: true,
                 error: ''
             };
-        case LOGIN_SUCCESS:
+        case CLIENT_REGISTER_SUCCESS:
             return {
                 ...state,
-                isfetching: false,
+                client_data: action.payload
+            }
+        case CLIENT_LOGIN_SUCCESS:
+            return {
+                ...state,
+                client_data: action.payload,
                 error: ''
             };
         case LOGIN_FAIL:
@@ -125,6 +138,13 @@ export default (state = initialState, action) => {
                 isfetching: false,
                 error: action.payload
             };
+        case GET_CLIENT_INFO:
+        console.log('yo mama', action.payload);
+        return {
+            ...state,
+            client_data: action.payload
+
+        }
         default:
             return state;
     }
