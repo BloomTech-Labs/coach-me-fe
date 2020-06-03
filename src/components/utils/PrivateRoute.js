@@ -9,7 +9,7 @@ const PrivateRoute =  ({ component: Component, ...rest }) => {
     useEffect( ()=>{
         const checkAuth = async () => {
             try {
-                const verified = await AxiosWithCred.get('/auth/verify_session');
+                await AxiosWithCred.get('/auth/verify_session');
                 setAuth({
                     isAuth: true,
                     ready: true
