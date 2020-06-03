@@ -16,7 +16,6 @@ const CoachHeader = props => {
     // useEffect(() => {
     //     setCoachName(state.coachName);
     // }, []);
-    // console.log('STATE', state);
 
     const toggleLogout = () => {};
 

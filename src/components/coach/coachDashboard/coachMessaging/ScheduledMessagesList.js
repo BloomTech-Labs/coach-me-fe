@@ -11,7 +11,6 @@ import './messageCard.scss';
 const ScheduledMessagesList = props => {
     const state = useSelector(state => state.coach);
     const { messages, show, toggleScheduler } = props;
-    // console.log(messages);
     const dispatch = useDispatch();
     const [messagelist, setmessagelist] = useState([]);
     // useEffect(() => {
@@ -25,13 +24,10 @@ const ScheduledMessagesList = props => {
     const removedMessage = id => {
         const filtered = messagelist.filter(item => {
             if (item.scheduleId !== id) {
-                // console.log('removedMessage line 20', item);
-                // console.log('removedMessage item', item);
-                // console.log('removedMessage id', id);
+
                 return [item];
             }
         });
-        // console.log('filited list', filtered);
         setmessagelist(filtered);
     };
     const updatedMessage = id => {
@@ -42,7 +38,6 @@ const ScheduledMessagesList = props => {
         });
         setmessagelist(updated);
     };
-    // console.log(messagelist);
     // if (show) {
     if (state.scheduledMessage !== 0) {
         return (

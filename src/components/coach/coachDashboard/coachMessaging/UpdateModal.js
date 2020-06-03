@@ -12,7 +12,6 @@ import './updateModal.scss';
 
 const UpdateModal = props => {
     const { show, id, setShow, updatedMessage, clientId } = props;
-    // console.log('update modal props', props);
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
     const [updated, setUpdated] = useState(false);
@@ -91,7 +90,6 @@ const UpdateModal = props => {
     };
     // const onEnterPress = e => {
     //     if (e.keyCode == 13 && e.shiftKey == false) {
-    //         console.log('UPDATED MESSAGE', schedule);
     //         e.preventDefault();
     //         dispatch(updateScheduledMessage(id, schedule));
     //         setUpdated(true);

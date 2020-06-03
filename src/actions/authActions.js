@@ -46,13 +46,9 @@ export const getClients = token => dispatch => {
     axiosWithCred
         .get(`${process.env.REACT_APP_BACKEND}/coach/me`)
         .then(res => {
-            console.log(res.data)
-            
             dispatch({ type: GET_COACH_INFO,
                 payload: res.data });
             return res.data 
-            
-           
         })
         .catch(err => {
             dispatch({

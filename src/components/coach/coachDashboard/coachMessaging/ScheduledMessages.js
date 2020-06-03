@@ -20,7 +20,6 @@ function ScheduledMessages(props) {
     const [showScheduleModal, setScheduleModal] = useState(false);
 
     // const messageArray = useRef(state.ScheduledMessages);
-    // console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
         patientId: '',
         msg: '',

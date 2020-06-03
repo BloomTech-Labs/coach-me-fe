@@ -8,7 +8,6 @@ const ClientsList = props => {
     //    useEffect( () =>{
     //        setclientList(state.clientRecords)
     //    },[state.clientRecords])
-    //  console.log(clientList)
 
     return (
         <div>
