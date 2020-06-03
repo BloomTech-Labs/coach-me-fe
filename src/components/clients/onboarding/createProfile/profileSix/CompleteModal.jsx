@@ -9,7 +9,7 @@ const CompleteModal = (props) => {
 
                 <h4>Get ready to make some changes towards a healthier life!</h4>
 
-                <a href='/dashboard-client'>Go to Dashboard</a >
+                <a href='/client-login'>Log In</a >
             </div>
         </div>
     );
