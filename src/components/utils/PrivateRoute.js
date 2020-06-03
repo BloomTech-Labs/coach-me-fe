@@ -1,13 +1,14 @@
 import React from 'react';
-
+import AxiosWithCred from './axiosWithCred';
 import { Route, Redirect } from 'react-router';
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = async ({ component: Component, ...rest }) => {
+    const verified = await AxiosWithCred.get('/auth/verify_session');
     return (
         <Route
             {...rest}
             render={props => {
-                if (localStorage.getItem('token')) {
+                if ( verified ) {
                     return <Component {...props} />;
                 }
                 return <Redirect to='/' />;
