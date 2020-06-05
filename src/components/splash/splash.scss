@@ -57,13 +57,12 @@ $text-font: "DM Sans", serif;
 
 		.hero-img {
 			margin-left: 3em;
+			width: 35%;
 
 			img {
-				width: 30%;
-				border-radius: 40%;
+				width: 100%;
+				border-radius: 50%;
 			}
-
-			width: 50%;
 		}
 		@media (max-width: 800px) {
 			flex-direction: column;
