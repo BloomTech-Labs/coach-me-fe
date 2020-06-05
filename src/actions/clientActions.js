@@ -9,34 +9,30 @@ import {
     EMAIL_REQUEST_FAILURE,
     PASSWORD_RESET_SUCCESS,
     PASSWORD_RESET_FAILURE,
-
+    CLIENT_LOGIN_SUCCESS,
+    CLIENT_REGISTER_SUCCESS,
+    REGISTER_SUCCESS,
     UPDATE_METRIC_START,
     UPDATE_METRIC_SUCCESS,
     UPDATE_METRIC_FAILURE,
     GET_METRICS_START,
     GET_METRICS_SUCCESS,
-    GET_METRICS_FAILURE
+    GET_METRICS_FAILURE,
+    GET_CLIENT_INFO
 } from './types';
 
-export const getClientInfoRegister = props => dispatch => {
-    apiCall()
+export const getClientInfoRegister = userAccountDetails => dispatch => {
+   return apiCall()
         .post(
-            `/auth/register?user_type=client`, 
-            {
-                first_name: props.userAccountDetails.first_name,
-                last_name: props.userAccountDetails.last_name,
-                email: props.userAccountDetails.email,
-                phone: props.userAccountDetails.phone,
-                dob: props.userAccountDetails.dob,
-                password:props.userAccountDetails.password,
-                confirm_password: props.userAccountDetails.confirm_password,
-                height: props.userAccountDetails.height,
-                sex: props.userAccountDetails.sex,
-                gender: props.userAccountDetails.gender
-            },
+            `${process.env.REACT_APP_BACKEND}/auth/register?user_type=client`, userAccountDetails 
         )
-        .then(() => {
-            props.history.push('/dashboard-client');
+        .then(res => {
+            window.location = '/client-login'
+            dispatch({
+                type: CLIENT_REGISTER_SUCCESS,
+                payload: res.config.data
+            })
+           return res
         })
         .catch(err => {
             dispatch({
@@ -46,25 +42,23 @@ export const getClientInfoRegister = props => dispatch => {
         });
 };
 
-export const getClientInfoLogin = props => dispatch => {
-    apiCall()
-        .post(
-            `/auth/login?user_type=client`,
-            {
-                email: props.input.email, 
-                password: props.input.password
-            }, 
-        )
-        .then(() => {
-            props.history.push('/dashboard-client');
+export const getClientInfoLogin = input => dispatch => {
+    return apiCall()
+    .post(
+        `${process.env.REACT_APP_BACKEND}/auth/login?user_type=client`,input)
+        .then(res => {   
+            window.location = '/dashboard-client'
+            // dispatch({
+            //     type: CLIENT_LOGIN_SUCCESS,
+            //     payload: res.data
+            // })
         })
         .catch(err => {
-            toastr.error('There was an error.');
+            toastr.error(err);
         });
 };
 
 export const sendEmail = ({cred_value, method}) => dispatch => {
-    console.log(method, cred_value)
     axiosWithCred
         .post(`/auth/forgot_password?user_type=client`,
         {method, cred_value})
@@ -80,7 +74,6 @@ export const sendEmail = ({cred_value, method}) => dispatch => {
 };
 
 export const getNewPassword = ({newPassword, repPassword, token}) => dispatch => {
-    console.log(newPassword, repPassword)
     apiCall()
         .post(`/auth/forgot_password/password_recovery?token=${token}`,
         {password: newPassword})
@@ -96,14 +89,13 @@ export const getNewPassword = ({newPassword, repPassword, token}) => dispatch =>
 };
 
 
-export const getClientInfo = (id) => dispatch => {
+export const getClientInfo = token => dispatch => {
 
     axiosWithCred
-        .get(`/api/client/me`)
+        .get(`/client/me`)
         .then(res => {
-            console.log(res)
             dispatch({
-                type: GET_CLIENTS_SUCCESS,
+                type: GET_CLIENT_INFO,
                 payload: res.data
             })
         })
