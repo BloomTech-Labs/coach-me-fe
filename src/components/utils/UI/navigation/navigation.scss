@@ -31,14 +31,16 @@ $pinkish: #ff98a1;
 }
 
 .nav-links {
+	font-family: DM Sans;
+
 	a {
 		color: white;
-		font-size: 3em;
+		font-size: 2.2em;
 		margin: 0em 1em;
+		text-decoration: none;
 	}
-	
 }
-@media(max-width: 800px) {
+@media (max-width: 800px) {
 	.nav-links {
 		display: none;
 	}
