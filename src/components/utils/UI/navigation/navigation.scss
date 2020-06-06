@@ -14,8 +14,6 @@ $pinkish: #ff98a1;
 	box-shadow: 0px 5px;
 	position: fixed;
 	width: 100%;
-	top: 0;
-	z-index: 1;
 	color: $pinkish;
 }
 
@@ -31,14 +29,16 @@ $pinkish: #ff98a1;
 }
 
 .nav-links {
+	font-family: DM Sans;
+
 	a {
 		color: white;
-		font-size: 3em;
+		font-size: 2.2em;
 		margin: 0em 1em;
+		text-decoration: none;
 	}
-	
 }
-@media(max-width: 800px) {
+@media (max-width: 800px) {
 	.nav-links {
 		display: none;
 	}

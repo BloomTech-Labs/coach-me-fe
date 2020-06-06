@@ -1,13 +1,13 @@
-
-import React,{useContext} from 'react';
-import { Link } from 'react-router-dom'
-import UIContext from '../../context/UIContext';
-import { ReactComponent as Logo } from '../.././assets/coachmelogo-white.svg';
-import './navigation.scss';
-import { FormikProvider } from 'formik';
-import axiosWithCred from '../../axiosWithCred';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import UIContext from "../../context/UIContext";
+import { ReactComponent as Logo } from "../.././assets/coachmelogo-white.svg";
+import "./navigation.scss";
+import { FormikProvider } from "formik";
+import axiosWithCred from "../../axiosWithCred";
 
 const Navigation = (props) => {
+
 
     const { backdropHandler, drawerOpen } = useContext(UIContext)
     const logout = () => {
@@ -33,5 +33,6 @@ const Navigation = (props) => {
         </nav>
     );
 }
+
 
 export default Navigation;

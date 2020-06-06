@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import SideOne from '../SideOne';
-import CoachForm from './CoachForm';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import SideOne from "../SideOne";
+import CoachForm from "./CoachForm";
 
 // Redux Action
-import { registerCoach } from '../../../actions/authActions';
+import { registerCoach } from "../../../actions/authActions";
 
 //Styling
-import './coachRegistration.scss';
+import "./coachRegistration.scss";
 
 function CoachRegistration(props) {
+
     const dispatch = useDispatch();
     const [coachCredentials, setCoachCredentials] = useState({
         first_name: '',
@@ -55,5 +56,6 @@ function CoachRegistration(props) {
             </div>
         </div>
     );
+
 }
 export default CoachRegistration;
