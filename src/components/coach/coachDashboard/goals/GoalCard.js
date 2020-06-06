@@ -58,7 +58,6 @@ const GoalCard = props => {
         arrow = <Arrow />;
     }
 
-    // console.log('goalNotes', goalNotes);
     return (
         <div className='goal-text-container'>
             <div className='goal-mas'>

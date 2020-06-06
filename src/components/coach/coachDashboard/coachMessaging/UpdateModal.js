@@ -10,12 +10,13 @@ import { ReactComponent as Clock } from "../../../utils/assets/clock.svg";
 
 import "./updateModal.scss";
 
+
 const UpdateModal = (props) => {
 	const { show, id, setShow, /* updatedMessage, */ clientId } = props;
-	// console.log('update modal props', props);
-	// const state = useSelector((state) => state.coach);
+
 	const dispatch = useDispatch();
 	const [updated, setUpdated] = useState(false);
+
 
 	const [schedule, setSchedule] = useState({
 		patientId: "",
@@ -71,6 +72,7 @@ const UpdateModal = (props) => {
 		setSchedule({ ...schedule, [e.target.name]: e.target.value });
 	};
 
+
 	const submitUpdatedMessage = (e) => {
 		e.preventDefault();
 		dispatch(updateScheduledMessage(id, schedule));
@@ -89,27 +91,8 @@ const UpdateModal = (props) => {
 			year: `${props.year}`,
 		});
 	};
-	// const onEnterPress = e => {
-	//     if (e.keyCode == 13 && e.shiftKey == false) {
-	//         console.log('UPDATED MESSAGE', schedule);
-	//         e.preventDefault();
-	//         dispatch(updateScheduledMessage(id, schedule));
-	//         setUpdated(true);
-	//         // updatedMessage(id);
-	//         setShow();
-	//         setSchedule({
-	//             patientId: `${props.patientId}`,
-	//             msg: `${props.msg}`,
-	//             min: `${props.min}`,
-	//             hour: `${props.hour}`,
-	//             dom: `${props.dom}`,
-	//             month: `${props.month}`,
-	//             weekday: ``,
-	//             ampm: `${props.ampm}`,
-	//             year: `${props.year}`
-	//         });
-	//     }
-	// };
+
+
 
 	return (
 		<>

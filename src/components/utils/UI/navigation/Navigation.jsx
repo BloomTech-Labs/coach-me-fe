@@ -7,31 +7,32 @@ import { FormikProvider } from "formik";
 import axiosWithCred from "../../axiosWithCred";
 
 const Navigation = (props) => {
-	const { backdropHandler, drawerOpen } = useContext(UIContext);
-	const logout = () => {
-		axiosWithCred.post(`${process.env.REACT_APP_BACKEND}/auth/logout`);
-	};
-	return (
-		<nav className="navigation">
-			<Logo />
-			<div className="nav-links">
-				<Link to="/">Home</Link>
-				<Link to="/dashboard">Dashboard</Link>
-				<Link to="/">Support</Link>
-				<Link onClick={logout} to="/">
-					Logout
-				</Link>
-			</div>
-			<i
-				onClick={backdropHandler}
-				className={
-					drawerOpen
-						? "fas fa-bars fa-3x rotate"
-						: "fas fa-bars fa-3x"
-				}
-			></i>
-		</nav>
-	);
-};
+
+
+    const { backdropHandler, drawerOpen } = useContext(UIContext)
+    const logout = () => {
+        axiosWithCred.post(`${process.env.REACT_APP_BACKEND}/auth/logout`).then(res => {
+            window.location = '/'
+        })
+    }
+    return (
+        <nav className='navigation'>
+            <Logo />
+            <div className='nav-links'>
+                <Link to='/'>Home</Link>
+                <Link to='/dashboard'>Dashboard</Link>
+                <Link to='/'>Support</Link>
+                <Link
+                onClick={logout}
+                to='/'>Logout</Link>
+            </div>
+            <i 
+            onClick={backdropHandler}
+            className={drawerOpen ? 'fas fa-bars fa-3x rotate' : "fas fa-bars fa-3x"}></i>
+
+        </nav>
+    );
+}
+
 
 export default Navigation;

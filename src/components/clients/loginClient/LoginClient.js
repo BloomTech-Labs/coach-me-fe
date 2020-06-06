@@ -25,10 +25,7 @@ const LoginClient = (props) => {
 	}
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(getClientInfoLogin(input)).then(res => {
-			console.log(res)
-			// props.history.push('/dashboard-client');
-		});
+		dispatch(getClientInfoLogin(input))
 	};
 	return (
 		<LoginForm 

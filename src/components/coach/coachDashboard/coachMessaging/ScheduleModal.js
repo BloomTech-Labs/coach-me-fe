@@ -1,17 +1,11 @@
+
 import React from "react";
 import { useSelector } from "react-redux";
-// import {
-//     getScheduledMessage,
-//     addScheduledMessage
-// } from '../../../../actions/coachActions';
 import { ReactComponent as Exit } from "../../../utils/assets/Xicon.svg";
 import "./scheduleModal.scss";
 const ScheduleModal = (props) => {
-	// console.log('ScheduleModal', props);
-	const { show, setShow } = props;
-	// const state = useSelector((state) => state.coach);
-	// console.log('ScheduleModal STATE', state);
 
+	const { show, setShow } = props;
 	const scheduleMessage = () => {
 		setShow();
 	};

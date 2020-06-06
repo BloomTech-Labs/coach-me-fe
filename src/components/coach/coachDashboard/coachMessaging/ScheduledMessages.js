@@ -19,8 +19,7 @@ function ScheduledMessages(props) {
 	const [submitted, setSubmitted] = useState(false);
 	const [showScheduleModal, setScheduleModal] = useState(false);
 
-	// const messageArray = useRef(state.ScheduledMessages);
-	// console.log('ScheduledMessages STATE', state);
+;
 	const [schedule, setSchedule] = useState({
 		patientId: "",
 		msg: "",
@@ -32,6 +31,7 @@ function ScheduledMessages(props) {
 		ampm: "",
 		year: "",
 	});
+
 
 	//forces the patientID to be the same as the clientID when client name is clicked
 	useEffect(() => {

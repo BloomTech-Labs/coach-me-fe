@@ -29,10 +29,7 @@ const LoginCoach = props => {
     const handleSubmit = e => {
         e.preventDefault();
        
-        dispatch(loginCoach(coachCredentials)).then((res) => {
-            console.log(res) 
-            props.history.push('/dashboard');
-        });
+        dispatch(loginCoach(coachCredentials))
     };
     return (
         <>

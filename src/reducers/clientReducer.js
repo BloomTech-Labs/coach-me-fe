@@ -58,7 +58,6 @@ export default (state = initialState, action) => {
                 err: action.payload
             };
         case GET_CLIENTS_SUCCESS:
-            console.log('Am I even getting here yo?')
             return {
                 ...state,
                 isfetching: false,
@@ -139,7 +138,6 @@ export default (state = initialState, action) => {
                 error: action.payload
             };
         case GET_CLIENT_INFO:
-        console.log('yo mama', action.payload);
         return {
             ...state,
             client_data: action.payload

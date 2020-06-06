@@ -13,10 +13,7 @@ const CoachHeader = (props) => {
 	const [toggle, setToggle] = useState(false);
 	const coachName = localStorage.getItem("coachName");
 
-	// useEffect(() => {
-	//     setCoachName(state.coachName);
-	// }, []);
-	// console.log('STATE', state);
+
 
 	// const toggleLogout = () => {};
 

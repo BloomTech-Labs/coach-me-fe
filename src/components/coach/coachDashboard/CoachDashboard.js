@@ -24,7 +24,6 @@ const CoachDashboard = props => {
             // setCoachName({...coachName,first: localStorage.getItem('first_name'), last: localStorage.getItem('last_name')})
         
     }, []);
-    console.log(props)
     return (
         <>
             

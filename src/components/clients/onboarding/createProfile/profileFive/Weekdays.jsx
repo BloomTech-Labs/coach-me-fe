@@ -29,7 +29,6 @@ const Weekdays = () => {
     )
     const selectTimeWeekday = id => {
         setWeekdaySchedule(weekdaySchedule.map(item => {
-            console.log(item)
           if(item.id === id) {
            return {...item,selected : !item.selected}
           }else {
