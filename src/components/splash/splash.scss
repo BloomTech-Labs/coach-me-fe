@@ -12,11 +12,10 @@ $text-font: "DM Sans", serif;
 .splash-screen {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	padding: 3%;
 	background-color: $dark-background;
-	height: 100%;
+
 	header {
 		border-radius: 8px;
 		background-color: $light-background;
@@ -29,13 +28,13 @@ $text-font: "DM Sans", serif;
 
 		.hero-text {
 			width: 50%;
-			text-shadow: 0px 0px 2px #333;
 
 			h1 {
 				font-size: 10em;
 				text-align: center;
 				color: $font-color;
 				font-family: $header-font;
+				text-shadow: 10px 10px 7px #333;
 			}
 			p {
 				font-size: 4.5em;
@@ -93,9 +92,7 @@ $text-font: "DM Sans", serif;
 	}
 
 	.about {
-		display: flex;
 		border-radius: 8px;
-		flex-direction: column;
 		background-color: white;
 		width: 90%;
 		padding: 4%;
@@ -119,9 +116,7 @@ $text-font: "DM Sans", serif;
 
 		.buttons {
 			width: 57%;
-			display: flex;
 			margin: 0em auto;
-			flex-direction: column;
 			text-align: center;
 			.speak-to-rep {
 				margin-top: 2em;
@@ -133,7 +128,6 @@ $text-font: "DM Sans", serif;
 				}
 			}
 			.button-box {
-				transition: all 0.3s ease;
 				width: 75%;
 				margin: 0 auto;
 
@@ -180,6 +174,5 @@ $text-font: "DM Sans", serif;
 
 	.hide {
 		display: none;
-		transition: all 0.3s ease;
 	}
 }
