@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import LoginForm from './LoginForm';
+import LoginForm from "./LoginForm";
 import { useDispatch } from "react-redux";
-import Show from "../assets/show_password.png";
-import Hide from "../assets/hide_password.png";
+import Show from "../../../utils/assets/icons/login/show_password.png";
+import Hide from "../../../utils/assets/icons/login/hide_password.png";
 import { getClientInfoLogin } from "../../../actions/clientActions";
 import "./loginClient.scss";
 
@@ -22,13 +22,13 @@ const LoginClient = (props) => {
 	};
 	const handleChange = (e) => {
 		setinput({ ...input, [e.target.name]: e.target.value });
-	}
+	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(getClientInfoLogin(input))
+		dispatch(getClientInfoLogin(input));
 	};
 	return (
-		<LoginForm 
+		<LoginForm
 			input={input}
 			hidden={hidden}
 			source={source}
@@ -36,7 +36,7 @@ const LoginClient = (props) => {
 			handleChange={handleChange}
 			handleSubmit={handleSubmit}
 		/>
-	)
+	);
 };
 
 export default LoginClient;
