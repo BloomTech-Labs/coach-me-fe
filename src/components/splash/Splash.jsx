@@ -1,7 +1,7 @@
 import React from "react";
 import AboutUs from "./AboutUs";
 import happy from "../utils/img/happy_girl.jpg";
-import "./splash.scss";
+import "../../sass/splash_page/splash.scss";
 
 const Splash = () => {
 	return (

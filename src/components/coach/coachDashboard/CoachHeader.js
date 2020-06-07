@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./coachHeader.scss";
+import "../../../sass/dashboard/coach/coachHeader.scss";
 import coachMeIcon from "../../utils/assets/1coachHeader.svg";
 import Coach from "../../utils/assets/2coachHeader.svg";
 import Me from "../../utils/assets/3coachHeader.svg";
@@ -12,8 +12,6 @@ const CoachHeader = (props) => {
 	// const [coachName, setCoachName] = useState('');
 	const [toggle, setToggle] = useState(false);
 	const coachName = localStorage.getItem("coachName");
-
-
 
 	// const toggleLogout = () => {};
 

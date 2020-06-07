@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Login from "./Login";
 
-import "./splash.scss";
+import "../../sass/splash_page/splash.scss";
 
 const AboutUs = () => {
 	return (
