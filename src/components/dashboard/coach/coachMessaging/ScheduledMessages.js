@@ -4,7 +4,7 @@ import ScheduleModal from "./ScheduleModal";
 import {
 	getScheduledMessage,
 	addScheduledMessage,
-} from "../../../../actions/coachActions";
+} from "../../../../redux/actions/coachActions";
 import { ReactComponent as Calendar } from "../../../utils/assets/calendar.svg";
 import { ReactComponent as Clock } from "../../../utils/assets/clock.svg";
 // import {Arrow} from '../../../utils/assets/downArrow.svg';
@@ -19,7 +19,6 @@ function ScheduledMessages(props) {
 	const [submitted, setSubmitted] = useState(false);
 	const [showScheduleModal, setScheduleModal] = useState(false);
 
-;
 	const [schedule, setSchedule] = useState({
 		patientId: "",
 		msg: "",
@@ -31,7 +30,6 @@ function ScheduledMessages(props) {
 		ampm: "",
 		year: "",
 	});
-
 
 	//forces the patientID to be the same as the clientID when client name is clicked
 	useEffect(() => {

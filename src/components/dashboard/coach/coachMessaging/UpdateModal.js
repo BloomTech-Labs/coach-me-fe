@@ -3,20 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	updateScheduledMessage,
 	getScheduledMessage,
-} from "../../../../actions/coachActions";
+} from "../../../../redux/actions/coachActions";
 import { ReactComponent as Exit } from "../../../utils/assets/Xicon.svg";
 import { ReactComponent as Calendar } from "../../../utils/assets/calendar.svg";
 import { ReactComponent as Clock } from "../../../utils/assets/clock.svg";
 
 import "./updateModal.scss";
 
-
 const UpdateModal = (props) => {
 	const { show, id, setShow, /* updatedMessage, */ clientId } = props;
 
 	const dispatch = useDispatch();
 	const [updated, setUpdated] = useState(false);
-
 
 	const [schedule, setSchedule] = useState({
 		patientId: "",
@@ -72,7 +70,6 @@ const UpdateModal = (props) => {
 		setSchedule({ ...schedule, [e.target.name]: e.target.value });
 	};
 
-
 	const submitUpdatedMessage = (e) => {
 		e.preventDefault();
 		dispatch(updateScheduledMessage(id, schedule));
@@ -91,8 +88,6 @@ const UpdateModal = (props) => {
 			year: `${props.year}`,
 		});
 	};
-
-
 
 	return (
 		<>

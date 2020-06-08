@@ -3,7 +3,7 @@ import LoginForm from "./LoginForm";
 import { useDispatch } from "react-redux";
 import Show from "../../../utils/assets/icons/login/show_password.png";
 import Hide from "../../../utils/assets/icons/login/hide_password.png";
-import { getClientInfoLogin } from "../../../actions/clientActions";
+import { getClientInfoLogin } from "../../../redux/actions/clientActions";
 import "./loginClient.scss";
 
 const LoginClient = (props) => {

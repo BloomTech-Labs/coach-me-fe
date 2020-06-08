@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import { translate } from "../../utils/language/translate";
-import { getClientRecords } from "../../../actions/clientActions";
+import { translate } from "../../../../utils/language/translate";
+import { getClientRecords } from "../../../../redux/actions/clientActions";
 
 //Component Imports
 import HealthMetricCards from "./HealthMetricCards";
@@ -13,10 +13,10 @@ import LineGraph from "./LineGraph";
 import "./healthMetrics.scss";
 
 // Icon Imports
-import iconfastingBloodGlucose from "../../utils/assets/Blood.svg";
-import iconbloodPressure from "../../utils/assets/bloodPressure.svg";
-import iconweight from "../../utils/assets/weight.svg";
-import iconSeeHistory from "../../utils/assets/seeHistory.svg";
+import iconfastingBloodGlucose from "../../../../utils/assets/icons/Blood.svg";
+import iconbloodPressure from "../../../../utils/assets/icons/bloodPressure.svg";
+import iconweight from "../../../../utils/assets/icons/weight.svg";
+// import iconSeeHistory from "../../utils/assets/seeHistory.svg";
 
 const HealthMetric = (props) => {
 	const state = useSelector((state) => state.client);

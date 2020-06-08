@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ScheduledMessagesList from "./ScheduledMessagesList";
 import ScheduledMessages from "./ScheduledMessages";
 import MiniScheduleMsgList from "./MiniScheduleMsgList";
-import { getScheduledMessage } from "../../../../actions/coachActions";
+import { getScheduledMessage } from "../../../../redux/actions/coachActions";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "./viewAllScheduledMessages.scss";
 

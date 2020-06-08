@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import MessageCard from "./MessageCard";
-import {
+// import {
 
-	deleteScheduledMessage,
-	getScheduledMessage,
-} from "../../../../actions/coachActions";
+// 	deleteScheduledMessage,
+// 	getScheduledMessage,
+// } from "../../../../actions/coachActions";
 import backArrow from "../../../utils/assets/back.svg";
 import { useDispatch, useSelector } from "react-redux";
 import PerfectScrollbar from "react-perfect-scrollbar";
@@ -65,6 +65,5 @@ const ScheduledMessagesList = (props) => {
 	return <h1>No messages scheduled</h1>;
 	// }
 	// return null
-
 };
 export default ScheduledMessagesList;

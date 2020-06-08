@@ -4,23 +4,23 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // Component Imports
 import PrivateRoute from "../utils/PrivateRoute";
 import PrivateCoachRoute from "../utils/PrivateCoachRoute";
-import HealthMetric from "../clients/healthMetrics/HealthMetric";
-import CoachDashboard from "../coach/coachDashboard/CoachDashboard";
+import HealthMetric from "../components/dashboard/client/health_metrics/HealthMetric";
+import CoachDashboard from "../components/dashboard/coach/CoachDashboard";
 import ClientDashboard from "../components/new/dashboard/client/ClientDashboard";
-import HealthMetricForm from "../clients/healthMetricForm/HealthMetricForm";
-import LoginClient from "../clients/loginClient/LoginClient";
+import HealthMetricForm from "../components/dashboard/client/health_metrics/healthMetricForm/HealthMetricForm";
+import LoginClient from "../components/login/client/LoginClient";
 import EmailRequest from "../components/clients/loginClient/forgotPassword/EmailRequest";
-import PasswordReset from "../clients/loginClient/forgotPassword/PasswordReset";
-import Welcome from "../clients/welcomeScreen/WelcomeScreen";
+import PasswordReset from "../components/login/client/forgotPassword/PasswordReset";
+// import Welcome from "../clients/welcomeScreen/WelcomeScreen";
 import CoachRegistration from "../coach/coachRegistration/coachRegistration";
 import LoginCoach from "../coach/loginCoach/LoginCoach";
-import AccountOne from "../clients/onboarding/accountCreation/accountOne/AccountOne";
+import AccountOne from "../components/register/client/onboarding/accountCreation/accountOne/AccountOne";
 import Splash from "../splash/Splash";
-import ProfileOne from "../clients/onboarding/createProfile/profileOne/ProfileOne";
-import ProfileThree from "../clients/onboarding/createProfile/profileThree/ProfileThree";
-import ProfileFour from "../clients/onboarding/createProfile/profileFour/ProfileFour";
-import ProfileFive from "../clients/onboarding/createProfile/profileFive/ProfileFive";
-import ProfileSix from "../clients/onboarding/createProfile/profileSix/ProfileSix";
+import ProfileOne from "../components/register/client/onboarding/createProfile/profileOne/ProfileOne";
+import ProfileThree from "../components/register/client/onboarding/createProfile/profileThree/ProfileThree";
+import ProfileFour from "../components/register/client/onboarding/createProfile/profileFour/ProfileFour";
+import ProfileFive from "../components/register/client/onboarding/createProfile/profileFive/ProfileFive";
+import ProfileSix from "../components/register/client/onboarding/createProfile/profileSix/ProfileSix";
 
 //Styling
 import "../../App.css";

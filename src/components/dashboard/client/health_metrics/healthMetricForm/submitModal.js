@@ -1,7 +1,7 @@
 import React from "react";
-import { translate } from "../../utils/language/translate";
-import { ReactComponent as Warning } from "../../../utils/assets/icons/login/warning.svg";
-import { ReactComponent as Success } from "../../../utils/assets/icons/login/success.svg";
+import { translate } from "../../../../../utils/language/translate";
+import { ReactComponent as Warning } from "../../../../../utils/assets/icons/login/warning.svg";
+import { ReactComponent as Success } from "../../../../../utils/assets/icons/login/success.svg";
 import "./FailureModal.scss";
 
 const SubmitModal = (props) => {

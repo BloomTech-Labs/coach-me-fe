@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./ScheduledMessages.scss";
-import { deleteScheduledMessage } from "../../../../actions/coachActions";
+import {
+	deleteScheduledMessage,
+	getScheduledMessage,
+} from "../../../../redux/actions/coachActions";
 import { ReactComponent as Exit } from "../../../utils/assets/Xicon.svg";
-import { getScheduledMessage } from "../../../../actions/coachActions";
 import "./updateModal.scss";
-
 
 const DeleteModal = (props) => {
 	const { show, id, setShow, /* removedMessage, */ clientId } = props;
 	const dispatch = useDispatch();
 	const [deleted, setDeleted] = useState(false);
-	
-
 
 	useEffect(() => {
 		dispatch(getScheduledMessage(clientId));

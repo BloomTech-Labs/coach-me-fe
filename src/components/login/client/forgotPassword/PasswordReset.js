@@ -3,7 +3,7 @@ import PasswordForm from "./PasswordForm";
 import { useDispatch } from "react-redux";
 import Show from "../../../../utils/assets/icons/login/show_password.png";
 import Hide from "../../../../utils/assets/icons/login/hide_password.png";
-import { getNewPassword } from "../../../../actions/clientActions";
+import { getNewPassword } from "../../../../redux/actions/clientActions";
 import { useLocation } from "react-router-dom";
 import "../loginClient.scss";
 
