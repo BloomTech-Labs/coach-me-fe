@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import LiveMessages from "./LiveMessages.js";
-import ScheduledMessages from "./ScheduledMessages";
 import ViewAllScheduledMessages from "./ViewAllScheduledMessages";
-import "./coachMessaging.scss";
+import "../../../../sass/dashboard/coach/coach_messaging/coachMessaging.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { ReactComponent as MessageBubble } from "../assets/messageBubble.svg";
-import { ReactComponent as ScheduleBubble } from "../assets/scheduleBubble.svg";
+import { ReactComponent as MessageBubble } from "../../../../utils/assets/messageBubble.svg";
+import { ReactComponent as ScheduleBubble } from "../../../../utils/assets/scheduleBubble.svg";
 import { getScheduledMessage } from "../../../../redux/actions/coachActions";
 
 const CoachMessaging = (props) => {

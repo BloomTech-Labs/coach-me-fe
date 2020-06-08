@@ -15,7 +15,7 @@ import iconbloodPressure from "../../../../../utils/assets/icons/bloodPressure.s
 import iconweight from "../../../../../utils/assets/icons/weight.svg";
 
 //Styling
-import "./healthMetricForm.scss";
+import "../../../../../sass/dashboard/client/health_metrics/healthMetricForm.scss";
 
 function HealthMetricForm(props) {
 	const state = useSelector((state) => state.client);

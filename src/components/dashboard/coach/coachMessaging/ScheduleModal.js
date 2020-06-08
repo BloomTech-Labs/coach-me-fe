@@ -1,10 +1,8 @@
-
 import React from "react";
-import { useSelector } from "react-redux";
-import { ReactComponent as Exit } from "../../../utils/assets/Xicon.svg";
-import "./scheduleModal.scss";
-const ScheduleModal = (props) => {
 
+import { ReactComponent as Exit } from "../../../utils/assets/Xicon.svg";
+import "../../../../sass/dashboard/coach/coach_messaging/scheduleModal.scss";
+const ScheduleModal = (props) => {
 	const { show, setShow } = props;
 	const scheduleMessage = () => {
 		setShow();

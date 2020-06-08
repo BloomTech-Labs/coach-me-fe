@@ -5,7 +5,7 @@ import ScheduledMessages from "./ScheduledMessages";
 import MiniScheduleMsgList from "./MiniScheduleMsgList";
 import { getScheduledMessage } from "../../../../redux/actions/coachActions";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import "./viewAllScheduledMessages.scss";
+import "../../../../sass/dashboard/coach/coach_messaging/viewAllScheduledMessages.scss";
 
 function ViewAllScheduledMessages(props) {
 	const { clientprofile, type } = props;

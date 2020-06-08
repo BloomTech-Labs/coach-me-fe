@@ -1,5 +1,5 @@
 import React from "react";
-import "./clientDashboard.scss";
+import "../../../sass/dashboard/client/clientDashboard.scss";
 
 const ResourceCenter = () => {
 	return (

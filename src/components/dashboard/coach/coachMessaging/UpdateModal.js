@@ -8,7 +8,7 @@ import { ReactComponent as Exit } from "../../../utils/assets/Xicon.svg";
 import { ReactComponent as Calendar } from "../../../utils/assets/calendar.svg";
 import { ReactComponent as Clock } from "../../../utils/assets/clock.svg";
 
-import "./updateModal.scss";
+import "../../../../sass/dashboard/coach/coach_messaging/updateModal.scss";
 
 const UpdateModal = (props) => {
 	const { show, id, setShow, /* updatedMessage, */ clientId } = props;

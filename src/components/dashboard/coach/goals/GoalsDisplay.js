@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { getGoals } from '../../../../actions/coachActions';
 import GoalDisplayModal from "./GoalDisplayModal";
 import GoalCard from "./GoalCard";
-import "./goalsDisplay.scss";
+import "../../../../sass/dashboard/coach/goals/goalsDisplay.scss";
 
 const GoalsDisplay = (props) => {
 	const state = useSelector((state) => state.coach);

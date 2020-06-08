@@ -2,7 +2,7 @@ import React from "react";
 
 import moment from "moment";
 
-import "../metrics.scss";
+import "../../../../../sass/dashboard/coach/coach_metric_view/metrics.scss";
 import iconweight from "../../../../../utils/assets/icons/weight.svg";
 import Xicon from "../../../../../utils/assets/icons/Xicon.svg";
 

@@ -6,7 +6,7 @@ import { translate } from "../../../../utils/language/translate";
 import LineGraph from "./LineGraph";
 
 //Styling
-import "./healthMetrics.scss";
+import "../../../../sass/dashboard/client/health_metrics/healthMetrics.scss";
 
 //Icon Imports
 import iconfastingBloodGlucose from "../../../../utils/assets/icons/Blood.svg";

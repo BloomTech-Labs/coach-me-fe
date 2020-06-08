@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 //Component Imports
 import Routes from "./Routes/Routes";
-import Navigation from "./components/utils/UI/navigation/Navigation";
-import SideDrawer from "./components/utils/UI/sidedrawer/SideDrawer";
-import Footer from "./components/utils/UI/footer/Footer";
-import UIContext from "./components/utils/context/UIContext";
+import Navigation from "./components/navigation/Navigation";
+import SideDrawer from "./components/sidedrawer/SideDrawer";
+import Footer from "./components/footer/Footer";
+import UIContext from "./utils/context/UIContext";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 //Styling
 import "./App.css";

@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import "../metrics.scss";
+import "../../../../../sass/dashboard/coach/coach_metric_view/metrics.scss";
 import iconbloodPressure from "../../../../../utils/assets/icons/bloodPressure.svg";
 import Xicon from "../../../../../utils/assets/icons/Xicon.svg";
 

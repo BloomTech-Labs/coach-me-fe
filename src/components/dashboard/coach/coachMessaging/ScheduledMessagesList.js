@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import MessageCard from "./MessageCard";
-// import {
 
-// 	deleteScheduledMessage,
-// 	getScheduledMessage,
-// } from "../../../../actions/coachActions";
 import backArrow from "../../../utils/assets/back.svg";
 import { useDispatch, useSelector } from "react-redux";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import "./messageCard.scss";
+import "../../../../sass/dashboard/coach/coach_messaging/messageCard.scss";
 const ScheduledMessagesList = (props) => {
 	const state = useSelector((state) => state.coach);
 	const { messages, show, toggleScheduler } = props;

@@ -5,7 +5,7 @@ import { getLastCheckInTime } from "../../../../../redux/actions/coachActions";
 //Component Imports
 import MotiveModal from "./MotiveModal";
 //Styling
-import "./clientInfo.scss";
+import "../../../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 
 const ClientInfo = (props) => {
 	const state = useSelector((state) => state.coach);

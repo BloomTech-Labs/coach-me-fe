@@ -3,20 +3,18 @@ import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { translate } from "../../../../utils/language/translate";
-import { getClientRecords } from "../../../../redux/actions/clientActions";
 
 //Component Imports
 import HealthMetricCards from "./HealthMetricCards";
 import LineGraph from "./LineGraph";
 
 //Styling
-import "./healthMetrics.scss";
+import "../../../../sass/dashboard/client/health_metrics/healthMetrics.scss";
 
 // Icon Imports
 import iconfastingBloodGlucose from "../../../../utils/assets/icons/Blood.svg";
 import iconbloodPressure from "../../../../utils/assets/icons/bloodPressure.svg";
 import iconweight from "../../../../utils/assets/icons/weight.svg";
-// import iconSeeHistory from "../../utils/assets/seeHistory.svg";
 
 const HealthMetric = (props) => {
 	const state = useSelector((state) => state.client);

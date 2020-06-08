@@ -4,7 +4,7 @@ import {
 	getMessageHistory,
 	postMessage,
 } from "../../../../redux/actions/coachActions";
-import "./coachMessaging.scss";
+import "../../../../sass/dashboard/coach/coach_messaging/coachMessaging.scss";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import moment from "moment";

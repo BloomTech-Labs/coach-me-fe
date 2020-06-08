@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import Notifications from "./Notifications";
 import ResourceCenter from "./ResourceCenter";
 import SessionNotes from "./SessionNotes";
-import HealthMetric from "../healthMetrics/HealthMetric";
+import HealthMetric from "./health_metrics/HealthMetric";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "react-redux";
 import { getClientInfo } from "../../../../redux/actions/clientActions";
-import "./clientDashboard.scss";
+import "../../../sass/dashboard/client/clientDashboard.scss";
 
 const ClientDashboard = (props) => {
 	const dispatch = useDispatch();

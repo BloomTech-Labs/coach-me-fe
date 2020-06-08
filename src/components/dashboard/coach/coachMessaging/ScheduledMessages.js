@@ -9,7 +9,7 @@ import { ReactComponent as Calendar } from "../../../utils/assets/calendar.svg";
 import { ReactComponent as Clock } from "../../../utils/assets/clock.svg";
 // import {Arrow} from '../../../utils/assets/downArrow.svg';
 
-import "./ScheduledMessages.scss";
+import "../../../../sass/dashboard/coach/coach_messaging/ScheduledMessages.scss";
 
 function ScheduledMessages(props) {
 	const { clientprofile /*, type */ } = props;

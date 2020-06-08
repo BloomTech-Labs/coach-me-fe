@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import "../metrics.scss";
+import "../../../../../sass/dashboard/coach/coach_metric_view/metrics.scss";
 import iconfastingBloodGlucose from "../../../../../utils/assets/icons/Blood.svg";
 
 const BloodGlucoseHistory = (props) => {
