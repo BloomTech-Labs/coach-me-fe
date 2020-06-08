@@ -6,7 +6,7 @@ import PrivateRoute from "../utils/PrivateRoute";
 import PrivateCoachRoute from "../utils/PrivateCoachRoute";
 import HealthMetric from "../clients/healthMetrics/HealthMetric";
 import CoachDashboard from "../coach/coachDashboard/CoachDashboard";
-import ClientDashboard from "../clients/clientDashboard/ClientDashboard";
+import ClientDashboard from "../components/new/dashboard/client/ClientDashboard";
 import HealthMetricForm from "../clients/healthMetricForm/HealthMetricForm";
 import LoginClient from "../clients/loginClient/LoginClient";
 import EmailRequest from "../components/clients/loginClient/forgotPassword/EmailRequest";
