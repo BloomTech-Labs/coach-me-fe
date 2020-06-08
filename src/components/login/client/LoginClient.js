@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import Show from "../../../utils/assets/icons/login/show_password.png";
 import Hide from "../../../utils/assets/icons/login/hide_password.png";
 import { getClientInfoLogin } from "../../../redux/actions/clientActions";
-import "./loginClient.scss";
+import "../../../sass/login/client/loginClient.scss";
 
 const LoginClient = (props) => {
 	const dispatch = useDispatch();

@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import UIContext from "../../../utils/context/UIContext";
-import { ReactComponent as Logo } from "../.././assets/coachmelogo-white.svg";
-import "./navigation.scss";
-import { FormikProvider } from "formik";
-import axiosWithCred from "../../../utils/axiosWithCred";
+import UIContext from "../../utils/context/UIContext";
+import { ReactComponent as Logo } from "../../utils/assets/logo/coachmelogo-white.svg";
+import "../../sass/navigation/navigation.scss";
+import axiosWithCred from "../../utils/axiosWithCred";
 
 const Navigation = (props) => {
 	const { backdropHandler, drawerOpen } = useContext(UIContext);

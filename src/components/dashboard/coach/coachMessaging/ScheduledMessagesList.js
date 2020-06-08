@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MessageCard from "./MessageCard";
 
-import backArrow from "../../../utils/assets/back.svg";
+import backArrow from "../../../../utils/assets/icons/back.svg";
 import { useDispatch, useSelector } from "react-redux";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "../../../../sass/dashboard/coach/coach_messaging/messageCard.scss";

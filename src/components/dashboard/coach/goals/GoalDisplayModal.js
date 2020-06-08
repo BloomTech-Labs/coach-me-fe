@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GoalCard from "./GoalCard";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import Xicon from "../../../utils/assets/Xicon.svg";
+import Xicon from "../../../../utils/assets/icons/Xicon.svg";
 import "../../../../sass/dashboard/coach/goals/goalDisplayModal.scss";
 
 const GoalDisplayModal = (props) => {

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import JoiningOptions from "./JoiningOptions";
 import Conditions from "./Conditions";
-import "./profileThree.scss";
+import "../../../../../../sass/register/client/create_profile/profile_three/profileThree.scss";
 
 const ProfileThree = () => {
 	return (

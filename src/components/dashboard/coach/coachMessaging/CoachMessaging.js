@@ -3,8 +3,8 @@ import LiveMessages from "./LiveMessages.js";
 import ViewAllScheduledMessages from "./ViewAllScheduledMessages";
 import "../../../../sass/dashboard/coach/coach_messaging/coachMessaging.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { ReactComponent as MessageBubble } from "../../../../utils/assets/messageBubble.svg";
-import { ReactComponent as ScheduleBubble } from "../../../../utils/assets/scheduleBubble.svg";
+import { ReactComponent as MessageBubble } from "../../../../utils/assets/img/dashboard_images/messageBubble.svg";
+import { ReactComponent as ScheduleBubble } from "../../../../utils/assets/img/dashboard_images/scheduleBubble.svg";
 import { getScheduledMessage } from "../../../../redux/actions/coachActions";
 
 const CoachMessaging = (props) => {

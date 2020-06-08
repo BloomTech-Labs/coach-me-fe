@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 import { useSelector } from "react-redux";
-//Component Imports
-import ClientCard from "./clientsList/ClientCard";
+
 // Styling
-import "./clientsList/ClientInfo/clientInfo.scss";
-import magnifying from "../../utils/assets/magnifying_glass.svg";
+import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
+import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
 
 const SearchForm = (props) => {
 	const state = useSelector((state) => state.coach);

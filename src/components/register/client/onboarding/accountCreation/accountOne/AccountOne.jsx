@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Backdrop from "../../../../../../utils/UI/Backdrop";
-import AccountModal from "./AccountModal";
 import UserForm from "./UserForm";
-import "./accountOne.scss";
-import { Link } from "react-router-dom";
+import "../../../../../../sass/register/client/accountOne.scss";
 import { useDispatch } from "react-redux";
 import { getClientInfoRegister } from "../../../../../../redux/actions/clientActions";
 

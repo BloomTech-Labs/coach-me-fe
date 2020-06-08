@@ -5,7 +5,7 @@ import {
 	deleteScheduledMessage,
 	getScheduledMessage,
 } from "../../../../redux/actions/coachActions";
-import { ReactComponent as Exit } from "../../../utils/assets/Xicon.svg";
+import { ReactComponent as Exit } from "../../../../utils/assets/icons/Xicon.svg";
 import "../../../../sass/dashboard/coach/coach_messaging/updateModal.scss";
 
 const DeleteModal = (props) => {

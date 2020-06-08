@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Backdrop from "../../../../../../utils/UI/Backdrop";
 import CompleteModal from "./CompleteModal";
 
-import "./profileSix.scss";
+import "../../../../../../sass/register/client/create_profile/profile_six/profileSix.scss";
 
 import randomLady from "../../../../../../utils/assets/img/random-lady.jpg";
 const ProfileSix = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../sass/registration/coach/coachForm.scss";
+import "../../../sass/register/coach/coachForm.scss";
 
 const CoachForm = (props) => {
 	return (

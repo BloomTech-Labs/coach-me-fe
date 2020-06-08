@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import ProfileFour from "../profileFour/ProfileFour";
 import Weekdays from "./Weekdays";
 import Weekends from "./Weekends";
-import TimeslotWeekend from "./TimeslotWeekend";
 
-import "./profileFive.scss";
+import "../../../../../../sass/register/client/create_profile/profile_five/profileFive.scss";
 
 const ProfileFive = (props) => {
 	return (

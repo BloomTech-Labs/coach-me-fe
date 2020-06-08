@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../../../sass/dashboard/coach/goals/goalCard.scss";
 import moment from "moment";
-import { ReactComponent as Arrow } from "../../../../utils/assets/img/dashboard_images/assetsVector.svg";
+import { ReactComponent as Arrow } from "../../../../utils/assets/img/dashboard_images/Vector.svg";
 import { ReactComponent as ArrowDown } from "../../../../utils/assets/img/dashboard_images/Arrow-down.svg";
 import { ReactComponent as GreenCheck } from "../../../../utils/assets/img/dashboard_images/greenCheckMark.svg";
 import { ReactComponent as RedX } from "../../../../utils/assets/img/dashboard_images/redX.svg";

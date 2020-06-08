@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import "../../../../../sass/dashboard/coach/coach_metric_view/metrics.scss";
-import iconbloodPressure from "../../../../utils/assets/bloodPressure.svg";
+import iconbloodPressure from "../../../../../utils/assets/icons/bloodPressure.svg";
 
 const BPhistory = (props) => {
 	return (

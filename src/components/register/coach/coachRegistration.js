@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import SideOne from "../SideOne";
+import SideOne from "../../login/coach/SideOne";
 import CoachForm from "./CoachForm";
 
 // Redux Action
-import { registerCoach } from "../../../actions/authActions";
+import { registerCoach } from "../../../redux/actions/authActions";
 
 //Styling
-import "../../../sass/registration/coach/coachRegistration.scss";
+import "../../../sass/register/coach/coachRegistration.scss";
 
 function CoachRegistration(props) {
 	const dispatch = useDispatch();

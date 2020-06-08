@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { ReactComponent as Logo } from "../.././assets/coachmelogo-white.svg";
+import { ReactComponent as Logo } from "../../utils/assets/logo/coachmelogo-white.svg";
 import Backdrop from "../../utils/UI/Backdrop";
 import UIContext from "../../utils/context/UIContext";
 import axiosWithCred from "../../utils/axiosWithCred";
 
-import "./sideDrawer.scss";
+import "../../sass/side_drawer/sideDrawer.scss";
 const SideDrawer = (props) => {
 	const { drawerOpen, backdropHandler } = useContext(UIContext);
 	useEffect(() => {}, []);

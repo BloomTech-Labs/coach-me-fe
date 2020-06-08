@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginCoach } from "../../../actions/authActions";
+import { loginCoach } from "../../../redux/actions/authActions";
 import CoachLoginForm from "./CoachLoginForm";
-import SideOne from "../SideOne";
+import SideOne from "../coach/SideOne";
 
 //Component Imports
 import Modal from "./Modal";

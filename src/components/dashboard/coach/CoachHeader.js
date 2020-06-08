@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "../../../sass/dashboard/coach/coachHeader.scss";
-import coachMeIcon from "../../utils/assets/1coachHeader.svg";
-import Coach from "../../utils/assets/2coachHeader.svg";
-import Me from "../../utils/assets/3coachHeader.svg";
-import { ReactComponent as DownArrow } from "../../utils/assets/downArrow.svg";
-import { ReactComponent as UpArrow } from "../../utils/assets/upArrow.svg";
-import { useSelector } from "react-redux";
+import coachMeIcon from "../../../utils/assets/logo/1coachHeader.svg";
+import Coach from "../../../utils/assets/logo/2coachHeader.svg";
+import Me from "../../../utils/assets/logo/3coachHeader.svg";
+import { ReactComponent as DownArrow } from "../../../utils/assets/icons/downArrow.svg";
+import { ReactComponent as UpArrow } from "../../../utils/assets/icons/upArrow.svg";
 
 const CoachHeader = (props) => {
 	// const state = useSelector((state) => state.auth);

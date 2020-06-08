@@ -1,5 +1,5 @@
 import React from "react";
-import "./MotiveModal.scss";
+import "../../../../../sass/dashboard/coach/client_list/client_info/MotiveModal.scss";
 import { ReactComponent as Xicon } from "../../../../../utils/assets/icons/Xicon.svg";
 
 const MotiveModal = (props) => {

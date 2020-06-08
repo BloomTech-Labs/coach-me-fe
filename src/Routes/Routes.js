@@ -3,19 +3,19 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Component Imports
 import PrivateRoute from "../utils/PrivateRoute";
-import PrivateCoachRoute from "../utils/PrivateCoachRoute";
+// import PrivateCoachRoute from "../utils/PrivateCoachRoute";
 import HealthMetric from "../components/dashboard/client/health_metrics/HealthMetric";
 import CoachDashboard from "../components/dashboard/coach/CoachDashboard";
 import ClientDashboard from "../components/new/dashboard/client/ClientDashboard";
 import HealthMetricForm from "../components/dashboard/client/health_metrics/healthMetricForm/HealthMetricForm";
 import LoginClient from "../components/login/client/LoginClient";
-import EmailRequest from "../components/clients/loginClient/forgotPassword/EmailRequest";
+import EmailRequest from "../components/login/client/forgotPassword/EmailRequest";
 import PasswordReset from "../components/login/client/forgotPassword/PasswordReset";
 // import Welcome from "../clients/welcomeScreen/WelcomeScreen";
-import CoachRegistration from "../coach/coachRegistration/coachRegistration";
-import LoginCoach from "../coach/loginCoach/LoginCoach";
+import CoachRegistration from "../components/register/coach/coachRegistration";
+import LoginCoach from "../components/login/coach/LoginCoach";
 import AccountOne from "../components/register/client/onboarding/accountCreation/accountOne/AccountOne";
-import Splash from "../splash/Splash";
+import Splash from "../components/splash_page/Splash";
 import ProfileOne from "../components/register/client/onboarding/createProfile/profileOne/ProfileOne";
 import ProfileThree from "../components/register/client/onboarding/createProfile/profileThree/ProfileThree";
 import ProfileFour from "../components/register/client/onboarding/createProfile/profileFour/ProfileFour";

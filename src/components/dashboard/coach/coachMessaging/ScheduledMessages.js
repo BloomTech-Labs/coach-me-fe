@@ -5,9 +5,8 @@ import {
 	getScheduledMessage,
 	addScheduledMessage,
 } from "../../../../redux/actions/coachActions";
-import { ReactComponent as Calendar } from "../../../utils/assets/calendar.svg";
-import { ReactComponent as Clock } from "../../../utils/assets/clock.svg";
-// import {Arrow} from '../../../utils/assets/downArrow.svg';
+import { ReactComponent as Calendar } from "../../../../utils/assets/icons/calendar.svg";
+import { ReactComponent as Clock } from "../../../../utils/assets/icons/clock.svg";
 
 import "../../../../sass/dashboard/coach/coach_messaging/ScheduledMessages.scss";
 

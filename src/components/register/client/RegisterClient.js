@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { ReactComponent as Logo } from "../assets/logo.svg";
+import { ReactComponent as Logo } from "../../../utils/assets/logo/logo.svg";
 import Show from "../../../utils/assets/icons/login/assets/show_password.png";
 import Hide from "../../../utils/assets/icons/login/hide_password.png";
-import { getClientInfoRegister } from "../../../actions/clientActions";
+import { getClientInfoRegister } from "../../../redux/actions/clientActions";
 import { Link } from "react-router-dom";
-import "../loginClient/loginClient.scss";
+import "../../../sass/login/client/loginClient.scss";
 
 const RegisterClient = (props) => {
 	const dispatch = useDispatch();
