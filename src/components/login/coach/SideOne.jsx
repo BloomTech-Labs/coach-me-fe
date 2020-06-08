@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Logo } from "coachmelogo-white.svg";
+import { ReactComponent as Logo } from "../../../utils/assets/logo/coachmelogo-white.svg";
 
 const SideOne = () => {
 	return (

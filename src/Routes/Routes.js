@@ -6,7 +6,7 @@ import PrivateRoute from "../utils/PrivateRoute";
 // import PrivateCoachRoute from "../utils/PrivateCoachRoute";
 import HealthMetric from "../components/dashboard/client/health_metrics/HealthMetric";
 import CoachDashboard from "../components/dashboard/coach/CoachDashboard";
-import ClientDashboard from "../components/new/dashboard/client/ClientDashboard";
+import ClientDashboard from "../components/dashboard/client/ClientDashboard";
 import HealthMetricForm from "../components/dashboard/client/health_metrics/healthMetricForm/HealthMetricForm";
 import LoginClient from "../components/login/client/LoginClient";
 import EmailRequest from "../components/login/client/forgotPassword/EmailRequest";
@@ -23,7 +23,7 @@ import ProfileFive from "../components/register/client/onboarding/createProfile/
 import ProfileSix from "../components/register/client/onboarding/createProfile/profileSix/ProfileSix";
 
 //Styling
-import "../../App.css";
+import "../App.css";
 
 const Routes = (props) => {
 	return (
