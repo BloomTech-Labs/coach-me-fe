@@ -14,13 +14,17 @@ const Navigation = (props) => {
 				window.location = "/";
 			});
 	};
+
 	return (
 		<nav className="navigation">
-			<Logo />
+			<Link to="/" onClick={() => (window.location = "/")}>
+				<Logo />
+			</Link>
 			<div className="nav-links">
-				<Link to="/">Home</Link>
-				<Link to="/dashboard">Dashboard</Link>
-				<Link to="/">Support</Link>
+				{/* <Link to="/">Home</Link>
+				<Link to="/dashboard-client">Dashboard</Link>
+				<Link to="/">Support</Link> */}
+
 				<Link onClick={logout} to="/">
 					Logout
 				</Link>
