@@ -1,34 +1,72 @@
-// @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 .client-dashboard {
+    margin-top: 1em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding-top: 6em;
-    // font-family: 'Poppins', sans-serif;
     font-size: 2rem;
 
+    .tabs-container {
+        width: 25%;
+        height: 6em;
+        display: flex;
+        flex-direction: column;
+        font-size: 1em;
+        border: 1px solid black;
+
+        .tab {
+            height: 1.5em;
+            border-top: 1px solid black;
+            text-decoration: none;
+            color: black;
+        }
+
+        .top {
+            border: none;
+        }
+
+        .notifications {
+            display: flex;
+
+            .notification-count {
+                display: flex;
+                justify-content: center;
+                height: 25px;
+                width: 25px;
+                color: white;
+                background-color: tomato;
+                border: 2px solid red;
+                border-radius: 50%;
+            }
+        }
+    }
+
     .profile-container {
-        margin: 1em;
-        padding: 1em;
-    }
-}
+        display: flex;
+        margin: .5em;
+        font-size: 2em;
+        
+        .profile {
+            display: flex;
+            flex-direction: row;
 
-.wrapper {
-    margin: 1em;
-    border: 1px solid #274160;
+            .condition {
+                display: flex;
+                justify-content: center;
+                height: 2em;
+                width: 4em;
+                margin: 0 1em;
+                font-size: .5em;
+                border: 1px solid black;
+            }
 
-    h1 {
-        padding: .5em;
-        color: white;
-        background-color: #274160;
-        text-align: center;
-    }
+            .diabetes {
+                background-color: #5d9c6d
+            }
 
-    .container {
-
-        p {
-            padding: 1em;
-            border-top: 1px solid #274160;
+            .hbp {
+                background-color: #ffb84d;
+            }
         }
     }
 }
