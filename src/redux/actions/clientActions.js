@@ -2,22 +2,21 @@ import toastr from "toastr";
 import apiCall from "../../utils/api";
 import axiosWithCred from "../../utils/axiosWithCred";
 import {
-	GET_CLIENTS_SUCCESS,
-	GET_CLIENTS_FAILURE,
 	EMAIL_REQUEST_SUCCESS,
 	EMAIL_REQUEST_FAILURE,
 	PASSWORD_RESET_SUCCESS,
 	PASSWORD_RESET_FAILURE,
-	CLIENT_LOGIN_SUCCESS,
 	CLIENT_REGISTER_SUCCESS,
-	REGISTER_SUCCESS,
+	CLIENT_LOGIN_SUCCESS,
+	GET_CLIENT_INFO,
+	GET_CLIENTS_FAILURE,
+	//legacy
 	UPDATE_METRIC_START,
 	UPDATE_METRIC_SUCCESS,
 	UPDATE_METRIC_FAILURE,
 	GET_METRICS_START,
 	GET_METRICS_SUCCESS,
 	GET_METRICS_FAILURE,
-	GET_CLIENT_INFO,
 } from "./types";
 
 export const getClientInfoRegister = (userAccountDetails) => (dispatch) => {
@@ -49,11 +48,12 @@ export const getClientInfoLogin = (input) => (dispatch) => {
 			input
 		)
 		.then((res) => {
+			console.log("login, res",res)
 			window.location = "/dashboard-client";
-			// dispatch({
-			//     type: CLIENT_LOGIN_SUCCESS,
-			//     payload: res.data
-			// })
+			dispatch({
+			    type: CLIENT_LOGIN_SUCCESS,
+			    payload: res.config.data
+			})
 		})
 		.catch((err) => {
 			toastr.error(err);

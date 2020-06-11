@@ -7,7 +7,7 @@
     font-size: 2rem;
 
     .tabs-container {
-        width: 25%;
+        width: 15%;
         height: 6em;
         display: flex;
         flex-direction: column;
@@ -53,19 +53,22 @@
             .condition {
                 display: flex;
                 justify-content: center;
+                align-items: center;
                 height: 2em;
-                width: 4em;
-                margin: 0 1em;
+                width: 4.5em;
+                margin: 0 .5em;
                 font-size: .5em;
-                border: 1px solid black;
+                border-radius: 5em;
             }
 
             .diabetes {
-                background-color: #5d9c6d
+                background-color: #5d9c6d;
+                border: 3px solid #2a4932;
             }
 
             .hbp {
-                background-color: #ffb84d;
+                background-color: #f3a632;
+                border: 3px solid #ad7623;
             }
         }
     }

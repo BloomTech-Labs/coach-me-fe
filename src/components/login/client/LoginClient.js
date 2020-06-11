@@ -38,5 +38,4 @@ const LoginClient = (props) => {
 		/>
 	);
 };
-
 export default LoginClient;
