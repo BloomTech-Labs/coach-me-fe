@@ -4,6 +4,7 @@ import UIContext from "../../utils/context/UIContext";
 import { ReactComponent as Logo } from "../../utils/assets/logo/coachmelogo-white.svg";
 import "../../sass/navigation/navigation.scss";
 import axiosWithCred from "../../utils/axiosWithCred";
+import { connect } from "react-redux";
 
 const Navigation = (props) => {
 	const { backdropHandler, drawerOpen } = useContext(UIContext);
@@ -40,5 +41,10 @@ const Navigation = (props) => {
 		</nav>
 	);
 };
-
-export default Navigation;
+const mapStateToProps = (state) => {
+	console.log(state)
+	return {
+		loggedIn: state.loggedIn
+	}
+};
+export default connect(mapStateToProps)(Navigation);
