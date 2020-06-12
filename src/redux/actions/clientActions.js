@@ -48,7 +48,7 @@ export const getClientInfoLogin = (input) => (dispatch) => {
 			input
 		)
 		.then((res) => {
-			console.log("login, res",res)
+			console.log("login, res.config.data",res.config.data)
 			window.location = "/dashboard-client";
 			dispatch({
 			    type: CLIENT_LOGIN_SUCCESS,
