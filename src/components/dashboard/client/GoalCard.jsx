@@ -1,5 +1,6 @@
 import React from "react";
 import "../../../sass/dashboard/client/goalCard.scss";
+
 const GoalCard = (props) => {
     return (
         <div className="goal-card" >
