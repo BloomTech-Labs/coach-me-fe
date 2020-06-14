@@ -26,9 +26,9 @@ const Navigation = (props) => {
 				<Link to="/dashboard-client">Dashboard</Link>
 				<Link to="/">Support</Link> */}
 
-				<Link onClick={logout} to="/">
-					Logout
-				</Link>
+				{ props.loggedIn ? <Link onClick={logout} to="/">
+					Logout 
+				</Link> : ""}
 			</div>
 			<i
 				onClick={backdropHandler}

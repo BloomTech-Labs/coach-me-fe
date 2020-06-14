@@ -85,6 +85,7 @@ export default (state = initialState, action) => {
 		case GET_CLIENT_INFO:
 			return {
 				...state,
+				loggedIn: true,
 				client_data: action.payload,
 			};
 		default:
