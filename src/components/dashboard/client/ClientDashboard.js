@@ -8,11 +8,12 @@ import { getClientInfo } from "../../../redux/actions/clientActions";
 import "../../../sass/dashboard/client/clientDashboard.scss";
 
 const ClientDashboard = (props) => {
-	const [goals] = useState([{"started": "6/18/20", "title": "Exercise More", "description": "I will walk 5,000 steps 4 days this week", "completed": false},
-							  {"started": "6/18/20", "title": "Exercise More", "description": "I will walk 5,000 steps 4 days this week", "completed": false},
-							  {"started": "4/6/20", "title": "Join CoachMe", "description": "Get a coaching app I love!", "completed": true},
-							]);
-	const [conditions] = useState([ "Diabetes" , "HBP" ])
+	const [goals] = useState([
+		{"started": "6/8/20", "title": "Exercise More", "description": "I will walk 5,000 steps 4 days this week", "completed": true},
+		{"started": "6/15/20", "title": "Exercise More", "description": "I will wall 8,000 steps 4 days this week.", "completed": false},
+		{"started": "6/22/20", "title": "Eat Healthier", "description": "I will eat 2 servings of vegetables 4 days this week.", "completed": true},
+	]);
+	const [conditions] = useState([ "Diabetes" , "HBP", "Anxiety", "High Cholesterol" ])
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getClientInfo());
@@ -42,7 +43,7 @@ const ClientDashboard = (props) => {
 					</div>
 					<h2>Goals:</h2>
 						{goals.map((g, index) => {
-								return (<GoalCard key={index} goal={g} />)
+								return <GoalCard key={index} goal={g} />
 						})} 	
 				</div>
 			</div>
@@ -51,7 +52,6 @@ const ClientDashboard = (props) => {
 };
 
 const mapStateToProps = (state) => {
-	console.log("state.client.loggedIn", state.client.loggedIn)
 	return {
 		state: state.client.client_data, 
 		loggedIn: state.client.loggedIn
