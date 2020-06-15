@@ -64,27 +64,6 @@
             .profile {
                 display: flex;
                 flex-direction: row;
-
-                .condition {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 3rem;
-                    width: 7rem;
-                    margin-left: 2em;
-                    font-size: .75em;
-                    border-radius: 5em;
-                }
-
-                .diabetes {
-                    background-color: #3385FF;
-                    border: 3px solid #2970db;
-                }
-
-                .hbp {
-                    background-color: #eeb157;
-                    border: 3px solid #db9b3a;
-                }
             }
 
             .motivation {

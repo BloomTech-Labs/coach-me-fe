@@ -42,7 +42,6 @@ const Navigation = (props) => {
 	);
 };
 const mapStateToProps = (state) => {
-	console.log(" state.client.loggedIn",state.client.loggedIn)
 	return {
 		loggedIn: state.client.loggedIn
 	}

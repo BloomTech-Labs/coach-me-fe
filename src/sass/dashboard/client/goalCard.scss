@@ -5,10 +5,9 @@
     padding: 1em;
     border: 1px solid black;
 
-    .completed-pic {
+    .goal-icon {
         height: 50px;
         width: 50px;
-        border: 1px solid black;
         border-radius: 100%;
     }
 
@@ -20,12 +19,5 @@
             font-size: 1.25em;
         }
 
-        .completed {
-            color:  #5cd65c;
-        }
-
-        .not-completed {
-            
-        }
     }
 }

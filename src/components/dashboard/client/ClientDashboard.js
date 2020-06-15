@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import Notifications from "./Notifications";
-// import ResourceCenter from "./ResourceCenter";
-// import SessionNotes from "./SessionNotes";
-// import HealthMetric from "../client/health_metrics/HealthMetric";
 import GoalCard from "./GoalCard";
+import ConditionCard from "./ConditionCard";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -13,8 +10,9 @@ import "../../../sass/dashboard/client/clientDashboard.scss";
 const ClientDashboard = (props) => {
 	const [goals] = useState([{"started": "6/18/20", "title": "Exercise More", "description": "I will walk 5,000 steps 4 days this week", "completed": false},
 							  {"started": "6/18/20", "title": "Exercise More", "description": "I will walk 5,000 steps 4 days this week", "completed": false},
-							  {"started": "6/18/20", "title": "Exercise More", "description": "I will walk 5,000 steps 4 days this week", "completed": false},
-							]);/*array of goal objects needed to be added to registation/db*/
+							  {"started": "4/6/20", "title": "Join CoachMe", "description": "Get a coaching app I love!", "completed": true},
+							]);
+	const [conditions] = useState([ "Diabetes" , "HBP" ])
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getClientInfo());
@@ -35,8 +33,9 @@ const ClientDashboard = (props) => {
 				<div className="profile-container">
 					<div className="profile">
 						{<h1>{props.state.first_name} {props.state.last_name}</h1>}
-						<div className="condition diabetes">Diabetes {/*{condition[0]}*/}</div>
-						<div className="condition hbp">HBP {/*{condition[1]}*/}</div>
+						{conditions.map((c, index) => {
+							return <ConditionCard key={index} condition={c} /> 
+						})}
 					</div>
 					<div className="motivation">
 						<p>Motivation: client's motivation for coming to the app {/*{motivation}*/}</p>

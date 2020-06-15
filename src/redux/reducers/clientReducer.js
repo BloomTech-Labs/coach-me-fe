@@ -52,17 +52,11 @@ export default (state = initialState, action) => {
 				client_data: action.payload,
 				error: "",
 			};
-		case GET_CLIENTS_FAILURE:
-			return {
-				...state,
-				isfetching: false,
-				error: action.payload,
-			};
 		case EMAIL_REQUEST_SUCCESS:
 			return {
 				...state,
 				isfetching: false,
-				error: action.payload,
+				email : action.payload, 
 			};
 		case EMAIL_REQUEST_FAILURE:
 			return {
@@ -74,7 +68,7 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				isfetching: false,
-				error: action.payload,
+				password: action.payload,
 			};
 		case PASSWORD_RESET_FAILURE:
 			return {
@@ -88,28 +82,15 @@ export default (state = initialState, action) => {
 				loggedIn: true,
 				client_data: action.payload,
 			};
+		case GET_CLIENTS_FAILURE:
+			return {
+				...state,
+				isfetching: false,
+				error: action.payload,
+			};
 		default:
 			return state;
 	}
-	//legacy----
-		// case LOGIN_START:
-		// 	return {
-		// 		...state,
-		// 		isfetching: true,
-		// 		error: "",
-		// 	};
-		// case LOGIN_FAIL:
-		// 	return {
-		// 		...state,
-		// 		isfetching: false,
-		// 		error: action.payload,
-		// 	};
-		// case UPDATE_METRIC_START:
-		// 	return {
-		// 		...state,
-		// 		isfetching: true,
-		// 		error: "",
-		// 	};
 		// case UPDATE_METRIC_SUCCESS:
 		// 	return {
 		// 		...state,
@@ -122,12 +103,6 @@ export default (state = initialState, action) => {
 		// 		...state,
 		// 		isfetching: false,
 		// 		err: action.payload,
-		// 	};
-		//case GET_METRICS_START:
-		// 	return {
-		// 		...state,
-		// 		isfetching: true,
-		// 		error: "",
 		// 	};
 		// case GET_METRICS_SUCCESS:
 		// 	return {
@@ -142,5 +117,4 @@ export default (state = initialState, action) => {
 		// 		isfetching: false,
 		// 		error: action.payload,
 		// 	};
-		//----------------
 };
