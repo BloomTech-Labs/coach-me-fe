@@ -1,24 +1,24 @@
-
 .client-dashboard {
-    margin-top: 1em;
     display: flex;
     flex-direction: row;
     padding-top: 6em;
-    font-size: 2rem;
+    font-size: 2em;
 
     .tabs-container {
-        width: 15%;
-        height: 6em;
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
+        width: 20%;
+        height: 8em;
+        margin: 1rem;
         font-size: 1em;
         border: 1px solid black;
 
         .tab {
-            height: 1.5em;
-            border-top: 1px solid black;
+            height: 2em;
             text-decoration: none;
             color: black;
+            border-top: 1px solid black;
         }
 
         .top {
@@ -27,12 +27,14 @@
 
         .notifications {
             display: flex;
+            justify-content: space-between;
 
             .notification-count {
                 display: flex;
                 justify-content: center;
                 height: 25px;
                 width: 25px;
+                margin-right: 1em;
                 color: white;
                 background-color: tomato;
                 border: 2px solid red;
@@ -41,34 +43,53 @@
         }
     }
 
-    .profile-container {
+    .info-container {
         display: flex;
-        margin: .5em;
-        font-size: 2em;
-        
-        .profile {
+        flex-direction: column;
+        width: 80%;
+        margin: .5em 3em;
+
+        .profile-container {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
 
-            .condition {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2{
+                font-size: 1.5em;
+            }
+
+            .profile {
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 2em;
-                width: 4.5em;
-                margin: 0 .5em;
-                font-size: .5em;
-                border-radius: 5em;
+                flex-direction: row;
+
+                .condition {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 3rem;
+                    width: 7rem;
+                    margin-left: 2em;
+                    font-size: .75em;
+                    border-radius: 5em;
+                }
+
+                .diabetes {
+                    background-color: #3385FF;
+                    border: 3px solid #2970db;
+                }
+
+                .hbp {
+                    background-color: #eeb157;
+                    border: 3px solid #db9b3a;
+                }
             }
 
-            .diabetes {
-                background-color: #5d9c6d;
-                border: 3px solid #2a4932;
-            }
-
-            .hbp {
-                background-color: #f3a632;
-                border: 3px solid #ad7623;
+            .motivation {
+                padding-top: .5em;
+                padding-bottom: 1em;
             }
         }
     }

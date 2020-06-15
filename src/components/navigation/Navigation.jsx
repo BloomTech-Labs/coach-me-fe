@@ -26,9 +26,9 @@ const Navigation = (props) => {
 				<Link to="/dashboard-client">Dashboard</Link>
 				<Link to="/">Support</Link> */}
 
-				<Link onClick={logout} to="/">
-					Logout
-				</Link>
+				{ props.loggedIn ? <Link onClick={logout} to="/">
+					Logout 
+				</Link> : ""}
 			</div>
 			<i
 				onClick={backdropHandler}
@@ -42,9 +42,9 @@ const Navigation = (props) => {
 	);
 };
 const mapStateToProps = (state) => {
-	console.log(state)
+	console.log(" state.client.loggedIn",state.client.loggedIn)
 	return {
-		loggedIn: state.loggedIn
+		loggedIn: state.client.loggedIn
 	}
 };
 export default connect(mapStateToProps)(Navigation);

@@ -1,0 +1,31 @@
+
+.goal-card {
+    display: flex;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 1px solid black;
+
+    .completed-pic {
+        height: 50px;
+        width: 50px;
+        border: 1px solid black;
+        border-radius: 100%;
+    }
+
+    .goal-info {
+        padding-left: 1em;
+
+        h2 {
+            padding-bottom: .5em;
+            font-size: 1.25em;
+        }
+
+        .completed {
+            color:  #5cd65c;
+        }
+
+        .not-completed {
+            
+        }
+    }
+}
