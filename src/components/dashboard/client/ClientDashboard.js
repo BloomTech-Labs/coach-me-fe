@@ -15,15 +15,12 @@ const ClientDashboard = (props) => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getClientInfo());
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className="client-dashboard">
 			<div className="tabs-container">
-				<div className="notifications">
-					<Link className="tab top" to="client-notifications">Notifications</Link>
-					<div className="notification-count">5</div>
-				</div>
+				<Link className="tab" to="client-notifications">Notifications <div className="count">5</div></Link>
 				<Link className="tab" to="resource-center">Resources</Link>
 				<Link className="tab" to="coach-messages">Messages</Link>
 				<Link className="tab" to="metric-form">Health Form</Link>
@@ -31,7 +28,7 @@ const ClientDashboard = (props) => {
 			<div className="info-container">
 				<div className="profile-container">
 						{<h1>{props.state.first_name} {props.state.last_name}</h1>}
-						<p>Motivation: client's motivation for coming to the app {/*{motivation}*/}</p>
+						<p className="motivation">Motivation: client's motivation for coming to the app</p>
 					<h2>Goals:</h2>
 						{goals.map((g, index) => {
 								return <GoalCard key={index} goal={g} />

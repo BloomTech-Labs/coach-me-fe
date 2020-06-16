@@ -11,8 +11,10 @@ const GoalCard = (props) => {
                 <img className="goal-icon" src={status?Check:X} alt="icon"/>
             </div>
             <div className="goal-info">
-            <p>Start Date: {props.goal.started}</p>
-            <h2>Goal: {props.goal.title}</h2>
+                <div className="goal-start">
+                    <p>Started: {props.goal.started}</p>
+                </div>
+            <h2>{props.goal.title}</h2>
             <p>{props.goal.description}</p>
             </div>
         </div>

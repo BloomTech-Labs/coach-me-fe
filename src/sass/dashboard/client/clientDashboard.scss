@@ -1,12 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap');
+$blue: #355478;
+$white: #ffffff;
 
 .client-dashboard {
     display: flex;
     flex-direction: row;
-    padding-top: 5em;
-    margin-top: 1em;
+    padding-top: 6.5em;
     font-size: 2em;
-    font-family: 'Karla', sans-serif;
+    // font-family: 'Karla', sans-serif;
+
+    h1 {
+        font-size: 2em;
+        margin: .5em 1em;
+
+        @media (max-width: 600px) {
+            font-size: 1.5em;
+            margin: .2em;
+        }
+    }
+
+    h2{
+        font-size: 1.5em;
+        margin-left: 1em;
+    }
+
 
     @media (max-width: 600px) {
         flex-direction: column;
@@ -17,83 +34,88 @@
         flex-direction: column;
         justify-content: center;
         height: 8em;
-        // margin-left: 1em;
+        width: 10em;
         font-size: 1em;
 
         @media (max-width: 600px) {
             flex-direction: row;
+            flex-wrap: wrap;
             width: 100%;
-            height: 2em;
-            // margin: none;
+            height: 6em;
+        }
+
+        @media (max-width: 500px) {
+            margin-bottom: 2.5em;
         }
 
         .tab {
             display: flex;
             height: 2em;
+            margin: .1em;
             padding: .1em;
             text-decoration: none;
-            color: black;
-            border: 1px solid black;
+            color: $blue;
+            background-color: $white;
+            border-top: .1em solid $blue;
+            border-radius: 0 0 2em 0;
 
             @media (max-width: 600px) {
-                width: 25%;
+                width: 10em;
                 height: 2em;
+                margin: 0 1em;
+            }
+
+            @media (max-width: 500px) {
+                margin-bottom: .2em;
             }
         }
 
         .tab:hover {
-            color: #303bcf;
+            color: $white;
+            background-color: $blue;
+            border-top: .1em solid $white;
         }
 
-        .top {
-            border: none;
-        }
-
-        .notifications {
+        .count {
             display: flex;
-            justify-content: space-between;
-            border: 1px solid black;
-
-            .notification-count {
-                display: flex;
-                justify-content: center;
-                height: 25px;
-                width: 25px;
-                margin-right: .5em;
-                color: white;
-                background-color: tomato;
-                border: 2px solid red;
-                border-radius: 50%;
-            }
+            justify-content: center;
+            height: 1.2em;
+            width: 1.2em;
+            margin-left: .1em;
+            color: $white;
+            background-color: tomato;
+            border: 1.5px solid red;
+            border-radius: 50%;
         }
     }
 
     .info-container {
         display: flex;
         flex-direction: column;
-        width: 80%;
-        margin: .5em 3em;
+        width: 60%;
+        margin: .5em 2em;
+
+        @media (max-width: 600px) {
+            width: 100%;
+            margin: 0;
+        }
 
         .profile-container {
             display: flex;
             flex-direction: column;
 
-            h1 {
-                font-size: 2em;
-                padding-bottom: .25em;
-            }
-
-            h2{
-                font-size: 1.5em;
-            }
-
-            p {
-                padding-bottom: .5em;
-            }
-
             .motivation {
-                padding-top: .5em;
-                padding-bottom: 1em;
+                width: 140%;
+                margin: 1em 0;
+                padding: 1em;
+                color: $white;
+                background-color: $blue;
+                border-radius: 2em;
+
+                @media (max-width: 600px) {
+                    width: 100%;
+                    border-radius: 0;
+                }
             }
         }
     }
