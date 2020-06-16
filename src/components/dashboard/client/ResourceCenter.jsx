@@ -1,13 +1,10 @@
 import React from "react";
-import "../../../sass/dashboard/client/clientDashboard.scss";
+import "../../../sass/dashboard/client/resourceCenter.scss";
 
 const ResourceCenter = () => {
 	return (
-		<div className="wrapper">
+		<div className="resources-container">
 			<h1>Resource Center</h1>
-			<div className="container">
-				<p>You have no resources at this time!</p>
-			</div>
 		</div>
 	);
 };
