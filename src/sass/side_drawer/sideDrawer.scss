@@ -1,0 +1,57 @@
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: "Poppins", sans-serif;
+$text-font: "DM Sans", serif;
+
+.sidedrawer {
+	height: 100vh;
+	width: 40vh;
+	background-color: $dark-background;
+	transform: translateX(-100%);
+	transition: all 0.3s ease-out;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	top: 0;
+	left: 0;
+	z-index: 300;
+	.logo {
+		margin-top: 2em;
+		color: transparent;
+	}
+	a {
+		color: transparent;
+		font-size: 3em;
+		margin: 1em 0em;
+	}
+}
+.sidedrawer-open {
+	transform: translateX(0);
+	height: 100vh;
+	width: 40vh;
+	padding-left: 2%;
+	background-color: $light-background;
+	transition: all 0.3s ease-out;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	top: 0;
+	left: 0;
+	z-index: 800;
+	font-family: DM Sans;
+	.logo {
+		margin-top: 2em;
+	}
+	.nav {
+		display: flex;
+		flex-direction: column;
+		margin-top: 3em;
+		a {
+			color: white;
+			font-size: 2.2em;
+			margin: 0.5em 0em;
+			text-decoration: none;
+		}
+	}
+}

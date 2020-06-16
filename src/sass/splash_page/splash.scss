@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=DM+Sans&display=swap");
+
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: "Passion One", cursive;
+$text-font: "DM Sans", serif;
+
+.splash-screen {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 3%;
+	background-color: $dark-background;
+
+	header {
+		border-radius: 8px;
+		background-color: $light-background;
+		padding: 2%;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		width: 90%;
+		margin-top: 10em;
+
+		.hero-text {
+			width: 50%;
+
+			h1 {
+				font-size: 10em;
+				text-align: center;
+				color: $font-color;
+				font-family: $header-font;
+				text-shadow: 10px 10px 7px #333;
+			}
+			p {
+				font-size: 4.5em;
+				line-height: 1.2em;
+				text-align: center;
+				margin-top: 0.5em;
+				margin-bottom: 0.5em;
+				color: $font-color;
+				font-family: $text-font;
+				span {
+					color: #ff98a2;
+				}
+			}
+			.small-text {
+				font-size: 2em;
+				line-height: 1.3em;
+			}
+		}
+
+		.hero-img {
+			margin-left: 3em;
+			width: 35%;
+
+			img {
+				width: 100%;
+				border-radius: 50%;
+			}
+		}
+		@media (max-width: 800px) {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			.hero-text {
+				width: 80%;
+				text-shadow: 0px 0px 2px #333;
+
+				h1 {
+					font-size: 6em;
+				}
+				p {
+					font-size: 2.5em;
+				}
+				.small-text {
+					font-size: 1.7em;
+				}
+			}
+			.hero-img {
+				margin-left: 0;
+
+				img {
+					width: 80%;
+				}
+			}
+		}
+	}
+
+	.about {
+		border-radius: 8px;
+		background-color: white;
+		width: 90%;
+		padding: 4%;
+		margin: 2em auto;
+		.about-header {
+			font-size: 4em;
+			font-family: $header-font;
+			color: $dark-background;
+			margin-bottom: 0.3em;
+			margin-top: 0.2em;
+		}
+		.about-text {
+			font-size: 1.8em;
+			margin: 1em 0;
+			font-family: $text-font;
+			line-height: 1.5em;
+		}
+		.bold {
+			font-weight: bold;
+		}
+
+		.buttons {
+			width: 57%;
+			margin: 0em auto;
+			text-align: center;
+			.speak-to-rep {
+				margin-top: 2em;
+				font-size: 2em;
+				line-height: 1.5em;
+
+				a {
+					color: #ff98a0;
+				}
+			}
+			.button-box {
+				width: 75%;
+				margin: 0 auto;
+
+				a {
+					text-decoration: none;
+				}
+
+				button {
+					font-family: "DM Sans", sans-serif;
+					margin-top: 10px;
+					height: 50px;
+					width: 100%;
+					border-radius: 25px;
+					background-color: #4972a4;
+					color: #fff;
+					padding: 2%;
+					font-size: 2em;
+					margin: 0.3em;
+					text-decoration: none;
+					display: flex;
+					font-weight: bolder;
+					box-sizing: border-box;
+					justify-content: center;
+				}
+
+				p {
+					font-size: 1.6em;
+					text-align: center;
+					margin-top: 1em;
+					text-decoration: underline;
+					cursor: pointer;
+					font-family: $text-font;
+					color: #ff98a0;
+				}
+			}
+		}
+
+		@media (max-width: 800px) {
+			.buttons {
+				width: 100%;
+			}
+		}
+	}
+
+	.hide {
+		display: none;
+	}
+}

@@ -1,0 +1,16 @@
+.footer {
+	height: 8em;
+	padding: 2%;
+	background-color: #292929;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+
+	h4 {
+		font-size: 2em;
+	}
+}
