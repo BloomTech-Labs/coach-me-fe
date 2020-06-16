@@ -1,6 +1,6 @@
 {
-    "short_name": "test",
-    "name": "test",
+    "short_name": "Coach Me",
+    "name": "CoachMe Health",
     "icons": [
         {
             "src": "favicon.ico",
