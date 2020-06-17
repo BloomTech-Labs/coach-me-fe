@@ -7,6 +7,7 @@ import { getClientInfo } from "../../../redux/actions/clientActions";
 import "../../../sass/dashboard/client/clientDashboard.scss";
 
 const ClientDashboard = (props) => {
+	console.log("dashboard props",props)
 	const [goals] = useState([
 		{"started": "6/8/20", "title": "Exercise More", "description": "I will walk 5,000 steps 4 days this week", "completed": true},
 		{"started": "6/15/20", "title": "Exercise More", "description": "I will wall 8,000 steps 4 days this week.", "completed": false},

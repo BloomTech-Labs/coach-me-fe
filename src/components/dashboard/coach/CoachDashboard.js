@@ -11,6 +11,7 @@ import GoalsDisplay from "./goals/GoalsDisplay";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 const CoachDashboard = (props) => {
+	console.log("coach",props)
 	const [clientprofile, setclientprofile] = useState();
 
 	const state = useSelector((state) => state.coach);

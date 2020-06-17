@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap');
 $blue: #355478;
 $white: #ffffff;
+$pinkish: #ff98a1;
 
 .client-dashboard {
     display: flex;
@@ -13,7 +14,7 @@ $white: #ffffff;
         font-size: 2em;
         margin: .5em 1em;
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
             font-size: 1.5em;
             margin: .2em;
         }
@@ -25,7 +26,7 @@ $white: #ffffff;
     }
 
 
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
         flex-direction: column;
     }
 
@@ -37,7 +38,7 @@ $white: #ffffff;
         width: 10em;
         font-size: 1em;
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
             flex-direction: row;
             flex-wrap: wrap;
             width: 100%;
@@ -45,7 +46,8 @@ $white: #ffffff;
         }
 
         @media (max-width: 500px) {
-            margin-bottom: 2.5em;
+            height: 10em;
+            margin-bottom: .2em;
         }
 
         .tab {
@@ -57,12 +59,12 @@ $white: #ffffff;
             color: $blue;
             background-color: $white;
             border-top: .1em solid $blue;
-            border-radius: 0 0 2em 0;
+            border-radius: 0 0 1em 0;
 
-            @media (max-width: 600px) {
+            @media (max-width: 800px) {
                 width: 10em;
                 height: 2em;
-                margin: 0 1em;
+                margin: 0 2em;
             }
 
             @media (max-width: 500px) {
@@ -95,7 +97,7 @@ $white: #ffffff;
         width: 60%;
         margin: .5em 2em;
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
             width: 100%;
             margin: 0;
         }
@@ -110,10 +112,15 @@ $white: #ffffff;
                 padding: 1em;
                 color: $white;
                 background-color: $blue;
-                border-radius: 2em;
+                border-left: .2em solid $pinkish;
+                border-bottom: .2em solid $pinkish;
+                border-radius: 1em 0 0 0;
 
-                @media (max-width: 600px) {
+                @media (max-width: 800px) {
                     width: 100%;
+                    border-top: .2em solid $pinkish;
+                    border-left: none;
+                    border-bottom: none;
                     border-radius: 0;
                 }
             }
