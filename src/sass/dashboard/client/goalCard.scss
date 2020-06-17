@@ -5,27 +5,29 @@
     padding: 1em;
     border: 1px solid black;
 
-    .completed-pic {
+    @media (max-width: 800px) {
+        margin: 1em 1em;
+    }
+
+    .goal-icon {
         height: 50px;
         width: 50px;
-        border: 1px solid black;
         border-radius: 100%;
     }
 
     .goal-info {
+        width: 100%;
         padding-left: 1em;
 
+        .goal-start {
+            display: flex;
+            justify-content: flex-end;
+        }
+
         h2 {
+            margin: auto;
             padding-bottom: .5em;
             font-size: 1.25em;
-        }
-
-        .completed {
-            color:  #5cd65c;
-        }
-
-        .not-completed {
-            
         }
     }
 }

@@ -1,13 +1,10 @@
 import React from "react";
-import "../../../sass/dashboard/client/clientDashboard.scss";
+import "../../../sass/dashboard/client/sessionNotes.scss";
 
 const SessionNotes = () => {
 	return (
-		<div className="wrapper">
+		<div className="notes-container">
 			<h1>Session Notes</h1>
-			<div className="container">
-				<p>You don't have session notes right now!</p>
-			</div>
 		</div>
 	);
 };

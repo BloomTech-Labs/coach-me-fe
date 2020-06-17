@@ -85,7 +85,10 @@ const Routes = (props) => {
 					path="/dashboard-client"
 					component={ClientDashboard}
 				/>
-				<Route path="/metric-form" component={HealthMetricForm} />
+				<PrivateRoute path="/client-notifications" component={Notifications}/>
+				<PrivateRoute path="/resource-center" component={ResourceCenter} />
+				<PrivateRoute path="/coach-messages" component={SessionNotes} />
+				<PrivateRoute path="/metric-form" component={HealthMetricForm} />
 			</Router>
 		</>
 	);

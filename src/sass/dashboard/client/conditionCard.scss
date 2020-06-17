@@ -1,0 +1,30 @@
+.condition-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2em;
+    padding: 0 1em;
+    font-size: .75em;
+    border: 1px solid black;
+    border-radius: 5em;
+}
+
+.anxiety {
+    background-color: #ffff00;
+    border: 2px solid #d4d400;
+}
+
+.diabetes {
+    background-color: #3385ff;
+    border: 2px solid #2766c5;
+}
+
+.hbp {
+    background-color: #ff8000;
+    border: 2px solid #d46c03;
+}
+
+.hc {
+    background-color: #ff66ff;
+    border: 2px solid #db58db;
+}
