@@ -1,95 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap');
+$blue: #355478;
+$white: #ffffff;
+$pinkish: #ff98a1;
+
 .client-dashboard {
     display: flex;
     flex-direction: row;
-    padding-top: 6em;
+    padding-top: 6.5em;
     font-size: 2em;
+    // font-family: 'Karla', sans-serif;
+
+    h1 {
+        font-size: 2em;
+        margin: .5em 1em;
+
+        @media (max-width: 800px) {
+            font-size: 1.5em;
+            margin: .2em;
+        }
+    }
+
+    h2{
+        font-size: 1.5em;
+        margin-left: 1em;
+    }
+
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
 
     .tabs-container {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        width: 20%;
+        justify-content: center;
         height: 8em;
-        margin: 1rem;
+        width: 10em;
         font-size: 1em;
-        border: 1px solid black;
+
+        @media (max-width: 800px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 6em;
+        }
+
+        @media (max-width: 500px) {
+            height: 10em;
+            margin-bottom: .2em;
+        }
 
         .tab {
-            height: 2em;
-            text-decoration: none;
-            color: black;
-            border-top: 1px solid black;
-        }
-
-        .top {
-            border: none;
-        }
-
-        .notifications {
             display: flex;
-            justify-content: space-between;
+            height: 2em;
+            margin: .1em;
+            padding: .1em;
+            text-decoration: none;
+            color: $blue;
+            background-color: $white;
+            border-top: .1em solid $blue;
+            border-radius: 0 0 1em 0;
 
-            .notification-count {
-                display: flex;
-                justify-content: center;
-                height: 25px;
-                width: 25px;
-                margin-right: 1em;
-                color: white;
-                background-color: tomato;
-                border: 2px solid red;
-                border-radius: 50%;
+            @media (max-width: 800px) {
+                width: 10em;
+                height: 2em;
+                margin: 0 2em;
             }
+
+            @media (max-width: 500px) {
+                margin-bottom: .2em;
+            }
+        }
+
+        .tab:hover {
+            color: $white;
+            background-color: $blue;
+            border-top: .1em solid $white;
+        }
+
+        .count {
+            display: flex;
+            justify-content: center;
+            height: 1.2em;
+            width: 1.2em;
+            margin-left: .1em;
+            color: $white;
+            background-color: tomato;
+            border: 1.5px solid red;
+            border-radius: 50%;
         }
     }
 
     .info-container {
         display: flex;
         flex-direction: column;
-        width: 80%;
-        margin: .5em 3em;
+        width: 60%;
+        margin: .5em 2em;
+
+        @media (max-width: 800px) {
+            width: 100%;
+            margin: 0;
+        }
 
         .profile-container {
             display: flex;
             flex-direction: column;
 
-            h1 {
-                font-size: 2em;
-            }
-
-            h2{
-                font-size: 1.5em;
-            }
-
-            .profile {
-                display: flex;
-                flex-direction: row;
-
-                .condition {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 3rem;
-                    width: 7rem;
-                    margin-left: 2em;
-                    font-size: .75em;
-                    border-radius: 5em;
-                }
-
-                .diabetes {
-                    background-color: #3385FF;
-                    border: 3px solid #2970db;
-                }
-
-                .hbp {
-                    background-color: #eeb157;
-                    border: 3px solid #db9b3a;
-                }
-            }
-
             .motivation {
-                padding-top: .5em;
-                padding-bottom: 1em;
+                width: 140%;
+                margin: 1em 0;
+                padding: 1em;
+                color: $white;
+                background-color: $blue;
+                border-left: .2em solid $pinkish;
+                border-bottom: .2em solid $pinkish;
+                border-radius: 1em 0 0 0;
+
+                @media (max-width: 800px) {
+                    width: 100%;
+                    border-top: .2em solid $pinkish;
+                    border-left: none;
+                    border-bottom: none;
+                    border-radius: 0;
+                }
             }
         }
     }

@@ -63,7 +63,13 @@ export const getClientInfoLogin = (input) => (dispatch) => {
 export const sendEmail = ({ cred_value, method }) => (dispatch) => {
 	axiosWithCred
 		.post(`/auth/forgot_password?user_type=client`, { method, cred_value })
-		.then(() => {})
+		.then((res) => {
+			console.log("send email payload", res)
+			dispatch({
+				type: EMAIL_REQUEST_SUCCESS,
+				payload: res.config.data,
+			})
+		})
 		.catch((err) => {
 			dispatch({
 				type: EMAIL_REQUEST_FAILURE,
@@ -72,14 +78,20 @@ export const sendEmail = ({ cred_value, method }) => (dispatch) => {
 		});
 };
 
-export const getNewPassword = ({ newPassword, repPassword, token }) => (
+export const getNewPassword = ({ newPassword, token }) => (
 	dispatch
 ) => {
 	apiCall()
 		.post(`/auth/forgot_password/password_recovery?token=${token}`, {
 			password: newPassword,
 		})
-		.then(() => {})
+		.then((res) => {
+			console.log("password reset payload", res)
+			dispatch({
+				type: PASSWORD_RESET_SUCCESS,
+				payload: res.config.data,
+			})
+		})
 		.catch((err) => {
 			dispatch({
 				type: PASSWORD_RESET_FAILURE,

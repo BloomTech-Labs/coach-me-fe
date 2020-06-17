@@ -1,13 +1,10 @@
 import React from "react";
-import "../../../sass/dashboard/client/clientDashboard.scss";
+import "../../../sass/dashboard/client/notifications.scss";
 
 const Notifications = (props) => {
 	return (
-		<div className="wrapper">
+		<div className="notification-container">
 			<h1>Notifications</h1>
-			<div className="container">
-				<p>{`Welcome to the CoachMe App!`}</p>
-			</div>
 		</div>
 	);
 };

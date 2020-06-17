@@ -65,7 +65,7 @@ export const postMessage = (post) => (dispatch) => {
 
 export const getClients = (token) => (dispatch) => {
 	dispatch({ type: GET_RECORDS_START });
-	api.get(`http://localhost:5000/api/coach/me`, { withCredentials: true })
+	api.get(`http://localhost:5000/api/coach/me`)
 		.then((res) => {
 			dispatch({
 				type: GET_RECORDS_SUCCESS,
