@@ -36,6 +36,10 @@ export const loginCoach = (coachCreds) => (dispatch) => {
 		)
 		.then(async (res) => {
 			window.location = "/dashboard";
+			dispatch({
+				type: LOGIN_SUCCESS,
+				payload: res.config.data,
+			});
 		})
 		.catch((err) => {
 			toastr.error(err);
