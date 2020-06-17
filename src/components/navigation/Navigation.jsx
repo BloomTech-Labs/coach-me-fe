@@ -7,6 +7,7 @@ import axiosWithCred from "../../utils/axiosWithCred";
 import { connect } from "react-redux";
 
 const Navigation = (props) => {
+	console.log("Navigation props", props);
 	const { backdropHandler, drawerOpen } = useContext(UIContext);
 	const logout = () => {
 		axiosWithCred
@@ -26,9 +27,13 @@ const Navigation = (props) => {
 				<Link to="/dashboard-client">Dashboard</Link>
 				<Link to="/">Support</Link> */}
 
-				{ props.loggedIn || props.loggedInClient ? <Link onClick={logout} to="/">
-					Logout 
-				</Link> : ""}
+				{props.state.id ? (
+					<Link onClick={logout} to="/">
+						Logout
+					</Link>
+				) : (
+					""
+				)}
 			</div>
 			<i
 				onClick={backdropHandler}
@@ -42,8 +47,10 @@ const Navigation = (props) => {
 	);
 };
 const mapStateToProps = (state) => {
+	console.log("Navigation State", state);
 	return {
+		state: state.coach.data,
 		loggedIn: state.client.loggedIn,
-	}
+	};
 };
 export default connect(mapStateToProps)(Navigation);

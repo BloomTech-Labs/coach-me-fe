@@ -6,6 +6,7 @@ import PrivateRoute from "../utils/PrivateRoute";
 // import PrivateCoachRoute from "../utils/PrivateCoachRoute";
 import HealthMetric from "../components/dashboard/client/health_metrics/HealthMetric";
 import CoachDashboard from "../components/dashboard/coach/CoachDashboard";
+import CoachNotifications from "../components/dashboard/coach/notificationCenter/CoachNotifications";
 import ClientDashboard from "../components/dashboard/client/ClientDashboard";
 import Notifications from "../components/dashboard/client/Notifications";
 import ResourceCenter from "../components/dashboard/client/ResourceCenter";
@@ -76,6 +77,10 @@ const Routes = (props) => {
 				<Route path="/coach-login" component={LoginCoach} />
 				<Route path="/metrics" component={HealthMetric} />
 				<Route path="/dashboard" component={CoachDashboard} />
+				<PrivateRoute
+					path="coach-notifications"
+					component={CoachNotifications}
+				/>
 				<PrivateRoute
 					path="/dashboard-client"
 					component={ClientDashboard}

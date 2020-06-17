@@ -8,6 +8,8 @@ import SearchForm from "./SearchForm";
 import CoachMessaging from "./coachMessaging/CoachMessaging";
 import Metrics from "./coachMetricView/Metrics";
 import GoalsDisplay from "./goals/GoalsDisplay";
+import CoachNotificationCenter from "./notificationCenter/CoachNotificationCenter.jsx";
+
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 const CoachDashboard = (props) => {
@@ -36,17 +38,20 @@ const CoachDashboard = (props) => {
 					<GoalsDisplay clientprofile={clientprofile} />
 					<Metrics clientprofile={clientprofile} />
 				</div>
-				<div className="coach-messaging">
+				<CoachNotificationCenter />
+				{/* <div className="coach-messaging">
 					<CoachMessaging clientprofile={clientprofile} />
-				</div>
+				</div> */}
 			</div>
 		</>
 	);
 };
 
 const mapStateToProps = (state) => {
+	console.log("CoachDashboard State", state);
 	return {
 		state: state.coach.data,
+		loggedIn: state.auth.loggedIn,
 	};
 };
 

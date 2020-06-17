@@ -99,7 +99,7 @@ function LiveMessages(props) {
 				<div className="submit">
 					<textarea
 						data-cy="message"
-						onsubmit={submitNewMessage}
+						onSubmit={submitNewMessage}
 						onKeyDown={onEnterPress}
 						rows="1"
 						cols="48"
