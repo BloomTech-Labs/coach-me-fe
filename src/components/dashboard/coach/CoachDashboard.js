@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getClients } from "../../../redux/actions/authActions";
 import ClientInfo from "./clientsList/ClientInfo/ClientInfo";
 import SearchForm from "./SearchForm";
-import CoachMessaging from "./coachMessaging/CoachMessaging";
+import CoachMessaging from "./notificationCenter/coachMessaging/CoachMessaging";
 import Metrics from "./coachMetricView/Metrics";
 import GoalsDisplay from "./goals/GoalsDisplay";
 import CoachNotificationCenter from "./notificationCenter/CoachNotificationCenter.jsx";
@@ -13,7 +13,7 @@ import CoachNotificationCenter from "./notificationCenter/CoachNotificationCente
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 const CoachDashboard = (props) => {
-	console.log("coach",props)
+	console.log("coach", props);
 	const [clientprofile, setclientprofile] = useState();
 
 	const state = useSelector((state) => state.coach);

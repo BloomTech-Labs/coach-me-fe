@@ -5,8 +5,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "../utils/PrivateRoute";
 // import PrivateCoachRoute from "../utils/PrivateCoachRoute";
 import HealthMetric from "../components/dashboard/client/health_metrics/HealthMetric";
+
+// Coach components
 import CoachDashboard from "../components/dashboard/coach/CoachDashboard";
 import CoachNotifications from "../components/dashboard/coach/notificationCenter/CoachNotifications";
+import CoachResourceCenter from "../components/dashboard/coach/notificationCenter/CoachResourceCenter";
+import CoachMessaging from "../components/dashboard/coach/notificationCenter/coachMessaging/CoachMessaging";
+
 import ClientDashboard from "../components/dashboard/client/ClientDashboard";
 import Notifications from "../components/dashboard/client/Notifications";
 import ResourceCenter from "../components/dashboard/client/ResourceCenter";
@@ -77,18 +82,34 @@ const Routes = (props) => {
 				<Route path="/coach-login" component={LoginCoach} />
 				<Route path="/metrics" component={HealthMetric} />
 				<Route path="/dashboard" component={CoachDashboard} />
-				<PrivateRoute
-					path="coach-notifications"
+				<Route
+					path="/coach-notifications"
 					component={CoachNotifications}
+				/>
+				<PrivateRoute
+					path="/coach-resource-center"
+					component={CoachResourceCenter}
 				/>
 				<PrivateRoute
 					path="/dashboard-client"
 					component={ClientDashboard}
 				/>
-				<PrivateRoute path="/client-notifications" component={Notifications}/>
-				<PrivateRoute path="/resource-center" component={ResourceCenter} />
-				<PrivateRoute path="/coach-messages" component={SessionNotes} />
-				<PrivateRoute path="/metric-form" component={HealthMetricForm} />
+				<PrivateRoute
+					path="/client-notifications"
+					component={Notifications}
+				/>
+				<PrivateRoute
+					path="/resource-center"
+					component={ResourceCenter}
+				/>
+				<PrivateRoute
+					path="/coach-messages"
+					component={CoachMessaging}
+				/>
+				<PrivateRoute
+					path="/metric-form"
+					component={HealthMetricForm}
+				/>
 			</Router>
 		</>
 	);

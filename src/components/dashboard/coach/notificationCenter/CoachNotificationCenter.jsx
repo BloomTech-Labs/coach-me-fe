@@ -13,10 +13,10 @@ const Notifications = (props) => {
 					</Link>
 					<div className="notification-count">5</div>
 				</div>
-				<Link className="tab" to="">
+				<Link className="tab" to="/coach-resource-center">
 					Resource Center
 				</Link>
-				<Link className="tab" to="">
+				<Link className="tab" to="/coach-messages">
 					Coach Messages
 				</Link>
 				<Link className="tab" to="">

@@ -1,18 +1,14 @@
 import React from "react";
 import "../../../../sass/dashboard/coach/coachDashboard.scss";
+import "../../../../sass/dashboard/coach/notificationCenter/coachNotifications.scss";
 
-const Notifications = (props) => {
+const CoachNotifications = (props) => {
+	console.log("CoachNotifications");
 	return (
-		<div className="wrapper">
+		<div className="coach-notification-container">
 			<h1>Notifications</h1>
-			<div className="container">
-				<div className="tabs-container">
-					<p>{`Welcome to the CoachMe App!`}</p>
-					<p>{`Here is where you will find notifications about your clients.`}</p>
-				</div>
-			</div>
 		</div>
 	);
 };
 
-export default Notifications;
+export default CoachNotifications;
