@@ -40,6 +40,7 @@ const Routes = (props) => {
 			<Router>
 				{/* //  HOME ROUTES  // */}
 				<Route exact path="/" component={Splash} />
+
 				{/* //  COACH ROUTES  // */}
 				{/* // COACH REGISTER // */}
 				<Route
