@@ -21,6 +21,7 @@ import ProfileThree from "../components/register/client/onboarding/createProfile
 import ProfileFour from "../components/register/client/onboarding/createProfile/profileFour/ProfileFour";
 import ProfileFive from "../components/register/client/onboarding/createProfile/profileFive/ProfileFive";
 import ProfileSix from "../components/register/client/onboarding/createProfile/profileSix/ProfileSix";
+import TextChat from '../components/text-chat/TextChat';
 
 //Styling
 import "../App.css";
@@ -78,6 +79,7 @@ const Routes = (props) => {
 					component={ClientDashboard}
 				/>
 				<Route path="/metric-form" component={HealthMetricForm} />
+				<Route path='/chat' component={TextChat} />
 			</Router>
 		</>
 	);
