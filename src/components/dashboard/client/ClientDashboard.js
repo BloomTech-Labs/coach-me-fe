@@ -21,7 +21,7 @@ const ClientDashboard = (props) => {
 	return (
 		<div className="client-dashboard">
 			<div className="tabs-container">
-				<Link className="tab" to="client-notifications">Notifications <div className="count">5</div></Link>
+				<Link className="tab notifications" to="client-notifications"><p>Notifications</p><div className="count">5</div></Link>
 				<Link className="tab" to="resource-center">Resources</Link>
 				<Link className="tab" to="coach-messages">Messages</Link>
 				<Link className="tab" to="metric-form">Health Form</Link>
