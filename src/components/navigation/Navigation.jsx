@@ -27,7 +27,7 @@ const Navigation = (props) => {
 				<Link to="/dashboard-client">Dashboard</Link>
 				<Link to="/">Support</Link> */}
 
-				{props.state.id ? (
+				{props.state.id || props.loggedIn ? (
 					<Link onClick={logout} to="/">
 						Logout
 					</Link>
