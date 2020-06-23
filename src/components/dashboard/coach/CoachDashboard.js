@@ -11,35 +11,49 @@ import GoalsDisplay from "./goals/GoalsDisplay";
 import CoachNotificationCenter from "./notificationCenter/CoachNotificationCenter.jsx";
 
 import "react-perfect-scrollbar/dist/css/styles.css";
+import { getClientList } from "../../../redux/actions/coachActions";
 
 const CoachDashboard = (props) => {
 	console.log("CoachDashboard props", props);
 	const [clientprofile, setclientprofile] = useState();
 
+	const [listOfClients, setListOfClients] = useState();
 	const [coachProfile, setCoachProfile] = useState();
-	const state = useSelector((state) => state.coach);
+	const state = useSelector((state) => state.coach.data);
+	const clientList = useSelector((state) => state.clientList);
+	console.log("clientList", clientList);
+	console.log("Dashboard state", state.id);
+	const currentCoachID = state.id;
+	// console.log("currentCoachID", currentCoachID);
+
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getCoach());
+
 		setCoachProfile({
 			...coachProfile,
-
+			id: localStorage.getItem("id"),
 			first: localStorage.getItem("first_name"),
 			last: localStorage.getItem("last_name"),
+		});
+		console.log("currentCoachID inside useEffect", currentCoachID);
+		dispatch(getClientList(props.state.id));
+		setListOfClients({
+			...listOfClients,
 		});
 	}, []);
 	return (
 		<>
 			<div className="coachdashboard-container">
 				<div className="clientlist-container">
-					<SearchForm />
+					<SearchForm coachID={props.state.id} />
 				</div>
 				<div className="clientinfo-container">
 					<ClientInfo clientprofile={clientprofile} />
 					<h4 className="coach-name">
-						Welcome, {props.state.first_name}{" "}
-						{props.state.last_name}
+						Welcome, {props.state.id}
+						{props.state.first_name} {props.state.last_name}
 					</h4>
 					<GoalsDisplay clientprofile={clientprofile} />
 					<Metrics clientprofile={clientprofile} />
@@ -57,7 +71,7 @@ const mapStateToProps = (state) => {
 	console.log("CoachDashboard State", state);
 	return {
 		state: state.coach.data,
-
+		clients: state,
 		loggedIn: state.auth.loggedIn,
 	};
 };

@@ -39,6 +39,7 @@ export const loginCoach = (coachCreds) => (dispatch) => {
 			dispatch({
 				type: LOGIN_SUCCESS,
 				payload: res.config.data,
+				coachCreds: res.coachCreds,
 			});
 		})
 		.catch((err) => {
