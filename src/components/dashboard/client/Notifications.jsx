@@ -10,6 +10,10 @@ const Notifications = (props) => {
 		{"title": "Other Notifications", "notification": "other notification's text would go here as well."},
 		{"title": "Other Notifications", "notification": "other notification's text would go here as well."}
 	])
+	const removeNotification = () => {
+								
+	}
+	
 	return (
 		<div className="notification-container">
 			<div className="top-section">
@@ -20,8 +24,7 @@ const Notifications = (props) => {
 					<div className="notification-card" key={index}>
 						<div className="top-card">
 							<h2>{n.title}</h2>
-							<img className="close-btn" src={X} alt="x"/>
-												
+							<img className="close-btn" onClick={removeNotification} src={X} alt="x"/>					
 						</div>
 							<p>{n.notification}</p>
 					</div>
