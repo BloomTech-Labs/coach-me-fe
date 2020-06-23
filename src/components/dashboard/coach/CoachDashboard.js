@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../../sass/dashboard/coach/coachDashboard.scss";
 import { connect } from "react-redux";
 import { useDispatch, useSelector } from "react-redux";
-import { getClients } from "../../../redux/actions/authActions";
+import { getCoach } from "../../../redux/actions/authActions";
 import ClientInfo from "./clientsList/ClientInfo/ClientInfo";
 import SearchForm from "./SearchForm";
 import CoachMessaging from "./notificationCenter/coachMessaging/CoachMessaging";
@@ -13,15 +13,21 @@ import CoachNotificationCenter from "./notificationCenter/CoachNotificationCente
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 const CoachDashboard = (props) => {
-	console.log("coach", props);
+	console.log("CoachDashboard props", props);
 	const [clientprofile, setclientprofile] = useState();
 
+	const [coachProfile, setCoachProfile] = useState();
 	const state = useSelector((state) => state.coach);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(getClients());
-		// setCoachName({...coachName,first: localStorage.getItem('first_name'), last: localStorage.getItem('last_name')})
+		dispatch(getCoach());
+		setCoachProfile({
+			...coachProfile,
+
+			first: localStorage.getItem("first_name"),
+			last: localStorage.getItem("last_name"),
+		});
 	}, []);
 	return (
 		<>
@@ -51,6 +57,7 @@ const mapStateToProps = (state) => {
 	console.log("CoachDashboard State", state);
 	return {
 		state: state.coach.data,
+
 		loggedIn: state.auth.loggedIn,
 	};
 };

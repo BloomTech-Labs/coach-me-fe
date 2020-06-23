@@ -45,8 +45,8 @@ export const loginCoach = (coachCreds) => (dispatch) => {
 			toastr.error(err);
 		});
 };
-//Get Coach Clientlist
-export const getClients = (token) => (dispatch) => {
+//Get current logged in coaches user information
+export const getCoach = (token) => (dispatch) => {
 	axiosWithCred
 		.get(`${process.env.REACT_APP_BACKEND}/coach/me`)
 		.then((res) => {
