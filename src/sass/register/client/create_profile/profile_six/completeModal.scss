@@ -27,18 +27,19 @@
             margin: 1em 0;
         }
     }
+    button {
+        background-color: dodgerblue;
+        color: white;
+        padding: 2%;
+        font-size: 1em;
+        width: 90%;
+        border-radius: 8px;
+        font-family: 'DM Sans', sans-serif;
+    }
 }
 
 .closed {
     display: none;
 }
 
-button {
-    background-color: dodgerblue;
-    color: white;
-    padding: 2%;
-    font-size: 1em;
-    width: 90%;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-}
+

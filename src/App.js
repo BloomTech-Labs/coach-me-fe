@@ -23,7 +23,7 @@ function App() {
 					<SideDrawer />
 					<Navigation />
 					<Routes />
-					<Footer />
+					{/* <Footer /> */}
 				</div>
 			</Router>
 		</UIContext.Provider>
