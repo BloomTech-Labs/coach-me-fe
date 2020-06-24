@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UpdateModal from "./UpdateModal";
 import DeleteModal from "./DeleteModal";
-import "../../../../sass/dashboard/coach/coach_messaging/messageCard.scss";
+import "../../../../../sass/dashboard/coach/notificationCenter/coach_messaging/messageCard.scss";
 
 const MessageCard = (props) => {
 	const { item, removedMessage, updatedMessage, clientId } = props;

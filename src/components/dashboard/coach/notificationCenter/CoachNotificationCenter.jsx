@@ -2,21 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "../../../../sass/dashboard/coach/coachDashboard.scss";
+import "../../../../sass/dashboard/coach/notificationCenter/coachNotificationCenter.scss";
 
-const Notifications = (props) => {
+const CoachNotificationCenter = (props) => {
 	return (
 		<div className="wrapper">
 			<div className="tabs-container">
-				<div className="notifications">
-					<Link className="tab top" to="/coach-notifications">
-						Notifications
-					</Link>
-					<div className="notification-count">5</div>
-				</div>
-				<Link className="tab" to="">
+				<Link className="tab top" to="/coach-notifications">
+					Notifications <div className="count">5</div>
+				</Link>
+
+				<Link className="tab" to="/coach-resource-center">
 					Resource Center
 				</Link>
-				<Link className="tab" to="">
+				<Link className="tab" to="/coach-messages">
 					Coach Messages
 				</Link>
 				<Link className="tab" to="">
@@ -27,4 +26,4 @@ const Notifications = (props) => {
 	);
 };
 
-export default Notifications;
+export default CoachNotificationCenter;

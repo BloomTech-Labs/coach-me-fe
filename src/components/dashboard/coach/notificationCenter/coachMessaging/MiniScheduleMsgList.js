@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MiniMessageCard from "./MiniMessageCard";
 import { useSelector, useDispatch } from "react-redux";
-import "../../../../sass/dashboard/coach/coach_messaging/miniScheduleMsgList.scss";
+import "../../../../../sass/dashboard/coach/notificationCenter/coach_messaging/miniScheduleMsgList.scss";
 
 function MiniScheduleMsgList(props) {
 	const { messages } = props;
