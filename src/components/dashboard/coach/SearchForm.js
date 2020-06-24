@@ -34,9 +34,9 @@ const SearchForm = (props) => {
 
 			{props.clientLIST.map((client, index) => {
 				return (
-					<div className="test-clientcard" key={index}>
-						<h4>{client.first_name}</h4>
-					</div>
+					<ClientCard key={index}
+					client={client}
+					/>
 				);
 			})}
 		</>
