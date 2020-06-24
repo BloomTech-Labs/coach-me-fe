@@ -22,10 +22,10 @@ const CoachDashboard = (props) => {
 	const state = useSelector((state) => state.coach.data);
 	const clientList = useSelector((state) => state.clientList);
 	// console.log("clientList", clientList);
-	console.log("Dashboard state", state.id);
+	// console.log("Dashboard state", state.id);
 	// console.log("props.state.id",props.state.id)
 	const currentCoachID = state.id;
-	console.log("currentCoachID", currentCoachID);
+	// console.log("currentCoachID", currentCoachID);
 
 	const dispatch = useDispatch();
 
@@ -38,12 +38,18 @@ const CoachDashboard = (props) => {
 			first: localStorage.getItem("first_name"),
 			last: localStorage.getItem("last_name"),
 		});
-		console.log("currentCoachID inside useEffect", currentCoachID);
+	}, []);
+
+	useEffect(() => {
+		// console.log("currentCoachID inside useEffect #1", currentCoachID);
 		dispatch(getClientList(currentCoachID));
 		setListOfClients({
 			...listOfClients,
 		});
+		// console.log("currentCoachID inside useEffect #2", currentCoachID);
 	}, [currentCoachID]);
+
+	console.log("clientList", clientList);
 	return (
 		<>
 			<div className="coachdashboard-container">

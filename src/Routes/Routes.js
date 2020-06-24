@@ -52,7 +52,7 @@ const Routes = (props) => {
 				<Route path="/coach-login" component={LoginCoach} />
 
 				{/* //  COACH DASHBOARD  // */}
-				<Route path="/dashboard" component={CoachDashboard} />
+				<PrivateRoute path="/dashboard" component={CoachDashboard} />
 				<Route
 					path="/coach-notifications"
 					component={CoachNotifications}
