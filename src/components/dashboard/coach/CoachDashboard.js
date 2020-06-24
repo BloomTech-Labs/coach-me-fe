@@ -37,12 +37,18 @@ const CoachDashboard = (props) => {
 			first: localStorage.getItem("first_name"),
 			last: localStorage.getItem("last_name"),
 		});
-		console.log("currentCoachID inside useEffect", currentCoachID);
-		dispatch(getClientList(props.state.id));
+	}, []);
+
+	useEffect(() => {
+		console.log("currentCoachID inside useEffect #1", currentCoachID);
+		dispatch(getClientList(currentCoachID));
 		setListOfClients({
 			...listOfClients,
 		});
-	}, []);
+		console.log("currentCoachID inside useEffect #2", currentCoachID);
+	}, [currentCoachID]);
+
+	console.log("clientList", clientList);
 	return (
 		<>
 			<div className="coachdashboard-container">
