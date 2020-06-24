@@ -34,6 +34,7 @@ const initialState = {
 	},
 	loading: false,
 	error: null,
+	clientList: [],
 	clientRecords: [],
 	clientMetrics: [],
 	clientCheckIn: "",

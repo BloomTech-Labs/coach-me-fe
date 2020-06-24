@@ -21,8 +21,9 @@ const CoachDashboard = (props) => {
 	const [coachProfile, setCoachProfile] = useState();
 	const state = useSelector((state) => state.coach.data);
 	const clientList = useSelector((state) => state.clientList);
-	console.log("clientList", clientList);
-	console.log("Dashboard state", state.id);
+	// console.log("clientList", clientList);
+	// console.log("Dashboard state", state.id);
+	// console.log("props.state.id",props.state.id)
 	const currentCoachID = state.id;
 	// console.log("currentCoachID", currentCoachID);
 
@@ -40,12 +41,12 @@ const CoachDashboard = (props) => {
 	}, []);
 
 	useEffect(() => {
-		console.log("currentCoachID inside useEffect #1", currentCoachID);
+		// console.log("currentCoachID inside useEffect #1", currentCoachID);
 		dispatch(getClientList(currentCoachID));
 		setListOfClients({
 			...listOfClients,
 		});
-		console.log("currentCoachID inside useEffect #2", currentCoachID);
+		// console.log("currentCoachID inside useEffect #2", currentCoachID);
 	}, [currentCoachID]);
 
 	console.log("clientList", clientList);
@@ -74,7 +75,7 @@ const CoachDashboard = (props) => {
 };
 
 const mapStateToProps = (state) => {
-	console.log("CoachDashboard State", state);
+	// console.log("CoachDashboard State", state);
 	return {
 		state: state.coach.data,
 		clients: state,

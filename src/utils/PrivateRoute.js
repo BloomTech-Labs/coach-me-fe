@@ -13,7 +13,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 					ready: true,
 				});
 				// console.log("setAuth", setAuth);
-				console.log("auth", auth);
 			} catch (error) {
 				setAuth({ ...auth, ready: true });
 			}

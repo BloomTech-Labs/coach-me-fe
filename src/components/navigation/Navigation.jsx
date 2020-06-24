@@ -7,7 +7,6 @@ import axiosWithCred from "../../utils/axiosWithCred";
 import { connect } from "react-redux";
 
 const Navigation = (props) => {
-	console.log("Navigation props", props);
 	const { backdropHandler, drawerOpen } = useContext(UIContext);
 	const logout = () => {
 		axiosWithCred
@@ -47,7 +46,6 @@ const Navigation = (props) => {
 	);
 };
 const mapStateToProps = (state) => {
-	console.log("Navigation State", state);
 	return {
 		state: state.coach.data,
 		loggedIn: state.client.loggedIn,

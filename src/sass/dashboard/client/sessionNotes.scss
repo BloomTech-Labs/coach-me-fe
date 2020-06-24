@@ -11,12 +11,11 @@ $pinkish: #ff98a1;
 
     .cards-container {
         display: flex;
-        // flex-direction: column;
         align-content: center;
         flex-wrap: wrap;
 
         .note-card {
-            width: 70%;
+            width: 60%;
             margin: 2em;
             padding: 2em;
             border: .2em solid $blue;
