@@ -1,139 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap");
 $blue: #355478;
 $white: #ffffff;
 $pinkish: #ff98a1;
 
 .client-dashboard {
-    display: flex;
-    flex-direction: row;
-    padding-top: 7em;
-    font-size: 2em;
-    // font-family: 'Karla', sans-serif;
+	display: flex;
+	flex-direction: row;
+	font-size: 2em;
+	// font-family: 'Karla', sans-serif;
 
-    h1 {
-        font-size: 2em;
-        margin: .5em 1em;
+	h1 {
+		font-size: 2em;
+		margin: 0.5em 1em;
 
-        @media (max-width: 800px) {
-            font-size: 1.5em;
-            margin: .2em;
-        }
-    }
+		@media (max-width: 800px) {
+			font-size: 1.5em;
+			margin: 0.2em;
+		}
+	}
 
-    h2{
-        font-size: 1.5em;
-        margin-left: 1em;
-    }
+	h2 {
+		font-size: 1.5em;
+		margin-left: 1em;
+	}
 
+	@media (max-width: 800px) {
+		flex-direction: column;
+	}
 
-    @media (max-width: 800px) {
-        flex-direction: column;
-    }
+	.tabs-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 8em;
+		width: 10em;
+		font-size: 1em;
 
-    .tabs-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 8em;
-        width: 10em;
-        font-size: 1em;
+		@media (max-width: 800px) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			width: 100%;
+			height: 6em;
+		}
 
-        @media (max-width: 800px) {
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
-            height: 6em;
-            margin-bottom: 1.5em;
-        }
+		@media (max-width: 500px) {
+			height: 10em;
+			margin-bottom: 0.2em;
+		}
 
-        @media (max-width: 500px) {
-            width: 100%;
-            height: 10em;
-            margin-bottom: .2em;
-        }
+		.tab {
+			display: flex;
+			height: 2em;
+			margin: 0.1em;
+			padding: 0.1em;
+			text-decoration: none;
+			color: $blue;
+			background-color: $white;
+			border-top: 0.1em solid $blue;
+			border-radius: 0 0 1em 0;
 
-        .tab {
-            display: flex;
-            height: 2em;
-            margin: .1em;
-            padding: .1em;
-            text-decoration: none;
-            color: $blue;
-            background-color: $white;
-            border-top: .1em solid $blue;
-            border-radius: 0 0 1em 0;
+			@media (max-width: 800px) {
+				width: 10em;
+				height: 2em;
+				margin: 0 2em;
+			}
 
-            @media (max-width: 800px) {
-                width: 10em;
-                height: 2em;
-                margin: 0 2em;
-                border-radius: 0 0 1em 1em;
-            }
+			@media (max-width: 500px) {
+				margin-bottom: 0.2em;
+			}
+		}
 
-            @media (max-width: 500px) {
-                padding-left: 5em;
-                width: 75%;
-                margin-bottom: .2em;
-            }
-        }
+		.tab:hover {
+			color: $white;
+			background-color: $blue;
+			border-top: 0.1em solid $white;
+		}
 
-        .tab:hover {
-            color: $white;
-            background-color: $blue;
-            border-top: .1em solid $white;
-        }
+		.count {
+			display: flex;
+			justify-content: center;
+			height: 1.2em;
+			width: 1.2em;
+			margin-left: 0.1em;
+			color: $white;
+			background-color: tomato;
+			border: 1.5px solid red;
+			border-radius: 50%;
+		}
+	}
 
-        .notifications {
-            display: flex;
-            justify-content: space-between;
-        }
+	.info-container {
+		display: flex;
+		flex-direction: column;
+		width: 60%;
+		margin: 0.5em 2em;
 
-        .count {
-            display: flex;
-            justify-content: center;
-            height: 1.2em;
-            width: 1.2em;
-            margin-right: 2em;
-            color: $white;
-            background-color: tomato;
-            border: 1.5px solid red;
-            border-radius: 50%;
-        }
-    }
+		@media (max-width: 800px) {
+			width: 100%;
+			margin: 0;
+		}
 
-    .info-container {
-        display: flex;
-        flex-direction: column;
-        width: 60%;
-        margin: .5em 2em;
+		.profile-container {
+			display: flex;
+			flex-direction: column;
 
-        @media (max-width: 800px) {
-            width: 100%;
-            margin: 0;
-        }
+			.motivation {
+				width: 140%;
+				margin: 1em 0;
+				padding: 1em;
+				color: $white;
+				background-color: $blue;
+				border-left: 0.2em solid $pinkish;
+				border-bottom: 0.2em solid $pinkish;
+				border-radius: 1em 0 0 0;
 
-        .profile-container {
-            display: flex;
-            flex-direction: column;
-
-            .motivation {
-                width: 140%;
-                margin: 1em 0;
-                padding: 1em;
-                color: $white;
-                background-color: $blue;
-                border-left: .2em solid $pinkish;
-                border-bottom: .2em solid $pinkish;
-                border-radius: 1em 0 0 0;
-
-                @media (max-width: 800px) {
-                    width: 100%;
-                    border-top: .2em solid $pinkish;
-                    border-left: none;
-                    border-bottom: none;
-                    border-radius: 0;
-                }
-            }
-        }
-    }
+				@media (max-width: 800px) {
+					width: 100%;
+					border-top: 0.2em solid $pinkish;
+					border-left: none;
+					border-bottom: none;
+					border-radius: 0;
+				}
+			}
+		}
+	}
 }

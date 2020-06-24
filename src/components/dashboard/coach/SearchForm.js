@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { useSelector } from "react-redux";
 
+import ClientCard from "../coach/clientsList/ClientCard";
 // Styling
 import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
@@ -70,25 +71,25 @@ const SearchForm = (props) => {
 			</form>
 
 			<div className="scroll-list">
-				{/* {ClientList &&
-                    ClientList.map(client => (
-                        <div
-                            className='client-card'
-                            onClick={() => {
-                                if (client.clientName) {
-                                    check(client.clientName);
-                                }
-                                setClient(client.clientId);
-                            }}
-                        >
-                            <ClientCard
-                                key={client.clientId}
-                                client={client}
-                                setClient={props.setClient}
-                                check={check}
-                            />
-                        </div>
-                    ))} */}
+				{ClientList &&
+					ClientList.map((client) => (
+						<div
+							className="client-card"
+							onClick={() => {
+								if (client.clientName) {
+									check(client.clientName);
+								}
+								setClient(client.clientId);
+							}}
+						>
+							<ClientCard
+								key={client.clientId}
+								client={client}
+								setClient={props.setClient}
+								check={check}
+							/>
+						</div>
+					))}
 				<h4 className="aint">You Currently have no clients!</h4>
 			</div>
 		</>

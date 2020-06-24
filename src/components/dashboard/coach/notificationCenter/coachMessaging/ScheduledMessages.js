@@ -4,11 +4,11 @@ import ScheduleModal from "./ScheduleModal";
 import {
 	getScheduledMessage,
 	addScheduledMessage,
-} from "../../../../redux/actions/coachActions";
-import { ReactComponent as Calendar } from "../../../../utils/assets/icons/calendar.svg";
-import { ReactComponent as Clock } from "../../../../utils/assets/icons/clock.svg";
+} from "../../../../../redux/actions/coachActions";
+import { ReactComponent as Calendar } from "../../../../../utils/assets/icons/calendar.svg";
+import { ReactComponent as Clock } from "../../../../../utils/assets/icons/clock.svg";
 
-import "../../../../sass/dashboard/coach/coach_messaging/ScheduledMessages.scss";
+import "../../../../../sass/dashboard/coach/notificationCenter/coach_messaging/ScheduledMessages.scss";
 
 function ScheduledMessages(props) {
 	const { clientprofile /*, type */ } = props;

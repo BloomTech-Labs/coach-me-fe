@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../../../sass/dashboard/coach/coach_messaging/messageCard.scss";
+import "../../../../../sass/dashboard/coach/notificationCenter/coach_messaging/messageCard.scss";
 
 function MiniMessageCard(props) {
 	const { item } = props;

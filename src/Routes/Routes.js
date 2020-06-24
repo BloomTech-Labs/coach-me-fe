@@ -5,8 +5,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "../utils/PrivateRoute";
 // import PrivateCoachRoute from "../utils/PrivateCoachRoute";
 import HealthMetric from "../components/dashboard/client/health_metrics/HealthMetric";
+
+// Coach components
 import CoachDashboard from "../components/dashboard/coach/CoachDashboard";
 import CoachNotifications from "../components/dashboard/coach/notificationCenter/CoachNotifications";
+import CoachResourceCenter from "../components/dashboard/coach/notificationCenter/CoachResourceCenter";
+import CoachMessaging from "../components/dashboard/coach/notificationCenter/coachMessaging/CoachMessaging";
+
 import ClientDashboard from "../components/dashboard/client/ClientDashboard";
 import Notifications from "../components/dashboard/client/Notifications";
 import ResourceCenter from "../components/dashboard/client/ResourceCenter";
@@ -33,21 +38,36 @@ const Routes = (props) => {
 	return (
 		<>
 			<Router>
+				{/* //  HOME ROUTES  // */}
 				<Route exact path="/" component={Splash} />
+
+				{/* //  COACH ROUTES  // */}
+				{/* // COACH REGISTER // */}
 				<Route
-					exact
-					path="/client-login"
-					render={(props) => <LoginClient {...props} />}
+					path="/coach-register"
+					render={(props) => <CoachRegistration {...props} />}
 				/>
+
+				{/* //  COACH LOGIN  // */}
+				<Route path="/coach-login" component={LoginCoach} />
+
+				{/* //  COACH DASHBOARD  // */}
+				<Route path="/dashboard" component={CoachDashboard} />
 				<Route
-					path="/email-request"
-					render={(props) => <EmailRequest {...props} />}
+					path="/coach-notifications"
+					component={CoachNotifications}
 				/>
-				<Route
-					path="/password-reset"
-					render={(props) => <PasswordReset {...props} />}
+				<PrivateRoute
+					path="/coach-resource-center"
+					component={CoachResourceCenter}
 				/>
-				{/* CREATE ACCOUNT */}
+				<PrivateRoute
+					path="/coach-messages"
+					component={CoachMessaging}
+				/>
+
+				{/* // CLIENT ROUTES //  */}
+				{/* //  CLIENT REGISTER  // */}
 				<Route path="/createAccount" component={AccountOne} />
 				<Route
 					path="/createProfile1"
@@ -69,26 +89,41 @@ const Routes = (props) => {
 					path="/createProfile6"
 					render={(props) => <ProfileSix />}
 				/>
-				{/* CREATE ACCOUNT */}
+
+				{/* //  CLIENT LOGIN  // */}
 				<Route
-					path="/coach-register"
-					render={(props) => <CoachRegistration {...props} />}
+					exact
+					path="/client-login"
+					render={(props) => <LoginClient {...props} />}
 				/>
-				<Route path="/coach-login" component={LoginCoach} />
+				<Route
+					path="/email-request"
+					render={(props) => <EmailRequest {...props} />}
+				/>
+
+				<Route
+					path="/password-reset"
+					render={(props) => <PasswordReset {...props} />}
+				/>
+
+				{/* //  CLIENT DASHBOARD  // */}
 				<Route path="/metrics" component={HealthMetric} />
-				<Route path="/dashboard" component={CoachDashboard} />
-				<PrivateRoute
-					path="coach-notifications"
-					component={CoachNotifications}
-				/>
 				<PrivateRoute
 					path="/dashboard-client"
 					component={ClientDashboard}
 				/>
-				<PrivateRoute path="/client-notifications" component={Notifications}/>
-				<PrivateRoute path="/resource-center" component={ResourceCenter} />
-				<PrivateRoute path="/coach-messages" component={SessionNotes} />
-				<PrivateRoute path="/metric-form" component={HealthMetricForm} />
+				<PrivateRoute
+					path="/client-notifications"
+					component={Notifications}
+				/>
+				<PrivateRoute
+					path="/resource-center"
+					component={ResourceCenter}
+				/>
+				<PrivateRoute
+					path="/metric-form"
+					component={HealthMetricForm}
+				/>
 			</Router>
 		</>
 	);

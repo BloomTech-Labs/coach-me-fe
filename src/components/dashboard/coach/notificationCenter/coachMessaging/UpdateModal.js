@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	updateScheduledMessage,
 	getScheduledMessage,
-} from "../../../../redux/actions/coachActions";
-import { ReactComponent as Exit } from "../../../../utils/assets/icons/Xicon.svg";
-import { ReactComponent as Calendar } from "../../../../utils/assets/icons/calendar.svg";
-import { ReactComponent as Clock } from "../../../../utils/assets/icons/clock.svg";
+} from "../../../../../redux/actions/coachActions";
+import { ReactComponent as Exit } from "../../../../../utils/assets/icons/Xicon.svg";
+import { ReactComponent as Calendar } from "../../../../../utils/assets/icons/calendar.svg";
+import { ReactComponent as Clock } from "../../../../../utils/assets/icons/clock.svg";
 
-import "../../../../sass/dashboard/coach/coach_messaging/updateModal.scss";
+import "../../../../../sass/dashboard/coach/notificationCenter/coach_messaging/updateModal.scss";
 
 const UpdateModal = (props) => {
 	const { show, id, setShow, /* updatedMessage, */ clientId } = props;
