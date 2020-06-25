@@ -19,6 +19,8 @@ const ImageCircle = (props) => {
             </div>
         </div> }
         
+        {<h1 className='client-name'>{props.state.first_name} {props.state.last_name}</h1>}
+        
         </div>
         
     );

@@ -8,17 +8,33 @@ $text-font: 'DM Sans', serif;
     background:  rgba(39, 65, 96, 0.8);
     box-shadow: 2px 3px 4px rgba(53, 84, 120, 0.5);
     border-radius: 8%;
-    padding: 10% 10% 20% 10%;
+    padding: 10% 10% 10% 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 80%;
     margin: 0 auto;
+    .client-name {
+        width: 100%;
+        margin-top: 1em;
+        text-align: center;
+        color: white;
+        font-size: 2em;
+        font-family: 'Karla', sans-serif;
+        @media(max-width: 400px) {
+            font-size: 1.4em;
+        }
+    }
     
     @media(min-width: 600px) {
         width: 50%;
-        height: 50%;
+        height: 40%;
         margin: 0 auto;
+    }
+    @media(min-width: 1000px) {
+        width: 60%;
+        height: 50%;
     }
 
 }
@@ -26,8 +42,8 @@ $text-font: 'DM Sans', serif;
     
     position: relative;
     border: 1px solid black;
-    height: 15em;
-    width: 15em;
+    height: 13em;
+    width: 13em;
     border-radius: 50%;
     z-index: 200;
     background: url('../../../../utils/assets/img/blank.png') center no-repeat;
@@ -43,8 +59,8 @@ $text-font: 'DM Sans', serif;
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 12em;
-        left: 9.3em;
+        top: 70%;
+        left: 60%;
         z-index: 500;
         background-color: white;
         border: 1px solid black;
@@ -52,14 +68,7 @@ $text-font: 'DM Sans', serif;
         width: 4em;
         border-radius: 50%;
         box-shadow: 2px 1px 0px #333;
-        @media(max-width: 400px) {
-            top: 7em;
-            left: 5.5em;
-        }
-        @media(min-width: 760px) {
-            top: 8.4em;
-            left: 7em;
-        }
+       
 
         .upload {
             border: none;
@@ -79,11 +88,7 @@ $text-font: 'DM Sans', serif;
         }
         
     }
-    @media(min-width: 600px) {
-        width: 50%;
-        height: 50%;
-        margin: 0 auto;
-        width: 12em;
-        height: 12em;
-    }
+  
+
+    
 }

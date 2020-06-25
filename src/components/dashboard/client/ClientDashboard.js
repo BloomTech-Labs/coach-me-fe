@@ -30,7 +30,7 @@ const ClientDashboard = (props) => {
 			<div className="info-container">
 				<div className="profile-container">
 					<ImageCircle />
-						{<h1>{props.state.first_name} {props.state.last_name}</h1>}
+						
 						<p className="motivation">Motivation: client's motivation for coming to the app</p>
 					<h2>Goals:</h2>
 						{goals.map((g, index) => {
