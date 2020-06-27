@@ -23,7 +23,7 @@ const Chat = () => {
         },
         callAccepted: false,
     });
-    const [ usersOnline, updateOnline ] = useState({})
+    const [ coachOnline, updateOnline ] = useState({})
     const [callController, setCallController] = useState(false);
     
     const socket = useRef();
@@ -36,7 +36,7 @@ const Chat = () => {
           setCallController( new VideoCall(id, socket) );
           setChatSession({...chatSession, userId: id });
         })
-        socket.current.on("usersOnline", (users) => {
+        socket.current.on("coachOnline", (users) => {
           updateOnline({...users});
         })
         socket.current.on("callRequest", (data) => {
@@ -53,7 +53,7 @@ const Chat = () => {
                 { chatSession.partnerStream && <Video user={callData.caller} stream={chatSession.partnerStream} callController={callController} /> }
             </div>
             { callData.caller.signal && <Caller  caller={ callData.caller } answer={ callController.acceptCall } userStream={ chatSession.userStream } answerCallback={ setPartnerStream } /> }
-            { callController && <Available available={ Object.keys(usersOnline) } userStream={ chatSession.userStream } userId={ chatSession.userId } callPeer={ callController.callPeer } setPartnerStream={ setPartnerStream } /> }
+            { callController && Object.entries(coachOnline).length && <Available available={ coachOnline } userStream={ chatSession.userStream } userId={ chatSession.userId } callPeer={ callController.callPeer } setPartnerStream={ setPartnerStream } /> }
         </div>
     );
 }
