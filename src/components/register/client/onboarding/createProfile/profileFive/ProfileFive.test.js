@@ -1,5 +1,5 @@
 import React from "react";
-import { Helper as render } from "../../../../utils/helpers";
+import { Helper as render } from "../../../../../../utils/helpers";
 import ProfileFive from "./ProfileFive";
 import Weekends from "./Weekends";
 import Weekdays from "./Weekdays";

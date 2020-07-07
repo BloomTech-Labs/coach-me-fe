@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { ReactComponent as Logo } from "../../../utils/assets/logo/logo.svg";
+import { ReactComponent as Logo } from "../../../utils/assets/logo.svg";
 import Show from "../../../utils/assets/icons/login/assets/show_password.png";
 import Hide from "../../../utils/assets/icons/login/hide_password.png";
 import { getClientInfoRegister } from "../../../redux/actions/clientActions";
