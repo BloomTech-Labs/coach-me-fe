@@ -15,8 +15,9 @@ $pinkish: #ff98a1;
 	// position: fixed;
 	width: 100%;
 	color: $pinkish;
-	// top: 0;
-	margin-bottom: 0.5em;
+	top: 0;
+	z-index: 500;
+
 }
 
 .fa-bars {
