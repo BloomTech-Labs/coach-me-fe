@@ -21,7 +21,12 @@ import {
 	DELETE_SCHEDULE_MESSAGE_SUCCESS,
 	UPDATE_SCHEDULE_MESSAGE_START,
 	UPDATE_SCHEDULE_MESSAGE_SUCCESS,
+	GET_CLIENT_LIST_START,
+	GET_CLIENT_LIST_SUCCESS,
+	GET_CLIENT_LIST_FAILURE,
 } from "./types";
+
+import axiosWithCred from "../../utils/axiosWithCred";
 
 const headers = {
 	Authorization: localStorage.getItem("token"),
@@ -63,9 +68,30 @@ export const postMessage = (post) => (dispatch) => {
 		});
 };
 
-export const getClients = (token) => (dispatch) => {
+export const getClientList = (id) => (dispatch) => {
+	// console.log("coachActions getClientList id", id);
+	dispatch({ type: GET_CLIENT_LIST_START });
+	axiosWithCred
+		.get(`http://localhost:3000/api/coach/${id}/clients`)
+		.then((res) => {
+			// console.log("succeeded to getClientList")
+			dispatch({
+				type: GET_CLIENT_LIST_SUCCESS,
+				payload: res.data,
+			});
+		})
+		.catch((err) => {
+			// console.log("failed to getCLientList")
+			dispatch({
+				type: GET_CLIENT_LIST_FAILURE,
+				payload: err.message,
+			});
+		});
+};
+
+export const getClients = (id) => (dispatch) => {
 	dispatch({ type: GET_RECORDS_START });
-	api.get(`http://localhost:5000/api/coach/me`, { withCredentials: true })
+	api.get(`http://localhost:5000/api/coach/${id}/clients`)
 		.then((res) => {
 			dispatch({
 				type: GET_RECORDS_SUCCESS,

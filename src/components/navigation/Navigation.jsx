@@ -4,6 +4,7 @@ import UIContext from "../../utils/context/UIContext";
 import { ReactComponent as Logo } from "../../utils/assets/logo/coachmelogo-white.svg";
 import "../../sass/navigation/navigation.scss";
 import axiosWithCred from "../../utils/axiosWithCred";
+import { connect } from "react-redux";
 
 const Navigation = (props) => {
 	const { backdropHandler, drawerOpen } = useContext(UIContext);
@@ -14,16 +15,24 @@ const Navigation = (props) => {
 				window.location = "/";
 			});
 	};
+
 	return (
 		<nav className="navigation">
-			<Logo />
+			<Link to="/" onClick={() => (window.location = "/")}>
+				<Logo />
+			</Link>
 			<div className="nav-links">
-				<Link to="/">Home</Link>
-				<Link to="/dashboard">Dashboard</Link>
-				<Link to="/">Support</Link>
-				<Link onClick={logout} to="/">
-					Logout
-				</Link>
+				{/* <Link to="/">Home</Link>
+				<Link to="/dashboard-client">Dashboard</Link>
+				<Link to="/">Support</Link> */}
+
+				{props.state.id || props.loggedIn ? (
+					<Link onClick={logout} to="/">
+						Logout
+					</Link>
+				) : (
+					""
+				)}
 			</div>
 			<i
 				onClick={backdropHandler}
@@ -36,5 +45,10 @@ const Navigation = (props) => {
 		</nav>
 	);
 };
-
-export default Navigation;
+const mapStateToProps = (state) => {
+	return {
+		state: state.coach.data,
+		loggedIn: state.client.loggedIn,
+	};
+};
+export default connect(mapStateToProps)(Navigation);

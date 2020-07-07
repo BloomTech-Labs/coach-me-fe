@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "../../../../sass/dashboard/coach/coach_messaging/ScheduledMessages.scss";
+import "../../../../../sass/dashboard/coach/notificationCenter/coach_messaging/ScheduledMessages.scss";
 import {
 	deleteScheduledMessage,
 	getScheduledMessage,
-} from "../../../../redux/actions/coachActions";
-import { ReactComponent as Exit } from "../../../../utils/assets/icons/Xicon.svg";
-import "../../../../sass/dashboard/coach/coach_messaging/updateModal.scss";
+} from "../../../../../redux/actions/coachActions";
+import { ReactComponent as Exit } from "../../../../../utils/assets/icons/Xicon.svg";
+import "../../../../../sass/dashboard/coach/notificationCenter/coach_messaging/updateModal.scss";
 
 const DeleteModal = (props) => {
 	const { show, id, setShow, /* removedMessage, */ clientId } = props;

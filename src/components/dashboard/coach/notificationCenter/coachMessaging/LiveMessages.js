@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	getMessageHistory,
 	postMessage,
-} from "../../../../redux/actions/coachActions";
-import "../../../../sass/dashboard/coach/coach_messaging/coachMessaging.scss";
+} from "../../../../../redux/actions/coachActions";
+import "../../../../../sass/dashboard/coach/notificationCenter/coach_messaging/coachMessaging.scss";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import moment from "moment";
@@ -99,7 +99,7 @@ function LiveMessages(props) {
 				<div className="submit">
 					<textarea
 						data-cy="message"
-						onsubmit={submitNewMessage}
+						onSubmit={submitNewMessage}
 						onKeyDown={onEnterPress}
 						rows="1"
 						cols="48"

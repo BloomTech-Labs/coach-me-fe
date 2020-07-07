@@ -1,36 +1,49 @@
-import React, { useEffect } from "react";
-import Notifications from "./Notifications";
-import ResourceCenter from "./ResourceCenter";
-import SessionNotes from "./SessionNotes";
-import HealthMetric from "../client/health_metrics/HealthMetric";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import GoalCard from "./GoalCard";
+import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { getClientInfo } from "../../../redux/actions/clientActions";
 import "../../../sass/dashboard/client/clientDashboard.scss";
 
 const ClientDashboard = (props) => {
+	console.log("dashboard props",props)
+	const [goals] = useState([
+		{"started": "6/8/20", "title": "Exercise More", "description": "I will walk 5,000 steps 4 days this week", "completed": true},
+		{"started": "6/15/20", "title": "Exercise More", "description": "I will wall 8,000 steps 4 days this week.", "completed": false},
+		{"started": "6/22/20", "title": "Eat Healthier", "description": "I will eat 2 servings of vegetables 4 days this week.", "completed": true},
+	]);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getClientInfo());
-	}, []);
-	const state = useSelector((state) => state.client);
+	}, [dispatch]);
 
 	return (
 		<div className="client-dashboard">
-			<div className="profile-container">
-				{<h4>Welcome, {props.state.first_name}!</h4>}
+			<div className="tabs-container">
+				<Link className="tab notifications" to="client-notifications"><p>Notifications</p><div className="count">5</div></Link>
+				<Link className="tab" to="resource-center">Resources</Link>
+				<Link className="tab" to="coach-messages">Messages</Link>
+				<Link className="tab" to="metric-form">Health Form</Link>
 			</div>
-			<Notifications />
-			<ResourceCenter />
-			<SessionNotes />
-			<HealthMetric />
+			<div className="info-container">
+				<div className="profile-container">
+						{<h1>{props.state.first_name} {props.state.last_name}</h1>}
+						<p className="motivation">Motivation: client's motivation for coming to the app</p>
+					<h2>Goals:</h2>
+						{goals.map((g, index) => {
+								return <GoalCard key={index} goal={g} />
+						})} 	
+				</div>
+			</div>
 		</div>
 	);
 };
 
 const mapStateToProps = (state) => {
 	return {
-		state: state.client.client_data,
+		state: state.client.client_data, 
+		loggedIn: state.client.loggedIn
 	};
 };
 

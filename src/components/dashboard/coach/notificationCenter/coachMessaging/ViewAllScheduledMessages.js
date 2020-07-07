@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import ScheduledMessagesList from "./ScheduledMessagesList";
 import ScheduledMessages from "./ScheduledMessages";
 import MiniScheduleMsgList from "./MiniScheduleMsgList";
-import { getScheduledMessage } from "../../../../redux/actions/coachActions";
+import { getScheduledMessage } from "../../../../../redux/actions/coachActions";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import "../../../../sass/dashboard/coach/coach_messaging/viewAllScheduledMessages.scss";
+import "../../../../../sass/dashboard/coach/notificationCenter/coach_messaging/viewAllScheduledMessages.scss";
 
 function ViewAllScheduledMessages(props) {
 	const { clientprofile, type } = props;
