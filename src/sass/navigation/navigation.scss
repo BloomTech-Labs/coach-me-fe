@@ -12,11 +12,12 @@ $pinkish: #ff98a1;
 	align-items: center;
 	background-color: $light-background;
 	box-shadow: 0px 5px;
-	position: fixed;
+	// position: fixed;
 	width: 100%;
 	color: $pinkish;
 	top: 0;
 	z-index: 500;
+
 }
 
 .fa-bars {
