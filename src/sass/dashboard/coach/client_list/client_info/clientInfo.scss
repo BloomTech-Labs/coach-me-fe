@@ -145,6 +145,20 @@
 
 .search-form {
     margin-right: 10px;
+    
+}
+.client-in-dashboard {
+    margin: .5em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 90%;
+    p {
+        margin: .5em;
+        font-size: 1.2em;
+    }
 }
 
 .search-input {

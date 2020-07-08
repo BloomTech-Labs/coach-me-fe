@@ -24,6 +24,8 @@ import {
 	GET_CLIENT_LIST_START,
 	GET_CLIENT_LIST_SUCCESS,
 	GET_CLIENT_LIST_FAILURE,
+	GET_UNASSIGNED_CLIENTS,
+	ASSIGN_CLIENT,
 } from "../actions/types";
 
 const initialState = {
@@ -40,6 +42,7 @@ const initialState = {
 	clientCheckIn: "",
 	clientGoals: [],
 	scheduledMessage: [],
+	availableClients:{},
 	data: {},
 };
 export default (state = initialState, action) => {
@@ -175,6 +178,15 @@ export default (state = initialState, action) => {
 				...state,
 				data: action.payload,
 			};
+		case GET_UNASSIGNED_CLIENTS:
+			return {
+				...state,
+				availableClients: action.payload,
+			}
+		case ASSIGN_CLIENT:
+			return {
+				...state,clientList: [state.clientList,action.payload]
+			}
 		default:
 			return state;
 	}

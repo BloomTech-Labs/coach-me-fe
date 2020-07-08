@@ -44,9 +44,9 @@
         "start": "react-scripts -r dotenv/config start",
         "build": "react-scripts build",
         "cypress": "cypress open",
-        "test": "react-scripts test",
+        "test": "react-scripts test --coverage --watchAll=false",
         "eject": "react-scripts eject",
-        "coverage": "jest --coverage --detectOpenHandles --forceExit || true"
+        "coverage": "npm run test || true"
     },
     "eslintConfig": {
         "extends": "react-app"

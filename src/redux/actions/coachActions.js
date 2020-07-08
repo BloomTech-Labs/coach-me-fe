@@ -24,6 +24,8 @@ import {
 	GET_CLIENT_LIST_START,
 	GET_CLIENT_LIST_SUCCESS,
 	GET_CLIENT_LIST_FAILURE,
+	GET_UNASSIGNED_CLIENTS,
+	ASSIGN_CLIENT
 } from "./types";
 
 import axiosWithCred from "../../utils/axiosWithCred";
@@ -70,9 +72,9 @@ export const postMessage = (post) => (dispatch) => {
 
 export const getClientList = (id) => (dispatch) => {
 	// console.log("coachActions getClientList id", id);
-	dispatch({ type: GET_CLIENT_LIST_START });
+	
 	axiosWithCred
-		.get(`http://localhost:3000/api/coach/${id}/clients`)
+		.get(`${process.env.REACT_APP_BACKEND}/coach/${id}/clients`)
 		.then((res) => {
 			// console.log("succeeded to getClientList")
 			dispatch({
@@ -88,6 +90,31 @@ export const getClientList = (id) => (dispatch) => {
 			});
 		});
 };
+export const getUnassignedClients = () => (dispatch) => {
+	
+	axiosWithCred
+	.get(`${process.env.REACT_APP_BACKEND}/client/`)
+	.then(res => {
+		console.log(res)
+		dispatch({
+			type: GET_UNASSIGNED_CLIENTS,
+			payload: res.data
+		});
+	})
+	.catch(err => {
+		console.log(err)
+	})
+}
+export const assignClient = (id,clientId) => (dispatch) => {
+	axiosWithCred
+	.post(`${process.env.REACT_APP_BACKEND}/coach/${id}/clients/${clientId}`)
+	.then(res => {
+		console.log(res)
+	})
+	.catch(err => {
+		console.log(err)
+	})
+}
 
 export const getClients = (id) => (dispatch) => {
 	dispatch({ type: GET_RECORDS_START });

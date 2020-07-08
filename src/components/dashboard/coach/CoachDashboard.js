@@ -14,42 +14,24 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 import { getClientList } from "../../../redux/actions/coachActions";
 
 const CoachDashboard = (props) => {
-	console.log("CoachDashboard props", props);
+	
 	const [clientprofile, setclientprofile] = useState();
 
-	const [listOfClients, setListOfClients] = useState();
+	
 	const [coachProfile, setCoachProfile] = useState();
 	const state = useSelector((state) => state.coach.data);
-	const clientList = useSelector((state) => state.clientList);
+	const clientList = useSelector((state) => state.coach.clientList);
 	// console.log("clientList", clientList);
 	// console.log("Dashboard state", state.id);
 	// console.log("props.state.id",props.state.id)
-	const currentCoachID = state.id;
+	const currentCoachID = props.state.id;
 	// console.log("currentCoachID", currentCoachID);
 
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(getCoach());
+;
 
-		setCoachProfile({
-			...coachProfile,
-			id: localStorage.getItem("id"),
-			first: localStorage.getItem("first_name"),
-			last: localStorage.getItem("last_name"),
-		});
-	}, []);
-
-	useEffect(() => {
-		// console.log("currentCoachID inside useEffect #1", currentCoachID);
-		dispatch(getClientList(currentCoachID));
-		setListOfClients({
-			...listOfClients,
-		});
-		// console.log("currentCoachID inside useEffect #2", currentCoachID);
-	}, [currentCoachID]);
-
-	console.log("clientList", clientList);
+	
 	return (
 		<>
 			<div className="coachdashboard-container">
@@ -59,7 +41,7 @@ const CoachDashboard = (props) => {
 				<div className="clientinfo-container">
 					<ClientInfo clientprofile={clientprofile} />
 					<h4 className="coach-name">
-						Welcome, {props.state.id}
+						Welcome, 
 						{props.state.first_name} {props.state.last_name}
 					</h4>
 					<GoalsDisplay clientprofile={clientprofile} />
@@ -78,7 +60,7 @@ const mapStateToProps = (state) => {
 	// console.log("CoachDashboard State", state);
 	return {
 		state: state.coach.data,
-		clients: state,
+		clientList: state.coach.clientList,
 		loggedIn: state.auth.loggedIn,
 	};
 };
