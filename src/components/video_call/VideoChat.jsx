@@ -23,7 +23,7 @@ const Chat = () => {
         },
         callAccepted: false,
     });
-    const [ coachOnline, updateOnline ] = useState({})
+    const [ coachOnline, updateOnline ] = useState({});
     const [callController, setCallController] = useState(false);
     
     const socket = useRef();
