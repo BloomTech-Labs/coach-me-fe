@@ -56,8 +56,7 @@ const CoachDashboard = (props) => {
 				<div className="clientinfo-container">
 					<ClientInfo clientprofile={clientprofile} />
 					<h4 className="coach-name">
-						Welcome,
-						{props.state.first_name}
+						Welcome, {props.state.first_name}
 					</h4>
 					<GoalsDisplay clientprofile={clientprofile} />
 					<Metrics clientprofile={clientprofile} />
