@@ -36,10 +36,9 @@ const CoachDashboard = (props) => {
 	}, []);
 
 	useEffect(() => {
-		// console.log("currentCoachID inside useEffect #1", currentCoachID);
-		dispatch(getClientList(currentCoachID));
-
-		// console.log("currentCoachID inside useEffect #2", currentCoachID);
+		if (currentCoachID) {
+			dispatch(getClientList(currentCoachID));
+		}
 	}, [currentCoachID]);
 
 	// console.log("clientList", clientList);
