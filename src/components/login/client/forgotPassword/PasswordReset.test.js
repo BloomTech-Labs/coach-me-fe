@@ -1,5 +1,9 @@
 import React from "react";
 import { Helper as render } from "../../../../utils/helpers";
+<<<<<<< HEAD
+=======
+import { cleanup } from "@testing-library/react";
+>>>>>>> a9b1ae959bf825318b73ce2b19228ace5a463c62
 import "@testing-library/jest-dom/extend-expect";
 import PasswordReset from "./PasswordReset";
 

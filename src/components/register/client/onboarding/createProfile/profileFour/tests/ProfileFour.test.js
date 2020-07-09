@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helper as render } from '../../../../../utils/helpers';
+import { Helper as render } from '../../../../../../../utils/helpers';
 import ProfileFour from '../ProfileFour';
 import { fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
