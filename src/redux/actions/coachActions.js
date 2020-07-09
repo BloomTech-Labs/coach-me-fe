@@ -69,19 +69,16 @@ export const postMessage = (post) => (dispatch) => {
 };
 
 export const getClientList = (id) => (dispatch) => {
-	// console.log("coachActions getClientList id", id);
 	dispatch({ type: GET_CLIENT_LIST_START });
 	axiosWithCred
-		.get(`http://localhost:3000/api/coach/${id}/clients`)
+		.get(`${process.env.REACT_APP_BACK_END_URL}/coach/${id}/clients`)
 		.then((res) => {
-			// console.log("succeeded to getClientList")
 			dispatch({
 				type: GET_CLIENT_LIST_SUCCESS,
 				payload: res.data,
 			});
 		})
 		.catch((err) => {
-			// console.log("failed to getCLientList")
 			dispatch({
 				type: GET_CLIENT_LIST_FAILURE,
 				payload: err.message,

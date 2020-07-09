@@ -5,7 +5,9 @@ import "../../../../sass/dashboard/coach/client_list/clientCard.scss";
 const ClientCard = (props) => {
 	return (
 		<div className="name-container">
-			<h1>{props.client.clientName}</h1>
+			<h1>
+				{props.client.last_name}, {props.client.first_name}
+			</h1>
 		</div>
 	);
 };

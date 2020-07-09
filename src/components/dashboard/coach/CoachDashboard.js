@@ -20,47 +20,42 @@ const CoachDashboard = (props) => {
 	const [listOfClients, setListOfClients] = useState();
 	const [coachProfile, setCoachProfile] = useState();
 	const state = useSelector((state) => state.coach.data);
-	const clientList = useSelector((state) => state.clientList);
+	const spiderman = useSelector((state) => state.coach.clientList);
 	// console.log("clientList", clientList);
 	// console.log("Dashboard state", state.id);
 	// console.log("props.state.id",props.state.id)
 	const currentCoachID = state.id;
+	const clientListArray = props.spiderman.coach.clientList;
+	console.log("clientListArray", clientListArray);
 	// console.log("currentCoachID", currentCoachID);
 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getCoach());
-
-		setCoachProfile({
-			...coachProfile,
-			id: localStorage.getItem("id"),
-			first: localStorage.getItem("first_name"),
-			last: localStorage.getItem("last_name"),
-		});
 	}, []);
 
 	useEffect(() => {
-		// console.log("currentCoachID inside useEffect #1", currentCoachID);
-		dispatch(getClientList(currentCoachID));
-		setListOfClients({
-			...listOfClients,
-		});
-		// console.log("currentCoachID inside useEffect #2", currentCoachID);
+		if (currentCoachID) {
+			dispatch(getClientList(currentCoachID));
+		}
 	}, [currentCoachID]);
 
-	console.log("clientList", clientList);
+	// console.log("clientList", clientList);
+	console.log("listOfClients", listOfClients);
 	return (
 		<>
 			<div className="coachdashboard-container">
 				<div className="clientlist-container">
-					<SearchForm coachID={props.state.id} />
+					<SearchForm
+						coachID={props.state.id}
+						clientLIST={props.spiderman.coach.clientList}
+					/>
 				</div>
 				<div className="clientinfo-container">
 					<ClientInfo clientprofile={clientprofile} />
 					<h4 className="coach-name">
-						Welcome, {props.state.id}
-						{props.state.first_name} {props.state.last_name}
+						Welcome, {props.state.first_name}
 					</h4>
 					<GoalsDisplay clientprofile={clientprofile} />
 					<Metrics clientprofile={clientprofile} />
@@ -69,16 +64,26 @@ const CoachDashboard = (props) => {
 				{/* <div className="coach-messaging">
 					<CoachMessaging clientprofile={clientprofile} />
 				</div> */}
+
+				<div className="testdiv">
+					{/* {props.spiderman.coach.clientList.map((n, index) => {
+						return (
+							<div className="card" key={index}>
+								<p>client name: {n.first_name}</p>
+							</div>
+						);
+					})} */}
+				</div>
 			</div>
 		</>
 	);
 };
 
 const mapStateToProps = (state) => {
-	// console.log("CoachDashboard State", state);
+	console.log("CoachDashboard State", state);
 	return {
 		state: state.coach.data,
-		clients: state,
+		spiderman: state,
 		loggedIn: state.auth.loggedIn,
 	};
 };
