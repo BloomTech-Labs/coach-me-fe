@@ -10,6 +10,8 @@ import Metrics from "./coachMetricView/Metrics";
 import GoalsDisplay from "./goals/GoalsDisplay";
 import CoachNotificationCenter from "./notificationCenter/CoachNotificationCenter.jsx";
 
+import GoalForm from "../coach/goals/GoalForm";
+
 import "react-perfect-scrollbar/dist/css/styles.css";
 import { getClientList } from "../../../redux/actions/coachActions";
 
@@ -47,6 +49,7 @@ const CoachDashboard = (props) => {
 	return (
 		<>
 			<div className="coachdashboard-container">
+				<GoalForm />
 				<div className="clientlist-container">
 					<SearchForm
 						coachID={props.state.id}

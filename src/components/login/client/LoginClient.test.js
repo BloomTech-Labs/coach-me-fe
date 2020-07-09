@@ -1,19 +1,17 @@
 import React from "react";
-import { Helper as render } from "../../utils/helpers";
-import { cleanup } from "@testing-library/react";
+import { Helper as render } from "../../../utils/helpers";
 import "@testing-library/jest-dom/extend-expect";
 import LoginClient from "./LoginClient";
-afterEach(cleanup);
 
 describe("LoginClient component and texts", () => {
 	it("Renders without crashing", async () => {
 		render(<LoginClient />);
-	});
+	})
 	it("Header text", () => {
 		const container = render(<LoginClient />);
 		const text = container.getByText("Login");
 		expect(text).toBeTruthy();
-	});
+	})
 }),
 	describe("LoginClient Form", () => {
 		it("Email input field", async () => {

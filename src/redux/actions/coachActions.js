@@ -12,7 +12,6 @@ import {
 	GET_METRICS_SUCCESS,
 	GET_METRICS_FAILURE,
 	GET_CHECKIN,
-	GET_GOALS,
 	ADD_SCHEDULE_MESSAGE_START,
 	ADD_SCHEDULE_MESSAGE_SUCCESS,
 	GET_SCHEDULE_MESSAGE_START,
@@ -24,6 +23,20 @@ import {
 	GET_CLIENT_LIST_START,
 	GET_CLIENT_LIST_SUCCESS,
 	GET_CLIENT_LIST_FAILURE,
+
+	//WORKING ON CURRENTLY 7/8/20
+	GET_CLIENT_GOALS_SUCCESS,
+	GET_CLIENT_GOALS_FAILURE,
+	GET_CLIENT_GOAL_SUCCESS,
+	GET_CLIENT_GOAL_FAILURE,
+	ADD_CLIENT_GOAL_SUCCESS,
+	ADD_CLIENT_GOAL_FAILURE,
+	UPDATE_CLIENT_GOALS_SUCCESS,
+	UPDATE_CLIENT_GOALS_FAILURE,
+	DELETE_CLIENT_GOAL_SUCCESS,
+	DELETE_CLIENT_GOAL_FAILURE,
+	//END OF WORKING ON CURRENTLY 7/8/20
+
 } from "./types";
 
 import axiosWithCred from "../../utils/axiosWithCred";
@@ -151,25 +164,21 @@ export const getLastCheckInTime = (id) => (dispatch) => {
 		});
 };
 
-export const getGoals = (id) => (dispatch) => {
-	api.get(
-		`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientGoals/${id}`,
-		{
-			headers: {
-				Authorization: localStorage.getItem("token"),
-			},
-		}
-	)
-		.then((results) => {
-			const clientGoals = [...results.data.patientGoals];
+// get the list of client goals to the coach dashboard
+export const addClientGoals = (clientID, coachID, goal) => (dispatch) => {
+	console.log("in goal in getClientGoals",goal);
+	console.log("in getClientGoals action:: coach id:", coachID, "client id:", clientID)
+	axiosWithCred
+		.get(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals`)
+		.then((res) => {
 			dispatch({
-				type: GET_GOALS,
-				payload: clientGoals,
+				type: GET_CLIENT_GOALS_SUCCESS,
+				payload: res.data,
 			});
 		})
 		.catch((err) => {
 			dispatch({
-				type: COACH_ERROR,
+				type: GET_CLIENT_GOALS_FAILURE,
 				payload: err.message,
 			});
 		});

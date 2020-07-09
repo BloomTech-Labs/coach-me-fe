@@ -1,9 +1,7 @@
 import React from "react";
-import { Helper as render } from "../../../utils/helpers";
-import { cleanup } from "@testing-library/react";
+import { Helper as render } from "../../../../utils/helpers";
 import "@testing-library/jest-dom/extend-expect";
 import EmailRequest from "./EmailRequest";
-afterEach(cleanup);
 
 describe("EmailRequest Header", () => {
 	it("Renders without crashing", async () => {
