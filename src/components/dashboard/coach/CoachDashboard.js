@@ -38,10 +38,11 @@ const CoachDashboard = (props) => {
 	}, []);
 
 	useEffect(() => {
-		// console.log("currentCoachID inside useEffect #1", currentCoachID);
-		dispatch(getClientList(currentCoachID));
 
-		// console.log("currentCoachID inside useEffect #2", currentCoachID);
+		if (currentCoachID) {
+			dispatch(getClientList(currentCoachID));
+		}
+
 	}, [currentCoachID]);
 
 	// console.log("clientList", clientList);
@@ -59,8 +60,9 @@ const CoachDashboard = (props) => {
 				<div className="clientinfo-container">
 					<ClientInfo clientprofile={clientprofile} />
 					<h4 className="coach-name">
-						Welcome,
-						{props.state.first_name}
+
+						Welcome, {props.state.first_name}
+
 					</h4>
 					<GoalsDisplay clientprofile={clientprofile} />
 					<Metrics clientprofile={clientprofile} />
