@@ -10,6 +10,7 @@ const ClientCard = (props) => {
 			<h1>
 				{props.client.last_name}, {props.client.first_name}
 			</h1>
+
 		</div>
 	);
 };

@@ -34,9 +34,11 @@ const CoachDashboard = (props) => {
 	}, []);
 
 	useEffect(() => {
+
 		if (currentCoachID) {
 			dispatch(getClientList(currentCoachID));
 		}
+
 	}, [currentCoachID]);
 	return (
 		<>
