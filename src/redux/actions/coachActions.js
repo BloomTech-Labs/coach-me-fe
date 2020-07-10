@@ -165,7 +165,7 @@ export const getLastCheckInTime = (id) => (dispatch) => {
 };
 
 // get the list of client goals to the coach dashboard
-export const getClientGoals = (clientID, coachID) => (dispatch) => {
+export const getClientGoals = (coachID, clientID) => (dispatch) => {
 	axiosWithCred
 	.get(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals`)
 	.then((res) => {
@@ -183,13 +183,13 @@ export const getClientGoals = (clientID, coachID) => (dispatch) => {
 };
 
 //gets the selected goal in the client list
-export const getClientGoal = (clientID, coachID, goalID) => (dispatch) => {
+export const getClientGoal = (coachID, clientID, goalID) => (dispatch) => {
 	axiosWithCred
 	.get(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`)
 	.then((res) => {
 		dispatch({
 			type: GET_CLIENT_GOAL_SUCCESS,
-			payload: res.data.clientGoals[goalID], //probably incorrect
+			payload: res.data
 		});
 	})
 	.catch((err) => {
@@ -201,7 +201,7 @@ export const getClientGoal = (clientID, coachID, goalID) => (dispatch) => {
 };
 
 //add a goal to the client's goal list
-export const addClientGoal = (clientID, coachID, goalID, goal) => (dispatch) => {
+export const addClientGoal = (coachID, clientID, goalID, goal) => (dispatch) => {
 	console.log("in goal in getClientGoals",goal);
 	console.log("in getClientGoals action:: coach id:", coachID, "client id:", clientID)
 	axiosWithCred
@@ -220,9 +220,9 @@ export const addClientGoal = (clientID, coachID, goalID, goal) => (dispatch) => 
 };
 
 //updates the selected goal in the client list
-export const updateClientGoal = (clientID, coachID, goalID, goal) => (dispatch) => {
+export const updateClientGoal = (coachID, clientID, goalID, goal) => (dispatch) => {
 	axiosWithCred
-	.put(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`)
+	.put(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`, goal)
 	.then((res) => {
 		dispatch({
 			type: UPDATE_CLIENT_GOAL_SUCCESS,
@@ -238,7 +238,7 @@ export const updateClientGoal = (clientID, coachID, goalID, goal) => (dispatch) 
 };
 
 //delete a goal from the client's goal list
-export const deleteClientGoal = (clientID, coachID, goalID) => (dispatch) => {
+export const deleteClientGoal = (coachID, clientID, goalID) => (dispatch) => {
 	axiosWithCred
 	.delete(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`)
 	.then((res) => {

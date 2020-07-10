@@ -57,7 +57,6 @@ const CoachDashboard = (props) => {
 							{props.state.first_name}
 						</h4>
 					<GoalsContainer 
-					clientLIST={props.spiderman.coach.clientList}
 					showInfo={showInfo}
 					setShowInfo={setShowInfo}
 					/>

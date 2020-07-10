@@ -5,7 +5,6 @@ import Backdrop from "../../../../utils/UI/Backdrop";
 import "../../../../sass/dashboard/coach/goals/goalContainer.scss";
 
 const GoalsContainer = (props) => {
-    console.log(props)
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -13,7 +12,7 @@ const GoalsContainer = (props) => {
             <button onClick={() => setShowModal(true)}>Create Goal</button>
             <Backdrop show={showModal} set={setShowModal} />
             <GoalForm showModal={showModal} />
-            <GoalsDisplay clientList={props.clientLIST}/>
+            <GoalsDisplay/>
         </div>
     )
 }

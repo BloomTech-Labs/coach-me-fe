@@ -5,7 +5,7 @@ import "../../../../sass/dashboard/coach/goals/goalForm.scss";
 
 const GoalForm = (props) => {
     const [goal, setGoal] = useState({ start_date:"", title:"", description:"", completed: false})
-    const state = useSelector((state) => state.coach);
+    const state = useSelector((state) => state.coach.data);
     const dispatch = useDispatch();
     
     const handleChange = (e) => {
@@ -14,10 +14,9 @@ const GoalForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // dispatch(addClientGoals(?client id?,state.data.id,goal))
+        // dispatch(addClientGoals(state.id, CLIENTID, goal))
     };
     
-    // console.log("goalform", props.showModal)
     return (
         <div className={props.showModal ? "goal-form" : "closed"}>
             <h1>New Client Goal</h1>

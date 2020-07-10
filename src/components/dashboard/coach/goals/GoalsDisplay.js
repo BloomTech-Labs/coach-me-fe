@@ -1,26 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GoalCard from "./GoalCard";
-// import { getClientGoals } from '../../../../actions/coachActions';
+import { getClientGoals } from '../../../../redux/actions/coachActions';
 import "../../../../sass/dashboard/coach/goals/goalsDisplay.scss";
 
 const GoalsDisplay = (props) => {
 	const dispatch = useDispatch();
-
-	// const [show, setShow] = useState(false);
+	const state = useSelector((state) => state.coach);
 
 	useEffect(() => {
-		// dispatch(getClientGoals());
+		// dispatch(getClientGoals(ClientID,state.data.id));
 	}, []);
-
-	// const toggleModal = (e) => {
-	// 	setShow(!show);
-	// };
-
 	
 	return (
 		<div className="goals-wrapper">
-			{props.clientList
+			{state.clientList
 				.map((goal, index) => (
 						<GoalCard key={index}
 							goal={goal}

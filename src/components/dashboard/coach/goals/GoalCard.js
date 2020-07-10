@@ -20,8 +20,8 @@ const GoalCard = (props) => {
                 <div className="goal-start">
                     <p>Started: {props.goal.started}</p>
                 </div>
-            <h2>{props.goal.title}</h2>
-            <p>{props.goal.description}</p>
+            <h2>Title:{props.goal.title}</h2>
+            <p>description:{props.goal.description}</p>
             </div>
         </div>
 	);
