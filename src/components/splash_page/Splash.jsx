@@ -5,15 +5,15 @@ import "../../sass/splash_page/splash.scss";
 
 const Splash = () => {
 	return (
-		<div className="splash-screen">
+		<div data-testid="splash" className="splash-screen">
 			<header>
-				<div className="hero-text">
+				<div data-testid="hero-text" className="hero-text">
 					<h1>Coach Me.</h1>
-					<p>
-						We're a <span>patient-first</span> non-profit fighting{" "}
+					<p data-testid="about">
+						We're a <span data-testid="about-bold">patient-first</span> non-profit fighting{" "}
 						<span>chronic disease</span>.
 					</p>
-					<p className="small-text">
+					<p data-testid="small-text" className="small-text">
 						Improving the health of low-income Americans with
 						diabetes and heart disease with health coaching for
 						those who need it most.
