@@ -4,10 +4,12 @@ import "../../../../sass/dashboard/coach/client_list/clientCard.scss";
 
 const ClientCard = (props) => {
 	return (
-		<div className="test-clientcard" onClick={() => {
+		<div className="name-container"onClick={() => {
 			props.setShowInfo(!props.showInfo)
 		}}>
-			<h4>{props.client.first_name}</h4>
+			<h1>
+				{props.client.last_name}, {props.client.first_name}
+			</h1>
 		</div>
 	);
 };

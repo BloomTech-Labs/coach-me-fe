@@ -33,6 +33,7 @@ import ProfileSix from "../components/register/client/onboarding/createProfile/p
 
 //Styling
 import "../App.css";
+import SearchForm from "../components/dashboard/coach/SearchForm";
 
 const Routes = (props) => {
 	return (
@@ -65,6 +66,8 @@ const Routes = (props) => {
 					path="/coach-messages"
 					component={CoachMessaging}
 				/>
+
+				<PrivateRoute path="/search-clients" component={SearchForm} />
 
 				{/* // CLIENT ROUTES //  */}
 				{/* //  CLIENT REGISTER  // */}
