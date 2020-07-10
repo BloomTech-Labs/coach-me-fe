@@ -20,7 +20,7 @@ const GoalForm = (props) => {
     // console.log("goalform", props.showModal)
     return (
         <div className={props.showModal ? "goal-form" : "closed"}>
-            <h1>GoalForm</h1>
+            <h1>New Client Goal</h1>
             <form onSubmit={handleSubmit}>
                 <input 
                 type="date"

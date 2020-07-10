@@ -36,7 +36,6 @@ const CoachDashboard = (props) => {
 	useEffect(() => {
 		dispatch(getClientList(currentCoachID));
 	}, [currentCoachID]);
-
 	return (
 		<>
 			<div className="coachdashboard-container">
@@ -51,10 +50,10 @@ const CoachDashboard = (props) => {
 				</div>
 				<div className="clientinfo-container">
 					<ClientInfo clientprofile={clientprofile} />
-					<h4 className="coach-name">
-						Welcome,
-						{props.state.first_name}
-					</h4>
+						<h4 className="coach-name">
+							Welcome,
+							{props.state.first_name}
+						</h4>
 					<GoalsContainer 
 					clientLIST={props.spiderman.coach.clientList}
 					showInfo={showInfo}

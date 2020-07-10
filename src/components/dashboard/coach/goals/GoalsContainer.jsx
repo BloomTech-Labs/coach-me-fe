@@ -5,6 +5,7 @@ import Backdrop from "../../../../utils/UI/Backdrop";
 import "../../../../sass/dashboard/coach/goals/goalContainer.scss";
 
 const GoalsContainer = (props) => {
+    console.log(props)
     const [showModal, setShowModal] = useState(false);
 
     return (

@@ -1,8 +1,7 @@
 .goal-form {
-    width: 30%;
+    width: 50%;
     position: fixed;
-    top: 25em;
-    margin: 0 15em;
+    top: 10em;
     background-color: white;
     border: 2px solid dodgerblue;
     border-radius: 8px;
@@ -15,10 +14,13 @@
         padding: 1em;
     }
     form {
+        padding: 1em;
+
         input {
-            width: 40%;
+            width: 70%;
             margin: .5em;
             padding: .5em;
+            border-radius: 1em;
         }
 
         button {
