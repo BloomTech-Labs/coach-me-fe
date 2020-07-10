@@ -8,8 +8,6 @@ import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
 
 const SearchForm = (props) => {
-	console.log("search form props", props);
-
 	useEffect(() => {}, []);
 
 	return (
@@ -36,6 +34,8 @@ const SearchForm = (props) => {
 				return (
 					<ClientCard key={index}
 					client={client}
+					showInfo={props.showInfo}
+					setShowInfo={props.setShowInfo}
 					/>
 				);
 			})}

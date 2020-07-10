@@ -9,7 +9,6 @@ const GoalForm = (props) => {
     const dispatch = useDispatch();
     
     const handleChange = (e) => {
-        console.log("GoalForm handleChange value",e.target.value);
         setGoal({ ...goal, [e.target.name]: e.target.value });
     };
 
@@ -17,9 +16,10 @@ const GoalForm = (props) => {
         e.preventDefault();
         // dispatch(addClientGoals(?client id?,state.data.id,goal))
     };
-    console.log("goalform state:",state)
+    
+    // console.log("goalform", props.showModal)
     return (
-        <div className="goal-form">
+        <div className={props.showModal ? "goal-form" : "closed"}>
             <h1>GoalForm</h1>
             <form onSubmit={handleSubmit}>
                 <input 

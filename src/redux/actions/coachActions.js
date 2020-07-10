@@ -31,8 +31,8 @@ import {
 	GET_CLIENT_GOAL_FAILURE,
 	ADD_CLIENT_GOAL_SUCCESS,
 	ADD_CLIENT_GOAL_FAILURE,
-	UPDATE_CLIENT_GOALS_SUCCESS,
-	UPDATE_CLIENT_GOALS_FAILURE,
+	UPDATE_CLIENT_GOAL_SUCCESS,
+	UPDATE_CLIENT_GOAL_FAILURE,
 	DELETE_CLIENT_GOAL_SUCCESS,
 	DELETE_CLIENT_GOAL_FAILURE,
 	//END OF WORKING ON CURRENTLY 7/8/20
@@ -165,23 +165,94 @@ export const getLastCheckInTime = (id) => (dispatch) => {
 };
 
 // get the list of client goals to the coach dashboard
-export const addClientGoals = (clientID, coachID, goal) => (dispatch) => {
+export const getClientGoals = (clientID, coachID) => (dispatch) => {
+	axiosWithCred
+	.get(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals`)
+	.then((res) => {
+		dispatch({
+			type: GET_CLIENT_GOALS_SUCCESS,
+			payload: res.data.clientGoals,
+		});
+	})
+	.catch((err) => {
+		dispatch({
+			type: GET_CLIENT_GOALS_FAILURE,
+			payload: err.message,
+		});
+	});
+};
+
+//gets the selected goal in the client list
+export const getClientGoal = (clientID, coachID, goalID) => (dispatch) => {
+	axiosWithCred
+	.get(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`)
+	.then((res) => {
+		dispatch({
+			type: GET_CLIENT_GOAL_SUCCESS,
+			payload: res.data.clientGoals[goalID], //probably incorrect
+		});
+	})
+	.catch((err) => {
+		dispatch({
+			type: GET_CLIENT_GOAL_FAILURE,
+			payload: err.message,
+		});
+	});
+};
+
+//add a goal to the client's goal list
+export const addClientGoal = (clientID, coachID, goalID, goal) => (dispatch) => {
 	console.log("in goal in getClientGoals",goal);
 	console.log("in getClientGoals action:: coach id:", coachID, "client id:", clientID)
 	axiosWithCred
-		.get(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals`)
-		.then((res) => {
+		.post(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`, goal)
+		.then(() => {
 			dispatch({
-				type: GET_CLIENT_GOALS_SUCCESS,
-				payload: res.data,
+				type: ADD_CLIENT_GOAL_SUCCESS,
 			});
 		})
 		.catch((err) => {
 			dispatch({
-				type: GET_CLIENT_GOALS_FAILURE,
+				type: ADD_CLIENT_GOAL_FAILURE,
 				payload: err.message,
 			});
 		});
+};
+
+//updates the selected goal in the client list
+export const updateClientGoal = (clientID, coachID, goalID, goal) => (dispatch) => {
+	axiosWithCred
+	.put(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`)
+	.then((res) => {
+		dispatch({
+			type: UPDATE_CLIENT_GOAL_SUCCESS,
+			payload: res.data,
+		});
+	})
+	.catch((err) => {
+		dispatch({
+			type: UPDATE_CLIENT_GOAL_FAILURE,
+			payload: err.message,
+		});
+	});
+};
+
+//delete a goal from the client's goal list
+export const deleteClientGoal = (clientID, coachID, goalID) => (dispatch) => {
+	axiosWithCred
+	.delete(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`)
+	.then((res) => {
+		dispatch({
+			type: DELETE_CLIENT_GOAL_SUCCESS,
+			payload: res.data,
+		});
+	})
+	.catch((err) => {
+		dispatch({
+			type: DELETE_CLIENT_GOAL_FAILURE,
+			payload: err.message,
+		});
+	});
 };
 
 // get scheduled message

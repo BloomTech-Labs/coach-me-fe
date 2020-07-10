@@ -151,7 +151,7 @@ export default (state = initialState, action) => {
 		case GET_CLIENT_GOALS_FAILURE:
 			return {
 				...state,
-				error: [...action.payload],
+				error: action.payload,
 			}
 		case GET_CLIENT_GOAL_SUCCESS:
 			return {
@@ -163,7 +163,7 @@ export default (state = initialState, action) => {
 		case GET_CLIENT_GOAL_FAILURE:
 			return {
 				...state,
-				error: [...action.payload],
+				error: action.payload,
 			}
 		case ADD_CLIENT_GOAL_SUCCESS:
 			return {
@@ -175,7 +175,7 @@ export default (state = initialState, action) => {
 		case ADD_CLIENT_GOAL_FAILURE:
 			return {
 				...state,
-				error: [...action.payload],
+				error: action.payload,
 			}
 		case UPDATE_CLIENT_GOAL_SUCCESS:
 			return {
@@ -187,7 +187,7 @@ export default (state = initialState, action) => {
 		case UPDATE_CLIENT_GOAL_FAILURE:
 			return {
 				...state,
-				error: [...action.payload],
+				error: action.payload,
 			}
 		case DELETE_CLIENT_GOAL_SUCCESS:
 			return {
@@ -199,7 +199,7 @@ export default (state = initialState, action) => {
 		case DELETE_CLIENT_GOAL_FAILURE:
 			return {
 				...state,
-				error: [...action.payload],
+				error: action.payload,
 			}
 		//END OF WORKING ON CURRENTLY 7/8/20
 
