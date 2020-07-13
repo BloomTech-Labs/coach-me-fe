@@ -32,23 +32,26 @@ const ImageForm = (props) => {
         upload()
     }
     return (
-        <div className='form-boi'>
+        <div data-testid="image-form" className='form-boi'>
             <form>
-                <div className="file-chooser">
+                <div data-testid="chooser" className="file-chooser">
                     <label htmlFor="file">Choose a file</label>
                     <input 
                     type="file" 
                     className='file-input' 
                     id='file'
+                    data-testid="image-input"
                     onChange={changeHandler}
                     />
                 </div>
                 <button
+                data-testid="submit"
                 onClick={submitHandler}
                  className='upload-image'>Upload</button>
             </form>
 
             <i
+            data-testid="cancel"
             onClick={()=>props.setImageIsGettingUploadedDawg(false)} 
             className="far fa-window-close cancel"></i>
         </div>
