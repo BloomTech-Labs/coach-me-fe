@@ -17,8 +17,7 @@ import { getClientList } from "../../../redux/actions/coachActions";
 const CoachDashboard = (props) => {
 	const [clientprofile, setclientprofile] = useState();
 
-	const state = useSelector((state) => state.coach.data);
-	const currentCoachID = state.id;
+	
 
 	const [listOfClients, setListOfClients] = useState();
 	const [coachProfile, setCoachProfile] = useState();

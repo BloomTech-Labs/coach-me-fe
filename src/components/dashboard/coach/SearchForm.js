@@ -70,9 +70,10 @@ const SearchForm = (props) => {
 								// value={input.lastname}
 								onChange={handleChange}
 							/>
+							
 						</div>
-					</form>
-				</div>
+					</div>
+				</form>
 				<div className="list-of-clients">
 					{searchResult.length > 0
 						? searchResult.map((client, index) => {
@@ -88,6 +89,7 @@ const SearchForm = (props) => {
 				</div>
 
 			</div>
+			<div>
 				{props.clientLIST.map((client, index) => {
 					return (
 						<ClientCard key={index}
@@ -98,6 +100,8 @@ const SearchForm = (props) => {
 					);
 				})}
 		</div>
+		</div>
+		
 	);
 };
 export default SearchForm;
