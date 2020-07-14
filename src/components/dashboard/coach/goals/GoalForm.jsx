@@ -7,7 +7,6 @@ const GoalForm = (props) => {
     const [goal, setGoal] = useState({ start_date:"", title:"", description:"", completed: false})
     const state = useSelector((state) => state.coach);
     const dispatch = useDispatch();
-    console.log("gf", state)
 
     const handleChange = (e) => {
         console.log(e.target.value)

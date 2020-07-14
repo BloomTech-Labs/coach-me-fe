@@ -18,12 +18,12 @@ const GoalCardModal = (props) => {
         setEditGoal({ ...editGoal, [e.target.name]: e.target.value })
     };
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         handleClick()
-        dispatch(updateClientGoal(state.id, state.selectedClient.id, state.selectedGoal.id, editGoal))
+        dispatch(updateClientGoal(state.data.id, state.selectedClient.id, state.selectedGoal.id, editGoal))
     };
     useEffect(() => {
-		dispatch(getClientGoal(state.id, state.selectedClient.id, state.selectedGoal.id));
+		dispatch(getClientGoal(state.data.id, state.selectedClient.id, state.selectedGoal.id));
     }, []);
 
     return (
@@ -66,7 +66,7 @@ const GoalCardModal = (props) => {
                     <h2>{state.selectedGoal.title}</h2>
                     <p>{state.selectedGoal.description}</p>
                     <button className="edit" onClick={handleClick}>Edit</button>
-                    <button className="delete" onClick={() => {dispatch(deleteClientGoal(state.id, state.selectedClient.id, state.selectedGoal.id))}}>Delete</button>
+                    <button className="delete" onClick={() => {dispatch(deleteClientGoal(state.data.id, state.selectedClient.id, state.selectedGoal.id))}}>Delete</button>
                 </div>
         </div>
     }
