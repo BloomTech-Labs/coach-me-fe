@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GoalCard from "./GoalCard";
-import { getClientGoals } from '../../../../redux/actions/coachActions';
+import { getClientGoals } from "../../../../redux/actions/coachActions";
 import "../../../../sass/dashboard/coach/goals/goalsDisplay.scss";
 
 const GoalsDisplay = (props) => {
@@ -9,12 +9,12 @@ const GoalsDisplay = (props) => {
 	const state = useSelector((state) => state.coach);
 
 	useEffect(() => {
-		// dispatch(getClientGoals(ClientID,state.data.id));
-	}, []);
-	
+		// dispatch(getClientGoals(state.data.id, state.selectedClient.id));
+	})
+
 	return (
 		<div className="goals-wrapper">
-			{state.clientList
+			{state.clientGoals
 				.map((goal, index) => (
 						<GoalCard key={index}
 							goal={goal}

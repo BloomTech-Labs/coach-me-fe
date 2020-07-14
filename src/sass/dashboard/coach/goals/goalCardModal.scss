@@ -1,26 +1,36 @@
 .goal-modal {
     display: flex;
     width: 50%;
+    height: 40%;
     position: fixed;
-    top: 20em;
-    margin-left: -20em;
+    top: 15em;
+    margin-left: -7em;
     padding: 2em;
     background-color: white;
     border: 2px solid dodgerblue;
     border-radius: 8px;
-    z-index: 800;
+    z-index: 900;
+
+        
+    .goal-info {
+        font-size: 1.5em;
+
+        button {
+            width: 5em;
+        }
+        }
 }
 
 .edit-modal {
     width: 50%;
     position: fixed;
     top: 10em;
-    margin-left: -20em;
+    margin-left: -7em;
     padding: 2em;
     background-color: white;
     border: 2px solid dodgerblue;
     border-radius: 8px;
-    z-index: 800;
+    z-index: 1000;
 
     h1 {
         display: flex;
@@ -28,6 +38,7 @@
         font-size: 20px;
         padding: 1em;
     }
+
     form {
         padding: 1em;
 

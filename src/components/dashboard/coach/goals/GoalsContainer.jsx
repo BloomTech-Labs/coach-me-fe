@@ -9,10 +9,10 @@ const GoalsContainer = (props) => {
 
     return (
         <div className={props.showInfo ? "goals-div" : "hidden"}>
-            <button onClick={() => setShowModal(true)}>Create Goal</button>
             <Backdrop show={showModal} set={setShowModal} />
             <GoalForm showModal={showModal} />
             <GoalsDisplay/>
+            <button onClick={() => setShowModal(true)}>Create Goal</button>
         </div>
     )
 }

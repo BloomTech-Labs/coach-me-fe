@@ -8,7 +8,6 @@ import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
 
 const SearchForm = (props) => {
-	console.log("search form props", props.coachID);
 	const [input, setInput] = useState({ firstname: "", lastname: "" });
 
 	const handleChange = (e) => {

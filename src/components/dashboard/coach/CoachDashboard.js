@@ -60,9 +60,11 @@ const CoachDashboard = (props) => {
 						</h4>
 					<GoalsContainer 
 					showInfo={showInfo}
-					setShowInfo={setShowInfo}
 					/>
-					<Metrics clientprofile={clientprofile} />
+					<Metrics 
+					clientprofile={clientprofile}
+					showInfo={showInfo} 
+					/>
 				</div>
 				<CoachNotificationCenter />
 				{/* <div className="coach-messaging">

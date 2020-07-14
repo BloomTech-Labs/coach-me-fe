@@ -1,215 +1,222 @@
-.dash-metric-container {
-    width: 100%;
-    // max-width: 1000px;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin: 1.5rem 0;
+.metrics-container {
 
-    .graph-container {
-        width: 90%;
-        border-radius: 20px;
-        background: #ffffff;
-        padding: 20px;
-        // margin: 20px;
+    .dash-metric-container {
+        width: 100%;
+        // max-width: 1000px;
+        border-radius: 2rem;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        // border: 4px solid blue;
-
-        .metric-title {
-            font-family: DM Sans;
-            font-weight: bold;
-            font-size: 2.2rem;
-            color: #1c3048;
-            margin: 20px;
-        }
-
-        .graph-size {
-            width: 100%;
-            // height: 600px;
-            // border: 1px solid red;
-        }
-
-        p {
-            text-align: center;
-            font-family: DM Sans;
-            font-weight: 500;
-            font-size: 1.5rem;
-            color: #1c3048;
-            margin: 20px;
-        }
-    }
-}
-
-.metric-history {
-    background: #ffffff;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 0 25px 0;
-    margin: 3rem 2rem 0 2rem;
-    width: 90%;
-
-    .metric-history-header {
-        display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
-        width: 85%;
+        margin: 1.5rem 0;
 
-        .history-title {
-            font-family: DM Sans;
-            font-weight: bold;
-            font-size: 1.4rem;
-            color: #1c3048;
-        }
+        .graph-container {
+            width: 90%;
+            border-radius: 20px;
+            background: #ffffff;
+            padding: 20px;
+            // margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            // border: 4px solid blue;
 
-        button {
-            background: none;
-            border: none;
-            font-family: DM Sans;
-            font-weight: 500;
-            font-size: 1.2rem;
-            color: #6d8eb4;
-            cursor: pointer;
+            .metric-title {
+                font-family: DM Sans;
+                font-weight: bold;
+                font-size: 2.2rem;
+                color: #1c3048;
+                margin: 20px;
+            }
+
+            .graph-size {
+                width: 100%;
+                // height: 600px;
+                // border: 1px solid red;
+            }
+
+            p {
+                text-align: center;
+                font-family: DM Sans;
+                font-weight: 500;
+                font-size: 1.5rem;
+                color: #1c3048;
+                margin: 20px;
+            }
         }
     }
-}
 
-.metric-modal-container {
-    background-color: rgba(7, 17, 28, 0.5);
-    width: 100%;
-    min-height: 100%;
-    z-index: 2;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-
-    .metric-history-modal {
-        position: absolute;
-        left: 17%;
-        bottom: 16%;
+    .metric-history {
         background: #ffffff;
-        border-radius: 20px;
-        width: 50%;
-        max-height: 80vh;
+        border-radius: 15px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        overflow-y: scroll;
-        padding: 30px 20px;
+        padding: 25px 0 25px 0;
+        margin: 3rem 2rem 0 2rem;
+        width: 90%;
 
-        .x {
-            align-self: flex-end;
-
-            cursor: pointer;
-        }
-
-        .history-modal-title {
-            font-family: Montserrat;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 2rem;
-            color: #1c3048;
+        .metric-history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             width: 85%;
-            margin: 50px 0 30px 0;
-        }
 
-        button {
-            background: none;
-            border: none;
-            font-family: DM Sans;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 1.4rem;
-            text-decoration-line: underline;
-            color: #6d8eb4;
-            margin: 30px;
-            cursor: pointer;
+            .history-title {
+                font-family: DM Sans;
+                font-weight: bold;
+                font-size: 1.4rem;
+                color: #1c3048;
+            }
+
+            button {
+                background: none;
+                border: none;
+                font-family: DM Sans;
+                font-weight: 500;
+                font-size: 1.2rem;
+                color: #6d8eb4;
+                cursor: pointer;
+            }
         }
     }
-}
 
-//custom scroll bar style
-.metric-history-modal::-webkit-scrollbar {
-    width: 10px;
-}
+    .metric-modal-container {
+        background-color: rgba(7, 17, 28, 0.5);
+        width: 100%;
+        min-height: 100%;
+        z-index: 2;
+        position: fixed;
+        left: 0px;
+        top: 0px;
 
-/* Track */
-.metric-history-modal::-webkit-scrollbar-track {
-    background: none;
-    margin: 50px;
-}
+        .metric-history-modal {
+            position: absolute;
+            left: 17%;
+            bottom: 16%;
+            background: #ffffff;
+            border-radius: 20px;
+            width: 50%;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-y: scroll;
+            padding: 30px 20px;
 
-/* Handle */
-.metric-history-modal::-webkit-scrollbar-thumb {
-    background: #717d8b63;
-    border-radius: 20px;
-}
+            .x {
+                align-self: flex-end;
 
-/* Handle on hover */
-.metric-history-modal::-webkit-scrollbar-thumb:hover {
-    background: #1c304869;
-}
+                cursor: pointer;
+            }
 
-.health-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
-    background: #f6f6f6;
-    border-radius: 15px;
-    width: 85%;
-    font-family: DM Sans;
-    color: #1c3048;
-    font-weight: 500;
-    padding: 10px 20px;
+            .history-modal-title {
+                font-family: Montserrat;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 2rem;
+                color: #1c3048;
+                width: 85%;
+                margin: 50px 0 30px 0;
+            }
 
-    .metric-type {
+            button {
+                background: none;
+                border: none;
+                font-family: DM Sans;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 1.4rem;
+                text-decoration-line: underline;
+                color: #6d8eb4;
+                margin: 30px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    //custom scroll bar style
+    .metric-history-modal::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    .metric-history-modal::-webkit-scrollbar-track {
+        background: none;
+        margin: 50px;
+    }
+
+    /* Handle */
+    .metric-history-modal::-webkit-scrollbar-thumb {
+        background: #717d8b63;
+        border-radius: 20px;
+    }
+
+    /* Handle on hover */
+    .metric-history-modal::-webkit-scrollbar-thumb:hover {
+        background: #1c304869;
+    }
+
+    .health-card {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        // width: 40%;
-        // border: 1px solid red;
+        margin: 10px;
+        background: #f6f6f6;
+        border-radius: 15px;
+        width: 85%;
+        font-family: DM Sans;
+        color: #1c3048;
+        font-weight: 500;
+        padding: 10px 20px;
 
-        .icon {
-            width: 2.7rem;
+        .metric-type {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            // width: 40%;
+            // border: 1px solid red;
+
+            .icon {
+                width: 2.7rem;
+            }
+
+            .metric-name {
+                font-size: 1.4rem;
+                margin: 0 1.6rem;
+            }
         }
 
-        .metric-name {
+        .metric-date {
+            color: #717d8b;
+            font-weight: normal;
             font-size: 1.4rem;
-            margin: 0 1.6rem;
-        }
-    }
-
-    .metric-date {
-        color: #717d8b;
-        font-weight: normal;
-        font-size: 1.4rem;
-        // border: 1px solid red;
-    }
-
-    .metric-value-container {
-        display: flex;
-        justify-content: flex-end;
-        align-items: baseline;
-        width: 30%;
-        // border: 1px solid red;
-
-        .metric-value {
-            font-weight: bold;
-            font-size: 2rem;
-            margin: 0 7px;
+            // border: 1px solid red;
         }
 
-        .metric-unit {
-            font-size: 1.2rem;
+        .metric-value-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: baseline;
+            width: 30%;
+            // border: 1px solid red;
+
+            .metric-value {
+                font-weight: bold;
+                font-size: 2rem;
+                margin: 0 7px;
+            }
+
+            .metric-unit {
+                font-size: 1.2rem;
+            }
         }
     }
+}
+
+.hidden {
+    display: none;
 }

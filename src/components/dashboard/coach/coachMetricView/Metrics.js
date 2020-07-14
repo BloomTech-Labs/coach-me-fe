@@ -49,9 +49,8 @@ function Metrics(props) {
 	});
 	const reverseClientData = [...clientData];
 	reverseClientData.reverse();
-
 	return (
-		<>
+		<div className={props.showInfo ? "metrics-container" : "hidden"}>
 			<div className="dash-metric-container">
 				<div className="graph-container">
 					<h2 className="metric-title">Blood Glucose</h2>
@@ -138,7 +137,7 @@ function Metrics(props) {
 					reverseClientData={reverseClientData}
 				/>
 			</div>
-		</>
+		</div>
 	);
 }
 
