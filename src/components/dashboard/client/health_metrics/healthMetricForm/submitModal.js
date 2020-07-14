@@ -1,5 +1,5 @@
 import React from "react";
-import { translate } from "../../../../../utils/language/translate";
+
 import { ReactComponent as Warning } from "../../../../../utils/assets/icons/login/warning.svg";
 import { ReactComponent as Success } from "../../../../../utils/assets/icons/login/success.svg";
 import "../../../../../sass/dashboard/client/health_metrics/FailureModal.scss";
@@ -12,10 +12,10 @@ const SubmitModal = (props) => {
 				<div className="modal-container">
 					<div className="modal-box">
 						<Success />
-						<p>{translate("Form-Success")}!</p>
+						<p>Form-Success!</p>
 
 						<button onClick={() => onSubmit()}>
-							{translate("continueBtn")}
+							continueBtn
 						</button>
 					</div>
 				</div>
@@ -27,7 +27,7 @@ const SubmitModal = (props) => {
 				<div className="modal-container">
 					<div className="modal-box">
 						<Warning />
-						<p>{translate("Form-Failure")}</p>
+						<p>Form-Failure</p>
 
 						<button onClick={() => failMetric()}>OK</button>
 					</div>

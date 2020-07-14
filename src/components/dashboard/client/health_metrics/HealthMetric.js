@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import { translate } from "../../../../utils/language/translate";
+
 
 //Component Imports
 import HealthMetricCards from "./HealthMetricCards";
@@ -87,10 +87,7 @@ const HealthMetric = (props) => {
 
 			<div className="metric-container">
 				<h1>Metrics</h1>
-				{/* <div className='metric-header'>
-                    <h3>{translate('hello')}</h3>
-                    <h2>{state.clientinfo.name}!</h2>
-                </div> */}
+			
 				<div className="metric-values">
 					<div className="health-value">
 						<div className="metric">
@@ -101,32 +98,14 @@ const HealthMetric = (props) => {
 									src={iconfastingBloodGlucose}
 								></img>
 							</div>
-							<h4>{translate("bloodGlucose")}</h4>
+						
 						</div>
 						<LineGraph
 							values={bloodSugarArray}
 							datesArray={datesArray}
 							metricType={"bloodGlucose"}
 						/>
-						{/* <div className='btn-container'>
-                            <button
-                                className='metric-button'
-                                onClick={() =>
-                                    handleClick(
-                                        'Blood Glucose',
-                                        'mg/dl',
-                                        'Blood_sugar'
-                                    )
-                                }
-                            >
-                                {translate('seeHistory')}{' '}
-                                <img
-                                    className='icon'
-                                    alt='Arrow pointing right'
-                                    src={iconSeeHistory}
-                                ></img>
-                            </button>
-                        </div> */}
+				
 					</div>
 
 					<div className="health-value">
@@ -138,28 +117,14 @@ const HealthMetric = (props) => {
 									src={iconweight}
 								></img>
 							</div>
-							<h4>{translate("weight")}</h4>
+						
 						</div>
 						<LineGraph
 							values={weightArray}
 							datesArray={datesArray}
 							metricType={"weight"}
 						/>
-						{/* <div className='btn-container'>
-                            <button
-                                className='metric-button'
-                                onClick={() =>
-                                    handleClick('Weight', 'Ibs', 'Weight')
-                                }
-                            >
-                                {translate('seeHistory')}{' '}
-                                <img
-                                    className='icon'
-                                    alt='Arrow pointing right'
-                                    src={iconSeeHistory}
-                                ></img>
-                            </button>
-                        </div> */}
+					
 					</div>
 					<div className="health-value">
 						<div className="metric">
@@ -170,7 +135,7 @@ const HealthMetric = (props) => {
 									src={iconbloodPressure}
 								></img>
 							</div>
-							<h4>{translate("bp")}</h4>
+						
 						</div>
 						<LineGraph
 							bpOverArray={bpOverArray}
@@ -178,26 +143,7 @@ const HealthMetric = (props) => {
 							datesArray={datesArray}
 							metricType={"bloodPressure"}
 						/>
-						{/* <div className='btn-container'>
-                            <button
-                                className='metric-button'
-                                onClick={() =>
-                                    handleClick(
-                                        'Blood Pressure',
-                                        'mmHg',
-                                        'Blood_pressure_under',
-                                        'Blood_pressure_over'
-                                    )
-                                }
-                            >
-                                {translate('seeHistory')}{' '}
-                                <img
-                                    className='icon'
-                                    alt='Arrow pointing right'
-                                    src={iconSeeHistory}
-                                ></img>
-                            </button>
-                        </div> */}
+					
 					</div>
 				</div>
 			</div>

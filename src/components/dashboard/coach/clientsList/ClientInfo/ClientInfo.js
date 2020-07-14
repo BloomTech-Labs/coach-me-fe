@@ -45,7 +45,7 @@ const ClientInfo = (props) => {
 					motivation={clientprofile.motivations}
 					show={show}
 				/>
-				<div className="key-details">
+				{/* <div className="key-details">
 					<h1 className="name">{clientprofile.clientName}</h1>
 					<div className="details">
 						{clientprofile.conditions !== "Unknown" &&
@@ -85,7 +85,7 @@ const ClientInfo = (props) => {
 							{clientprofile.language}
 						</p>
 					</div>
-				</div>
+				</div> */}
 				<div
 					className={`${
 						clientprofile.motivations ? "motivations" : "ghost"
