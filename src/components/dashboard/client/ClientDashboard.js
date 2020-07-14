@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getClientInfo } from "../../../redux/actions/clientActions";
 import "../../../sass/dashboard/client/clientDashboard.scss";
-
+import Calendar from './Calendar';
 const ClientDashboard = (props) => {
 	console.log("dashboard props",props)
 	const [goals] = useState([
@@ -30,11 +30,16 @@ const ClientDashboard = (props) => {
 				<div className="profile-container">
 						{<h1>{props.state.first_name} {props.state.last_name}</h1>}
 						<p className="motivation">Motivation: client's motivation for coming to the app</p>
-					<h2>Goals:</h2>
+					<div className="goals-container">
+						<h2>Goals:</h2>
 						{goals.map((g, index) => {
-								return <GoalCard key={index} goal={g} />
+							return <GoalCard key={index} goal={g} />
 						})} 	
+					</div>
 				</div>
+			<div className="calendar-section">
+				<Calendar calendlyLink="https://calendly.com/brianetaveras/brian-will-tattoo-your-body" />
+			</div>
 			</div>
 		</div>
 	);
