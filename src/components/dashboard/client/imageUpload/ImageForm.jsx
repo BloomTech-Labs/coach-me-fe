@@ -13,7 +13,7 @@ const ImageForm = (props) => {
     const upload = () =>{
         const data = new FormData();
         data.append('profile_image', file, file.name);
-        axios.post('${process.env.REACT_APP_BACKEND}/media/upload_image', data, {
+        axios.post('http://localhost:5000/api/media/upload_image', data, {
             headers: {
                 'accept': 'application/json',
                 'Accept-Language': 'en-US;en;q=0.8',
@@ -28,7 +28,6 @@ const ImageForm = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        alert(file)
         upload()
     }
     return (
