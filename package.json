@@ -41,12 +41,23 @@
         "yup": "^0.27.0"
     },
     "scripts": {
-        "start": "react-scripts -r dotenv/config start",
+        "start": "react-scripts start",
         "build": "react-scripts build",
-        "cypress": "cypress open",
-        "test": "react-scripts test",
+        "test": "react-scripts test --coverage --watchAll=false",
         "eject": "react-scripts eject",
-        "coverage": "jest --coverage --detectOpenHandles --forceExit || true"
+        "coverage": "npm run test || true"
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "**/*.{js,jsx}",
+            "!**/node_modules/**",
+            "!**/vendor/**",
+            "!**/database/**",
+            "!**/tests/**",
+            "!**/spec/**",
+            "**/*.spec.{js,jsx}",
+            "!**/coverage/**"
+        ]
     },
     "eslintConfig": {
         "extends": "react-app"
