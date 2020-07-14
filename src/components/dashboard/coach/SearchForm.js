@@ -33,15 +33,25 @@ const SearchForm = (props) => {
 	};
 
 	return (
-		<>
-			<div className="search-container">
-				<div className="searchbar">
-					<form className="search-form">
-						<img
-							className="magnifying-glass icon"
-							alt="magnifying-glass"
-							src={magnifying}
+		<div className="search-container">
+			<div className="searchbar">
+				<form className="search-form">
+					<img
+						className="magnifying-glass icon"
+						alt="magnifying-glass"
+						src={magnifying}
+					/>
+					<div className="input-values">
+						<input
+							className="search-input"
+							// onChange={handleChange}
+							placeholder="First Name"
+							// value={query}
+							name="first_name"
+							value={input.firstname}
+							onChange={handleChange}
 						/>
+
 
 						<div className="input-values">
 							<input
@@ -76,8 +86,18 @@ const SearchForm = (props) => {
 								);
 						  })}
 				</div>
+
 			</div>
-		</>
+				{props.clientLIST.map((client, index) => {
+					return (
+						<ClientCard key={index}
+						client={client}
+						showInfo={props.showInfo}
+						setShowInfo={props.setShowInfo}
+						/>
+					);
+				})}
+		</div>
 	);
 };
 export default SearchForm;

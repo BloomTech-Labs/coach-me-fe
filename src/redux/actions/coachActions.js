@@ -12,7 +12,6 @@ import {
 	GET_METRICS_SUCCESS,
 	GET_METRICS_FAILURE,
 	GET_CHECKIN,
-	GET_GOALS,
 	ADD_SCHEDULE_MESSAGE_START,
 	ADD_SCHEDULE_MESSAGE_SUCCESS,
 	GET_SCHEDULE_MESSAGE_START,
@@ -24,6 +23,20 @@ import {
 	GET_CLIENT_LIST_START,
 	GET_CLIENT_LIST_SUCCESS,
 	GET_CLIENT_LIST_FAILURE,
+
+	//WORKING ON CURRENTLY 7/8/20
+	GET_CLIENT_GOALS_SUCCESS,
+	GET_CLIENT_GOALS_FAILURE,
+	GET_CLIENT_GOAL_SUCCESS,
+	GET_CLIENT_GOAL_FAILURE,
+	ADD_CLIENT_GOAL_SUCCESS,
+	ADD_CLIENT_GOAL_FAILURE,
+	UPDATE_CLIENT_GOAL_SUCCESS,
+	UPDATE_CLIENT_GOAL_FAILURE,
+	DELETE_CLIENT_GOAL_SUCCESS,
+	DELETE_CLIENT_GOAL_FAILURE,
+	//END OF WORKING ON CURRENTLY 7/8/20
+
 } from "./types";
 
 import axiosWithCred from "../../utils/axiosWithCred";
@@ -151,28 +164,95 @@ export const getLastCheckInTime = (id) => (dispatch) => {
 		});
 };
 
-export const getGoals = (id) => (dispatch) => {
-	api.get(
-		`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientGoals/${id}`,
-		{
-			headers: {
-				Authorization: localStorage.getItem("token"),
-			},
-		}
-	)
-		.then((results) => {
-			const clientGoals = [...results.data.patientGoals];
+// get the list of client goals to the coach dashboard
+export const getClientGoals = (coachID, clientID) => (dispatch) => {
+	axiosWithCred
+	.get(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals`)
+	.then((res) => {
+		dispatch({
+			type: GET_CLIENT_GOALS_SUCCESS,
+			payload: res.data.clientGoals,
+		});
+	})
+	.catch((err) => {
+		dispatch({
+			type: GET_CLIENT_GOALS_FAILURE,
+			payload: err.message,
+		});
+	});
+};
+
+//gets the selected goal in the client list
+export const getClientGoal = (coachID, clientID, goalID) => (dispatch) => {
+	axiosWithCred
+	.get(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`)
+	.then((res) => {
+		dispatch({
+			type: GET_CLIENT_GOAL_SUCCESS,
+			payload: res.data
+		});
+	})
+	.catch((err) => {
+		dispatch({
+			type: GET_CLIENT_GOAL_FAILURE,
+			payload: err.message,
+		});
+	});
+};
+
+//add a goal to the client's goal list
+export const addClientGoal = (coachID, clientID, goalID, goal) => (dispatch) => {
+	console.log("in goal in getClientGoals",goal);
+	console.log("in getClientGoals action:: coach id:", coachID, "client id:", clientID)
+	axiosWithCred
+		.post(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`, goal)
+		.then(() => {
 			dispatch({
-				type: GET_GOALS,
-				payload: clientGoals,
+				type: ADD_CLIENT_GOAL_SUCCESS,
 			});
 		})
 		.catch((err) => {
 			dispatch({
-				type: COACH_ERROR,
+				type: ADD_CLIENT_GOAL_FAILURE,
 				payload: err.message,
 			});
 		});
+};
+
+//updates the selected goal in the client list
+export const updateClientGoal = (coachID, clientID, goalID, goal) => (dispatch) => {
+	axiosWithCred
+	.put(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`, goal)
+	.then((res) => {
+		dispatch({
+			type: UPDATE_CLIENT_GOAL_SUCCESS,
+			payload: res.data,
+		});
+	})
+	.catch((err) => {
+		dispatch({
+			type: UPDATE_CLIENT_GOAL_FAILURE,
+			payload: err.message,
+		});
+	});
+};
+
+//delete a goal from the client's goal list
+export const deleteClientGoal = (coachID, clientID, goalID) => (dispatch) => {
+	axiosWithCred
+	.delete(`http://localhost:3000/api/coach/${coachID}/clients/${clientID}/goals/${goalID}`)
+	.then((res) => {
+		dispatch({
+			type: DELETE_CLIENT_GOAL_SUCCESS,
+			payload: res.data,
+		});
+	})
+	.catch((err) => {
+		dispatch({
+			type: DELETE_CLIENT_GOAL_FAILURE,
+			payload: err.message,
+		});
+	});
 };
 
 // get scheduled message

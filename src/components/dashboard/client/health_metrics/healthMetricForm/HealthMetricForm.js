@@ -4,7 +4,7 @@ import moment from "moment";
 
 //Redux Actions
 import { addMetric } from "../../../../../redux/actions/clientActions";
-import { translate } from "../../../../../utils/language/translate";
+
 
 //Component Imports
 import SubmitModal from "./submitModal";
@@ -98,8 +98,8 @@ function HealthMetricForm(props) {
 				failMetric={failMetric}
 			/>
 			<header>
-				<h1>{translate("HMFtitle")}</h1>
-				<p className="header-text">{translate("NeedMetric")}</p>
+				<h1>HMFtitle</h1>
+				<p className="header-text">NeedMetric</p>
 			</header>
 			<form onSubmit={submitNewMetric}>
 				<div className="input-label">
@@ -110,7 +110,7 @@ function HealthMetricForm(props) {
 							src={iconfastingBloodGlucose}
 						></img>
 					</div>
-					<h3>{translate("fastingGlucose")}</h3>
+					<h3>fastingGlucose</h3>
 				</div>
 				<div className="input-wrapper">
 					<input
@@ -135,7 +135,7 @@ function HealthMetricForm(props) {
 							src={iconweight}
 						></img>
 					</div>
-					<h3>{translate("weight")}</h3>
+					<h3>weight</h3>
 				</div>
 				<div className="input-wrapper">
 					<input
@@ -160,7 +160,7 @@ function HealthMetricForm(props) {
 							src={iconbloodPressure}
 						></img>
 					</div>
-					<h3>{translate("bp")}</h3>
+					<h3>bp</h3>
 				</div>
 				<div className="input-wrapper">
 					<div className="input-wrapper">
@@ -193,7 +193,7 @@ function HealthMetricForm(props) {
 					</div>
 				</div>
 
-				<button className="btn">{translate("submitBtn")}</button>
+				<button className="btn">submitBtn</button>
 			</form>
 		</div>
 	);

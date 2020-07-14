@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getClientInfo } from "../../../redux/actions/clientActions";
+import ImageCircle from './imageUpload/ImageCircle';
 import "../../../sass/dashboard/client/clientDashboard.scss";
 
 const ClientDashboard = (props) => {
@@ -28,7 +29,8 @@ const ClientDashboard = (props) => {
 			</div>
 			<div className="info-container">
 				<div className="profile-container">
-						{<h1>{props.state.first_name} {props.state.last_name}</h1>}
+					<ImageCircle />
+						
 						<p className="motivation">Motivation: client's motivation for coming to the app</p>
 					<h2>Goals:</h2>
 						{goals.map((g, index) => {
