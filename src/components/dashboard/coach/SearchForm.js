@@ -9,15 +9,11 @@ import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
 
 const SearchForm = (props) => {
-	
-	
-	
 	// console.log("search form props", props.coachID);
 	const [input, setInput] = useState('');
 	const data = props.clientLIST;
 	const [searchResult, setSearchResult] = useState(data);
 	let newList= [];
-
 
 	useEffect(() => {
 		if(input != '') {
@@ -35,7 +31,6 @@ const SearchForm = (props) => {
 		}
 		console.log(searchResult)
 	}, [input]);
-
 
 	console.log(searchResult)
 
