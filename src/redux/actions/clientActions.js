@@ -17,6 +17,7 @@ import {
 	GET_METRICS_START,
 	GET_METRICS_SUCCESS,
 	GET_METRICS_FAILURE,
+	GET_CLIENT_SESSIONS
 } from "./types";
 
 export const getClientInfoRegister = (userAccountDetails) => (dispatch) => {
@@ -170,3 +171,17 @@ export const getClientRecords = () => (dispatch) => {
 			});
 		});
 };
+
+export const getClientSessions = (id) => (dispatch) => {
+	axiosWithCred
+	.get(`${process.env.REACT_APP_BACKEND}/client/${id}/sessions`)
+	.then(res => {
+		dispatch({
+			type: GET_CLIENT_SESSIONS,
+			payload: "butts",
+		});
+	})
+	.catch(err => {
+		console.log(err)
+	})
+}

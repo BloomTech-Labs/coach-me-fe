@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector, connect } from "react-redux";
 
-import { searchClients } from "../../../redux/actions/searchActions";
+
 
 import ClientCard from "../coach/clientsList/ClientCard";
 // Styling
@@ -9,29 +9,35 @@ import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
 
 const SearchForm = (props) => {
-	const dispatch = useDispatch();
+	
+	
+	
 	// console.log("search form props", props.coachID);
-	const [input, setInput] = useState({ firstname: "", lastname: "" });
-	const [searchResult, setSearchResult] = useState([]);
-	const actualList = props.clientLIST;
+	const [input, setInput] = useState('');
+	const data = props.clientLIST;
+	const [searchResult, setSearchResult] = useState(data);
+	let newList= [];
+
 
 	useEffect(() => {
-		if (input.length) {
-			return searchResult;
+		if(input != '') {
+			newList = data.filter(word => {
+				return word.first_name.indexOf(input) != -1 || word.last_name.indexOf(input) != -1
+			})
+			setSearchResult(newList)
+			
+			console.log('new list',newList)
+		}else if(input === '') {
+			setSearchResult(data)
 		}
-		return actualList;
+		console.log(searchResult)
 	}, [input]);
+	console.log(searchResult)
 
 	const handleChange = (e) => {
-		setInput({ ...input, [e.target.name]: e.target.value });
-		dispatch(
-			searchClients({
-				...input,
-				id: props.coachID,
-			})
-		);
+		setInput(e.target.value);	
 	};
-
+	
 	return (
 		<div className="search-container">
 			<div className="searchbar">
@@ -41,56 +47,33 @@ const SearchForm = (props) => {
 						alt="magnifying-glass"
 						src={magnifying}
 					/>
-					<div className="input-values">
-						<input
-							className="search-input"
-							// onChange={handleChange}
-							placeholder="First Name"
-							// value={query}
-							name="first_name"
-							value={input.firstname}
-							onChange={handleChange}
-						/>
-
-
+					
 						<div className="input-values">
 							<input
 								className="search-input"
-								// onChange={handleChange}
-								placeholder="First Name"
-								// value={query}
+								placeholder="Client Name"
 								name="first_name"
-								// value={input.firstname}
-								onChange={handleChange}
-							/>
-							<input
-								className="search-input"
-								placeholder="Last Name"
-								name="last_name"
-								// value={input.lastname}
 								onChange={handleChange}
 							/>
 							
 						</div>
-					</div>
+				
 				</form>
 				<div className="list-of-clients">
-					{searchResult.length > 0
-						? searchResult.map((client, index) => {
-								return (
-									<ClientCard key={index} client={client} />
-								);
-						  })
-						: actualList.map((client, index) => {
-								return (
-									<ClientCard key={index} client={client} />
-								);
-						  })}
+				
 				</div>
 
 			</div>
 			<div>
-				{props.clientLIST.map((client, index) => {
+				{searchResult.length <= 0 ? props.clientLIST.map((client, index) => {
+					return (
+						<ClientCard key={index}
+						client={client}
+						showInfo={props.showInfo}
+						setShowInfo={props.setShowInfo}
+						/>
+					);
+				}) : searchResult.map((client, index) => {
 					return (
 						<ClientCard key={index}
 						client={client}
@@ -104,4 +87,13 @@ const SearchForm = (props) => {
 		
 	);
 };
-export default SearchForm;
+
+const mapStateToProps = (state) => {
+
+	return {
+		state: state.coach.data,
+		spiderman: state,
+		loggedIn: state.auth.loggedIn,
+	};
+};
+export default connect(mapStateToProps)(SearchForm);

@@ -24,12 +24,12 @@ const CoachDashboard = (props) => {
 	const [showInfo, setShowInfo] = useState(false);
 
 	const state = useSelector((state) => state.coach.data);
-	const spiderman = useSelector((state) => state.coach.clientList);
+	// const spiderman = useSelector((state) => state.coach.clientList);
 
 	const dispatch = useDispatch();
 
 	const currentCoachID = state.id;
-	const clientListArray = props.spiderman.coach.clientList;
+	// const clientListArray = props.spiderman.coach.clientList;
 	
 	
 	useEffect(() => {
@@ -45,6 +45,10 @@ const CoachDashboard = (props) => {
 
 	}, [currentCoachID]);
 
+	useEffect(() => {
+
+	})
+
 	return (
 		<>
 			<div className="coachdashboard-container">
@@ -54,7 +58,7 @@ const CoachDashboard = (props) => {
 						showInfo={showInfo}
 						setShowInfo={setShowInfo}
 						coachID={props.state.id}
-						clientLIST={props.spiderman.coach.clientList}
+						clientLIST={props.list}
 					/>
 				</div>
 				<div className="clientinfo-container">
@@ -79,6 +83,7 @@ const mapStateToProps = (state) => {
 
 	return {
 		state: state.coach.data,
+		list: state.coach.clientList,
 		spiderman: state,
 		loggedIn: state.auth.loggedIn,
 	};

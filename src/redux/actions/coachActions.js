@@ -82,9 +82,9 @@ export const postMessage = (post) => (dispatch) => {
 };
 
 export const getClientList = (id) => (dispatch) => {
-	dispatch({ type: GET_CLIENT_LIST_START });
+	
 	axiosWithCred
-		.get(`${process.env.REACT_APP_BACK_END_URL}/coach/${id}/clients`)
+		.get(`${process.env.REACT_APP_BACKEND}/coach/${id}/clients`)
 		.then((res) => {
 			dispatch({
 				type: GET_CLIENT_LIST_SUCCESS,

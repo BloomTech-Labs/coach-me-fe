@@ -11,6 +11,7 @@ import CoachDashboard from "../components/dashboard/coach/CoachDashboard";
 import CoachNotifications from "../components/dashboard/coach/notificationCenter/CoachNotifications";
 import CoachResourceCenter from "../components/dashboard/coach/notificationCenter/CoachResourceCenter";
 import CoachMessaging from "../components/dashboard/coach/notificationCenter/coachMessaging/CoachMessaging";
+import MySessions from '../components/dashboard/client/MySessions';
 
 import ClientDashboard from "../components/dashboard/client/ClientDashboard";
 import Notifications from "../components/dashboard/client/Notifications";
@@ -118,6 +119,10 @@ const Routes = (props) => {
 				<PrivateRoute
 					path="/client-notifications"
 					component={Notifications}
+				/>
+				<PrivateRoute
+					path="/my-sessions"
+					component={MySessions}
 				/>
 				<PrivateRoute
 					path="/resource-center"
