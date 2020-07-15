@@ -17,10 +17,10 @@ const SearchForm = (props) => {
 	const actualList = props.clientLIST;
 
 	useEffect(() => {
-		if (input.length) {
-			return searchResult;
-		}
-		return actualList;
+		// if (input.length) {
+		// 	return searchResult;
+		// }
+		// return actualList;
 	}, [input]);
 
 	const handleChange = (e) => {
