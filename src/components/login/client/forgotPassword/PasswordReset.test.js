@@ -3,7 +3,6 @@ import { Helper as render } from "../../../../utils/helpers";
 import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import PasswordReset from "./PasswordReset";
-afterEach(cleanup);
 
 describe("PasswordReset Header", () => {
 	it("Renders without crashing", async () => {

@@ -11,7 +11,6 @@ import {
 	GET_METRICS_SUCCESS,
 	GET_METRICS_FAILURE,
 	GET_CHECKIN,
-	GET_GOALS,
 	ADD_SCHEDULE_MESSAGE_START,
 	ADD_SCHEDULE_MESSAGE_SUCCESS,
 	GET_SCHEDULE_MESSAGE_START,
@@ -24,6 +23,16 @@ import {
 	GET_CLIENT_LIST_START,
 	GET_CLIENT_LIST_SUCCESS,
 	GET_CLIENT_LIST_FAILURE,
+	GET_CLIENT_GOALS_SUCCESS,
+	GET_CLIENT_GOALS_FAILURE,
+	GET_CLIENT_GOAL_SUCCESS,
+	GET_CLIENT_GOAL_FAILURE,
+	ADD_CLIENT_GOAL_SUCCESS,
+	ADD_CLIENT_GOAL_FAILURE,
+	UPDATE_CLIENT_GOAL_SUCCESS,
+	UPDATE_CLIENT_GOAL_FAILURE,
+	DELETE_CLIENT_GOAL_SUCCESS,
+	DELETE_CLIENT_GOAL_FAILURE,
 	GET_UNASSIGNED_CLIENTS,
 	ASSIGN_CLIENT,
 } from "../actions/types";
@@ -133,13 +142,70 @@ export default (state = initialState, action) => {
 				clientMetrics: [...action.payload],
 				error: "",
 			};
-		case GET_GOALS:
+
+		//WORKING ON CURRENTLY 7/8/20
+		case GET_CLIENT_GOALS_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				clientGoals: [...action.payload],
 				error: "",
 			};
+		case GET_CLIENT_GOALS_FAILURE:
+			return {
+				...state,
+				error: action.payload,
+			}
+		case GET_CLIENT_GOAL_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				clientGoals: [...action.payload],
+				error: "",
+			};
+		case GET_CLIENT_GOAL_FAILURE:
+			return {
+				...state,
+				error: action.payload,
+			}
+		case ADD_CLIENT_GOAL_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				clientGoals: [...action.payload],
+				error: "",
+			};
+		case ADD_CLIENT_GOAL_FAILURE:
+			return {
+				...state,
+				error: action.payload,
+			}
+		case UPDATE_CLIENT_GOAL_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				clientGoals: [...action.payload],
+				error: "",
+			};
+		case UPDATE_CLIENT_GOAL_FAILURE:
+			return {
+				...state,
+				error: action.payload,
+			}
+		case DELETE_CLIENT_GOAL_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				clientGoals: [...action.payload],
+				error: "",
+			};
+		case DELETE_CLIENT_GOAL_FAILURE:
+			return {
+				...state,
+				error: action.payload,
+			}
+		//END OF WORKING ON CURRENTLY 7/8/20
+
 		case ADD_SCHEDULE_MESSAGE_START:
 			return {
 				...state,
