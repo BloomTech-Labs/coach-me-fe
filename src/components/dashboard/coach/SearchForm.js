@@ -22,7 +22,10 @@ const SearchForm = (props) => {
 	useEffect(() => {
 		if(input != '') {
 			newList = data.filter(word => {
-				return word.first_name.indexOf(input) != -1 || word.last_name.indexOf(input) != -1
+				if(input[0] === input[0].toLowerCase() || input[0] === input[0].toUpperCase() ) {
+					// return input[0].toUpperCase()
+					return word.first_name.indexOf(input) != -1 || word.last_name.indexOf(input) != -1
+				}
 			})
 			setSearchResult(newList)
 			
@@ -32,6 +35,8 @@ const SearchForm = (props) => {
 		}
 		console.log(searchResult)
 	}, [input]);
+
+
 	console.log(searchResult)
 
 	const handleChange = (e) => {
