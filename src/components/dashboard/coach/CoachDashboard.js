@@ -69,7 +69,7 @@ const mapStateToProps = (state) => {
 
 	return {
 		state: state.coach.data,
-		clientList: state.coach.clientList,
+		list: state.coach.clientList,
 		loggedIn: state.auth.loggedIn,
 	};
 };

@@ -68,6 +68,7 @@ const SearchForm = (props) => {
 
 			</div>
 			<div>
+				
 				{searchResult.length <= 0 ? props.clientLIST.map((client, index) => {
 					return (
 						<ClientCard key={index}
