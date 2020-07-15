@@ -15,40 +15,26 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 import { getClientList } from "../../../redux/actions/coachActions";
 
 const CoachDashboard = (props) => {
+	
 	const [clientprofile, setclientprofile] = useState();
 
 	
-
-	const [listOfClients, setListOfClients] = useState();
 	const [coachProfile, setCoachProfile] = useState();
 	const [showInfo, setShowInfo] = useState(false);
 
 	const state = useSelector((state) => state.coach.data);
-	// const spiderman = useSelector((state) => state.coach.clientList);
+	const clientList = useSelector((state) => state.coach.clientList);
+	// console.log("clientList", clientList);
+	// console.log("Dashboard state", state.id);
+	// console.log("props.state.id",props.state.id)
+	const currentCoachID = props.state.id;
+	// console.log("currentCoachID", currentCoachID);
 
 	const dispatch = useDispatch();
 
-	const currentCoachID = state.id;
-	// const clientListArray = props.spiderman.coach.clientList;
+;
+
 	
-	
-	useEffect(() => {
-		dispatch(getCoach());
-	}, []);
-
-	useEffect(() => {
-
-		if (currentCoachID) {
-			dispatch(getClientList(currentCoachID));
-		}
-
-
-	}, [currentCoachID]);
-
-	useEffect(() => {
-
-	})
-
 	return (
 		<>
 			<div className="coachdashboard-container">
@@ -83,8 +69,7 @@ const mapStateToProps = (state) => {
 
 	return {
 		state: state.coach.data,
-		list: state.coach.clientList,
-		spiderman: state,
+		clientList: state.coach.clientList,
 		loggedIn: state.auth.loggedIn,
 	};
 };

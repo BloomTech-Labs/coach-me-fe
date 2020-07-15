@@ -7,6 +7,9 @@ import ClientCard from "../coach/clientsList/ClientCard";
 // Styling
 import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
+import CoachDashboard from "./CoachDashboard";
+
+
 
 const SearchForm = (props) => {
 	// console.log("search form props", props.coachID);
