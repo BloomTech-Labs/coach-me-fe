@@ -2,8 +2,11 @@ import React, {useState, useEffect, useRef} from 'react';
 import VideoCall from './VideoCall';
 import io from "socket.io-client";
 
+import "../../sass/chat/chat.scss";
+
 import Video from './Video';
 import { Caller, Available } from './PeerConnections';
+import SessionNotes from './SessionNotes';
 
 const Chat = () => {
     const [chatSession, setChatSession] = useState({
@@ -49,11 +52,17 @@ const Chat = () => {
     return ( 
         <div className='chat-container'>
             <div className='videos'>
+                <h1>CoachMe Live Chat</h1>
                 <Video user='self' setUserStream={setUserStream} />
                 { chatSession.partnerStream && <Video user={callData.caller} stream={chatSession.partnerStream} callController={callController} /> }
             </div>
-            { callData.caller.signal && <Caller  caller={ callData.caller } answer={ callController.acceptCall } userStream={ chatSession.userStream } answerCallback={ setPartnerStream } /> }
-            { callController && Object.entries(coachOnline).length && <Available available={ coachOnline } userStream={ chatSession.userStream } userId={ chatSession.userId } callPeer={ callController.callPeer } setPartnerStream={ setPartnerStream } /> }
+            <div className='button-container'>
+              { callData.caller.signal && <Caller  caller={ callData.caller } answer={ callController.acceptCall } userStream={ chatSession.userStream } answerCallback={ setPartnerStream } /> }
+              { callController && Object.entries(coachOnline).length && <Available available={ coachOnline } userStream={ chatSession.userStream } userId={ chatSession.userId } callPeer={ callController.callPeer } setPartnerStream={ setPartnerStream } /> }
+            </div>
+            <div className='session-note-section'>
+              <SessionNotes />
+            </div>
         </div>
     );
 }

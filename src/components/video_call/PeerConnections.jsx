@@ -21,7 +21,7 @@ const Available = props => {
     const user = props.available;
     const handleCall = e => {
         e.preventDefault();
-        props.callPeer( e.target.value, props.userStream ,props.setPartnerStream );
+        props.callPeer( e.target.value, props.userStream, props.setPartnerStream );
         setVisbility('none');
     }
     return (
