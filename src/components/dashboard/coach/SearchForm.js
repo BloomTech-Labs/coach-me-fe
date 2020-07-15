@@ -9,6 +9,7 @@ import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
 
 const SearchForm = (props) => {
+	const [showInfo, setShowInfo] = useState(false);
 	const dispatch = useDispatch();
 	// console.log("search form props", props.coachID);
 	const [input, setInput] = useState({ firstname: "", lastname: "" });
@@ -78,28 +79,23 @@ const SearchForm = (props) => {
 					{searchResult.length > 0
 						? searchResult.map((client, index) => {
 								return (
-									<ClientCard key={index} client={client} />
+									<ClientCard key={index} 
+									client={client}
+									showInfo={props.showInfo}
+									setShowInfo={props.setShowInfo} />
 								);
 						  })
 						: actualList.map((client, index) => {
 								return (
-									<ClientCard key={index} client={client} />
+									<ClientCard key={index} 
+									client={client}
+									showInfo={props.showInfo}
+									setShowInfo={props.setShowInfo} />
 								);
 						  })}
 				</div>
 
 			</div>
-			<div>
-				{props.clientLIST.map((client, index) => {
-					return (
-						<ClientCard key={index}
-						client={client}
-						showInfo={props.showInfo}
-						setShowInfo={props.setShowInfo}
-						/>
-					);
-				})}
-		</div>
 		</div>
 		
 	);

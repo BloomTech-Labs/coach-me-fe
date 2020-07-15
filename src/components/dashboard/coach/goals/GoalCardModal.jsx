@@ -19,17 +19,17 @@ const GoalCardModal = (props) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault()
-        handleClick()
+        console.log(editGoal)
         dispatch(updateClientGoal(state.data.id, state.selectedClient.id, state.selectedGoal.id, editGoal))
     };
     useEffect(() => {
 		dispatch(getClientGoal(state.data.id, state.selectedClient.id, state.selectedGoal.id));
-    }, []);
+    }, [state.selectedClient.id]);
 
     return (
     <div>
     {editMode ?
-        <div className="edit-modal">
+        <div className={props.showCardModal ? "edit-modal" : "hidden"}>
             <h1>Edit Goal</h1>
             <form onSubmit={handleSubmit}>
                 <input 

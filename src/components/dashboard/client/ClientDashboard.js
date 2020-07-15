@@ -7,6 +7,7 @@ import { getClientInfo } from "../../../redux/actions/clientActions";
 import ImageCircle from './imageUpload/ImageCircle';
 import "../../../sass/dashboard/client/clientDashboard.scss";
 import Calendar from './Calendar';
+
 const ClientDashboard = (props) => {
 	console.log("dashboard props",props)
 	const [goals] = useState([

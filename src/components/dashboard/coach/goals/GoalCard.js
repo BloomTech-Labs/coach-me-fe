@@ -16,19 +16,26 @@ const GoalCard = (props) => {
         <div className="goal-card" onClick={() => {
             setShowCardModal(true)
             dispatch(getSelectedClientGoal(props.goal))}}
-            >
-			<Backdrop show={showCardModal} set={setShowCardModal} />
-			<GoalCardModal showCardModal={showCardModal} status={status}/>
-            <div className="icon-container">
-                <img className="goal-icon" src={status?Check:X} alt="icon"/>
+        >
+            {showCardModal ?
+            <div>
+                <Backdrop show={showCardModal} set={setShowCardModal} />
+                <GoalCardModal showCardModal={showCardModal} status={status} />
             </div>
-            <div className="goal-info">
-                <div className="goal-start">
-                    <p>Started: {props.goal.started}</p>
+            :
+            <div>
+                <div className="icon-container">
+                    <img className="goal-icon" src={status?Check:X} alt="icon"/>
                 </div>
-            <h2>{props.goal.title}</h2>
-            <p>{props.goal.description}</p>
+                <div className="goal-info">
+                    <div className="goal-start">
+                        <p>Started: {props.goal.started}</p>
+                    </div>
+                <h2>{props.goal.title}</h2>
+                <p>{props.goal.description}</p>
+                </div>
             </div>
+            }
         </div>
 	);
 };

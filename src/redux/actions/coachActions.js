@@ -86,7 +86,7 @@ export const postMessage = (post) => (dispatch) => {
 export const getClientList = (id) => (dispatch) => {
 	dispatch({ type: GET_CLIENT_LIST_START });
 	axiosWithCred
-		.get(`${process.env.REACT_APP_BACK_END_URL}/coach/${id}/clients`)
+		.get(`${process.env.REACT_APP_BACKEND}/coach/${id}/clients`)
 		.then((res) => {
 			dispatch({
 				type: GET_CLIENT_LIST_SUCCESS,
@@ -107,7 +107,7 @@ export const updateSelectedClient = (selectedClient) => (dispatch) => {
 
 export const getClients = (id) => (dispatch) => {
 	dispatch({ type: GET_RECORDS_START });
-	api.get(`http://localhost:5000/api/coach/${id}/clients`)
+	api.get(`${process.env.REACT_APP_BACKEND}/api/coach/${id}/clients`)
 		.then((res) => {
 			dispatch({
 				type: GET_RECORDS_SUCCESS,
@@ -125,7 +125,7 @@ export const getClients = (id) => (dispatch) => {
 export const getClientMetrics = (id) => (dispatch) => {
 	dispatch({ type: GET_METRICS_START });
 	api.get(
-		`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientMetrics/${id}`,
+		`${process.env.REACT_APP_BACKEND}/coachRoute/getClientMetrics/${id}`,
 		{
 			headers: {
 				Authorization: localStorage.getItem("token"),
@@ -149,7 +149,7 @@ export const getClientMetrics = (id) => (dispatch) => {
 
 export const getLastCheckInTime = (id) => (dispatch) => {
 	api.get(
-		`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getLastCheckinTime/${id}`,
+		`${process.env.REACT_APP_BACKEND}/coachRoute/getLastCheckinTime/${id}`,
 		{
 			headers: {
 				Authorization: localStorage.getItem("token"),
@@ -213,7 +213,7 @@ export const getSelectedClientGoal = (selectedGoal) => (dispatch) => {
 //add a goal to the client's goal list
 export const addClientGoal = (coachID, clientID, goal) => (dispatch) => {
 	axiosWithCred
-		.post(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/`, goal)
+		.post(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/goals`, goal)
 		.then(() => {
 			dispatch({
 				type: ADD_CLIENT_GOAL_SUCCESS,
@@ -229,15 +229,18 @@ export const addClientGoal = (coachID, clientID, goal) => (dispatch) => {
 
 //updates the selected goal in the client list
 export const updateClientGoal = (coachID, clientID, goalID, goal) => (dispatch) => {
+	console.log("updateClientGoal", coachID, clientID, goalID, goal)
 	axiosWithCred
 	.put(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/goals/${goalID}`, goal)
 	.then((res) => {
+		console.log("updateClientGoal success", res.data)
 		dispatch({
 			type: UPDATE_CLIENT_GOAL_SUCCESS,
 			payload: res.data,
 		});
 	})
 	.catch((err) => {
+		console.log("updateClientGoal failure", err)
 		dispatch({
 			type: UPDATE_CLIENT_GOAL_FAILURE,
 			payload: err.message,
