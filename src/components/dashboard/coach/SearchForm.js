@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector, connect } from "react-redux";
 
 
-import { searchClients } from "../../../redux/actions/searchActions";
+
 
 
 import React, { useState, useEffect } from "react";
@@ -23,6 +23,7 @@ import CoachDashboard from "./CoachDashboard";
 
 
 const SearchForm = (props) => {
+
 	const dispatch = useDispatch();
 	const state = useSelector((state) => state.coach.data);
 	const clientList = useSelector((state) => state.coach.clientList);
@@ -56,28 +57,37 @@ const SearchForm = (props) => {
 
 	const [showInfo, setShowInfo] = useState(false);
 	const dispatch = useDispatch();
+
 	// console.log("search form props", props.coachID);
-	const [input, setInput] = useState({ firstname: "", lastname: "" });
-	const [searchResult, setSearchResult] = useState([]);
-	const actualList = props.clientLIST;
+	const [input, setInput] = useState('');
+	const data = props.clientLIST;
+	const [searchResult, setSearchResult] = useState(data);
+	let newList= [];
 
 	useEffect(() => {
-		// if (input.length) {
-		// 	return searchResult;
-		// }
-		// return actualList;
+
+		if(input != '') {
+			newList = data.filter(word => {
+				if(input[0] === input[0].toLowerCase() || input[0] === input[0].toUpperCase() ) {
+					// return input[0].toUpperCase()
+					return word.first_name.indexOf(input) != -1 || word.last_name.indexOf(input) != -1
+				}
+			})
+			setSearchResult(newList)
+			
+			console.log('new list',newList)
+		}else if(input === '') {
+			setSearchResult(data)
+		}
+		console.log(searchResult)
 	}, [input]);
 
 
+
 	const handleChange = (e) => {
-		setInput({ ...input, [e.target.name]: e.target.value });
-		dispatch(
-			searchClients({
-				...input,
-				id: props.coachID,
-			})
-		);
+		setInput(e.target.value);	
 	};
+
 
 	// useEffect(() => {
 	// 	if (clientList.length > 0) {
@@ -96,6 +106,7 @@ const SearchForm = (props) => {
 	// 	}
 	// }, [query, clientList]);
 
+
 	return (
 		<div data-testid="search-form" className="search-container">
 			<div className="searchbar">
@@ -105,6 +116,7 @@ const SearchForm = (props) => {
 						alt="magnifying-glass"
 						src={magnifying}
 					/>
+
 
 					<div className="input-values">
 						<input
@@ -121,45 +133,41 @@ const SearchForm = (props) => {
 						<div className="input-values">
 							<input
 								className="search-input"
-								// onChange={handleChange}
-								placeholder="First Name"
-								// value={query}
+								placeholder="Client Name"
 								name="first_name"
-								// value={input.firstname}
-								onChange={handleChange}
-							/>
-							<input
-								className="search-input"
-								placeholder="Last Name"
-								name="last_name"
-								// value={input.lastname}
 								onChange={handleChange}
 							/>
 							
 						</div>
-					</div>
+				
 				</form>
 				<div className="list-of-clients">
-					{searchResult.length > 0
-						? searchResult.map((client, index) => {
-								return (
-									<ClientCard key={index} 
-									client={client}
-									showInfo={props.showInfo}
-									setShowInfo={props.setShowInfo} />
-								);
-						  })
-						: actualList.map((client, index) => {
-								return (
-									<ClientCard key={index} 
-									client={client}
-									showInfo={props.showInfo}
-									setShowInfo={props.setShowInfo} />
-								);
-						  })}
+
+				
 				</div>
 
 			</div>
+			<div>
+				
+				{searchResult.length <= 0 ? props.clientLIST.map((client, index) => {
+					return (
+						<ClientCard key={index}
+						client={client}
+						showInfo={props.showInfo}
+						setShowInfo={props.setShowInfo}
+						/>
+					);
+				}) : searchResult.map((client, index) => {
+					return (
+						<ClientCard key={index}
+						client={client}
+						showInfo={props.showInfo}
+						setShowInfo={props.setShowInfo}
+						/>
+					);
+				})}
+		</div>
+
 		</div>
 		
 
@@ -167,10 +175,11 @@ const SearchForm = (props) => {
 };
 
 const mapStateToProps = (state) => {
-	// console.log("CoachDashboard State", state);
+
+
 	return {
 		state: state.coach.data,
-		clientList: state.coach.clientList,
+		spiderman: state,
 		loggedIn: state.auth.loggedIn,
 	};
 };

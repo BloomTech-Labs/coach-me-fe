@@ -12,29 +12,28 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 
 const CoachDashboard = (props) => {
 
+	
 	const [clientprofile, setclientprofile] = useState();
-	const [listOfClients, setListOfClients] = useState();
+
+	
+
 	const [coachProfile, setCoachProfile] = useState();
 	const [showInfo, setShowInfo] = useState(false);
 
 	const state = useSelector((state) => state.coach.data);
-	const spiderman = useSelector((state) => state.coach.clientList);
-	const dispatch = useDispatch();
+
+	const clientList = useSelector((state) => state.coach.clientList);
+	// console.log("clientList", clientList);
+	// console.log("Dashboard state", state.id);
+	// console.log("props.state.id",props.state.id)
+	const currentCoachID = props.state.id;
+	// console.log("currentCoachID", currentCoachID);
 
 	const dispatch = useDispatch();
-	const state = useSelector((state) => state.coach.data);
-	const [showInfo, setShowInfo] = useState(false);
+
+;
+
 	
-	useEffect(() => {
-		dispatch(getCoach());
-	}, []);
-
-	useEffect(() => {
-		if (state.id) {
-			dispatch(getClientList(state.id));
-		}
-	}, [state.id]);
-
 
 	return (
 		<>
@@ -45,7 +44,7 @@ const CoachDashboard = (props) => {
 						showInfo={showInfo}
 						setShowInfo={setShowInfo}
 						coachID={props.state.id}
-						clientLIST={props.spiderman.coach.clientList}
+						clientLIST={props.list}
 					/>
 				</div>
 					<h4 className="coach-name">
@@ -54,7 +53,7 @@ const CoachDashboard = (props) => {
 					</h4>
 					<GoalsDisplay clientprofile={clientprofile} />
 					<Metrics clientprofile={clientprofile} />
-=======
+
 				<div data-testid="clientinfo" className="clientinfo-container">
 						<h4 data-testid="coach-name" className="coach-name">
 							Welcome,
@@ -86,8 +85,10 @@ const mapStateToProps = (state) => {
 
 	return {
 		state: state.coach.data,
-		spiderman: state,
-		clientList: state.coach.clientList,
+
+		list: state.coach.clientList,
+
+
 		loggedIn: state.auth.loggedIn,
 	};
 };
