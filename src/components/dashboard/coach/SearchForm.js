@@ -9,6 +9,7 @@ import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
 
 const SearchForm = (props) => {
+	const [showInfo, setShowInfo] = useState(false);
 	const dispatch = useDispatch();
 	// console.log("search form props", props.coachID);
 	const [input, setInput] = useState({ firstname: "", lastname: "" });
@@ -16,10 +17,10 @@ const SearchForm = (props) => {
 	const actualList = props.clientLIST;
 
 	useEffect(() => {
-		if (input.length) {
-			return searchResult;
-		}
-		return actualList;
+		// if (input.length) {
+		// 	return searchResult;
+		// }
+		// return actualList;
 	}, [input]);
 
 	const handleChange = (e) => {
@@ -33,7 +34,7 @@ const SearchForm = (props) => {
 	};
 
 	return (
-		<div className="search-container">
+		<div data-testid="search-form" className="search-container">
 			<div className="searchbar">
 				<form className="search-form">
 					<img
@@ -78,28 +79,23 @@ const SearchForm = (props) => {
 					{searchResult.length > 0
 						? searchResult.map((client, index) => {
 								return (
-									<ClientCard key={index} client={client} />
+									<ClientCard key={index} 
+									client={client}
+									showInfo={props.showInfo}
+									setShowInfo={props.setShowInfo} />
 								);
 						  })
 						: actualList.map((client, index) => {
 								return (
-									<ClientCard key={index} client={client} />
+									<ClientCard key={index} 
+									client={client}
+									showInfo={props.showInfo}
+									setShowInfo={props.setShowInfo} />
 								);
 						  })}
 				</div>
 
 			</div>
-			<div>
-				{props.clientLIST.map((client, index) => {
-					return (
-						<ClientCard key={index}
-						client={client}
-						showInfo={props.showInfo}
-						setShowInfo={props.setShowInfo}
-						/>
-					);
-				})}
-		</div>
 		</div>
 		
 	);

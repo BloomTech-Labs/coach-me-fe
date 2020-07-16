@@ -7,6 +7,7 @@ import { getClientInfo } from "../../../redux/actions/clientActions";
 import ImageCircle from './imageUpload/ImageCircle';
 import "../../../sass/dashboard/client/clientDashboard.scss";
 import Calendar from './Calendar';
+
 const ClientDashboard = (props) => {
 	console.log("dashboard props",props)
 	const [goals] = useState([
@@ -22,10 +23,10 @@ const ClientDashboard = (props) => {
 	return (
 		<div className="client-dashboard">
 			<div className="tabs-container">
-				<Link className="tab notifications" to="client-notifications"><p>Notifications</p><div className="count">5</div></Link>
-				<Link className="tab" to="resource-center">Resources</Link>
-				<Link className="tab" to="coach-messages">Messages</Link>
-				<Link className="tab" to="metric-form">Health Form</Link>
+				<Link data-testid="notifications" className="tab notifications" to="client-notifications"><p>Notifications</p><div className="count">2</div></Link>
+				<Link data-testid="resources" className="tab" to="resource-center">Resources</Link>
+				<Link data-testid="messges" className="tab" to="coach-messages">Messages</Link>
+				<Link data-testid="health-form" className="tab" to="metric-form">Health Form</Link>
 			</div>
 			<div className="info-container">
 				<div className="profile-container">

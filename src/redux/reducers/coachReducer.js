@@ -23,10 +23,12 @@ import {
 	GET_CLIENT_LIST_START,
 	GET_CLIENT_LIST_SUCCESS,
 	GET_CLIENT_LIST_FAILURE,
+	UPDATE_SELECTED_CLIENT,
 	GET_CLIENT_GOALS_SUCCESS,
 	GET_CLIENT_GOALS_FAILURE,
 	GET_CLIENT_GOAL_SUCCESS,
 	GET_CLIENT_GOAL_FAILURE,
+	UPDATE_SELECTED_CLIENT_GOAL,
 	ADD_CLIENT_GOAL_SUCCESS,
 	ADD_CLIENT_GOAL_FAILURE,
 	UPDATE_CLIENT_GOAL_SUCCESS,
@@ -44,10 +46,12 @@ const initialState = {
 	loading: false,
 	error: null,
 	clientList: [],
+	selectedClient: {},
 	clientRecords: [],
 	clientMetrics: [],
 	clientCheckIn: "",
 	clientGoals: [],
+	selectedGoal: {},
 	scheduledMessage: [],
 	data: {},
 };
@@ -63,6 +67,11 @@ export default (state = initialState, action) => {
 				...state,
 				loading: false,
 				clientList: action.payload,
+			};
+		case UPDATE_SELECTED_CLIENT:
+			return {
+				...state,
+				selectedClient: action.payload,
 			};
 		case GET_CLIENT_LIST_FAILURE:
 			return {
@@ -164,7 +173,12 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				error: action.payload,
-			}
+			};
+		case UPDATE_SELECTED_CLIENT_GOAL:
+			return {
+				...state,
+				selectedGoal: action.payload,
+			};
 		case ADD_CLIENT_GOAL_SUCCESS:
 			return {
 				...state,
