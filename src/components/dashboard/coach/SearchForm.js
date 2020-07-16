@@ -4,8 +4,8 @@ import { getCoach } from "../../../redux/actions/authActions";
 import { getClientList, getUnassignedClients } from "../../../redux/actions/coachActions";
 import {connect,useDispatch, useSelector} from "react-redux";
 import ClientPicker from './ClientPicker';
-
 import ClientCard from "../coach/clientsList/ClientCard";
+
 // Styling
 import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
@@ -17,7 +17,8 @@ const SearchForm = (props) => {
 
 	const dispatch = useDispatch();
 	const currentCoachID = props.state.id;
-    const [showInfo, setShowInfo] = useState(false);
+	const [showInfo, setShowInfo] = useState(false);
+	const [gettingClients, setGettingClients]=useState(false);
 	const [input, setInput] = useState('');
 	const data = props.clientLIST;
     const [searchResult, setSearchResult] = useState(data);
@@ -76,28 +77,20 @@ const SearchForm = (props) => {
 	return (
 		<div data-testid="search-form" className="search-container">
 			<div className="searchbar">
+				<img
+				className="magnifying-glass icon"
+				alt="magnifying-glass"
+				src={magnifying}
+				/>
 				<form className="search-form">
-					<img
-						className="magnifying-glass icon"
-						alt="magnifying-glass"
-						src={magnifying}
-					/>
 					
-						<div className="input-values">
-							<input
-								className="search-input"
-								placeholder="Client Name"
-								name="first_name"
-								onChange={handleChange}
-							/>
-							
-						</div>
-				
+					<input
+					className="search-input"
+					placeholder="Client Name"
+					name="first_name"
+					onChange={handleChange}
+					/>
 				</form>
-				<div className="list-of-clients">
-				
-				</div>
-
 			</div>
 			<div>
 				
@@ -118,9 +111,31 @@ const SearchForm = (props) => {
 						/>
 					);
 				})}
+				
+				<div>
+		<button 
+			onClick={()=>setGettingClients(!gettingClients)}
+			>{gettingClients? "nvm" : "Get Clients"}</button>
+			{clientList.length < 1 ? <div className="aint"> <h4>You Currently have no clients!</h4> 
+			
+			</div> : clientList.map((item,i) => {
+				return (
+					<div className='client-in-dashboard'>
+						<p>{item.first_name}</p>
+						<p>{item.last_name}</p>
+					</div>
+				
+				)
+			})}
+			</div>
+			{gettingClients ? <ClientPicker /> : ''}
 		</div>
 
+
 		</div>
+		
+
+		
 		
 
 	);
