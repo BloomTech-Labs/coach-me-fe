@@ -41,6 +41,8 @@ export const GET_COACH_INFO = "GET_COACH_INFO";
 export const GET_UNASSIGNED_CLIENTS = 'GET_UNASSIGNED_CLIENTS';
 export const ASSIGN_CLIENT = 'ASSIGN_CLIENT';
 // get list of clients for CoachDashboard
+//get client coach
+export const GET_MY_COACH = 'GET_MY_COACH';
 export const GET_CLIENT_LIST_START = "GET_CLIENT_LIST_START";
 export const GET_CLIENT_LIST_SUCCESS = "GET_CLIENT_LIST_SUCCESS";
 export const GET_CLIENT_LIST_FAILURE = "GET_CLIENT_LIST_FAILURE";

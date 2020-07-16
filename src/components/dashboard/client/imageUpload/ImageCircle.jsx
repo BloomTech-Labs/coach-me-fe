@@ -7,7 +7,6 @@ const ImageCircle = (props) => {
     
     const [imageIsGettingUploadedDawg, setImageIsGettingUploadedDawg] =useState(false);
     const state = useSelector((state) => state.client);
-    console.log(props.state)
     return (
         <div className='image-circle-container'>
             {imageIsGettingUploadedDawg ? <ImageForm setImageIsGettingUploadedDawg={setImageIsGettingUploadedDawg} /> 
