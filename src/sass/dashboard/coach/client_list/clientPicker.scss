@@ -1,0 +1,28 @@
+$dark-background: #274160;
+$light-background: #355478;
+$font-color: white;
+$header-font: "Poppins", sans-serif;
+$text-font: "DM Sans", serif;
+
+.available-client-display {
+
+
+
+    .available-client{
+        margin: .5em 0;
+        border: 1px solid black;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all .3s ease-out;
+        p {
+            margin: .5em;
+            
+        }
+        &:hover {
+            background-color: $light-background;
+            color: $font-color;
+        }
+    }
+}

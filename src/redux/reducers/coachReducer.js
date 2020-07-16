@@ -35,6 +35,8 @@ import {
 	UPDATE_CLIENT_GOAL_FAILURE,
 	DELETE_CLIENT_GOAL_SUCCESS,
 	DELETE_CLIENT_GOAL_FAILURE,
+	GET_UNASSIGNED_CLIENTS,
+	ASSIGN_CLIENT,
 } from "../actions/types";
 
 const initialState = {
@@ -53,6 +55,7 @@ const initialState = {
 	clientGoals: [],
 	selectedGoal: {},
 	scheduledMessage: [],
+	availableClients:{},
 	data: {},
 };
 export default (state = initialState, action) => {
@@ -255,6 +258,15 @@ export default (state = initialState, action) => {
 				...state,
 				data: action.payload,
 			};
+		case GET_UNASSIGNED_CLIENTS:
+			return {
+				...state,
+				availableClients: action.payload,
+			}
+		case ASSIGN_CLIENT:
+			return {
+				...state,clientList: [state.clientList,action.payload]
+			}
 		default:
 			return state;
 	}

@@ -39,6 +39,10 @@ import {
 	DELETE_CLIENT_GOAL_FAILURE,
 	//END OF WORKING ON CURRENTLY 7/8/20
 
+
+	GET_UNASSIGNED_CLIENTS,
+	ASSIGN_CLIENT
+
 } from "./types";
 
 import axiosWithCred from "../../utils/axiosWithCred";
@@ -84,7 +88,8 @@ export const postMessage = (post) => (dispatch) => {
 };
 
 export const getClientList = (id) => (dispatch) => {
-	dispatch({ type: GET_CLIENT_LIST_START });
+	// console.log("coachActions getClientList id", id);
+	
 	axiosWithCred
 		.get(`${process.env.REACT_APP_BACKEND}/coach/${id}/clients`)
 		.then((res) => {
@@ -100,6 +105,31 @@ export const getClientList = (id) => (dispatch) => {
 			});
 		});
 };
+export const getUnassignedClients = () => (dispatch) => {
+	
+	axiosWithCred
+	.get(`${process.env.REACT_APP_BACKEND}/client/`)
+	.then(res => {
+		console.log(res)
+		dispatch({
+			type: GET_UNASSIGNED_CLIENTS,
+			payload: res.data
+		});
+	})
+	.catch(err => {
+		console.log(err)
+	})
+}
+export const assignClient = (id,clientId) => (dispatch) => {
+	axiosWithCred
+	.post(`${process.env.REACT_APP_BACKEND}/coach/${id}/clients/${clientId}`)
+	.then(res => {
+		console.log(res)
+	})
+	.catch(err => {
+		console.log(err)
+	})
+}
 
 export const updateSelectedClient = (selectedClient) => (dispatch) => {
 	dispatch({ type: UPDATE_SELECTED_CLIENT, payload: selectedClient});

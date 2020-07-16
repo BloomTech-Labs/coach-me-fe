@@ -143,30 +143,42 @@
 
 // styling for client search input in SearchForm.js
 
-// .search-form {
-// 	margin-right: 10px;
-// 	display: flex;
-// 	flex-direction: row;
-// }
+.search-form {
+    margin-right: 10px;
+    
+}
+.client-in-dashboard {
+    margin: .5em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 90%;
+    p {
+        margin: .5em;
+        font-size: 1.2em;
+    }
+}
 
-// .search-input {
-// 	text-align: center;
-// 	width: 100%;
-// 	// text-indent: 1rem;
-// 	height: 5.5rem;
-// 	background-color: #edf2f8;
-// 	padding: 10%;
-// 	border: none;
-// 	font-size: 1.6rem;
-// 	color: #717d8b;
-// 	border: 1px solid #c4cfdd;
-// }
+.search-input {
+    text-align: center;
+    width: 100%;
+    // text-indent: 1rem;
+    height: 5.5rem;
+    background-color: #edf2f8;
+    padding: 10%;
+    border: none;
+    font-size: 1.6rem;
+    color: #717d8b;
+    border: 1px solid #c4cfdd;
+}
 
-// .magnifying-glass {
-// 	position: relative;
-// 	top: 38px;
-// 	left: 22px;
-// }
+.magnifying-glass {
+    position: relative;
+    top: 38px;
+    left: 22px;
+}
 
 .ghost {
 	display: none;
