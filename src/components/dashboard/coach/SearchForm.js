@@ -11,7 +11,7 @@ import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
 import CoachDashboard from "./CoachDashboard";
 
-
+//changes
 
 const SearchForm = (props) => {
 	const clientList = useSelector((state) => state.coach.clientList);
