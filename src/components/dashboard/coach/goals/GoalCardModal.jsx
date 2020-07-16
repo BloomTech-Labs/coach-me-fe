@@ -37,20 +37,20 @@ const GoalCardModal = (props) => {
         </div>
     :
         <div data-testid="goal-modal" className="goal-modal">
-                <div data-testid="icon-section" className="icon-container">
-                    <img data-testid="icon" className="goal-icon" src={props.status?Check:X} alt="icon"/>
-                </div>
-                <div data-testid="info" className="goal-info">
-                    <div>
+            <div data-testid="icon-section" className="icon-container">
+                <img data-testid="icon" className="goal-icon" src={props.status?Check:X} alt="icon"/>
+            </div>
+            <div data-testid="info" className="goal-info">
+                <div>
                     <p data-testid="start-date">Started: {state.selectedGoal.start_date}</p>
                     <h2 data-testid="title">{state.selectedGoal.title}</h2>
                     <p data-testid="description">{state.selectedGoal.description}</p>
-                    </div>
-                    <div data-testid="buttons" className="buttons">
+                </div>
+                <div data-testid="buttons" className="buttons">
                     <button className="edit" onClick={() => setEditMode(!editMode)}>Edit</button>
                     <button className="delete" onClick={() => {dispatch(deleteClientGoal(state.data.id, state.selectedClient.id, state.selectedGoal.id))}}>Delete</button>
-                    </div>
                 </div>
+            </div>
         </div>
     }
     </div>

@@ -14,7 +14,7 @@ const GoalCard = (props) => {
 
     return (
         <div className="goal-card" onClick={() => {
-            setShowCardModal(true)
+            setShowCardModal(!showCardModal)
             dispatch(getSelectedClientGoal(props.goal))}}
         >
             {showCardModal ?
@@ -31,8 +31,8 @@ const GoalCard = (props) => {
                     <div className="goal-start">
                         <p data-testid="start-date" >Started: {props.goal.start_date}</p>
                     </div>
-                <h2 data-testid="title">{props.goal.title}</h2>
-                <p data-testid="description">{props.goal.description}</p>
+                    <h2 data-testid="title">{props.goal.title}</h2>
+                    <p data-testid="description">{props.goal.description}</p>
                 </div>
             </div>
             }

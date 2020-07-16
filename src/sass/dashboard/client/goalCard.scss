@@ -2,11 +2,12 @@
 
 .goal-card {
     display: flex;
+    flex-direction: column-reverse;
     width: 80%;
     font-family: "DM Sans";
     margin-bottom: 1em;
     padding: 1em;
-    background-color: rgb(245, 201, 209);
+    background-color: rgb(232, 237, 250);
     border: 1px solid black;
     border-radius: 1em;
 
