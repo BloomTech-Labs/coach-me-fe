@@ -17,9 +17,7 @@ import {
 	GET_METRICS_START,
 	GET_METRICS_SUCCESS,
 	GET_METRICS_FAILURE,
-	GET_CLIENT_SESSIONS,
 	GET_MY_COACH,
-
 } from "./types";
 
 export const getClientInfoRegister = (userAccountDetails) => (dispatch) => {
@@ -174,17 +172,15 @@ export const getClientRecords = () => (dispatch) => {
 		});
 };
 
-
-export const getClientSessions = (id) => (dispatch) => {
+export const getMyCoach = (id) => (dispatch) => {
 	axiosWithCred
-	.get(`${process.env.REACT_APP_BACKEND}/client/${id}/sessions`)
+	.get(`/coach/${id}`)
 	.then(res => {
+		console.log('my coach',res)
 		dispatch({
-			type: GET_CLIENT_SESSIONS,
-			payload: "butts",
-		});
-
-
+			type: GET_MY_COACH,
+			payload: res.data
+		})
 	})
 	.catch(err => {
 		console.log(err)
