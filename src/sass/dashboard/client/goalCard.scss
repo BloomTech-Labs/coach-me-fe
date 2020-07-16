@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans&display=swap");
 
 .goal-card {
     display: flex;
     width: 80%;
+    font-family: "DM Sans";
     margin-bottom: 1em;
     padding: 1em;
-    background-color: white;
+    background-color: rgb(245, 201, 209);
     border: 1px solid black;
     border-radius: 1em;
 

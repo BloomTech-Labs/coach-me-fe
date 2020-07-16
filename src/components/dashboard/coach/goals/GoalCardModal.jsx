@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import Check from "../../../../utils/assets/icons/green-check.png";
 import X from "../../../../utils/assets/icons/red-x.png";
-import "../../../../sass/dashboard/coach/goals/goalCardModal.scss";
 import { getClientGoal, updateClientGoal, deleteClientGoal } from "../../../../redux/actions/coachActions";
+import EditGoalForm from "./EditGoalForm";
+import "../../../../sass/dashboard/coach/goals/goalCardModal.scss";
 
 const GoalCardModal = (props) => {
     const dispatch = useDispatch();
@@ -28,30 +29,11 @@ const GoalCardModal = (props) => {
         <div data-testid="edit-modal" className="edit-modal">
             <button onClick={() => setEditMode(!editMode)}>Back</button>
             <h1>Edit Goal</h1>
-            <form onSubmit={handleSubmit}>
-                <input 
-                type="date"
-                placeholder="start-date"
-                value={editGoal.start_date}
-                name="start_date"
-                onChange={handleChange}
-                />
-                 <input 
-                type="text"
-                placeholder="title"
-                value={editGoal.title}
-                name="title"
-                onChange={handleChange}
-                />
-                 <input 
-                type="text"
-                placeholder="description"
-                value={editGoal.description}
-                name="description"
-                onChange={handleChange}
-                />
-                <button type="submit">Confirm</button>
-            </form>
+            <EditGoalForm
+            editGoal={editGoal} 
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            />
         </div>
     :
         <div data-testid="goal-modal" className="goal-modal">

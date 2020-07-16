@@ -16,10 +16,9 @@
     padding: 2rem;
 }
 
-.goal-wrapper-box {
+.goals {
     @include layout();
     justify-content: space-around;
-    font-family: 'DM Sans', sans-serif;
     font-style: normal;
     border-radius: 20px;
     background: #f6f6f6;

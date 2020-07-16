@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../../../sass/dashboard/coach/coachDashboard.scss";
 import { connect } from "react-redux";
 import { useDispatch, useSelector } from "react-redux";
 import { getCoach } from "../../../redux/actions/authActions";
@@ -8,7 +7,7 @@ import SearchForm from "./SearchForm";
 import GoalsContainer from "./goals/GoalsContainer";
 import Metrics from "./coachMetricView/Metrics";
 import CoachNotificationCenter from "./notificationCenter/CoachNotificationCenter.jsx";
-import "react-perfect-scrollbar/dist/css/styles.css";
+import "../../../sass/dashboard/coach/coachDashboard.scss";
 
 const CoachDashboard = (props) => {
 
@@ -31,11 +30,9 @@ const CoachDashboard = (props) => {
 		}
 	}, [state.id]);
 
-
 	return (
 		<>
 			<div className="coachdashboard-container">
-				
 				<div data-testid="clientlist" className="clientlist-container">
 					<SearchForm 
 						showInfo={showInfo}
@@ -45,23 +42,16 @@ const CoachDashboard = (props) => {
 					/>
 				</div>
 				<div data-testid="clientinfo" className="clientinfo-container">
-						<h4 data-testid="coach-name" className="coach-name">
-							Welcome,
-							{props.state.first_name}
-						</h4>
 						{showInfo ?
 						<div>
-							<GoalsContainer 
-							showInfo={showInfo}
-							/>
-							<Metrics 
-								showInfo={showInfo} 
-							/>
+							<GoalsContainer showInfo={showInfo} />
+							<Metrics showInfo={showInfo} />
 						</div>
 						:
-						<div></div>
+						<h4 data-testid="coach-name" className="coach-name">
+							Welcome, {props.state.first_name}
+						</h4>
 						}
-
 				</div>
 				<div data-testid="notifications">
 					<CoachNotificationCenter />

@@ -30,7 +30,6 @@ const SearchForm = (props) => {
 	useEffect(() => {
 		dispatch(getClientList(currentCoachID));
 	}, [currentCoachID])
-	console.log("clientList", clientList);
 
 	const check = (goods) => {
 		Array.from(cardlist).filter((item) => {
