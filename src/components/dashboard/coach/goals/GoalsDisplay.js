@@ -15,7 +15,6 @@ const GoalsDisplay = (props) => {
 			console.log("no")
 		}
 	}, [state.selectedClient])
-
 	return (
 		<div data-testid="goals" className="goals-wrapper">
 			{state.clientGoals

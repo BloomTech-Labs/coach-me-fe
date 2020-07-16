@@ -23,9 +23,9 @@ const GoalCardModal = (props) => {
     }, [state.selectedClient.id]);
 
     return (
-    <div data-testid="goalcard-modal">
+    <div data-testid="goalcard-modal" className={props.showCardModal ? "modal" : "hidden"}>
     {editMode ?
-        <div data-testid="edit-modal" className={props.showCardModal ? "edit-modal" : "hidden"}>
+        <div data-testid="edit-modal" className="edit-modal">
             <button onClick={() => setEditMode(!editMode)}>Back</button>
             <h1>Edit Goal</h1>
             <form onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ const GoalCardModal = (props) => {
             </form>
         </div>
     :
-        <div data-testid="goal-modal" className={props.showCardModal ? "goal-modal" : "hidden"}>
+        <div data-testid="goal-modal" className="goal-modal">
                 <div data-testid="icon-section" className="icon-container">
                     <img data-testid="icon" className="goal-icon" src={props.status?Check:X} alt="icon"/>
                 </div>

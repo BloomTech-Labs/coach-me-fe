@@ -9,7 +9,6 @@ const GoalForm = (props) => {
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
-        console.log(e.target.value)
         setGoal({ ...goal, [e.target.name]: e.target.value });
     };
 
