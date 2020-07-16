@@ -39,59 +39,17 @@ const ClientInfo = (props) => {
 					<p className="checkin-label">LAST CHECK-IN </p>
 					<p className="checkin-date">{`${checkIn} days ago`}</p>
 				</div>
-
 				<MotiveModal
 					toggleModal={toggleModal}
 					motivation={clientprofile.motivations}
 					show={show}
 				/>
-				{/* <div className="key-details">
-					<h1 className="name">{clientprofile.clientName}</h1>
-					<div className="details">
-						{clientprofile.conditions !== "Unknown" &&
-							clientprofile.conditions.map((conditions, i) => (
-								<p
-									className={`unknown ${
-										conditions === "Pre-diabetes"
-											? "pre-diabetes"
-											: null
-									} ${
-										conditions === "Diabetes"
-											? "diabetes"
-											: null
-									} ${
-										conditions === "Hypothyroid"
-											? "hypothyroid"
-											: null
-									} ${
-										conditions === "High blood pressure"
-											? "bloodPressure"
-											: null
-									} ${
-										conditions === "Other" ? "other" : null
-									}`}
-								>
-									{conditions}
-								</p>
-							))}
-
-						<p
-							className={`${
-								clientprofile.language === "spanish"
-									? "spanish"
-									: "english"
-							}`}
-						>
-							{clientprofile.language}
-						</p>
-					</div>
-				</div> */}
 				<div
 					className={`${
 						clientprofile.motivations ? "motivations" : "ghost"
 					} `}
 				>
-					<div className="motivation-text">
+					<div data-testid="motivation-text" className="motivation-text">
 						<label>Motivation:</label>
 						<p> {`"${clientprofile.motivations}"`}</p>
 
