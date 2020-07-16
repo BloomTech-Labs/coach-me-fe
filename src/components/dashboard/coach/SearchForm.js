@@ -21,8 +21,14 @@ const SearchForm = (props) => {
 	const [input, setInput] = useState('');
 	const data = props.clientLIST;
     const [searchResult, setSearchResult] = useState(data);
+    let newList= [];
     
-	let newList= [];
+    useEffect(() => {
+		dispatch(getClientList(currentCoachID));
+	}, [currentCoachID])
+	// console.log("clientList", clientList);
+
+
 	useEffect(() => {
 		if(input != '') {
 			newList = data.filter(word => {
