@@ -7,6 +7,7 @@ import { getClientList } from "../../../redux/actions/coachActions";
 import SearchForm from "./SearchForm";
 import GoalsContainer from "./goals/GoalsContainer";
 import Metrics from "./coachMetricView/Metrics";
+import GoalsDisplay from './goals/GoalsDisplay';
 import CoachNotificationCenter from "./notificationCenter/CoachNotificationCenter.jsx";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
@@ -17,13 +18,12 @@ const CoachDashboard = (props) => {
 	const [coachProfile, setCoachProfile] = useState();
 	const [showInfo, setShowInfo] = useState(false);
 
-	const state = useSelector((state) => state.coach.data);
 	const spiderman = useSelector((state) => state.coach.clientList);
 	const dispatch = useDispatch();
 
-	const dispatch = useDispatch();
+
 	const state = useSelector((state) => state.coach.data);
-	const [showInfo, setShowInfo] = useState(false);
+	
 	
 	useEffect(() => {
 		dispatch(getCoach());
@@ -54,7 +54,7 @@ const CoachDashboard = (props) => {
 					</h4>
 					<GoalsDisplay clientprofile={clientprofile} />
 					<Metrics clientprofile={clientprofile} />
-=======
+
 				<div data-testid="clientinfo" className="clientinfo-container">
 						<h4 data-testid="coach-name" className="coach-name">
 							Welcome,

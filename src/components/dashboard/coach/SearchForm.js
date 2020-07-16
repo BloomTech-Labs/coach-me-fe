@@ -1,14 +1,12 @@
 
-import React, { useState } from "react";
-
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+
 
 
 import { searchClients } from "../../../redux/actions/searchActions";
 
 
-import React, { useState, useEffect } from "react";
+
 import { getCoach } from "../../../redux/actions/authActions";
 import { getClientList } from "../../../redux/actions/coachActions";
 import {connect,useDispatch, useSelector} from "react-redux";
@@ -55,7 +53,7 @@ const SearchForm = (props) => {
 	const cardlist = document.getElementsByClassName(`client-card`);
 
 	const [showInfo, setShowInfo] = useState(false);
-	const dispatch = useDispatch();
+	
 	// console.log("search form props", props.coachID);
 	const [input, setInput] = useState({ firstname: "", lastname: "" });
 	const [searchResult, setSearchResult] = useState([]);
