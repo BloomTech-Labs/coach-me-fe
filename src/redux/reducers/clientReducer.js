@@ -32,7 +32,11 @@ const initialState = {
 	Date_time: null,
 	isfetching: false,
 	error: "",
-	client_data: {},
+	client_data: {
+		coach:{
+			calendly_url: ''
+		}
+	},
 	loggedIn: false,
 	clientMetrics: [],
 };

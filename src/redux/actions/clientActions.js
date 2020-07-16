@@ -170,3 +170,15 @@ export const getClientRecords = () => (dispatch) => {
 			});
 		});
 };
+
+export const scheduleSession = ({user_id, date, notes, coach_id}) => (dispatch) =>{
+	console.log(date); 
+	axiosWithCred.post(`${process.env.REACT_APP_BACKEND}/client/${user_id}/sessions/${coach_id}`, {
+		notes,
+		date: Date.parse(date)
+	}).then(res=>{
+		console.log(res.data)
+	}).catch(err=>{
+		console.dir(err, 'Error here :(')
+	})
+}

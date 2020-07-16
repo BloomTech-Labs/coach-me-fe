@@ -40,7 +40,7 @@ const ClientDashboard = (props) => {
 					</div>
 				</div>
 			<div className="calendar-section">
-				<Calendar calendlyLink="https://calendly.com/brianetaveras/brian-will-tattoo-your-body" />
+				{props.state.coach_id ? <Calendar calendlyLink={props.state.calendly_url}/> : ''}
 			</div>
 			</div>
 		</div>
