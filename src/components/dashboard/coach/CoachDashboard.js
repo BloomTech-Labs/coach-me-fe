@@ -20,10 +20,6 @@ const CoachDashboard = (props) => {
 	const state = useSelector((state) => state.coach.data);
 	const spiderman = useSelector((state) => state.coach.clientList);
 	const dispatch = useDispatch();
-
-	const dispatch = useDispatch();
-	const state = useSelector((state) => state.coach.data);
-	const [showInfo, setShowInfo] = useState(false);
 	
 	useEffect(() => {
 		dispatch(getCoach());
@@ -48,13 +44,6 @@ const CoachDashboard = (props) => {
 						clientLIST={props.spiderman.coach.clientList}
 					/>
 				</div>
-					<h4 className="coach-name">
-						Welcome, 
-						{props.state.first_name} {props.state.last_name}
-					</h4>
-					<GoalsDisplay clientprofile={clientprofile} />
-					<Metrics clientprofile={clientprofile} />
-=======
 				<div data-testid="clientinfo" className="clientinfo-container">
 						<h4 data-testid="coach-name" className="coach-name">
 							Welcome,

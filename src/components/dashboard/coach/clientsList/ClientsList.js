@@ -1,10 +1,8 @@
 import React,{useEffect} from "react";
 import {connect,useDispatch, useSelector} from 'react-redux';
-
-
-
 import SearchForm from "../SearchForm";
 import { get } from "jquery";
+
 const dispatch = useDispatch();
 const currentCoachID = props.state.id;
 const state = useSelector((state) => state.coach.data);

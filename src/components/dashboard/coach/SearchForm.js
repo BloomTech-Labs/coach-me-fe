@@ -1,19 +1,9 @@
-
-import React, { useState } from "react";
-
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-
-
-import { searchClients } from "../../../redux/actions/searchActions";
-
-
 import React, { useState, useEffect } from "react";
 import { getCoach } from "../../../redux/actions/authActions";
 import { getClientList } from "../../../redux/actions/coachActions";
 import {connect,useDispatch, useSelector} from "react-redux";
 import ClientPicker from './ClientPicker';
-
+import { searchClients } from "../../../redux/actions/searchActions";
 import ClientCard from "../coach/clientsList/ClientCard";
 // Styling
 import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
@@ -26,11 +16,13 @@ const SearchForm = (props) => {
 	const dispatch = useDispatch();
 	const state = useSelector((state) => state.coach.data);
 	const clientList = useSelector((state) => state.coach.clientList);
-
-	const [query, setquery] = useState();
-	const [gettingClients, setGettingClients]=useState(false);
 	const currentCoachID = props.state.id;
-	
+	const cardlist = document.getElementsByClassName(`client-card`);
+	const [showInfo, setShowInfo] = useState(false);
+	const [input, setInput] = useState({ firstname: "", lastname: "" });
+	const [searchResult, setSearchResult] = useState([]);
+	const actualList = props.clientLIST;
+
 	useEffect(() => {
 		dispatch(getCoach());	
 	}, []);
@@ -52,15 +44,6 @@ const SearchForm = (props) => {
 		});
 	};
 
-	const cardlist = document.getElementsByClassName(`client-card`);
-
-	const [showInfo, setShowInfo] = useState(false);
-	const dispatch = useDispatch();
-	// console.log("search form props", props.coachID);
-	const [input, setInput] = useState({ firstname: "", lastname: "" });
-	const [searchResult, setSearchResult] = useState([]);
-	const actualList = props.clientLIST;
-
 	useEffect(() => {
 		// if (input.length) {
 		// 	return searchResult;
@@ -78,23 +61,6 @@ const SearchForm = (props) => {
 			})
 		);
 	};
-
-	// useEffect(() => {
-	// 	if (clientList.length > 0) {
-	// 		setClientList(clientList);
-	// 	}
-
-	// 	if (query) {
-	// 		setClientList(
-	// 			clientList.filter((client) => {
-	// 				const name = client.clientName.toLowerCase();
-	// 				if (name.includes(query)) {
-	// 					return client;
-	// 				}
-	// 			})
-	// 		);
-	// 	}
-	// }, [query, clientList]);
 
 	return (
 		<div data-testid="search-form" className="search-container">
