@@ -50,27 +50,17 @@ const SearchForm = (props) => {
 	
 
 	useEffect(() => {
-
-		if(input != '') {
-			newList = data.filter(word => {
-				if(input[0] === input[0].toLowerCase() || input[0] === input[0].toUpperCase() ) {
-					// return input[0].toUpperCase()
-					return word.first_name.indexOf(input) != -1 || word.last_name.indexOf(input) != -1
-				}
-			})
-			setSearchResult(newList)
-			
-			console.log('new list',newList)
-		}else if(input === '') {
-			setSearchResult(data)
-		}
-		console.log(searchResult)
+		// if (input.length) {
+		// 	return searchResult;
+		// }
+		// return actualList;
 	}, [input]);
 
 
-
 	const handleChange = (e) => {
-		setInput(e.target.value);	
+		setInput(e.target.value);
+		
+		
 	};
 	
 
@@ -131,10 +121,9 @@ const SearchForm = (props) => {
 };
 
 const mapStateToProps = (state) => {
-
 	return {
 		state: state.coach.data,
-		spiderman: state,
+		clientList: state.coach.clientList,
 		loggedIn: state.auth.loggedIn,
 	};
 };

@@ -18,12 +18,20 @@ const CoachDashboard = (props) => {
 	const [coachProfile, setCoachProfile] = useState();
 	const [showInfo, setShowInfo] = useState(false);
 	const state = useSelector((state) => state.coach.data);
-	const clientList = useSelector((state) => state.coach.clientList);
-	const currentCoachID = props.state.id;
+	const spiderman = useSelector((state) => state.coach.clientList);
 	const dispatch = useDispatch();
+	
 	useEffect(() => {
-		dispatch(getCoach())
-	},[]);
+		dispatch(getCoach());
+	}, []);
+
+	useEffect(() => {
+		if (state.id) {
+			dispatch(getClientList(state.id));
+		}
+	}, [state.id]);
+
+
 	return (
 		<>
 			<div className="coachdashboard-container">
@@ -31,10 +39,12 @@ const CoachDashboard = (props) => {
 					<SearchForm 
 						showInfo={showInfo}
 						setShowInfo={setShowInfo}
-						coachID={props.state.id}
+						coachID={props.state.coachID}
 						clientLIST={props.list}
 					/>
 				</div>
+				
+
 				<div data-testid="clientinfo" className="clientinfo-container">
 						<h4 data-testid="coach-name" className="coach-name">
 							Welcome,
