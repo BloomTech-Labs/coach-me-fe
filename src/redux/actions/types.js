@@ -37,8 +37,12 @@ export const GET_RECORDS_START = "GET_RECORDS_START";
 export const GET_RECORDS_SUCCESS = "GET_RECORDS_SUCCESS";
 export const GET_RECORDS_FAILURE = "GET_RECORDS_FAILURE";
 export const GET_COACH_INFO = "GET_COACH_INFO";
-
+// get list of unassigned clients
+export const GET_UNASSIGNED_CLIENTS = 'GET_UNASSIGNED_CLIENTS';
+export const ASSIGN_CLIENT = 'ASSIGN_CLIENT';
 // get list of clients for CoachDashboard
+//get client coach
+export const GET_MY_COACH = 'GET_MY_COACH';
 export const GET_CLIENT_LIST_START = "GET_CLIENT_LIST_START";
 export const GET_CLIENT_LIST_SUCCESS = "GET_CLIENT_LIST_SUCCESS";
 export const GET_CLIENT_LIST_FAILURE = "GET_CLIENT_LIST_FAILURE";

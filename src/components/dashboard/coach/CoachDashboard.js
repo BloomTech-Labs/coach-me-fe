@@ -16,15 +16,31 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 import { getClientList } from "../../../redux/actions/coachActions";
 
 const CoachDashboard = (props) => {
+<<<<<<< HEAD
 	const [clientprofile, setclientprofile] = useState();
 	const [listOfClients, setListOfClients] = useState();
 	const [coachProfile, setCoachProfile] = useState();
 	const [showInfo, setShowInfo] = useState(false);
+=======
+	
+	const [clientprofile, setclientprofile] = useState();
+
+	
+	const [coachProfile, setCoachProfile] = useState();
+	const state = useSelector((state) => state.coach.data);
+	const clientList = useSelector((state) => state.coach.clientList);
+	// console.log("clientList", clientList);
+	// console.log("Dashboard state", state.id);
+	// console.log("props.state.id",props.state.id)
+	const currentCoachID = props.state.id;
+	// console.log("currentCoachID", currentCoachID);
+>>>>>>> 2adc8a8e11be7907a689b1575e3d900320561174
 
 	const state = useSelector((state) => state.coach.data);
 	const spiderman = useSelector((state) => state.coach.clientList);
 	const dispatch = useDispatch();
 
+<<<<<<< HEAD
 	const currentCoachID = state.id;
 	const clientListArray = props.spiderman.coach.clientList;
 	
@@ -40,6 +56,11 @@ const CoachDashboard = (props) => {
 		}
 
 	}, [currentCoachID]);
+=======
+;
+
+	
+>>>>>>> 2adc8a8e11be7907a689b1575e3d900320561174
 	return (
 		<>
 			<div className="coachdashboard-container">
@@ -54,6 +75,7 @@ const CoachDashboard = (props) => {
 				</div>
 				<div className="clientinfo-container">
 					<ClientInfo clientprofile={clientprofile} />
+<<<<<<< HEAD
 						<h4 className="coach-name">
 							Welcome,
 							{props.state.first_name}
@@ -62,6 +84,13 @@ const CoachDashboard = (props) => {
 					showInfo={showInfo}
 					setShowInfo={setShowInfo}
 					/>
+=======
+					<h4 className="coach-name">
+						Welcome, 
+						{props.state.first_name} {props.state.last_name}
+					</h4>
+					<GoalsDisplay clientprofile={clientprofile} />
+>>>>>>> 2adc8a8e11be7907a689b1575e3d900320561174
 					<Metrics clientprofile={clientprofile} />
 				</div>
 				<CoachNotificationCenter />
@@ -87,7 +116,11 @@ const mapStateToProps = (state) => {
 	// console.log("CoachDashboard State", state);
 	return {
 		state: state.coach.data,
+<<<<<<< HEAD
 		spiderman: state,
+=======
+		clientList: state.coach.clientList,
+>>>>>>> 2adc8a8e11be7907a689b1575e3d900320561174
 		loggedIn: state.auth.loggedIn,
 	};
 };

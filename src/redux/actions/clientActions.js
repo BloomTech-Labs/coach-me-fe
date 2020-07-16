@@ -17,6 +17,7 @@ import {
 	GET_METRICS_START,
 	GET_METRICS_SUCCESS,
 	GET_METRICS_FAILURE,
+	GET_MY_COACH,
 } from "./types";
 
 export const getClientInfoRegister = (userAccountDetails) => (dispatch) => {
@@ -170,3 +171,18 @@ export const getClientRecords = () => (dispatch) => {
 			});
 		});
 };
+
+export const getMyCoach = (id) => (dispatch) => {
+	axiosWithCred
+	.get(`/coach/${id}`)
+	.then(res => {
+		console.log('my coach',res)
+		dispatch({
+			type: GET_MY_COACH,
+			payload: res.data
+		})
+	})
+	.catch(err => {
+		console.log(err)
+	})
+}
