@@ -16,7 +16,6 @@ import MySessions from '../components/dashboard/client/MySessions';
 import ClientDashboard from "../components/dashboard/client/ClientDashboard";
 import Notifications from "../components/dashboard/client/Notifications";
 import ResourceCenter from "../components/dashboard/client/ResourceCenter";
-import SessionNotes from "../components/dashboard/client/SessionNotes";
 import HealthMetricForm from "../components/dashboard/client/health_metrics/healthMetricForm/HealthMetricForm";
 import LoginClient from "../components/login/client/LoginClient";
 import EmailRequest from "../components/login/client/forgotPassword/EmailRequest";
