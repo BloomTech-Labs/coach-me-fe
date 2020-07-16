@@ -88,7 +88,7 @@ export const postMessage = (post) => (dispatch) => {
 };
 
 export const getClientList = (id) => (dispatch) => {
-
+	// console.log("coachActions getClientList id", id);
 	
 	axiosWithCred
 		.get(`${process.env.REACT_APP_BACKEND}/coach/${id}/clients`)
@@ -131,6 +131,9 @@ export const assignClient = (id,clientId) => (dispatch) => {
 	})
 }
 
+export const updateSelectedClient = (selectedClient) => (dispatch) => {
+	dispatch({ type: UPDATE_SELECTED_CLIENT, payload: selectedClient});
+}
 
 export const getClients = (id) => (dispatch) => {
 	dispatch({ type: GET_RECORDS_START });

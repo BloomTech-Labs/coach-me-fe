@@ -8,9 +8,11 @@ const ClientCard = (props) => {
 	const dispatch = useDispatch();
 	const state = useSelector((state) => state.coach);
 	return (
-
-		<div className="name-container"onClick={() => props.setShowInfo(!props.showInfo)}>
-
+		<div className="name-container"onClick={() => {
+			props.setShowInfo(!props.showInfo)
+			dispatch(updateSelectedClient(props.client))
+			dispatch(getClientGoals(state.data.id, props.client.id));
+		}}>
 			<h1>
 				{props.client.last_name}, {props.client.first_name}
 			</h1>
