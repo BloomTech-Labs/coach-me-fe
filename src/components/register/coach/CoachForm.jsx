@@ -3,8 +3,8 @@ import "../../../sass/register/coach/coachForm.scss";
 
 const CoachForm = (props) => {
 	return (
-		<form onSubmit={props.handleSubmit}>
-			<div className="labels">
+		<form data-testid="coach-form"  onSubmit={props.handleSubmit}>
+			<div data-testid="first-name" className="labels">
 				<h1>Personal Information</h1>
 				<p>First Name:</p>
 
@@ -18,7 +18,7 @@ const CoachForm = (props) => {
 				/>
 			</div>
 
-			<div className="labels">
+			<div data-testid="last-name" className="labels">
 				<p>Last Name:</p>
 				<input
 					type="text"

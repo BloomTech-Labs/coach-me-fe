@@ -8,11 +8,13 @@ const headers = {
 };
 
 export const searchClients = ({ id, firstname, lastname }) => (dispatch) => {
+	console.log("firstname", firstname);
+	console.log("lastname", lastname);
 	dispatch({ type: SEARCH_START });
 
 	axiosWithCred
 		.get(
-			`${process.env.REACT_APP_BACK_END_URL}/${id}/search?first_name=${firstname}&last_name=${lastname}`
+			`${process.env.REACT_APP_BACK_END_URL}/coach/${id}/client_list/search?first_name=${firstname}&last_name=${lastname}`
 		)
 
 		.then((res) => {

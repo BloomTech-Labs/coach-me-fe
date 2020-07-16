@@ -1,15 +1,19 @@
-<<<<<<< HEAD
+
 import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 
 import { searchClients } from "../../../redux/actions/searchActions";
 
-=======
+
 import React, { useState, useEffect } from "react";
 import { getCoach } from "../../../redux/actions/authActions";
 import { getClientList } from "../../../redux/actions/coachActions";
 import {connect,useDispatch, useSelector} from "react-redux";
 import ClientPicker from './ClientPicker';
->>>>>>> 2adc8a8e11be7907a689b1575e3d900320561174
+
 import ClientCard from "../coach/clientsList/ClientCard";
 // Styling
 import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
@@ -19,10 +23,6 @@ import CoachDashboard from "./CoachDashboard";
 
 
 const SearchForm = (props) => {
-<<<<<<< HEAD
-	console.log("search form props", props.coachID);
-	const [input, setInput] = useState({ firstname: "", lastname: "" });
-=======
 	const dispatch = useDispatch();
 	const state = useSelector((state) => state.coach.data);
 	const clientList = useSelector((state) => state.coach.clientList);
@@ -53,18 +53,32 @@ const SearchForm = (props) => {
 	};
 
 	const cardlist = document.getElementsByClassName(`client-card`);
->>>>>>> 2adc8a8e11be7907a689b1575e3d900320561174
+
+	const [showInfo, setShowInfo] = useState(false);
+	const dispatch = useDispatch();
+	// console.log("search form props", props.coachID);
+	const [input, setInput] = useState({ firstname: "", lastname: "" });
+	const [searchResult, setSearchResult] = useState([]);
+	const actualList = props.clientLIST;
+
+	useEffect(() => {
+		// if (input.length) {
+		// 	return searchResult;
+		// }
+		// return actualList;
+	}, [input]);
+
 
 	const handleChange = (e) => {
 		setInput({ ...input, [e.target.name]: e.target.value });
-		searchClients({
-			...input,
-			id: props.coachID,
-		});
+		dispatch(
+			searchClients({
+				...input,
+				id: props.coachID,
+			})
+		);
 	};
 
-<<<<<<< HEAD
-=======
 	// useEffect(() => {
 	// 	if (clientList.length > 0) {
 	// 		setClientList(clientList);
@@ -82,9 +96,8 @@ const SearchForm = (props) => {
 	// 	}
 	// }, [query, clientList]);
 
->>>>>>> 2adc8a8e11be7907a689b1575e3d900320561174
 	return (
-		<div className="search-container">
+		<div data-testid="search-form" className="search-container">
 			<div className="searchbar">
 				<form className="search-form">
 					<img
@@ -92,7 +105,7 @@ const SearchForm = (props) => {
 						alt="magnifying-glass"
 						src={magnifying}
 					/>
-<<<<<<< HEAD
+
 					<div className="input-values">
 						<input
 							className="search-input"
@@ -103,49 +116,53 @@ const SearchForm = (props) => {
 							value={input.firstname}
 							onChange={handleChange}
 						/>
-						<input
-							className="search-input"
-							placeholder="Last Name"
-							name="last_name"
-							value={input.lastname}
-							onChange={handleChange}
-						/>
+
+
+						<div className="input-values">
+							<input
+								className="search-input"
+								// onChange={handleChange}
+								placeholder="First Name"
+								// value={query}
+								name="first_name"
+								// value={input.firstname}
+								onChange={handleChange}
+							/>
+							<input
+								className="search-input"
+								placeholder="Last Name"
+								name="last_name"
+								// value={input.lastname}
+								onChange={handleChange}
+							/>
+							
+						</div>
 					</div>
 				</form>
-			</div>
-				{props.clientLIST.map((client, index) => {
-					return (
-						<ClientCard key={index}
-						client={client}
-						showInfo={props.showInfo}
-						setShowInfo={props.setShowInfo}
-						/>
-					);
-				})}
-		</div>
-=======
+				<div className="list-of-clients">
+					{searchResult.length > 0
+						? searchResult.map((client, index) => {
+								return (
+									<ClientCard key={index} 
+									client={client}
+									showInfo={props.showInfo}
+									setShowInfo={props.setShowInfo} />
+								);
+						  })
+						: actualList.map((client, index) => {
+								return (
+									<ClientCard key={index} 
+									client={client}
+									showInfo={props.showInfo}
+									setShowInfo={props.setShowInfo} />
+								);
+						  })}
 				</div>
-			</form>
 
-			<div className="scroll-list">
-			<button 
-			onClick={()=>setGettingClients(!gettingClients)}
-			>{gettingClients? "nvm" : "Get Clients"}</button>
-			{clientList.length < 1 ? <div className="aint"> <h4>You Currently have no clients!</h4> 
-			
-			</div> : clientList.map((item,i) => {
-				return (
-					<div className='client-in-dashboard'>
-						<p>{item.first_name}</p>
-						<p>{item.last_name}</p>
-					</div>
-				
-				)
-			})}
 			</div>
-			{gettingClients ? <ClientPicker /> : ''}
-		</>
->>>>>>> 2adc8a8e11be7907a689b1575e3d900320561174
+		</div>
+		
+
 	);
 };
 
