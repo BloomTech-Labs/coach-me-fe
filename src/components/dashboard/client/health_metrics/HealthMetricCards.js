@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import { translate } from "../../../../utils/language/translate";
+
 
 //Component Imports
 import LineGraph from "./LineGraph";
@@ -51,13 +51,10 @@ function HealthMetricCards(props) {
 								src={iconback}
 							></img>
 						</div>
-						<p>{translate("back")}</p>
+						
 					</div>
 				</div>
-				<div className="history-header">
-					<h2>{translate("bp")}</h2>
-					<h4>{translate("bpHistoryDesc")}</h4>
-				</div>
+				
 				<LineGraph
 					bpOverArray={bpOverArray}
 					bpUnderArray={bpUnderArray}
@@ -75,9 +72,7 @@ function HealthMetricCards(props) {
 								></img>
 							</div>
 							<div className="health-label">
-								<div className="label-container">
-									<h3>{translate("bp")}</h3>
-								</div>
+								
 								<h4>
 									{moment(record.fields.Date_time).format(
 										"MMM Do YYYY"
@@ -118,13 +113,10 @@ function HealthMetricCards(props) {
 								src={iconback}
 							></img>
 						</div>
-						<p>{translate("back")}</p>
+						
 					</div>
 				</div>
-				<div className="history-header">
-					<h2>{translate("bloodGlucose")}</h2>
-					<h4>{translate("glucoseHistoryDesc")}</h4>
-				</div>
+
 
 				<LineGraph
 					values={bloodSugarArray}
@@ -143,9 +135,7 @@ function HealthMetricCards(props) {
 								></img>
 							</div>
 							<div className="health-label">
-								<div className="label-container">
-									<h3>{translate("bloodGlucose")}</h3>
-								</div>
+								
 								<h4>
 									{moment(record.fields.Date_time).format(
 										"MMM Do YYYY"
@@ -182,13 +172,10 @@ function HealthMetricCards(props) {
 								src={iconback}
 							></img>
 						</div>
-						<p>{translate("back")}</p>
+						
 					</div>
 				</div>
-				<div className="history-header">
-					<h2>{translate("weight")}</h2>
-					<h4>{translate("weightHistoryDesc")}</h4>
-				</div>
+			
 
 				<LineGraph
 					values={weightArray}
@@ -207,9 +194,7 @@ function HealthMetricCards(props) {
 								></img>
 							</div>
 							<div className="health-label">
-								<div className="label-container">
-									<h3>{translate("weight")}</h3>
-								</div>
+								
 								<h4>
 									{moment(record.fields.Date_time).format(
 										"MMM Do YYYY"

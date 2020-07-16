@@ -7,8 +7,8 @@ const Login = () => {
 		setshowCoachLogin(!showCoachLogin);
 	};
 	return (
-		<div>
-			<div className="buttons">
+		<div data-testid="login-div">
+			<div data-testid="buttons" className="buttons">
 				<p className="speak-to-rep">
 					If you'd like more information{" "}
 					{/* Google is used below just as a placeholder */}

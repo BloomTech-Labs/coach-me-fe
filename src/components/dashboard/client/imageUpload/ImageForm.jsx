@@ -13,7 +13,7 @@ const ImageForm = (props) => {
     const upload = () =>{
         const data = new FormData();
         data.append('profile_image', file, file.name);
-        axios.post('${process.env.REACT_APP_BACKEND}/media/upload_image', data, {
+        axios.post('http://localhost:5000/api/media/upload_image', data, {
             headers: {
                 'accept': 'application/json',
                 'Accept-Language': 'en-US;en;q=0.8',
@@ -28,27 +28,29 @@ const ImageForm = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        alert(file)
         upload()
     }
     return (
-        <div className='form-boi'>
+        <div data-testid="image-form" className='form-boi'>
             <form>
-                <div className="file-chooser">
+                <div data-testid="chooser" className="file-chooser">
                     <label htmlFor="file">Choose a file</label>
                     <input 
                     type="file" 
                     className='file-input' 
                     id='file'
+                    data-testid="image-input"
                     onChange={changeHandler}
                     />
                 </div>
                 <button
+                data-testid="submit"
                 onClick={submitHandler}
                  className='upload-image'>Upload</button>
             </form>
 
             <i
+            data-testid="cancel"
             onClick={()=>props.setImageIsGettingUploadedDawg(false)} 
             className="far fa-window-close cancel"></i>
         </div>

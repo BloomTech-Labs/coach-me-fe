@@ -6,13 +6,14 @@ $pinkish: #ff98a1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 14em;
+    margin-top: 1em;
     
     .top-section {
         display: flex;
         flex-direction: row;
 
         h1 {
+            padding: 1em;
             align-self: center;
             margin: 0 1em;
             font-size: 3em;
@@ -20,16 +21,20 @@ $pinkish: #ff98a1;
     }
 
     .cards-container {
+        padding-top: 2em;
         display: flex;
         align-content: center;
+        justify-content: center;
         flex-wrap: wrap;
+        background: rgba(0, 0, 0, 0.05);
 
         .resource-card {
             width: 80em;
             margin: 2em;
             padding: 2em;
+            background-color: white;
             border: .2em solid $blue;
-            background: linear-gradient(184deg, rgba(255,152,161,1) 0%, rgba(255,204,209,1) 18%, rgba(255,255,255,1) 79%);
+            border-radius: 5em;
 
             h2 {
                 color: $blue;
