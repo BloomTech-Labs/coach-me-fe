@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCoach } from "../../../redux/actions/authActions";
 import ClientInfo from "./clientsList/ClientInfo/ClientInfo";
 import SearchForm from "./SearchForm";
-import CoachMessaging from "./notificationCenter/coachMessaging/CoachMessaging";
 import Metrics from "./coachMetricView/Metrics";
 import GoalsDisplay from "./goals/GoalsDisplay";
 import CoachNotificationCenter from "./notificationCenter/CoachNotificationCenter.jsx";
+
+import GoalsContainer from "./goals/GoalsContainer";
 
 import "react-perfect-scrollbar/dist/css/styles.css";
 import { getClientList } from "../../../redux/actions/coachActions";
@@ -19,6 +20,8 @@ const CoachDashboard = (props) => {
 
 	
 	const [coachProfile, setCoachProfile] = useState();
+	const [showInfo, setShowInfo] = useState(false);
+
 	const state = useSelector((state) => state.coach.data);
 	const clientList = useSelector((state) => state.coach.clientList);
 	// console.log("clientList", clientList);
@@ -35,32 +38,38 @@ const CoachDashboard = (props) => {
 	return (
 		<>
 			<div className="coachdashboard-container">
+				
 				<div className="clientlist-container">
-					<SearchForm coachID={props.state.id} />
+					<SearchForm 
+						showInfo={showInfo}
+						setShowInfo={setShowInfo}
+						coachID={props.state.id}
+						clientLIST={props.list}
+					/>
 				</div>
 				<div className="clientinfo-container">
 					<ClientInfo clientprofile={clientprofile} />
-					<h4 className="coach-name">
-						Welcome, 
-						{props.state.first_name} {props.state.last_name}
-					</h4>
-					<GoalsDisplay clientprofile={clientprofile} />
+						<h4 className="coach-name">
+							Welcome,
+							{props.state.first_name}
+						</h4>
+					<GoalsContainer 
+					showInfo={showInfo}
+					setShowInfo={setShowInfo}
+					/>
 					<Metrics clientprofile={clientprofile} />
 				</div>
 				<CoachNotificationCenter />
-				{/* <div className="coach-messaging">
-					<CoachMessaging clientprofile={clientprofile} />
-				</div> */}
 			</div>
 		</>
 	);
 };
 
 const mapStateToProps = (state) => {
-	// console.log("CoachDashboard State", state);
+
 	return {
 		state: state.coach.data,
-		clientList: state.coach.clientList,
+		list: state.coach.clientList,
 		loggedIn: state.auth.loggedIn,
 	};
 };
