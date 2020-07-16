@@ -14,7 +14,7 @@ import CoachDashboard from "./CoachDashboard";
 
 
 const SearchForm = (props) => {
-
+	const clientList = useSelector((state) => state.coach.clientList);
 	const dispatch = useDispatch();
 	const currentCoachID = props.state.id;
 	const [showInfo, setShowInfo] = useState(false);
@@ -92,7 +92,7 @@ const SearchForm = (props) => {
 					/>
 				</form>
 			</div>
-			<div>
+			
 				
 				{searchResult.length <= 0 ? props.clientLIST.map((client, index) => {
 					return (
@@ -112,24 +112,13 @@ const SearchForm = (props) => {
 					);
 				})}
 				
-				<div>
-		<button 
-			onClick={()=>setGettingClients(!gettingClients)}
-			>{gettingClients? "nvm" : "Get Clients"}</button>
-			{clientList.length < 1 ? <div className="aint"> <h4>You Currently have no clients!</h4> 
 			
-			</div> : clientList.map((item,i) => {
-				return (
-					<div className='client-in-dashboard'>
-						<p>{item.first_name}</p>
-						<p>{item.last_name}</p>
-					</div>
+			<button 
+				onClick={()=>setGettingClients(!gettingClients)}
+				>{gettingClients? "nvm" : "Get Clients"}</button>
 				
-				)
-			})}
-			</div>
-			{gettingClients ? <ClientPicker /> : ''}
-		</div>
+				{gettingClients ? <ClientPicker /> : ''}
+		
 
 
 		</div>

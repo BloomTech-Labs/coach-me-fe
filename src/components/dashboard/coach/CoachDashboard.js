@@ -14,8 +14,6 @@ import GoalsContainer from "./goals/GoalsContainer";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 const CoachDashboard = (props) => {
-
-	
 	const [clientprofile, setclientprofile] = useState();
 	const [coachProfile, setCoachProfile] = useState();
 	const [showInfo, setShowInfo] = useState(false);
@@ -23,18 +21,12 @@ const CoachDashboard = (props) => {
 	const clientList = useSelector((state) => state.coach.clientList);
 	const currentCoachID = props.state.id;
 	const dispatch = useDispatch();
-	
-
 	useEffect(() => {
 		dispatch(getCoach())
 	},[]);
-
-	
-
 	return (
 		<>
 			<div className="coachdashboard-container">
-				
 				<div data-testid="clientlist" className="clientlist-container">
 					<SearchForm 
 						showInfo={showInfo}
@@ -43,8 +35,6 @@ const CoachDashboard = (props) => {
 						clientLIST={props.list}
 					/>
 				</div>
-			
-
 				<div data-testid="clientinfo" className="clientinfo-container">
 						<h4 data-testid="coach-name" className="coach-name">
 							Welcome,
@@ -62,7 +52,6 @@ const CoachDashboard = (props) => {
 						:
 						<div></div>
 						}
-
 				</div>
 				<div data-testid="notifications">
 					<CoachNotificationCenter />
@@ -73,12 +62,10 @@ const CoachDashboard = (props) => {
 };
 
 const mapStateToProps = (state) => {
-
 	return {
 		state: state.coach.data,
 		list: state.coach.clientList,
 		loggedIn: state.auth.loggedIn,
 	};
 };
-
 export default connect(mapStateToProps)(CoachDashboard);
