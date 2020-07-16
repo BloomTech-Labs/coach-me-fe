@@ -18,7 +18,8 @@ import {
 	GET_CLIENT_INFO,
 	CLIENT_REGISTER_SUCCESS,
 	CLIENT_LOGIN_SUCCESS,
-	GET_MY_COACH
+	GET_MY_COACH,
+	GET_CLIENT_SESSIONS
 } from "../actions/types";
 
 const initialState = {
@@ -36,6 +37,7 @@ const initialState = {
 	client_data: {},
 	loggedIn: false,
 	clientMetrics: [],
+	sessions: {},
 	myCoach: {}
 };
 
@@ -90,6 +92,13 @@ export default (state = initialState, action) => {
 				isfetching: false,
 				error: action.payload,
 			};
+
+		case GET_CLIENT_SESSIONS:
+			return {
+				...state,
+				sessions: action.payload
+			}
+
 		case GET_MY_COACH:
 			return {
 				...state,
