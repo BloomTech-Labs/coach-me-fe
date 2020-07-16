@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from "react";
-import { useDispatch,useSelector, connect } from "react-redux";
-
-
+import { getCoach } from "../../../redux/actions/authActions";
+import { getClientList, getUnassignedClients } from "../../../redux/actions/coachActions";
+import {connect,useDispatch, useSelector} from "react-redux";
+import ClientPicker from './ClientPicker';
 
 import ClientCard from "../coach/clientsList/ClientCard";
 // Styling
@@ -12,12 +14,15 @@ import CoachDashboard from "./CoachDashboard";
 
 
 const SearchForm = (props) => {
-	// console.log("search form props", props.coachID);
+
+	const dispatch = useDispatch();
+	const currentCoachID = props.state.id;
+    const [showInfo, setShowInfo] = useState(false);
 	const [input, setInput] = useState('');
 	const data = props.clientLIST;
-	const [searchResult, setSearchResult] = useState(data);
+    const [searchResult, setSearchResult] = useState(data);
+    
 	let newList= [];
-
 	useEffect(() => {
 		if(input != '') {
 			newList = data.filter(word => {
@@ -34,15 +39,36 @@ const SearchForm = (props) => {
 		}
 		console.log(searchResult)
 	}, [input]);
-
 	console.log(searchResult)
+	
+
+	useEffect(() => {
+
+		if(input != '') {
+			newList = data.filter(word => {
+				if(input[0] === input[0].toLowerCase() || input[0] === input[0].toUpperCase() ) {
+					// return input[0].toUpperCase()
+					return word.first_name.indexOf(input) != -1 || word.last_name.indexOf(input) != -1
+				}
+			})
+			setSearchResult(newList)
+			
+			console.log('new list',newList)
+		}else if(input === '') {
+			setSearchResult(data)
+		}
+		console.log(searchResult)
+	}, [input]);
+
+
 
 	const handleChange = (e) => {
 		setInput(e.target.value);	
 	};
 	
+
 	return (
-		<div className="search-container">
+		<div data-testid="search-form" className="search-container">
 			<div className="searchbar">
 				<form className="search-form">
 					<img
@@ -87,8 +113,10 @@ const SearchForm = (props) => {
 					);
 				})}
 		</div>
+
 		</div>
 		
+
 	);
 };
 

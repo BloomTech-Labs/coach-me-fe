@@ -1,144 +1,144 @@
-@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=DM+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 .clientprofile {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 13.8rem;
-    background: #fdfdfd;
-    padding: 5px 2rem;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: space-evenly;
+	width: 100%;
+	height: 13.8rem;
+	background: #fdfdfd;
+	padding: 5px 2rem;
 
-    .seemore {
-        cursor: pointer;
-        font-family: DM Sans;
-    }
+	.seemore {
+		cursor: pointer;
+		font-family: DM Sans;
+	}
 
-    .checkin {
-        display: flex;
-        justify-content: flex-end;
-        margin: 10px 0.5rem;
-        font-family: DM Sans;
+	.checkin {
+		display: flex;
+		justify-content: flex-end;
+		margin: 10px 0.5rem;
+		font-family: DM Sans;
 
-        .checkin-label {
-            font-weight: 500;
-            font-size: 1.2rem;
-            color: #b1b1b1;
-        }
+		.checkin-label {
+			font-weight: 500;
+			font-size: 1.2rem;
+			color: #b1b1b1;
+		}
 
-        .checkin-date {
-            margin: 0 0.7rem;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: #1c3048;
-        }
-    }
+		.checkin-date {
+			margin: 0 0.7rem;
+			font-weight: bold;
+			font-size: 1.2rem;
+			color: #1c3048;
+		}
+	}
 
-    .key-details {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-        padding-bottom: 2rem;
+	.key-details {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		width: 100%;
+		padding-bottom: 2rem;
 
-        .name {
-            font-size: 2.8rem;
-            font-family: Montserrat;
-            max-width: 33%;
-            min-width: 15%;
-            color: #1c3048;
-            font-weight: bold;
-            margin-right: 2rem;
-        }
+		.name {
+			font-size: 2.8rem;
+			font-family: Montserrat;
+			max-width: 33%;
+			min-width: 15%;
+			color: #1c3048;
+			font-weight: bold;
+			margin-right: 2rem;
+		}
 
-        p {
-            border-radius: 15px;
-            font-size: 1.2rem;
-            font-family: DM Sans;
-            font-weight: 600;
-            padding: 0.7rem 1.1rem;
-            text-align: center;
-            margin: 0 1rem;
-        }
-        .details {
-            display: flex;
+		p {
+			border-radius: 15px;
+			font-size: 1.2rem;
+			font-family: DM Sans;
+			font-weight: 600;
+			padding: 0.7rem 1.1rem;
+			text-align: center;
+			margin: 0 1rem;
+		}
+		.details {
+			display: flex;
 
-            .spanish {
-                color: #ff9a3d;
-                background: #f9f0de;
-            }
-            .english {
-                color: #765dbd;
-                background: #eae3fc;
-            }
+			.spanish {
+				color: #ff9a3d;
+				background: #f9f0de;
+			}
+			.english {
+				color: #765dbd;
+				background: #eae3fc;
+			}
 
-            .bloodPressure {
-                color: #26a9bb;
-                background: #d7efec;
-            }
-            .pre-diabetes {
-                color: #ff5060;
-                background: #fed6d6;
-            }
-            .diabetes {
-                color: #47b881;
-                background: #d6f3dc;
-            }
-            .hypothyroid {
-                color: #ffc512;
-                background: #fff3c9;
-            }
-            .other {
-                color: #ff5060;
-                background: #fed6d6;
-            }
-            .unknown {
-                color: #47b881;
-                background: #d6f3dc;
-            }
-        }
-    }
-    .motivations {
-        display: flex;
-        margin: 10px 0;
-        width: 100%;
+			.bloodPressure {
+				color: #26a9bb;
+				background: #d7efec;
+			}
+			.pre-diabetes {
+				color: #ff5060;
+				background: #fed6d6;
+			}
+			.diabetes {
+				color: #47b881;
+				background: #d6f3dc;
+			}
+			.hypothyroid {
+				color: #ffc512;
+				background: #fff3c9;
+			}
+			.other {
+				color: #ff5060;
+				background: #fed6d6;
+			}
+			.unknown {
+				color: #47b881;
+				background: #d6f3dc;
+			}
+		}
+	}
+	.motivations {
+		display: flex;
+		margin: 10px 0;
+		width: 100%;
 
-        .motivation-text {
-            display: flex;
-            justify-content: flex-start;
-            width: 100%;
+		.motivation-text {
+			display: flex;
+			justify-content: flex-start;
+			width: 100%;
 
-            label {
-                font-size: 1.4rem;
-                font-family: DM Sans;
-                font-weight: 600;
-                color: #1c3048;
-                display: block;
-            }
+			label {
+				font-size: 1.4rem;
+				font-family: DM Sans;
+				font-weight: 600;
+				color: #1c3048;
+				display: block;
+			}
 
-            p {
-                font-size: 1.4rem;
-                font-family: DM Sans;
-                font-style: italic;
-                font-weight: 500;
-                color: #1c3048;
-                padding: 0 0.8rem;
-                overflow: hidden;
-                max-width: 33%;
-                height: 1.5rem;
-            }
-            button {
-                border: none;
-                background: none;
-                flex-wrap: nowrap;
-                color: grey;
-                font-size: 1.4rem;
-                cursor: pointer;
-            }
-        }
-    }
+			p {
+				font-size: 1.4rem;
+				font-family: DM Sans;
+				font-style: italic;
+				font-weight: 500;
+				color: #1c3048;
+				padding: 0 0.8rem;
+				overflow: hidden;
+				max-width: 33%;
+				height: 1.5rem;
+			}
+			button {
+				border: none;
+				background: none;
+				flex-wrap: nowrap;
+				color: grey;
+				font-size: 1.4rem;
+				cursor: pointer;
+			}
+		}
+	}
 }
 
 // styling for client search input in SearchForm.js
@@ -181,60 +181,59 @@
 }
 
 .ghost {
-    display: none;
+	display: none;
 }
 
 .scroll-list {
-    overflow-y: scroll;
+	overflow-y: scroll;
 }
 
 //custom scroll bar style
 .scroll-list::-webkit-scrollbar {
-    width: 10px;
+	width: 10px;
 }
 
 /* Track */
 .scroll-list::-webkit-scrollbar-track {
-    display: none;
+	display: none;
 }
 .scroll-list::-webkit-scrollbar-track:hover {
-    display: block;
-    background-color: rgba(201, 201, 201, 0.15);
+	display: block;
+	background-color: rgba(201, 201, 201, 0.15);
 }
 
 /* Handle */
 .scroll-list::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: #c4cfdda9;
+	border-radius: 5px;
+	background: #c4cfdda9;
 }
 .scroll-list::-webkit-scrollbar-thumb:hover {
-    background: #6d747c;
+	background: #6d747c;
 }
 
 .client-card {
-    display: flex;
-    // justify-content: center;
-    align-items: center;
-    border: 2px solid #c4cfdd;
-    width: 100%;
-    padding: 10%;
-    background-color: #edf2f8;
-    f .name-container {
-        font-family: 'DM Sans';
-        font-size: 2rem;
-        color: #274160;
-    }
+	display: flex;
+	// justify-content: center;
+	align-items: center;
+	border: 2px solid #c4cfdd;
+	width: 100%;
+	padding: 10%;
+	background-color: #edf2f8;
+	f .name-container {
+		font-family: "DM Sans";
+		font-size: 2rem;
+		color: #274160;
+	}
 }
 .active1 {
-    background-color: #9ab2ce;
+	background-color: #9ab2ce;
 
-    h1 {
-        color: #ffffff;
-    }
+	h1 {
+		color: #ffffff;
+	}
 }
 
-
 .aint {
-    font-size: 2em;
-    text-align: center;
+	font-size: 2em;
+	text-align: center;
 }

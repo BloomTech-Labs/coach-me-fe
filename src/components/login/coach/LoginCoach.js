@@ -4,8 +4,7 @@ import { loginCoach } from "../../../redux/actions/authActions";
 import CoachLoginForm from "./CoachLoginForm";
 import SideOne from "../coach/SideOne";
 
-//Component Imports
-import Modal from "./Modal";
+
 
 //Styling
 import "../../../sass/login/coach/loginCoach.scss";
@@ -33,7 +32,7 @@ const LoginCoach = (props) => {
 	};
 	return (
 		<>
-			{modal ? <Modal setModal={setModal} /> : null}
+			
 			<div className="Login-Wrapper">
 				<SideOne />
 				<div className="side-two">

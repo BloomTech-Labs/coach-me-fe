@@ -11,11 +11,11 @@ import CoachDashboard from "../components/dashboard/coach/CoachDashboard";
 import CoachNotifications from "../components/dashboard/coach/notificationCenter/CoachNotifications";
 import CoachResourceCenter from "../components/dashboard/coach/notificationCenter/CoachResourceCenter";
 import CoachMessaging from "../components/dashboard/coach/notificationCenter/coachMessaging/CoachMessaging";
+import MySessions from '../components/dashboard/client/MySessions';
 
 import ClientDashboard from "../components/dashboard/client/ClientDashboard";
 import Notifications from "../components/dashboard/client/Notifications";
 import ResourceCenter from "../components/dashboard/client/ResourceCenter";
-import SessionNotes from "../components/dashboard/client/SessionNotes";
 import HealthMetricForm from "../components/dashboard/client/health_metrics/healthMetricForm/HealthMetricForm";
 import LoginClient from "../components/login/client/LoginClient";
 import EmailRequest from "../components/login/client/forgotPassword/EmailRequest";
@@ -33,6 +33,7 @@ import ProfileSix from "../components/register/client/onboarding/createProfile/p
 
 //Styling
 import "../App.css";
+import SearchForm from "../components/dashboard/coach/SearchForm";
 
 const Routes = (props) => {
 	return (
@@ -65,6 +66,8 @@ const Routes = (props) => {
 					path="/coach-messages"
 					component={CoachMessaging}
 				/>
+
+				<PrivateRoute path="/search-clients" component={SearchForm} />
 
 				{/* // CLIENT ROUTES //  */}
 				{/* //  CLIENT REGISTER  // */}
@@ -115,6 +118,10 @@ const Routes = (props) => {
 				<PrivateRoute
 					path="/client-notifications"
 					component={Notifications}
+				/>
+				<PrivateRoute
+					path="/my-sessions"
+					component={MySessions}
 				/>
 				<PrivateRoute
 					path="/resource-center"

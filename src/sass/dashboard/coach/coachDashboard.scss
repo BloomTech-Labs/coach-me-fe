@@ -14,22 +14,71 @@
 	}
 
 	.clientlist-container {
+		width: 34em;
 		border: 2px solid rgba(0, 0, 0, 0.05);
 		display: flex;
 		flex-direction: column;
 		background: rgba(0, 0, 0, 0.05);
 
-		form {
-			margin-top: -20px;
+		.search-container {
+			display: flex;
+			flex-direction: column;
+
+			.searchbar {
+				margin: 0 auto;
+
+				.search-form {
+					display: flex;
+					flex-direction: row;
+
+					img {
+						margin-right: 1em;
+					}
+
+					.input-values {
+						display: flex;
+						align-items: center;
+
+						.search-input {
+							text-align: center;
+							width: 7.5em;
+							height: 4.5rem;
+							background-color: #edf2f8;
+							border: none;
+							font-size: 1.6rem;
+							color: #717d8b;
+							border: 1px solid #c4cfdd;
+							margin-right: 0.3em;
+							border-radius: 26px;
+						}
+						.button {
+							button {
+								background-color: #ff98a1;
+								color: white;
+								padding-top: 0.5em;
+								padding-bottom: 0.5em;
+								font-size: 1.3em;
+								width: 4em;
+								border-radius: 20px;
+								font-family: "DM Sans", sans-serif;
+							}
+						}
+					}
+				}
+			}
 		}
+		//form {
+		// margin-top: -20px;
+		//}
 	}
 
 	.clientinfo-container {
+		width: 106em;
 		overflow-y: scroll;
-		width: 60%;
+		// width: 70%;
 		background-color: #f6f6f6;
-		display: flex;
-		flex-direction: column;
+		// display: flex;
+		// flex-direction: column;
 		border: 2px solid rgba(0, 0, 0, 0.05);
 
 		.welcome-text {
