@@ -17,7 +17,7 @@ const GoalsDisplay = (props) => {
 	}, [state.selectedClient])
 
 	return (
-		<div className="goals-wrapper">
+		<div data-testid="goals" className="goals-wrapper">
 			{state.clientGoals
 				.map((goal, index) => (
 						<GoalCard key={index}

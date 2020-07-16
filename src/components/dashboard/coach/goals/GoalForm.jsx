@@ -19,24 +19,24 @@ const GoalForm = (props) => {
     };
 
     return (
-        <div className={props.showModal ? "goal-form" : "closed"}>
-            <h1>New Client Goal</h1>
+        <div data-testid="goal-form" className={props.showModal ? "goal-form" : "closed"}>
+            <h1 data-testid="form-header" >New Client Goal</h1>
             <form onSubmit={handleSubmit}>
-                <input 
+                <input data-testid="date-field"
                 type="date"
                 placeholder="start-date"
                 name="start_date"
                 value={goal.start_date}
                 onChange={handleChange}
                 />
-                <input 
+                <input data-testid="title-field"
                 type="text"
                 placeholder="title"
                 name="title"
                 value={goal.title}
                 onChange={handleChange}
                 />
-                <input 
+                <input data-testid="description-field"
                 type="text"
                 placeholder="description"
                 name="description"

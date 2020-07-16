@@ -34,7 +34,7 @@ const SearchForm = (props) => {
 	};
 
 	return (
-		<div className="search-container">
+		<div data-testid="search-form" className="search-container">
 			<div className="searchbar">
 				<form className="search-form">
 					<img

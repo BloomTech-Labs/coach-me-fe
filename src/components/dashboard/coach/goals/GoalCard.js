@@ -19,7 +19,6 @@ const GoalCard = (props) => {
         >
             {showCardModal ?
             <div>
-                <Backdrop show={showCardModal} set={setShowCardModal} />
                 <GoalCardModal showCardModal={showCardModal} status={status} />
             </div>
             :

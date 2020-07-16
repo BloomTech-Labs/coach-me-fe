@@ -6,5 +6,10 @@ import GoalsDisplay from "./GoalsDisplay";
 describe("GoalsDisplay component", () => {
 	it("Renders without crashing", async () => {
 		render(<GoalsDisplay />);
-    })
+	})
+	it("Goal Wrapper", async () => {
+		const container = render(<GoalsDisplay />);
+		const goals = container.getByTestId("goals");
+		expect(goals).toHaveClass("goals-wrapper");
+	})
 })

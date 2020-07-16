@@ -10,8 +10,8 @@ const GoalsContainer = (props) => {
     const [showModal, setShowModal] = useState(false);
 
     return (
-        <div className={props.showInfo ? "goals-div" : "hidden"}>
-            <h1 className="client-name">{state.first_name}'s Profile</h1>
+        <div data-testid="goal-container" className={props.showInfo ? "goals-div" : "hidden"}>
+            <h1 data-testid="clients-name" className="client-name">{state.first_name}'s Profile</h1>
             <Backdrop show={showModal} set={setShowModal} />
             <GoalForm showModal={showModal} />
             <GoalsDisplay />

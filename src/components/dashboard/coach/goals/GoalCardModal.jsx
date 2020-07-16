@@ -11,15 +11,11 @@ const GoalCardModal = (props) => {
     const [editGoal, setEditGoal] = useState({ start_date:"", title:"", description:"", completed: false})
     const state = useSelector((state) => state.coach);
 
-    const handleClick = () => {
-        setEditMode(!editMode)
-    };
     const handleChange = (e) => {
         setEditGoal({ ...editGoal, [e.target.name]: e.target.value })
     };
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(editGoal)
         dispatch(updateClientGoal(state.data.id, state.selectedClient.id, state.selectedGoal.id, editGoal))
     };
     useEffect(() => {
@@ -27,9 +23,10 @@ const GoalCardModal = (props) => {
     }, [state.selectedClient.id]);
 
     return (
-    <div>
+    <div data-testid="goalcard-modal">
     {editMode ?
-        <div className={props.showCardModal ? "edit-modal" : "hidden"}>
+        <div data-testid="edit-modal" className={props.showCardModal ? "edit-modal" : "hidden"}>
+            <button onClick={() => setEditMode(!editMode)}>Back</button>
             <h1>Edit Goal</h1>
             <form onSubmit={handleSubmit}>
                 <input 
@@ -53,20 +50,24 @@ const GoalCardModal = (props) => {
                 name="description"
                 onChange={handleChange}
                 />
-                <button type="submit">Edit</button>
+                <button type="submit">Confirm</button>
             </form>
         </div>
     :
-        <div className={props.showCardModal ? "goal-modal" : "hidden"}>
-                <div className="icon-container">
-                    <img className="goal-icon" src={props.status?Check:X} alt="icon"/>
+        <div data-testid="goal-modal" className={props.showCardModal ? "goal-modal" : "hidden"}>
+                <div data-testid="icon-section" className="icon-container">
+                    <img data-testid="icon" className="goal-icon" src={props.status?Check:X} alt="icon"/>
                 </div>
-                <div className="goal-info">
-                    <p>Started: {state.selectedGoal.start_date}</p>
-                    <h2>{state.selectedGoal.title}</h2>
-                    <p>{state.selectedGoal.description}</p>
-                    <button className="edit" onClick={handleClick}>Edit</button>
+                <div data-testid="info" className="goal-info">
+                    <div>
+                    <p data-testid="start-date">Started: {state.selectedGoal.start_date}</p>
+                    <h2 data-testid="title">{state.selectedGoal.title}</h2>
+                    <p data-testid="description">{state.selectedGoal.description}</p>
+                    </div>
+                    <div data-testid="buttons" className="buttons">
+                    <button className="edit" onClick={() => setEditMode(!editMode)}>Edit</button>
                     <button className="delete" onClick={() => {dispatch(deleteClientGoal(state.data.id, state.selectedClient.id, state.selectedGoal.id))}}>Delete</button>
+                    </div>
                 </div>
         </div>
     }

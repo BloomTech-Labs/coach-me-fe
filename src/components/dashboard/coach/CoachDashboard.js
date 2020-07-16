@@ -29,7 +29,7 @@ const CoachDashboard = (props) => {
 		<>
 			<div className="coachdashboard-container">
 				
-				<div className="clientlist-container">
+				<div data-testid="clientlist" className="clientlist-container">
 					<SearchForm 
 						showInfo={showInfo}
 						setShowInfo={setShowInfo}
@@ -37,8 +37,8 @@ const CoachDashboard = (props) => {
 						clientLIST={props.spiderman.coach.clientList}
 					/>
 				</div>
-				<div className="clientinfo-container">
-						<h4 className="coach-name">
+				<div data-testid="clientinfo" className="clientinfo-container">
+						<h4 data-testid="coach-name" className="coach-name">
 							Welcome,
 							{props.state.first_name}
 						</h4>
@@ -55,7 +55,9 @@ const CoachDashboard = (props) => {
 						<div></div>
 						}
 				</div>
-				<CoachNotificationCenter />
+				<div data-testid="notifications">
+					<CoachNotificationCenter />
+				</div>
 			</div>
 		</>
 	);

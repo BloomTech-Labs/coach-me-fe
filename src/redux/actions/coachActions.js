@@ -229,7 +229,6 @@ export const addClientGoal = (coachID, clientID, goal) => (dispatch) => {
 
 //updates the selected goal in the client list
 export const updateClientGoal = (coachID, clientID, goalID, goal) => (dispatch) => {
-	console.log("updateClientGoal", coachID, clientID, goalID, goal)
 	axiosWithCred
 	.put(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/goals/${goalID}`, goal)
 	.then((res) => {
@@ -240,7 +239,7 @@ export const updateClientGoal = (coachID, clientID, goalID, goal) => (dispatch) 
 		});
 	})
 	.catch((err) => {
-		console.log("updateClientGoal failure", err)
+		console.log("updateClientGoal failure", err.message)
 		dispatch({
 			type: UPDATE_CLIENT_GOAL_FAILURE,
 			payload: err.message,
