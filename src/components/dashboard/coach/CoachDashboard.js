@@ -3,53 +3,42 @@ import "../../../sass/dashboard/coach/coachDashboard.scss";
 import { connect } from "react-redux";
 import { useDispatch, useSelector } from "react-redux";
 import { getCoach } from "../../../redux/actions/authActions";
-import ClientInfo from "./clientsList/ClientInfo/ClientInfo";
-import SearchForm from "./SearchForm";
-import Metrics from "./coachMetricView/Metrics";
-import GoalsDisplay from "./goals/GoalsDisplay";
-import CoachNotificationCenter from "./notificationCenter/CoachNotificationCenter.jsx";
-
-import GoalsContainer from "./goals/GoalsContainer";
-
-import "react-perfect-scrollbar/dist/css/styles.css";
 import { getClientList } from "../../../redux/actions/coachActions";
+import SearchForm from "./SearchForm";
+import GoalsContainer from "./goals/GoalsContainer";
+import Metrics from "./coachMetricView/Metrics";
+import CoachNotificationCenter from "./notificationCenter/CoachNotificationCenter.jsx";
+import GoalsDisplay from '../coach/goals/GoalsDisplay'
+import "react-perfect-scrollbar/dist/css/styles.css";
 
 const CoachDashboard = (props) => {
+
 	const [clientprofile, setclientprofile] = useState();
-
-	
-
 	const [listOfClients, setListOfClients] = useState();
 	const [coachProfile, setCoachProfile] = useState();
-	const [showInfo, setShowInfo] = useState(false);
 
-	const state = useSelector((state) => state.coach.data);
 	const spiderman = useSelector((state) => state.coach.clientList);
 
 	const dispatch = useDispatch();
-
-	const currentCoachID = state.id;
-	const clientListArray = props.spiderman.coach.clientList;
-	
+	const state = useSelector((state) => state.coach.data);
+	const [showInfo, setShowInfo] = useState(false);
 	
 	useEffect(() => {
 		dispatch(getCoach());
 	}, []);
 
 	useEffect(() => {
-
-		if (currentCoachID) {
-			dispatch(getClientList(currentCoachID));
+		if (state.id) {
+			dispatch(getClientList(state.id));
 		}
+	}, [state.id]);
 
-
-	}, [currentCoachID]);
 
 	return (
 		<>
 			<div className="coachdashboard-container">
 				
-				<div className="clientlist-container">
+				<div data-testid="clientlist" className="clientlist-container">
 					<SearchForm 
 						showInfo={showInfo}
 						setShowInfo={setShowInfo}
@@ -57,19 +46,34 @@ const CoachDashboard = (props) => {
 						clientLIST={props.spiderman.coach.clientList}
 					/>
 				</div>
-				<div className="clientinfo-container">
-					<ClientInfo clientprofile={clientprofile} />
-						<h4 className="coach-name">
+					<h4 className="coach-name">
+						Welcome, 
+						{props.state.first_name} {props.state.last_name}
+					</h4>
+					<GoalsDisplay clientprofile={clientprofile} />
+					<Metrics clientprofile={clientprofile} />
+				<div data-testid="clientinfo" className="clientinfo-container">
+						<h4 data-testid="coach-name" className="coach-name">
 							Welcome,
 							{props.state.first_name}
 						</h4>
-					<GoalsContainer 
-					showInfo={showInfo}
-					setShowInfo={setShowInfo}
-					/>
-					<Metrics clientprofile={clientprofile} />
+						{showInfo ?
+						<div>
+							<GoalsContainer 
+							showInfo={showInfo}
+							/>
+							<Metrics 
+								showInfo={showInfo} 
+							/>
+						</div>
+						:
+						<div></div>
+						}
+
 				</div>
-				<CoachNotificationCenter />
+				<div data-testid="notifications">
+					<CoachNotificationCenter />
+				</div>
 			</div>
 		</>
 	);
@@ -80,6 +84,7 @@ const mapStateToProps = (state) => {
 	return {
 		state: state.coach.data,
 		spiderman: state,
+		clientList: state.coach.clientList,
 		loggedIn: state.auth.loggedIn,
 	};
 };

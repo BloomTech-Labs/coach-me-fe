@@ -15,8 +15,8 @@ function CalendarWrapper({user}) {
         dispatch(scheduleSession({
             user_id: user.id,
             date: sessionDate,
-            notes: "Hello, this is a note :)",
-            coach_id: 'a20e141b-0929-45dc-b296-e22b6907ca96'
+            notes: "Don't forget to eat your vegetables!",
+            coach_id: user.coach.id
 
         }))
     }
@@ -25,7 +25,8 @@ function CalendarWrapper({user}) {
     }
 
     return (
-        <div className="">
+        <div className="calendar-container">
+            <h3>Schedule a session</h3>
             <Modal
                 title="Please confirm your session date and time"
                 content={
@@ -49,7 +50,7 @@ function CalendarWrapper({user}) {
             />
 
             <CalendlyEventListener
-                onEventScheduled={() => {
+                onDateAndTimeSelected={() => {
                     setModalVisibility(true);
                 }}
             >
@@ -66,11 +67,12 @@ function CalendarWrapper({user}) {
                     }}
                     url={user.coach.calendly_url}
                     styles={{
-                        height: '100vh',
+                        height: '450px',
+                        overflow: 'hidden'
                     }}
                 />
                 
-            : null}
+            : ""}
             </CalendlyEventListener>
         </div>
     );
