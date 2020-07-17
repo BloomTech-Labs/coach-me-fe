@@ -9,11 +9,7 @@ const GoalsDisplay = (props) => {
 	const state = useSelector((state) => state.coach);
 
 	useEffect(() => {
-		if(state.selectedClient) {
 		dispatch(getClientGoals(state.data.id, state.selectedClient.id));
-		} else {
-			console.log("no")
-		}
 	}, [state.selectedClient])
 
 	return (

@@ -4,8 +4,7 @@ const Backdrop = (props) => {
     return (
         <div 
         className={props.show ? 'backdrop':'backdrop-closed'}
-        onClick={()=>props.set(false)}>
-            
+        onClick={()=> props.set(false)}>
         </div>
     );
 }
