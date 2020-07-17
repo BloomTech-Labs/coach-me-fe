@@ -50,7 +50,7 @@ function CalendarWrapper({user}) {
             />
 
             <CalendlyEventListener
-                onDateAndTimeSelected={() => {
+                onEventScheduled={() => {
                     setModalVisibility(true);
                 }}
             >
