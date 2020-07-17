@@ -40,7 +40,7 @@ const Video = props => {
 
     return (
         <div className="stream-block">
-            <video style={{'background': 'black'}} ref={ videoRef } autoPlay playsInline muted controls></video>
+            <video style={{'background': 'black'}} ref={ videoRef } autoPlay playsInline muted></video>
            { props.user === 'self' && <button onClick={ handleClick }>{ streamState.active ? 'Stop' : 'Start' } Video </button> }
         </div>
     );

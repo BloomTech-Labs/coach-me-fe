@@ -1,27 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Caller = props => {
+    const [visibility, setVisbility] = useState(true);
     const handleAnswer = e => {
         e.preventDefault();
         props.answer( props.caller, props.answerCallback, props.userStream );
+        setVisbility(false);
     }
+
     return(
+
         <>
-            <button value={ props.caller.id } onClick={handleAnswer} >Answer</button>
+            { visibility && <button value={ props.caller.id } onClick={handleAnswer}>{props.caller.name ? `Answer ${props.caller.name}` : 'Next Call'}</button> }
         </>
     );
 }
 
 const Available = props => {
+    const [visibility, setVisbility] = useState(true);
+    console.log( props.available );
+    const user = props.available;
     const handleCall = e => {
         e.preventDefault();
-        props.callPeer( e.target.value, props.userStream ,props.setPartnerStream );
+        props.callPeer( e.target.value, props.userStream, props.setPartnerStream );
+        setVisbility(false);
     }
     return (
-        <ul>
-            { props.available.map( user => user === props.userId ? null : <button key={ user } value={ user } onClick={ handleCall }>Call User</button> ) }
-        </ul>
+        <div>
+           { visibility && <button key={ user } value={ user } onClick={ handleCall }>Enter Coach's Waiting Room</button> }
+        </div>
     );
 }
 
-export { Caller, Available };
+const OnlineUsers = props => {
+    const [visibility, setVisbility] = useState(true);
+    console.log('running')
+    const handleCall = e => {
+        e.preventDefault();
+        props.callPeer( e.target.value, props.userStream, props.setPartnerStream );
+        setVisbility(false);
+    }
+    return (
+        <div>
+            { visibility && props.users.map(user => <button key={ user } value={ user } onClick={ handleCall }>Call ID: {user} </button>)}
+        </div>
+    );
+}
+
+export { Caller, Available, OnlineUsers };

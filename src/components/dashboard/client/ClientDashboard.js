@@ -32,6 +32,7 @@ const ClientDashboard = (props) => {
 				<Link data-testid="resources" className="tab" to="resource-center">Resources</Link>
 				<Link data-testid="messges" className="tab" to="coach-messages">Messages</Link>
 				<Link data-testid="health-form" className="tab" to="metric-form">Health Form</Link>
+				<Link data-testid="chat" className="tab" to="chat">Chat</Link>
 			</div>
 			<div className="info-container">
 				<div className="profile-container">
