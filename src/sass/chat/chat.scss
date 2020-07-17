@@ -1,5 +1,6 @@
 .chat-container {
     height: 55vh;
+    margin-top: 175px;
     h1 {
         width: 100%;
         text-align: center;
@@ -15,8 +16,16 @@
         margin-bottom: 25px;
     }
     .videos {
-        height: 100%;
-        margin: 12% 15% 50px;
+        display: flex;
+        width: 100vw;
+        justify-content: space-around;
+        .chat-container .videos {
+            height: 100%;
+            margin: 12% 0 50px;
+            width: 100vw;
+            display: flex;
+            justify-content: space-between;
+        }
         .stream-block {
             max-width: 35%;
             display: flex;
@@ -68,10 +77,6 @@
         width: 55%;
     }
 }
-header {
-    z-index: -1;
-}
-.footer {
-    position: static;
-    margin-top: 100%;
+footer.footer {
+    display: none;
 }
