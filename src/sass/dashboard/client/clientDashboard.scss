@@ -3,30 +3,49 @@ $blue: #355478;
 $white: #ffffff;
 $pinkish: #ff98a1;
 
+@mixin responsive($point) {
+    $phone: '(max-width: 500px)';
+    $tablet: '(max-width: 800px)';
+
+    @if $point == phone {
+        @media #{$phone} {
+            @content;
+        }
+    } @else if $point == tablet {
+        @media #{$tablet} {
+            @content;
+        }
+    }
+}
+
 .client-dashboard {
     display: flex;
-    flex-direction: row;
-    padding-top: 6.5em;
+    padding-top: 2em;
     font-size: 2em;
-    // font-family: 'Karla', sans-serif;
+    font-family: 'Karla', sans-serif;
 
+    // font-family: 'Karla', sans-serif;
+    .my-coach {
+        text-align: center;
+        margin: 15px 0 10px 0;
+        font-weight: bold;
+    }
     h1 {
         font-size: 2em;
-        margin: .5em 1em;
+        margin: 20px 0;
 
-        @media (max-width: 800px) {
+        @include responsive(tablet) {
             font-size: 1.5em;
-            margin: .2em;
+            margin: 0.2em;
         }
     }
 
-    h2{
+    h2 {
         font-size: 1.5em;
-        margin-left: 1em;
+        margin: 10px 0;
     }
 
-
-    @media (max-width: 800px) {
+    @include responsive(tablet) {
         flex-direction: column;
     }
 
@@ -35,47 +54,53 @@ $pinkish: #ff98a1;
         flex-direction: column;
         justify-content: center;
         height: 8em;
-        width: 10em;
+        width: 15%;
         font-size: 1em;
 
-        @media (max-width: 800px) {
+        @include responsive(tablet) {
             flex-direction: row;
             flex-wrap: wrap;
             width: 100%;
             height: 6em;
         }
 
-        @media (max-width: 500px) {
+        @include responsive(phone) {
             height: 10em;
-            margin-bottom: .2em;
+            margin-bottom: 0.2em;
         }
 
         .tab {
             display: flex;
             height: 2em;
-            margin: .1em;
-            padding: .1em;
+            margin: 0.1em;
+            padding: 0.1em;
             text-decoration: none;
             color: $blue;
             background-color: $white;
-            border-top: .1em solid $blue;
+            border-top: 0.1em solid $blue;
             border-radius: 0 0 1em 0;
 
-            @media (max-width: 800px) {
+            @include responsive(tablet) {
                 width: 10em;
                 height: 2em;
                 margin: 0 2em;
+                border-radius: 0 0 1em 1em;
             }
 
-            @media (max-width: 500px) {
-                margin-bottom: .2em;
+            @include responsive(phone) {
+                margin-bottom: 0.2em;
             }
         }
 
         .tab:hover {
             color: $white;
             background-color: $blue;
-            border-top: .1em solid $white;
+            border-top: 0.1em solid $white;
+        }
+
+        .notifications {
+            display: flex;
+            justify-content: space-between;
         }
 
         .count {
@@ -83,7 +108,7 @@ $pinkish: #ff98a1;
             justify-content: center;
             height: 1.2em;
             width: 1.2em;
-            margin-left: .1em;
+            margin-right: 2em;
             color: $white;
             background-color: tomato;
             border: 1.5px solid red;
@@ -93,11 +118,10 @@ $pinkish: #ff98a1;
 
     .info-container {
         display: flex;
-        flex-direction: column;
-        width: 60%;
-        margin: .5em 2em;
+        margin: 0.5em 2em;
+        width: 100%;
 
-        @media (max-width: 800px) {
+        @include responsive(tablet) {
             width: 100%;
             margin: 0;
         }
@@ -105,24 +129,70 @@ $pinkish: #ff98a1;
         .profile-container {
             display: flex;
             flex-direction: column;
-
+            width: 50%;
+            padding: 20px;
+            box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
             .motivation {
-                width: 140%;
-                margin: 1em 0;
                 padding: 1em;
                 color: $white;
                 background-color: $blue;
-                border-left: .2em solid $pinkish;
-                border-bottom: .2em solid $pinkish;
-                border-radius: 1em 0 0 0;
+                border-left: 0.2em solid $pinkish;
+                border-right: 0.2em solid $pinkish;
+                border-bottom: 0.2em solid $pinkish;
+                border-radius: 1em 1em 0 0;
 
-                @media (max-width: 800px) {
+                @include responsive(tablet) {
                     width: 100%;
-                    border-top: .2em solid $pinkish;
+                    border-top: 0.2em solid $pinkish;
                     border-left: none;
                     border-bottom: none;
                     border-radius: 0;
                 }
+            }
+            .goals-container {
+                padding: 10px;
+                background: #f1f1f1;
+            }
+        }
+    }
+
+    .calendar-section {
+        width: 50%;
+        overflow: hidden;
+
+        .calendar-datetime-picker {
+            padding: 10px;
+            width: 100%;
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .calendar-confirm-date-btn {
+            all: unset;
+            height: 50px;
+            width: 100%;
+            background: #2e4561;
+            color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calendar-container {
+            padding: 10px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+            border-radius: 10px;
+            overflow-y: hidden;
+
+            h3 {
+                text-align: center;
+                margin: 10px;
+                font-weight: bold;
             }
         }
     }

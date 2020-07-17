@@ -1,0 +1,39 @@
+.tabs-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 8em;
+	width: 10em;
+	font-size: 2.3em;
+	font-family: DM sans;
+
+	.tab {
+		display: flex;
+		height: 2em;
+		margin: 0.1em;
+		padding: 0.1em;
+		text-decoration: none;
+		color: #355478;
+		background-color: #ffffff;
+		border-top: 0.1em solid #355478;
+		border-radius: 0 0 1em 0;
+	}
+
+	.tab:hover {
+		color: #ffffff;
+		background-color: #355478;
+		border-top: 0.1em solid #ffffff;
+	}
+
+	.count {
+		display: flex;
+		justify-content: center;
+		height: 1.2em;
+		width: 1.2em;
+		margin-left: 2em;
+		color: #ffffff;
+		background-color: tomato;
+		border: 1.5px solid red;
+		border-radius: 50%;
+	}
+}

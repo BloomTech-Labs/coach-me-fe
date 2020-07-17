@@ -4,12 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getClientMetrics } from "../../../../redux/actions/coachActions";
 import LineGraph from "../../client/health_metrics/LineGraph";
 import "../../../../sass/dashboard/coach/coach_metric_view/metrics.scss";
-import BloodGlucoseHistoryModal from "./bloodGlucoseHistory/BloodGlucoseHistoryModal";
-import BloodGlucoseHistory from "./bloodGlucoseHistory/BloodGlucoseHistory";
-import WeightHistory from "./weightHistory/WeightHistory";
-import WeightHistoryModal from "./weightHistory/WeightHistoryModal";
-import BPhistory from "./BPhistory/BPhistory";
-import BPhistoryModal from "./BPhistory/BPhistoryModal";
 
 function Metrics(props) {
 	const { clientprofile } = props;
@@ -49,9 +43,8 @@ function Metrics(props) {
 	});
 	const reverseClientData = [...clientData];
 	reverseClientData.reverse();
-
 	return (
-		<>
+		<div data-testid="metrics-container" className={props.showInfo ? "metrics-container" : "hidden"}>
 			<div className="dash-metric-container">
 				<div className="graph-container">
 					<h2 className="metric-title">Blood Glucose</h2>
@@ -67,17 +60,6 @@ function Metrics(props) {
 						<p>No available data for this metric.</p>
 					)}
 				</div>
-				{!bloodSugarArray.every((value) => value === undefined) ? (
-					<BloodGlucoseHistory
-						setShowGlucoseHistory={setShowGlucoseHistory}
-						reverseClientData={reverseClientData}
-					/>
-				) : null}
-				<BloodGlucoseHistoryModal
-					setShowGlucoseHistory={setShowGlucoseHistory}
-					showGlucoseHistory={showGlucoseHistory}
-					reverseClientData={reverseClientData}
-				/>
 			</div>
 
 			<div className="dash-metric-container">
@@ -95,18 +77,6 @@ function Metrics(props) {
 						<p>No available data for this metric.</p>
 					)}
 				</div>
-
-				{!weightArray.every((value) => value === undefined) ? (
-					<WeightHistory
-						setShowWeightHistory={setShowWeightHistory}
-						reverseClientData={reverseClientData}
-					/>
-				) : null}
-				<WeightHistoryModal
-					setShowWeightHistory={setShowWeightHistory}
-					showWeightHistory={showWeightHistory}
-					reverseClientData={reverseClientData}
-				/>
 			</div>
 
 			<div className="dash-metric-container">
@@ -125,20 +95,8 @@ function Metrics(props) {
 						<p>No available data for this metric.</p>
 					)}
 				</div>
-
-				{!bpOverArray.every((value) => value === undefined) ? (
-					<BPhistory
-						setShowBPhistory={setShowBPhistory}
-						reverseClientData={reverseClientData}
-					/>
-				) : null}
-				<BPhistoryModal
-					setShowBPhistory={setShowBPhistory}
-					showBPhistory={showBPhistory}
-					reverseClientData={reverseClientData}
-				/>
 			</div>
-		</>
+		</div>
 	);
 }
 

@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans&display=swap");
+
+.goals-div {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+
+    .client-name {
+        font-family: "DM Sans";
+        display: flex;
+        justify-content: center;
+        margin-top: 1em;
+        padding: .5em 2em;
+        font-size: 1.5em;
+    }
+
+    button {
+        align-self: center;
+        margin: 1em 3em;
+        width: 15%;
+    }
+}
+
+.hidden {
+    display: none;
+}

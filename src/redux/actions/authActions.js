@@ -39,14 +39,15 @@ export const loginCoach = (coachCreds) => (dispatch) => {
 			dispatch({
 				type: LOGIN_SUCCESS,
 				payload: res.config.data,
+				coachCreds: res.coachCreds,
 			});
 		})
 		.catch((err) => {
 			toastr.error(err);
 		});
 };
-//Get Coach Clientlist
-export const getClients = (token) => (dispatch) => {
+//Get current logged in coaches user information
+export const getCoach = (token) => (dispatch) => {
 	axiosWithCred
 		.get(`${process.env.REACT_APP_BACKEND}/coach/me`)
 		.then((res) => {
