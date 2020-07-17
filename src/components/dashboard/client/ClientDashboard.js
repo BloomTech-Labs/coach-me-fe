@@ -7,7 +7,7 @@ import { getClientInfo, getMyCoach } from "../../../redux/actions/clientActions"
 import ImageCircle from './imageUpload/ImageCircle';
 import "../../../sass/dashboard/client/clientDashboard.scss";
 import Calendar from './Calendar';
-
+import UpcomingSessions from './UpcomingSessions';
 const ClientDashboard = (props) => {
 	console.log("dashboard props",props)
 	const [goals] = useState([
@@ -47,7 +47,8 @@ const ClientDashboard = (props) => {
 					</div>
 				</div>
 			<div className="calendar-section">
-				<Calendar calendlyLink="https://calendly.com/brianetaveras/brian-will-tattoo-your-body" />
+				{props.state.id ? <UpcomingSessions></UpcomingSessions> : ''}
+				{props.state.coach_id ? <Calendar calendlyLink={props.state.calendly_url}/> : ''}
 			</div>
 			</div>
 		</div>
