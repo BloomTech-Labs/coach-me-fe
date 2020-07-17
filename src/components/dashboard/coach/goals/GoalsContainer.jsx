@@ -12,8 +12,14 @@ const GoalsContainer = (props) => {
     return (
         <div data-testid="goal-container" className={props.showInfo ? "goals-div" : "hidden"}>
             <h1 data-testid="clients-name" className="client-name">{state.first_name}'s Profile</h1>
-            <Backdrop show={showModal} set={setShowModal} />
-            <GoalForm showModal={showModal} />
+            {showModal ?
+            <div>
+                <Backdrop show={showModal} set={setShowModal} />
+                <GoalForm showModal={showModal} />
+            </div>
+            :
+            <div></div> 
+            }
             <GoalsDisplay />
             <button onClick={() => setShowModal(true)}>Create Goal</button>
         </div>

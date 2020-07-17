@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../../../sass/dashboard/coach/coachDashboard.scss";
 import { connect } from "react-redux";
 import { useDispatch, useSelector } from "react-redux";
 import { getCoach } from "../../../redux/actions/authActions";
@@ -31,7 +30,6 @@ const CoachDashboard = (props) => {
 		}
 	}, [state.id]);
 
-
 	return (
 		<>
 			<div className="coachdashboard-container">
@@ -52,15 +50,13 @@ const CoachDashboard = (props) => {
 						</h4>
 						{showInfo ?
 						<div>
-							<GoalsContainer 
-							showInfo={showInfo}
-							/>
-							<Metrics 
-								showInfo={showInfo} 
-							/>
+							<GoalsContainer showInfo={showInfo} />
+							<Metrics showInfo={showInfo} />
 						</div>
 						:
-						<div></div>
+						<h4 data-testid="coach-name" className="coach-name">
+							Welcome, {props.state.first_name}
+						</h4>
 						}
 				</div>
 				<div data-testid="notifications">

@@ -5,7 +5,7 @@ import "../../../../sass/dashboard/coach/notificationCenter/coachResourceCenter.
 const CoachResourceCenter = (props) => {
 	console.log("CoachResourceCenter");
 	return (
-		<div className="coach-resource-center-container">
+		<div data-testid="coach-resources" className="coach-resource-center-container">
 			<h1>Coach Resource Center</h1>
 		</div>
 	);

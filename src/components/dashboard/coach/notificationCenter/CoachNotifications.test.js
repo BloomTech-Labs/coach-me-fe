@@ -1,10 +1,10 @@
 import React from "react";
 import { Helper as render } from "../../../../utils/helpers";
 import "@testing-library/jest-dom/extend-expect";
-import GoalCardModal from "./GoalCardModal";
+import CoachNotifications from "./CoachNotifications";
 
-describe("GoalCardModal component", () => {
+describe("CoachNotifications component", () => {
 	it("Renders without crashing", async () => {
-		render(<GoalCardModal />);
+		render(<CoachNotifications />);
 	})
 })

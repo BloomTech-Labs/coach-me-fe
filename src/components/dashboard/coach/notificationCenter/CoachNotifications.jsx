@@ -6,11 +6,8 @@ import CoachNotificationCenter from "./CoachNotificationCenter";
 const CoachNotifications = (props) => {
 	console.log("CoachNotifications");
 	return (
-		<div className="coach-notification-container">
+		<div data-testid="coach-notification" className="coach-notification-container">
 			<h1>Notifications</h1>
-			<div className="notification-center">
-				<CoachNotificationCenter />
-			</div>
 		</div>
 	);
 };

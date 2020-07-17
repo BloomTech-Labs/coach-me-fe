@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { getCoach } from "../../../redux/actions/authActions";
 import { getClientList, getUnassignedClients } from "../../../redux/actions/coachActions";
@@ -29,7 +28,6 @@ const SearchForm = (props) => {
 	}, [currentCoachID])
 	// console.log("clientList", clientList);
 
-
 	useEffect(() => {
 		if(input != '') {
 			newList = data.filter(word => {
@@ -48,7 +46,6 @@ const SearchForm = (props) => {
 	}, [input]);
 	console.log(searchResult)
 	
-
 	useEffect(() => {
 		// if (input.length) {
 		// 	return searchResult;
@@ -56,13 +53,9 @@ const SearchForm = (props) => {
 		// return actualList;
 	}, [input]);
 
-
 	const handleChange = (e) => {
-		setInput(e.target.value);
-		
-		
+		setInput(e.target.value);		
 	};
-	
 
 	return (
 		<div data-testid="search-form" className="search-container">
@@ -73,7 +66,6 @@ const SearchForm = (props) => {
 				src={magnifying}
 				/>
 				<form className="search-form">
-					
 					<input
 					className="search-input"
 					placeholder="Client Name"
@@ -82,8 +74,6 @@ const SearchForm = (props) => {
 					/>
 				</form>
 			</div>
-			
-				
 				{searchResult.length <= 0 ? props.clientLIST.map((client, index) => {
 					return (
 						<ClientCard key={index}
@@ -101,22 +91,11 @@ const SearchForm = (props) => {
 						/>
 					);
 				})}
-				
-			
-			<button 
-				onClick={()=>setGettingClients(!gettingClients)}
-				>{gettingClients? "nvm" : "Get Clients"}</button>
-				
-				{gettingClients ? <ClientPicker /> : ''}
-		
-
-
+			<button onClick={()=>setGettingClients(!gettingClients)}>
+				{gettingClients? "nvm" : "Get Clients"}
+			</button>
+			{gettingClients ? <ClientPicker /> : ''}
 		</div>
-		
-
-		
-		
-
 	);
 };
 
