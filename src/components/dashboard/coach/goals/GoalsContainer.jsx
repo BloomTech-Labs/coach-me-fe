@@ -14,8 +14,8 @@ const GoalsContainer = (props) => {
             <h1 data-testid="clients-name" className="client-name">{state.first_name}'s Profile</h1>
             {showModal ?
             <div>
-                <Backdrop show={showModal} set={setShowModal} />
-                <GoalForm showModal={showModal} />
+                {/* <Backdrop show={showModal} set={setShowModal} /> */}
+                <GoalForm setShowModal={setShowModal} showModal={showModal} />
             </div>
             :
             <div></div> 

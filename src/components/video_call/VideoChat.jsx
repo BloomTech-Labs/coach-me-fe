@@ -35,7 +35,7 @@ const Chat = () => {
     const setPartnerStream = stream => setChatSession({...chatSession, partnerStream: stream});
 
     useEffect(() => {
-        socket.current = io.connect('http://localhost:3001');
+        socket.current = io.connect('https://88a0a1f9ce73.ngrok.io');
         socket.current.on("init", id => {
           setCallController( new VideoCall(id, socket) );
           setChatSession({...chatSession, userId: id });

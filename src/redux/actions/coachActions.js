@@ -1,4 +1,5 @@
 import api from "../../utils/api";
+import toastr from 'toastr';
 import {
 	GET_TEXT_START,
 	GET_TEXT_SUCCESS,
@@ -244,12 +245,16 @@ export const getSelectedClientGoal = (selectedGoal) => (dispatch) => {
 export const addClientGoal = (coachID, clientID, goal) => (dispatch) => {
 	axiosWithCred
 		.post(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/goals`, goal)
-		.then(() => {
+		.then((res) => {
+			console.log(res.data)
+			toastr.success('Goal successfully added.')
 			dispatch({
 				type: ADD_CLIENT_GOAL_SUCCESS,
+				payload: res.data
 			});
 		})
 		.catch((err) => {
+			toastr.error('There was an issue while adding your goal.')
 			dispatch({
 				type: ADD_CLIENT_GOAL_FAILURE,
 				payload: err.message,
@@ -262,14 +267,14 @@ export const updateClientGoal = (coachID, clientID, goalID, goal) => (dispatch) 
 	axiosWithCred
 	.put(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/goals/${goalID}`, goal)
 	.then((res) => {
-		console.log("updateClientGoal success", res.data)
 		dispatch({
 			type: UPDATE_CLIENT_GOAL_SUCCESS,
 			payload: res.data,
 		});
+		toastr.success('Goal successfully updated.')
 	})
 	.catch((err) => {
-		console.log("updateClientGoal failure", err.message)
+		toastr.error('There was an issue while updating your goal.')
 		dispatch({
 			type: UPDATE_CLIENT_GOAL_FAILURE,
 			payload: err.message,
@@ -288,6 +293,7 @@ export const deleteClientGoal = (coachID, clientID, goalID) => (dispatch) => {
 		});
 	})
 	.catch((err) => {
+		toastr.error('There was an error while deleting the client goal.')
 		dispatch({
 			type: DELETE_CLIENT_GOAL_FAILURE,
 			payload: err.message,
