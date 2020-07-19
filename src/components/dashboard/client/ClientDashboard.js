@@ -9,7 +9,6 @@ import "../../../sass/dashboard/client/clientDashboard.scss";
 import Calendar from './Calendar';
 import UpcomingSessions from './UpcomingSessions';
 const ClientDashboard = (props) => {
-	console.log("dashboard props",props)
 	const [goals] = useState([
 		{"started": "6/8/20", "title": "Exercise More", "description": "I will walk 5,000 steps 4 days this week", "completed": true},
 		{"started": "6/15/20", "title": "Exercise More", "description": "I will wall 8,000 steps 4 days this week.", "completed": false},
@@ -21,8 +20,10 @@ const ClientDashboard = (props) => {
 		
 	}, [props.state.coach_id]);
 	useEffect(() => {
-		
-		dispatch(getMyCoach(props.state.coach_id))
+		if(props.state.coach_id){
+			dispatch(getMyCoach(props.state.coach_id))
+		}
+	
 	}, [props.state.coach_id]);
 	
 	return (
