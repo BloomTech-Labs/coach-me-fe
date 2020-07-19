@@ -15,6 +15,7 @@ const GoalForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(addClientGoal(state.data.id, state.selectedClient.id, goal))
+        props.setShowModal(false)
     };
 
     return (
