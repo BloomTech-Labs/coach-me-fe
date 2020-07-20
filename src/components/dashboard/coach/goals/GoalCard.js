@@ -13,14 +13,14 @@ const GoalCard = (props) => {
 	const [showCardModal, setShowCardModal] = useState(false);
 
     return (
-        <div className="goal-card" onClick={() => {
-            setShowCardModal(!showCardModal)
+        <div className="goal-card" onClick={(e) => {
+            setShowCardModal(true);
             dispatch(getSelectedClientGoal(props.goal))}}
         >
             {showCardModal ?
             <div>
                 <Backdrop show={showCardModal} set={setShowCardModal} />
-                <GoalCardModal showCardModal={showCardModal} status={status} />
+                <GoalCardModal set={setShowCardModal} showCardModal={showCardModal} status={status} />
             </div>
             :
             <div data-testid="goalcard">

@@ -38,6 +38,7 @@
         "redux-devtools-extension": "^2.13.8",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
+        "simple-peer": "^9.7.2",
         "socket.io-client": "^2.3.0",
         "toastr": "^2.1.4",
         "twilio-chat": "^3.3.2",

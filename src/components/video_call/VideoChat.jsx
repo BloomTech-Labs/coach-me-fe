@@ -2,8 +2,11 @@ import React, {useState, useEffect, useRef} from 'react';
 import VideoCall from './VideoCall';
 import io from "socket.io-client";
 
+import "../../sass/chat/chat.scss";
+
 import Video from './Video';
-import { Caller, Available } from './PeerConnections';
+import { Caller, Available, OnlineUsers } from './PeerConnections';
+import SessionNotes from './SessionNotes';
 
 const Chat = () => {
     const [chatSession, setChatSession] = useState({
@@ -23,7 +26,8 @@ const Chat = () => {
         },
         callAccepted: false,
     });
-    const [ usersOnline, updateOnline ] = useState({})
+    const [ coachOnline, updateOnline ] = useState({});
+    const [ usersOnline, updateOnlineUsers ] = useState([]);
     const [callController, setCallController] = useState(false);
     
     const socket = useRef();
@@ -31,14 +35,20 @@ const Chat = () => {
     const setPartnerStream = stream => setChatSession({...chatSession, partnerStream: stream});
 
     useEffect(() => {
-        socket.current = io.connect('http://localhost:8000');
+        socket.current = io.connect('https://88a0a1f9ce73.ngrok.io');
         socket.current.on("init", id => {
           setCallController( new VideoCall(id, socket) );
           setChatSession({...chatSession, userId: id });
-        })
+        });
+        socket.current.on("coachOnline", (coach) => {
+          updateOnline({...coach});
+        });
         socket.current.on("usersOnline", (users) => {
-          updateOnline({...users});
-        })
+          console.log('Incoming User Data', users)
+          updateOnlineUsers([...usersOnline, ...users]);
+        });
+        socket.current.on("aClient", () => console.log("I'm a Client"));
+        socket.current.on("aCoach", () => console.log("I'm a Coach"));
         socket.current.on("callRequest", (data) => {
           setCallData({...callData, caller: { 
               id: data.from, name: data.from, signal: data.signal
@@ -48,12 +58,19 @@ const Chat = () => {
       }, []);
     return ( 
         <div className='chat-container'>
+            <h1>CoachMe Live Chat</h1>
             <div className='videos'>
                 <Video user='self' setUserStream={setUserStream} />
                 { chatSession.partnerStream && <Video user={callData.caller} stream={chatSession.partnerStream} callController={callController} /> }
             </div>
-            { callData.caller.signal && <Caller  caller={ callData.caller } answer={ callController.acceptCall } userStream={ chatSession.userStream } answerCallback={ setPartnerStream } /> }
-            { callController && <Available available={ Object.keys(usersOnline) } userStream={ chatSession.userStream } userId={ chatSession.userId } callPeer={ callController.callPeer } setPartnerStream={ setPartnerStream } /> }
+            <div className='button-container'>
+              { callData.caller.signal && <Caller  caller={ callData.caller } answer={ callController.acceptCall } userStream={ chatSession.userStream } answerCallback={ setPartnerStream } /> }
+              { callController && Object.entries(coachOnline).length && <Available available={ coachOnline } userStream={ chatSession.userStream } userId={ chatSession.userId } callPeer={ callController.callPeer } setPartnerStream={ setPartnerStream } /> }
+              { usersOnline.length > 0 && <OnlineUsers users={[...usersOnline]} userStream={ chatSession.userStream } userId={ chatSession.userId } callPeer={ callController.callPeer } setPartnerStream={ setPartnerStream } /> }
+            </div>
+            <div className='session-note-section'>
+              <SessionNotes />
+            </div>
         </div>
     );
 }

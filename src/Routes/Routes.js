@@ -29,6 +29,7 @@ import ProfileThree from "../components/register/client/onboarding/createProfile
 import ProfileFour from "../components/register/client/onboarding/createProfile/profileFour/ProfileFour";
 import ProfileFive from "../components/register/client/onboarding/createProfile/profileFive/ProfileFive";
 import ProfileSix from "../components/register/client/onboarding/createProfile/profileSix/ProfileSix";
+import VideoChat from '../components/video_call/VideoChat';
 
 //Styling
 import "../App.css";
@@ -98,6 +99,14 @@ const Routes = (props) => {
 					path="/client-login"
 					render={(props) => <LoginClient {...props} />}
 				/>
+				<Route path="/coach-login" component={LoginCoach} />
+				<Route path="/metrics" component={HealthMetric} />
+				<Route path="/dashboard" component={CoachDashboard} />
+				<Route path="/chat" component={VideoChat} />
+				<PrivateRoute
+					path="coach-notifications"
+					component={CoachNotifications} />
+					
 				<Route
 					path="/email-request"
 					render={(props) => <EmailRequest {...props} />}

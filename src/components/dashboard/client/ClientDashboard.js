@@ -9,7 +9,6 @@ import "../../../sass/dashboard/client/clientDashboard.scss";
 import Calendar from './Calendar';
 import UpcomingSessions from './UpcomingSessions';
 const ClientDashboard = (props) => {
-	console.log("dashboard props",props)
 	const [goals] = useState([
 		{"started": "6/8/20", "title": "Exercise More", "description": "I will walk 5,000 steps 4 days this week", "completed": true},
 		{"started": "6/15/20", "title": "Exercise More", "description": "I will wall 8,000 steps 4 days this week.", "completed": false},
@@ -21,8 +20,10 @@ const ClientDashboard = (props) => {
 		
 	}, [props.state.coach_id]);
 	useEffect(() => {
-		
-		dispatch(getMyCoach(props.state.coach_id))
+		if(props.state.coach_id){
+			dispatch(getMyCoach(props.state.coach_id))
+		}
+	
 	}, [props.state.coach_id]);
 	
 	return (
@@ -32,6 +33,7 @@ const ClientDashboard = (props) => {
 				<Link data-testid="resources" className="tab" to="resource-center">Resources</Link>
 				<Link data-testid="messges" className="tab" to="coach-messages">Messages</Link>
 				<Link data-testid="health-form" className="tab" to="metric-form">Health Form</Link>
+				<Link data-testid="chat" className="tab" to="chat">Chat</Link>
 			</div>
 			<div className="info-container">
 				<div className="profile-container">

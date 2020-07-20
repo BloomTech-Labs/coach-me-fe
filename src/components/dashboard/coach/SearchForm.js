@@ -24,8 +24,10 @@ const SearchForm = (props) => {
     let newList= [];
     
     useEffect(() => {
-		dispatch(getClientList(currentCoachID));
-	}, [currentCoachID, props.list])
+			if(props.state.id){
+				dispatch(getClientList(currentCoachID));
+			}
+	}, [currentCoachID])
 	// console.log("clientList", clientList);
 
 	useEffect(() => {
@@ -38,21 +40,11 @@ const SearchForm = (props) => {
 			})
 			setSearchResult(newList)
 			
-			console.log('new list',newList)
 		}else if(input === '') {
 			setSearchResult(data)
 		}
-		console.log(searchResult)
 	}, [input]);
-	console.log(searchResult)
 	
-	useEffect(() => {
-		// if (input.length) {
-		// 	return searchResult;
-		// }
-		// return actualList;
-	}, [input]);
-
 	const handleChange = (e) => {
 		setInput(e.target.value);		
 	};
