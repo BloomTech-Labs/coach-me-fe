@@ -54,9 +54,7 @@ const CoachDashboard = (props) => {
 							<Metrics showInfo={showInfo} />
 						</div>
 						:
-						<h4 data-testid="coach-name" className="coach-name">
-							Welcome, {props.state.first_name}
-						</h4>
+						""
 						}
 				</div>
 				<div data-testid="notifications">

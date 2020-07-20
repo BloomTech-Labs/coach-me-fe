@@ -17,13 +17,18 @@ const ClientPicker = (props) => {
         
         setDisplayClients(Object.entries(availableClients))
     },[availableClients])
+
+    const selectClient = (item) => {
+        dispatch(assignClient(props.state.id, item[1].id))
+        setDisplayClients(Object.entries(availableClients))
+    }
     console.log(props.state)
     return (
         <div className='available-client-display'>
             {displayClients?.map(item => {
                 return (
                     <div
-                    onClick={()=>dispatch(assignClient(props.state.id, item[1].id))}
+                    onClick={()=>selectClient(item)}
                      className="available-client">
                         <p>{item[1].first_name}</p>
                         <p>{item[1].last_name}</p>

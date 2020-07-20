@@ -144,8 +144,14 @@
 // styling for client search input in SearchForm.js
 
 .search-form {
-    margin-right: 10px;
+	margin-right: 10px;
+	
     
+}
+.search-container {
+	.getem {
+		cursor: pointer;
+	}
 }
 .client-in-dashboard {
     margin: .5em 0;
@@ -219,7 +225,7 @@
 	width: 100%;
 	padding: 10%;
 	background-color: #edf2f8;
-	f .name-container {
+	 .name-container {
 		font-family: "DM Sans";
 		font-size: 2rem;
 		color: #274160;

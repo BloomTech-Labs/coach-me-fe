@@ -48,7 +48,7 @@ const ClientDashboard = (props) => {
 				</div>
 			<div className="calendar-section">
 				{props.state.id ? <UpcomingSessions></UpcomingSessions> : ''}
-				{props.state.coach_id ? <Calendar calendlyLink={props.state.calendly_url}/> : ''}
+				{props.state.coach ? <Calendar calendlyLink={props.state.calendly_url}/> : ''}
 			</div>
 			</div>
 		</div>

@@ -25,7 +25,7 @@ const SearchForm = (props) => {
     
     useEffect(() => {
 		dispatch(getClientList(currentCoachID));
-	}, [currentCoachID])
+	}, [currentCoachID, props.list])
 	// console.log("clientList", clientList);
 
 	useEffect(() => {
@@ -91,7 +91,7 @@ const SearchForm = (props) => {
 						/>
 					);
 				})}
-			<button onClick={()=>setGettingClients(!gettingClients)}>
+			<button className='getem' onClick={()=>setGettingClients(!gettingClients)}>
 				{gettingClients? "nvm" : "Get Clients"}
 			</button>
 			{gettingClients ? <ClientPicker /> : ''}

@@ -200,7 +200,7 @@ export const getMyCoach = (id) => (dispatch) => {
             });
         })
         .catch((err) => {
-            toastr.error('There was an error while getting your coach information')
+            
         });
 };
 
