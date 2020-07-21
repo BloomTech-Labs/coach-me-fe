@@ -1,4 +1,5 @@
 import api from "../../utils/api";
+import toastr from 'toastr';
 import {
 	GET_TEXT_START,
 	GET_TEXT_SUCCESS,
@@ -12,7 +13,6 @@ import {
 	GET_METRICS_SUCCESS,
 	GET_METRICS_FAILURE,
 	GET_CHECKIN,
-	GET_GOALS,
 	ADD_SCHEDULE_MESSAGE_START,
 	ADD_SCHEDULE_MESSAGE_SUCCESS,
 	GET_SCHEDULE_MESSAGE_START,
@@ -21,7 +21,32 @@ import {
 	DELETE_SCHEDULE_MESSAGE_SUCCESS,
 	UPDATE_SCHEDULE_MESSAGE_START,
 	UPDATE_SCHEDULE_MESSAGE_SUCCESS,
+	GET_CLIENT_LIST_START,
+	GET_CLIENT_LIST_SUCCESS,
+	GET_CLIENT_LIST_FAILURE,
+	UPDATE_SELECTED_CLIENT,
+
+	//WORKING ON CURRENTLY 7/8/20
+	GET_CLIENT_GOALS_SUCCESS,
+	GET_CLIENT_GOALS_FAILURE,
+	GET_CLIENT_GOAL_SUCCESS,
+	GET_CLIENT_GOAL_FAILURE,
+	UPDATE_SELECTED_CLIENT_GOAL,
+	ADD_CLIENT_GOAL_SUCCESS,
+	ADD_CLIENT_GOAL_FAILURE,
+	UPDATE_CLIENT_GOAL_SUCCESS,
+	UPDATE_CLIENT_GOAL_FAILURE,
+	DELETE_CLIENT_GOAL_SUCCESS,
+	DELETE_CLIENT_GOAL_FAILURE,
+	//END OF WORKING ON CURRENTLY 7/8/20
+
+
+	GET_UNASSIGNED_CLIENTS,
+	ASSIGN_CLIENT
+
 } from "./types";
+
+import axiosWithCred from "../../utils/axiosWithCred";
 
 const headers = {
 	Authorization: localStorage.getItem("token"),
@@ -63,9 +88,57 @@ export const postMessage = (post) => (dispatch) => {
 		});
 };
 
-export const getClients = (token) => (dispatch) => {
+export const getClientList = (id) => (dispatch) => {
+	// console.log("coachActions getClientList id", id);
+	
+	axiosWithCred
+		.get(`${process.env.REACT_APP_BACKEND}/coach/${id}/clients`)
+		.then((res) => {
+			dispatch({
+				type: GET_CLIENT_LIST_SUCCESS,
+				payload: res.data,
+			});
+		})
+		.catch((err) => {
+			dispatch({
+				type: GET_CLIENT_LIST_FAILURE,
+				payload: err.message,
+			});
+		});
+};
+export const getUnassignedClients = () => (dispatch) => {
+	
+	axiosWithCred
+	.get(`${process.env.REACT_APP_BACKEND}/client/`)
+	.then(res => {
+		console.log(res)
+		dispatch({
+			type: GET_UNASSIGNED_CLIENTS,
+			payload: res.data
+		});
+	})
+	.catch(err => {
+		console.log(err)
+	})
+}
+export const assignClient = (id,clientId) => (dispatch) => {
+	axiosWithCred
+	.post(`${process.env.REACT_APP_BACKEND}/coach/${id}/clients/${clientId}`)
+	.then(res => {
+		console.log(res)
+	})
+	.catch(err => {
+		console.log(err)
+	})
+}
+
+export const updateSelectedClient = (selectedClient) => (dispatch) => {
+	dispatch({ type: UPDATE_SELECTED_CLIENT, payload: selectedClient});
+}
+
+export const getClients = (id) => (dispatch) => {
 	dispatch({ type: GET_RECORDS_START });
-	api.get(`http://localhost:5000/api/coach/me`, { withCredentials: true })
+	api.get(`${process.env.REACT_APP_BACKEND}/api/coach/${id}/clients`)
 		.then((res) => {
 			dispatch({
 				type: GET_RECORDS_SUCCESS,
@@ -83,7 +156,7 @@ export const getClients = (token) => (dispatch) => {
 export const getClientMetrics = (id) => (dispatch) => {
 	dispatch({ type: GET_METRICS_START });
 	api.get(
-		`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientMetrics/${id}`,
+		`${process.env.REACT_APP_BACKEND}/coachRoute/getClientMetrics/${id}`,
 		{
 			headers: {
 				Authorization: localStorage.getItem("token"),
@@ -107,7 +180,7 @@ export const getClientMetrics = (id) => (dispatch) => {
 
 export const getLastCheckInTime = (id) => (dispatch) => {
 	api.get(
-		`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getLastCheckinTime/${id}`,
+		`${process.env.REACT_APP_BACKEND}/coachRoute/getLastCheckinTime/${id}`,
 		{
 			headers: {
 				Authorization: localStorage.getItem("token"),
@@ -128,28 +201,104 @@ export const getLastCheckInTime = (id) => (dispatch) => {
 		});
 };
 
-export const getGoals = (id) => (dispatch) => {
-	api.get(
-		`${process.env.REACT_APP_BACK_END_URL}/coachRoute/getClientGoals/${id}`,
-		{
-			headers: {
-				Authorization: localStorage.getItem("token"),
-			},
-		}
-	)
-		.then((results) => {
-			const clientGoals = [...results.data.patientGoals];
+// get the list of client goals to the coach dashboard
+export const getClientGoals = (coachID, clientID) => (dispatch) => {
+	axiosWithCred
+	.get(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/goals`)
+	.then((res) => {
+		dispatch({
+			type: GET_CLIENT_GOALS_SUCCESS,
+			payload: res.data,
+		});
+	})
+	.catch((err) => {
+		dispatch({
+			type: GET_CLIENT_GOALS_FAILURE,
+			payload: err.message,
+		});
+	});
+};
+
+//gets the selected goal in the client list
+export const getClientGoal = (coachID, clientID, goalID) => (dispatch) => {
+	axiosWithCred
+	.get(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/goals/${goalID}`)
+	.then((res) => {
+		dispatch({
+			type: GET_CLIENT_GOAL_SUCCESS,
+			payload: res.data
+		});
+	})
+	.catch((err) => {
+		dispatch({
+			type: GET_CLIENT_GOAL_FAILURE,
+			payload: err.message,
+		});
+	});
+};
+
+export const getSelectedClientGoal = (selectedGoal) => (dispatch) => {
+	dispatch({ type: UPDATE_SELECTED_CLIENT_GOAL, payload: selectedGoal});
+}
+
+//add a goal to the client's goal list
+export const addClientGoal = (coachID, clientID, goal) => (dispatch) => {
+	axiosWithCred
+		.post(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/goals`, goal)
+		.then((res) => {
+			console.log(res.data)
+			toastr.success('Goal successfully added.')
 			dispatch({
-				type: GET_GOALS,
-				payload: clientGoals,
+				type: ADD_CLIENT_GOAL_SUCCESS,
+				payload: res.data
 			});
 		})
 		.catch((err) => {
+			toastr.error('There was an issue while adding your goal.')
 			dispatch({
-				type: COACH_ERROR,
+				type: ADD_CLIENT_GOAL_FAILURE,
 				payload: err.message,
 			});
 		});
+};
+
+//updates the selected goal in the client list
+export const updateClientGoal = (coachID, clientID, goalID, goal) => (dispatch) => {
+	axiosWithCred
+	.put(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/goals/${goalID}`, goal)
+	.then((res) => {
+		dispatch({
+			type: UPDATE_CLIENT_GOAL_SUCCESS,
+			payload: res.data,
+		});
+		toastr.success('Goal successfully updated.')
+	})
+	.catch((err) => {
+		toastr.error('There was an issue while updating your goal.')
+		dispatch({
+			type: UPDATE_CLIENT_GOAL_FAILURE,
+			payload: err.message,
+		});
+	});
+};
+
+//delete a goal from the client's goal list
+export const deleteClientGoal = (coachID, clientID, goalID) => (dispatch) => {
+	axiosWithCred
+	.delete(`${process.env.REACT_APP_BACKEND}/coach/${coachID}/clients/${clientID}/goals/${goalID}`)
+	.then((res) => {
+		dispatch({
+			type: DELETE_CLIENT_GOAL_SUCCESS,
+			payload: res.data,
+		});
+	})
+	.catch((err) => {
+		toastr.error('There was an error while deleting the client goal.')
+		dispatch({
+			type: DELETE_CLIENT_GOAL_FAILURE,
+			payload: err.message,
+		});
+	});
 };
 
 // get scheduled message

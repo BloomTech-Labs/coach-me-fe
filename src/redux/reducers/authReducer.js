@@ -30,7 +30,6 @@ const authReducer = (state = initialState, action) => {
 				...state,
 				loggingIn: false,
 				data: action.payload,
-				loggedIn: true,
 			};
 		case REGISTER_FAIL:
 			return {

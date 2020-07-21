@@ -1,97 +1,101 @@
 import React, { useState, useEffect } from "react";
-
-import { useSelector } from "react-redux";
+import { getCoach } from "../../../redux/actions/authActions";
+import { getClientList, getUnassignedClients } from "../../../redux/actions/coachActions";
+import {connect,useDispatch, useSelector} from "react-redux";
+import ClientPicker from './ClientPicker';
+import ClientCard from "../coach/clientsList/ClientCard";
 
 // Styling
 import "../../../sass/dashboard/coach/client_list/client_info/clientInfo.scss";
 import magnifying from "../../../utils/assets/icons/magnifying_glass.svg";
+import CoachDashboard from "./CoachDashboard";
+
+//changes
 
 const SearchForm = (props) => {
-	const state = useSelector((state) => state.coach);
-	const clientList = state.clientRecords;
-	const [ClientList, setClientList] = useState();
-	const [query, setquery] = useState();
-	const { setClient } = props;
-
-	const check = (goods) => {
-		Array.from(cardlist).filter((item) => {
-			const name = item.firstElementChild.textContent;
-			if (goods === name) {
-				item.classList.add("active1");
+	const clientList = useSelector((state) => state.coach.clientList);
+	const dispatch = useDispatch();
+	const currentCoachID = props.state.id;
+	const [showInfo, setShowInfo] = useState(false);
+	const [gettingClients, setGettingClients]=useState(false);
+	const [input, setInput] = useState('');
+	const data = props.clientLIST;
+    const [searchResult, setSearchResult] = useState(data);
+    let newList= [];
+    
+    useEffect(() => {
+			if(props.state.id){
+				dispatch(getClientList(currentCoachID));
 			}
-			if (goods !== name && item.classList.length === 2) {
-				item.classList.remove("active1");
-			}
-		});
-	};
-
-	const cardlist = document.getElementsByClassName(`client-card`);
-
-	const handleChange = (e) => {
-		e.preventDefault();
-		setquery(e.target.value);
-	};
+	}, [currentCoachID])
+	// console.log("clientList", clientList);
 
 	useEffect(() => {
-		if (clientList.length > 0) {
-			setClientList(clientList);
+		if(input != '') {
+			newList = data.filter(word => {
+				if(input[0] === input[0].toLowerCase() || input[0] === input[0].toUpperCase() ) {
+					// return input[0].toUpperCase()
+					return word.first_name.indexOf(input) != -1 || word.last_name.indexOf(input) != -1
+				}
+			})
+			setSearchResult(newList)
+			
+		}else if(input === '') {
+			setSearchResult(data)
 		}
-
-		if (query) {
-			setClientList(
-				clientList.filter((client) => {
-					const name = client.clientName.toLowerCase();
-					if (name.includes(query)) {
-						return client;
-					}
-				})
-			);
-		}
-	}, [query, clientList]);
+	}, [input]);
+	
+	const handleChange = (e) => {
+		setInput(e.target.value);		
+	};
 
 	return (
-		<>
-			<form className="search-form">
-				<div className="input-icon">
-					<img
-						className="magnifying-glass icon"
-						alt="magnifying-glass"
-						src={magnifying}
-					></img>
+		<div data-testid="search-form" className="search-container">
+			<div className="searchbar">
+				<img
+				className="magnifying-glass icon"
+				alt="magnifying-glass"
+				src={magnifying}
+				/>
+				<form className="search-form">
 					<input
-						data-cy="search"
-						className="search-input"
-						onChange={handleChange}
-						placeholder="Search Client"
-						value={query}
-						name="name"
+					className="search-input"
+					placeholder="Client Name"
+					name="first_name"
+					onChange={handleChange}
 					/>
-				</div>
-			</form>
-
-			<div className="scroll-list">
-				{/* {ClientList &&
-                    ClientList.map(client => (
-                        <div
-                            className='client-card'
-                            onClick={() => {
-                                if (client.clientName) {
-                                    check(client.clientName);
-                                }
-                                setClient(client.clientId);
-                            }}
-                        >
-                            <ClientCard
-                                key={client.clientId}
-                                client={client}
-                                setClient={props.setClient}
-                                check={check}
-                            />
-                        </div>
-                    ))} */}
-				<h4 className="aint">You Currently have no clients!</h4>
+				</form>
 			</div>
-		</>
+				{searchResult.length <= 0 ? props.clientLIST.map((client, index) => {
+					return (
+						<ClientCard key={index}
+						client={client}
+						showInfo={props.showInfo}
+						setShowInfo={props.setShowInfo}
+						/>
+					);
+				}) : searchResult.map((client, index) => {
+					return (
+						<ClientCard key={index}
+						client={client}
+						showInfo={props.showInfo}
+						setShowInfo={props.setShowInfo}
+						/>
+					);
+				})}
+			<button className='getem' onClick={()=>setGettingClients(!gettingClients)}>
+				{gettingClients? "nvm" : "Get Clients"}
+			</button>
+			{gettingClients ? <ClientPicker /> : ''}
+		</div>
 	);
 };
-export default SearchForm;
+
+const mapStateToProps = (state) => {
+	return {
+		state: state.coach.data,
+		clientList: state.coach.clientList,
+		loggedIn: state.auth.loggedIn,
+	};
+};
+export default connect(mapStateToProps)(SearchForm);

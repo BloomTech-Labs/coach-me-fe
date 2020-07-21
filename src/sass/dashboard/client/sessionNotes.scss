@@ -1,0 +1,29 @@
+$blue: #355478;
+$white: #ffffff;
+$pinkish: #ff98a1;
+
+.notes-container {
+    margin-top: 1em;
+
+    h1 {
+        font-size: 3em;
+    }
+
+    .cards-container {
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+
+        .note-card {
+            width: 60%;
+            margin: 2em;
+            padding: 2em;
+            border: .2em solid $blue;
+
+            p {
+                padding: .5em;
+                font-size: 2em;
+            }
+        }
+    }
+}

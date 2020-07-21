@@ -1,37 +1,84 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 .coachdashboard-container {
 	display: flex;
-	margin-top: 8.9em;
+	margin-top: 0.5em;
 	height: 77vh;
-	@media(min-width: 800px) {
-		margin-top: 12em;
+	@media (min-width: 800px) {
+		margin-top: 0.5em;
 	}
 
 	.coach-name {
 		text-align: center;
-		font-size: 2em;
+		font-size: 2.5em;
 		margin-top: 2em;
 	}
 
-	
-
 	.clientlist-container {
+		width: 34em;
 		border: 2px solid rgba(0, 0, 0, 0.05);
 		display: flex;
 		flex-direction: column;
 		background: rgba(0, 0, 0, 0.05);
 
-		form {
-			margin-top: -20px;
+		.search-container {
+			display: flex;
+			flex-direction: column;
+
+			.searchbar {
+				margin: 0 auto;
+
+				.search-form {
+					display: flex;
+					flex-direction: row;
+
+					img {
+						margin-right: 1em;
+					}
+
+					.input-values {
+						display: flex;
+						align-items: center;
+
+						.search-input {
+							text-align: center;
+							width: 7.5em;
+							height: 4.5rem;
+							background-color: #edf2f8;
+							border: none;
+							font-size: 1.6rem;
+							color: #717d8b;
+							border: 1px solid #c4cfdd;
+							margin-right: 0.3em;
+							border-radius: 26px;
+						}
+						.button {
+							button {
+								background-color: #ff98a1;
+								color: white;
+								padding-top: 0.5em;
+								padding-bottom: 0.5em;
+								font-size: 1.3em;
+								width: 4em;
+								border-radius: 20px;
+								font-family: "DM Sans", sans-serif;
+							}
+						}
+					}
+				}
+			}
 		}
+		//form {
+		// margin-top: -20px;
+		//}
 	}
 
 	.clientinfo-container {
+		width: 106em;
 		overflow-y: scroll;
-		width: 60%;
+		// width: 70%;
 		background-color: #f6f6f6;
-		display: flex;
-		flex-direction: column;
+		// display: flex;
+		// flex-direction: column;
 		border: 2px solid rgba(0, 0, 0, 0.05);
 
 		.welcome-text {
@@ -39,6 +86,46 @@
 			text-align: center;
 		}
 	}
+
+	.tabs-container {
+		// display: flex;
+		// flex-direction: column;
+		// justify-content: flex-start;
+		// width: 100%;
+		// height: 8em;
+		// margin: 1rem;
+		// font-size: 2em;
+		// border: 1px solid black;
+
+		// .tab {
+		// 	height: 2em;
+		// 	text-decoration: none;
+		// 	color: black;
+		// 	border-top: 1px solid black;
+		// }
+
+		// .top {
+		// 	border: none;
+		// }
+
+		// .notifications {
+		// 	display: flex;
+		// 	justify-content: space-between;
+
+		// 	.notification-count {
+		// 		display: flex;
+		// 		justify-content: center;
+		// 		height: 25px;
+		// 		width: 25px;
+		// 		margin-right: 1em;
+		// 		color: white;
+		// 		background-color: tomato;
+		// 		border: 2px solid red;
+		// 		border-radius: 50%;
+		// 	}
+		// }
+	}
+
 	.coach-messaging {
 		width: 33%;
 		display: flex;

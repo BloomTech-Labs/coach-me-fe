@@ -1,36 +1,65 @@
-import React, { useEffect } from "react";
-import Notifications from "./Notifications";
-import ResourceCenter from "./ResourceCenter";
-import SessionNotes from "./SessionNotes";
-import HealthMetric from "../client/health_metrics/HealthMetric";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import GoalCard from "./GoalCard";
+import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
-import { getClientInfo } from "../../../redux/actions/clientActions";
+import { Link } from "react-router-dom";
+import { getClientInfo, getMyCoach, getClientGoals } from "../../../redux/actions/clientActions";
+import ImageCircle from './imageUpload/ImageCircle';
 import "../../../sass/dashboard/client/clientDashboard.scss";
-
+import Calendar from './Calendar';
+import UpcomingSessions from './UpcomingSessions';
 const ClientDashboard = (props) => {
+	
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getClientInfo());
-	}, []);
-	const state = useSelector((state) => state.client);
+		
+	}, [props.state.coach_id]);
+	useEffect(() => {
+		if(props.state.coach_id){
+			dispatch(getMyCoach(props.state.coach_id))
+			dispatch(getClientGoals(props.state.coach_id, props.state.id))
+		}
+	
+	}, [props.state.coach_id]);
 
 	return (
 		<div className="client-dashboard">
-			<div className="profile-container">
-				{<h4>Welcome, {props.state.first_name}!</h4>}
+			<div className="tabs-container">
+				<Link data-testid="notifications" className="tab notifications" to="client-notifications"><p>Notifications</p><div className="count">2</div></Link>
+				<Link data-testid="resources" className="tab" to="resource-center">Resources</Link>
+				<Link data-testid="messges" className="tab" to="coach-messages">Messages</Link>
+				<Link data-testid="health-form" className="tab" to="metric-form">Health Form</Link>
+				<Link data-testid="chat" className="tab" to="chat">Video Chat</Link>
 			</div>
-			<Notifications />
-			<ResourceCenter />
-			<SessionNotes />
-			<HealthMetric />
+			<div className="info-container">
+				<div className="profile-container">
+					<ImageCircle />
+					{props.state.coach_id ? <h4 className='my-coach'>Your coach is: {props.coach.first_name} {props.coach.last_name}</h4> : <h4>You dont have a coach yet.</h4> }
+						
+						<p className="motivation">Motivation: client's motivation for coming to the app</p>
+					<div className="goals-container">
+						<h2>Goals:</h2>
+						{props.goals.length ? props.goals.map((g, index) => {
+							return <GoalCard key={index} goal={g} />
+						}): <h4>You Have no goals, loser.</h4>} 	
+					</div>
+				</div>
+			<div className="calendar-section">
+				{props.state.id ? <UpcomingSessions></UpcomingSessions> : ''}
+				{props.state.coach ? <Calendar calendlyLink={props.state.calendly_url}/> : ''}
+			</div>
+			</div>
 		</div>
 	);
 };
 
 const mapStateToProps = (state) => {
 	return {
-		state: state.client.client_data,
+		state: state.client.client_data, 
+		loggedIn: state.client.loggedIn,
+		coach: state.client.myCoach,
+		goals: state.client.myGoals
 	};
 };
 

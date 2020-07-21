@@ -1,0 +1,66 @@
+$blue: #355478;
+$white: #ffffff;
+$pinkish: #ff98a1;
+
+
+.notification-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 1em;
+
+    .top-section {
+        display: flex;
+        flex-direction: row;
+
+        h1 {
+            padding: 1em;
+            align-self: center;
+            margin: 0 1em;
+            font-size: 3em;
+        }
+    }
+
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+        background: rgba(0, 0, 0, 0.05);
+
+        .notification-card {
+            width: 60em;
+            margin: 2em;
+            padding: 2em;
+            background-color: $white;
+            border: .2em solid $blue;
+            border-radius: 2em;
+
+            h2 {
+                display: flex;
+                align-self: center;
+                margin: 0 1em;
+                font-size: 2.5em;
+            }
+
+            p {
+                padding-top: 1em;
+                font-size: 2em;
+            }
+
+            .top-card {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                
+                .close-btn {
+                    display: flex;
+                    justify-content: center;
+                    width: 1.5em;
+                    height: 1.5em;
+                    font-size: 2em;
+                }
+            }
+        }
+    }
+}

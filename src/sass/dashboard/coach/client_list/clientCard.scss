@@ -1,42 +1,45 @@
-@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css?family=DM+Sans&display=swap");
 
 .name-container {
-    h1 {
-        font-family: 'DM Sans';
-        font-size: 1.6rem;
-        color: #274160;
-        font-weight: medium;
-        width: 100%;
-    }
+	cursor: pointer;
+	h1 {
+		font-family: "DM Sans";
+		font-size: 2rem;
+		color: #274160;
+		font-weight: medium;
+		width: 100%;
+		line-height: 2.5em;
+		border-bottom: 2px solid;
+	}
 }
 
 .client-card {
-    display: flex;
-    align-items: center;
-    border: 1px solid #c4cfdd;
-    width: 100%;
-    padding: 10%;
-    background-color: #edf2f8;
-    cursor: pointer;
-        h1 {
-        font-family: 'DM Sans';
-        font-size: 1.6rem;
-        color: #274160;
-        font-weight: medium;
-    }
+	display: flex;
+	align-items: center;
+	border: 1px solid #c4cfdd;
+	width: 100%;
+	padding: 10%;
+	background-color: #edf2f8;
+	cursor: pointer;
+	    h1 {
+		font-family: "DM Sans";
+		font-size: 1.6rem;
+		color: #274160;
+		font-weight: medium;
+	}
 }
 
 .active1 {
-    background-color: #9ab2ce;
-    h1 {
-        color: #ffffff;
-    }
+	background-color: #9ab2ce;
+	h1 {
+		color: #ffffff;
+	}
 
-    .active1 {
-        background-color: #9ab2ce;
+	.active1 {
+		background-color: #9ab2ce;
 
-        h1 {
-            color: #ffffff;
-        }
-    }
+		h1 {
+			color: #ffffff;
+		}
+	}
 }
