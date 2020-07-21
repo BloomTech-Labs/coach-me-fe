@@ -21,6 +21,9 @@ const CoachNotificationCenter = (props) => {
 				<Link className="tab" to="">
 					Track Progress
 				</Link>
+				<Link className="tab" to="/chat">
+					Video Chat
+				</Link>
 			</div>
 		</div>
 	);

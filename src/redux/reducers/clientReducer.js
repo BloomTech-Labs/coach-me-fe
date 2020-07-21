@@ -19,6 +19,7 @@ import {
     CLIENT_REGISTER_SUCCESS,
     CLIENT_LOGIN_SUCCESS,
     GET_MY_COACH,
+    GET_CLIENT_GOALS,
 } from '../actions/types';
 
 const initialState = {
@@ -40,8 +41,9 @@ const initialState = {
     },
     loggedIn: false,
     clientMetrics: [],
-		myCoach: {},
-		upcomingSessions: []
+    myCoach: {},
+    upcomingSessions: [],
+    myGoals : []
 		
 };
 
@@ -105,7 +107,12 @@ export default (state = initialState, action) => {
 						return {
 							...state,
 							upcomingSessions: action.payload
-						}
+                        }
+        case GET_CLIENT_GOALS:
+            return {
+                ...state,
+                myGoals: action.payload
+            }
         default:
             return state;
     }

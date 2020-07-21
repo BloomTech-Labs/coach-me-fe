@@ -99,7 +99,6 @@ const Routes = (props) => {
 					path="/client-login"
 					render={(props) => <LoginClient {...props} />}
 				/>
-				<Route path="/coach-login" component={LoginCoach} />
 				<Route path="/metrics" component={HealthMetric} />
 				<Route path="/dashboard" component={CoachDashboard} />
 				<Route path="/chat" component={VideoChat} />

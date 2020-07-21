@@ -18,7 +18,8 @@ import {
     GET_METRICS_SUCCESS,
     GET_METRICS_FAILURE,
     GET_MY_COACH,
-    GET_UPCOMING_SESSIONS
+    GET_UPCOMING_SESSIONS,
+    GET_CLIENT_GOALS,
 } from './types';
 
 export const getClientInfoRegister = (userAccountDetails) => (dispatch) => {
@@ -212,5 +213,17 @@ export const getUpcomingSessions = (id) => (dispatch) => {
         })
     }).catch(err=>{
         console.dir('Geting sessions')
+    })
+}
+
+export const getClientGoals = (id, clientId) => (dispatch) => {
+    axiosWithCred.get(`/coach/${id}/clients/${clientId}/goals`).then(res=>{
+        console.log(res)
+        dispatch({
+            type: GET_CLIENT_GOALS,
+            payload: res.data
+        })
+    }).catch(err=>{
+        console.dir('Geting goals')
     })
 }

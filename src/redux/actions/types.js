@@ -43,6 +43,7 @@ export const GET_UNASSIGNED_CLIENTS = 'GET_UNASSIGNED_CLIENTS';
 export const ASSIGN_CLIENT = 'ASSIGN_CLIENT';
 // get list of clients for CoachDashboard
 export const GET_CLIENT_SESSIONS = 'GET_CLIENT_SESSIONS'
+export const GET_CLIENT_GOALS = 'GET_CLIENT_GOALS';
 //get client coach
 export const GET_MY_COACH = 'GET_MY_COACH';
 export const GET_CLIENT_LIST_START = "GET_CLIENT_LIST_START";
