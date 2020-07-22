@@ -20,9 +20,10 @@ $pinkish: #ff98a1;
 
 .client-dashboard {
     display: flex;
-    padding-top: 2em;
+    padding: 2% 0;
     font-size: 2em;
     font-family: 'Karla', sans-serif;
+    
 
     // font-family: 'Karla', sans-serif;
     .my-coach {
@@ -159,7 +160,8 @@ $pinkish: #ff98a1;
 
     .calendar-section {
         width: 50%;
-        overflow: hidden;
+        overflow: scroll;
+        box-sizing: content-box;
 
         .calendar-datetime-picker {
             padding: 10px;
@@ -187,7 +189,7 @@ $pinkish: #ff98a1;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
             margin: 10px;
             border-radius: 10px;
-            overflow-y: hidden;
+            
 
             h3 {
                 text-align: center;
