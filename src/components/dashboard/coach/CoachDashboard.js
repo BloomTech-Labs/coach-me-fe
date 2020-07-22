@@ -45,8 +45,7 @@ const CoachDashboard = (props) => {
 
 				<div data-testid="clientinfo" className="clientinfo-container">
 						<h4 data-testid="coach-name" className="coach-name">
-							Welcome,
-							{props.state.first_name} {props.state.last_name}
+							Welcome, {props.state.first_name} {props.state.last_name}!
 						</h4>
 						{showInfo ?
 						<div>
