@@ -44,7 +44,6 @@ const Chat = () => {
           updateOnline({...coach});
         });
         socket.current.on("usersOnline", (users) => {
-          console.log('Incoming User Data', users)
           updateOnlineUsers([...usersOnline, ...users]);
         });
         socket.current.on("aClient", () => console.log("I'm a Client"));
@@ -58,10 +57,15 @@ const Chat = () => {
       }, []);
     return ( 
         <div className='chat-container'>
-            <h1>CoachMe Live Chat</h1>
             <div className='videos'>
-                <Video user='self' setUserStream={setUserStream} />
-                { chatSession.partnerStream && <Video user={callData.caller} stream={chatSession.partnerStream} callController={callController} /> }
+                <div className="my-video">
+                  <Video user='self' setUserStream={setUserStream} />
+                </div>
+                { 
+                // chatSession.partnerStream &&
+                <div className="peers-video">
+                  <Video poster="https://media.tenor.com/images/96abb4fe817afa8bb2d0ad9439b30f0b/tenor.gif" user={callData.caller} className="peers-video" stream={chatSession.partnerStream} callController={callController} /> 
+                </div>}
             </div>
             <div className='button-container'>
               { callData.caller.signal && <Caller  caller={ callData.caller } answer={ callController.acceptCall } userStream={ chatSession.userStream } answerCallback={ setPartnerStream } /> }
