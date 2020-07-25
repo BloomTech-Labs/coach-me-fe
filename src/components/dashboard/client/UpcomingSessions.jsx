@@ -23,26 +23,29 @@ function UpcomingSessions({ user, sessions }) {
         <div id="upcoming-session-section">
             <h3>Upcoming Sessions</h3>
             <hr/>
-            {sessions.map((el) => {
-                return (
-                    <div key={el.id} className="upcoming-session-card">
-                        <div className="session-line">
-                            <strong>Date:</strong>{' '}
-                            {new Intl.DateTimeFormat(
-                                'en-US',
-                                dateOptions
-                            ).format(new Date(el.session_date))}
+            { sessions.length ? 
+                <div>
+                {sessions.map((el) => {
+                    return (
+                        <div key={el.id} className="upcoming-session-card">
+                            <div className="session-line">
+                                <strong>Date:</strong>{' '}
+                                {new Intl.DateTimeFormat(
+                                    'en-US',
+                                    dateOptions
+                                ).format(new Date(el.session_date))}
+                            </div>
+                            <div className="session-line">
+                                <strong>Notes:</strong> {el.notes}
+                            </div>
+                            <div className="session-line">
+                                <strong>Coach:</strong>{' '}
+                                {`${user.coach.first_name} ${user.coach.last_name}`}
+                            </div>
                         </div>
-                        <div className="session-line">
-                            <strong>Notes:</strong> {el.notes}
-                        </div>
-                        <div className="session-line">
-                            <strong>Coach:</strong>{' '}
-                            {`${user.coach.first_name} ${user.coach.last_name}`}
-                        </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div> : <div class="no-sessions">You don't have any upcoming sessions</div>}
         </div>
     );
 }

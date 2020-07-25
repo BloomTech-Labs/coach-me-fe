@@ -45,7 +45,7 @@
         bottom: 2%;
         right: 2%;
         width: 400px;
-       
+
         textarea {
             all: unset;
             background: white;
@@ -77,19 +77,19 @@
             overflow-y: scroll;
             padding: 0 10px;
 
-            &::-webkit-scrollbar-thumb{
-               background: white;
-               opacity: 0.5;
-               border-radius: 5px;
+            &::-webkit-scrollbar-thumb {
+                background: white;
+                opacity: 0.5;
+                border-radius: 5px;
             }
-            &::-webkit-scrollbar{
+            &::-webkit-scrollbar {
                 width: 10px;
                 background: #363636;
                 opacity: 0.7;
-                border-radius: 5px; 
+                border-radius: 5px;
                 margin-left: 10px;
 
-                &:hover{
+                &:hover {
                     opacity: 1;
                 }
             }
@@ -102,6 +102,90 @@
                 margin: 5px 0;
                 overflow-wrap: anywhere;
             }
+        }
+    }
+
+    .online-users {
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+        padding: 10px;
+        // width: 300px;
+        max-height: 400px;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+
+        button {
+            position: relative;
+            all: unset;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRionTtxUfdanGm9HhxO8Y81zfBuKeAiaDwrw&usqp=CAU');
+            background-size: cover;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+
+            &::before {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                pointer-events: none;
+                content: 'Call';
+                position: absolute;
+                bottom: 4%;
+                right: 4%;
+                height: 30px;
+                width: 30px;
+                background: white;
+                border-radius: 50%;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: white;
+            opacity: 0.5;
+            border-radius: 5px;
+        }
+        &::-webkit-scrollbar {
+            width: 10px;
+            background: #363636;
+            opacity: 0.7;
+            border-radius: 5px;
+            margin-left: 10px;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        // z-index: 999;
+    }
+
+    .incoming-call {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        button {
+            all: unset;
+            background: white;
+            padding: 20px;
+            border-radius: 25px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.4rem;
+            color: white;
+            margin: 10px 0;
         }
     }
 }

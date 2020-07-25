@@ -11,7 +11,7 @@ const Caller = props => {
     return(
 
         <>
-            { visibility && <button value={ props.caller.id } onClick={handleAnswer}>{props.caller.name ? `Answer ${props.caller.name}` : 'Next Call'}</button> }
+            { visibility && <button value={ props.caller.id } onClick={handleAnswer}>{props.caller.name ? `Answer` : 'Next Call'}</button> }
         </>
     );
 }
@@ -42,7 +42,7 @@ const OnlineUsers = props => {
     }
     return (
         <div>
-            { visibility && props.users.map(user => <button key={ user } value={ user } onClick={ handleCall }>Call ID: {user} </button>)}
+            { visibility && props.users.map(user => <button key={ user } value={ user } onClick={ handleCall }></button>)}
         </div>
     );
 }

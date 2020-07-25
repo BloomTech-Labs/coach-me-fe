@@ -39,7 +39,7 @@ const Video = props => {
     }
     return (
         <div className="stream-block">
-            <video poster="https://thumbs.gfycat.com/AlarmingMindlessFlamingo-small.gif" ref={ videoRef } autoPlay playsInline muted></video>
+            <video poster="https://thumbs.gfycat.com/AlarmingMindlessFlamingo-small.gif" ref={ videoRef } autoplay playsInline muted={props.muted}></video>
            { props.user === 'self' && <button className="start-video-btn" onClick={ handleClick }>{ !streamState.active ? <i className="fas fa-video"></i> : <i className="fas fa-video-slash"></i>}</button> }
         </div>
     );
