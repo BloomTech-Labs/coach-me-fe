@@ -20,9 +20,13 @@ $pinkish: #ff98a1;
 
 .client-dashboard {
     display: flex;
-    padding-top: 2em;
+    padding: 2% 0;
     font-size: 2em;
     font-family: 'Karla', sans-serif;
+    @media(max-width: 400px) {
+        flex-direction: column;
+    }
+    
 
     // font-family: 'Karla', sans-serif;
     .my-coach {
@@ -53,25 +57,20 @@ $pinkish: #ff98a1;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 8em;
         width: 15%;
         font-size: 1em;
 
-        @include responsive(tablet) {
+       
+
+        @media(max-width: 600px) {
             flex-direction: row;
             flex-wrap: wrap;
             width: 100%;
-            height: 6em;
-        }
-
-        @include responsive(phone) {
-            height: 10em;
-            margin-bottom: 0.2em;
+            
         }
 
         .tab {
             display: flex;
-            height: 2em;
             margin: 0.1em;
             padding: 0.1em;
             text-decoration: none;
@@ -82,7 +81,6 @@ $pinkish: #ff98a1;
 
             @include responsive(tablet) {
                 width: 10em;
-                height: 2em;
                 margin: 0 2em;
                 border-radius: 0 0 1em 1em;
             }
@@ -121,6 +119,11 @@ $pinkish: #ff98a1;
         margin: 0.5em 2em;
         width: 100%;
 
+        @media(max-width: 400px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
         @include responsive(tablet) {
             width: 100%;
             margin: 0;
@@ -133,6 +136,9 @@ $pinkish: #ff98a1;
             padding: 20px;
             box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
             border-radius: 15px;
+            @media(max-width: 400px) {
+                width: 100%;
+            }
             .motivation {
                 padding: 1em;
                 color: $white;
@@ -153,13 +159,20 @@ $pinkish: #ff98a1;
             .goals-container {
                 padding: 10px;
                 background: #f1f1f1;
+                @media(max-width: 400px) {
+                    width: 100%;
+                }
             }
         }
     }
 
     .calendar-section {
         width: 50%;
-        overflow: hidden;
+        overflow: scroll;
+        box-sizing: content-box;
+        @media(max-width: 400px) {
+            width: 100%;
+        }
 
         .calendar-datetime-picker {
             padding: 10px;
@@ -187,7 +200,7 @@ $pinkish: #ff98a1;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
             margin: 10px;
             border-radius: 10px;
-            overflow-y: hidden;
+            
 
             h3 {
                 text-align: center;
