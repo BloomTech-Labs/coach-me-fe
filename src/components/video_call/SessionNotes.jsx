@@ -16,7 +16,6 @@ const SessionNotes = (props) => {
             {note}
         ])
         updateNote('')
-        console.log(notesContainer)
         notesContainer.current.scrollTop = notesContainer.current.scrollHeight;
         // updateNote((note) => '');
         // try {
