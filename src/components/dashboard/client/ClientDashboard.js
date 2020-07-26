@@ -36,7 +36,7 @@ const ClientDashboard = (props) => {
 						<h2>Goals:</h2>
 						{props.goals.length ? props.goals.map((g, index) => {
 							return <GoalCard key={index} goal={g} />
-						}): <h4>You Have no goals, loser.</h4>} 	
+						}): <h4>You Have no goals.</h4>} 	
 					</div>
 				</div>
 			<div className="calendar-section">

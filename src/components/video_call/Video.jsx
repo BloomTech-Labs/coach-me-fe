@@ -21,7 +21,7 @@ const Video = props => {
 
     const startStream = async () => {
         try {
-            const newStream = await navigator.mediaDevices.getUserMedia({audio: true, video: true});
+            const newStream = await navigator.mediaDevices.getUserMedia({audio: true, video: true, autoplay: true});
             setStreamState({stream: newStream, active: true});
             props.setUserStream(newStream);
         } catch(err){
@@ -39,7 +39,7 @@ const Video = props => {
     }
     return (
         <div className="stream-block">
-            <video poster="https://thumbs.gfycat.com/AlarmingMindlessFlamingo-small.gif" ref={ videoRef } autoplay playsInline muted={props.muted}></video>
+            <video poster="https://thumbs.gfycat.com/AlarmingMindlessFlamingo-small.gif" ref={ videoRef } autoPlay playsInline muted={props.muted}></video>
            { props.user === 'self' && <button className="start-video-btn" onClick={ handleClick }>{ !streamState.active ? <i className="fas fa-video"></i> : <i className="fas fa-video-slash"></i>}</button> }
         </div>
     );

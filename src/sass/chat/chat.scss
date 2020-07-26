@@ -46,6 +46,10 @@
         right: 2%;
         width: 400px;
 
+        @media(max-width: 800px){
+            display: none;
+        }
+
         textarea {
             all: unset;
             background: white;
@@ -115,6 +119,7 @@
         overflow-y: scroll;
         display: flex;
         flex-direction: column;
+        
 
         button {
             position: relative;

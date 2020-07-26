@@ -99,7 +99,7 @@ const Routes = (props) => {
 					render={(props) => <LoginClient {...props} />}
 				/>
 				<Route path="/metrics" component={HealthMetric} />
-				<PrivateRoute path="/chat" component={VideoChat} />
+				<Route path="/chat" component={VideoChat} />
 				<PrivateRoute
 					path="/coach-notifications"
 					component={CoachNotifications} />
