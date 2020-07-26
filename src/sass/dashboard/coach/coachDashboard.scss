@@ -7,11 +7,7 @@
 		margin-top: 0.5em;
 	}
 
-	.coach-name {
-		text-align: center;
-		font-size: 2.5em;
-		margin-top: 2em;
-	}
+
 
 	.clientlist-container {
 		width: 34em;
@@ -81,9 +77,37 @@
 		// flex-direction: column;
 		border: 2px solid rgba(0, 0, 0, 0.05);
 
-		.welcome-text {
-			font-size: 2em;
+		
+		.coach-name {
+			background-color: white;
+			width: 60%;
+			margin: 0 auto;
+			padding: 2%;
+			border: 1px solid black;
+			border-radius: 4px;
+			font-family: 'DM Sans', sans-serif;
 			text-align: center;
+			font-size: 4em;
+			margin-top: 2em;
+			box-shadow: 1px 1px 4px #333;
+		}
+
+		.nobody {
+			width: 80%;
+			margin: 0 auto;
+			height: 30vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.not-a-client {
+				text-align: center;
+				font-family: 'DM Sans', sans-serif;
+				font-size: 3.3em;
+				font-weight: bold;
+				box-shadow: 1px 1px 4px #333;
+				border-radius: 4px;
+				padding: 2%;
+			}
 		}
 	}
 
