@@ -53,7 +53,10 @@ const CoachDashboard = (props) => {
 							<Metrics showInfo={showInfo} />
 						</div>
 						:
-						""
+						<div className='nobody'>
+								<h4 className='not-a-client'>Select One of Your Clients to see their progress.</h4>
+						</div>
+					
 						}
 				</div>
 				<div data-testid="notifications">
