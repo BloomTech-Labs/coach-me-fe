@@ -37,7 +37,7 @@ const Chat = () => {
         setChatSession({ ...chatSession, partnerStream: stream });
 
     useEffect(() => {
-        socket.current = io(process.env.VIDEO_SOCKET_SERVER);
+        socket.current = io('https://coach-me-be.herokuapp.com/');
         socket.current.on('init', (id) => {
             setCallController(new VideoCall(id, socket));
             setChatSession({ ...chatSession, userId: id });

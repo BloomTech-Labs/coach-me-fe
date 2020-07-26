@@ -45,7 +45,7 @@ function UpcomingSessions({ user, sessions }) {
                         </div>
                     );
                 })}
-            </div> : <div class="no-sessions">You don't have any upcoming sessions</div>}
+            </div> : <div className="no-sessions">You don't have any upcoming sessions</div>}
         </div>
     );
 }
