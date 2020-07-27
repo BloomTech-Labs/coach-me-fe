@@ -116,30 +116,4 @@ export default (state = initialState, action) => {
         default:
             return state;
     }
-    // case UPDATE_METRIC_SUCCESS:
-    // 	return {
-    // 		...state,
-    // 		isfetching: false,
-    // 		records: { ...action.payload },
-    // 		error: "",
-    // 	};
-    // case UPDATE_METRIC_FAILURE:
-    // 	return {
-    // 		...state,
-    // 		isfetching: false,
-    // 		err: action.payload,
-    // 	};
-    // case GET_METRICS_SUCCESS:
-    // 	return {
-    // 		...state,
-    // 		isfetching: false,
-    // 		clientMetrics: [...action.payload],
-    // 		error: "",
-    // 	};
-    // case GET_METRICS_FAILURE:
-    // 	return {
-    // 		...state,
-    // 		isfetching: false,
-    // 		error: action.payload,
-    // 	};
 };

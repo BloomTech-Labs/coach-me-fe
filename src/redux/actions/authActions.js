@@ -1,14 +1,7 @@
 import axiosWithCred from "../../utils/axiosWithCred";
 import toastr from "toastr";
 import {
-	REGISTER_START,
-	REGISTER_SUCCESS,
-	REGISTER_FAIL,
 	LOGIN_SUCCESS,
-	LOGIN_FAIL,
-	LOGIN_START,
-	GET_RECORDS_START,
-	GET_RECORDS_SUCCESS,
 	GET_RECORDS_FAILURE,
 	GET_COACH_INFO,
 } from "./types";
