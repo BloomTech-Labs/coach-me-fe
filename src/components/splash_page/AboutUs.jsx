@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "./Login";
+// import Login from "./Login";
 
 import "../../sass/splash_page/splash.scss";
 
@@ -29,8 +29,6 @@ const AboutUs = () => {
 					in low-income populations
 				</p>
 			</div>
-
-			<Login />
 		</div>
 	);
 };
