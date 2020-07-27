@@ -1,13 +1,7 @@
 //authReducer
 import {
-	REGISTER_START,
-	REGISTER_SUCCESS,
-	REGISTER_FAIL,
 	LOGIN_SUCCESS,
-	LOGIN_FAIL,
-	LOGIN_START,
 	GET_COACH_INFO,
-	// LOGOUT,
 } from "../actions/types";
 
 const initialState = {
@@ -20,38 +14,12 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case REGISTER_START:
-			return {
-				...state,
-				loggingIn: true,
-			};
-		case REGISTER_SUCCESS:
-			return {
-				...state,
-				loggingIn: false,
-				data: action.payload,
-			};
-		case REGISTER_FAIL:
-			return {
-				...state,
-				error: action.payload,
-			};
-		case LOGIN_START:
-			return {
-				...state,
-				loggingIn: true,
-			};
 		case LOGIN_SUCCESS:
 			return {
 				...state,
 				loggingIn: false,
 				loggedIn: true,
 				data: action.payload,
-			};
-		case LOGIN_FAIL:
-			return {
-				...state,
-				error: action.payload,
 			};
 		case GET_COACH_INFO:
 			return {

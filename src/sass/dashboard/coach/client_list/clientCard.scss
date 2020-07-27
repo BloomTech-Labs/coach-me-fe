@@ -12,6 +12,11 @@
 		border-bottom: 2px solid;
 	}
 }
+.name-container:hover {	
+	color: #ffffff;
+	background-color: #355478;
+	border-top: 0.1em solid #ffffff;
+}
 
 .client-card {
 	display: flex;
@@ -28,6 +33,7 @@
 		font-weight: medium;
 	}
 }
+
 
 .active1 {
 	background-color: #9ab2ce;

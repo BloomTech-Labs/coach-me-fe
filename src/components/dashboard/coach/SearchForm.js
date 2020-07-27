@@ -84,7 +84,7 @@ const SearchForm = (props) => {
 					);
 				})}
 			<button className='getem' onClick={()=>setGettingClients(!gettingClients)}>
-				{gettingClients? "nvm" : "Get Clients"}
+				{gettingClients? "Cancel" : "Get Clients"}
 			</button>
 			{gettingClients ? <ClientPicker /> : ''}
 		</div>

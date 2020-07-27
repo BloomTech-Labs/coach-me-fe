@@ -12,7 +12,7 @@ const GoalCard = (props) => {
             </div>
             <div className="goal-info">
                 <div className="goal-start">
-                    <p>Started: {props.goal.started}</p>
+                    <p>Started: {new Intl.DateTimeFormat('en-US').format(new Date(props.goal.start_date))}</p>
                 </div>
             <h2>{props.goal.title}</h2>
             <p>{props.goal.description}</p>

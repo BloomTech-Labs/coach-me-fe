@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 
 // Component Imports
 import PrivateRoute from "../utils/PrivateRoute";
@@ -38,9 +38,8 @@ import SearchForm from "../components/dashboard/coach/SearchForm";
 const Routes = (props) => {
 	return (
 		<>
-			<Router>
-				{/* //  HOME ROUTES  // */}
-				<Route exact path="/" component={Splash} />
+			
+			
 
 				{/* //  COACH ROUTES  // */}
 				{/* // COACH REGISTER // */}
@@ -100,10 +99,9 @@ const Routes = (props) => {
 					render={(props) => <LoginClient {...props} />}
 				/>
 				<Route path="/metrics" component={HealthMetric} />
-				<Route path="/dashboard" component={CoachDashboard} />
 				<Route path="/chat" component={VideoChat} />
 				<PrivateRoute
-					path="coach-notifications"
+					path="/coach-notifications"
 					component={CoachNotifications} />
 					
 				<Route
@@ -133,8 +131,10 @@ const Routes = (props) => {
 				<PrivateRoute
 					path="/metric-form"
 					component={HealthMetricForm}
-				/>
-			</Router>
+			/>
+				{/* //  HOME ROUTES  // */}
+				<Route exact path="/" component={Splash} />
+			
 		</>
 	);
 };

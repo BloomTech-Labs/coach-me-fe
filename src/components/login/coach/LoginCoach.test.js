@@ -1,10 +1,10 @@
 import React from "react";
 import { Helper as render } from "../../../utils/helpers";
 import "@testing-library/jest-dom/extend-expect";
-import ClientDashboard from "./ClientDashboard";
+import LoginCoach from "./LoginCoach";
 
-describe("ClientDashboard component", () => {
+describe("LoginCoach component", () => {
 	it("Renders without crashing", async () => {
-		render(<ClientDashboard />);
-	})
+		render(<LoginCoach />);
+    })
 })

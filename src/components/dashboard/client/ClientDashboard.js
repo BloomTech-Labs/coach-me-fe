@@ -25,13 +25,7 @@ const ClientDashboard = (props) => {
 
 	return (
 		<div className="client-dashboard">
-			<div className="tabs-container">
-				<Link data-testid="notifications" className="tab notifications" to="client-notifications"><p>Notifications</p><div className="count">2</div></Link>
-				<Link data-testid="resources" className="tab" to="resource-center">Resources</Link>
-				<Link data-testid="messges" className="tab" to="coach-messages">Messages</Link>
-				<Link data-testid="health-form" className="tab" to="metric-form">Health Form</Link>
-				<Link data-testid="chat" className="tab" to="chat">Video Chat</Link>
-			</div>
+		
 			<div className="info-container">
 				<div className="profile-container">
 					<ImageCircle />
@@ -42,7 +36,7 @@ const ClientDashboard = (props) => {
 						<h2>Goals:</h2>
 						{props.goals.length ? props.goals.map((g, index) => {
 							return <GoalCard key={index} goal={g} />
-						}): <h4>You Have no goals, loser.</h4>} 	
+						}): <h4>You Have no goals.</h4>} 	
 					</div>
 				</div>
 			<div className="calendar-section">

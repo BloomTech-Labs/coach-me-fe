@@ -25,12 +25,14 @@ const Login = () => {
 							: "clients-buttons button-box"
 					}
 				>
-					<Link to="/client-login">
-						<button>Log in</button>
-					</Link>
-					<Link to="/createAccount">
-						<button>Sign up</button>
-					</Link>
+					<div className="login-buttons-candc">
+						<Link to="/client-login">
+							<button>Log in</button>
+						</Link>
+						<Link to="/createAccount">
+							<button>Sign up</button>
+						</Link>
+					</div>
 
 					<p className="coach-toggle" onClick={clickHandler}>
 						Show me Coach options.
@@ -43,12 +45,15 @@ const Login = () => {
 							: "coaches-buttons hide"
 					}
 				>
-					<Link to="/coach-login">
-						<button>Log in as Coach</button>
-					</Link>
-					<Link to="/coach-register">
-						<button>Apply to be a Coach</button>
-					</Link>
+					<div className="login-button">
+						<Link to="/coach-login">
+							<button>Log in as Coach</button>
+						</Link>
+						<Link to="/coach-register">
+							<button>Apply to be a Coach</button>
+						</Link>
+					</div>
+
 					<p className="coach-toggle" onClick={clickHandler}>
 						Show me Client options.
 					</p>

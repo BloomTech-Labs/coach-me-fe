@@ -45,8 +45,7 @@ const CoachDashboard = (props) => {
 
 				<div data-testid="clientinfo" className="clientinfo-container">
 						<h4 data-testid="coach-name" className="coach-name">
-							Welcome,
-							{props.state.first_name} {props.state.last_name}
+							Welcome, {props.state.first_name} {props.state.last_name}!
 						</h4>
 						{showInfo ?
 						<div>
@@ -54,7 +53,10 @@ const CoachDashboard = (props) => {
 							<Metrics showInfo={showInfo} />
 						</div>
 						:
-						""
+						<div className='nobody'>
+								<h4 className='not-a-client'>Select One of Your Clients to see their progress.</h4>
+						</div>
+					
 						}
 				</div>
 				<div data-testid="notifications">

@@ -15,7 +15,7 @@ describe('Image Circle', () => {
         const imageUploader = container.getByTestId('image-uploader');
         const uploadButton = container.getByTestId('image-upload-button')
         const displayName = container.getByTestId('client-display-name');
-        expect(imageContainer).toHaveClass('image-circle-container');
+        expect(imageContainer).toHaveClass('image-upload-container');
         expect(imageUploader).toHaveClass('upload-circle');
         expect(imageUploader).toContainElement(uploadButton)
         expect(uploadButton).toHaveClass('upload')

@@ -28,12 +28,24 @@ const SideDrawer = (props) => {
 			<div className={drawerOpen ? "sidedrawer-open" : "sidedrawer"}>
 				<Logo className="logo" />
 				<div className="nav">
-					<Link to="/">Home</Link>
-					<Link to="/dashboard">Dashboard</Link>
-					<Link to="/">Support</Link>
+				{props.state.user_type === 'client' ?
+				<div>
+				<Link to="/dashboard-client">Home</Link>
+				<Link data-testid="notifications" className="tab notifications" to="client-notifications"><p>Notifications</p><div className="count">2</div></Link>
+				<Link data-testid="resources" to="/resource-center">Resources</Link>
+				<Link data-testid="messges" to="/coach-messages">Messages</Link>
+				<Link data-testid="health-form" to="/metric-form">Health Form</Link>
+				<Link data-testid="chat" to="/chat">Video Chat</Link>
+				<Link onClick={logout} to="/">
+						Logout
+					</Link>
+				</div> : <div>
+				<Link to="/">Home</Link>
 					<Link onClick={logout} to="/">
 						Logout
 					</Link>
+				</div> }
+					
 				</div>
 			</div>
 		</div>
@@ -41,6 +53,7 @@ const SideDrawer = (props) => {
 };
 const mapStateToProps = (state) => {
 	return {
+		state: state.client.client_data,
 		loggedIn: state.loggedIn,
 	};
 };

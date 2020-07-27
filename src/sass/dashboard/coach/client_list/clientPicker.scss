@@ -9,16 +9,30 @@ $text-font: "DM Sans", serif;
 
 
     .available-client{
-        margin: .5em 0;
-        border: 1px solid black;
-        border-radius: 4px;
+        margin-top: 15px;
         display: flex;
-        justify-content: center;
         align-items: center;
+        border: 1px solid #c4cfdd;
+        width: 100%;
+        font-family: "DM Sans";
+		font-size: 2rem;
+		color: #274160;
+		width: 100%;
+		line-height: 2.5em;
+		border-bottom: 2px solid;
+        cursor: pointer;
         transition: all .3s ease-out;
         p {
-            margin: .5em;
+   
+            font-family: "DM Sans";
+            font-size: 2.2rem;
+            color: #274160;
+            font-weight: medium;
             
+        }
+
+        .first {
+            margin-left: 5px;
         }
         &:hover {
             background-color: $light-background;

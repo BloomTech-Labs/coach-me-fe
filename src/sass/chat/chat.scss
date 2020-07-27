@@ -1,82 +1,196 @@
 .chat-container {
-    height: 55vh;
-    margin-top: 175px;
-    h1 {
-        width: 100%;
-        text-align: center;
-        font-size: 3rem;
-        font-weight: 800;
-        margin-bottom: 50px;
-    }
-    h2 {
-        width: 100%;
-        text-align: center;
-        font-size: 2rem;
-        font-weight: 600;
-        margin-bottom: 25px;
-    }
-    .videos {
-        display: flex;
-        width: 100vw;
-        justify-content: space-around;
-        .chat-container .videos {
-            height: 100%;
-            margin: 12% 0 50px;
-            width: 100vw;
-            display: flex;
-            justify-content: space-between;
-        }
-        .stream-block {
-            max-width: 35%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            video {
-                border: 0.35px solid black;
-                max-height: 375px;
-                height: 375px;
-                max-width: 500px;
-            }
-            button {
-                margin-top: 3%;
-                width: 75%;
-            }
+    position: relative;
+
+    .my-video {
+        video {
+            height: calc(100vh - 128px);
+            background: black;
+            width: 100%;
+            object-fit: contain;
         }
     }
-    .button-container {
-        width: 85%;
+
+    .peers-video {
+        video {
+            position: absolute;
+            right: 2%;
+            top: 2%;
+            height: 150px;
+            object-fit: contain;
+            background: red;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .start-video-btn {
+        all: unset;
+        position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
+        top: 2%;
+        left: 2%;
+        height: 40px;
+        width: 40px;
+        font-size: 2.4rem;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        border: none;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+    .session-notes {
+        position: absolute;
+        bottom: 2%;
+        right: 2%;
+        width: 400px;
+
+        @media(max-width: 800px){
+            display: none;
+        }
+
+        textarea {
+            all: unset;
+            background: white;
+            height: 150px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px 10px;
+            box-sizing: border-box;
+            font-size: 1.6rem;
+            overflow-wrap: anywhere;
+        }
         button {
-            width: 50%;
+            all: unset;
+            height: 50px;
+            width: 50px;
+            background: white;
+            color: black;
+            font-size: 1.8rem;
+            text-align: center;
+            border-radius: 50%;
+            position: absolute;
+            right: 2%;
+            bottom: 5%;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+        .notes-container {
+            max-height: 200px;
+            overflow-y: scroll;
+            padding: 0 10px;
+
+            &::-webkit-scrollbar-thumb {
+                background: white;
+                opacity: 0.5;
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar {
+                width: 10px;
+                background: #363636;
+                opacity: 0.7;
+                border-radius: 5px;
+                margin-left: 10px;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            .note-bubble {
+                background: linear-gradient(35deg, white, #f1f1f1);
+                padding: 10px 20px;
+                font-size: 1.6rem;
+                border-radius: 15px;
+                margin: 5px 0;
+                overflow-wrap: anywhere;
+            }
         }
     }
-    button {
-        width: fit-content;
-        font-size: 1.25rem;
-        &:hover {
+
+    .online-users {
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+        padding: 10px;
+        // width: 300px;
+        max-height: 400px;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        
+
+        button {
+            position: relative;
+            all: unset;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRionTtxUfdanGm9HhxO8Y81zfBuKeAiaDwrw&usqp=CAU');
+            background-size: cover;
             cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+
+            &::before {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                pointer-events: none;
+                content: 'Call';
+                position: absolute;
+                bottom: 4%;
+                right: 4%;
+                height: 30px;
+                width: 30px;
+                background: white;
+                border-radius: 50%;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: white;
+            opacity: 0.5;
+            border-radius: 5px;
+        }
+        &::-webkit-scrollbar {
+            width: 10px;
+            background: #363636;
+            opacity: 0.7;
+            border-radius: 5px;
+            margin-left: 10px;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        // z-index: 999;
+    }
+
+    .incoming-call {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        button {
+            all: unset;
+            background: white;
+            padding: 20px;
+            border-radius: 25px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.4rem;
+            color: white;
+            margin: 10px 0;
         }
     }
-}
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    textarea {
-        border: 1px solid black;
-        max-width: 75vw;
-        min-width: 75vw;
-        min-height: 500px;
-    }
-    button {
-        height: fit-content;
-        margin-top: 5px;
-        padding: 15px;
-        width: 55%;
-    }
-}
-footer.footer {
-    display: none;
 }
