@@ -26,7 +26,10 @@ $text-font: "DM Sans", serif;
 		width: 90%;
 
 		.hero-text {
-			width: 50%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 80em;
 
 			h1 {
 				font-size: 10em;
@@ -45,6 +48,8 @@ $text-font: "DM Sans", serif;
 				font-family: $text-font;
 				span {
 					color: #ff98a2;
+					font-size: 1.2em;
+					font-weight: 900;
 				}
 			}
 			.small-text {
@@ -90,6 +95,81 @@ $text-font: "DM Sans", serif;
 		}
 	}
 
+	.login-div {
+		width: 60em;
+		@media (max-width: 400px) {
+			width: 27em;
+		}
+	}
+
+	.buttons {
+		.speak-to-rep {
+			margin-top: 2em;
+			font-size: 1.7em;
+			line-height: 1.5em;
+
+			a {
+				color: #ff98a0;
+			}
+		}
+		.button-box {
+			// width: 95%;
+			// margin: 0 auto;
+
+			.login-button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				@media (max-width: 400px) {
+					flex-direction: column;
+				}
+			}
+			.login-buttons-candc {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				@media (max-width: 400px) {
+					flex-direction: column;
+				}
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			button {
+				font-family: "DM Sans", sans-serif;
+				height: 50px;
+				width: 15em;
+				border-radius: 25px;
+				background-color: #fff;
+				color: #4972a4;
+				font-size: 2em;
+				text-decoration: none;
+				font-weight: bolder;
+				box-sizing: border-box;
+			}
+
+			p {
+				font-size: 1.6em;
+				text-align: center;
+				margin-top: 1em;
+				text-decoration: underline;
+				cursor: pointer;
+				font-family: $text-font;
+				color: #ff98a0;
+			}
+		}
+	}
+
+	@media (max-width: 800px) {
+		.buttons {
+			width: 100%;
+		}
+	}
+
 	.about {
 		border-radius: 8px;
 		background-color: white;
@@ -111,63 +191,6 @@ $text-font: "DM Sans", serif;
 		}
 		.bold {
 			font-weight: bold;
-		}
-
-		.buttons {
-			width: 57%;
-			margin: 0em auto;
-			text-align: center;
-			.speak-to-rep {
-				margin-top: 2em;
-				font-size: 2em;
-				line-height: 1.5em;
-
-				a {
-					color: #ff98a0;
-				}
-			}
-			.button-box {
-				width: 75%;
-				margin: 0 auto;
-
-				a {
-					text-decoration: none;
-				}
-
-				button {
-					font-family: "DM Sans", sans-serif;
-					margin-top: 10px;
-					height: 50px;
-					width: 100%;
-					border-radius: 25px;
-					background-color: #4972a4;
-					color: #fff;
-					padding: 2%;
-					font-size: 2em;
-					margin: 0.3em;
-					text-decoration: none;
-					display: flex;
-					font-weight: bolder;
-					box-sizing: border-box;
-					justify-content: center;
-				}
-
-				p {
-					font-size: 1.6em;
-					text-align: center;
-					margin-top: 1em;
-					text-decoration: underline;
-					cursor: pointer;
-					font-family: $text-font;
-					color: #ff98a0;
-				}
-			}
-		}
-
-		@media (max-width: 800px) {
-			.buttons {
-				width: 100%;
-			}
 		}
 	}
 
