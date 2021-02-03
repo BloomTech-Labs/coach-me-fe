@@ -1,19 +1,19 @@
-# 1️⃣ Coach Me
+# Coach Me
 
-1️⃣ You can find the deployed project at (https://lambda-coachme.com)
+You can find the deployed project at (https://lambda-coachme.com)
 
 ## Code Climate
 
 ![](https://api.codeclimate.com/v1/badges/bc888c901260b12fae40/maintainability)
 ![](https://api.codeclimate.com/v1/badges/bc888c901260b12fae40/test_coverage)
 
-## 4️⃣ Contributors
+## Contributors
 
 # Current Web Developers
 
 [Brain Taveras](https://github.com/brianetaveras) | [Joshua Burleson](https://github.com/Joshua-Burleson) | [Joshua Humprey](https://github.com/Humphreyj) | [Trey McGarity](https://github.com/TreyMcGarity) | [Jesse Tingle](https://github.com/Jesse-Tingle)
 
-[<img src"https://avatars2.githubusercontent.com/u/52111440?s=400&u=b8280c3bf99e5946dbbf8712364cf36905757692&v=4" width="200" />](https://github.com/brianetaveras) | [<img src="https://avatars1.githubusercontent.com/u/52901917?s=400&u=e2fa73dfcc0594ade5fcc8fc0ef7112d40c34e9e&v=4" width="200" />](https://github.com/Joshua-Burleson) | [<img src="https://avatars3.githubusercontent.com/u/25293087?s=400&u=b5f66eff93935f3aaf92d4dd4c8cf1121d633654&v=4" width="200" />](https://github.com/Humphreyj) | [<img src="https://avatars1.githubusercontent.com/u/42306353?s=460&u=65371f6479b1595f917516932f5bb3658fc38ded&v=4.png" width = "200" />](https://github.com/TreyMcGarity) | [<img src="https://avatars.githubusercontent.com/Jesse-Tingle" width= "200" /> ](https://github.com/Jesse-Tingle)
+[<img src="https://avatars2.githubusercontent.com/u/52111440?s=400&u=b8280c3bf99e5946dbbf8712364cf36905757692&v=4" width="200" />](https://github.com/brianetaveras) | [<img src="https://avatars1.githubusercontent.com/u/52901917?s=400&u=e2fa73dfcc0594ade5fcc8fc0ef7112d40c34e9e&v=4" width="200" />](https://github.com/Joshua-Burleson) | [<img src="https://avatars3.githubusercontent.com/u/25293087?s=400&u=b5f66eff93935f3aaf92d4dd4c8cf1121d633654&v=4" width="200" />](https://github.com/Humphreyj) | [<img src="https://avatars1.githubusercontent.com/u/42306353?s=460&u=65371f6479b1595f917516932f5bb3658fc38ded&v=4.png" width = "200" />](https://github.com/TreyMcGarity) | [<img src="https://avatars.githubusercontent.com/Jesse-Tingle" width= "200" /> ](https://github.com/Jesse-Tingle)
 
 # Previous Web Developers
 
@@ -38,15 +38,15 @@
 
 ## Project Overview
 
-1️⃣ [Trello Board](https://trello.com/b/vFsWxL6U/labs-17-coach-me)
+- [Trello Board](https://trello.com/b/vFsWxL6U/labs-17-coach-me)
 
-1️⃣ [Product Canvas](https://www.notion.so/1177396e9f8943aba9c31db3cf651859?v=bd3082e9eca64056bde2aa48fca4801c)
+- [Product Canvas](https://www.notion.so/1177396e9f8943aba9c31db3cf651859?v=bd3082e9eca64056bde2aa48fca4801c)
 
-1️⃣ [UX Design files](https://www.figma.com/file/LfI0j1twxjcgzQIAN2fIYI/Labs17_Coach-Me%2C-Justin-M-%26-Rachel?node-id=639%3A52)
+- [UX Design files](https://www.figma.com/file/LfI0j1twxjcgzQIAN2fIYI/Labs17_Coach-Me%2C-Justin-M-%26-Rachel?node-id=639%3A52)
 
 Coach Me is an application created with real communication between health coaches and low income patients at it's heart. It allows for health coaches and patients to easily interact and communicate with each other.
 
-### 4️⃣ Key Features
+### Key Features
 
 -   Log user health data
 
@@ -55,28 +55,9 @@ Coach Me is an application created with real communication between health coache
 -   SMS messaging (twilio integration)
 -   SMS Reminder/Scheduler (integrating Cron Jobs)
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
 ### Front end built using:
-
-<<<<<<< HEAD
-
--   React
-
--   Redux
-
--   Sass
-
--   Axios
-
--   Redux-Thunk
--   Redux-Logger
--   Twilio
--   Chart JS
--   Cypress
--   Font Awesome
--   Moment JS
--   # Yup
 -   React
 -   Redux
 -   Sass
@@ -89,7 +70,18 @@ Coach Me is an application created with real communication between health coache
 -   Font Awesome
 -   Moment JS
 -   Yup
-    > > > > > > > ae37f97e5aac42d39f874c4e96437c5643b51313
+-   React
+-   Redux
+-   Sass
+-   Axios
+-   Redux-Thunk
+-   Redux-Logger
+-   Twilio
+-   Chart JS
+-   Cypress
+-   Font Awesome
+-   Moment JS
+-   Yup
 
 #### React
 
@@ -113,15 +105,15 @@ Coach Me is an application created with real communication between health coache
 
 # APIs
 
-## 3️⃣ Twilio
+## Twilio
 
 Twilio allows for in app sms messaging to be used
 
-## 3️⃣ Airtable
+## Airtable
 
 Allows for extra data storage and retrieval
 
-# 3️⃣ Environment Variables
+# Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
@@ -135,13 +127,13 @@ REACT_APP_SET_INTERVAL = 5000000
 Local Server
 REACT_APP_BACK_END_URL=http://localhost:3000
 
-# 4️⃣ Testing
+# Testing
 
 # Cypress
 
 Cypress was used for it's in depth testing features. From actual clickthroughs, to real videos of the app crashing (and what causes it to crash) Cypress had us covered.
 
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
 In the root folder run "yarn"
 
