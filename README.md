@@ -39,45 +39,26 @@ You can find the deployed project at (https://lambda-coachme.com)
 
 ## Project Overview
 
-1️⃣ [Trello Board](https://trello.com/b/vFsWxL6U/labs-17-coach-me)
+[Trello Board](https://trello.com/b/vFsWxL6U/labs-17-coach-me)
 
-1️⃣ [Product Canvas](https://www.notion.so/1177396e9f8943aba9c31db3cf651859?v=bd3082e9eca64056bde2aa48fca4801c)
+[Product Canvas](https://www.notion.so/1177396e9f8943aba9c31db3cf651859?v=bd3082e9eca64056bde2aa48fca4801c)
 
-1️⃣ [UX Design files](https://www.figma.com/file/LfI0j1twxjcgzQIAN2fIYI/Labs17_Coach-Me%2C-Justin-M-%26-Rachel?node-id=639%3A52)
+[UX Design files](https://www.figma.com/file/LfI0j1twxjcgzQIAN2fIYI/Labs17_Coach-Me%2C-Justin-M-%26-Rachel?node-id=639%3A52)
 
 Coach Me is an application created with real communication between health coaches and low income patients at it's heart. It allows for health coaches and patients to easily interact and communicate with each other.
 
-### 4️⃣ Key Features
+### Key Features
 
 -   Log user health data
-
 -   Data Visualization of health metrics
 -   Coach Dashboard (easily searchable and interactive list of clients and client data)
 -   SMS messaging (twilio integration)
 -   SMS Reminder/Scheduler (integrating Cron Jobs)
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
 ### Front end built using:
 
-<<<<<<< HEAD
-
--   React
-
--   Redux
-
--   Sass
-
--   Axios
-
--   Redux-Thunk
--   Redux-Logger
--   Twilio
--   Chart JS
--   Cypress
--   Font Awesome
--   Moment JS
--   # Yup
 -   React
 -   Redux
 -   Sass
@@ -90,7 +71,18 @@ Coach Me is an application created with real communication between health coache
 -   Font Awesome
 -   Moment JS
 -   Yup
-    > > > > > > > ae37f97e5aac42d39f874c4e96437c5643b51313
+-   React
+-   Redux
+-   Sass
+-   Axios
+-   Redux-Thunk
+-   Redux-Logger
+-   Twilio
+-   Chart JS
+-   Cypress
+-   Font Awesome
+-   Moment JS
+-   Yup
 
 #### React
 
@@ -114,15 +106,15 @@ Coach Me is an application created with real communication between health coache
 
 # APIs
 
-## 3️⃣ Twilio
+## Twilio
 
 Twilio allows for in app sms messaging to be used
 
-## 3️⃣ Airtable
+## Airtable
 
 Allows for extra data storage and retrieval
 
-# 3️⃣ Environment Variables
+# Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
@@ -136,13 +128,13 @@ REACT_APP_SET_INTERVAL = 5000000
 Local Server
 REACT_APP_BACK_END_URL=http://localhost:3000
 
-# 4️⃣ Testing
+# Testing
 
 # Cypress
 
 Cypress was used for it's in depth testing features. From actual clickthroughs, to real videos of the app crashing (and what causes it to crash) Cypress had us covered.
 
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
 In the root folder run "yarn"
 
