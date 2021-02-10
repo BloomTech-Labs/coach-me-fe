@@ -1,6 +1,6 @@
-# 1️⃣ Coach Me
+# Coach Me
 
-1️⃣ You can find the deployed project at (https://lambda-coachme.com)
+You can find the deployed project at (https://lambda-coachme.com)
 
 ## Code Climate
 
